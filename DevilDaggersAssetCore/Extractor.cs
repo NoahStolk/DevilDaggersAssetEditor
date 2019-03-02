@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace DevilDaggersAssetCore
@@ -18,15 +20,6 @@ namespace DevilDaggersAssetCore
 		public ulong MAGIC_1;
 		public ulong MAGIC_2;
 
-		private static readonly Dictionary<string, string> folders = new Dictionary<string, string>()
-		{
-			{ ".obj", "Models" },
-			{ ".png", "Textures" },
-			{ ".glsl", "Shaders" },
-			{ ".wav", "Audio" },
-			{ ".txt", "Model Bindings" },
-		};
-
 		public List<AbstractChunk> Chunks { get; set; } = new List<AbstractChunk>();
 
 		public Extractor()
@@ -40,20 +33,17 @@ namespace DevilDaggersAssetCore
 			return a | b << 8 | c << 16 | d << 24;
 		}
 
-		private static string GetFolderName(string fileExtension)
-		{
-			string extension = fileExtension.Substring(fileExtension.LastIndexOf('.'));
-			if (folders.ContainsKey(extension))
-				return folders[extension];
-			throw new Exception($"Unknown file format extension: {extension}");
-		}
-
 		public void Extract(string inputPath, string outputPath)
 		{
 			Chunks.Clear();
 
-			foreach (string folderName in folders.Values)
-				Directory.CreateDirectory(Path.Combine(outputPath, folderName));
+			List<Type> chunkTypes = Assembly
+				.GetExecutingAssembly()
+				.GetTypes()
+				.Where(t => t.IsSubclassOf(typeof(AbstractChunk)) && !t.IsAbstract)
+				.ToList();
+			foreach (Type type in chunkTypes)
+				Directory.CreateDirectory(Path.Combine(outputPath, type.GetProperties().Where(p => p.Name == "FolderName").FirstOrDefault().GetValue(Activator.CreateInstance(type, "", (uint)0, (uint)0, (uint)0)) as string));
 
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
@@ -127,7 +117,7 @@ namespace DevilDaggersAssetCore
 
 				chunk.Init(buf);
 
-				string folder = Path.Combine(outputPath, GetFolderName(chunk.FileExtension));
+				string folder = Path.Combine(outputPath, chunk.FolderName);
 				foreach (FileResult fileResult in chunk.Extract())
 				{
 					string fileName = $"{fileResult.Name}{chunk.FileExtension}";

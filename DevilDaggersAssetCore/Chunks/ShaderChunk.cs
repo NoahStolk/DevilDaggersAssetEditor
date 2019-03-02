@@ -6,6 +6,7 @@ namespace DevilDaggersAssetCore.Chunks
 	public class ShaderChunk : AbstractHeaderedChunk<ShaderHeader>
 	{
 		public override string FileExtension => ".glsl";
+		public override string FolderName => "Shaders";
 
 		public ShaderChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)

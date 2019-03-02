@@ -5,6 +5,7 @@ namespace DevilDaggersAssetCore.Chunks
 	public abstract class AbstractChunk
 	{
 		public abstract string FileExtension { get; }
+		public abstract string FolderName { get; }
 
 		public string Name { get; set; }
 		public uint StartOffset { get; set; }

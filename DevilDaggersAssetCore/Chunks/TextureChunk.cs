@@ -5,6 +5,7 @@ namespace DevilDaggersAssetCore.Chunks
 	public class TextureChunk : AbstractHeaderedChunk<TextureHeader>
 	{
 		public override string FileExtension => ".png";
+		public override string FolderName => "Textures";
 
 		public TextureChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
