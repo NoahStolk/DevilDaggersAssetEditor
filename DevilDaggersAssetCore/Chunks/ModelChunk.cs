@@ -1,4 +1,7 @@
 ﻿using DevilDaggersAssetCore.Headers;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace DevilDaggersAssetCore.Chunks
 {
@@ -20,28 +23,58 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		//public override bool TryExtract(out byte[] result)
-		//{
-		//	Vertex[] vertices = new Vertex[Buffer.Length];
-		//	uint[] indices = (uint)(vertices + Vertex.Bytes * m_header->m_vertexCount);
+		public override IEnumerable<FileResult> Extract()
+		{
+			Vertex[] vertices = new Vertex[Header.VertexCount];
+			uint[] indices = new uint[Header.IndexCount];
 
-		//	result << "# " << getName() << ".obj" << std::endl << std::endl;
+			for (int i = 0; i < vertices.Length; i++)
+			{
+				vertices[i] = new Vertex
+				{
+					Position = new float[3]
+					{
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes),
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes + 4),
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes + 8)
+					},
+					Normal = new float[3]
+					{
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes + 12),
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes + 16),
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes + 20)
+					},
+					UV = new float[2]
+					{
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes + 24),
+						BitConverter.ToSingle(Buffer, i * Vertex.Bytes + 28)
+					}
+				};
+			}
 
-		//	output << "# Vertex Attributes" << std::endl;
-		//	for (uint v = 0; v < m_header->m_vertexCount; ++v)
-		//	{
-		//		output << "v " << vertices[v].Position[0] << " " << vertices[v].Position[1] << " " << vertices[v].Position[2] << std::endl;
-		//		output << "vt " << vertices[v].UV[0] << " " << vertices[v].UV[1] << std::endl;
-		//		output << "vn " << vertices[v].Normal[0] << " " << vertices[v].Normal[1] << " " << vertices[v].Normal[2] << std::endl;
+			for (int i = 0; i < indices.Length; i++)
+			{
+				indices[i] = BitConverter.ToUInt32(Buffer, vertices.Length * Vertex.Bytes + i * sizeof(uint));
+			}
 
-		//	}
+			StringBuilder sb = new StringBuilder();
+			sb.AppendLine($"# {Name}.obj\n");
 
-		//	output << std::endl << "# Triangles" << std::endl;
-		//	for (uint32_t triangle = 0; triangle < m_header->m_indexCount / 3; ++triangle)
-		//	{
-		//		output << "f " << indices[triangle * 3] + 1 << " " << indices[triangle * 3 + 1] + 1 << " " << indices[triangle * 3 + 2] + 1 << std::endl;
-		//	}
-		//	return true;
-		//}
+			sb.AppendLine("# Vertex Attributes");
+			for (uint i = 0; i < Header.VertexCount; ++i)
+			{
+				sb.AppendLine($"v {vertices[i].Position[0]} {vertices[i].Position[1]} {vertices[i].Position[2]}");
+				sb.AppendLine($"vt {vertices[i].UV[0]} {vertices[i].UV[1]}");
+				sb.AppendLine($"vn {vertices[i].Normal[0]} {vertices[i].Normal[1]} {vertices[i].Normal[2]}");
+			}
+
+			sb.AppendLine("\n# Triangles");
+			for (uint i = 0; i < Header.IndexCount / 3; ++i)
+			{
+				sb.AppendLine($"f {indices[i * 3] + 1} {indices[i * 3 + 1] + 1} {indices[i * 3 + 2] + 1}");
+			}
+
+			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
+		}
 	}
 }
