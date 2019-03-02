@@ -18,22 +18,42 @@ namespace DevilDaggersAssetCore
 		public ulong MAGIC_1;
 		public ulong MAGIC_2;
 
-		public static ulong MAKE_MAGIC(ulong a, ulong b, ulong c, ulong d)
+		private static readonly Dictionary<string, string> folders = new Dictionary<string, string>()
 		{
-			return a | b << 8 | c << 16 | d << 24;
-		}
+			{ ".obj", "Models" },
+			{ ".png", "Textures" },
+			{ ".glsl", "Shaders" },
+			{ ".wav", "Audio" },
+			{ ".txt", "Model Bindings" },
+		};
 
 		public List<AbstractChunk> Chunks { get; set; } = new List<AbstractChunk>();
 
 		public Extractor()
 		{
-			MAGIC_1 = MAKE_MAGIC(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
-			MAGIC_2 = MAKE_MAGIC(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
+			MAGIC_1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
+			MAGIC_2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
+		}
+
+		public static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d)
+		{
+			return a | b << 8 | c << 16 | d << 24;
+		}
+
+		private static string GetFolderName(string fileExtension)
+		{
+			string extension = fileExtension.Substring(fileExtension.LastIndexOf('.'));
+			if (folders.ContainsKey(extension))
+				return folders[extension];
+			throw new Exception($"Unknown file format extension: {extension}");
 		}
 
 		public void Extract(string inputPath, string outputPath)
 		{
-			Directory.CreateDirectory(outputPath);
+			Chunks.Clear();
+
+			foreach (string folderName in folders.Values)
+				Directory.CreateDirectory(Path.Combine(outputPath, folderName));
 
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
@@ -44,9 +64,7 @@ namespace DevilDaggersAssetCore
 			);
 
 			if (archiveHeader.MagicNumber1 != MAGIC_1 && archiveHeader.MagicNumber2 != MAGIC_2)
-			{
 				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {archiveHeader.MagicNumber1} should be {MAGIC_1}\nHeader value 2: {archiveHeader.MagicNumber2} should be {MAGIC_2}");
-			}
 
 			byte[] tocBuffer = new byte[archiveHeader.TocSize];
 			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)archiveHeader.TocSize);
@@ -83,10 +101,8 @@ namespace DevilDaggersAssetCore
 						chunk = new ModelBindingChunk(name.ToString(), startOffset, size, unknown);
 						break;
 					case CHUNK_SHADER_VERTEX:
-						chunk = new ShaderChunk(name.ToString(), startOffset, size, unknown, ShaderType.Vertex);
-						break;
 					case CHUNK_SHADER_FRAGMENT:
-						chunk = new ShaderChunk(name.ToString(), startOffset, size, unknown, ShaderType.Fragment);
+						chunk = new ShaderChunk(name.ToString(), startOffset, size, unknown);
 						break;
 					case CHUNK_TEXTURE:
 						chunk = new TextureChunk(name.ToString(), startOffset, size, unknown);
@@ -99,18 +115,31 @@ namespace DevilDaggersAssetCore
 				i += 14 + nameLen;
 			}
 
+			StringBuilder sb = new StringBuilder();
 			foreach (AbstractChunk chunk in Chunks)
 			{
+				sb.AppendLine(chunk.Name);
 				if (chunk.Size == 0)
 					continue;
 
-				chunk.Init(new byte[chunk.Size]);
-				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, chunk.Buffer, 0, chunk.Buffer.Length);
+				byte[] buf = new byte[chunk.Size];
+				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);
 
-				string fileName = Path.Combine(outputPath, $"{chunk.Name}{chunk.FileExtension}");
-				if (chunk.TryExtract(out byte[] result))
-					File.WriteAllBytes(fileName, result);
+				chunk.Init(buf);
+
+				string folder = Path.Combine(outputPath, GetFolderName(chunk.FileExtension));
+				foreach (FileResult fileResult in chunk.Extract())
+				{
+					string fileName = $"{fileResult.Name}{chunk.FileExtension}";
+
+					// Ugly but whatever
+					if (fileName == "loudness.wav")
+						fileName = "loudness.txt";
+
+					File.WriteAllBytes(Path.Combine(folder, fileName), fileResult.Buffer);
+				}
 			}
+			File.WriteAllText(Path.Combine(outputPath, "chunks.txt"), sb.ToString());
 		}
 	}
 }

@@ -1,4 +1,6 @@
-﻿namespace DevilDaggersAssetCore.Chunks
+﻿using System.Collections.Generic;
+
+namespace DevilDaggersAssetCore.Chunks
 {
 	public abstract class AbstractChunk
 	{
@@ -24,10 +26,14 @@
 			Buffer = buffer;
 		}
 
-		public virtual bool TryExtract(out byte[] result)
+		public virtual IEnumerable<FileResult> Extract()
 		{
-			result = Buffer;
-			return true;
+			yield return new FileResult(Name, Buffer);
+		}
+
+		public override string ToString()
+		{
+			return $"{Name}\t{Size}\n{Buffer}";
 		}
 	}
 }

@@ -1,42 +1,26 @@
 ﻿using DevilDaggersAssetCore.Headers;
-using System;
+using System.Collections.Generic;
 
 namespace DevilDaggersAssetCore.Chunks
 {
 	public class ShaderChunk : AbstractHeaderedChunk<ShaderHeader>
 	{
-		public override string FileExtension => ShaderType == ShaderType.Vertex ? "_vertex.glsl" : ShaderType == ShaderType.Fragment ? "_fragment.glsl" : throw new Exception($"Unknown shader type: {ShaderType}");
+		public override string FileExtension => ".glsl";
 
-		public ShaderType ShaderType { get; set; }
-
-		public ShaderChunk(string name, uint startOffset, uint size, uint unknown, ShaderType shaderType)
+		public ShaderChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
 		{
-			ShaderType = shaderType;
 		}
 
-		public override bool TryExtract(out byte[] result)
+		public override IEnumerable<FileResult> Extract()
 		{
-			int offset = 0;
-			uint size = 0;
+			byte[] vertexBuffer = new byte[Header.VertexSize];
+			System.Buffer.BlockCopy(Buffer, Name.Length, vertexBuffer, 0, (int)Header.VertexSize);
+			yield return new FileResult($"{Name}_vertex", vertexBuffer);
 
-			switch (ShaderType)
-			{
-				case ShaderType.Vertex:
-					offset = Name.Length;
-					size = Header.VertexSize;
-					break;
-				case ShaderType.Fragment:
-				default:
-					offset = Name.Length + (int)Header.VertexSize;
-					size = Header.FragmentSize;
-					break;
-			}
-
-			result = new byte[size];
-			System.Buffer.BlockCopy(Buffer, offset, result, 0, (int)size);
-
-			return true;
+			byte[] fragmentBuffer = new byte[Header.FragmentSize];
+			System.Buffer.BlockCopy(Buffer, Name.Length + (int)Header.VertexSize, fragmentBuffer, 0, (int)Header.FragmentSize);
+			yield return new FileResult($"{Name}_fragment", fragmentBuffer);
 		}
 	}
 }

@@ -9,7 +9,12 @@ namespace DevilDaggersAssetExtractorConsole
 		public static void Main(string[] args)
 		{
 			Extractor extractor = new Extractor();
-			extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\dd", "DD");
+			
+			extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\audio", "Extracted");
+			foreach (AbstractChunk chunk in extractor.Chunks)
+				Console.WriteLine(chunk.Name);
+
+			extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\dd", "Extracted");
 			foreach (AbstractChunk chunk in extractor.Chunks)
 				Console.WriteLine(chunk.Name);
 		}
