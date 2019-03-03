@@ -1,6 +1,4 @@
 ﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Chunks;
-using System;
 
 namespace DevilDaggersAssetExtractorConsole
 {
@@ -8,15 +6,8 @@ namespace DevilDaggersAssetExtractorConsole
 	{
 		public static void Main(string[] args)
 		{
-			Extractor extractor = new Extractor();
-			
-			extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\audio", "Extracted");
-			foreach (AbstractChunk chunk in extractor.Chunks)
-				Console.WriteLine(chunk.Name);
-
-			extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\dd", "Extracted");
-			foreach (AbstractChunk chunk in extractor.Chunks)
-				Console.WriteLine(chunk.Name);
+			Extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\audio", "Extracted");
+			Extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\dd", "Extracted");
 		}
 	}
 }

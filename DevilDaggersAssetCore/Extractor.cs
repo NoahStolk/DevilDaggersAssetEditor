@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DevilDaggersAssetCore
 {
-	public class Extractor
+	public static class Extractor
 	{
 		public const ushort ChunkModel = 0x01;
 		public const ushort ChunkTexture = 0x02;
@@ -17,26 +17,36 @@ namespace DevilDaggersAssetCore
 		public const ushort ChunkAudio = 0x20;
 		public const ushort ChunkModelBinding = 0x80;
 
-		public static ulong Magic1;
-		public static ulong Magic2;
-
-		static Extractor()
-		{
-			Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
-			Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
-		}
-
 		public static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d)
 		{
 			return a | b << 8 | c << 16 | d << 24;
 		}
 
-		public List<AbstractChunk> Chunks { get; set; } = new List<AbstractChunk>();
-
-		public void Extract(string inputPath, string outputPath)
+		public static void Extract(string inputPath, string outputPath)
 		{
-			Chunks.Clear();
+			CreateFolders(outputPath);
 
+			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
+
+			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
+			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
+			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
+
+			ulong magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
+			ulong magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
+			if (magic1FromFile != magic1 && magic2FromFile != magic2)
+				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {magic1}\nHeader value 2: {magic2FromFile} should be {magic2}");
+
+			byte[] tocBuffer = new byte[tocSize];
+			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)tocSize);
+
+			List<AbstractChunk> chunks = CreateChunks(tocBuffer).ToList();
+			CreateFiles(outputPath, sourceFileBytes, chunks);
+		}
+
+		private static void CreateFolders(string outputPath)
+		{
+			// This is ridiculously ugly but I can't think of a better automatic way at the moment
 			List<Type> chunkTypes = Assembly
 				.GetExecutingAssembly()
 				.GetTypes()
@@ -44,24 +54,12 @@ namespace DevilDaggersAssetCore
 				.ToList();
 			foreach (Type type in chunkTypes)
 				Directory.CreateDirectory(Path.Combine(outputPath, type.GetProperties().Where(p => p.Name == "FolderName").FirstOrDefault().GetValue(Activator.CreateInstance(type, "", (uint)0, (uint)0, (uint)0)) as string));
+		}
 
-			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
-
-			FileHeader archiveHeader = new FileHeader(
-				magicNumber1: BitConverter.ToUInt32(sourceFileBytes, 0),
-				magicNumber2: BitConverter.ToUInt32(sourceFileBytes, 4),
-				tocSize: BitConverter.ToUInt32(sourceFileBytes, 8)
-			);
-
-			if (archiveHeader.MagicNumber1 != Magic1 && archiveHeader.MagicNumber2 != Magic2)
-				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {archiveHeader.MagicNumber1} should be {Magic1}\nHeader value 2: {archiveHeader.MagicNumber2} should be {Magic2}");
-
-			byte[] tocBuffer = new byte[archiveHeader.TocSize];
-			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)archiveHeader.TocSize);
-
-			// Read toc and create chunks
+		private static IEnumerable<AbstractChunk> CreateChunks(byte[] tocBuffer)
+		{
 			int i = 0;
-			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe...
+			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
 				ushort type = tocBuffer[i];
 				StringBuilder name = new StringBuilder();
@@ -74,9 +72,11 @@ namespace DevilDaggersAssetCore
 						break;
 					name.Append(c);
 				}
-				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + nameLen + 2);
-				uint size = BitConverter.ToUInt32(tocBuffer, i + nameLen + 6);
-				uint unknown = BitConverter.ToUInt32(tocBuffer, i + nameLen + 10);
+				i += nameLen;
+				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
+				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
+				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
+				i += 14;
 
 				AbstractChunk chunk;
 				switch (type)
@@ -100,12 +100,13 @@ namespace DevilDaggersAssetCore
 					default:
 						throw new Exception($"Unknown asset type: {type}");
 				}
-				Chunks.Add(chunk);
-
-				i += 14 + nameLen;
+				yield return chunk;
 			}
+		}
 
-			foreach (AbstractChunk chunk in Chunks)
+		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, List<AbstractChunk> chunks)
+		{
+			foreach (AbstractChunk chunk in chunks)
 			{
 				if (chunk.Size == 0)
 					continue;
