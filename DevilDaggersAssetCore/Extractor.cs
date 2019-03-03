@@ -10,28 +10,28 @@ namespace DevilDaggersAssetCore
 {
 	public class Extractor
 	{
-		public const ushort CHUNK_MODEL = 0x01;
-		public const ushort CHUNK_TEXTURE = 0x02;
-		public const ushort CHUNK_SHADER_VERTEX = 0x10;
-		public const ushort CHUNK_SHADER_FRAGMENT = 0x11;
-		public const ushort CHUNK_AUDIO = 0x20;
-		public const ushort CHUNK_MODEL_BINDING = 0x80;
+		public const ushort ChunkModel = 0x01;
+		public const ushort ChunkTexture = 0x02;
+		public const ushort ChunkShaderVertex = 0x10;
+		public const ushort ChunkShaderFragment = 0x11;
+		public const ushort ChunkAudio = 0x20;
+		public const ushort ChunkModelBinding = 0x80;
 
-		public ulong MAGIC_1;
-		public ulong MAGIC_2;
+		public static ulong Magic1;
+		public static ulong Magic2;
 
-		public List<AbstractChunk> Chunks { get; set; } = new List<AbstractChunk>();
-
-		public Extractor()
+		static Extractor()
 		{
-			MAGIC_1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
-			MAGIC_2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
+			Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
+			Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
 		}
 
 		public static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d)
 		{
 			return a | b << 8 | c << 16 | d << 24;
 		}
+
+		public List<AbstractChunk> Chunks { get; set; } = new List<AbstractChunk>();
 
 		public void Extract(string inputPath, string outputPath)
 		{
@@ -53,8 +53,8 @@ namespace DevilDaggersAssetCore
 				tocSize: BitConverter.ToUInt32(sourceFileBytes, 8)
 			);
 
-			if (archiveHeader.MagicNumber1 != MAGIC_1 && archiveHeader.MagicNumber2 != MAGIC_2)
-				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {archiveHeader.MagicNumber1} should be {MAGIC_1}\nHeader value 2: {archiveHeader.MagicNumber2} should be {MAGIC_2}");
+			if (archiveHeader.MagicNumber1 != Magic1 && archiveHeader.MagicNumber2 != Magic2)
+				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {archiveHeader.MagicNumber1} should be {Magic1}\nHeader value 2: {archiveHeader.MagicNumber2} should be {Magic2}");
 
 			byte[] tocBuffer = new byte[archiveHeader.TocSize];
 			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)archiveHeader.TocSize);
@@ -81,20 +81,20 @@ namespace DevilDaggersAssetCore
 				AbstractChunk chunk;
 				switch (type)
 				{
-					case CHUNK_AUDIO:
+					case ChunkAudio:
 						chunk = new AudioChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case CHUNK_MODEL:
+					case ChunkModel:
 						chunk = new ModelChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case CHUNK_MODEL_BINDING:
+					case ChunkModelBinding:
 						chunk = new ModelBindingChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case CHUNK_SHADER_VERTEX:
-					case CHUNK_SHADER_FRAGMENT:
+					case ChunkShaderVertex:
+					case ChunkShaderFragment:
 						chunk = new ShaderChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case CHUNK_TEXTURE:
+					case ChunkTexture:
 						chunk = new TextureChunk(name.ToString(), startOffset, size, unknown);
 						break;
 					default:
@@ -105,10 +105,8 @@ namespace DevilDaggersAssetCore
 				i += 14 + nameLen;
 			}
 
-			StringBuilder sb = new StringBuilder();
 			foreach (AbstractChunk chunk in Chunks)
 			{
-				sb.AppendLine(chunk.Name);
 				if (chunk.Size == 0)
 					continue;
 
@@ -129,7 +127,6 @@ namespace DevilDaggersAssetCore
 					File.WriteAllBytes(Path.Combine(folder, fileName), fileResult.Buffer);
 				}
 			}
-			File.WriteAllText(Path.Combine(outputPath, "chunks.txt"), sb.ToString());
 		}
 	}
 }
