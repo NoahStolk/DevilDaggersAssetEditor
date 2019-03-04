@@ -10,18 +10,6 @@ namespace DevilDaggersAssetCore
 {
 	public static class Extractor
 	{
-		public const ushort ChunkModel = 0x01;
-		public const ushort ChunkTexture = 0x02;
-		public const ushort ChunkShaderVertex = 0x10;
-		public const ushort ChunkShaderFragment = 0x11;
-		public const ushort ChunkAudio = 0x20;
-		public const ushort ChunkModelBinding = 0x80;
-
-		public static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d)
-		{
-			return a | b << 8 | c << 16 | d << 24;
-		}
-
 		public static void Extract(string inputPath, string outputPath)
 		{
 			CreateFolders(outputPath);
@@ -32,8 +20,8 @@ namespace DevilDaggersAssetCore
 			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
 			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
 
-			ulong magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
-			ulong magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
+			ulong magic1 = Utils.MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
+			ulong magic2 = Utils.MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
 			if (magic1FromFile != magic1 && magic2FromFile != magic2)
 				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {magic1}\nHeader value 2: {magic2FromFile} should be {magic2}");
 
@@ -62,16 +50,18 @@ namespace DevilDaggersAssetCore
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
 				ushort type = tocBuffer[i];
-				StringBuilder name = new StringBuilder();
-				int nameLen = 0;
+				StringBuilder nameS = new StringBuilder();
+				int j = 0;
 				for (; ; )
 				{
-					nameLen++;
-					char c = (char)tocBuffer[i + nameLen + 1];
+					j++;
+					char c = (char)tocBuffer[i + j + 1];
 					if (c == '\0')
 						break;
-					name.Append(c);
+					nameS.Append(c);
 				}
+				string name = nameS.ToString();
+				int nameLen = name.Length;
 				i += nameLen;
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
 				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
@@ -81,20 +71,20 @@ namespace DevilDaggersAssetCore
 				AbstractChunk chunk;
 				switch (type)
 				{
-					case ChunkAudio:
+					case Utils.ChunkAudio:
 						chunk = new AudioChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case ChunkModel:
+					case Utils.ChunkModel:
 						chunk = new ModelChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case ChunkModelBinding:
+					case Utils.ChunkModelBinding:
 						chunk = new ModelBindingChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case ChunkShaderVertex:
-					case ChunkShaderFragment:
+					case Utils.ChunkShaderVertex:
+					case Utils.ChunkShaderFragment:
 						chunk = new ShaderChunk(name.ToString(), startOffset, size, unknown);
 						break;
-					case ChunkTexture:
+					case Utils.ChunkTexture:
 						chunk = new TextureChunk(name.ToString(), startOffset, size, unknown);
 						break;
 					default:
