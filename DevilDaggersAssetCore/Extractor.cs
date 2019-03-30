@@ -3,13 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 
 namespace DevilDaggersAssetCore
 {
 	public static class Extractor
 	{
+		/// <summary>
+		/// Extracts a compressed binary file into multiple asset files.
+		/// </summary>
+		/// <param name="inputPath">The path containing the binary file (C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res).</param>
+		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
 		public static void Extract(string inputPath, string outputPath)
 		{
 			CreateFolders(outputPath);
@@ -34,14 +38,8 @@ namespace DevilDaggersAssetCore
 
 		private static void CreateFolders(string outputPath)
 		{
-			// This is ridiculously ugly but I can't think of a better automatic way at the moment
-			List<Type> chunkTypes = Assembly
-				.GetExecutingAssembly()
-				.GetTypes()
-				.Where(t => t.IsSubclassOf(typeof(AbstractChunk)) && !t.IsAbstract)
-				.ToList();
-			foreach (Type type in chunkTypes)
-				Directory.CreateDirectory(Path.Combine(outputPath, type.GetProperties().Where(p => p.Name == "FolderName").FirstOrDefault().GetValue(Activator.CreateInstance(type, "", (uint)0, (uint)0, (uint)0)) as string));
+			foreach (ChunkInfo info in Utils.ChunkInfos)
+				Directory.CreateDirectory(Path.Combine(outputPath, info.FolderName));
 		}
 
 		private static IEnumerable<AbstractChunk> CreateChunks(byte[] tocBuffer)
@@ -66,29 +64,7 @@ namespace DevilDaggersAssetCore
 				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
-				AbstractChunk chunk;
-				switch (type)
-				{
-					case Utils.ChunkAudio:
-						chunk = new AudioChunk(name.ToString(), startOffset, size, unknown);
-						break;
-					case Utils.ChunkModel:
-						chunk = new ModelChunk(name.ToString(), startOffset, size, unknown);
-						break;
-					case Utils.ChunkModelBinding:
-						chunk = new ModelBindingChunk(name.ToString(), startOffset, size, unknown);
-						break;
-					case Utils.ChunkShaderVertex:
-					case Utils.ChunkShaderFragment:
-						chunk = new ShaderChunk(name.ToString(), startOffset, size, unknown);
-						break;
-					case Utils.ChunkTexture:
-						chunk = new TextureChunk(name.ToString(), startOffset, size, unknown);
-						break;
-					default:
-						throw new Exception($"Unknown asset type: {type}");
-				}
-				yield return chunk;
+				yield return Activator.CreateInstance(Utils.ChunkInfos.Where(c => c.BinaryTypes.Contains(type)).FirstOrDefault().Type, name.ToString(), startOffset, size, unknown) as AbstractChunk;
 			}
 		}
 
@@ -104,16 +80,16 @@ namespace DevilDaggersAssetCore
 
 				chunk.Init(buf);
 
-				string folder = Path.Combine(outputPath, chunk.FolderName);
+				ChunkInfo info = Utils.ChunkInfos.Where(c => c.Type == chunk.GetType()).FirstOrDefault();
 				foreach (FileResult fileResult in chunk.Extract())
 				{
-					string fileName = $"{fileResult.Name}{chunk.FileExtension}";
+					string fileName = $"{fileResult.Name}{info.FileExtension}";
 
 					// Ugly but whatever
 					if (fileName == "loudness.wav")
 						fileName = "loudness.txt";
 
-					File.WriteAllBytes(Path.Combine(folder, fileName), fileResult.Buffer);
+					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, fileName), fileResult.Buffer);
 				}
 			}
 		}

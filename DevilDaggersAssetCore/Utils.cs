@@ -1,13 +1,18 @@
-﻿namespace DevilDaggersAssetCore
+﻿using DevilDaggersAssetCore.Chunks;
+using System.Collections.Generic;
+
+namespace DevilDaggersAssetCore
 {
 	public static class Utils
 	{
-		public const ushort ChunkModel = 0x01;
-		public const ushort ChunkTexture = 0x02;
-		public const ushort ChunkShaderVertex = 0x10;
-		public const ushort ChunkShaderFragment = 0x11;
-		public const ushort ChunkAudio = 0x20;
-		public const ushort ChunkModelBinding = 0x80;
+		public static List<ChunkInfo> ChunkInfos { get; set; } = new List<ChunkInfo>
+		{
+			new ChunkInfo(typeof(ModelChunk), new ushort[] { 0x01 }, ".obj", "Models"),
+			new ChunkInfo(typeof(TextureChunk), new ushort[] { 0x02 }, ".png", "Textures"),
+			new ChunkInfo(typeof(ShaderChunk), new ushort[] { 0x10, 0x11 }, ".glsl", "Shaders"),
+			new ChunkInfo(typeof(AudioChunk), new ushort[] { 0x20 }, ".wav", "Audio"),
+			new ChunkInfo(typeof(ModelBindingChunk), new ushort[] { 0x80 }, ".txt", "Model Bindings"),
+		};
 
 		public static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d)
 		{

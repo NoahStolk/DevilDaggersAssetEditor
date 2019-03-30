@@ -7,9 +7,6 @@ namespace DevilDaggersAssetCore.Chunks
 {
 	public class ModelChunk : AbstractHeaderedChunk<ModelHeader>
 	{
-		public override string FileExtension => ".obj";
-		public override string FolderName => "Models";
-
 		private class Vertex
 		{
 			public const int Bytes = 32;
