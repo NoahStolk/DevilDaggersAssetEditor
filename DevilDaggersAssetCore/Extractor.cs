@@ -50,18 +50,16 @@ namespace DevilDaggersAssetCore
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
 				ushort type = tocBuffer[i];
-				StringBuilder nameS = new StringBuilder();
-				int j = 0;
+				StringBuilder name = new StringBuilder();
+				int nameLen = 0;
 				for (; ; )
 				{
-					j++;
-					char c = (char)tocBuffer[i + j + 1];
+					nameLen++;
+					char c = (char)tocBuffer[i + nameLen + 1];
 					if (c == '\0')
 						break;
-					nameS.Append(c);
+					name.Append(c);
 				}
-				string name = nameS.ToString();
-				int nameLen = name.Length;
 				i += nameLen;
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
 				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
