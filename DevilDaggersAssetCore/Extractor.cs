@@ -16,30 +16,25 @@ namespace DevilDaggersAssetCore
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
 		public static void Extract(string inputPath, string outputPath)
 		{
-			CreateFolders(outputPath);
-
+			// Read file contents.
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
+			// Validate file.
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
+			if (magic1FromFile != Utils.Magic1 && magic2FromFile != Utils.Magic2)
+				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Utils.Magic1}\nHeader value 2: {magic2FromFile} should be {Utils.Magic2}");
+
+			// Read toc buffer.
 			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
-
-			ulong magic1 = Utils.MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
-			ulong magic2 = Utils.MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
-			if (magic1FromFile != magic1 && magic2FromFile != magic2)
-				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {magic1}\nHeader value 2: {magic2FromFile} should be {magic2}");
-
 			byte[] tocBuffer = new byte[tocSize];
 			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)tocSize);
 
-			List<AbstractChunk> chunks = CreateChunks(tocBuffer).ToList();
-			CreateFiles(outputPath, sourceFileBytes, chunks);
-		}
+			// Create chunks based on toc buffer.
+			IEnumerable<AbstractChunk> chunks = CreateChunks(tocBuffer);
 
-		private static void CreateFolders(string outputPath)
-		{
-			foreach (ChunkInfo info in Utils.ChunkInfos)
-				Directory.CreateDirectory(Path.Combine(outputPath, info.FolderName));
+			// Create folders and files based on chunks.
+			CreateFiles(outputPath, sourceFileBytes, chunks);
 		}
 
 		private static IEnumerable<AbstractChunk> CreateChunks(byte[] tocBuffer)
@@ -68,8 +63,11 @@ namespace DevilDaggersAssetCore
 			}
 		}
 
-		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, List<AbstractChunk> chunks)
+		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks)
 		{
+			foreach (ChunkInfo info in Utils.ChunkInfos)
+				Directory.CreateDirectory(Path.Combine(outputPath, info.FolderName));
+
 			foreach (AbstractChunk chunk in chunks)
 			{
 				if (chunk.Size == 0)

@@ -5,7 +5,10 @@ namespace DevilDaggersAssetCore
 {
 	public static class Utils
 	{
-		public static List<ChunkInfo> ChunkInfos { get; set; } = new List<ChunkInfo>
+		public static readonly ulong Magic1;
+		public static readonly ulong Magic2;
+
+		public static readonly List<ChunkInfo> ChunkInfos = new List<ChunkInfo>
 		{
 			new ChunkInfo(typeof(ModelChunk), new ushort[] { 0x01 }, ".obj", "Models"),
 			new ChunkInfo(typeof(TextureChunk), new ushort[] { 0x02 }, ".png", "Textures"),
@@ -14,9 +17,12 @@ namespace DevilDaggersAssetCore
 			new ChunkInfo(typeof(ModelBindingChunk), new ushort[] { 0x80 }, ".txt", "Model Bindings"),
 		};
 
-		public static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d)
+		static Utils()
 		{
-			return a | b << 8 | c << 16 | d << 24;
+			Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
+			Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
+
+			static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
 		}
 	}
 }
