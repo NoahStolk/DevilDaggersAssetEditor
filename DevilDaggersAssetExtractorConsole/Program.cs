@@ -4,7 +4,7 @@ namespace DevilDaggersAssetExtractorConsole
 {
 	public static class Program
 	{
-		public static void Main(string[] args)
+		public static void Main()
 		{
 			Extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\audio", "Extracted");
 			Extractor.Extract(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res\dd", "Extracted");
