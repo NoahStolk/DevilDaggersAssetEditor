@@ -31,18 +31,18 @@ namespace DevilDaggersAssetCore
 			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)tocSize);
 
 			// Create chunks based on toc buffer.
-			IEnumerable<AbstractChunk> chunks = CreateChunks(tocBuffer);
+			IEnumerable<AbstractChunk> chunks = ReadChunks(tocBuffer);
 
 			// Create folders and files based on chunks.
 			CreateFiles(outputPath, sourceFileBytes, chunks);
 		}
 
-		private static IEnumerable<AbstractChunk> CreateChunks(byte[] tocBuffer)
+		private static IEnumerable<AbstractChunk> ReadChunks(byte[] tocBuffer)
 		{
 			int i = 0;
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
-				ushort type = tocBuffer[i];
+				byte type = tocBuffer[i];
 				StringBuilder name = new StringBuilder();
 				int nameLen = 0;
 				for (; ; )
