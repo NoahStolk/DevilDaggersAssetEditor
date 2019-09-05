@@ -91,7 +91,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Content\Assets\Audio\Loudness.json" />
+    <None Include="Content\AssetInfo\Audio.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -101,6 +101,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DevilDaggersAssetCore\DevilDaggersAssetCore.csproj">
+      <Project>{281857FB-02AF-4425-B3C6-C0E00381D8D2}</Project>
+      <Name>DevilDaggersAssetCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
