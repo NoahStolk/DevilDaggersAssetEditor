@@ -83,10 +83,6 @@ namespace DevilDaggersAssetCore
 				{
 					string fileName = $"{fileResult.Name}{info.FileExtension}";
 
-					// Ugly but whatever
-					if (fileName == "loudness.wav")
-						fileName = "loudness.txt";
-
 					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, fileName), fileResult.Buffer);
 				}
 			}

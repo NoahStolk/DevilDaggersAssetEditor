@@ -1,7 +1,7 @@
-﻿using DevilDaggersAssetCore.Chunks;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace DevilDaggersAssetCore
@@ -17,63 +17,72 @@ namespace DevilDaggersAssetCore
 		{
 			Dictionary<ChunkInfo, List<string>> assetCollections = GetAssets(inputPath);
 
-			// Create file.
-			using (FileStream fs = File.Create(outputPath))
+			// Create TOC stream.
+			byte[] tocBuffer;
+			Dictionary<string, long> offsetBytePositions = new Dictionary<string, long>();
+			using (MemoryStream tocStream = new MemoryStream())
 			{
-				int fileStreamPosition = 0;
-
-				// Write magics.
-				fs.Write(BitConverter.GetBytes(Utils.Magic1), fileStreamPosition, 4);
-				fileStreamPosition += 4;
-				fs.Write(BitConverter.GetBytes(Utils.Magic2), fileStreamPosition, 4);
-				fileStreamPosition += 4;
-
-				// Write TOC.
-				byte[] tocBuffer = new byte[] { };
-
 				foreach (KeyValuePair<ChunkInfo, List<string>> assetCollection in assetCollections)
 				{
-					int tocBufferPosition = 0;
 					foreach (string assetPath in assetCollection.Value)
 					{
 						// Write asset type.
-						Buffer.BlockCopy(BitConverter.GetBytes(assetCollection.Key.BinaryTypes[0]/*TODO: Shader types*/), 0, tocBuffer, tocBufferPosition, sizeof(byte));
-						tocBufferPosition += sizeof(byte);
+						tocStream.Write(BitConverter.GetBytes(assetCollection.Key.BinaryTypes[0]/*TODO: Shader types*/), 0, sizeof(byte));
+						tocStream.Position++;
 
 						// Write name.
 						string name = Path.GetFileNameWithoutExtension(assetPath);
-						Buffer.BlockCopy(Encoding.Default.GetBytes(name), 0, tocBuffer, tocBufferPosition, name.Length);
-						tocBufferPosition += name.Length + 2;
+						tocStream.Write(Encoding.Default.GetBytes(name), 0, name.Length);
+						tocStream.Position++;
 
-						// Write start offset.
-						// TODO: Get start offset in asset data. (Probably need to create that buffer first then...)
-						tocBufferPosition += sizeof(int);
+						// Write start offsets when TOC buffer size is defined.
+						offsetBytePositions[assetPath] = tocStream.Position;
+						tocStream.Write(BitConverter.GetBytes(0), 0, sizeof(int));
 
 						// Write size.
-						Buffer.BlockCopy(BitConverter.GetBytes((uint)new FileInfo(assetPath).Length), 0, tocBuffer, tocBufferPosition, sizeof(uint));
-						tocBufferPosition += sizeof(int);
+						tocStream.Write(BitConverter.GetBytes((uint)new FileInfo(assetPath).Length), 0, sizeof(uint));
 
 						// TODO: Figure out unknown value and write...
 						// No reason to write anything for now.
-						tocBufferPosition += sizeof(int);
+						tocStream.Write(BitConverter.GetBytes(0), 0, sizeof(int));
 					}
 				}
+				tocStream.Write(BitConverter.GetBytes(0), 0, 2);
+				tocBuffer = tocStream.ToArray();
+			}
 
-				fs.Write(tocBuffer, 8, tocBuffer.Length);
-				fileStreamPosition += tocBuffer.Length;
-
-				// Write asset data.
+			// Create asset stream.
+			byte[] assetBuffer;
+			using (MemoryStream assetStream = new MemoryStream())
+			{
 				foreach (KeyValuePair<ChunkInfo, List<string>> assetCollection in assetCollections)
 				{
-					foreach (string asset in assetCollection.Value)
+					foreach (string assetPath in assetCollection.Value)
 					{
-						byte[] bytes = File.ReadAllBytes(asset);
+						// Write start offset to TOC stream.
+						Buffer.BlockCopy(BitConverter.GetBytes((uint)(12 + tocBuffer.Length + assetStream.Position)), 0, tocBuffer, (int)offsetBytePositions[assetPath], sizeof(uint));
 
-						fs.Write(bytes, fileStreamPosition, bytes.Length);
-						fileStreamPosition += bytes.Length;
+						// Write asset data to asset stream.
+						byte[] bytes = File.ReadAllBytes(assetPath);
+						assetStream.Write(bytes, 0, bytes.Length);
 					}
 				}
+				assetBuffer = assetStream.ToArray();
 			}
+
+			// Create file.
+			using FileStream fs = File.Create(outputPath);
+
+			// Write file header.
+			fs.Write(BitConverter.GetBytes(Utils.Magic1), 0, sizeof(uint));
+			fs.Write(BitConverter.GetBytes(Utils.Magic2), 0, sizeof(uint));
+			fs.Write(BitConverter.GetBytes(tocBuffer.Length), 0, sizeof(int));
+
+			// Write TOC buffer.
+			fs.Write(tocBuffer, 0, tocBuffer.Length);
+
+			// Write asset buffer.
+			fs.Write(assetBuffer, 0, assetBuffer.Length);
 		}
 
 		private static Dictionary<ChunkInfo, List<string>> GetAssets(string inputPath)

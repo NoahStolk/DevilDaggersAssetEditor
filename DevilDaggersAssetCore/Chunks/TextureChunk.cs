@@ -16,6 +16,7 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
+#if LODE_PNG
 		public override IEnumerable<FileResult> Extract()
 		{
 			// TODO: Crashes with no errors whatsoever... Probably wrong signature.
@@ -23,5 +24,6 @@ namespace DevilDaggersAssetCore.Chunks
 
 			yield return new FileResult(Name, newBytes);
 		}
+#endif
 	}
 }
