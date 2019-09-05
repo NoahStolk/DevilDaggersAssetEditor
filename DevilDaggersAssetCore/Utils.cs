@@ -10,11 +10,11 @@ namespace DevilDaggersAssetCore
 
 		public static readonly List<ChunkInfo> ChunkInfos = new List<ChunkInfo>
 		{
-			new ChunkInfo(typeof(ModelChunk), new ushort[] { 0x01 }, ".obj", "Models"),
-			new ChunkInfo(typeof(TextureChunk), new ushort[] { 0x02 }, ".png", "Textures"),
-			new ChunkInfo(typeof(ShaderChunk), new ushort[] { 0x10, 0x11 }, ".glsl", "Shaders"),
-			new ChunkInfo(typeof(AudioChunk), new ushort[] { 0x20 }, ".wav", "Audio"),
-			new ChunkInfo(typeof(ModelBindingChunk), new ushort[] { 0x80 }, ".txt", "Model Bindings"),
+			new ChunkInfo(typeof(ModelChunk), new byte[] { 0x01 }, ".obj", "Models"),
+			new ChunkInfo(typeof(TextureChunk), new byte[] { 0x02 }, ".png", "Textures"),
+			new ChunkInfo(typeof(ShaderChunk), new byte[] { 0x10, 0x11 }, ".glsl", "Shaders"),
+			new ChunkInfo(typeof(AudioChunk), new byte[] { 0x20 }, ".wav", "Audio"),
+			new ChunkInfo(typeof(ModelBindingChunk), new byte[] { 0x80 }, ".txt", "Model Bindings"),
 		};
 
 		static Utils()
