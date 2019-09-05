@@ -11,7 +11,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public byte[] Buffer { get; set; }
 
-		public AbstractChunk(string name, uint startOffset, uint size, uint unknown)
+		protected AbstractChunk(string name, uint startOffset, uint size, uint unknown)
 		{
 			Name = name;
 			StartOffset = startOffset;

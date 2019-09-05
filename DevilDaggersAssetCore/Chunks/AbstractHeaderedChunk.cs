@@ -7,7 +7,7 @@ namespace DevilDaggersAssetCore.Chunks
 	{
 		public T Header { get; set; }
 
-		public AbstractHeaderedChunk(string name, uint startOffset, uint size, uint unknown)
+		protected AbstractHeaderedChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
 		{
 		}
