@@ -42,24 +42,15 @@ namespace DevilDaggersAssetCore
 			int i = 0;
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
-				byte type = tocBuffer[i];
-				StringBuilder name = new StringBuilder();
-				int nameLen = 0;
-				for (; ; )
-				{
-					nameLen++;
-					char c = (char)tocBuffer[i + nameLen + 1];
-					if (c == '\0')
-						break;
-					name.Append(c);
-				}
-				i += nameLen;
+				ushort type = BitConverter.ToUInt16(tocBuffer, i);
+				string name = Utils.ReadNullTerminatedString(tocBuffer, i + 2);
+				i += name.Length + 1; // + 1 to include null terminator.
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
 				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
 				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
-				yield return Activator.CreateInstance(Utils.ChunkInfos.Where(c => c.BinaryTypes.Contains(type)).FirstOrDefault().Type, name.ToString(), startOffset, size, unknown) as AbstractChunk;
+				yield return Activator.CreateInstance(Utils.ChunkInfos.Where(c => c.BinaryTypes.Contains(type)).FirstOrDefault().Type, name, startOffset, size, unknown) as AbstractChunk;
 			}
 		}
 

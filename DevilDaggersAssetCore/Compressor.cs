@@ -18,7 +18,7 @@ namespace DevilDaggersAssetCore
 
 			// Create TOC stream.
 			byte[] tocBuffer;
-			Dictionary<string, long> offsetBytePositions = new Dictionary<string, long>();
+			Dictionary<string, long> startOffsetBytePositions = new Dictionary<string, long>();
 			using (MemoryStream tocStream = new MemoryStream())
 			{
 				foreach (KeyValuePair<ChunkInfo, List<string>> assetCollection in assetCollections)
@@ -35,15 +35,15 @@ namespace DevilDaggersAssetCore
 						tocStream.Position++;
 
 						// Write start offsets when TOC buffer size is defined.
-						offsetBytePositions[assetPath] = tocStream.Position;
-						tocStream.Write(BitConverter.GetBytes(0), 0, sizeof(int));
+						startOffsetBytePositions[assetPath] = tocStream.Position;
+						tocStream.Position += sizeof(uint);
 
 						// Write size.
 						tocStream.Write(BitConverter.GetBytes((uint)new FileInfo(assetPath).Length), 0, sizeof(uint));
 
 						// TODO: Figure out unknown value and write...
 						// No reason to write anything for now.
-						tocStream.Write(BitConverter.GetBytes(0), 0, sizeof(int));
+						tocStream.Write(BitConverter.GetBytes(0), 0, sizeof(uint));
 					}
 				}
 				tocStream.Write(BitConverter.GetBytes(0), 0, 2);
@@ -59,7 +59,7 @@ namespace DevilDaggersAssetCore
 					foreach (string assetPath in assetCollection.Value)
 					{
 						// Write start offset to TOC stream.
-						Buffer.BlockCopy(BitConverter.GetBytes((uint)(12 + tocBuffer.Length + assetStream.Position)), 0, tocBuffer, (int)offsetBytePositions[assetPath], sizeof(uint));
+						Buffer.BlockCopy(BitConverter.GetBytes((uint)(12 + tocBuffer.Length + assetStream.Position)), 0, tocBuffer, (int)startOffsetBytePositions[assetPath], sizeof(uint));
 
 						// Write asset data to asset stream.
 						byte[] bytes = File.ReadAllBytes(assetPath);
@@ -73,9 +73,9 @@ namespace DevilDaggersAssetCore
 			using FileStream fs = File.Create(outputPath);
 
 			// Write file header.
-			fs.Write(BitConverter.GetBytes(Utils.Magic1), 0, sizeof(uint));
-			fs.Write(BitConverter.GetBytes(Utils.Magic2), 0, sizeof(uint));
-			fs.Write(BitConverter.GetBytes(tocBuffer.Length), 0, sizeof(int));
+			fs.Write(BitConverter.GetBytes((uint)Utils.Magic1), 0, sizeof(uint));
+			fs.Write(BitConverter.GetBytes((uint)Utils.Magic2), 0, sizeof(uint));
+			fs.Write(BitConverter.GetBytes((uint)tocBuffer.Length), 0, sizeof(uint));
 
 			// Write TOC buffer.
 			fs.Write(tocBuffer, 0, tocBuffer.Length);
