@@ -19,6 +19,16 @@ namespace DevilDaggersAssetCore.Chunks
 			Unknown = unknown;
 		}
 
+		public virtual string ChunkNameToFileName(int i = 0)
+		{
+			return Name;
+		}
+
+		public virtual string FileNameToChunkName(int i = 0)
+		{
+			return Name;
+		}
+
 		public virtual void Init(byte[] buffer)
 		{
 			Buffer = buffer;
@@ -26,7 +36,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public virtual IEnumerable<FileResult> Extract()
 		{
-			yield return new FileResult(Name, Buffer);
+			yield return new FileResult(ChunkNameToFileName(), Buffer);
 		}
 
 		public virtual byte[] Compress()

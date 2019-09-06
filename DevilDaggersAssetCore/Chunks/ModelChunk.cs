@@ -72,7 +72,7 @@ namespace DevilDaggersAssetCore.Chunks
 				sb.AppendLine($"f {indices[i * 3] + 1} {indices[i * 3 + 1] + 1} {indices[i * 3 + 2] + 1}");
 			}
 
-			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
+			yield return new FileResult(ChunkNameToFileName(), Encoding.Default.GetBytes(sb.ToString()));
 		}
 	}
 }
