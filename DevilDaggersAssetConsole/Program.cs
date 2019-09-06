@@ -21,8 +21,8 @@ namespace DevilDaggersAssetConsole
 			{
 				case "ea": Extractor.Extract(Path.Combine(ddResPath, "audio"), "Assets"); break;
 				case "ed": Extractor.Extract(Path.Combine(ddResPath, "dd"), "Assets"); break;
-				case "ca": Compressor.Compress(@"Extracted\", Path.Combine(ddResPath, "audio"), BinaryFileName.Audio); break;
-				case "cd": Compressor.Compress(@"Extracted\", Path.Combine(ddResPath, "dd"), BinaryFileName.DD); break;
+				case "ca": Compressor.Compress(@"Assets\", Path.Combine(ddResPath, "audio"), BinaryFileName.Audio); break;
+				case "cd": Compressor.Compress(@"Assets\", Path.Combine(ddResPath, "dd"), BinaryFileName.DD); break;
 			}
 		}
 	}
