@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersAssetCore", "De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PNGEncodeDecodeTest", "PNGEncodeDecodeTest\PNGEncodeDecodeTest.csproj", "{5222F5D2-D828-4484-A39B-F23F8520CE31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevilDaggersAssetExtractorConsole", "DevilDaggersAssetExtractorConsole\DevilDaggersAssetExtractorConsole.csproj", "{CF4E6776-0BB4-46AB-84E5-9B900B7C55D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevilDaggersAssetConsole", "DevilDaggersAssetConsole\DevilDaggersAssetConsole.csproj", "{CF4E6776-0BB4-46AB-84E5-9B900B7C55D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevilDaggersAssetEditor", "DevilDaggersAssetEditor\DevilDaggersAssetEditor.csproj", "{3F45D736-3FB7-4D12-AB9F-C584B7770957}"
 EndProject

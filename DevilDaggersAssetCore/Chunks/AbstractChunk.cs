@@ -36,7 +36,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override string ToString()
 		{
-			return $"{Name}\t{Size}\n{Buffer}";
+			return $"Type: {GetType().Name} | Name: {Name} | Size: {Size}";
 		}
 	}
 }
