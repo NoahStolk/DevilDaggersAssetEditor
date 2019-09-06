@@ -5,21 +5,23 @@ using System.Text;
 
 namespace DevilDaggersAssetCore
 {
-	public static class Utils
+	public static class BinaryFileUtils
 	{
+		public const int HeaderSize = 12;
+
 		public static readonly ulong Magic1;
 		public static readonly ulong Magic2;
 
 		public static readonly List<ChunkInfo> ChunkInfos = new List<ChunkInfo>
 		{
-			new ChunkInfo(typeof(ModelChunk), new ushort[] { 0x01 }, ".obj", "Models"),
-			new ChunkInfo(typeof(TextureChunk), new ushort[] { 0x02 }, ".png", "Textures"),
-			new ChunkInfo(typeof(ShaderChunk), new ushort[] { 0x10, 0x11 }, ".glsl", "Shaders"),
-			new ChunkInfo(typeof(AudioChunk), new ushort[] { 0x20 }, ".wav", "Audio"),
-			new ChunkInfo(typeof(ModelBindingChunk), new ushort[] { 0x80 }, ".txt", "Model Bindings"),
+			new ChunkInfo(BinaryFileName.DD, typeof(ModelChunk), new ushort[] { 0x01 }, ".obj", "Models"),
+			new ChunkInfo(BinaryFileName.DD, typeof(TextureChunk), new ushort[] { 0x02 }, ".png", "Textures"),
+			new ChunkInfo(BinaryFileName.DD, typeof(ShaderChunk), new ushort[] { 0x10, 0x11 }, ".glsl", "Shaders"),
+			new ChunkInfo(BinaryFileName.Audio, typeof(AudioChunk), new ushort[] { 0x20 }, ".wav", "Audio"),
+			new ChunkInfo(BinaryFileName.DD, typeof(ModelBindingChunk), new ushort[] { 0x80 }, ".txt", "Model Bindings"),
 		};
 
-		static Utils()
+		static BinaryFileUtils()
 		{
 			Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
 			Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);

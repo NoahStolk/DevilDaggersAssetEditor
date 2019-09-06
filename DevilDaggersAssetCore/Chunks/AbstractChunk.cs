@@ -29,6 +29,11 @@ namespace DevilDaggersAssetCore.Chunks
 			yield return new FileResult(Name, Buffer);
 		}
 
+		public virtual byte[] Compress()
+		{
+			return Buffer;
+		}
+
 		public override string ToString()
 		{
 			return $"{Name}\t{Size}\n{Buffer}";

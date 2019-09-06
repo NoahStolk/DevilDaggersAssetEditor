@@ -22,8 +22,8 @@ namespace DevilDaggersAssetCore
 			// Validate file.
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
-			if (magic1FromFile != Utils.Magic1 && magic2FromFile != Utils.Magic2)
-				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Utils.Magic1}\nHeader value 2: {magic2FromFile} should be {Utils.Magic2}");
+			if (magic1FromFile != BinaryFileUtils.Magic1 && magic2FromFile != BinaryFileUtils.Magic2)
+				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {BinaryFileUtils.Magic1}\nHeader value 2: {magic2FromFile} should be {BinaryFileUtils.Magic2}");
 
 			// Read toc buffer.
 			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
@@ -43,20 +43,20 @@ namespace DevilDaggersAssetCore
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
 				ushort type = BitConverter.ToUInt16(tocBuffer, i);
-				string name = Utils.ReadNullTerminatedString(tocBuffer, i + 2);
+				string name = BinaryFileUtils.ReadNullTerminatedString(tocBuffer, i + 2);
 				i += name.Length + 1; // + 1 to include null terminator.
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
 				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
 				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
-				yield return Activator.CreateInstance(Utils.ChunkInfos.Where(c => c.BinaryTypes.Contains(type)).FirstOrDefault().Type, name, startOffset, size, unknown) as AbstractChunk;
+				yield return Activator.CreateInstance(BinaryFileUtils.ChunkInfos.Where(c => c.BinaryTypes.Contains(type)).FirstOrDefault().Type, name, startOffset, size, unknown) as AbstractChunk;
 			}
 		}
 
 		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks)
 		{
-			foreach (ChunkInfo info in Utils.ChunkInfos)
+			foreach (ChunkInfo info in BinaryFileUtils.ChunkInfos)
 				Directory.CreateDirectory(Path.Combine(outputPath, info.FolderName));
 
 			foreach (AbstractChunk chunk in chunks)
@@ -69,7 +69,7 @@ namespace DevilDaggersAssetCore
 
 				chunk.Init(buf);
 
-				ChunkInfo info = Utils.ChunkInfos.Where(c => c.Type == chunk.GetType()).FirstOrDefault();
+				ChunkInfo info = BinaryFileUtils.ChunkInfos.Where(c => c.Type == chunk.GetType()).FirstOrDefault();
 				foreach (FileResult fileResult in chunk.Extract())
 				{
 					string fileName = $"{fileResult.Name}{info.FileExtension}";
