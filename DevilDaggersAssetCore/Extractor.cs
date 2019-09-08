@@ -13,7 +13,7 @@ namespace DevilDaggersAssetCore
 		/// </summary>
 		/// <param name="inputPath">The path containing the binary file (C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res).</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
-		public static void Extract(string inputPath, string outputPath)
+		public static void Extract(string inputPath, string outputPath, BinaryFileName binaryFileName)
 		{
 			// Read file contents.
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
@@ -33,7 +33,7 @@ namespace DevilDaggersAssetCore
 			IEnumerable<AbstractChunk> chunks = ReadChunks(tocBuffer);
 
 			// Create folders and files based on chunks.
-			CreateFiles(outputPath, sourceFileBytes, chunks);
+			CreateFiles(outputPath, sourceFileBytes, chunks, binaryFileName);
 		}
 
 		private static IEnumerable<AbstractChunk> ReadChunks(byte[] tocBuffer)
@@ -53,9 +53,9 @@ namespace DevilDaggersAssetCore
 			}
 		}
 
-		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks)
+		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks, BinaryFileName binaryFileName)
 		{
-			foreach (ChunkInfo info in BinaryFileUtils.ChunkInfos)
+			foreach (ChunkInfo info in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName == binaryFileName))
 				Directory.CreateDirectory(Path.Combine(outputPath, info.FolderName));
 
 			foreach (AbstractChunk chunk in chunks)

@@ -6,7 +6,9 @@ namespace DevilDaggersAssetCore.Chunks
 {
 	public class TextureChunk : AbstractHeaderedChunk<TextureHeader>
 	{
-		private const string DllFilePath = @"..\..\..\LodePNG\Debug\LodePNG.dll"; // TODO: Include dll file in the project itself when textures are working.
+		// TODO: Build dll in x64.
+		// TODO: Include dll file in the project itself when textures are working.
+		private const string DllFilePath = @"..\..\..\LodePNG\Debug\LodePNG.dll";
 
 		[DllImport(DllFilePath, CallingConvention = CallingConvention.StdCall, ExactSpelling = false, CharSet = CharSet.Auto)]
 		private extern static uint lodepng_encode32(out byte[] outchars, out uint outsize, byte[] image, uint w, uint h);

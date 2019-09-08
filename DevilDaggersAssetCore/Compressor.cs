@@ -17,7 +17,7 @@ namespace DevilDaggersAssetCore
 		/// <param name="binaryFileName">The binary file name (audio or dd) to know which asset files to compress.</param>
 		public static void Compress(string inputPath, string outputPath, BinaryFileName binaryFileName)
 		{
-			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetAssets(inputPath, binaryFileName);
+			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(inputPath, binaryFileName);
 
 			// Create TOC stream.
 			byte[] tocBuffer;
@@ -91,7 +91,7 @@ namespace DevilDaggersAssetCore
 			fs.Write(assetBuffer, 0, assetBuffer.Length);
 		}
 
-		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetAssets(string inputPath, BinaryFileName binaryFileName)
+		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(string inputPath, BinaryFileName binaryFileName)
 		{
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
 			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName == binaryFileName))
