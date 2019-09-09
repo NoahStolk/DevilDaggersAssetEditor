@@ -95,7 +95,7 @@ namespace DevilDaggersAssetCore
 		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(string inputPath, BinaryFileName binaryFileName)
 		{
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
-			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName == binaryFileName))
+			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName.HasFlag(binaryFileName)))
 			{
 				List<AbstractChunk> chunks = new List<AbstractChunk>();
 

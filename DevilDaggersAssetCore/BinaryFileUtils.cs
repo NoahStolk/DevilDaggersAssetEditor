@@ -16,7 +16,7 @@ namespace DevilDaggersAssetCore
 		{
 			new ChunkInfo(BinaryFileName.DD, typeof(ModelChunk), new ushort[] { 0x01 }, ".obj", "Models"),
 			new ChunkInfo(BinaryFileName.DD, typeof(TextureChunk), new ushort[] { 0x02 }, ".png", "Textures"),
-			new ChunkInfo(BinaryFileName.DD, typeof(ShaderChunk), new ushort[] { 0x10, 0x11 }, ".glsl", "Shaders"),
+			new ChunkInfo(BinaryFileName.DD | BinaryFileName.Core, typeof(ShaderChunk), new ushort[] { 0x10, 0x11 }, ".glsl", "Shaders"),
 			new ChunkInfo(BinaryFileName.Audio, typeof(AudioChunk), new ushort[] { 0x20 }, ".wav", "Audio"),
 			new ChunkInfo(BinaryFileName.DD, typeof(ModelBindingChunk), new ushort[] { 0x80 }, ".txt", "Model Bindings"),
 		};
