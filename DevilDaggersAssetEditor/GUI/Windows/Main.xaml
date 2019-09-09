@@ -6,6 +6,22 @@
         mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="450" Width="800">
 	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="18"/>
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<DockPanel Grid.Row="0">
+			<Menu DockPanel.Dock="Top">
+				<MenuItem Header="File">
+					<MenuItem Name="ExtractMenuItem" Header="Extract binary file" />
+					<MenuItem Name="CompressMenuItem" Header="Compress into binary file" />
+					<Separator />
+					<MenuItem Header="Import assets from folder" Click="Import_Click" />
+				</MenuItem>
+			</Menu>
+		</DockPanel>
+		<ScrollViewer Grid.Row="1">
 
+		</ScrollViewer>
 	</Grid>
 </Window>
