@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore.Chunks;
+using DevilDaggersAssetCore.Headers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -96,24 +97,60 @@ namespace DevilDaggersAssetCore
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
 			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName == binaryFileName))
 			{
-				List<AbstractChunk> assetPaths = new List<AbstractChunk>();
-				foreach (string assetPath in Directory.GetFiles(inputPath, $"*{chunkInfo.FileExtension}", SearchOption.AllDirectories))
+				List<AbstractChunk> chunks = new List<AbstractChunk>();
+
+				// Key is chunk name, value is array of file paths belonging to the chunk.
+				Dictionary<string, string[]> assets = new Dictionary<string, string[]>();
+				string[] chunkNames = Directory.GetFiles(inputPath, $"*{chunkInfo.FileExtension}", SearchOption.AllDirectories).Select(f => Path.GetFileNameWithoutExtension(f)).ToArray();
+
+				// Cut off _fragment and _vertex substrings from shader files to get the shader chunk name.
+				if (chunkInfo.FolderName == "Shaders")
+					chunkNames = chunkNames.Select(f => f.Replace("_fragment", "").Replace("_vertex", "")).Distinct().ToArray();
+
+				foreach (string chunkName in chunkNames)
 				{
-					string name = Path.GetFileNameWithoutExtension(assetPath);
-
-					string filePath = Path.Combine(inputPath, chunkInfo.FolderName, $"{name}{chunkInfo.FileExtension}");
-					FileInfo fileInfo = new FileInfo(filePath);
-
-					uint startOffset = 0; // We don't know the start offset yet, set it when TOC buffer size is defined.
-					uint size = (uint)fileInfo.Length;
-					uint unknown = 0; // We don't know what the unknown value is supposed to represent, so leave it empty.
-
-					AbstractChunk chunk = (AbstractChunk)Activator.CreateInstance(chunkInfo.Type, name, startOffset, size, unknown);
-					chunk.Init(File.ReadAllBytes(filePath));
-					assetPaths.Add(chunk);
+					// TODO: Add _fragment and _vertex to Where predicate to get correct shader file paths.
+					assets[chunkName] = Directory.GetFiles(inputPath, $"*{chunkInfo.FileExtension}", SearchOption.AllDirectories).Where(f => Path.GetFileNameWithoutExtension(f) == chunkName).ToArray();
 				}
 
-				assetCollections[chunkInfo] = assetPaths;
+				foreach (KeyValuePair<string, string[]> kvp in assets)
+				{
+					// Create chunk based on file buffer.
+					byte[] fileBuffer;
+					using (MemoryStream ms = new MemoryStream())
+					{
+						foreach (string assetFilePath in kvp.Value)
+						{
+							byte[] fileContents = File.ReadAllBytes(assetFilePath);
+							ms.Write(fileContents, 0, fileContents.Length);
+						}
+						fileBuffer = ms.ToArray();
+					}
+					AbstractChunk chunk = (AbstractChunk)Activator.CreateInstance(chunkInfo.Type, kvp.Key, 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length, 0U);
+
+					// Create header based on file buffer and chunk type.
+					if (chunkInfo.Type == typeof(AbstractHeaderedChunk<AbstractHeader>))
+					{
+						AbstractHeaderedChunk<AbstractHeader> headeredChunk = (AbstractHeaderedChunk<AbstractHeader>)Activator.CreateInstance(chunkInfo.Type);
+
+						byte[] headerBuffer = new byte[headeredChunk.Header.ByteCount];
+						// TODO: Read fileBuffer and create headerBuffer.
+
+						byte[] chunkBuffer = new byte[headerBuffer.Length + fileBuffer.Length];
+						Buffer.BlockCopy(headerBuffer, 0, chunkBuffer, 0, headerBuffer.Length);
+						Buffer.BlockCopy(fileBuffer, 0, chunkBuffer, headerBuffer.Length, fileBuffer.Length);
+
+						chunk.Init(chunkBuffer);
+					}
+					else
+					{
+						chunk.Init(fileBuffer);
+					}
+
+					chunks.Add(chunk);
+				}
+
+				assetCollections[chunkInfo] = chunks;
 			}
 
 			return assetCollections;
