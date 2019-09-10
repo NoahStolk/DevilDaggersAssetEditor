@@ -10,15 +10,20 @@ namespace DevilDaggersAssetCore
 {
 	public static class Compressor
 	{
+		public static void Compress(string inputPath, string outputPath, BinaryFileName binaryFileName)
+		{
+			Compress(Directory.GetFiles(inputPath, "*.*", SearchOption.AllDirectories), outputPath, binaryFileName);
+		}
+
 		/// <summary>
 		/// Compresses multiple asset files into one binary file that can be read by Devil Daggers.
 		/// </summary>
-		/// <param name="inputPath">The path containing the asset files.</param>
+		/// <param name="allFilePaths">The array of paths containing the asset files.</param>
 		/// <param name="outputPath">The path where the compressed binary file will be placed.</param>
 		/// <param name="binaryFileName">The binary file name (audio or dd) to know which asset files to compress.</param>
-		public static void Compress(string inputPath, string outputPath, BinaryFileName binaryFileName)
+		public static void Compress(string[] allFilePaths, string outputPath, BinaryFileName binaryFileName)
 		{
-			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(inputPath, binaryFileName);
+			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(allFilePaths, binaryFileName);
 
 			// Create TOC stream.
 			byte[] tocBuffer;
@@ -92,27 +97,29 @@ namespace DevilDaggersAssetCore
 			fs.Write(assetBuffer, 0, assetBuffer.Length);
 		}
 
-		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(string inputPath, BinaryFileName binaryFileName)
+		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(string[] allFilePaths, BinaryFileName binaryFileName)
 		{
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
 			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName.HasFlag(binaryFileName)))
 			{
-				List<AbstractChunk> chunks = new List<AbstractChunk>();
+				string[] filePaths = allFilePaths.Where(f => Path.GetExtension(f) == chunkInfo.FileExtension).ToArray();
 
 				// Key is chunk name, value is array of file paths belonging to the chunk.
-				Dictionary<string, string[]> assets = new Dictionary<string, string[]>();
-				string[] chunkNames = Directory.GetFiles(inputPath, $"*{chunkInfo.FileExtension}", SearchOption.AllDirectories).Select(f => Path.GetFileNameWithoutExtension(f)).ToArray();
-
-				// Cut off _fragment and _vertex substrings from shader files to get the shader chunk name.
+				string[] chunkNames = filePaths.Select(f => Path.GetFileNameWithoutExtension(f)).ToArray();
 				if (chunkInfo.FolderName == "Shaders")
+				{
+					// Cut off _fragment and _vertex substrings from shader files to get the shader chunk name.
 					chunkNames = chunkNames.Select(f => f.Replace("_fragment", "").Replace("_vertex", "")).Distinct().ToArray();
+				}
 
+				Dictionary<string, string[]> assets = new Dictionary<string, string[]>();
 				foreach (string chunkName in chunkNames)
 				{
 					// TODO: Add _fragment and _vertex to Where predicate to get correct shader file paths.
-					assets[chunkName] = Directory.GetFiles(inputPath, $"*{chunkInfo.FileExtension}", SearchOption.AllDirectories).Where(f => Path.GetFileNameWithoutExtension(f) == chunkName).ToArray();
+					assets[chunkName] = filePaths.Where(f => Path.GetFileNameWithoutExtension(f) == chunkName).ToArray();
 				}
 
+				List<AbstractChunk> chunks = new List<AbstractChunk>();
 				foreach (KeyValuePair<string, string[]> kvp in assets)
 				{
 					// Create chunk based on file buffer.
