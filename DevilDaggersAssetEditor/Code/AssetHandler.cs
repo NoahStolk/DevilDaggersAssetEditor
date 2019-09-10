@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using DevilDaggersAssetCore.Assets;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace DevilDaggersAssetEditor.Code.Assets
+namespace DevilDaggersAssetEditor.Code
 {
 	public sealed class AssetHandler
 	{

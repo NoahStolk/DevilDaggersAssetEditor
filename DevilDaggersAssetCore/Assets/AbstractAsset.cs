@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetEditor.Code.Assets
+﻿namespace DevilDaggersAssetCore.Assets
 {
 	public abstract class AbstractAsset
 	{

@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.Assets;
 using DevilDaggersAssetEditor.GUI.UserControls;
 using Microsoft.Win32;

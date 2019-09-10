@@ -96,9 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Code\Assets\AbstractAsset.cs" />
-    <Compile Include="Code\Assets\AssetHandler.cs" />
-    <Compile Include="Code\Assets\AudioAsset.cs" />
+    <Compile Include="Code\AssetHandler.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="GUI\UserControls\AudioAssetControl.xaml.cs">
       <DependentUpon>AudioAssetControl.xaml</DependentUpon>
