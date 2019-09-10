@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="20" d:DesignWidth="800" Height="20">
+             d:DesignHeight="20" d:DesignWidth="800">
 	<Grid x:Name="Data">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition />
@@ -13,10 +13,10 @@
 			<ColumnDefinition Width="3*" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<Label Grid.Column="0" Name="LabelName" Content="{Binding AssetName}" />
-		<TextBox Grid.Column="1" Name="TextBoxLoudness" Text="{Binding Loudness}" />
-		<Label Grid.Column="2" Name="LabelDescription" Content="{Binding Description}"/>
-		<Label Grid.Column="3" Name="LabelPath" />
-		<Button Grid.Column="4" Name="ButtonBrowsePath" Click="ButtonBrowsePath_Click">Browse path</Button>
+		<Label Grid.Column="0" Content="{Binding AssetName}" />
+		<TextBox Grid.Column="1" Text="{Binding Loudness}" />
+		<Label Grid.Column="2" Content="{Binding Description}"/>
+		<Label Grid.Column="3" Name="LabelEditorPath" />
+		<Button Grid.Column="4" Click="ButtonBrowsePath_Click">Browse path</Button>
 	</Grid>
 </UserControl>

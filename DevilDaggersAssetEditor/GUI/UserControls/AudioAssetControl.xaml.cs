@@ -22,13 +22,14 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 		{
 			OpenFileDialog openDialog = new OpenFileDialog
 			{
-				Filter = ".wav"
+				Filter = "Audio files (*.wav)|*.wav"
 			};
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
 			AudioAsset.EditorPath = openDialog.FileName;
+			LabelEditorPath.Content = openDialog.FileName;
 		}
 	}
 }

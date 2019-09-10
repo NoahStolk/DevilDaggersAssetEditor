@@ -96,7 +96,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Code\AssetHandler.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="GUI\UserControls\AudioAssetControl.xaml.cs">
       <DependentUpon>AudioAssetControl.xaml</DependentUpon>
@@ -124,7 +123,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Content\AssetInfo\Audio.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

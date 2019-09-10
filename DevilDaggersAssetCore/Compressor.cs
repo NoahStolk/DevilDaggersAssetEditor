@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetCore.Chunks;
+﻿using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.Chunks;
 using DevilDaggersAssetCore.Headers;
 using System;
 using System.Collections.Generic;
@@ -10,20 +11,15 @@ namespace DevilDaggersAssetCore
 {
 	public static class Compressor
 	{
-		public static void Compress(string inputPath, string outputPath, BinaryFileName binaryFileName)
-		{
-			Compress(Directory.GetFiles(inputPath, "*.*", SearchOption.AllDirectories), outputPath, binaryFileName);
-		}
-
 		/// <summary>
 		/// Compresses multiple asset files into one binary file that can be read by Devil Daggers.
 		/// </summary>
-		/// <param name="allFilePaths">The array of paths containing the asset files.</param>
+		/// <param name="allAssets">The array of asset objects.</param>
 		/// <param name="outputPath">The path where the compressed binary file will be placed.</param>
 		/// <param name="binaryFileName">The binary file name (audio or dd) to know which asset files to compress.</param>
-		public static void Compress(string[] allFilePaths, string outputPath, BinaryFileName binaryFileName)
+		public static void Compress(List<AbstractAsset> allAssets, string outputPath, BinaryFileName binaryFileName)
 		{
-			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(allFilePaths, binaryFileName);
+			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(allAssets, binaryFileName);
 
 			// Create TOC stream.
 			byte[] tocBuffer;
@@ -97,43 +93,38 @@ namespace DevilDaggersAssetCore
 			fs.Write(assetBuffer, 0, assetBuffer.Length);
 		}
 
-		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(string[] allFilePaths, BinaryFileName binaryFileName)
+		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(List<AbstractAsset> allAssets, BinaryFileName binaryFileName)
 		{
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
 			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName.HasFlag(binaryFileName)))
 			{
-				string[] filePaths = allFilePaths.Where(f => Path.GetExtension(f) == chunkInfo.FileExtension).ToArray();
+				StringBuilder loudness = new StringBuilder();
 
-				// Key is chunk name, value is array of file paths belonging to the chunk.
-				string[] chunkNames = filePaths.Select(f => Path.GetFileNameWithoutExtension(f)).ToArray();
-				if (chunkInfo.FolderName == "Shaders")
-				{
-					// Cut off _fragment and _vertex substrings from shader files to get the shader chunk name.
-					chunkNames = chunkNames.Select(f => f.Replace("_fragment", "").Replace("_vertex", "")).Distinct().ToArray();
-				}
-
-				Dictionary<string, string[]> assets = new Dictionary<string, string[]>();
-				foreach (string chunkName in chunkNames)
-				{
-					// TODO: Add _fragment and _vertex to Where predicate to get correct shader file paths.
-					assets[chunkName] = filePaths.Where(f => Path.GetFileNameWithoutExtension(f) == chunkName).ToArray();
-				}
+				AbstractAsset[] assets = allAssets.Where(a => a.TypeName == chunkInfo.Type.Name).ToArray();
 
 				List<AbstractChunk> chunks = new List<AbstractChunk>();
-				foreach (KeyValuePair<string, string[]> kvp in assets)
+				foreach (AbstractAsset asset in assets)
 				{
+					if (asset is AudioAsset audioAsset)
+						loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness.ToString("0.0")}");
+
 					// Create chunk based on file buffer.
 					byte[] fileBuffer;
 					using (MemoryStream ms = new MemoryStream())
 					{
-						foreach (string assetFilePath in kvp.Value)
-						{
-							byte[] fileContents = File.ReadAllBytes(assetFilePath);
-							ms.Write(fileContents, 0, fileContents.Length);
-						}
+						// TODO: Shaders have multiple files.
+
+						//foreach (string assetFilePath in asset.EditorPath)
+						//{
+						//	byte[] fileContents = File.ReadAllBytes(assetFilePath);
+						//	ms.Write(fileContents, 0, fileContents.Length);
+						//}
+
+						byte[] fileContents = File.ReadAllBytes(asset.EditorPath);
+						ms.Write(fileContents, 0, fileContents.Length);
 						fileBuffer = ms.ToArray();
 					}
-					AbstractChunk chunk = (AbstractChunk)Activator.CreateInstance(chunkInfo.Type, kvp.Key, 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length, 0U);
+					AbstractChunk chunk = (AbstractChunk)Activator.CreateInstance(chunkInfo.Type, asset.AssetName, 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length, 0U);
 
 					// Create header based on file buffer and chunk type.
 					if (chunkInfo.Type == typeof(AbstractHeaderedChunk<AbstractHeader>))
@@ -155,6 +146,22 @@ namespace DevilDaggersAssetCore
 					}
 
 					chunks.Add(chunk);
+				}
+
+				if (chunkInfo.Type == typeof(AudioChunk))
+				{
+					// Create loudness chunk.
+					byte[] fileBuffer;
+					using (MemoryStream ms = new MemoryStream())
+					{
+						byte[] fileContents = Encoding.Default.GetBytes(loudness.ToString());
+						ms.Write(fileContents, 0, fileContents.Length);
+						fileBuffer = ms.ToArray();
+					}
+
+					AbstractChunk loudnessChunk = (AbstractChunk)Activator.CreateInstance(chunkInfo.Type, "loudness", 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length, 0U);
+					loudnessChunk.Init(fileBuffer);
+					chunks.Add(loudnessChunk);
 				}
 
 				assetCollections[chunkInfo] = chunks;

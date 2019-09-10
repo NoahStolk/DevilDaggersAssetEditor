@@ -4,8 +4,8 @@
 	{
 		public float Loudness { get; set; }
 
-		public AudioAsset(string assetName, string description, float loudness)
-			: base(assetName, description)
+		public AudioAsset(string assetName, string description, string typeName, float loudness)
+			: base(assetName, description, typeName)
 		{
 			Loudness = loudness;
 		}

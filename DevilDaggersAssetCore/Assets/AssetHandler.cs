@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace DevilDaggersAssetEditor.Code
 {
@@ -16,7 +17,7 @@ namespace DevilDaggersAssetEditor.Code
 		private AssetHandler()
 		{
 			string stream;
-			using (StreamReader sr = new StreamReader(Utils.Assembly.GetManifestResourceStream("DevilDaggersAssetEditor.Content.AssetInfo.Audio.json")))
+			using (StreamReader sr = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("DevilDaggersAssetCore.Content.Audio.json")))
 				stream = sr.ReadToEnd();
 			AudioAssets = JsonConvert.DeserializeObject<List<AudioAsset>>(stream);
 		}

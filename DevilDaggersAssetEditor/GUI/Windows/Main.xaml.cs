@@ -1,10 +1,11 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.Assets;
+using DevilDaggersAssetEditor.Code;
 using DevilDaggersAssetEditor.GUI.UserControls;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -15,6 +16,8 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 	public partial class MainWindow : Window
 	{
 		private static readonly string DDFolder = @"C:\Program Files (x86)\Steam\steamapps\common\devildaggers";
+
+		private readonly List<AudioAssetControl> audioAssetControls = new List<AudioAssetControl>();
 
 		public MainWindow()
 		{
@@ -34,7 +37,9 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 
 			foreach (AudioAsset audioAsset in AssetHandler.Instance.AudioAssets)
 			{
-				AssetEditor.Children.Add(new AudioAssetControl(audioAsset));
+				AudioAssetControl aac = new AudioAssetControl(audioAsset);
+				audioAssetControls.Add(aac);
+				AssetEditor.Children.Add(aac);
 			}
 		}
 
@@ -83,12 +88,12 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 
 			if (!complete)
 			{
-				MessageBoxResult promptResult = MessageBox.Show("Not all files have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete assets", MessageBoxButton.YesNo, MessageBoxImage.Question);
+				MessageBoxResult promptResult = MessageBox.Show("Not all files have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
 				if (promptResult == MessageBoxResult.No)
 					return;
 			}
 
-			Compressor.Compress(AssetHandler.Instance.AudioAssets.Select(a => a.EditorPath).ToArray(), dialog.FileName, binaryFileName);
+			Compressor.Compress(AssetHandler.Instance.AudioAssets.Cast<AbstractAsset>().ToList(), dialog.FileName, binaryFileName);
 		}
 
 		private void Import_Click(object sender, RoutedEventArgs e)
@@ -101,7 +106,17 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 				CommonFileDialogResult result = dialog.ShowDialog();
 				if (result == CommonFileDialogResult.Ok)
 				{
+					foreach (string filePath in Directory.GetFiles(dialog.FileName))
+					{
+						AudioAsset audioAsset = AssetHandler.Instance.AudioAssets.Where(a => a.AssetName == Path.GetFileNameWithoutExtension(filePath)).FirstOrDefault();
+						if (audioAsset != null)
+						{
+							audioAsset.EditorPath = filePath;
 
+							AudioAssetControl aac = audioAssetControls.Where(a => a.AudioAsset == audioAsset).FirstOrDefault();
+							aac.LabelEditorPath.Content = filePath;
+						}
+					}
 				}
 			}
 		}
