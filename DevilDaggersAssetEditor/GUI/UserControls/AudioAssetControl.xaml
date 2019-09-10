@@ -13,7 +13,7 @@
 			<ColumnDefinition Width="3*" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<Label Grid.Column="0" Name="LabelName" Content="{Binding FileName}" />
+		<Label Grid.Column="0" Name="LabelName" Content="{Binding AssetName}" />
 		<TextBox Grid.Column="1" Name="TextBoxLoudness" Text="{Binding Loudness}" />
 		<Label Grid.Column="2" Name="LabelDescription" Content="{Binding Description}"/>
 		<Label Grid.Column="3" Name="LabelPath" />
