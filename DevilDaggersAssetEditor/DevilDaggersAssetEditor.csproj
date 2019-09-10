@@ -84,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GUI\UserControls\AudioAssetControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Windows\Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +100,9 @@
     <Compile Include="Code\Assets\AssetHandler.cs" />
     <Compile Include="Code\Assets\AudioAsset.cs" />
     <Compile Include="Code\Utils.cs" />
+    <Compile Include="GUI\UserControls\AudioAssetControl.xaml.cs">
+      <DependentUpon>AudioAssetControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Windows\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
       <SubType>Code</SubType>

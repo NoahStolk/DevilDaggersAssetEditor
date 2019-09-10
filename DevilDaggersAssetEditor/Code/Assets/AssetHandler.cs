@@ -7,7 +7,7 @@ namespace DevilDaggersAssetEditor.Code.Assets
 {
 	public sealed class AssetHandler
 	{
-		public List<AudioAsset> AudioAssets { get; private set; }
+		public List<AudioAsset> AudioAssets { get; private set; } = new List<AudioAsset>();
 
 		private static readonly Lazy<AssetHandler> lazy = new Lazy<AssetHandler>(() => new AssetHandler());
 		public static AssetHandler Instance => lazy.Value;

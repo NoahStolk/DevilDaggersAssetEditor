@@ -1083,5 +1083,315 @@
 		"Loudness": 10.0,
 		"FileName": "unburrowcentipede",
 		"Description": "todo"
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "andrasimpact",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "andrasrise",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "chattersquidsmall",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "daggerdivert",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "eggburst2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "gibcollect",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "gibcollectmagic",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "killskullblack1",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "killskullblack2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "killskullblack3",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "killskullblack4",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "killultraskull",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "legends",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "leviathantransmute",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "loudness",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "magentastuckenemy1",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "magentastuckenemy2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "magentastuckenemy3",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "magentastuckenemy4",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "magentastuckenemy5",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "magicpulse",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat1",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat10",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat11",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat12",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat13",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat3",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat4",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat5",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat6",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat7",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat8",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meat9",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatbig1",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatbig2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatbig3",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatbig4",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatbig5",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatbig6",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatmed1",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatmed2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatmed3",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatmed4",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatmed5",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "meatmed6",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "menuatmos",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "menutheme",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "secretsnake",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "secretsnake2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "sorathlogo",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "sorathlogo2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "sorathstone",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "thorngib1",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "thorngib2",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "thorngib3",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "thorngib4",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "thorngib5",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "thorngib6",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "uiclick",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "uihover",
+		"Description": "Not specified in loudness file."
+	},
+	{
+		"Loudness": 0.0,
+		"FileName": "uislider",
+		"Description": "Not specified in loudness file."
 	}
 ]

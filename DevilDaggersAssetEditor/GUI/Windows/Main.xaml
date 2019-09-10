@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Devil Daggers Asset Editor" Height="450" Width="800">
+        Title="Devil Daggers Asset Editor" Height="900" Width="1600">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="18"/>
@@ -14,14 +14,14 @@
 			<Menu DockPanel.Dock="Top">
 				<MenuItem Header="File">
 					<MenuItem Name="ExtractMenuItem" Header="Extract binary file" />
-					<MenuItem Name="CompressMenuItem" Header="Compress into binary file" />
 					<Separator />
+					<MenuItem Name="CompressMenuItem" Header="Compress into binary file" />
 					<MenuItem Header="Import assets from folder" Click="Import_Click" />
 				</MenuItem>
 			</Menu>
 		</DockPanel>
 		<ScrollViewer Grid.Row="1">
-
+			<StackPanel Name="AssetEditor" />
 		</ScrollViewer>
 	</Grid>
 </Window>
