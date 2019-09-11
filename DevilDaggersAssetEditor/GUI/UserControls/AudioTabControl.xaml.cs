@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
 using DevilDaggersAssetCore.Assets;
+using System;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
@@ -95,7 +96,63 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
+			Dictionary<string, float> values = new Dictionary<string, float>();
+			int lineNumber = 0;
+			foreach (string line in File.ReadAllLines(openDialog.FileName))
+			{
+				lineNumber++;
+				string lineClean = line
+					.Replace(" ", "") // Remove spaces to make things easier.
+					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
+				if (!ReadLoudnessLine(lineClean, out string assetName, out float loudness))
+				{
+					MessageBox.Show($"Syntax error on line {lineNumber}", "Could not parse loudness file");
+					return;
+				}
 
+				values[assetName] = loudness;
+			}
+
+			int successCount = 0;
+			int unchangedCount = 0;
+			foreach (KeyValuePair<string, float> kvp in values)
+			{
+				AudioAsset audioAsset = AudioAssets.Where(a => a.AssetName == kvp.Key).Cast<AudioAsset>().FirstOrDefault();
+				if (audioAsset != null)
+				{
+					if (audioAsset.Loudness == kvp.Value)
+					{
+						unchangedCount++;
+					}
+					else
+					{
+						audioAsset.Loudness = kvp.Value;
+						successCount++;
+					}
+
+					// TODO: Fix binding
+					AudioAssetControl aac = audioAssetControls.Where(a => a.AudioAsset == audioAsset).FirstOrDefault();
+					aac.TextBoxLoudness.Text = audioAsset.Loudness.ToString();
+				}
+			}
+
+			MessageBox.Show($"Total audio assets: {AudioAssets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}", "Loudness import results");
+		}
+
+		private bool ReadLoudnessLine(string line, out string assetName, out float loudness)
+		{
+			try
+			{
+				assetName = line.Substring(0, line.IndexOf('='));
+				loudness = float.Parse(line.Substring(line.IndexOf('=') + 1, line.Length - assetName.Length - 1));
+				return true;
+			}
+			catch
+			{
+				assetName = null;
+				loudness = 0;
+				return false;
+			}
 		}
 	}
 }

@@ -1,1670 +1,1948 @@
 ﻿[
 	{
-		"Loudness": 10.0,
+		"Loudness": 1,
+		"AssetName": "andrasimpact",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "andrasrise",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 10,
 		"AssetName": "burrowcentipede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "chatterandras",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "chattercentipede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "chattercentipede2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 20.0,
+		"Loudness": 20,
 		"AssetName": "chattergigaspider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 50.0,
+		"Loudness": 50,
 		"AssetName": "chatterleviathan",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "chatterminisquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 2.0,
+		"Loudness": 2,
 		"AssetName": "chatterskull",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "chatterskull2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "chatterskull2black",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "chatterskull3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 20.0,
+		"Loudness": 20,
 		"AssetName": "chatterskull3black",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "chatterskull4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "chatterskull4black",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "chatterskullblack",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "chatterspider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 4.0,
+		"Loudness": 4,
 		"AssetName": "chatterspiderling",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "chattersquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 15.0,
+		"Loudness": 1,
+		"AssetName": "chattersquidsmall",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 15,
 		"AssetName": "chattersquidultra",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "chatterthorn",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "chatterultrapede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "collectgib1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
-	//{
-	//	"Loudness": 1.5,
-	//	"AssetName": "collectgib1loop",
-	//	"Description": "todo",
-	//	"TypeName": "AudioChunk"
-	//},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "collectgib2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
-	//{
-	//	"Loudness": 1.0,
-	//	"AssetName": "collectgib2loop",
-	//	"Description": "todo",
-	//	"TypeName": "AudioChunk"
-	//},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "collectgib3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
-	//{
-	//	"Loudness": 0.5,
-	//	"AssetName": "collectgib3loop",
-	//	"Description": "todo",
-	//	"TypeName": "AudioChunk"
-	//},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "collectgibbase1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "collectgibbase2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "collectgibbase3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "daggercall",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "daggercall1bronze",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "daggercall2silver",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "daggercall3gold",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "daggercall4devil",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.2,
 		"AssetName": "daggercollect",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1000.0,
+		"Loudness": 1000,
 		"AssetName": "daggercollect1bronze",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1000.0,
+		"Loudness": 1000,
 		"AssetName": "daggercollect2silver",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1000.0,
+		"Loudness": 1000,
 		"AssetName": "daggercollect3gold",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1000.0,
+		"Loudness": 1000,
 		"AssetName": "daggercollect4devil",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 1,
+		"AssetName": "daggerdivert",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 3,
 		"AssetName": "daggerdrone",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1.4,
 		"AssetName": "daggerhit1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 4.0,
+		"Loudness": 4,
 		"AssetName": "daggerseek",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 8.0,
+		"Loudness": 8,
 		"AssetName": "daggersteal1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 8.0,
+		"Loudness": 8,
 		"AssetName": "daggersteal2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 8.0,
+		"Loudness": 8,
 		"AssetName": "daggersteal3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 8.0,
+		"Loudness": 8,
 		"AssetName": "daggersteal4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 8.0,
+		"Loudness": 8,
 		"AssetName": "daggersteal5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "damageandras",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "damagecentipede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "damagecentipede2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "damagegigaspider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 66.6,
 		"AssetName": "damageleviathan",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "damagespider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "damagesquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "damagesquid2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "damagesquid3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 35.0,
+		"Loudness": 35,
 		"AssetName": "damagesquid4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "damagethorn",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 50.0,
+		"Loudness": 50,
 		"AssetName": "damageultrapede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 99.0,
+		"Loudness": 99,
 		"AssetName": "death",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "eggbounce",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 50.0,
+		"Loudness": 50,
 		"AssetName": "eggburst",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
+		"AssetName": "eggburst2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
 		"AssetName": "eggdrone",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 2.0,
+		"Loudness": 2,
 		"AssetName": "eggdrone2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 40.0,
+		"Loudness": 40,
 		"AssetName": "eyearouse",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 98.0,
+		"Loudness": 98,
 		"AssetName": "eyearousedrone",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "eyehit",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
-	//{
-	//	"Loudness": 98.0,
-	//	"AssetName": "eyepacify",
-	//	"Description": "todo",
-	//	"TypeName": "AudioChunk"
-	//},
 	{
-		"Loudness": 2.0,
+		"Loudness": 2,
 		"AssetName": "eyepacifydrone",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 100.0,
+		"Loudness": 100,
 		"AssetName": "fall",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
+		"AssetName": "gibcollect",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "gibcollectmagic",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
 		"AssetName": "gibdrone1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "gibdrone2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "gibdrone3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "gigaricochet1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "gigaricochet2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "gigaricochet3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "gigaricochet4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "gigaricochet5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 2.0,
+		"Loudness": 2,
 		"AssetName": "highscore1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 2.0,
+		"Loudness": 2,
 		"AssetName": "highscore2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "jump1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "jump2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "jump3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "killandras",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "killcentipede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 40.0,
+		"Loudness": 40,
 		"AssetName": "killcentipede2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 40.0,
+		"Loudness": 40,
 		"AssetName": "killeye",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 75.0,
+		"Loudness": 75,
 		"AssetName": "killgigaspider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 66.6,
 		"AssetName": "killleviathan",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 50.0,
+		"Loudness": 50,
 		"AssetName": "killminisquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killskull1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killskull2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killskull3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killskull4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killskull5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 55.0,
+		"Loudness": 1,
+		"AssetName": "killskullblack1",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "killskullblack2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "killskullblack3",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "killskullblack4",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 55,
 		"AssetName": "killspider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killspiderling1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killspiderling2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killspiderling3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killspiderling4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killspiderling5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 50.0,
+		"Loudness": 50,
 		"AssetName": "killsquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "killsuperskull",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 6.0,
+		"Loudness": 6,
 		"AssetName": "killsuperskull2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 6.0,
+		"Loudness": 6,
 		"AssetName": "killsuperskull2black",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "killsuperskull3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 6.0,
+		"Loudness": 6,
 		"AssetName": "killsuperskullblack",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "killthorn",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 1,
+		"AssetName": "killultraskull",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 60,
 		"AssetName": "killultrasquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "land",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 2.0,
+		"Loudness": 2,
 		"AssetName": "land2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 97.0,
+		"Loudness": 1,
+		"AssetName": "legends",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 97,
 		"AssetName": "leveldown",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "levelup2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "levelup3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "levelup4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 200.0,
+		"Loudness": 200,
 		"AssetName": "leviathanbeckon",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 20.0,
+		"Loudness": 20,
 		"AssetName": "leviathanbeckon2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 1,
+		"AssetName": "leviathantransmute",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 10,
 		"AssetName": "magentadetonate1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "magentadetonate2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "magentadetonate3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "magentadetonate4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "magentadetonate5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "magentadrone",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "magentashot",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 9.0,
+		"Loudness": 1,
+		"AssetName": "magentastuckenemy1",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "magentastuckenemy2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "magentastuckenemy3",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "magentastuckenemy4",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "magentastuckenemy5",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 9,
 		"AssetName": "magicpierce1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 9.0,
+		"Loudness": 9,
 		"AssetName": "magicpierce2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 9.0,
+		"Loudness": 9,
 		"AssetName": "magicpierce3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 9.0,
+		"Loudness": 9,
 		"AssetName": "magicpierce4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 9.0,
+		"Loudness": 9,
 		"AssetName": "magicpierce5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
+		"AssetName": "magicpulse",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat1",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat10",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat11",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat12",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat13",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat3",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat4",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat5",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat6",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat7",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat8",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meat9",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatbig1",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatbig2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatbig3",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatbig4",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatbig5",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatbig6",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatmed1",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatmed2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatmed3",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatmed4",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatmed5",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "meatmed6",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "menuatmos",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "menutheme",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
 		"AssetName": "polarity1e",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "polarity2w",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "polarity3n",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "polarity4s",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.2,
 		"AssetName": "rapid1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.3,
 		"AssetName": "rapid2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.5,
 		"AssetName": "rapid3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "rapid4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochet1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochet2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochet3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochet4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochet5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagenta1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagenta2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagenta3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagenta4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagenta5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagic1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagic2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagic3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "ricochetmagic4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
-	//{
-	//	"Loudness": 10.0,
-	//	"AssetName": "ricochetmagic5",
-	//	"Description": "todo",
-	//	"TypeName": "AudioChunk"
-	//},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochetmed1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochetmed2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochetmed3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochetmed4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "ricochetmed5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 4.0,
+		"Loudness": 1,
+		"AssetName": "secretsnake",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "secretsnake2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 4,
 		"AssetName": "shard1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 4.0,
+		"Loudness": 4,
 		"AssetName": "shard2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 4.0,
+		"Loudness": 4,
 		"AssetName": "shard3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 4.0,
+		"Loudness": 4,
 		"AssetName": "shard4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 4.0,
+		"Loudness": 4,
 		"AssetName": "shard5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "shot1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1.5,
 		"AssetName": "shot2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "shot3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "shot3alt1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "shot3alt2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "shot3alt3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 3.0,
+		"Loudness": 3,
 		"AssetName": "shot3alt4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "shot4alt1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "shot4alt2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "shot4alt3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "shot4alt4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 5.0,
+		"Loudness": 5,
 		"AssetName": "shot4alt5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "skullaggro",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "skullclop1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "skullclop2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "skullclop3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "skullclop4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "skullclop5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "skullclop6",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 45.0,
+		"Loudness": 1,
+		"AssetName": "sorathlogo",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "sorathlogo2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "sorathstone",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 45,
 		"AssetName": "spawnandras",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 35.0,
+		"Loudness": 35,
 		"AssetName": "spawncentipede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 35.0,
+		"Loudness": 35,
 		"AssetName": "spawncentipede2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 30,
 		"AssetName": "spawnegg",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 70.0,
+		"Loudness": 70,
 		"AssetName": "spawngigaspider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 666.0,
+		"Loudness": 666,
 		"AssetName": "spawnleviathan",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spawnminisquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 100.0,
+		"Loudness": 100,
 		"AssetName": "spawnplayer",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "spawnskulls",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "spawnskulls2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 25.0,
+		"Loudness": 25,
 		"AssetName": "spawnskulls3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spawnspider",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spawnsquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 120.0,
+		"Loudness": 120,
 		"AssetName": "spawnultrapede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 70.0,
+		"Loudness": 70,
 		"AssetName": "spawnultrasquid",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spidereat1",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spidereat2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spidereat3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spidereat4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spidereat5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 60.0,
+		"Loudness": 60,
 		"AssetName": "spidereat6",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 35.0,
+		"Loudness": 35,
 		"AssetName": "splashgiga",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 35.0,
+		"Loudness": 35,
 		"AssetName": "splashgiga2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 35.0,
+		"Loudness": 35,
 		"AssetName": "splashgiga3",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 40.0,
+		"Loudness": 40,
 		"AssetName": "splashgiga4",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 45.0,
+		"Loudness": 45,
 		"AssetName": "splashgiga5",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 45.0,
+		"Loudness": 45,
 		"AssetName": "splashgiga6",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "stealgib",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"AssetName": "stealgib2",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 20.0,
+		"Loudness": 20,
 		"AssetName": "subchattercentipede",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "thornemerge",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 30.0,
+		"Loudness": 1,
+		"AssetName": "thorngib1",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "thorngib2",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "thorngib3",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "thorngib4",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "thorngib5",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "thorngib6",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "uiclick",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "uihover",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 1,
+		"AssetName": "uislider",
+		"Description": "todo",
+		"PresentInDefaultLoudness": false,
+		"TypeName": "AudioChunk"
+	},
+	{
+		"Loudness": 30,
 		"AssetName": "ultrapedecrash",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 40.0,
+		"Loudness": 40,
 		"AssetName": "ultrapedeeat",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 40.0,
+		"Loudness": 40,
 		"AssetName": "ultrapedefall",
 		"Description": "todo",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
-		"Loudness": 10.0,
+		"Loudness": 10,
 		"AssetName": "unburrowcentipede",
 		"Description": "todo",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "andrasimpact",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "andrasrise",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "chattersquidsmall",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "daggerdivert",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "eggburst2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "gibcollect",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "gibcollectmagic",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "killskullblack1",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "killskullblack2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "killskullblack3",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "killskullblack4",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "killultraskull",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "legends",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "leviathantransmute",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "magentastuckenemy1",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "magentastuckenemy2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "magentastuckenemy3",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "magentastuckenemy4",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "magentastuckenemy5",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "magicpulse",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat1",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat10",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat11",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat12",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat13",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat3",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat4",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat5",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat6",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat7",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat8",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meat9",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatbig1",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatbig2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatbig3",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatbig4",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatbig5",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatbig6",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatmed1",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatmed2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatmed3",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatmed4",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatmed5",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "meatmed6",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "menuatmos",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "menutheme",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "secretsnake",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "secretsnake2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "sorathlogo",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "sorathlogo2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "sorathstone",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "thorngib1",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "thorngib2",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "thorngib3",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "thorngib4",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "thorngib5",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "thorngib6",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "uiclick",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "uihover",
-		"Description": "Not specified in loudness file.",
-		"TypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"AssetName": "uislider",
-		"Description": "Not specified in loudness file.",
+		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	}
+	//{
+	//	"Loudness": 1.5,
+	//	"AssetName": "collectgib1loop",
+	//	"Description": "todo",
+	//	"PresentInDefaultLoudness": true,
+	//	"TypeName": "AudioChunk"
+	//},
+	//{
+	//	"Loudness": 1.0,
+	//	"AssetName": "collectgib2loop",
+	//	"Description": "todo",
+	//	"PresentInDefaultLoudness": true,
+	//	"TypeName": "AudioChunk"
+	//},
+	//{
+	//	"Loudness": 0.5,
+	//	"AssetName": "collectgib3loop",
+	//	"Description": "todo",
+	//	"PresentInDefaultLoudness": true,
+	//	"TypeName": "AudioChunk"
+	//},
+	//{
+	//	"Loudness": 98.0,
+	//	"AssetName": "eyepacify",
+	//	"Description": "todo",
+	//	"PresentInDefaultLoudness": true,
+	//	"TypeName": "AudioChunk"
+	//},
+	//{
+	//	"Loudness": 10.0,
+	//	"AssetName": "ricochetmagic5",
+	//	"Description": "todo",
+	//	"PresentInDefaultLoudness": true,
+	//	"TypeName": "AudioChunk"
+	//}
 ]

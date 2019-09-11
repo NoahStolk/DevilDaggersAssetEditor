@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<Style TargetType="Label">
+		<Style.Setters>
+			<Setter Property="Padding" Value="2,2,2,2" />
+			<Setter Property="Margin" Value="0,0,0,0" />
+		</Style.Setters>
+	</Style>
+</ResourceDictionary>
