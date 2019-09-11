@@ -5,33 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="20" />
-			<RowDefinition Height="24" />
-			<RowDefinition />
-		</Grid.RowDefinitions>
-		<StackPanel Grid.Row="0" Orientation="Horizontal">
-			<Button Click="Compress_Click">Compress audio</Button>
-			<Button Click="ImportFolder_Click">Import folder containing audio</Button>
-			<Button Click="ImportLoudness_Click">Import loudness file</Button>
-		</StackPanel>
-		<Grid Grid.Row="1" Background="DarkGray">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-				<ColumnDefinition Width="2*" />
-				<ColumnDefinition Width="4*" />
-				<ColumnDefinition />
-				<ColumnDefinition Width="20" />
-			</Grid.ColumnDefinitions>
-			<Label Grid.Column="0" FontWeight="Bold">Asset name</Label>
-			<Label Grid.Column="1" FontWeight="Bold">Loudness</Label>
-			<Label Grid.Column="2" FontWeight="Bold">Description</Label>
-			<Label Grid.Column="3" FontWeight="Bold">Path</Label>
+	<Expander Header="Audio" IsExpanded="True">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="20" />
+				<RowDefinition Height="24" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<StackPanel Grid.Row="0" Orientation="Horizontal">
+				<Button Click="Compress_Click">Compress audio</Button>
+				<Button Click="ImportFolder_Click">Import folder containing audio</Button>
+				<Button Click="ImportLoudness_Click">Import loudness file</Button>
+			</StackPanel>
+			<Grid Grid.Row="1" Background="DarkGray">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition Width="2*" />
+					<ColumnDefinition Width="4*" />
+					<ColumnDefinition />
+					<ColumnDefinition Width="20" />
+				</Grid.ColumnDefinitions>
+				<Label Grid.Column="0" FontWeight="Bold">Asset name</Label>
+				<Label Grid.Column="1" FontWeight="Bold">Loudness</Label>
+				<Label Grid.Column="2" FontWeight="Bold">Description</Label>
+				<Label Grid.Column="3" FontWeight="Bold">Path</Label>
+			</Grid>
+			<ScrollViewer Grid.Row="2">
+				<StackPanel Name="AssetEditor" />
+			</ScrollViewer>
 		</Grid>
-		<ScrollViewer Grid.Row="2">
-			<StackPanel Name="AssetEditor" />
-		</ScrollViewer>
-	</Grid>
+	</Expander>
 </UserControl>

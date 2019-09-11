@@ -37,18 +37,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 		private void Compress_Click(object sender, RoutedEventArgs e)
 		{
-			SaveFileDialog dialog = new SaveFileDialog
-			{
-				InitialDirectory = Path.Combine(Utils.DDFolder, BinaryFileName.GetSubfolderName())
-			};
-			bool? result = dialog.ShowDialog();
-			if (!result.HasValue || !result.Value)
-				return;
-
 			bool complete = true;
 			foreach (AudioAsset audioAsset in AudioAssets)
 			{
-				if (audioAsset.EditorPath == null)
+				if (!Utils.IsPathValid(audioAsset.EditorPath))
 				{
 					complete = false;
 					break;
@@ -57,10 +49,18 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 			if (!complete)
 			{
-				MessageBoxResult promptResult = MessageBox.Show("Not all files have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
+				MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
 				if (promptResult == MessageBoxResult.No)
 					return;
 			}
+
+			SaveFileDialog dialog = new SaveFileDialog
+			{
+				InitialDirectory = Path.Combine(Utils.DDFolder, BinaryFileName.GetSubfolderName())
+			};
+			bool? result = dialog.ShowDialog();
+			if (!result.HasValue || !result.Value)
+				return;
 
 			Compressor.Compress(AudioAssets.Cast<AbstractAsset>().ToList(), dialog.FileName, BinaryFileName);
 		}
@@ -80,6 +80,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 					{
 						audioAsset.EditorPath = filePath;
 
+						// TODO: Fix binding
 						AudioAssetControl aac = audioAssetControls.Where(a => a.AudioAsset == audioAsset).FirstOrDefault();
 						aac.LabelEditorPath.Content = filePath;
 					}

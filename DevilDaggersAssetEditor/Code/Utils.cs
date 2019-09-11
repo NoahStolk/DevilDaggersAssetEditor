@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -16,6 +17,18 @@ namespace DevilDaggersAssetEditor.Code
 		public static Assembly GetAssemblyByName(string name)
 		{
 			return AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
+		}
+
+		public static bool IsPathValid(string path)
+		{
+			try
+			{
+				return Path.IsPathRooted(path);
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }

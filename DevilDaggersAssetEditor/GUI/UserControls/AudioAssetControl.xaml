@@ -15,8 +15,8 @@
 		</Grid.ColumnDefinitions>
 		<Label Grid.Column="0" Content="{Binding AssetName}" />
 		<TextBox Grid.Column="1" Text="{Binding Loudness}" />
-		<Label Grid.Column="2" Content="{Binding Description}"/>
-		<Label Grid.Column="3" Name="LabelEditorPath" />
+		<Label Grid.Column="2" Content="{Binding Description}" />
+		<Label Grid.Column="3" Name="LabelEditorPath" Content="{Binding EditorPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" /> <!--TODO: Fix binding and remove Name-->
 		<Button Grid.Column="4" Click="ButtonBrowsePath_Click">Browse path</Button>
 	</Grid>
 </UserControl>

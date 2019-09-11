@@ -6,7 +6,7 @@
 		public string Description { get; }
 		public string TypeName { get; }
 
-		public string EditorPath { get; set; }
+		public string EditorPath { get; set; } = "<NONE SPECIFIED>";
 
 		protected AbstractAsset(string fileName, string description, string typeName)
 		{

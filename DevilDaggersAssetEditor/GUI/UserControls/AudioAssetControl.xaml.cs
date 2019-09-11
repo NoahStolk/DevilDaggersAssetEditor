@@ -29,6 +29,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 				return;
 
 			AudioAsset.EditorPath = openDialog.FileName;
+
+			// TODO: Fix binding
 			LabelEditorPath.Content = openDialog.FileName;
 		}
 	}
