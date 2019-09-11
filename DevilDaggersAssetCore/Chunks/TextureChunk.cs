@@ -16,15 +16,28 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override IEnumerable<FileResult> Extract()
 		{
-			// Format32bppArgb
-			using Bitmap bitmap = new Bitmap((int)Header.Width, (int)Header.Height, (int)Header.Width * 4, PixelFormat.Format32bppRgb, Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 0));
+			using Bitmap bitmap = new Bitmap((int)Header.Width, (int)Header.Height, (int)Header.Width * 4, PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 0));
+			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+			for (int x = 0; x < bitmap.Width; x++)
+			{
+				for (int y = 0; y < bitmap.Height; y++)
+				{
+					Color pixel = bitmap.GetPixel(x, y);
+					bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels.
+				}
+			}
+
 			yield return new FileResult(Name, GetBytes(bitmap));
 		}
 
 		public static byte[] GetBytes(Bitmap image)
 		{
 			MemoryStream memoryStream = new MemoryStream();
+
+			// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
 			new Bitmap(image).Save(memoryStream, ImageFormat.Png);
+
 			return memoryStream.ToArray();
 		}
 	}

@@ -2,18 +2,35 @@
 
 Devil Daggers Asset Editor is a tool that can be used to extract assets from the Devil Daggers resource files. The program is currently a work in progress.
 
-## Current features
+## Features
 
-- Audio extracting
-- Model extracting
-- Model binding extracting
-- Shader extracting
+~~Strikethrough~~ features are upcoming/planned features. This is currently not supported yet.
 
-## Planned features
+- Extracting asset types
+	- Audio
+	- Models
+	- Model bindings
+	- Shaders
+	- Textures
 
-- Texture extracting
-- Compressing of all five asset types
-- A user interface that lets you compress any custom asset file into binary resource files
+- Extracting binary files
+	- res/audio
+	- res/dd
+	- core/core
+	- dd/particle
+
+- Compressing asset types
+	- Audio
+	- ~~Models~~
+	- ~~Model bindings~~
+	- ~~Shaders~~
+	- ~~Textures~~
+	
+- Compressing binary files
+	- res/audio
+	- ~~res/dd~~
+	- ~~core/core~~
+	- ~~dd/particle~~
 
 ## Credits
 
