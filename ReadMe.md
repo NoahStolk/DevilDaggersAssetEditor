@@ -4,7 +4,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 ## Features
 
-~~Strikethrough~~ features are upcoming/planned features. This is currently not supported yet.
+~~Strikethrough~~ features are upcoming/planned features. These are not supported yet.
 
 - Extracting asset types
 	- Audio
@@ -17,7 +17,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 	- res/audio
 	- res/dd
 	- core/core
-	- dd/particle
+	- ~~dd/particle~~
 
 - Compressing asset types
 	- Audio
