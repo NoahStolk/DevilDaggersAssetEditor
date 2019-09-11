@@ -9,7 +9,6 @@ using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
 using DevilDaggersAssetCore.Assets;
-using System;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
