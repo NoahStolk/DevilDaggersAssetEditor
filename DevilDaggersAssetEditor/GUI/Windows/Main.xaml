@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls"
         mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="900" Width="1600">
 	<Grid>
@@ -14,14 +15,16 @@
 			<Menu DockPanel.Dock="Top">
 				<MenuItem Header="File">
 					<MenuItem Name="ExtractMenuItem" Header="Extract binary file" />
-					<Separator />
-					<MenuItem Name="CompressMenuItem" Header="Compress into binary file" />
-					<MenuItem Header="Import assets from folder" Click="Import_Click" />
 				</MenuItem>
 			</Menu>
 		</DockPanel>
-		<ScrollViewer Grid.Row="1">
-			<StackPanel Name="AssetEditor" />
-		</ScrollViewer>
+		<TabControl Grid.Row="1">
+			<TabItem Header="audio">
+				<local:AudioTabControl />
+			</TabItem>
+			<TabItem Header="dd" IsEnabled="False"></TabItem>
+			<TabItem Header="core" IsEnabled="False"></TabItem>
+			<TabItem Header="particle" IsEnabled="False"></TabItem>
+		</TabControl>
 	</Grid>
 </Window>

@@ -96,7 +96,7 @@ namespace DevilDaggersAssetCore
 		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(List<AbstractAsset> allAssets, BinaryFileName binaryFileName)
 		{
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
-			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName.HasFlag(binaryFileName)))
+			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => binaryFileName.HasFlag(c.BinaryFileName) || c.BinaryFileName.HasFlag(binaryFileName)))
 			{
 				StringBuilder loudness = new StringBuilder();
 

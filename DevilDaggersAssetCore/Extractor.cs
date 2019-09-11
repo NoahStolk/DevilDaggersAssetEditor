@@ -55,7 +55,7 @@ namespace DevilDaggersAssetCore
 
 		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks, BinaryFileName binaryFileName)
 		{
-			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => c.BinaryFileName.HasFlag(binaryFileName)))
+			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => binaryFileName.HasFlag(c.BinaryFileName) || c.BinaryFileName.HasFlag(binaryFileName)))
 				Directory.CreateDirectory(Path.Combine(outputPath, chunkInfo.FolderName));
 
 			foreach (AbstractChunk chunk in chunks)

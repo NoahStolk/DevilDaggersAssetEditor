@@ -7,6 +7,7 @@ namespace DevilDaggersAssetCore
 	{
 		Audio = 1,
 		DD = 2,
-		Core = 4
+		Core = 4,
+		Particle = 8
 	}
 }
