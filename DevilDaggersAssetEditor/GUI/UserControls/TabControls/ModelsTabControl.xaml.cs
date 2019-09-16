@@ -31,6 +31,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
+			Loaded -= UserControl_Loaded;
+
 			Handler = new ModelsTabControlHandler((BinaryFileName)Enum.Parse(typeof(BinaryFileName), BinaryFileName));
 
 			foreach (ModelAssetControl ac in Handler.CreateUserControls())

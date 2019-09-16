@@ -31,6 +31,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
+			Loaded -= UserControl_Loaded;
+
 			Handler = new TexturesTabControlHandler((BinaryFileName)Enum.Parse(typeof(BinaryFileName), BinaryFileName));
 
 			foreach (TextureAssetControl ac in Handler.CreateUserControls())
