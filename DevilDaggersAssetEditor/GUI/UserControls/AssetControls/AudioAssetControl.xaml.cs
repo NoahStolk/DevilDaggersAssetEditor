@@ -9,13 +9,13 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetControls
 	{
 		public AudioAssetControlHandler Handler { get; private set; }
 
-		public AudioAssetControl(AudioAsset audioAsset)
+		public AudioAssetControl(AudioAsset asset)
 		{
 			InitializeComponent();
 
-			Handler = new AudioAssetControlHandler(audioAsset, this);
+			Handler = new AudioAssetControlHandler(asset, this);
 
-			Data.DataContext = audioAsset;
+			Data.DataContext = asset;
 		}
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e)

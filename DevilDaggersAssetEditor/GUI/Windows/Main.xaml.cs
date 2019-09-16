@@ -1,15 +1,10 @@
 ﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.GUI.Windows
 {
@@ -27,14 +22,6 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 				extractItem.Click += (sender, e) => Extract_Click(binaryFileName);
 				ExtractMenuItem.Items.Add(extractItem);
 			}
-
-			DispatcherTimer timer = new DispatcherTimer();
-			timer.Tick += (sender, e) =>
-			{
-				InitializeBinaryFileSpecificOptions();
-				timer.Stop();
-			};
-			timer.Start();
 		}
 
 		private void Extract_Click(BinaryFileName binaryFileName)
@@ -67,7 +54,7 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 			switch (activeBinaryFileName)
 			{
 				case BinaryFileName.Audio:
-					MenuItem audioCompressItem = new MenuItem { Header = "Compress audio" };
+					MenuItem audioCompressItem = new MenuItem { Header = "Compress 'audio'" };
 					MenuItem audioImportAudioPathsItem = new MenuItem { Header = "Import Audio paths from folder" };
 					MenuItem audioImportLoudnessItem = new MenuItem { Header = "Import loudness file" };
 
@@ -80,18 +67,33 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 					BinaryFileSpecificOptions.Items.Add(audioImportLoudnessItem);
 					break;
 				case BinaryFileName.DD:
-					MenuItem ddCompressItem = new MenuItem { Header = "Compress DD" };
+					MenuItem ddCompressItem = new MenuItem { Header = "Compress 'dd'" };
 					MenuItem ddImportModelBindingPathsItem = new MenuItem { Header = "Import Model Binding paths from folder" };
 
-					ddCompressItem.Click += (sender, e) => DDModelBindingsTabControl.Handler.Compress();
+					//ddCompressItem.Click += (sender, e) => DDModelBindingsTabControl.Handler.Compress();
 					ddImportModelBindingPathsItem.Click += (sender, e) => DDModelBindingsTabControl.Handler.ImportFolder();
 
 					BinaryFileSpecificOptions.Items.Add(ddCompressItem);
 					BinaryFileSpecificOptions.Items.Add(ddImportModelBindingPathsItem);
 					break;
+				case BinaryFileName.Core:
+					MenuItem coreCompressItem = new MenuItem { Header = "Compress 'core'" };
+					MenuItem coreImportShaderPathsItem = new MenuItem { Header = "Import Shader paths from folder" };
+
+					coreCompressItem.Click += (sender, e) => CoreShadersTabControl.Handler.Compress();
+					coreImportShaderPathsItem.Click += (sender, e) => CoreShadersTabControl.Handler.ImportFolder();
+
+					BinaryFileSpecificOptions.Items.Add(coreCompressItem);
+					BinaryFileSpecificOptions.Items.Add(coreImportShaderPathsItem);
+					break;
 				default:
 					throw new Exception($"{nameof(BinaryFileName)} '{activeBinaryFileName}' has not been implemented in this method.");
 			}
+		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			InitializeBinaryFileSpecificOptions();
 		}
 	}
 }

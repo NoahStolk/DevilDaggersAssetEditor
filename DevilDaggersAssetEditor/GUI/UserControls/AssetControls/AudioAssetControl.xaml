@@ -13,11 +13,11 @@
 			<ColumnDefinition Width="4*" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<Label Grid.Column="0" Content="{Binding AssetName}" />
+		<TextBlock Grid.Column="0" Text="{Binding AssetName}" />
 		<TextBox Grid.Column="1" Name="TextBoxLoudness" Text="{Binding Loudness, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-		<Label Grid.Column="2" Content="{Binding Description}" />
+		<TextBlock Grid.Column="2" Text="{Binding Description}" />
 		<!--TODO: Fix binding and remove Name-->
-		<Label Grid.Column="3" Name="LabelEditorPath" Content="{Binding EditorPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<TextBlock Grid.Column="3" Name="TextBlockEditorPath" Text="{Binding EditorPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 		<Button Grid.Column="4" Click="ButtonBrowsePath_Click">Browse path</Button>
 	</Grid>
 </UserControl>

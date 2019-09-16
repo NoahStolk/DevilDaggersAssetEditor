@@ -5,15 +5,15 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.AssetControls
 {
-	public partial class ModelBindingAssetControl : UserControl
+	public partial class TextureAssetControl : UserControl
 	{
-		public ModelBindingAssetControlHandler Handler { get; private set; }
+		public TextureAssetControlHandler Handler { get; private set; }
 
-		public ModelBindingAssetControl(ModelBindingAsset asset)
+		public TextureAssetControl(TextureAsset asset)
 		{
 			InitializeComponent();
 
-			Handler = new ModelBindingAssetControlHandler(asset, this);
+			Handler = new TextureAssetControlHandler(asset, this);
 
 			Data.DataContext = asset;
 		}

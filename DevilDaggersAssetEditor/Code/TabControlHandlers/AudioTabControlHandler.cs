@@ -21,7 +21,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		protected override void UpdatePathLabel(AudioAsset asset)
 		{
 			AudioAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
-			ac.LabelEditorPath.Content = asset.EditorPath;
+			ac.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 
 		public void ImportLoudness()

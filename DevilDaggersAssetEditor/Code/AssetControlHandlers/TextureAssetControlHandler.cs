@@ -3,10 +3,10 @@ using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 
 namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 {
-	public class AudioAssetControlHandler : AbstractAssetControlHandler<AudioAsset, AudioAssetControl>
+	public class TextureAssetControlHandler : AbstractAssetControlHandler<TextureAsset, TextureAssetControl>
 	{
-		public AudioAssetControlHandler(AudioAsset asset, AudioAssetControl parent)
-			: base(asset, parent, "Audio files (*.wav)|*.wav")
+		public TextureAssetControlHandler(TextureAsset asset, TextureAssetControl parent)
+			: base(asset, parent, "Texture files (*.png)|*.png")
 		{
 		}
 

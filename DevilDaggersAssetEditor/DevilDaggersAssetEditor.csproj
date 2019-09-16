@@ -99,6 +99,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\UserControls\AssetControls\ShaderAssetControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UserControls\AssetControls\TextureAssetControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UserControls\AssetControls\ModelAssetControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UserControls\TabControls\TexturesTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UserControls\TabControls\ModelsTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UserControls\TabControls\ShadersTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GUI\UserControls\TabControls\AudioTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,13 +145,37 @@
     </Compile>
     <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\AudioAssetControlHandler.cs" />
+    <Compile Include="Code\AssetControlHandlers\ShaderAssetControlHandler.cs" />
+    <Compile Include="Code\AssetControlHandlers\TextureAssetControlHandler.cs" />
+    <Compile Include="Code\AssetControlHandlers\ModelAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ModelBindingAssetControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\AbstractTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ShadersTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\TexturesTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ModelsTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\ModelBindingsTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\AudioTabControlHandler.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="GUI\UserControls\AssetControls\AudioAssetControl.xaml.cs">
       <DependentUpon>AudioAssetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\AssetControls\ShaderAssetControl.xaml.cs">
+      <DependentUpon>ShaderAssetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\AssetControls\TextureAssetControl.xaml.cs">
+      <DependentUpon>TextureAssetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\AssetControls\ModelAssetControl.xaml.cs">
+      <DependentUpon>ModelAssetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\TabControls\TexturesTabControl.xaml.cs">
+      <DependentUpon>TexturesTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\TabControls\ModelsTabControl.xaml.cs">
+      <DependentUpon>ModelsTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\TabControls\ShadersTabControl.xaml.cs">
+      <DependentUpon>ShadersTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\TabControls\AudioTabControl.xaml.cs">
       <DependentUpon>AudioTabControl.xaml</DependentUpon>

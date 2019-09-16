@@ -7,13 +7,13 @@ using System;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 {
-	public partial class AudioTabControl : UserControl
+	public partial class ShadersTabControl : UserControl
 	{
 		public static readonly DependencyProperty BinaryFileNameProperty = DependencyProperty.Register
 		(
 			nameof(BinaryFileName),
 			typeof(string),
-			typeof(AudioTabControl)
+			typeof(ShadersTabControl)
 		);
 
 		public string BinaryFileName
@@ -22,18 +22,18 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 			set => SetValue(BinaryFileNameProperty, value);
 		}
 
-		public AudioTabControlHandler Handler { get; private set; }
+		public ShadersTabControlHandler Handler { get; private set; }
 
-		public AudioTabControl()
+		public ShadersTabControl()
 		{
 			InitializeComponent();
 		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
-			Handler = new AudioTabControlHandler((BinaryFileName)Enum.Parse(typeof(BinaryFileName), BinaryFileName));
+			Handler = new ShadersTabControlHandler((BinaryFileName)Enum.Parse(typeof(BinaryFileName), BinaryFileName));
 
-			foreach (AudioAssetControl ac in Handler.CreateUserControls())
+			foreach (ShaderAssetControl ac in Handler.CreateUserControls())
 				AssetEditor.Children.Add(ac);
 		}
 	}

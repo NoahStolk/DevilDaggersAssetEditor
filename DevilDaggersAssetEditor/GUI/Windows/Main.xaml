@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:tabControls="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls.TabControls"
         mc:Ignorable="d"
-        Title="Devil Daggers Asset Editor" Height="900" Width="1600">
+        Title="Devil Daggers Asset Editor" Height="900" Width="1600"
+		Loaded="Window_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="18"/>
@@ -16,20 +17,31 @@
 				<MenuItem Header="File">
 					<MenuItem Name="ExtractMenuItem" Header="Extract binary file" />
 					<Separator />
-					<MenuItem Name="BinaryFileSpecificOptions" Header="Audio">
-						
-					</MenuItem>
+					<MenuItem Name="BinaryFileSpecificOptions" Header="Audio" />
 				</MenuItem>
 			</Menu>
 		</DockPanel>
 		<TabControl Grid.Row="1" SelectionChanged="TabControl_SelectionChanged" Name="TabControl">
 			<TabItem Header="audio">
-				<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
+				<ScrollViewer>
+					<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
+				</ScrollViewer>
 			</TabItem>
 			<TabItem Header="dd">
-				<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileName="DD" />
+				<ScrollViewer>
+					<StackPanel>
+					<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileName="DD" />
+					<tabControls:ModelsTabControl x:Name="DDModelsTabControl" BinaryFileName="DD" />
+					<tabControls:ShadersTabControl x:Name="DDShadersTabControl" BinaryFileName="DD" />
+					<tabControls:TexturesTabControl x:Name="DDTexturesTabControl" BinaryFileName="DD" />
+					</StackPanel>
+				</ScrollViewer>
 			</TabItem>
-			<TabItem Header="core" IsEnabled="False"></TabItem>
+			<TabItem Header="core">
+				<ScrollViewer>
+					<tabControls:ShadersTabControl x:Name="CoreShadersTabControl" BinaryFileName="Core" />
+				</ScrollViewer>
+			</TabItem>
 			<TabItem Header="particle" IsEnabled="False"></TabItem>
 		</TabControl>
 	</Grid>

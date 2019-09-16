@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		protected override void UpdatePathLabel(ModelBindingAsset asset)
 		{
 			ModelBindingAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
-			ac.LabelEditorPath.Content = asset.EditorPath;
+			ac.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}
 }

@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+			 Loaded="UserControl_Loaded">
 	<Expander Header="Audio" IsExpanded="True">
 		<Grid>
 			<Grid.RowDefinitions>
@@ -18,16 +19,13 @@
 					<ColumnDefinition Width="2*" />
 					<ColumnDefinition Width="4*" />
 					<ColumnDefinition />
-					<ColumnDefinition Width="20" />
 				</Grid.ColumnDefinitions>
-				<Label Grid.Column="0" FontWeight="Bold">Asset name</Label>
-				<Label Grid.Column="1" FontWeight="Bold">Loudness</Label>
-				<Label Grid.Column="2" FontWeight="Bold">Description</Label>
-				<Label Grid.Column="3" FontWeight="Bold">Path</Label>
+				<TextBlock Grid.Column="0" FontWeight="Bold">Asset name</TextBlock>
+				<TextBlock Grid.Column="1" FontWeight="Bold">Loudness</TextBlock>
+				<TextBlock Grid.Column="2" FontWeight="Bold">Description</TextBlock>
+				<TextBlock Grid.Column="3" FontWeight="Bold">Path</TextBlock>
 			</Grid>
-			<ScrollViewer Grid.Row="1">
-				<StackPanel Name="AssetEditor" />
-			</ScrollViewer>
+			<StackPanel Grid.Row="1" Name="AssetEditor" />
 		</Grid>
 	</Expander>
 </UserControl>

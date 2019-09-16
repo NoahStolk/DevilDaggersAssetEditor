@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using DevilDaggersAssetEditor.Code.TabControlHandlers;
+using System;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 {
@@ -10,15 +11,14 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 	{
 		public static readonly DependencyProperty BinaryFileNameProperty = DependencyProperty.Register
 		(
-			"BinaryFileName",
-			typeof(BinaryFileName),
-			typeof(ModelBindingsTabControl),
-			new PropertyMetadata(BinaryFileName.DD)
+			nameof(BinaryFileName),
+			typeof(string),
+			typeof(ModelBindingsTabControl)
 		);
 
-		public BinaryFileName BinaryFileName
+		public string BinaryFileName
 		{
-			get => (BinaryFileName)GetValue(BinaryFileNameProperty);
+			get => (string)GetValue(BinaryFileNameProperty);
 			set => SetValue(BinaryFileNameProperty, value);
 		}
 
@@ -27,8 +27,11 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 		public ModelBindingsTabControl()
 		{
 			InitializeComponent();
+		}
 
-			Handler = new ModelBindingsTabControlHandler(BinaryFileName);
+		private void UserControl_Loaded(object sender, RoutedEventArgs e)
+		{
+			Handler = new ModelBindingsTabControlHandler((BinaryFileName)Enum.Parse(typeof(BinaryFileName), BinaryFileName));
 
 			foreach (ModelBindingAssetControl ac in Handler.CreateUserControls())
 				AssetEditor.Children.Add(ac);
