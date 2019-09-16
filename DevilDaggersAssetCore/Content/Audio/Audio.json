@@ -2,1946 +2,1946 @@
 	{
 		"Loudness": 1,
 		"AssetName": "andrasimpact",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "andrasrise",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "burrowcentipede",
-		"Description": "todo",
+		"Description": "Centipede burrow",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "chatterandras",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "chattercentipede",
-		"Description": "todo",
+		"Description": "Centipede idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "chattercentipede2",
-		"Description": "todo",
+		"Description": "Gigapede idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 20,
 		"AssetName": "chattergigaspider",
-		"Description": "todo",
+		"Description": "Spider II idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 50,
 		"AssetName": "chatterleviathan",
-		"Description": "todo",
+		"Description": "Leviathan idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "chatterminisquid",
-		"Description": "todo",
+		"Description": "Squid I idle (double?)",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 2,
 		"AssetName": "chatterskull",
-		"Description": "todo",
+		"Description": "Skull I idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "chatterskull2",
-		"Description": "todo",
+		"Description": "Skull II idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "chatterskull2black",
-		"Description": "todo",
+		"Description": "Transmuted Skull II idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "chatterskull3",
-		"Description": "todo",
+		"Description": "Skull III idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 20,
 		"AssetName": "chatterskull3black",
-		"Description": "todo",
+		"Description": "Transmuted Skull III idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "chatterskull4",
-		"Description": "todo",
+		"Description": "Skull IV idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "chatterskull4black",
-		"Description": "todo",
+		"Description": "Transmuted Skull IV idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "chatterskullblack",
-		"Description": "todo",
+		"Description": "Transmuted Skull I idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "chatterspider",
-		"Description": "todo",
+		"Description": "Spider I idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "chatterspiderling",
-		"Description": "todo",
+		"Description": "Spiderling idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "chattersquid",
-		"Description": "todo",
+		"Description": "Squid II idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "chattersquidsmall",
-		"Description": "todo",
+		"Description": "Squid I idle (double?)",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 15,
 		"AssetName": "chattersquidultra",
-		"Description": "todo",
+		"Description": "Squid III idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "chatterthorn",
-		"Description": "todo",
+		"Description": "Thorn idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "chatterultrapede",
-		"Description": "todo",
+		"Description": "Ghostpede idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "collectgib1",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "collectgib2",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "collectgib3",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "collectgibbase1",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "collectgibbase2",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "collectgibbase3",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "daggercall",
-		"Description": "todo",
+		"Description": "Default dagger in lobby",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "daggercall1bronze",
-		"Description": "todo",
+		"Description": "Bronze dagger in lobby",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "daggercall2silver",
-		"Description": "todo",
+		"Description": "Silver dagger in lobby",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "daggercall3gold",
-		"Description": "todo",
+		"Description": "Golden dagger in lobby",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "daggercall4devil",
-		"Description": "todo",
+		"Description": "Devil dagger in lobby",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.2,
 		"AssetName": "daggercollect",
-		"Description": "todo",
+		"Description": "Dagger lobby grab",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1000,
 		"AssetName": "daggercollect1bronze",
-		"Description": "todo",
+		"Description": "Bronze dagger unlock",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1000,
 		"AssetName": "daggercollect2silver",
-		"Description": "todo",
+		"Description": "Silver dagger unlock",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1000,
 		"AssetName": "daggercollect3gold",
-		"Description": "todo",
+		"Description": "Golden dagger unlock",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1000,
 		"AssetName": "daggercollect4devil",
-		"Description": "todo",
+		"Description": "Devil dagger unlock",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "daggerdivert",
-		"Description": "todo",
+		"Description": "Unused (Andras?)",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "daggerdrone",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1.4,
 		"AssetName": "daggerhit1",
-		"Description": "todo",
+		"Description": "Normal dagger hit enemy without dealing damage",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "daggerseek",
-		"Description": "todo",
+		"Description": "Homing dagger attracted by Ghostpede",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal1",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal2",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal3",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal4",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal5",
-		"Description": "todo",
+		"Description": "Unused?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "damageandras",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "damagecentipede",
-		"Description": "todo",
+		"Description": "Centipede gem comes off",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "damagecentipede2",
-		"Description": "todo",
+		"Description": "Gigapede gem comes off",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "damagegigaspider",
-		"Description": "todo",
+		"Description": "Spider II damage",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 66.6,
 		"AssetName": "damageleviathan",
-		"Description": "todo",
+		"Description": "Leviathan gem comes off",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "damagespider",
-		"Description": "todo",
+		"Description": "Spider I damage",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "damagesquid",
-		"Description": "todo",
+		"Description": "Squid I gem damage. Also plays when damaging other squid gems and Leviathan gems?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "damagesquid2",
-		"Description": "todo",
+		"Description": "Squid II gem comes off",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "damagesquid3",
-		"Description": "todo",
+		"Description": "Squid III gem comes off (or damage?)",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 35,
 		"AssetName": "damagesquid4",
-		"Description": "todo",
+		"Description": "Squid III gem comes off (or unused?)",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "damagethorn",
-		"Description": "todo",
+		"Description": "Thorn damage",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 50,
 		"AssetName": "damageultrapede",
-		"Description": "todo",
+		"Description": "Ghostpede gem comes off",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 99,
 		"AssetName": "death",
-		"Description": "todo",
+		"Description": "Player death from enemy",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "eggbounce",
-		"Description": "todo",
+		"Description": "Spider Egg I / Spider Egg II bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 50,
 		"AssetName": "eggburst",
-		"Description": "todo",
+		"Description": "Spider Egg I hatch",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "eggburst2",
-		"Description": "todo",
+		"Description": "Spider Egg II hatch",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "eggdrone",
-		"Description": "todo",
+		"Description": "Spider Egg I idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 2,
 		"AssetName": "eggdrone2",
-		"Description": "todo",
+		"Description": "Spider Egg II idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 40,
 		"AssetName": "eyearouse",
-		"Description": "todo",
+		"Description": "The Orb is locating Player",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 98,
 		"AssetName": "eyearousedrone",
-		"Description": "todo",
+		"Description": "The Orb sees Player",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "eyehit",
-		"Description": "todo",
+		"Description": "The Orb damage",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 2,
 		"AssetName": "eyepacifydrone",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 100,
 		"AssetName": "fall",
-		"Description": "todo",
+		"Description": "Player death from falling",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gibcollect",
-		"Description": "todo",
+		"Description": "Gem collect during Level 1 / 2 / 4",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gibcollectmagic",
-		"Description": "todo",
+		"Description": "Gem collect during Level 3",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gibdrone1",
-		"Description": "todo",
+		"Description": "Gem idle?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gibdrone2",
-		"Description": "todo",
+		"Description": "Gem idle?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gibdrone3",
-		"Description": "todo",
+		"Description": "Gem idle?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gigaricochet1",
-		"Description": "todo",
+		"Description": "Level 3 / 4 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gigaricochet2",
-		"Description": "todo",
+		"Description": "Level 3 / 4 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gigaricochet3",
-		"Description": "todo",
+		"Description": "Level 3 / 4 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gigaricochet4",
-		"Description": "todo",
+		"Description": "Level 3 / 4 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "gigaricochet5",
-		"Description": "todo",
+		"Description": "Level 3 / 4 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 2,
 		"AssetName": "highscore1",
-		"Description": "todo",
+		"Description": "Plays when beating your highscore.",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 2,
 		"AssetName": "highscore2",
-		"Description": "todo",
+		"Description": "Starts playing 10 seconds before beating the next person on your friends leaderboard's score.",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "jump1",
-		"Description": "todo",
+		"Description": "Player jump",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "jump2",
-		"Description": "todo",
+		"Description": "Player bunnyhop",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "jump3",
-		"Description": "todo",
+		"Description": "Player precise bunnyhop",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "killandras",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "killcentipede",
-		"Description": "todo",
+		"Description": "Centipede death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 40,
 		"AssetName": "killcentipede2",
-		"Description": "todo",
+		"Description": "Gigapede death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 40,
 		"AssetName": "killeye",
-		"Description": "todo",
+		"Description": "The Orb death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 75,
 		"AssetName": "killgigaspider",
-		"Description": "todo",
+		"Description": "Spider II death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 66.6,
 		"AssetName": "killleviathan",
-		"Description": "todo",
+		"Description": "Leviathan death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 50,
 		"AssetName": "killminisquid",
-		"Description": "todo",
+		"Description": "Squid I death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killskull1",
-		"Description": "todo",
+		"Description": "Skull I death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killskull2",
-		"Description": "todo",
+		"Description": "Skull I death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killskull3",
-		"Description": "todo",
+		"Description": "Skull I death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killskull4",
-		"Description": "todo",
+		"Description": "Skull I death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killskull5",
-		"Description": "todo",
+		"Description": "Skull I death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "killskullblack1",
-		"Description": "todo",
+		"Description": "Transmuted Skull I death",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "killskullblack2",
-		"Description": "todo",
+		"Description": "Transmuted Skull I death",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "killskullblack3",
-		"Description": "todo",
+		"Description": "Transmuted Skull I death",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "killskullblack4",
-		"Description": "todo",
+		"Description": "Transmuted Skull I death",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 55,
 		"AssetName": "killspider",
-		"Description": "todo",
+		"Description": "Spider I death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killspiderling1",
-		"Description": "todo",
+		"Description": "Spiderling death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killspiderling2",
-		"Description": "todo",
+		"Description": "Spiderling death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killspiderling3",
-		"Description": "todo",
+		"Description": "Spiderling death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killspiderling4",
-		"Description": "todo",
+		"Description": "Spiderling death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killspiderling5",
-		"Description": "todo",
+		"Description": "Spiderling death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 50,
 		"AssetName": "killsquid",
-		"Description": "todo",
+		"Description": "Squid II death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "killsuperskull",
-		"Description": "todo",
+		"Description": "Skull II death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 6,
 		"AssetName": "killsuperskull2",
-		"Description": "todo",
+		"Description": "Skull III death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 6,
 		"AssetName": "killsuperskull2black",
-		"Description": "todo",
+		"Description": "Transmuted Skull III death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "killsuperskull3",
-		"Description": "todo",
+		"Description": "Skull IV death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 6,
 		"AssetName": "killsuperskullblack",
-		"Description": "todo",
+		"Description": "Transmuted Skull II death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "killthorn",
-		"Description": "todo",
+		"Description": "Thorn death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "killultraskull",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "killultrasquid",
-		"Description": "todo",
+		"Description": "Squid III death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "land",
-		"Description": "todo",
+		"Description": "Land sound for Player",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 2,
 		"AssetName": "land2",
-		"Description": "todo",
+		"Description": "Land sound for Player",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "legends",
-		"Description": "todo",
+		"Description": "Easter egg music for skull thrones",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 97,
 		"AssetName": "leveldown",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "levelup2",
-		"Description": "todo",
+		"Description": "Level 2 upgrade",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "levelup3",
-		"Description": "todo",
+		"Description": "Level 3 upgrade",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "levelup4",
-		"Description": "todo",
+		"Description": "Level 4 upgrade",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 200,
 		"AssetName": "leviathanbeckon",
-		"Description": "todo",
+		"Description": "Leviathan/The Orb beckon",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 20,
 		"AssetName": "leviathanbeckon2",
-		"Description": "todo",
+		"Description": "Plays when any skull touches Leviathan's or The Orb's beckon ring.",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "leviathantransmute",
-		"Description": "todo",
+		"Description": "Plays when a skull is transmuted by Leviathan (and The Orb?).",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "magentadetonate1",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger explode",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "magentadetonate2",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger explode",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "magentadetonate3",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger explode",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "magentadetonate4",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger explode",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "magentadetonate5",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger explode",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "magentadrone",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "magentashot",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "magentastuckenemy1",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "magentastuckenemy2",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "magentastuckenemy3",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "magentastuckenemy4",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "magentastuckenemy5",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 9,
 		"AssetName": "magicpierce1",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 9,
 		"AssetName": "magicpierce2",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 9,
 		"AssetName": "magicpierce3",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 9,
 		"AssetName": "magicpierce4",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 9,
 		"AssetName": "magicpierce5",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger pierces an enemy",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "magicpulse",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat1",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat10",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat11",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat12",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat13",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat2",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat3",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat4",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat5",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat6",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat7",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat8",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meat9",
-		"Description": "todo",
+		"Description": "Small meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatbig1",
-		"Description": "todo",
+		"Description": "Big meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatbig2",
-		"Description": "todo",
+		"Description": "Big meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatbig3",
-		"Description": "todo",
+		"Description": "Big meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatbig4",
-		"Description": "todo",
+		"Description": "Big meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatbig5",
-		"Description": "todo",
+		"Description": "Big meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatbig6",
-		"Description": "todo",
+		"Description": "Big meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed1",
-		"Description": "todo",
+		"Description": "Medium meat bounces on the floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed2",
-		"Description": "todo",
+		"Description": "Medium meat bounces on the floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed3",
-		"Description": "todo",
+		"Description": "Medium meat bounces on the floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed4",
-		"Description": "todo",
+		"Description": "Medium meat bounces on the floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed5",
-		"Description": "todo",
+		"Description": "Medium meat bounces on the floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed6",
-		"Description": "todo",
+		"Description": "Medium meat bounces on the floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "menuatmos",
-		"Description": "todo",
+		"Description": "Main menu music",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "menutheme",
-		"Description": "todo",
+		"Description": "Devil Daggers splash screen music",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "polarity1e",
-		"Description": "todo",
+		"Description": "Arena east idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "polarity2w",
-		"Description": "todo",
+		"Description": "Arena west idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "polarity3n",
-		"Description": "todo",
+		"Description": "Arena north idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "polarity4s",
-		"Description": "todo",
+		"Description": "Arena south idle",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.2,
 		"AssetName": "rapid1",
-		"Description": "todo",
+		"Description": "Level 1 normal dagger spray",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.3,
 		"AssetName": "rapid2",
-		"Description": "todo",
+		"Description": "Level 2 normal dagger spray",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 0.5,
 		"AssetName": "rapid3",
-		"Description": "todo",
+		"Description": "Level 3 normal dagger spray",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "rapid4",
-		"Description": "todo",
+		"Description": "Level 4 normal dagger spray",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochet1",
-		"Description": "todo",
+		"Description": "Level 1 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochet2",
-		"Description": "todo",
+		"Description": "Level 1 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochet3",
-		"Description": "todo",
+		"Description": "Level 1 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochet4",
-		"Description": "todo",
+		"Description": "Level 1 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochet5",
-		"Description": "todo",
+		"Description": "Level 1 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagenta1",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagenta2",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagenta3",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagenta4",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagenta5",
-		"Description": "todo",
+		"Description": "Level 4 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagic1",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagic2",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagic3",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "ricochetmagic4",
-		"Description": "todo",
+		"Description": "Level 3 homing dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochetmed1",
-		"Description": "todo",
+		"Description": "Level 2 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochetmed2",
-		"Description": "todo",
+		"Description": "Level 2 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochetmed3",
-		"Description": "todo",
+		"Description": "Level 2 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochetmed4",
-		"Description": "todo",
+		"Description": "Level 2 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "ricochetmed5",
-		"Description": "todo",
+		"Description": "Level 2 normal dagger ricochet",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "secretsnake",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "secretsnake2",
-		"Description": "todo",
+		"Description": "Plays when discovering an easter egg in the lobby.",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard1",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard2",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard3",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard4",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard5",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "shot1",
-		"Description": "todo",
+		"Description": "Level 1 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1.5,
 		"AssetName": "shot2",
-		"Description": "todo",
+		"Description": "Level 2 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "shot3",
-		"Description": "todo",
+		"Description": "Level 3 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "shot3alt1",
-		"Description": "todo",
+		"Description": "Level 3 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "shot3alt2",
-		"Description": "todo",
+		"Description": "Level 3 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "shot3alt3",
-		"Description": "todo",
+		"Description": "Level 3 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 3,
 		"AssetName": "shot3alt4",
-		"Description": "todo",
+		"Description": "Level 3 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "shot4alt1",
-		"Description": "todo",
+		"Description": "Level 4 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "shot4alt2",
-		"Description": "todo",
+		"Description": "Level 4 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "shot4alt3",
-		"Description": "todo",
+		"Description": "Level 4 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "shot4alt4",
-		"Description": "todo",
+		"Description": "Level 4 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 5,
 		"AssetName": "shot4alt5",
-		"Description": "todo",
+		"Description": "Level 4 normal dagger shotgun",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "skullaggro",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop1",
-		"Description": "todo",
+		"Description": "Skull bounce with the floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop2",
-		"Description": "todo",
+		"Description": "Skull bounce with the floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop3",
-		"Description": "todo",
+		"Description": "Skull bounce with the floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop4",
-		"Description": "todo",
+		"Description": "Skull bounce with the floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop5",
-		"Description": "todo",
+		"Description": "Skull bounce with the floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop6",
-		"Description": "todo",
+		"Description": "Skull bounce with the floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "sorathlogo",
-		"Description": "todo",
+		"Description": "Sorath splash screen sound",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "sorathlogo2",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "sorathstone",
-		"Description": "todo",
+		"Description": "Sorath stone easter egg music",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 45,
 		"AssetName": "spawnandras",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 35,
 		"AssetName": "spawncentipede",
-		"Description": "todo",
+		"Description": "Centipede spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 35,
 		"AssetName": "spawncentipede2",
-		"Description": "todo",
+		"Description": "Gigapede spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "spawnegg",
-		"Description": "todo",
+		"Description": "Spider I / Spider II shoot egg",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 70,
 		"AssetName": "spawngigaspider",
-		"Description": "todo",
+		"Description": "Spider II spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 666,
 		"AssetName": "spawnleviathan",
-		"Description": "todo",
+		"Description": "Leviathan spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spawnminisquid",
-		"Description": "todo",
+		"Description": "Squid I spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 100,
 		"AssetName": "spawnplayer",
-		"Description": "todo",
+		"Description": "Player spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "spawnskulls",
-		"Description": "todo",
+		"Description": "Squid I gush",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "spawnskulls2",
-		"Description": "todo",
+		"Description": "Squid II gush",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "spawnskulls3",
-		"Description": "todo",
+		"Description": "Squid III gush",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spawnspider",
-		"Description": "todo",
+		"Description": "Spider I spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spawnsquid",
-		"Description": "todo",
+		"Description": "Squid II spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 120,
 		"AssetName": "spawnultrapede",
-		"Description": "todo",
+		"Description": "Ghostpede spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 70,
 		"AssetName": "spawnultrasquid",
-		"Description": "todo",
+		"Description": "Squid III spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spidereat1",
-		"Description": "todo",
+		"Description": "Spider I / Spider II eat gem",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spidereat2",
-		"Description": "todo",
+		"Description": "Spider I / Spider II eat gem",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spidereat3",
-		"Description": "todo",
+		"Description": "Spider I / Spider II eat gem",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spidereat4",
-		"Description": "todo",
+		"Description": "Spider I / Spider II eat gem",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spidereat5",
-		"Description": "todo",
+		"Description": "Spider I / Spider II eat gem",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 60,
 		"AssetName": "spidereat6",
-		"Description": "todo",
+		"Description": "Spider I / Spider II eat gem",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 35,
 		"AssetName": "splashgiga",
-		"Description": "todo",
+		"Description": "Squid II death splash",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 35,
 		"AssetName": "splashgiga2",
-		"Description": "todo",
+		"Description": "Centipede / Gigapede death splash",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 35,
 		"AssetName": "splashgiga3",
-		"Description": "todo",
+		"Description": "Spider I death splash",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 40,
 		"AssetName": "splashgiga4",
-		"Description": "todo",
+		"Description": "Squid III death splash",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 45,
 		"AssetName": "splashgiga5",
-		"Description": "todo",
+		"Description": "Spider II death splash",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 45,
 		"AssetName": "splashgiga6",
-		"Description": "todo",
+		"Description": "Ghostpede death splash",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "stealgib",
-		"Description": "todo",
+		"Description": "Gem attracted by spiders",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "stealgib2",
-		"Description": "todo",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 20,
 		"AssetName": "subchattercentipede",
-		"Description": "todo",
+		"Description": "Centipede / Gigapede / Ghostpede underground",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "thornemerge",
-		"Description": "todo",
+		"Description": "Thorn spawn",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib1",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib2",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib3",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib4",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib5",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib6",
-		"Description": "todo",
+		"Description": "?",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "uiclick",
-		"Description": "todo",
+		"Description": "User interface click",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "uihover",
-		"Description": "todo",
+		"Description": "User interface hover",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "uislider",
-		"Description": "todo",
+		"Description": "User interface slider",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 30,
 		"AssetName": "ultrapedecrash",
-		"Description": "todo",
+		"Description": "Ghostpede collide with floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 40,
 		"AssetName": "ultrapedeeat",
-		"Description": "todo",
+		"Description": "Ghostpede eat homing dagger",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 40,
 		"AssetName": "ultrapedefall",
-		"Description": "todo",
+		"Description": "Ghostpede death",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "unburrowcentipede",
-		"Description": "todo",
+		"Description": "Centipede emerge?",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	}
 	//{
 	//	"Loudness": 1.5,
 	//	"AssetName": "collectgib1loop",
-	//	"Description": "todo",
+	//	"Description": "?",
 	//	"PresentInDefaultLoudness": true,
 	//	"TypeName": "AudioChunk"
 	//},
 	//{
 	//	"Loudness": 1.0,
 	//	"AssetName": "collectgib2loop",
-	//	"Description": "todo",
+	//	"Description": "?",
 	//	"PresentInDefaultLoudness": true,
 	//	"TypeName": "AudioChunk"
 	//},
 	//{
 	//	"Loudness": 0.5,
 	//	"AssetName": "collectgib3loop",
-	//	"Description": "todo",
+	//	"Description": "?",
 	//	"PresentInDefaultLoudness": true,
 	//	"TypeName": "AudioChunk"
 	//},
 	//{
 	//	"Loudness": 98.0,
 	//	"AssetName": "eyepacify",
-	//	"Description": "todo",
+	//	"Description": "?",
 	//	"PresentInDefaultLoudness": true,
 	//	"TypeName": "AudioChunk"
 	//},
 	//{
 	//	"Loudness": 10.0,
 	//	"AssetName": "ricochetmagic5",
-	//	"Description": "todo",
+	//	"Description": "?",
 	//	"PresentInDefaultLoudness": true,
 	//	"TypeName": "AudioChunk"
 	//}

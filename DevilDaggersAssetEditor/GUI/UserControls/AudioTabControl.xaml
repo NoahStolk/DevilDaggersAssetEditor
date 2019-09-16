@@ -21,15 +21,15 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
-					<!--<ColumnDefinition Width="2*" />-->
+					<ColumnDefinition Width="2*" />
 					<ColumnDefinition Width="4*" />
 					<ColumnDefinition />
 					<ColumnDefinition Width="20" />
 				</Grid.ColumnDefinitions>
 				<Label Grid.Column="0" FontWeight="Bold">Asset name</Label>
 				<Label Grid.Column="1" FontWeight="Bold">Loudness</Label>
-				<!--<Label Grid.Column="2" FontWeight="Bold">Description</Label>-->
-				<Label Grid.Column="2" FontWeight="Bold">Path</Label>
+				<Label Grid.Column="2" FontWeight="Bold">Description</Label>
+				<Label Grid.Column="3" FontWeight="Bold">Path</Label>
 			</Grid>
 			<ScrollViewer Grid.Row="2">
 				<StackPanel Name="AssetEditor" />
