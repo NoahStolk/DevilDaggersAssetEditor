@@ -1,0 +1,802 @@
+[
+	{
+		"AssetName": "bat",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood10",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood11",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood4",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood5",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood6",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood7",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood8",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "blood9",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid2horns",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid3horns",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid3jaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid4",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "boid4jaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "bottom",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "dagger",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ember1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ember2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ember3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "feather1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "feather2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame4",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame5",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame6",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame7",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "flame8",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gib",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gib1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gib2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gib3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaegg",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspiderbody",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspidercrest",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspiderfangs",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspiderfangs2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspiderhead",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspiderhorns",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspiderjaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "gigaspiderpalm",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "hand",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "hand2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "hand2left",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "hand3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "hand3left",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "hand4",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "hand4left",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "handleft",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "immortalorb",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levicrown",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levicrown2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levicrown2jaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levicrownjaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levideath",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levidividerskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levigem",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levigem2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "leviorb",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "leviskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "leviskull2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "leviskulljaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levitent",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "levitent2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "light_sphere",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "logodagger",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "logohand",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "minisquidcrest",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "minisquidcrestskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "minisquidgem",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "minisquidhorns",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "minisquidjaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "minisquidjawskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib10",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib11",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib12",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib13",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib14",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib15",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib16",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib4",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib5",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib6",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib7",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib8",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "orbgib9",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "owlwing",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedebody",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedehead",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedejaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedeleg1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedeleg2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedeleg3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedetail",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedetaillegs",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pedeweak",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "pillar",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "plane400",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "rubble",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "smokeblob1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "smokeblob2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "smokeblob3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "smokeblob4",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "sorathstone",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderbody",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spideregg1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spideregg2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderfangs",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spidergib",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderhead",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderjaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderleg1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderleg1f",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderleg2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderleg2f",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderleg3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderleg3f",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderling",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderlingleg1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderlingleg2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderlingleg3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderlingpalms",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderpalm",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "spiderpalmf",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidarm",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidcrest",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidcrestskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidgem",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidhorns",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidjaws",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidjawskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "squidteeth",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "statue1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "statue2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "statue3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "thorn",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "thorngib1",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "thorngib2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "thorngib3",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "tile",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "tile2",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrapedecrown",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidcrest",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidcrestskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidgem",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidhorns",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidjaw",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidjawskull",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidteeth",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	},
+	{
+		"AssetName": "ultrasquidtent",
+		"Description": "?",
+		"TypeName": "ModelChunk"
+	}
+]

@@ -1,0 +1,32 @@
+[
+	{
+		"AssetName": "guifont_fragment",
+		"Description": "?",
+		"TypeName": "ShaderChunk"
+	},
+	{
+		"AssetName": "guifont_vertex",
+		"Description": "?",
+		"TypeName": "ShaderChunk"
+	},
+	{
+		"AssetName": "gui_fragment",
+		"Description": "?",
+		"TypeName": "ShaderChunk"
+	},
+	{
+		"AssetName": "gui_vertex",
+		"Description": "?",
+		"TypeName": "ShaderChunk"
+	},
+	{
+		"AssetName": "test_fragment",
+		"Description": "?",
+		"TypeName": "ShaderChunk"
+	},
+	{
+		"AssetName": "test_vertex",
+		"Description": "?",
+		"TypeName": "ShaderChunk"
+	}
+]

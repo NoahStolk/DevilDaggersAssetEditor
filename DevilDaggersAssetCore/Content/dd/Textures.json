@@ -1,0 +1,1377 @@
+[
+	{
+		"AssetName": "blood",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2horns",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2hornsgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2hornshit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2hornslev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2lev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid2levgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3horns",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3hornsgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3hornshit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3hornslev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3jaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3jawgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3jawhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3jawlev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid3lev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4jaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4jawgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4jawhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4jawlev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boid4lev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boidgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boidhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "boidlev",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "bottom",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "crystal",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "dagger",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "dagger0",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "dagger2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "dagger3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "dagger4",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "dagger5",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "dagger6",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "daggerbronze",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "daggergold",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "daggersilver",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "emberflame",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "feather",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontbronze",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontbronzeover",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontdevil",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontdevilover",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontgold",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontgoldover",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontgrad",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontgrad2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontgrad3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontpleb",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontplebover",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontsilver",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "fontsilverover",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib1a",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib1b",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib1c",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib1d",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib2a",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib2b",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib2c",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib2d",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib3a",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib3b",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib3c",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gib3d",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaegg",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderbody",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspidercrest",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspidercrestgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspidercresthit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderfangs",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderfangs2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderfangs2gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderfangs2hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderhead",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderhorns",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderhornsgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderhornshit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderjaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderleg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderleg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderleg3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "gigaspiderpalm",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "hand",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "hand0",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "hand2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "hand3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "hand4",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "hand5",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "hand6",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "iconcrosshair",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "icondagger",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "iconeye",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "iconeye2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "icongem",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "iconreplay",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "iconreplay2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "iconskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "iconstopwatch",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levicrown",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levicrown2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levicrown2jaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levicrownjaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levideath",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levidividerskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levileg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levileg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levileg3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "leviskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "leviskull2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "leviskulljaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levitent",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levitent2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levitentgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "levitenthit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "leviwarp",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "leviwarpover",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "logodagger",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "logodagger2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "logohand",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "logotext",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "lut",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "minisquidarm",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "minisquidcrest",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "minisquidcrestskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "minisquidhorns",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "minisquidjaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "minisquidjawskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblackbody",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblackhead",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblackjaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblackleg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblackleg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblackleg3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblacktail",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeblacktaillegs",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedebody",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedebodyfragged",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedebodygib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedebodyhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedehead",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeheadgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeheadhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedejaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedejawgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedejawhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg1gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg1hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg2gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg2hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg3gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedeleg3hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedetail",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedetailgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedetailhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedetaillegs",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedetaillegsgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pedetaillegshit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "pillar",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_bronzeflash",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_collect",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_dagger",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_death",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_devilflash",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_goldflash",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_leveldown",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_levelup",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_levi",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "post_lut_silverflash",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "rubble",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "skulltile",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "smokeblob",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "sorathmask",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "sorathstone",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "sorathtexture",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "sorathvector",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderbody",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderbodygib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderbodyhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spideregg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spideregg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spidereggflash",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderfangs",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderfangsgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderfangshit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderhead",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderheadgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderheadhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderjaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderjawgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderjawhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg1gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg1hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg2gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg2hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg3gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderleg3hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderling",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlinggib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlinghit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg1gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg1hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg2gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg2hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg3gib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingleg3hit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingpalm",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingpalmgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderlingpalmhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderpalm",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderpalmgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "spiderpalmhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidarm",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidarmgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidarmhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidcrest",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidcrestgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidcresthit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidcrestskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidcrestskullgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidcrestskullhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidhorns",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidjaws",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidjawsgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidjawshit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidjawskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidjawskullfragged",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidjawskullgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidjawskullhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidteeth",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidteethgib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "squidteethhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "statue1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "statue2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "statue3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "thorn",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "thorngib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "thornhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "tile",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedebody",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedebodyfragged",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedecrown",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedecrowngib",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedecrownhit",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedehead",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedejaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedeleg1",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedeleg2",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedeleg3",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrapedetail",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrasquidcrest",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrasquidcrestskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrasquidhorns",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrasquidjaw",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	},
+	{
+		"AssetName": "ultrasquidjawskull",
+		"Description": "?",
+		"TypeName": "TextureChunk"
+	}
+]
