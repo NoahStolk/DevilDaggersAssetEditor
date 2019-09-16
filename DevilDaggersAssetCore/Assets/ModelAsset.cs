@@ -2,8 +2,8 @@
 {
 	public class ModelAsset : AbstractAsset
 	{
-		public ModelAsset(string fileName, string description, string typeName)
-			: base(fileName, description, typeName)
+		public ModelAsset(string assetName, string description, string typeName)
+			: base(assetName, description, typeName)
 		{
 		}
 	}

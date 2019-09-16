@@ -2,8 +2,8 @@
 {
 	public class TextureAsset : AbstractAsset
 	{
-		public TextureAsset(string fileName, string description, string typeName)
-			: base(fileName, description, typeName)
+		public TextureAsset(string assetName, string description, string typeName)
+			: base(assetName, description, typeName)
 		{
 		}
 	}

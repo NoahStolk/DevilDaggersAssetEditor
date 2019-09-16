@@ -95,11 +95,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\UserControls\AudioAssetControl.xaml">
+    <Page Include="GUI\UserControls\AssetControls\AudioAssetControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\UserControls\AudioTabControl.xaml">
+    <Page Include="GUI\UserControls\TabControls\AudioTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\AssetControls\ModelBindingAssetControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\TabControls\ModelBindingsTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,12 +119,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
+    <Compile Include="Code\AssetControlHandlers\AudioAssetControlHandler.cs" />
+    <Compile Include="Code\AssetControlHandlers\ModelBindingAssetControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\AbstractTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ModelBindingsTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\AudioTabControlHandler.cs" />
     <Compile Include="Code\Utils.cs" />
-    <Compile Include="GUI\UserControls\AudioAssetControl.xaml.cs">
+    <Compile Include="GUI\UserControls\AssetControls\AudioAssetControl.xaml.cs">
       <DependentUpon>AudioAssetControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\AudioTabControl.xaml.cs">
+    <Compile Include="GUI\UserControls\TabControls\AudioTabControl.xaml.cs">
       <DependentUpon>AudioTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\AssetControls\ModelBindingAssetControl.xaml.cs">
+      <DependentUpon>ModelBindingAssetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\TabControls\ModelBindingsTabControl.xaml.cs">
+      <DependentUpon>ModelBindingsTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>

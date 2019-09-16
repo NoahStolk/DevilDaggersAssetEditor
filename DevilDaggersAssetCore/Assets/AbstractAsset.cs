@@ -14,9 +14,9 @@ namespace DevilDaggersAssetCore.Assets
 
 		public string EditorPath { get; set; } = "<NONE SPECIFIED>";
 
-		protected AbstractAsset(string fileName, string description, string typeName)
+		protected AbstractAsset(string assetName, string description, string typeName)
 		{
-			AssetName = fileName;
+			AssetName = assetName;
 			Description = description;
 			TypeName = typeName;
 		}

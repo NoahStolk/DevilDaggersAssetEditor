@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls"
+        xmlns:tabControls="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls.TabControls"
         mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="900" Width="1600">
 	<Grid>
@@ -24,9 +24,11 @@
 		</DockPanel>
 		<TabControl Grid.Row="1" SelectionChanged="TabControl_SelectionChanged" Name="TabControl">
 			<TabItem Header="audio">
-				<local:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
+				<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
 			</TabItem>
-			<TabItem Header="dd" IsEnabled="False"></TabItem>
+			<TabItem Header="dd">
+				<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileName="DD" />
+			</TabItem>
 			<TabItem Header="core" IsEnabled="False"></TabItem>
 			<TabItem Header="particle" IsEnabled="False"></TabItem>
 		</TabControl>

@@ -1,8 +1,12 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -64,35 +68,30 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 			{
 				case BinaryFileName.Audio:
 					MenuItem audioCompressItem = new MenuItem { Header = "Compress audio" };
-					MenuItem audioImportPathsItem = new MenuItem { Header = "Import audio paths from folder" };
+					MenuItem audioImportAudioPathsItem = new MenuItem { Header = "Import Audio paths from folder" };
 					MenuItem audioImportLoudnessItem = new MenuItem { Header = "Import loudness file" };
 
-					audioCompressItem.Click += AudioCompressItem_Click;
-					audioImportPathsItem.Click += AudioImportPathsItem_Click;
-					audioImportLoudnessItem.Click += AudioImportLoudnessItem_Click;
+					audioCompressItem.Click += (sender, e) => AudioAudioTabControl.Handler.Compress();
+					audioImportAudioPathsItem.Click += (sender, e) => AudioAudioTabControl.Handler.ImportFolder();
+					audioImportLoudnessItem.Click += (sender, e) => AudioAudioTabControl.Handler.ImportLoudness();
 
 					BinaryFileSpecificOptions.Items.Add(audioCompressItem);
-					BinaryFileSpecificOptions.Items.Add(audioImportPathsItem);
+					BinaryFileSpecificOptions.Items.Add(audioImportAudioPathsItem);
 					BinaryFileSpecificOptions.Items.Add(audioImportLoudnessItem);
+					break;
+				case BinaryFileName.DD:
+					MenuItem ddCompressItem = new MenuItem { Header = "Compress DD" };
+					MenuItem ddImportModelBindingPathsItem = new MenuItem { Header = "Import Model Binding paths from folder" };
+
+					ddCompressItem.Click += (sender, e) => DDModelBindingsTabControl.Handler.Compress();
+					ddImportModelBindingPathsItem.Click += (sender, e) => DDModelBindingsTabControl.Handler.ImportFolder();
+
+					BinaryFileSpecificOptions.Items.Add(ddCompressItem);
+					BinaryFileSpecificOptions.Items.Add(ddImportModelBindingPathsItem);
 					break;
 				default:
 					throw new Exception($"{nameof(BinaryFileName)} '{activeBinaryFileName}' has not been implemented in this method.");
 			}
-		}
-
-		private void AudioCompressItem_Click(object sender, RoutedEventArgs e)
-		{
-			AudioTabControl.Compress();
-		}
-
-		private void AudioImportPathsItem_Click(object sender, RoutedEventArgs e)
-		{
-			AudioTabControl.ImportFolder();
-		}
-
-		private void AudioImportLoudnessItem_Click(object sender, RoutedEventArgs e)
-		{
-			AudioTabControl.ImportLoudness();
 		}
 	}
 }
