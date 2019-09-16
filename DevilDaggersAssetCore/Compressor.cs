@@ -71,7 +71,7 @@ namespace DevilDaggersAssetCore
 						Buffer.BlockCopy(BitConverter.GetBytes(startOffset), 0, tocBuffer, (int)startOffsetBytePositions[chunk], sizeof(uint));
 
 						// Write asset data to asset stream.
-						byte[] bytes = chunk.Compress();
+						byte[] bytes = chunk.GetBuffer();
 						assetStream.Write(bytes, 0, bytes.Length);
 					}
 				}
@@ -96,7 +96,7 @@ namespace DevilDaggersAssetCore
 		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(List<AbstractAsset> allAssets, BinaryFileName binaryFileName)
 		{
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
-			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => binaryFileName.HasFlag(c.BinaryFileName) || c.BinaryFileName.HasFlag(binaryFileName)))
+			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => binaryFileName.HasFlagBothWays(c.BinaryFileName)))
 			{
 				StringBuilder loudness = new StringBuilder();
 
@@ -138,11 +138,11 @@ namespace DevilDaggersAssetCore
 						Buffer.BlockCopy(headerBuffer, 0, chunkBuffer, 0, headerBuffer.Length);
 						Buffer.BlockCopy(fileBuffer, 0, chunkBuffer, headerBuffer.Length, fileBuffer.Length);
 
-						chunk.Init(chunkBuffer);
+						chunk.SetBuffer(chunkBuffer);
 					}
 					else
 					{
-						chunk.Init(fileBuffer);
+						chunk.SetBuffer(fileBuffer);
 					}
 
 					chunks.Add(chunk);
@@ -160,7 +160,7 @@ namespace DevilDaggersAssetCore
 					}
 
 					AbstractChunk loudnessChunk = (AbstractChunk)Activator.CreateInstance(chunkInfo.Type, "loudness", 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length, 0U);
-					loudnessChunk.Init(fileBuffer);
+					loudnessChunk.SetBuffer(fileBuffer);
 					chunks.Add(loudnessChunk);
 				}
 

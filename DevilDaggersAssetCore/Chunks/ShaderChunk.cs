@@ -31,7 +31,7 @@ namespace DevilDaggersAssetCore.Chunks
 			};
 		}
 
-		public override IEnumerable<FileResult> Extract()
+		public override IEnumerable<FileResult> ToFileResult()
 		{
 			byte[] vertexBuffer = new byte[Header.VertexSize];
 			System.Buffer.BlockCopy(Buffer, Name.Length, vertexBuffer, 0, (int)Header.VertexSize);

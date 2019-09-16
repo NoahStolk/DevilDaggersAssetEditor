@@ -4,12 +4,13 @@ namespace DevilDaggersAssetCore.Headers
 {
 	public class TextureHeader : AbstractHeader
 	{
-		public TextureHeader(byte[] bytes)
+		public TextureHeader(byte[] chunkBuffer)
+			: base(chunkBuffer)
 		{
-			Unknown = BitConverter.ToUInt16(bytes, 0);
-			Width = BitConverter.ToUInt32(bytes, 2);
-			Height = BitConverter.ToUInt32(bytes, 6);
-			Mipmaps = bytes[10];
+			Unknown = BitConverter.ToUInt16(Buffer, 0);
+			Width = BitConverter.ToUInt32(Buffer, 2);
+			Height = BitConverter.ToUInt32(Buffer, 6);
+			Mipmaps = Buffer[10];
 		}
 
 		public override int ByteCount => 11;

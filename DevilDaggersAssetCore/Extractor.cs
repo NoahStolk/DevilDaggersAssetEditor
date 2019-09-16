@@ -55,7 +55,7 @@ namespace DevilDaggersAssetCore
 
 		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks, BinaryFileName binaryFileName)
 		{
-			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => binaryFileName.HasFlag(c.BinaryFileName) || c.BinaryFileName.HasFlag(binaryFileName)))
+			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => binaryFileName.HasFlagBothWays(c.BinaryFileName)))
 				Directory.CreateDirectory(Path.Combine(outputPath, chunkInfo.FolderName));
 
 			foreach (AbstractChunk chunk in chunks)
@@ -66,15 +66,11 @@ namespace DevilDaggersAssetCore
 				byte[] buf = new byte[chunk.Size];
 				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);
 
-				chunk.Init(buf);
+				chunk.SetBuffer(buf);
 
 				ChunkInfo info = BinaryFileUtils.ChunkInfos.Where(c => c.Type == chunk.GetType()).FirstOrDefault();
-				foreach (FileResult fileResult in chunk.Extract())
-				{
-					string fileName = $"{fileResult.Name}{info.FileExtension}";
-
-					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, fileName), fileResult.Buffer);
-				}
+				foreach (FileResult fileResult in chunk.ToFileResult())
+					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{info.FileExtension}"), fileResult.Buffer);
 			}
 		}
 	}

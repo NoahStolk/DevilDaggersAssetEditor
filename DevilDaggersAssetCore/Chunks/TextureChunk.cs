@@ -14,7 +14,7 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		public override IEnumerable<FileResult> Extract()
+		public override IEnumerable<FileResult> ToFileResult()
 		{
 			using Bitmap bitmap = new Bitmap((int)Header.Width, (int)Header.Height, (int)Header.Width * 4, PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 0));
 			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
@@ -24,14 +24,14 @@ namespace DevilDaggersAssetCore.Chunks
 				for (int y = 0; y < bitmap.Height; y++)
 				{
 					Color pixel = bitmap.GetPixel(x, y);
-					bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels.
+					bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse rgb).
 				}
 			}
 
-			yield return new FileResult(Name, GetBytes(bitmap));
+			yield return new FileResult(Name, GetBitmapBytes(bitmap));
 		}
 
-		private static byte[] GetBytes(Bitmap image)
+		private static byte[] GetBitmapBytes(Bitmap image)
 		{
 			MemoryStream memoryStream = new MemoryStream();
 

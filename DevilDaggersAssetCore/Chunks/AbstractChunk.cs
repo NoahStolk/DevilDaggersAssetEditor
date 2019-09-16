@@ -29,19 +29,19 @@ namespace DevilDaggersAssetCore.Chunks
 			return Name;
 		}
 
-		public virtual void Init(byte[] buffer)
+		public virtual void SetBuffer(byte[] buffer)
 		{
 			Buffer = buffer;
 		}
 
-		public virtual IEnumerable<FileResult> Extract()
-		{
-			yield return new FileResult(ChunkNameToFileName(), Buffer);
-		}
-
-		public virtual byte[] Compress()
+		public virtual byte[] GetBuffer()
 		{
 			return Buffer;
+		}
+
+		public virtual IEnumerable<FileResult> ToFileResult()
+		{
+			yield return new FileResult(ChunkNameToFileName(), GetBuffer());
 		}
 
 		public override string ToString()

@@ -21,7 +21,7 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		public override IEnumerable<FileResult> Extract()
+		public override IEnumerable<FileResult> ToFileResult()
 		{
 			Vertex[] vertices = new Vertex[Header.VertexCount];
 			uint[] indices = new uint[Header.IndexCount];
