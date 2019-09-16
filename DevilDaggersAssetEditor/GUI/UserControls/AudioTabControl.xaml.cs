@@ -14,7 +14,19 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 {
 	public partial class AudioTabControl : UserControl
 	{
-		private readonly BinaryFileName BinaryFileName = BinaryFileName.Audio;
+		public static readonly DependencyProperty BinaryFileNameProperty = DependencyProperty.Register
+		(
+			"BinaryFileName",
+			typeof(BinaryFileName),
+			typeof(AudioTabControl),
+			new PropertyMetadata(BinaryFileName.Audio)
+		);
+
+		public BinaryFileName BinaryFileName
+		{
+			get => (BinaryFileName)GetValue(BinaryFileNameProperty);
+			set => SetValue(BinaryFileNameProperty, value);
+		}
 
 		public List<AudioAsset> AudioAssets { get; private set; } = new List<AudioAsset>();
 
@@ -24,7 +36,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 		{
 			InitializeComponent();
 
-			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream("DevilDaggersAssetCore.Content.Audio.Audio.json")))
+			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{BinaryFileName.ToString().ToLower()}.Audio.json")))
 				AudioAssets = JsonConvert.DeserializeObject<List<AudioAsset>>(sr.ReadToEnd());
 
 			foreach (AudioAsset audioAsset in AudioAssets)

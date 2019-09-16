@@ -24,7 +24,7 @@
 		</DockPanel>
 		<TabControl Grid.Row="1" SelectionChanged="TabControl_SelectionChanged" Name="TabControl">
 			<TabItem Header="audio">
-				<local:AudioTabControl x:Name="AudioTabControl" />
+				<local:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
 			</TabItem>
 			<TabItem Header="dd" IsEnabled="False"></TabItem>
 			<TabItem Header="core" IsEnabled="False"></TabItem>
