@@ -9,15 +9,9 @@
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="20" />
-				<RowDefinition Height="20" />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			<StackPanel Grid.Row="0" Orientation="Horizontal">
-				<Button Width="192" Margin="0,0,4,0" Click="Compress_Click">Compress audio</Button>
-				<Button Width="192" Margin="4,0,4,0" Click="ImportFolder_Click">Import audio paths from folder</Button>
-				<Button Width="192" Margin="4,0,4,0" Click="ImportLoudness_Click">Import loudness file</Button>
-			</StackPanel>
-			<Grid Grid.Row="1" Background="DarkGray">
+			<Grid Grid.Row="0" Background="DarkGray">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
@@ -31,7 +25,7 @@
 				<Label Grid.Column="2" FontWeight="Bold">Description</Label>
 				<Label Grid.Column="3" FontWeight="Bold">Path</Label>
 			</Grid>
-			<ScrollViewer Grid.Row="2">
+			<ScrollViewer Grid.Row="1">
 				<StackPanel Name="AssetEditor" />
 			</ScrollViewer>
 		</Grid>

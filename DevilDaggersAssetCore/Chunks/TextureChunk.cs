@@ -31,7 +31,7 @@ namespace DevilDaggersAssetCore.Chunks
 			yield return new FileResult(Name, GetBytes(bitmap));
 		}
 
-		public static byte[] GetBytes(Bitmap image)
+		private static byte[] GetBytes(Bitmap image)
 		{
 			MemoryStream memoryStream = new MemoryStream();
 

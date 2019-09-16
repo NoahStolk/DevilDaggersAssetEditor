@@ -35,7 +35,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			}
 		}
 
-		private void Compress_Click(object sender, RoutedEventArgs e)
+		public void Compress()
 		{
 			bool complete = true;
 			foreach (AudioAsset audioAsset in AudioAssets)
@@ -65,7 +65,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			Compressor.Compress(AudioAssets.Cast<AbstractAsset>().ToList(), dialog.FileName, BinaryFileName);
 		}
 
-		private void ImportFolder_Click(object sender, RoutedEventArgs e)
+		public void ImportFolder()
 		{
 			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true })
 			{
@@ -88,7 +88,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			}
 		}
 
-		private void ImportLoudness_Click(object sender, RoutedEventArgs e)
+		public void ImportLoudness()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
 			bool? openResult = openDialog.ShowDialog();
@@ -136,21 +136,21 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			}
 
 			MessageBox.Show($"Total audio assets: {AudioAssets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}", "Loudness import results");
-		}
 
-		private bool ReadLoudnessLine(string line, out string assetName, out float loudness)
-		{
-			try
+			bool ReadLoudnessLine(string line, out string assetName, out float loudness)
 			{
-				assetName = line.Substring(0, line.IndexOf('='));
-				loudness = float.Parse(line.Substring(line.IndexOf('=') + 1, line.Length - assetName.Length - 1));
-				return true;
-			}
-			catch
-			{
-				assetName = null;
-				loudness = 0;
-				return false;
+				try
+				{
+					assetName = line.Substring(0, line.IndexOf('='));
+					loudness = float.Parse(line.Substring(line.IndexOf('=') + 1, line.Length - assetName.Length - 1));
+					return true;
+				}
+				catch
+				{
+					assetName = null;
+					loudness = 0;
+					return false;
+				}
 			}
 		}
 	}
