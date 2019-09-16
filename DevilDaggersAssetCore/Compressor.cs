@@ -14,7 +14,7 @@ namespace DevilDaggersAssetCore
 		/// <summary>
 		/// Compresses multiple asset files into one binary file that can be read by Devil Daggers.
 		/// </summary>
-		/// <param name="allAssets">The array of asset objects.</param>
+		/// <param name="allAssets">The list of asset objects.</param>
 		/// <param name="outputPath">The path where the compressed binary file will be placed.</param>
 		/// <param name="binaryFileName">The binary file name (audio or dd) to know which asset files to compress.</param>
 		public static void Compress(List<AbstractAsset> allAssets, string outputPath, BinaryFileName binaryFileName)

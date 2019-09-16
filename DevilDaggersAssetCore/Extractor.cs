@@ -11,7 +11,7 @@ namespace DevilDaggersAssetCore
 		/// <summary>
 		/// Extracts a compressed binary file into multiple asset files.
 		/// </summary>
-		/// <param name="inputPath">The path containing the binary file (C:\Program Files (x86)\Steam\steamapps\common\devildaggers\res).</param>
+		/// <param name="inputPath">The binary file path.</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
 		public static void Extract(string inputPath, string outputPath, BinaryFileName binaryFileName)
 		{

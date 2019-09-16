@@ -38,9 +38,9 @@ namespace DevilDaggersAssetCore
 		public static string ReadNullTerminatedString(byte[] buffer, int offset)
 		{
 			StringBuilder name = new StringBuilder();
-			for (int i = 0; i < buffer.Length - offset; i++)
+			for (int i = offset; i < buffer.Length; i++)
 			{
-				char c = (char)buffer[offset + i];
+				char c = (char)buffer[i];
 				if (c == '\0')
 					return name.ToString();
 				name.Append(c);
