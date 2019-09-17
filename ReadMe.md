@@ -1,8 +1,8 @@
-# Devil Daggers Asset Editor
+# Devil Daggers Asset Editor 0.1.0.0 ([Download](https://devildaggers.info/tools/DevilDaggersAssetEditor/DevilDaggersAssetEditor0.1.0.0.zip))
 
-Devil Daggers Asset Editor is a tool that can be used to extract assets from the Devil Daggers resource files. The program is currently a work in progress.
+Devil Daggers Asset Editor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as compressing them back to create mods. The program is currently in beta.
 
-## Features
+## Main features
 
 ~~Strikethrough~~ features are upcoming/planned features. These are not supported yet.
 
@@ -31,6 +31,29 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 	- ~~res/dd~~
 	- ~~core/core~~
 	- ~~dd/particle~~
+
+## System requirements
+
+- Microsoft Windows (64-bit)
+- .NET Framework 4.6.1
+
+## Installation
+
+1. Download the zip file.
+2. Unzip its contents.
+3. Run DevilDaggersAssetEditor.exe inside the folder.
+
+## Links
+
+- [DevilDaggers.info website](https://devildaggers.info)
+- [Main web page for DevilDaggersAssetEditor](https://devildaggers.info/Tools/DevilDaggersAssetEditor)
+- [Discord server](https://discord.gg/NF32j8S)
+
+## Changelog
+
+#### 0.1.0.0 - September 11, 2019
+
+Beta release.
 
 ## Credits
 
