@@ -23,15 +23,51 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 
 			foreach (BinaryFileName binaryFileName in (BinaryFileName[])Enum.GetValues(typeof(BinaryFileName)))
 			{
-				MenuItem extractItem = new MenuItem { Header = binaryFileName.ToString().ToLower(), IsEnabled = binaryFileName != BinaryFileName.Particle };
-				extractItem.Click += (sender, e) => Extract_Click(binaryFileName);
-				ExtractMenuItem.Items.Add(extractItem);
-			}
-		}
+				string bfn = binaryFileName.ToString().ToLower();
 
-		private void Window_Loaded(object sender, RoutedEventArgs e)
-		{
-			InitializeBinaryFileSpecificOptions();
+				MenuItem extractItem = new MenuItem { Header = $"Extract '{bfn}'" };
+				extractItem.Click += (sender, e) => Extract_Click(binaryFileName);
+
+				MenuItem compressItem = new MenuItem { Header = $"Compress '{bfn}'" };
+				compressItem.Click += (sender, e) => Compress_Click(binaryFileName);
+
+				MenuItem bfnItem = new MenuItem { Header = bfn, IsEnabled = binaryFileName != BinaryFileName.Particle };
+				bfnItem.Items.Add(extractItem);
+				bfnItem.Items.Add(compressItem);
+
+				switch (binaryFileName)
+				{
+					case BinaryFileName.Audio:
+						MenuItem audioAudioImport = new MenuItem { Header = $"Import Audio paths from folder" };
+						MenuItem loudnessImport = new MenuItem { Header = $"Import loudness from file" };
+						audioAudioImport.Click += (sender, e) => AudioAudioTabControl.Handler.ImportFolder();
+						loudnessImport.Click += (sender, e) => AudioAudioTabControl.Handler.ImportLoudness();
+						bfnItem.Items.Add(audioAudioImport);
+						bfnItem.Items.Add(loudnessImport);
+						break;
+					case BinaryFileName.DD:
+						MenuItem ddModelBindingImport = new MenuItem { Header = $"Import Model Binding paths from folder" };
+						MenuItem ddModelImport = new MenuItem { Header = $"Import Model paths from folder" };
+						MenuItem ddShaderImport = new MenuItem { Header = $"Import Shader paths from folder" };
+						MenuItem ddTextureImport = new MenuItem { Header = $"Import Texture paths from folder" };
+						ddModelBindingImport.Click += (sender, e) => DDModelBindingsTabControl.Handler.ImportFolder();
+						ddModelImport.Click += (sender, e) => DDModelsTabControl.Handler.ImportFolder();
+						ddShaderImport.Click += (sender, e) => DDShadersTabControl.Handler.ImportFolder();
+						ddTextureImport.Click += (sender, e) => DDTexturesTabControl.Handler.ImportFolder();
+						bfnItem.Items.Add(ddModelBindingImport);
+						bfnItem.Items.Add(ddModelImport);
+						bfnItem.Items.Add(ddShaderImport);
+						bfnItem.Items.Add(ddTextureImport);
+						break;
+					case BinaryFileName.Core:
+						MenuItem coreShaderImport = new MenuItem { Header = $"Import Shader paths from folder" };
+						coreShaderImport.Click += (sender, e) => DDShadersTabControl.Handler.ImportFolder(); ;
+						bfnItem.Items.Add(coreShaderImport);
+						break;
+				}
+
+				FileMenuItem.Items.Add(bfnItem);
+			}
 		}
 
 		private void Extract_Click(BinaryFileName binaryFileName)
@@ -49,122 +85,63 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 			}
 		}
 
-		private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void Compress_Click(BinaryFileName binaryFileName)
 		{
-			InitializeBinaryFileSpecificOptions();
-		}
-
-		private void InitializeBinaryFileSpecificOptions()
-		{
-			Enum.TryParse((TabControl.Items[TabControl.SelectedIndex] as TabItem).Header.ToString(), true, out activeBinaryFileName);
-
-			BinaryFileSpecificOptions.Header = activeBinaryFileName.ToString();
-			BinaryFileSpecificOptions.Items.Clear();
-
-			switch (activeBinaryFileName)
+			switch (binaryFileName)
 			{
 				case BinaryFileName.Audio:
-					MenuItem audioCompressItem = new MenuItem { Header = "Compress 'audio'" };
-					MenuItem audioImportAudioPathsItem = new MenuItem { Header = "Import Audio paths from folder" };
-					MenuItem audioImportLoudnessItem = new MenuItem { Header = "Import loudness file" };
+					if (!AudioAudioTabControl.Handler.IsComplete())
+					{
+						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
+						if (promptResult == MessageBoxResult.No)
+							return;
+					}
 
-					audioCompressItem.Click += (sender, e) => CompressAudio();
-					audioImportAudioPathsItem.Click += (sender, e) => AudioAudioTabControl.Handler.ImportFolder();
-					audioImportLoudnessItem.Click += (sender, e) => AudioAudioTabControl.Handler.ImportLoudness();
-
-					BinaryFileSpecificOptions.Items.Add(audioCompressItem);
-					BinaryFileSpecificOptions.Items.Add(audioImportAudioPathsItem);
-					BinaryFileSpecificOptions.Items.Add(audioImportLoudnessItem);
+					Compress(AudioAudioTabControl.Handler.Assets.Cast<AbstractAsset>().ToList());
 					break;
 				case BinaryFileName.DD:
-					MenuItem ddCompressItem = new MenuItem { Header = "Compress 'dd'" };
-					MenuItem ddImportModelBindingPathsItem = new MenuItem { Header = "Import Model Binding paths from folder" };
-					MenuItem ddImportModelPathsItem = new MenuItem { Header = "Import Model paths from folder" };
-					MenuItem ddImportShaderPathsItem = new MenuItem { Header = "Import Shader paths from folder" };
-					MenuItem ddImportTexturePathsItem = new MenuItem { Header = "Import Texture paths from folder" };
+					if (!DDModelBindingsTabControl.Handler.IsComplete()
+					 || !DDModelsTabControl.Handler.IsComplete()
+					 || !DDShadersTabControl.Handler.IsComplete()
+					 || !DDTexturesTabControl.Handler.IsComplete())
+					{
+						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
+						if (promptResult == MessageBoxResult.No)
+							return;
+					}
 
-					ddCompressItem.Click += (sender, e) => CompressDD();
-					ddImportModelBindingPathsItem.Click += (sender, e) => DDModelBindingsTabControl.Handler.ImportFolder();
-					ddImportModelPathsItem.Click += (sender, e) => DDModelsTabControl.Handler.ImportFolder();
-					ddImportShaderPathsItem.Click += (sender, e) => DDShadersTabControl.Handler.ImportFolder();
-					ddImportTexturePathsItem.Click += (sender, e) => DDTexturesTabControl.Handler.ImportFolder();
-
-					BinaryFileSpecificOptions.Items.Add(ddCompressItem);
-					BinaryFileSpecificOptions.Items.Add(ddImportModelBindingPathsItem);
-					BinaryFileSpecificOptions.Items.Add(ddImportModelPathsItem);
-					BinaryFileSpecificOptions.Items.Add(ddImportShaderPathsItem);
-					BinaryFileSpecificOptions.Items.Add(ddImportTexturePathsItem);
+					Compress(
+						DDModelBindingsTabControl.Handler.Assets.Cast<AbstractAsset>()
+						.Concat(DDModelsTabControl.Handler.Assets.Cast<AbstractAsset>())
+						.Concat(DDShadersTabControl.Handler.Assets.Cast<AbstractAsset>())
+						.Concat(DDTexturesTabControl.Handler.Assets.Cast<AbstractAsset>()).ToList());
 					break;
 				case BinaryFileName.Core:
-					MenuItem coreCompressItem = new MenuItem { Header = "Compress 'core'" };
-					MenuItem coreImportShaderPathsItem = new MenuItem { Header = "Import Shader paths from folder" };
+					if (!CoreShadersTabControl.Handler.IsComplete())
+					{
+						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
+						if (promptResult == MessageBoxResult.No)
+							return;
+					}
 
-					coreCompressItem.Click += (sender, e) => CompressCore();
-					coreImportShaderPathsItem.Click += (sender, e) => CoreShadersTabControl.Handler.ImportFolder();
-
-					BinaryFileSpecificOptions.Items.Add(coreCompressItem);
-					BinaryFileSpecificOptions.Items.Add(coreImportShaderPathsItem);
+					Compress(CoreShadersTabControl.Handler.Assets.Cast<AbstractAsset>().ToList());
 					break;
 				default:
-					throw new Exception($"{nameof(BinaryFileName)} '{activeBinaryFileName}' has not been implemented in this method.");
+					throw new Exception($"Method '{nameof(Compress_Click)}' not implemented for {nameof(BinaryFileName)} '{binaryFileName}'.");
 			}
-		}
 
-		private void CompressAudio()
-		{
-			if (!AudioAudioTabControl.Handler.IsComplete())
+			void Compress(List<AbstractAsset> assets)
 			{
-				MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
-				if (promptResult == MessageBoxResult.No)
+				SaveFileDialog dialog = new SaveFileDialog
+				{
+					InitialDirectory = Path.Combine(Utils.DDFolder, binaryFileName.GetSubfolderName())
+				};
+				bool? result = dialog.ShowDialog();
+				if (!result.HasValue || !result.Value)
 					return;
+
+				Compressor.Compress(assets, dialog.FileName, binaryFileName);
 			}
-
-			Compress(AudioAudioTabControl.Handler.Assets.Cast<AbstractAsset>().ToList(), BinaryFileName.Audio);
-		}
-
-		private void CompressDD()
-		{
-			if (!DDModelBindingsTabControl.Handler.IsComplete()
-			 || !DDModelsTabControl.Handler.IsComplete()
-			 || !DDShadersTabControl.Handler.IsComplete()
-			 || !DDTexturesTabControl.Handler.IsComplete())
-			{
-				MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
-				if (promptResult == MessageBoxResult.No)
-					return;
-			}
-
-			Compress(
-				DDModelBindingsTabControl.Handler.Assets.Cast<AbstractAsset>()
-				.Concat(DDModelsTabControl.Handler.Assets.Cast<AbstractAsset>())
-				.Concat(DDShadersTabControl.Handler.Assets.Cast<AbstractAsset>())
-				.Concat(DDTexturesTabControl.Handler.Assets.Cast<AbstractAsset>()).ToList(),
-				BinaryFileName.DD);
-		}
-
-		private void CompressCore()
-		{
-			if (!CoreShadersTabControl.Handler.IsComplete())
-			{
-				MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
-				if (promptResult == MessageBoxResult.No)
-					return;
-			}
-
-			Compress(CoreShadersTabControl.Handler.Assets.Cast<AbstractAsset>().ToList(), BinaryFileName.Core);
-		}
-
-		private void Compress(List<AbstractAsset> assets, BinaryFileName binaryFileName)
-		{
-			SaveFileDialog dialog = new SaveFileDialog
-			{
-				InitialDirectory = Path.Combine(Utils.DDFolder, binaryFileName.GetSubfolderName())
-			};
-			bool? result = dialog.ShowDialog();
-			if (!result.HasValue || !result.Value)
-				return;
-
-			Compressor.Compress(assets, dialog.FileName, binaryFileName);
 		}
 	}
 }
