@@ -70,7 +70,7 @@ namespace DevilDaggersAssetCore
 
 				ChunkInfo info = BinaryFileUtils.ChunkInfos.Where(c => c.Type == chunk.GetType()).FirstOrDefault();
 				foreach (FileResult fileResult in chunk.ToFileResult())
-					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{info.FileExtension}"), fileResult.Buffer);
+					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{(fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)}"), fileResult.Buffer);
 			}
 		}
 	}
