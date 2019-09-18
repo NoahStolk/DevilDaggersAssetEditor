@@ -14,7 +14,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 		}
 
-		protected override void UpdatePathLabel(TextureAsset asset)
+		public override void UpdatePathLabel(TextureAsset asset)
 		{
 			TextureAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;

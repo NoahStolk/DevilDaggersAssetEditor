@@ -19,17 +19,17 @@ namespace DevilDaggersAssetCore
 		public static readonly JsonSerializer DefaultSerializer = JsonSerializer.Create(DefaultSerializationSettings);
 		public static readonly JsonSerializer TypeNameSerializer = JsonSerializer.Create(TypeNameSerializationSettings);
 
-		public static void SerializeToFile(string path, object obj, bool includeType = false)
+		public static void SerializeToFile(string path, object obj, bool includeType = false, Formatting formatting = Formatting.Indented)
 		{
 			using StreamWriter sw = new StreamWriter(File.Create(path));
-			using JsonTextWriter jtw = new JsonTextWriter(sw) { Formatting = Formatting.Indented, IndentChar = '\t', Indentation = 1 };
+			using JsonTextWriter jtw = new JsonTextWriter(sw) { Formatting = formatting, IndentChar = '\t', Indentation = 1 };
 			if (includeType)
 				TypeNameSerializer.Serialize(jtw, obj);
 			else
 				DefaultSerializer.Serialize(jtw, obj);
 		}
 
-		public static T DeserializeFromFile<T>(string path, bool includeType)
+		public static T DeserializeFromFile<T>(string path, bool includeType = false)
 		{
 			using StreamReader sr = new StreamReader(File.OpenRead(path));
 			if (includeType)

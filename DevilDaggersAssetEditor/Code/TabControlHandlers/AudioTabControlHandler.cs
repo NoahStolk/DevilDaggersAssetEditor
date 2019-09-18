@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 
 namespace DevilDaggersAssetEditor.Code.TabControlHandlers
@@ -18,7 +19,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 		}
 
-		protected override void UpdatePathLabel(AudioAsset asset)
+		public override void UpdatePathLabel(AudioAsset asset)
 		{
 			AudioAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;
@@ -26,14 +27,14 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public void ImportLoudness()
 		{
-			OpenFileDialog openDialog = new OpenFileDialog();
-			bool? openResult = openDialog.ShowDialog();
+			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = "ini" };
+			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
 			Dictionary<string, float> values = new Dictionary<string, float>();
 			int lineNumber = 0;
-			foreach (string line in File.ReadAllLines(openDialog.FileName))
+			foreach (string line in File.ReadAllLines(dialog.FileName))
 			{
 				lineNumber++;
 				string lineClean = line
@@ -88,6 +89,19 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 					return false;
 				}
 			}
+		}
+
+		public void ExportLoudness()
+		{
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = "ini" };
+			bool? result = dialog.ShowDialog();
+			if (!result.HasValue || !result.Value)
+				return;
+
+			StringBuilder sb = new StringBuilder();
+			foreach (AudioAsset audioAsset in Assets)
+				sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
+			File.WriteAllText(dialog.FileName, sb.ToString());
 		}
 	}
 }

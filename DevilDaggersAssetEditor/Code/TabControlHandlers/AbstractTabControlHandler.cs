@@ -23,7 +23,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
 
-		protected abstract void UpdatePathLabel(TAsset asset);
+		public abstract void UpdatePathLabel(TAsset asset);
 
 		public IEnumerable<TAssetControl> CreateUserControls()
 		{
