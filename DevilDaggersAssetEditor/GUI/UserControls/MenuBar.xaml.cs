@@ -56,8 +56,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 						bfnItem.Items.Add(new Separator());
 
-						MenuItem loudnessImport = new MenuItem { Header = $"Import loudness from file" };
-						MenuItem loudnessExport = new MenuItem { Header = $"Export loudness to file" };
+						MenuItem loudnessImport = new MenuItem { Header = $"Import Loudness from file" };
+						MenuItem loudnessExport = new MenuItem { Header = $"Export Loudness to file" };
 						loudnessImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioTabControl.Handler.ImportLoudness();
 						loudnessExport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioTabControl.Handler.ExportLoudness();
 						bfnItem.Items.Add(loudnessImport);

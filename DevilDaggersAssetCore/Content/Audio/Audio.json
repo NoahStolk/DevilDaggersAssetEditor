@@ -387,7 +387,7 @@
 	{
 		"Loudness": 10,
 		"AssetName": "damagesquid",
-		"Description": "Squid I gem damage. Also plays when damaging other squid gems and Leviathan gems?",
+		"Description": "Squid I gem damage and maybe more (other squid / Levi gems dmg)",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
@@ -583,7 +583,7 @@
 	{
 		"Loudness": 2,
 		"AssetName": "highscore2",
-		"Description": "Starts playing 10 seconds before beating the next person on your friends leaderboard's score.",
+		"Description": "Plays 10 seconds before beating next person on friends leaderboard.",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},

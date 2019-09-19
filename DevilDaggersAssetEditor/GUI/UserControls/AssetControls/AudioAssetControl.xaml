@@ -8,11 +8,11 @@
 			 Loaded="UserControl_Loaded">
 	<Grid x:Name="Data">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition />
-			<ColumnDefinition />
 			<ColumnDefinition Width="2*" />
-			<ColumnDefinition Width="4*" />
 			<ColumnDefinition />
+			<ColumnDefinition Width="5*" />
+			<ColumnDefinition Width="8*" />
+			<ColumnDefinition Width="2*" />
 		</Grid.ColumnDefinitions>
 		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" Text="{Binding AssetName}" />
 		<TextBox Grid.Column="1" Name="TextBoxLoudness" />
