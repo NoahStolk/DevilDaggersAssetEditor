@@ -16,8 +16,8 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="3*" />
 					<ColumnDefinition Width="5*" />
-					<ColumnDefinition Width="8*" />
-					<ColumnDefinition Width="2*" />
+					<ColumnDefinition Width="9*" />
+					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Asset name</TextBlock>
 				<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Description</TextBlock>
