@@ -1157,42 +1157,42 @@
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed1",
-		"Description": "Medium meat bounces on the floor",
+		"Description": "Medium meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed2",
-		"Description": "Medium meat bounces on the floor",
+		"Description": "Medium meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed3",
-		"Description": "Medium meat bounces on the floor",
+		"Description": "Medium meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed4",
-		"Description": "Medium meat bounces on the floor",
+		"Description": "Medium meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed5",
-		"Description": "Medium meat bounces on the floor",
+		"Description": "Medium meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "meatmed6",
-		"Description": "Medium meat bounces on the floor",
+		"Description": "Medium meat bounce on floor",
 		"PresentInDefaultLoudness": false,
 		"TypeName": "AudioChunk"
 	},
@@ -1542,42 +1542,42 @@
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop1",
-		"Description": "Skull bounce with the floor",
+		"Description": "Skull bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop2",
-		"Description": "Skull bounce with the floor",
+		"Description": "Skull bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop3",
-		"Description": "Skull bounce with the floor",
+		"Description": "Skull bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop4",
-		"Description": "Skull bounce with the floor",
+		"Description": "Skull bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop5",
-		"Description": "Skull bounce with the floor",
+		"Description": "Skull bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop6",
-		"Description": "Skull bounce with the floor",
+		"Description": "Skull bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"TypeName": "AudioChunk"
 	},

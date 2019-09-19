@@ -16,28 +16,30 @@
 		<DockPanel Grid.Row="0">
 			<userControls:MenuBarUserControl />
 		</DockPanel>
-		<TabControl Grid.Row="1" Name="TabControl">
-			<TabItem Header="audio">
-				<ScrollViewer>
-					<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
-				</ScrollViewer>
-			</TabItem>
-			<TabItem Header="dd">
-				<ScrollViewer>
-					<StackPanel>
-					<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileName="DD" />
-					<tabControls:ModelsTabControl x:Name="DDModelsTabControl" BinaryFileName="DD" />
-					<tabControls:ShadersTabControl x:Name="DDShadersTabControl" BinaryFileName="DD" />
-					<tabControls:TexturesTabControl x:Name="DDTexturesTabControl" BinaryFileName="DD" />
-					</StackPanel>
-				</ScrollViewer>
-			</TabItem>
-			<TabItem Header="core">
-				<ScrollViewer>
-					<tabControls:ShadersTabControl x:Name="CoreShadersTabControl" BinaryFileName="Core" />
-				</ScrollViewer>
-			</TabItem>
-			<TabItem Header="particle" IsEnabled="False"></TabItem>
-		</TabControl>
+		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+			<TabControl Grid.Row="1" Name="TabControl" Width="1366" Height="768">
+				<TabItem Header="audio">
+					<ScrollViewer>
+						<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
+					</ScrollViewer>
+				</TabItem>
+				<TabItem Header="dd">
+					<ScrollViewer>
+						<StackPanel>
+							<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileName="DD" />
+							<tabControls:ModelsTabControl x:Name="DDModelsTabControl" BinaryFileName="DD" />
+							<tabControls:ShadersTabControl x:Name="DDShadersTabControl" BinaryFileName="DD" />
+							<tabControls:TexturesTabControl x:Name="DDTexturesTabControl" BinaryFileName="DD" />
+						</StackPanel>
+					</ScrollViewer>
+				</TabItem>
+				<TabItem Header="core">
+					<ScrollViewer>
+						<tabControls:ShadersTabControl x:Name="CoreShadersTabControl" BinaryFileName="Core" />
+					</ScrollViewer>
+				</TabItem>
+				<TabItem Header="particle" IsEnabled="False"></TabItem>
+			</TabControl>
+		</ScrollViewer>
 	</Grid>
 </Window>

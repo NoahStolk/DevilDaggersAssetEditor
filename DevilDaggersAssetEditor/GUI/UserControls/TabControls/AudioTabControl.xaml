@@ -20,10 +20,10 @@
 					<ColumnDefinition Width="4*" />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<TextBlock Grid.Column="0" FontWeight="Bold">Asset name</TextBlock>
-				<TextBlock Grid.Column="1" FontWeight="Bold">Loudness</TextBlock>
-				<TextBlock Grid.Column="2" FontWeight="Bold">Description</TextBlock>
-				<TextBlock Grid.Column="3" FontWeight="Bold">Path</TextBlock>
+				<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Asset name</TextBlock>
+				<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Loudness</TextBlock>
+				<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
+				<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" FontWeight="Bold">Path</TextBlock>
 			</Grid>
 			<StackPanel Grid.Row="1" Name="AssetEditor" />
 		</Grid>

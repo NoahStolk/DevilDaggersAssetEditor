@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
-	public abstract class AbstractTabControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset
+	public abstract class AbstractTabControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset where TAssetControl : UserControl
 	{
 		public List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
@@ -27,9 +29,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public IEnumerable<TAssetControl> CreateUserControls()
 		{
+			int i = 0;
 			foreach (TAsset asset in Assets)
 			{
 				TAssetControl ac = (TAssetControl)Activator.CreateInstance(typeof(TAssetControl), asset);
+				ac.Background = new SolidColorBrush(++i % 2 == 0 ? Color.FromRgb(192, 192, 192) : Color.FromRgb(224, 224, 224));
 				assetControls.Add(ac);
 				yield return ac;
 			}

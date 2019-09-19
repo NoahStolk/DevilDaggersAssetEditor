@@ -20,6 +20,12 @@
 		</Style.Setters>
 	</Style>
 
+	<Style TargetType="TabControl">
+		<Style.Setters>
+			<Setter Property="Background" Value="#ddd" />
+		</Style.Setters>
+	</Style>
+
 	<Style TargetType="Label">
 		<Style.Setters>
 			<Setter Property="Padding" Value="2,2,2,2" />
@@ -74,6 +80,11 @@
 		<Style.Setters>
 			<Setter Property="TextWrapping" Value="WrapWithOverflow" />
 			<Setter Property="Padding" Value="6,8,6,8" />
+		</Style.Setters>
+	</Style>
+	<Style TargetType="TextBlock" x:Key="AssetTextBlock">
+		<Style.Setters>
+			<Setter Property="Margin" Value="2,2,2,2" />
 		</Style.Setters>
 	</Style>
 

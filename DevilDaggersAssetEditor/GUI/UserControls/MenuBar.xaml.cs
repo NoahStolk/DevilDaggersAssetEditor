@@ -243,7 +243,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			SetAssets(assets, App.Instance.MainWindow.CoreShadersTabControl.Handler);
 		}
 
-		private void SetAssets<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractTabControlHandler<TAsset, TAssetControl> assetHandler) where TUserAsset : GenericUserAsset where TAsset : AbstractAsset
+		private void SetAssets<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractTabControlHandler<TAsset, TAssetControl> assetHandler) where TUserAsset : GenericUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
 		{
 			for (int i = 0; i < assetHandler.Assets.Count; i++)
 			{
