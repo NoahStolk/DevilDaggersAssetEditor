@@ -53,20 +53,20 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 #### 0.2.0.0 - September 19, 2019
 
-Loudness is now exported as a .ini file rather than a .wav file.
-Added functionality to export the current loudness values.
-Added ability to save and open "mod" files (".audio" extension for audio mods) which are files containing the asset paths and loudness values. This removes the need to import/export loudness values when closing the application and is way more convenient than having to extract and compress huge files every time as well. Note that the "mod" files only contain local paths, so sharing them will not work.
-Fixed not being able to type decimal values in the loudness fields.
-Added support to automatically check for new versions of the program.
-Added icon.
-Added About window and other menu items.
-Added logging.
-Added description for audio assets (WIP).
-Many GUI and code improvements.
+- Loudness is now exported as a .ini file rather than a .wav file.
+- Added functionality to export the current loudness values.
+- Added ability to save and open "mod" files (".audio" extension for audio mods) which are files containing the asset paths and loudness values. This removes the need to import/export loudness values when closing the application and is way more convenient than having to extract and compress huge files every time as well. Note that the "mod" files only contain local paths, so sharing them will not work.
+- Fixed not being able to type decimal values in the loudness fields.
+- Added support to automatically check for new versions of the program.
+- Added icon.
+- Added About window and other menu items.
+- Added logging.
+- Added description for audio assets (WIP).
+- Many GUI and code improvements.
 
 #### 0.1.0.0 - September 11, 2019
 
-Beta release.
+- Beta release.
 
 ## Credits
 
