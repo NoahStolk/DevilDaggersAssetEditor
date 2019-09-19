@@ -287,7 +287,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 				}
 				else
 				{
-					App.Instance.ShowMessage("Up to date", $"Devil Daggers Survival Editor {ApplicationUtils.ApplicationVersionNumber} is up to date.");
+					App.Instance.ShowMessage("Up to date", $"{ApplicationUtils.ApplicationDisplayNameWithVersion} is up to date.");
 				}
 			}
 		}

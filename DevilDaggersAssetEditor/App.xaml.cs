@@ -44,7 +44,7 @@ namespace DevilDaggersAssetEditor
 		{
 			Dispatcher.Invoke(() =>
 			{
-				MainWindow.Title = $"{ApplicationUtils.ApplicationDisplayName}";
+				MainWindow.Title = $"{ApplicationUtils.ApplicationDisplayNameWithVersion}";
 			});
 		}
 

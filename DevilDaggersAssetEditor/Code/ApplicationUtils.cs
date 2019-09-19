@@ -5,8 +5,10 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public static class ApplicationUtils
 	{
-		public static string ApplicationDisplayName = $"Devil Daggers Asset Editor {ApplicationVersionNumber}";
 		public const string ApplicationName = "DevilDaggersAssetEditor";
+		public const string ApplicationDisplayName = "Devil Daggers Asset Editor";
+
+		public static string ApplicationDisplayNameWithVersion = $"{ApplicationDisplayName} {ApplicationVersionNumber}";
 
 		private static Version applicationVersionNumber;
 		public static Version ApplicationVersionNumber
