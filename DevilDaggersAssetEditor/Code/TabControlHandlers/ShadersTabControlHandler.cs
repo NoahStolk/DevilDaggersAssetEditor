@@ -14,7 +14,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 		}
 
-		public override void UpdatePathLabel(ShaderAsset asset)
+		public override void UpdateGUI(ShaderAsset asset)
 		{
 			ShaderAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;

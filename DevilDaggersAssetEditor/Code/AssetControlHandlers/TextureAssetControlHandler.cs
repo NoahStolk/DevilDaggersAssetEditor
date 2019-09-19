@@ -10,9 +10,8 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 		{
 		}
 
-		protected override void UpdatePathLabel()
+		public override void UpdateGUI()
 		{
-			// TODO: Fix binding
 			parent.TextBlockEditorPath.Text = Asset.EditorPath;
 		}
 	}

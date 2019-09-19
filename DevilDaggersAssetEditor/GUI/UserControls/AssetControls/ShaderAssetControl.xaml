@@ -14,8 +14,7 @@
 		</Grid.ColumnDefinitions>
 		<TextBlock Grid.Column="0" Text="{Binding AssetName}" />
 		<TextBlock Grid.Column="1" Text="{Binding Description}" />
-		<!--TODO: Fix binding and remove Name-->
-		<TextBlock Grid.Column="2" Name="TextBlockEditorPath" Text="{Binding EditorPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<TextBlock Grid.Column="2" Name="TextBlockEditorPath" />
 		<Button Grid.Column="3" Click="ButtonBrowsePath_Click">Browse path</Button>
 	</Grid>
 </UserControl>

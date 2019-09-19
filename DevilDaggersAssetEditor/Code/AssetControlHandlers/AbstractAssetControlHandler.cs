@@ -5,7 +5,7 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 {
 	public abstract class AbstractAssetControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset
 	{
-		public TAsset Asset { get; set; }
+		public TAsset Asset { get; }
 		protected readonly TAssetControl parent;
 		private readonly string openDialogFilter;
 
@@ -14,9 +14,11 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 			Asset = asset;
 			this.parent = parent;
 			this.openDialogFilter = openDialogFilter;
+
+			UpdateGUI();
 		}
 
-		protected abstract void UpdatePathLabel();
+		public abstract void UpdateGUI();
 
 		public void BrowsePath()
 		{
@@ -30,7 +32,7 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 
 			Asset.EditorPath = openDialog.FileName;
 
-			UpdatePathLabel();
+			UpdateGUI();
 		}
 	}
 }

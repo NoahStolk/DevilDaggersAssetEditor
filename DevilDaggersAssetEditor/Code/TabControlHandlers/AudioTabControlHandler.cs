@@ -19,10 +19,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 		}
 
-		public override void UpdatePathLabel(AudioAsset asset)
+		public override void UpdateGUI(AudioAsset asset)
 		{
 			AudioAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;
+			ac.TextBoxLoudness.Text = asset.Loudness.ToString();
 		}
 
 		public void ImportLoudness()
@@ -66,9 +67,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 						successCount++;
 					}
 
-					// TODO: Fix binding
 					AudioAssetControl aac = assetControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
-					aac.TextBoxLoudness.Text = audioAsset.Loudness.ToString();
+					aac.Handler.UpdateGUI();
 				}
 			}
 

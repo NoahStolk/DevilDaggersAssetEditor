@@ -245,7 +245,7 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 					if (asset is AudioAsset audioAsset && userAsset is AudioUserAsset audioUserAsset)
 						audioAsset.Loudness = audioUserAsset.Loudness;
 
-					assetHandler.UpdatePathLabel(asset);
+					assetHandler.UpdateGUI(asset);
 				}
 			}
 		}

@@ -23,7 +23,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
 
-		public abstract void UpdatePathLabel(TAsset asset);
+		public abstract void UpdateGUI(TAsset asset);
 
 		public IEnumerable<TAssetControl> CreateUserControls()
 		{
@@ -49,7 +49,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 					if (asset != null)
 					{
 						asset.EditorPath = filePath;
-						UpdatePathLabel(asset);
+						UpdateGUI(asset);
 					}
 				}
 			}
