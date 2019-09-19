@@ -58,6 +58,9 @@
     <ApplicationIcon>Icon24.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsAPICodePack-Core.1.1.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
     </Reference>
@@ -111,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\UserControls\MenuBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GUI\UserControls\TabControls\TexturesTabControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +142,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\Windows\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Windows\CheckingForUpdates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Windows\Error.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Windows\Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,6 +162,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Code\ApplicationUtils.cs" />
     <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\AudioAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ShaderAssetControlHandler.cs" />
@@ -156,6 +176,15 @@
     <Compile Include="Code\TabControlHandlers\ModelBindingsTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\AudioTabControlHandler.cs" />
     <Compile Include="Code\Utils.cs" />
+    <Compile Include="Code\Web\NetworkHandler.cs" />
+    <Compile Include="Code\Web\TimeoutWebClient.cs" />
+    <Compile Include="Code\Web\UrlUtils.cs" />
+    <Compile Include="Code\Web\VersionResult.cs" />
+    <Page Include="GUI\Windows\UpdateRecommended.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Content\Images\Icon\Icon32.png" />
     <Compile Include="GUI\UserControls\AssetControls\AudioAssetControl.xaml.cs">
       <DependentUpon>AudioAssetControl.xaml</DependentUpon>
     </Compile>
@@ -167,6 +196,9 @@
     </Compile>
     <Compile Include="GUI\UserControls\AssetControls\ModelAssetControl.xaml.cs">
       <DependentUpon>ModelAssetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\MenuBar.xaml.cs">
+      <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\TabControls\TexturesTabControl.xaml.cs">
       <DependentUpon>TexturesTabControl.xaml</DependentUpon>
@@ -186,12 +218,31 @@
     <Compile Include="GUI\UserControls\TabControls\ModelBindingsTabControl.xaml.cs">
       <DependentUpon>ModelBindingsTabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Windows\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\CheckingForUpdates.xaml.cs">
+      <DependentUpon>CheckingForUpdates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\Error.xaml.cs">
+      <DependentUpon>Error.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Windows\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="GUI\Windows\Message.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\Windows\Message.xaml.cs">
+      <DependentUpon>Message.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\UpdateRecommended.xaml.cs">
+      <DependentUpon>UpdateRecommended.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -209,6 +260,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -219,6 +273,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DevilDaggersCore\DevilDaggersCore\DevilDaggersCore.csproj">
+      <Project>{65E7D153-FC35-4427-B868-FD10D9BFCD42}</Project>
+      <Name>DevilDaggersCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevilDaggersAssetCore\DevilDaggersAssetCore.csproj">
       <Project>{281857FB-02AF-4425-B3C6-C0E00381D8D2}</Project>
       <Name>DevilDaggersAssetCore</Name>

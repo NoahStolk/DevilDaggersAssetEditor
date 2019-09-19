@@ -3,18 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:userControls="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls"
         xmlns:tabControls="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls.TabControls"
         mc:Ignorable="d"
-        Title="Devil Daggers Asset Editor" Height="900" Width="1600">
+        Title="Devil Daggers Asset Editor" Height="900" Width="1600"
+		Loaded="Window_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="18"/>
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<DockPanel Grid.Row="0">
-			<Menu DockPanel.Dock="Top">
-				<MenuItem Header="File" Name="FileMenuItem" />
-			</Menu>
+			<userControls:MenuBarUserControl />
 		</DockPanel>
 		<TabControl Grid.Row="1" Name="TabControl">
 			<TabItem Header="audio">

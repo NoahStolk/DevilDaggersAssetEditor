@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows;
 
 namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
@@ -28,7 +27,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public void ImportLoudness()
 		{
-			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = "ini" };
+			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, Filter = "Initialization files (*.ini)|*.ini" };
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
@@ -43,7 +42,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
 				if (!ReadLoudnessLine(lineClean, out string assetName, out float loudness))
 				{
-					MessageBox.Show($"Syntax error on line {lineNumber}", "Could not parse loudness file");
+					App.Instance.ShowMessage($"Syntax error on line {lineNumber}", "Could not parse loudness file");
 					return;
 				}
 
@@ -72,7 +71,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				}
 			}
 
-			MessageBox.Show($"Total audio assets: {Assets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}", "Loudness import results");
+			App.Instance.ShowMessage($"Total audio assets: {Assets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}", "Loudness import results");
 
 			bool ReadLoudnessLine(string line, out string assetName, out float loudness)
 			{
