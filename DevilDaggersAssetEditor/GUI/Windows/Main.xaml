@@ -23,7 +23,7 @@
 						<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
 					</ScrollViewer>
 				</TabItem>
-				<TabItem Header="dd">
+				<TabItem Header="dd" IsEnabled="False">
 					<ScrollViewer>
 						<StackPanel>
 							<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileName="DD" />
@@ -33,7 +33,7 @@
 						</StackPanel>
 					</ScrollViewer>
 				</TabItem>
-				<TabItem Header="core">
+				<TabItem Header="core" IsEnabled="False">
 					<ScrollViewer>
 						<tabControls:ShadersTabControl x:Name="CoreShadersTabControl" BinaryFileName="Core" />
 					</ScrollViewer>

@@ -31,7 +31,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 				MenuItem bfnItem = new MenuItem { Header = bfn, IsEnabled = binaryFileName != BinaryFileName.Particle };
 
 				MenuItem extractItem = new MenuItem { Header = $"Extract '{bfn}'" };
-				MenuItem compressItem = new MenuItem { Header = $"Compress '{bfn}'" };
+				MenuItem compressItem = new MenuItem { Header = $"Compress '{bfn}'", IsEnabled = binaryFileName == BinaryFileName.Audio };
 				extractItem.Click += (sender, e) => Extract_Click(binaryFileName);
 				compressItem.Click += (sender, e) => Compress_Click(binaryFileName);
 				bfnItem.Items.Add(extractItem);
@@ -39,8 +39,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 				bfnItem.Items.Add(new Separator());
 
-				MenuItem openItem = new MenuItem { Header = "Open assets" };
-				MenuItem saveItem = new MenuItem { Header = "Save assets" };
+				MenuItem openItem = new MenuItem { Header = "Open assets", IsEnabled = binaryFileName == BinaryFileName.Audio };
+				MenuItem saveItem = new MenuItem { Header = "Save assets", IsEnabled = binaryFileName == BinaryFileName.Audio };
 
 				switch (binaryFileName)
 				{
@@ -69,10 +69,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 						AddOpenSaveItems();
 
-						MenuItem ddModelBindingImport = new MenuItem { Header = $"Import Model Binding paths from folder" };
-						MenuItem ddModelImport = new MenuItem { Header = $"Import Model paths from folder" };
-						MenuItem ddShaderImport = new MenuItem { Header = $"Import Shader paths from folder" };
-						MenuItem ddTextureImport = new MenuItem { Header = $"Import Texture paths from folder" };
+						MenuItem ddModelBindingImport = new MenuItem { Header = $"Import Model Binding paths from folder", IsEnabled = false };
+						MenuItem ddModelImport = new MenuItem { Header = $"Import Model paths from folder", IsEnabled = false };
+						MenuItem ddShaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
+						MenuItem ddTextureImport = new MenuItem { Header = $"Import Texture paths from folder", IsEnabled = false };
 						ddModelBindingImport.Click += (sender, e) => App.Instance.MainWindow.DDModelBindingsTabControl.Handler.ImportFolder();
 						ddModelImport.Click += (sender, e) => App.Instance.MainWindow.DDModelsTabControl.Handler.ImportFolder();
 						ddShaderImport.Click += (sender, e) => App.Instance.MainWindow.DDShadersTabControl.Handler.ImportFolder();
@@ -88,7 +88,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 						AddOpenSaveItems();
 
-						MenuItem coreShaderImport = new MenuItem { Header = $"Import Shader paths from folder" };
+						MenuItem coreShaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
 						coreShaderImport.Click += (sender, e) => App.Instance.MainWindow.CoreShadersTabControl.Handler.ImportFolder(); ;
 						bfnItem.Items.Add(coreShaderImport);
 						break;
