@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				}
 			}
 
-			App.Instance.ShowMessage($"Total audio assets: {Assets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}", "Loudness import results");
+			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {Assets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
 
 			bool ReadLoudnessLine(string line, out string assetName, out float loudness)
 			{
