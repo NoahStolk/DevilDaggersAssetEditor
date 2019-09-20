@@ -44,7 +44,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				SaveModFile(userAssets);
 			};
 
-			MenuItem fileTypeMenuItem = new MenuItem { Header = fileName, IsEnabled = binaryFileType != BinaryFileType.Particle };
+			MenuItem fileTypeMenuItem = new MenuItem { Header = fileName };
 
 			fileTypeMenuItem.Items.Add(extractItem);
 			fileTypeMenuItem.Items.Add(compressItem);
@@ -68,11 +68,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				return;
 
 			using (CommonOpenFileDialog saveDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = Utils.DDFolder })
-			{
-				CommonFileDialogResult saveResult = saveDialog.ShowDialog();
-				if (saveResult == CommonFileDialogResult.Ok)
+				if (saveDialog.ShowDialog() == CommonFileDialogResult.Ok)
 					FileHandler.Extract(openDialog.FileName, saveDialog.FileName);
-			}
 		}
 
 		private void Compress_Click()

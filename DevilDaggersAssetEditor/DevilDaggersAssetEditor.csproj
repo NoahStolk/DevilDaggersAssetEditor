@@ -106,11 +106,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\UserControls\AssetControls\ParticleAssetControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GUI\UserControls\AssetControls\TextureAssetControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\UserControls\AssetControls\ModelAssetControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UserControls\ExpanderControls\ParticlesExpanderControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -166,11 +174,13 @@
     <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\AudioAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ShaderAssetControlHandler.cs" />
+    <Compile Include="Code\AssetControlHandlers\ParticleAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\TextureAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ModelAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ModelBindingAssetControlHandler.cs" />
     <Compile Include="Code\ExpanderControlHandlers\AbstractExpanderControlHandler.cs" />
     <Compile Include="Code\ExpanderControlHandlers\ShadersExpanderControlHandler.cs" />
+    <Compile Include="Code\ExpanderControlHandlers\ParticlesExpanderControlHandler.cs" />
     <Compile Include="Code\ExpanderControlHandlers\TexturesExpanderControlHandler.cs" />
     <Compile Include="Code\ExpanderControlHandlers\ModelsExpanderControlHandler.cs" />
     <Compile Include="Code\ExpanderControlHandlers\ModelBindingsExpanderControlHandler.cs" />
@@ -178,6 +188,7 @@
     <Compile Include="Code\TabControlHandlers\AbstractTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\AudioTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\CoreTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ParticleTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\DDTabControlHandler.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Code\Web\NetworkHandler.cs" />
@@ -195,11 +206,17 @@
     <Compile Include="GUI\UserControls\AssetControls\ShaderAssetControl.xaml.cs">
       <DependentUpon>ShaderAssetControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControls\AssetControls\ParticleAssetControl.xaml.cs">
+      <DependentUpon>ParticleAssetControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UserControls\AssetControls\TextureAssetControl.xaml.cs">
       <DependentUpon>TextureAssetControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\AssetControls\ModelAssetControl.xaml.cs">
       <DependentUpon>ModelAssetControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ExpanderControls\ParticlesExpanderControl.xaml.cs">
+      <DependentUpon>ParticlesExpanderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>

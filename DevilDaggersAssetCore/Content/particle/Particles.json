@@ -1,0 +1,446 @@
+[
+	{
+		"AssetName": "blood",
+		"Description": "?"
+	},
+	{
+		"AssetName": "centipedeburrow",
+		"Description": "?"
+	},
+	{
+		"AssetName": "centipedeburst",
+		"Description": "?"
+	},
+	{
+		"AssetName": "centipededecals",
+		"Description": "?"
+	},
+	{
+		"AssetName": "centipededecals2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "centipedeemerge",
+		"Description": "?"
+	},
+	{
+		"AssetName": "centipedefrags",
+		"Description": "?"
+	},
+	{
+		"AssetName": "daggerfireflight",
+		"Description": "?"
+	},
+	{
+		"AssetName": "default",
+		"Description": "?"
+	},
+	{
+		"AssetName": "eggburst",
+		"Description": "?"
+	},
+	{
+		"AssetName": "eggdecals",
+		"Description": "?"
+	},
+	{
+		"AssetName": "egghit",
+		"Description": "?"
+	},
+	{
+		"AssetName": "eggspores",
+		"Description": "?"
+	},
+	{
+		"AssetName": "fire",
+		"Description": "?"
+	},
+	{
+		"AssetName": "fire1",
+		"Description": "?"
+	},
+	{
+		"AssetName": "fire2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "fire3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "fire4",
+		"Description": "?"
+	},
+	{
+		"AssetName": "fire5",
+		"Description": "?"
+	},
+	{
+		"AssetName": "gibs",
+		"Description": "?"
+	},
+	{
+		"AssetName": "gibtrail",
+		"Description": "?"
+	},
+	{
+		"AssetName": "hit1",
+		"Description": "?"
+	},
+	{
+		"AssetName": "hitbone",
+		"Description": "?"
+	},
+	{
+		"AssetName": "hominghit",
+		"Description": "?"
+	},
+	{
+		"AssetName": "levdeath",
+		"Description": "?"
+	},
+	{
+		"AssetName": "levelup",
+		"Description": "?"
+	},
+	{
+		"AssetName": "levfire",
+		"Description": "?"
+	},
+	{
+		"AssetName": "levfountain",
+		"Description": "?"
+	},
+	{
+		"AssetName": "leviathansuck",
+		"Description": "?"
+	},
+	{
+		"AssetName": "levideath",
+		"Description": "?"
+	},
+	{
+		"AssetName": "levidust",
+		"Description": "?"
+	},
+	{
+		"AssetName": "levidust2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "magentabomb",
+		"Description": "?"
+	},
+	{
+		"AssetName": "magic",
+		"Description": "?"
+	},
+	{
+		"AssetName": "medal1bronze",
+		"Description": "?"
+	},
+	{
+		"AssetName": "medal2silver",
+		"Description": "?"
+	},
+	{
+		"AssetName": "medal3gold",
+		"Description": "?"
+	},
+	{
+		"AssetName": "medal4devil",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid1",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid1ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid2ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid3alt",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid3altember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid3ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid4",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid4alt",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid4altember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rapid4ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "ricochet1",
+		"Description": "?"
+	},
+	{
+		"AssetName": "ricochet2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "ricochet3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "ricochet4",
+		"Description": "?"
+	},
+	{
+		"AssetName": "ricochet5",
+		"Description": "?"
+	},
+	{
+		"AssetName": "ricochet6",
+		"Description": "?"
+	},
+	{
+		"AssetName": "ricochetdecal",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rockethit",
+		"Description": "?"
+	},
+	{
+		"AssetName": "rockethit2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot1",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot1ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot2ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot3alt",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot3altember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot3ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot4",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot4alt",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot4altember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "shot4ember",
+		"Description": "?"
+	},
+	{
+		"AssetName": "skulldecals",
+		"Description": "?"
+	},
+	{
+		"AssetName": "skulldecals2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "skullfrags",
+		"Description": "?"
+	},
+	{
+		"AssetName": "skullpop",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdeath",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdeath2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdeath3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdeath4",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdecals",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdecals2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdecals3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderdecals4",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderlingdecals",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderlingdecals2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderlingfrags",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderlinghit1",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderlingpop",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderspit",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderspit2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "spiderstring",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squidbubbles",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squidburst",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squidburst2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squidburst3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squidburstgibs",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squidburstgibs2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squiddecals",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squiddecals2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squiddecals3",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squiddecals4",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squiddrill",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squiddrill2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "squidweak",
+		"Description": "?"
+	},
+	{
+		"AssetName": "superskulldecals",
+		"Description": "?"
+	},
+	{
+		"AssetName": "superskulldecals2",
+		"Description": "?"
+	},
+	{
+		"AssetName": "superskullfrags",
+		"Description": "?"
+	},
+	{
+		"AssetName": "superskullpop",
+		"Description": "?"
+	},
+	{
+		"AssetName": "thornemerge",
+		"Description": "?"
+	},
+	{
+		"AssetName": "thornfrag",
+		"Description": "?"
+	},
+	{
+		"AssetName": "weakhit1",
+		"Description": "?"
+	}
+]

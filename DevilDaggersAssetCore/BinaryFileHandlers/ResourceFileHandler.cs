@@ -27,6 +27,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		public ResourceFileHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
+			if (binaryFileType == BinaryFileType.Particle)
+				throw new Exception($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
 		}
 
 		/// <summary>

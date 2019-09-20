@@ -23,7 +23,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			InitializeComponent();
 
 			tabHandlers = new List<AbstractTabControlHandler>();
-			foreach (Type type in App.Instance.Assembly.GetTypes().Where(t => t.BaseType == typeof(AbstractTabControlHandler) && !t.IsAbstract))
+			foreach (Type type in App.Instance.Assembly.GetTypes().Where(t => t.BaseType == typeof(AbstractTabControlHandler) && !t.IsAbstract).OrderBy(t => t.Name))
 				tabHandlers.Add((AbstractTabControlHandler)Activator.CreateInstance(type));
 
 			foreach (AbstractTabControlHandler tabHandler in tabHandlers)
