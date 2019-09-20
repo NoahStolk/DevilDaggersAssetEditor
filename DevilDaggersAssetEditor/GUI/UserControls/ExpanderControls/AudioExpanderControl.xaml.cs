@@ -2,18 +2,18 @@
 using System.Windows;
 using System.Windows.Controls;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
-using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using System;
+using DevilDaggersAssetEditor.Code.ExpanderControlHandlers;
 
-namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
+namespace DevilDaggersAssetEditor.GUI.UserControls.ExpanderControls
 {
-	public partial class ModelsTabControl : UserControl
+	public partial class AudioExpanderControl : UserControl
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
 		(
 			nameof(BinaryFileType),
 			typeof(string),
-			typeof(ModelsTabControl)
+			typeof(AudioExpanderControl)
 		);
 
 		public string BinaryFileType
@@ -22,9 +22,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ModelsTabControlHandler Handler { get; private set; }
+		public AudioExpanderControlHandler Handler { get; private set; }
 
-		public ModelsTabControl()
+		public AudioExpanderControl()
 		{
 			InitializeComponent();
 		}
@@ -33,9 +33,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new ModelsTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
+			Handler = new AudioExpanderControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (ModelAssetControl ac in Handler.CreateUserControls())
+			foreach (AudioAssetControl ac in Handler.CreateUserControls())
 				AssetEditor.Children.Add(ac);
 		}
 	}

@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetCore.Assets.UserAssets
+﻿namespace DevilDaggersAssetCore.ModFiles
 {
 	public class AudioUserAsset : GenericUserAsset
 	{

@@ -8,8 +8,6 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Assets.UserAssets;
-using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
@@ -17,6 +15,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
 using DevilDaggersAssetCore.BinaryFileHandlers;
+using DevilDaggersAssetCore.ModFiles;
+using DevilDaggersAssetEditor.Code.ExpanderControlHandlers;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
@@ -65,15 +65,15 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 						AddOpenSaveItems();
 
 						MenuItem audioAudioImport = new MenuItem { Header = $"Import Audio paths from folder" };
-						audioAudioImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioTabControl.Handler.ImportFolder();
+						audioAudioImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ImportFolder();
 						bfnItem.Items.Add(audioAudioImport);
 
 						bfnItem.Items.Add(new Separator());
 
 						MenuItem loudnessImport = new MenuItem { Header = $"Import Loudness from file" };
 						MenuItem loudnessExport = new MenuItem { Header = $"Export Loudness to file" };
-						loudnessImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioTabControl.Handler.ImportLoudness();
-						loudnessExport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioTabControl.Handler.ExportLoudness();
+						loudnessImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ImportLoudness();
+						loudnessExport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ExportLoudness();
 						bfnItem.Items.Add(loudnessImport);
 						bfnItem.Items.Add(loudnessExport);
 						break;
@@ -87,10 +87,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 						MenuItem ddModelImport = new MenuItem { Header = $"Import Model paths from folder", IsEnabled = false };
 						MenuItem ddShaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
 						MenuItem ddTextureImport = new MenuItem { Header = $"Import Texture paths from folder", IsEnabled = false };
-						ddModelBindingImport.Click += (sender, e) => App.Instance.MainWindow.DDModelBindingsTabControl.Handler.ImportFolder();
-						ddModelImport.Click += (sender, e) => App.Instance.MainWindow.DDModelsTabControl.Handler.ImportFolder();
-						ddShaderImport.Click += (sender, e) => App.Instance.MainWindow.DDShadersTabControl.Handler.ImportFolder();
-						ddTextureImport.Click += (sender, e) => App.Instance.MainWindow.DDTexturesTabControl.Handler.ImportFolder();
+						ddModelBindingImport.Click += (sender, e) => App.Instance.MainWindow.DDModelBindingsExpanderControl.Handler.ImportFolder();
+						ddModelImport.Click += (sender, e) => App.Instance.MainWindow.DDModelsExpanderControl.Handler.ImportFolder();
+						ddShaderImport.Click += (sender, e) => App.Instance.MainWindow.DDShadersExpanderControl.Handler.ImportFolder();
+						ddTextureImport.Click += (sender, e) => App.Instance.MainWindow.DDTexturesExpanderControl.Handler.ImportFolder();
 						bfnItem.Items.Add(ddModelBindingImport);
 						bfnItem.Items.Add(ddModelImport);
 						bfnItem.Items.Add(ddShaderImport);
@@ -103,7 +103,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 						AddOpenSaveItems();
 
 						MenuItem coreShaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
-						coreShaderImport.Click += (sender, e) => App.Instance.MainWindow.CoreShadersTabControl.Handler.ImportFolder(); ;
+						coreShaderImport.Click += (sender, e) => App.Instance.MainWindow.CoreShadersExpanderControl.Handler.ImportFolder(); ;
 						bfnItem.Items.Add(coreShaderImport);
 						break;
 				}
@@ -173,7 +173,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			switch (fileHandler.BinaryFileType)
 			{
 				case BinaryFileType.Audio:
-					if (!App.Instance.MainWindow.AudioAudioTabControl.Handler.IsComplete())
+					if (!App.Instance.MainWindow.AudioAudioExpanderControl.Handler.IsComplete())
 					{
 						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
 						if (promptResult == MessageBoxResult.No)
@@ -183,10 +183,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 					Compress(GetAudioAssets());
 					break;
 				case BinaryFileType.DD:
-					if (!App.Instance.MainWindow.DDModelBindingsTabControl.Handler.IsComplete()
-					 || !App.Instance.MainWindow.DDModelsTabControl.Handler.IsComplete()
-					 || !App.Instance.MainWindow.DDShadersTabControl.Handler.IsComplete()
-					 || !App.Instance.MainWindow.DDTexturesTabControl.Handler.IsComplete())
+					if (!App.Instance.MainWindow.DDModelBindingsExpanderControl.Handler.IsComplete()
+					 || !App.Instance.MainWindow.DDModelsExpanderControl.Handler.IsComplete()
+					 || !App.Instance.MainWindow.DDShadersExpanderControl.Handler.IsComplete()
+					 || !App.Instance.MainWindow.DDTexturesExpanderControl.Handler.IsComplete())
 					{
 						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
 						if (promptResult == MessageBoxResult.No)
@@ -196,7 +196,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 					Compress(GetDDAssets());
 					break;
 				case BinaryFileType.Core:
-					if (!App.Instance.MainWindow.CoreShadersTabControl.Handler.IsComplete())
+					if (!App.Instance.MainWindow.CoreShadersExpanderControl.Handler.IsComplete())
 					{
 						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
 						if (promptResult == MessageBoxResult.No)
@@ -222,21 +222,21 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 		private List<AbstractAsset> GetAudioAssets()
 		{
-			return App.Instance.MainWindow.AudioAudioTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+			return App.Instance.MainWindow.AudioAudioExpanderControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 		}
 
 		private List<AbstractAsset> GetDDAssets()
 		{
-			return App.Instance.MainWindow.DDModelBindingsTabControl.Handler.Assets.Cast<AbstractAsset>()
-				.Concat(App.Instance.MainWindow.DDModelsTabControl.Handler.Assets.Cast<AbstractAsset>())
-				.Concat(App.Instance.MainWindow.DDShadersTabControl.Handler.Assets.Cast<AbstractAsset>())
-				.Concat(App.Instance.MainWindow.DDTexturesTabControl.Handler.Assets.Cast<AbstractAsset>())
+			return App.Instance.MainWindow.DDModelBindingsExpanderControl.Handler.Assets.Cast<AbstractAsset>()
+				.Concat(App.Instance.MainWindow.DDModelsExpanderControl.Handler.Assets.Cast<AbstractAsset>())
+				.Concat(App.Instance.MainWindow.DDShadersExpanderControl.Handler.Assets.Cast<AbstractAsset>())
+				.Concat(App.Instance.MainWindow.DDTexturesExpanderControl.Handler.Assets.Cast<AbstractAsset>())
 				.ToList();
 		}
 
 		private List<AbstractAsset> GetCoreAssets()
 		{
-			return App.Instance.MainWindow.CoreShadersTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+			return App.Instance.MainWindow.CoreShadersExpanderControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 		}
 
 		private void SetAudioAssets(List<GenericUserAsset> assets)
@@ -244,7 +244,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			if (assets == null)
 				return;
 
-			SetAssets(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioTabControl.Handler);
+			SetAssets(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioExpanderControl.Handler);
 		}
 
 		private void SetDDAssets(List<GenericUserAsset> assets)
@@ -252,10 +252,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			if (assets == null)
 				return;
 
-			SetAssets(assets, App.Instance.MainWindow.DDModelBindingsTabControl.Handler);
-			SetAssets(assets, App.Instance.MainWindow.DDModelsTabControl.Handler);
-			SetAssets(assets, App.Instance.MainWindow.DDShadersTabControl.Handler);
-			SetAssets(assets, App.Instance.MainWindow.DDTexturesTabControl.Handler);
+			SetAssets(assets, App.Instance.MainWindow.DDModelBindingsExpanderControl.Handler);
+			SetAssets(assets, App.Instance.MainWindow.DDModelsExpanderControl.Handler);
+			SetAssets(assets, App.Instance.MainWindow.DDShadersExpanderControl.Handler);
+			SetAssets(assets, App.Instance.MainWindow.DDTexturesExpanderControl.Handler);
 		}
 
 		private void SetCoreAssets(List<GenericUserAsset> assets)
@@ -263,10 +263,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			if (assets == null)
 				return;
 
-			SetAssets(assets, App.Instance.MainWindow.CoreShadersTabControl.Handler);
+			SetAssets(assets, App.Instance.MainWindow.CoreShadersExpanderControl.Handler);
 		}
 
-		private void SetAssets<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractTabControlHandler<TAsset, TAssetControl> assetHandler) where TUserAsset : GenericUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
+		private void SetAssets<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractExpanderControlHandler<TAsset, TAssetControl> assetHandler) where TUserAsset : GenericUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
 		{
 			for (int i = 0; i < assetHandler.Assets.Count; i++)
 			{

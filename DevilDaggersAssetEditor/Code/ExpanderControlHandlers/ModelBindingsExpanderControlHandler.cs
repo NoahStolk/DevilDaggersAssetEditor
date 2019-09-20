@@ -3,13 +3,13 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System.Linq;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 {
-	public class ModelBindingsTabControlHandler : AbstractTabControlHandler<ModelBindingAsset, ModelBindingAssetControl>
+	public class ModelBindingsExpanderControlHandler : AbstractExpanderControlHandler<ModelBindingAsset, ModelBindingAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Model Bindings";
 
-		public ModelBindingsTabControlHandler(BinaryFileType binaryFileType)
+		public ModelBindingsExpanderControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}

@@ -3,13 +3,13 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System.Linq;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 {
-	public class TexturesTabControlHandler : AbstractTabControlHandler<TextureAsset, TextureAssetControl>
+	public class TexturesExpanderControlHandler : AbstractExpanderControlHandler<TextureAsset, TextureAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Textures";
 
-		public TexturesTabControlHandler(BinaryFileType binaryFileType)
+		public TexturesExpanderControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}

@@ -7,13 +7,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 {
-	public class AudioTabControlHandler : AbstractTabControlHandler<AudioAsset, AudioAssetControl>
+	public class AudioExpanderControlHandler : AbstractExpanderControlHandler<AudioAsset, AudioAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Audio";
 
-		public AudioTabControlHandler(BinaryFileType binaryFileType)
+		public AudioExpanderControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}

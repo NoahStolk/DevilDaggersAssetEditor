@@ -2,18 +2,18 @@
 using System.Windows;
 using System.Windows.Controls;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
-using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using System;
+using DevilDaggersAssetEditor.Code.ExpanderControlHandlers;
 
-namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
+namespace DevilDaggersAssetEditor.GUI.UserControls.ExpanderControls
 {
-	public partial class ModelBindingsTabControl : UserControl
+	public partial class ModelsExpanderControl : UserControl
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
 		(
 			nameof(BinaryFileType),
 			typeof(string),
-			typeof(ModelBindingsTabControl)
+			typeof(ModelsExpanderControl)
 		);
 
 		public string BinaryFileType
@@ -22,9 +22,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ModelBindingsTabControlHandler Handler { get; private set; }
+		public ModelsExpanderControlHandler Handler { get; private set; }
 
-		public ModelBindingsTabControl()
+		public ModelsExpanderControl()
 		{
 			InitializeComponent();
 		}
@@ -33,9 +33,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new ModelBindingsTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
+			Handler = new ModelsExpanderControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (ModelBindingAssetControl ac in Handler.CreateUserControls())
+			foreach (ModelAssetControl ac in Handler.CreateUserControls())
 				AssetEditor.Children.Add(ac);
 		}
 	}

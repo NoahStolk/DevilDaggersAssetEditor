@@ -118,19 +118,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\TabControls\TexturesTabControl.xaml">
+    <Page Include="GUI\UserControls\ExpanderControls\TexturesExpanderControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\TabControls\ModelsTabControl.xaml">
+    <Page Include="GUI\UserControls\ExpanderControls\ModelsExpanderControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\TabControls\ShadersTabControl.xaml">
+    <Page Include="GUI\UserControls\ExpanderControls\ShadersExpanderControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\TabControls\AudioTabControl.xaml">
+    <Page Include="GUI\UserControls\ExpanderControls\AudioExpanderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,7 +138,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\UserControls\TabControls\ModelBindingsTabControl.xaml">
+    <Page Include="GUI\UserControls\ExpanderControls\ModelBindingsExpanderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,12 +169,12 @@
     <Compile Include="Code\AssetControlHandlers\TextureAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ModelAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ModelBindingAssetControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\AbstractTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\ShadersTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\TexturesTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\ModelsTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\ModelBindingsTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\AudioTabControlHandler.cs" />
+    <Compile Include="Code\ExpanderControlHandlers\AbstractExpanderControlHandler.cs" />
+    <Compile Include="Code\ExpanderControlHandlers\ShadersExpanderControlHandler.cs" />
+    <Compile Include="Code\ExpanderControlHandlers\TexturesExpanderControlHandler.cs" />
+    <Compile Include="Code\ExpanderControlHandlers\ModelsExpanderControlHandler.cs" />
+    <Compile Include="Code\ExpanderControlHandlers\ModelBindingsExpanderControlHandler.cs" />
+    <Compile Include="Code\ExpanderControlHandlers\AudioExpanderControlHandler.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Code\Web\NetworkHandler.cs" />
     <Compile Include="Code\Web\TimeoutWebClient.cs" />
@@ -200,23 +200,23 @@
     <Compile Include="GUI\UserControls\MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\TabControls\TexturesTabControl.xaml.cs">
-      <DependentUpon>TexturesTabControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\ExpanderControls\TexturesExpanderControl.xaml.cs">
+      <DependentUpon>TexturesExpanderControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\TabControls\ModelsTabControl.xaml.cs">
-      <DependentUpon>ModelsTabControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\ExpanderControls\ModelsExpanderControl.xaml.cs">
+      <DependentUpon>ModelsExpanderControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\TabControls\ShadersTabControl.xaml.cs">
-      <DependentUpon>ShadersTabControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\ExpanderControls\ShadersExpanderControl.xaml.cs">
+      <DependentUpon>ShadersExpanderControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\TabControls\AudioTabControl.xaml.cs">
-      <DependentUpon>AudioTabControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\ExpanderControls\AudioExpanderControl.xaml.cs">
+      <DependentUpon>AudioExpanderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\AssetControls\ModelBindingAssetControl.xaml.cs">
       <DependentUpon>ModelBindingAssetControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\TabControls\ModelBindingsTabControl.xaml.cs">
-      <DependentUpon>ModelBindingsTabControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\ExpanderControls\ModelBindingsExpanderControl.xaml.cs">
+      <DependentUpon>ModelBindingsExpanderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
