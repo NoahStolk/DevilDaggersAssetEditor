@@ -92,7 +92,7 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 
 		public void ExportLoudness()
 		{
-			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = "ini" };
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, Filter = "Initialization files (*.ini)|*.ini" };
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;

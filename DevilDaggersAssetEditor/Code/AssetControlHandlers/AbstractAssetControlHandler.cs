@@ -22,10 +22,7 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 
 		public void BrowsePath()
 		{
-			OpenFileDialog openDialog = new OpenFileDialog
-			{
-				Filter = openDialogFilter
-			};
+			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter };
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;

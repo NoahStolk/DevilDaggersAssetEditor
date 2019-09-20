@@ -34,10 +34,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			{
 				IEnumerable<GenericUserAsset> modFile = OpenModFile();
 				if (modFile == null)
-				{
-					App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
 					return;
-				}
 				UpdateExpanderControls(modFile);
 			};
 			saveModFileItem.Click += (sender, e) =>
@@ -99,7 +96,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
-			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = modFileExtension, Filter = modFileFilter };
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;
@@ -117,12 +114,15 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
-			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = modFileExtension, Filter = modFileFilter };
+			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return null;
 
-			return JsonUtils.TryDeserializeFromFile<IEnumerable<GenericUserAsset>>(dialog.FileName, true);
+			IEnumerable<GenericUserAsset> jsonResult = JsonUtils.TryDeserializeFromFile<IEnumerable<GenericUserAsset>>(dialog.FileName, true);
+			if (jsonResult == null)
+				App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
+			return jsonResult;
 		}
 
 		protected abstract void UpdateExpanderControls(IEnumerable<GenericUserAsset> assets);
