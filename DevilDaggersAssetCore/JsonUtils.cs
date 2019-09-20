@@ -29,12 +29,19 @@ namespace DevilDaggersAssetCore
 				DefaultSerializer.Serialize(jtw, obj);
 		}
 
-		public static T DeserializeFromFile<T>(string path, bool includeType = false)
+		public static T TryDeserializeFromFile<T>(string path, bool includeType = false) where T : class
 		{
-			using StreamReader sr = new StreamReader(File.OpenRead(path));
-			if (includeType)
-				return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), TypeNameSerializationSettings);
-			return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), DefaultSerializationSettings);
+			try
+			{
+				using StreamReader sr = new StreamReader(File.OpenRead(path));
+				if (includeType)
+					return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), TypeNameSerializationSettings);
+				return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), DefaultSerializationSettings);
+			}
+			catch
+			{
+				return null;
+			}
 		}
 	}
 }

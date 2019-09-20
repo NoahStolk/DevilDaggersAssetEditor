@@ -122,7 +122,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			if (!openResult.HasValue || !openResult.Value)
 				return null;
 
-			return JsonUtils.DeserializeFromFile<List<GenericUserAsset>>(dialog.FileName, true);
+			return JsonUtils.TryDeserializeFromFile<List<GenericUserAsset>>(dialog.FileName, true);
 		}
 
 		private void Save(List<AbstractAsset> assets, BinaryFileName binaryFileName)
@@ -227,11 +227,17 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 		private void SetAudioAssets(List<GenericUserAsset> assets)
 		{
+			if (assets == null)
+				return;
+
 			SetAssets(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioTabControl.Handler);
 		}
 
 		private void SetDDAssets(List<GenericUserAsset> assets)
 		{
+			if (assets == null)
+				return;
+
 			SetAssets(assets, App.Instance.MainWindow.DDModelBindingsTabControl.Handler);
 			SetAssets(assets, App.Instance.MainWindow.DDModelsTabControl.Handler);
 			SetAssets(assets, App.Instance.MainWindow.DDShadersTabControl.Handler);
@@ -240,6 +246,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 		private void SetCoreAssets(List<GenericUserAsset> assets)
 		{
+			if (assets == null)
+				return;
+
 			SetAssets(assets, App.Instance.MainWindow.CoreShadersTabControl.Handler);
 		}
 
