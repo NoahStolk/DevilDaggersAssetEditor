@@ -92,15 +92,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 				return;
 			string oldFileContents = File.ReadAllText(openDialog.FileName);
 
-			SaveFileDialog saveDialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
-			bool? result = saveDialog.ShowDialog();
-			if (!result.HasValue || !result.Value)
-				return;
-
 			// Fix namespace.
 			string newFileContents = oldFileContents.Replace("Assets.UserAssets", "ModFiles");
 
-			File.WriteAllText(saveDialog.FileName, newFileContents);
+			File.WriteAllText(openDialog.FileName, newFileContents);
 		}
 	}
 }
