@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
 using DevilDaggersAssetEditor.Code.TabControlHandlers;
+using Microsoft.Win32;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
@@ -80,6 +81,26 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 		private void TestException_Click(object sender, RoutedEventArgs e)
 		{
 			throw new Exception("Test Exception");
+		}
+
+		private void ConvertModFile0200_Click(object sender, RoutedEventArgs e)
+		{
+			string modFileFilter = "Audio mod files (*.audio)|*.audio";
+			OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
+			bool? openResult = openDialog.ShowDialog();
+			if (!openResult.HasValue || !openResult.Value)
+				return;
+			string oldFileContents = File.ReadAllText(openDialog.FileName);
+
+			SaveFileDialog saveDialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
+			bool? result = saveDialog.ShowDialog();
+			if (!result.HasValue || !result.Value)
+				return;
+
+			// Fix namespace.
+			string newFileContents = oldFileContents.Replace("Assets.UserAssets", "ModFiles");
+
+			File.WriteAllText(saveDialog.FileName, newFileContents);
 		}
 	}
 }

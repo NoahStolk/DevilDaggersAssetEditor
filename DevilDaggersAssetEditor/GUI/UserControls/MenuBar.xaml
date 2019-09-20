@@ -13,5 +13,8 @@
 			<MenuItem Header="Check for updates" Name="UpdateItem" Click="Update_Click" />
 			<MenuItem Header="Show log" Click="ShowLog_Click" />
 		</MenuItem>
+		<MenuItem Header="Compatibility">
+			<MenuItem Header="Convert 0.2.0.0 mod file format" Click="ConvertModFile0200_Click" />
+		</MenuItem>
 	</Menu>
 </UserControl>
