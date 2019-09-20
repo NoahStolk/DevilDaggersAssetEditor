@@ -11,15 +11,15 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public string Description { get; }
 		[JsonProperty]
-		public string TypeName { get; }
+		public string ChunkTypeName { get; }
 
 		public string EditorPath { get; set; } = "<NONE SPECIFIED>";
 
-		protected AbstractAsset(string assetName, string description, string typeName)
+		protected AbstractAsset(string assetName, string description, string chunkTypeName)
 		{
 			AssetName = assetName;
 			Description = description;
-			TypeName = typeName;
+			ChunkTypeName = chunkTypeName;
 		}
 
 		public virtual GenericUserAsset ToUserAsset()

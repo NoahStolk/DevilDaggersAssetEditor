@@ -2,321 +2,321 @@
 	{
 		"AssetName": "boid_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "boid_pop_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "boid_pop_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "boid_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "debug_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "debug_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "default_texture_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "default_texture_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "depth_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "depth_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "egg_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "egg_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "gib_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "gib_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "hand_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "hand_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "light_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "light_ring_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "light_ring_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "light_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "owlwing_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "owlwing_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle2_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle2_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle_decal_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle_decal_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_combine_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_combine_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_final_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_final_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_title_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_title_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "shadow_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "shadow_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sorath_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sorath_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_debug_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_debug_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_terrain_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_terrain_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "squidarm_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "squidarm_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "thorn_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "thorn_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "tile2_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "tile2_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "tile_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "tile_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "unlit_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "unlit_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp2_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp2_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp3_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp3_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warpeye_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warpeye_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp_fragment",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp_vertex",
 		"Description": "?",
-		"TypeName": "ShaderChunk"
+		"ChunkTypeName": "ShaderChunk"
 	}
 ]

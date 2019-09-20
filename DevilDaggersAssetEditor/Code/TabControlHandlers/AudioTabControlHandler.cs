@@ -16,15 +16,15 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
-			MenuItem audioAudioImport = new MenuItem { Header = $"Import Audio paths from folder" };
+			MenuItem audioImport = new MenuItem { Header = $"Import Audio paths from folder" };
 			MenuItem loudnessImport = new MenuItem { Header = $"Import Loudness from file" };
 			MenuItem loudnessExport = new MenuItem { Header = $"Export Loudness to file" };
 
-			audioAudioImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ImportFolder();
+			audioImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ImportFolder();
 			loudnessImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ImportLoudness();
 			loudnessExport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ExportLoudness();
 
-			fileTypeMenuItem.Items.Add(audioAudioImport);
+			fileTypeMenuItem.Items.Add(audioImport);
 			fileTypeMenuItem.Items.Add(new Separator());
 			fileTypeMenuItem.Items.Add(loudnessImport);
 			fileTypeMenuItem.Items.Add(loudnessExport);

@@ -2,801 +2,801 @@
 	{
 		"AssetName": "bat",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood10",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood11",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood4",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood5",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood6",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood7",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood8",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "blood9",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid2horns",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid3horns",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid3jaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid4",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "boid4jaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "bottom",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "dagger",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ember1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ember2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ember3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "feather1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "feather2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame4",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame5",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame6",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame7",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "flame8",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gib",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gib1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gib2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gib3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaegg",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspiderbody",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspidercrest",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspiderfangs",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspiderfangs2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspiderhead",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspiderhorns",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspiderjaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "gigaspiderpalm",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "hand",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "hand2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "hand2left",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "hand3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "hand3left",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "hand4",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "hand4left",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "handleft",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "immortalorb",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levicrown",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levicrown2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levicrown2jaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levicrownjaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levideath",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levidividerskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levigem",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levigem2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "leviorb",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "leviskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "leviskull2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "leviskulljaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levitent",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "levitent2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "light_sphere",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "logodagger",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "logohand",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "minisquidcrest",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "minisquidcrestskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "minisquidgem",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "minisquidhorns",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "minisquidjaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "minisquidjawskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib10",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib11",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib12",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib13",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib14",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib15",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib16",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib4",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib5",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib6",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib7",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib8",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "orbgib9",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "owlwing",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedebody",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedehead",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedejaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedeleg1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedeleg2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedeleg3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedetail",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedetaillegs",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pedeweak",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "pillar",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "plane400",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "rubble",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "smokeblob1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "smokeblob2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "smokeblob3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "smokeblob4",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "sorathstone",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderbody",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spideregg1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spideregg2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderfangs",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spidergib",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderhead",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderjaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderleg1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderleg1f",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderleg2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderleg2f",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderleg3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderleg3f",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderling",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderlingleg1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderlingleg2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderlingleg3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderlingpalms",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderpalm",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "spiderpalmf",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidarm",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidcrest",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidcrestskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidgem",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidhorns",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidjaws",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidjawskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "squidteeth",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "statue1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "statue2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "statue3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "thorn",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "thorngib1",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "thorngib2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "thorngib3",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "tile",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "tile2",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrapedecrown",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidcrest",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidcrestskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidgem",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidhorns",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidjaw",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidjawskull",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidteeth",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	},
 	{
 		"AssetName": "ultrasquidtent",
 		"Description": "?",
-		"TypeName": "ModelChunk"
+		"ChunkTypeName": "ModelChunk"
 	}
 ]

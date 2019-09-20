@@ -2,8 +2,8 @@
 {
 	public class ModelBindingAsset : AbstractAsset
 	{
-		public ModelBindingAsset(string assetName, string description, string typeName)
-			: base(assetName, description, typeName)
+		public ModelBindingAsset(string assetName, string description, string chunkTypeName)
+			: base(assetName, description, chunkTypeName)
 		{
 		}
 	}

@@ -117,7 +117,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			{
 				StringBuilder loudness = new StringBuilder();
 
-				AbstractAsset[] assets = allAssets.Where(a => a.TypeName == chunkInfo.Type.Name).ToArray();
+				AbstractAsset[] assets = allAssets.Where(a => a.ChunkTypeName == chunkInfo.Type.Name).ToArray();
 
 				List<AbstractChunk> chunks = new List<AbstractChunk>();
 				foreach (AbstractAsset asset in assets)

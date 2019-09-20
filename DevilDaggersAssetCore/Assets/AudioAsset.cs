@@ -10,8 +10,8 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public bool PresentInDefaultLoudness { get; set; }
 
-		public AudioAsset(string assetName, string description, string typeName, float loudness, bool presentInDefaultLoudness)
-			: base(assetName, description, typeName)
+		public AudioAsset(string assetName, string description, string chunkTypeName, float loudness, bool presentInDefaultLoudness)
+			: base(assetName, description, chunkTypeName)
 		{
 			Loudness = loudness;
 			PresentInDefaultLoudness = presentInDefaultLoudness;

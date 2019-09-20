@@ -2,8 +2,8 @@
 {
 	public class ShaderAsset : AbstractAsset
 	{
-		public ShaderAsset(string assetName, string description, string typeName)
-			: base(assetName, description, typeName)
+		public ShaderAsset(string assetName, string description, string chunkTypeName)
+			: base(assetName, description, chunkTypeName)
 		{
 		}
 	}

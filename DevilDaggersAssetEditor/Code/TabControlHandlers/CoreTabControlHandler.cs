@@ -16,11 +16,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
-			MenuItem coreShaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
+			MenuItem shaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
 
-			coreShaderImport.Click += (sender, e) => App.Instance.MainWindow.CoreShadersExpanderControl.Handler.ImportFolder();
+			shaderImport.Click += (sender, e) => App.Instance.MainWindow.CoreShadersExpanderControl.Handler.ImportFolder();
 
-			fileTypeMenuItem.Items.Add(coreShaderImport);
+			fileTypeMenuItem.Items.Add(shaderImport);
 
 			return fileTypeMenuItem;
 		}

@@ -16,20 +16,20 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
-			MenuItem ddModelBindingImport = new MenuItem { Header = $"Import Model Binding paths from folder", IsEnabled = false };
-			MenuItem ddModelImport = new MenuItem { Header = $"Import Model paths from folder", IsEnabled = false };
-			MenuItem ddShaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
-			MenuItem ddTextureImport = new MenuItem { Header = $"Import Texture paths from folder", IsEnabled = false };
+			MenuItem modelBindingImport = new MenuItem { Header = $"Import Model Binding paths from folder", IsEnabled = false };
+			MenuItem modelImport = new MenuItem { Header = $"Import Model paths from folder", IsEnabled = false };
+			MenuItem shaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
+			MenuItem textureImport = new MenuItem { Header = $"Import Texture paths from folder", IsEnabled = false };
 
-			ddModelBindingImport.Click += (sender, e) => App.Instance.MainWindow.DDModelBindingsExpanderControl.Handler.ImportFolder();
-			ddModelImport.Click += (sender, e) => App.Instance.MainWindow.DDModelsExpanderControl.Handler.ImportFolder();
-			ddShaderImport.Click += (sender, e) => App.Instance.MainWindow.DDShadersExpanderControl.Handler.ImportFolder();
-			ddTextureImport.Click += (sender, e) => App.Instance.MainWindow.DDTexturesExpanderControl.Handler.ImportFolder();
+			modelBindingImport.Click += (sender, e) => App.Instance.MainWindow.DDModelBindingsExpanderControl.Handler.ImportFolder();
+			modelImport.Click += (sender, e) => App.Instance.MainWindow.DDModelsExpanderControl.Handler.ImportFolder();
+			shaderImport.Click += (sender, e) => App.Instance.MainWindow.DDShadersExpanderControl.Handler.ImportFolder();
+			textureImport.Click += (sender, e) => App.Instance.MainWindow.DDTexturesExpanderControl.Handler.ImportFolder();
 			
-			fileTypeMenuItem.Items.Add(ddModelBindingImport);
-			fileTypeMenuItem.Items.Add(ddModelImport);
-			fileTypeMenuItem.Items.Add(ddShaderImport);
-			fileTypeMenuItem.Items.Add(ddTextureImport);
+			fileTypeMenuItem.Items.Add(modelBindingImport);
+			fileTypeMenuItem.Items.Add(modelImport);
+			fileTypeMenuItem.Items.Add(shaderImport);
+			fileTypeMenuItem.Items.Add(textureImport);
 
 			return fileTypeMenuItem;
 		}
