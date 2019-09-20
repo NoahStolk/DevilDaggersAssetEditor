@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DevilDaggersAssetCore.ModFiles;
+using Newtonsoft.Json;
 
 namespace DevilDaggersAssetCore.Assets
 {
@@ -19,6 +20,16 @@ namespace DevilDaggersAssetCore.Assets
 			AssetName = assetName;
 			Description = description;
 			TypeName = typeName;
+		}
+
+		public virtual GenericUserAsset ToUserAsset()
+		{
+			return new GenericUserAsset(AssetName, EditorPath);
+		}
+
+		public virtual void ImportValuesFromUserAsset(GenericUserAsset userAsset)
+		{
+			EditorPath = userAsset.EditorPath;
 		}
 	}
 }

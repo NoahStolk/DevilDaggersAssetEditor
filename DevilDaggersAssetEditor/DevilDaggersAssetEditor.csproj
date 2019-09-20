@@ -175,6 +175,10 @@
     <Compile Include="Code\ExpanderControlHandlers\ModelsExpanderControlHandler.cs" />
     <Compile Include="Code\ExpanderControlHandlers\ModelBindingsExpanderControlHandler.cs" />
     <Compile Include="Code\ExpanderControlHandlers\AudioExpanderControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\AbstractTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\AudioTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\CoreTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\DDTabControlHandler.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Code\Web\NetworkHandler.cs" />
     <Compile Include="Code\Web\TimeoutWebClient.cs" />

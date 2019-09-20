@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DevilDaggersAssetCore.ModFiles;
+using Newtonsoft.Json;
 
 namespace DevilDaggersAssetCore.Assets
 {
@@ -14,6 +15,19 @@ namespace DevilDaggersAssetCore.Assets
 		{
 			Loudness = loudness;
 			PresentInDefaultLoudness = presentInDefaultLoudness;
+		}
+
+		public override GenericUserAsset ToUserAsset()
+		{
+			return new AudioUserAsset(AssetName, EditorPath, Loudness);
+		}
+
+		public override void ImportValuesFromUserAsset(GenericUserAsset userAsset)
+		{
+			base.ImportValuesFromUserAsset(userAsset);
+
+			if (userAsset is AudioUserAsset audioUserAsset)
+				Loudness = audioUserAsset.Loudness;
 		}
 	}
 }
