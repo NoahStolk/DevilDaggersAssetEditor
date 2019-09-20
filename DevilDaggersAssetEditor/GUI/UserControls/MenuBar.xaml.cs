@@ -16,37 +16,51 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
+using DevilDaggersAssetCore.BinaryFileHandlers;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
+		private readonly ResourceFileHandler audioFileHandler = new ResourceFileHandler(BinaryFileType.Audio);
+		private readonly ResourceFileHandler ddFileHandler = new ResourceFileHandler(BinaryFileType.DD);
+		private readonly ResourceFileHandler coreFileHandler = new ResourceFileHandler(BinaryFileType.Core);
+
+		private readonly List<AbstractBinaryFileHandler> fileHandlers;
+
 		public MenuBarUserControl()
 		{
 			InitializeComponent();
 
-			foreach (BinaryFileName binaryFileName in (BinaryFileName[])Enum.GetValues(typeof(BinaryFileName)))
+			fileHandlers = new List<AbstractBinaryFileHandler>
 			{
-				string bfn = binaryFileName.ToString().ToLower();
-				MenuItem bfnItem = new MenuItem { Header = bfn, IsEnabled = binaryFileName != BinaryFileName.Particle };
+				audioFileHandler,
+				ddFileHandler,
+				coreFileHandler
+			};
 
-				MenuItem extractItem = new MenuItem { Header = $"Extract '{bfn}'" };
-				MenuItem compressItem = new MenuItem { Header = $"Compress '{bfn}'", IsEnabled = binaryFileName == BinaryFileName.Audio };
-				extractItem.Click += (sender, e) => Extract_Click(binaryFileName);
-				compressItem.Click += (sender, e) => Compress_Click(binaryFileName);
+			foreach (AbstractBinaryFileHandler fileHandler in fileHandlers)
+			{
+				string fileName = fileHandler.BinaryFileType.ToString().ToLower();
+				MenuItem bfnItem = new MenuItem { Header = fileName, IsEnabled = fileHandler.BinaryFileType != BinaryFileType.Particle };
+
+				MenuItem extractItem = new MenuItem { Header = $"Extract '{fileName}'" };
+				MenuItem compressItem = new MenuItem { Header = $"Compress '{fileName}'", IsEnabled = fileHandler.BinaryFileType == BinaryFileType.Audio };
+				extractItem.Click += (sender, e) => Extract_Click(fileHandler);
+				compressItem.Click += (sender, e) => Compress_Click(fileHandler);
 				bfnItem.Items.Add(extractItem);
 				bfnItem.Items.Add(compressItem);
 
 				bfnItem.Items.Add(new Separator());
 
-				MenuItem openItem = new MenuItem { Header = "Open assets", IsEnabled = binaryFileName == BinaryFileName.Audio };
-				MenuItem saveItem = new MenuItem { Header = "Save assets", IsEnabled = binaryFileName == BinaryFileName.Audio };
+				MenuItem openItem = new MenuItem { Header = "Open assets", IsEnabled = fileHandler.BinaryFileType == BinaryFileType.Audio };
+				MenuItem saveItem = new MenuItem { Header = "Save assets", IsEnabled = fileHandler.BinaryFileType == BinaryFileType.Audio };
 
-				switch (binaryFileName)
+				switch (fileHandler.BinaryFileType)
 				{
-					case BinaryFileName.Audio:
+					case BinaryFileType.Audio:
 						openItem.Click += (sender, e) => SetAudioAssets(Open());
-						saveItem.Click += (sender, e) => Save(GetAudioAssets(), binaryFileName);
+						saveItem.Click += (sender, e) => Save(GetAudioAssets(), fileHandler);
 
 						AddOpenSaveItems();
 
@@ -63,9 +77,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 						bfnItem.Items.Add(loudnessImport);
 						bfnItem.Items.Add(loudnessExport);
 						break;
-					case BinaryFileName.DD:
+					case BinaryFileType.DD:
 						openItem.Click += (sender, e) => SetDDAssets(Open());
-						saveItem.Click += (sender, e) => Save(GetDDAssets(), binaryFileName);
+						saveItem.Click += (sender, e) => Save(GetDDAssets(), fileHandler);
 
 						AddOpenSaveItems();
 
@@ -82,9 +96,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 						bfnItem.Items.Add(ddShaderImport);
 						bfnItem.Items.Add(ddTextureImport);
 						break;
-					case BinaryFileName.Core:
+					case BinaryFileType.Core:
 						openItem.Click += (sender, e) => SetCoreAssets(Open());
-						saveItem.Click += (sender, e) => Save(GetCoreAssets(), binaryFileName);
+						saveItem.Click += (sender, e) => Save(GetCoreAssets(), fileHandler);
 
 						AddOpenSaveItems();
 
@@ -125,9 +139,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			return JsonUtils.TryDeserializeFromFile<List<GenericUserAsset>>(dialog.FileName, true);
 		}
 
-		private void Save(List<AbstractAsset> assets, BinaryFileName binaryFileName)
+		private void Save(List<AbstractAsset> assets, AbstractBinaryFileHandler fileHandler)
 		{
-			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = binaryFileName.ToString().ToLower() };
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, AddExtension = true, DefaultExt = fileHandler.BinaryFileType.ToString().ToLower() };
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;
@@ -139,7 +153,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			JsonUtils.SerializeToFile(dialog.FileName, userAssets, true, Formatting.None);
 		}
 
-		private void Extract_Click(BinaryFileName binaryFileName)
+		private void Extract_Click(AbstractBinaryFileHandler fileHandler)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder };
 			bool? openResult = openDialog.ShowDialog();
@@ -150,15 +164,15 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			{
 				CommonFileDialogResult saveResult = saveDialog.ShowDialog();
 				if (saveResult == CommonFileDialogResult.Ok)
-					Extractor.Extract(openDialog.FileName, saveDialog.FileName, binaryFileName);
+					fileHandler.Extract(openDialog.FileName, saveDialog.FileName);
 			}
 		}
 
-		private void Compress_Click(BinaryFileName binaryFileName)
+		private void Compress_Click(AbstractBinaryFileHandler fileHandler)
 		{
-			switch (binaryFileName)
+			switch (fileHandler.BinaryFileType)
 			{
-				case BinaryFileName.Audio:
+				case BinaryFileType.Audio:
 					if (!App.Instance.MainWindow.AudioAudioTabControl.Handler.IsComplete())
 					{
 						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -168,7 +182,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 					Compress(GetAudioAssets());
 					break;
-				case BinaryFileName.DD:
+				case BinaryFileType.DD:
 					if (!App.Instance.MainWindow.DDModelBindingsTabControl.Handler.IsComplete()
 					 || !App.Instance.MainWindow.DDModelsTabControl.Handler.IsComplete()
 					 || !App.Instance.MainWindow.DDShadersTabControl.Handler.IsComplete()
@@ -181,7 +195,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 					Compress(GetDDAssets());
 					break;
-				case BinaryFileName.Core:
+				case BinaryFileType.Core:
 					if (!App.Instance.MainWindow.CoreShadersTabControl.Handler.IsComplete())
 					{
 						MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -192,17 +206,17 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 					Compress(GetCoreAssets());
 					break;
 				default:
-					throw new Exception($"Method '{nameof(Compress_Click)}' not implemented for {nameof(BinaryFileName)} '{binaryFileName}'.");
+					throw new Exception($"Method '{nameof(Compress_Click)}' not implemented for {nameof(BinaryFileType)} '{fileHandler.BinaryFileType}'.");
 			}
 
 			void Compress(List<AbstractAsset> assets)
 			{
-				SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Path.Combine(Utils.DDFolder, binaryFileName.GetSubfolderName()) };
+				SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Path.Combine(Utils.DDFolder, fileHandler.BinaryFileType.GetSubfolderName()) };
 				bool? result = dialog.ShowDialog();
 				if (!result.HasValue || !result.Value)
 					return;
 
-				Compressor.Compress(assets, dialog.FileName, binaryFileName);
+				fileHandler.Compress(assets, dialog.FileName);
 			}
 		}
 

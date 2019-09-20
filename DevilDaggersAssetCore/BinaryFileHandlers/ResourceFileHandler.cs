@@ -7,19 +7,36 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace DevilDaggersAssetCore
+namespace DevilDaggersAssetCore.BinaryFileHandlers
 {
-	public static class Compressor
+	public class ResourceFileHandler : AbstractBinaryFileHandler
 	{
+		public const int HeaderSize = 12;
+
+		public static readonly ulong Magic1;
+		public static readonly ulong Magic2;
+
+		static ResourceFileHandler()
+		{
+			Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
+			Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
+
+			static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
+		}
+
+		public ResourceFileHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
+		{
+		}
+
 		/// <summary>
 		/// Compresses multiple asset files into one binary file that can be read by Devil Daggers.
 		/// </summary>
 		/// <param name="allAssets">The list of asset objects.</param>
 		/// <param name="outputPath">The path where the compressed binary file will be placed.</param>
-		/// <param name="binaryFileName">The binary file name (audio or dd) to know which asset files to compress.</param>
-		public static void Compress(List<AbstractAsset> allAssets, string outputPath, BinaryFileName binaryFileName)
+		public override void Compress(List<AbstractAsset> allAssets, string outputPath)
 		{
-			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(allAssets, binaryFileName);
+			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(allAssets);
 
 			// Create TOC stream.
 			byte[] tocBuffer;
@@ -64,7 +81,7 @@ namespace DevilDaggersAssetCore
 				{
 					foreach (AbstractChunk chunk in assetCollection.Value)
 					{
-						uint startOffset = (uint)(BinaryFileUtils.HeaderSize + tocBuffer.Length + assetStream.Position);
+						uint startOffset = (uint)(HeaderSize + tocBuffer.Length + assetStream.Position);
 						chunk.StartOffset = startOffset;
 
 						// Write start offset to TOC stream.
@@ -82,8 +99,8 @@ namespace DevilDaggersAssetCore
 			using FileStream fs = File.Create(outputPath);
 
 			// Write file header.
-			fs.Write(BitConverter.GetBytes((uint)BinaryFileUtils.Magic1), 0, sizeof(uint));
-			fs.Write(BitConverter.GetBytes((uint)BinaryFileUtils.Magic2), 0, sizeof(uint));
+			fs.Write(BitConverter.GetBytes((uint)Magic1), 0, sizeof(uint));
+			fs.Write(BitConverter.GetBytes((uint)Magic2), 0, sizeof(uint));
 			fs.Write(BitConverter.GetBytes((uint)tocBuffer.Length), 0, sizeof(uint));
 
 			// Write TOC buffer.
@@ -93,10 +110,10 @@ namespace DevilDaggersAssetCore
 			fs.Write(assetBuffer, 0, assetBuffer.Length);
 		}
 
-		private static Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(List<AbstractAsset> allAssets, BinaryFileName binaryFileName)
+		private Dictionary<ChunkInfo, List<AbstractChunk>> GetChunks(List<AbstractAsset> allAssets)
 		{
 			Dictionary<ChunkInfo, List<AbstractChunk>> assetCollections = new Dictionary<ChunkInfo, List<AbstractChunk>>();
-			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => binaryFileName.HasFlagBothWays(c.BinaryFileName)))
+			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => BinaryFileType.HasFlagBothWays(c.BinaryFileType)))
 			{
 				StringBuilder loudness = new StringBuilder();
 
@@ -168,6 +185,72 @@ namespace DevilDaggersAssetCore
 			}
 
 			return assetCollections;
+		}
+
+		/// <summary>
+		/// Extracts a compressed binary file into multiple asset files.
+		/// </summary>
+		/// <param name="inputPath">The binary file path.</param>
+		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
+		public override void Extract(string inputPath, string outputPath)
+		{
+			// Read file contents.
+			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
+
+			// Validate file.
+			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
+			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
+			if (magic1FromFile != Magic1 && magic2FromFile != Magic2)
+				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}\nHeader value 2: {magic2FromFile} should be {Magic2}");
+
+			// Read toc buffer.
+			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
+			byte[] tocBuffer = new byte[tocSize];
+			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)tocSize);
+
+			// Create chunks based on toc buffer.
+			IEnumerable<AbstractChunk> chunks = ReadChunks(tocBuffer);
+
+			// Create folders and files based on chunks.
+			CreateFiles(outputPath, sourceFileBytes, chunks);
+		}
+
+		private IEnumerable<AbstractChunk> ReadChunks(byte[] tocBuffer)
+		{
+			int i = 0;
+			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
+			{
+				ushort type = BitConverter.ToUInt16(tocBuffer, i);
+				string name = ReadNullTerminatedString(tocBuffer, i + 2);
+				i += name.Length + 1; // + 1 to include null terminator.
+				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
+				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
+				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
+				i += 14;
+
+				yield return Activator.CreateInstance(BinaryFileUtils.ChunkInfos.Where(c => c.BinaryTypes.Contains(type)).FirstOrDefault().Type, name, startOffset, size, unknown) as AbstractChunk;
+			}
+		}
+
+		private void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks)
+		{
+			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => BinaryFileType.HasFlagBothWays(c.BinaryFileType)))
+				Directory.CreateDirectory(Path.Combine(outputPath, chunkInfo.FolderName));
+
+			foreach (AbstractChunk chunk in chunks)
+			{
+				if (chunk.Size == 0)
+					continue;
+
+				byte[] buf = new byte[chunk.Size];
+				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);
+
+				chunk.SetBuffer(buf);
+
+				ChunkInfo info = BinaryFileUtils.ChunkInfos.Where(c => c.Type == chunk.GetType()).FirstOrDefault();
+				foreach (FileResult fileResult in chunk.ToFileResult())
+					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{(fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)}"), fileResult.Buffer);
+			}
 		}
 	}
 }
