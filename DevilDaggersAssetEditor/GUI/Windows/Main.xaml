@@ -23,6 +23,11 @@
 						<expanderControls:AudioExpanderControl x:Name="AudioAudioExpanderControl" BinaryFileType="Audio" />
 					</ScrollViewer>
 				</TabItem>
+				<TabItem Header="core" IsEnabled="False">
+					<ScrollViewer>
+						<expanderControls:ShadersExpanderControl x:Name="CoreShadersExpanderControl" BinaryFileType="Core" />
+					</ScrollViewer>
+				</TabItem>
 				<TabItem Header="dd" IsEnabled="False">
 					<ScrollViewer>
 						<StackPanel>
@@ -31,11 +36,6 @@
 							<expanderControls:ShadersExpanderControl x:Name="DDShadersExpanderControl" BinaryFileType="DD" />
 							<expanderControls:TexturesExpanderControl x:Name="DDTexturesExpanderControl" BinaryFileType="DD" />
 						</StackPanel>
-					</ScrollViewer>
-				</TabItem>
-				<TabItem Header="core" IsEnabled="False">
-					<ScrollViewer>
-						<expanderControls:ShadersExpanderControl x:Name="CoreShadersExpanderControl" BinaryFileType="Core" />
 					</ScrollViewer>
 				</TabItem>
 				<TabItem Header="particle" IsEnabled="False"></TabItem>
