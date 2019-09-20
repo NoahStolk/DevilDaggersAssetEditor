@@ -9,8 +9,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 	{
 		protected override string AssetTypeJsonFileName => "Model Bindings";
 
-		public ModelBindingsTabControlHandler(BinaryFileName binaryFileName)
-			: base(binaryFileName)
+		public ModelBindingsTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
 		{
 		}
 

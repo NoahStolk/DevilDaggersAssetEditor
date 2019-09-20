@@ -9,8 +9,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 	{
 		protected override string AssetTypeJsonFileName => "Textures";
 
-		public TexturesTabControlHandler(BinaryFileName binaryFileName)
-			: base(binaryFileName)
+		public TexturesTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
 		{
 		}
 

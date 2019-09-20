@@ -9,17 +9,17 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 {
 	public partial class TexturesTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileNameProperty = DependencyProperty.Register
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
 		(
-			nameof(BinaryFileName),
+			nameof(BinaryFileType),
 			typeof(string),
 			typeof(TexturesTabControl)
 		);
 
-		public string BinaryFileName
+		public string BinaryFileType
 		{
-			get => (string)GetValue(BinaryFileNameProperty);
-			set => SetValue(BinaryFileNameProperty, value);
+			get => (string)GetValue(BinaryFileTypeProperty);
+			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
 		public TexturesTabControlHandler Handler { get; private set; }
@@ -33,7 +33,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new TexturesTabControlHandler((BinaryFileName)Enum.Parse(typeof(BinaryFileName), BinaryFileName));
+			Handler = new TexturesTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
 			foreach (TextureAssetControl ac in Handler.CreateUserControls())
 				AssetEditor.Children.Add(ac);

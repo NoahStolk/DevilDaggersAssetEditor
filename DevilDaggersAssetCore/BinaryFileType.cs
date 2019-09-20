@@ -3,7 +3,7 @@
 namespace DevilDaggersAssetCore
 {
 	[Flags]
-	public enum BinaryFileName
+	public enum BinaryFileType
 	{
 		Audio = 1,
 		DD = 2,

@@ -9,17 +9,17 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 {
 	public partial class AudioTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileNameProperty = DependencyProperty.Register
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
 		(
-			nameof(BinaryFileName),
+			nameof(BinaryFileType),
 			typeof(string),
 			typeof(AudioTabControl)
 		);
 
-		public string BinaryFileName
+		public string BinaryFileType
 		{
-			get => (string)GetValue(BinaryFileNameProperty);
-			set => SetValue(BinaryFileNameProperty, value);
+			get => (string)GetValue(BinaryFileTypeProperty);
+			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
 		public AudioTabControlHandler Handler { get; private set; }
@@ -33,7 +33,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.TabControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new AudioTabControlHandler((BinaryFileName)Enum.Parse(typeof(BinaryFileName), BinaryFileName));
+			Handler = new AudioTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
 			foreach (AudioAssetControl ac in Handler.CreateUserControls())
 				AssetEditor.Children.Add(ac);

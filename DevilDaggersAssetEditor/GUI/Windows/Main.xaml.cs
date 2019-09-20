@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetEditor.Code.Web;
+﻿using DevilDaggersAssetEditor.Code.Web;
 using System.ComponentModel;
 using System.Windows;
 
@@ -7,8 +6,6 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 {
 	public partial class MainWindow : Window
 	{
-		public BinaryFileName activeBinaryFileName;
-
 		public MainWindow()
 		{
 			InitializeComponent();

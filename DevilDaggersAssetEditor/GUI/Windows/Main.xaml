@@ -20,22 +20,22 @@
 			<TabControl Grid.Row="1" Name="TabControl" Width="1366" Height="768">
 				<TabItem Header="audio">
 					<ScrollViewer>
-						<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileName="Audio" />
+						<tabControls:AudioTabControl x:Name="AudioAudioTabControl" BinaryFileType="Audio" />
 					</ScrollViewer>
 				</TabItem>
 				<TabItem Header="dd" IsEnabled="False">
 					<ScrollViewer>
 						<StackPanel>
-							<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileName="DD" />
-							<tabControls:ModelsTabControl x:Name="DDModelsTabControl" BinaryFileName="DD" />
-							<tabControls:ShadersTabControl x:Name="DDShadersTabControl" BinaryFileName="DD" />
-							<tabControls:TexturesTabControl x:Name="DDTexturesTabControl" BinaryFileName="DD" />
+							<tabControls:ModelBindingsTabControl x:Name="DDModelBindingsTabControl" BinaryFileType="DD" />
+							<tabControls:ModelsTabControl x:Name="DDModelsTabControl" BinaryFileType="DD" />
+							<tabControls:ShadersTabControl x:Name="DDShadersTabControl" BinaryFileType="DD" />
+							<tabControls:TexturesTabControl x:Name="DDTexturesTabControl" BinaryFileType="DD" />
 						</StackPanel>
 					</ScrollViewer>
 				</TabItem>
 				<TabItem Header="core" IsEnabled="False">
 					<ScrollViewer>
-						<tabControls:ShadersTabControl x:Name="CoreShadersTabControl" BinaryFileName="Core" />
+						<tabControls:ShadersTabControl x:Name="CoreShadersTabControl" BinaryFileType="Core" />
 					</ScrollViewer>
 				</TabItem>
 				<TabItem Header="particle" IsEnabled="False"></TabItem>

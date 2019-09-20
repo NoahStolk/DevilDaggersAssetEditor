@@ -19,9 +19,9 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		protected abstract string AssetTypeJsonFileName { get; }
 
-		protected AbstractTabControlHandler(BinaryFileName binaryFileName)
+		protected AbstractTabControlHandler(BinaryFileType binaryFileType)
 		{
-			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileName.ToString().ToLower()}.{AssetTypeJsonFileName}.json")))
+			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json")))
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
 

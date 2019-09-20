@@ -9,8 +9,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 	{
 		protected override string AssetTypeJsonFileName => "Shaders";
 
-		public ShadersTabControlHandler(BinaryFileName binaryFileName)
-			: base(binaryFileName)
+		public ShadersTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
 		{
 		}
 

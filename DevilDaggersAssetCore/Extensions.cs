@@ -4,22 +4,22 @@ namespace DevilDaggersAssetCore
 {
 	public static class Extensions
 	{
-		public static string GetSubfolderName(this BinaryFileName binaryFileName)
+		public static string GetSubfolderName(this BinaryFileType binaryFileType)
 		{
-			switch (binaryFileName)
+			switch (binaryFileType)
 			{
-				case BinaryFileName.Audio:
-				case BinaryFileName.DD:
+				case BinaryFileType.Audio:
+				case BinaryFileType.DD:
 					return "res";
-				case BinaryFileName.Core:
+				case BinaryFileType.Core:
 					return "core";
-				case BinaryFileName.Particle:
+				case BinaryFileType.Particle:
 					return "dd";
-				default: throw new Exception($"{nameof(BinaryFileName)} '{binaryFileName}' has not been implemented in this method.");
+				default: throw new Exception($"{nameof(BinaryFileType)} '{binaryFileType}' has not been implemented in this method.");
 			}
 		}
 
-		public static bool HasFlagBothWays(this BinaryFileName a, BinaryFileName b)
+		public static bool HasFlagBothWays(this BinaryFileType a, BinaryFileType b)
 		{
 			return a.HasFlag(b) || b.HasFlag(a);
 		}

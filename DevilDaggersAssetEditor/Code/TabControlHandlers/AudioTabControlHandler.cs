@@ -13,8 +13,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 	{
 		protected override string AssetTypeJsonFileName => "Audio";
 
-		public AudioTabControlHandler(BinaryFileName binaryFileName)
-			: base(binaryFileName)
+		public AudioTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
 		{
 		}
 
