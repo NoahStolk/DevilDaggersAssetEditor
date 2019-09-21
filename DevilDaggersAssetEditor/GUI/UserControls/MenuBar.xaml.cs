@@ -98,6 +98,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			// Fix namespace.
 			string newFileContents = oldFileContents.Replace("Assets.UserAssets", "ModFiles");
 
+			// Audio was the only asset type to edit in 0.2.0.0.
 			List<AudioUserAsset> assets = JsonConvert.DeserializeObject<List<AudioUserAsset>>(newFileContents);
 
 			JsonUtils.SerializeToFile(openDialog.FileName, new ModFile(ApplicationUtils.ApplicationVersionNumber, false, assets.Cast<GenericUserAsset>().ToList()), true, Formatting.None);

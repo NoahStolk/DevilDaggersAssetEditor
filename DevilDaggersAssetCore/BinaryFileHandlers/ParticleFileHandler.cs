@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using DevilDaggersAssetCore.Assets;
 
 namespace DevilDaggersAssetCore.BinaryFileHandlers
@@ -17,7 +18,30 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 		public override void Compress(List<AbstractAsset> allAssets, string outputPath)
 		{
+			byte[] fileBuffer;
+			using (MemoryStream stream = new MemoryStream())
+			{
+				stream.Write(BitConverter.GetBytes(4), 0, sizeof(int));
+				stream.Write(BitConverter.GetBytes(allAssets.Count), 0, sizeof(int));
+				foreach (KeyValuePair<string, byte[]> kvp in GetChunks(allAssets))
+				{
+					stream.Write(Encoding.Default.GetBytes(kvp.Key), 0, kvp.Key.Length);
+					stream.Write(kvp.Value, 0, kvp.Value.Length);
+				}
+				fileBuffer = stream.ToArray();
+			}
 
+			File.WriteAllBytes(outputPath, fileBuffer);
+		}
+
+		private Dictionary<string, byte[]> GetChunks(List<AbstractAsset> assets)
+		{
+			Dictionary<string, byte[]> dict = new Dictionary<string, byte[]>();
+
+			foreach (AbstractAsset asset in assets)
+				dict[asset.AssetName] = File.ReadAllBytes(asset.EditorPath);
+
+			return dict;
 		}
 
 		public override void Extract(string inputPath, string outputPath)

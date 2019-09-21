@@ -24,9 +24,9 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			string fileName = binaryFileType.ToString().ToLower();
 
 			MenuItem extractItem = new MenuItem { Header = $"Extract '{fileName}'" };
-			MenuItem compressItem = new MenuItem { Header = $"Compress '{fileName}'", IsEnabled = binaryFileType == BinaryFileType.Audio };
-			MenuItem openModFileItem = new MenuItem { Header = $"Open .{fileName} mod file", IsEnabled = binaryFileType == BinaryFileType.Audio };
-			MenuItem saveModFileItem = new MenuItem { Header = $"Save .{fileName} mod file", IsEnabled = binaryFileType == BinaryFileType.Audio };
+			MenuItem compressItem = new MenuItem { Header = $"Compress '{fileName}'", IsEnabled = binaryFileType == BinaryFileType.Audio || binaryFileType == BinaryFileType.Particle };
+			MenuItem openModFileItem = new MenuItem { Header = $"Open .{fileName} mod file", IsEnabled = binaryFileType == BinaryFileType.Audio || binaryFileType == BinaryFileType.Particle };
+			MenuItem saveModFileItem = new MenuItem { Header = $"Save .{fileName} mod file", IsEnabled = binaryFileType == BinaryFileType.Audio || binaryFileType == BinaryFileType.Particle };
 
 			extractItem.Click += (sender, e) => Extract_Click();
 			compressItem.Click += (sender, e) => Compress_Click();

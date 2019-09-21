@@ -15,7 +15,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
-			MenuItem particleBindingImport = new MenuItem { Header = $"Import Particle paths from folder", IsEnabled = false };
+			MenuItem particleBindingImport = new MenuItem { Header = $"Import Particle paths from folder" };
 
 			particleBindingImport.Click += (sender, e) => App.Instance.MainWindow.ParticleParticlesExpanderControl.Handler.ImportFolder();
 
