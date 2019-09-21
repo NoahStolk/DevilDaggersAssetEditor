@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using Microsoft.Win32;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 
 		public void ImportLoudness()
 		{
-			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, Filter = "Initialization files (*.ini)|*.ini" };
+			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = "Initialization files (*.ini)|*.ini" };
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
@@ -92,7 +93,7 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 
 		public void ExportLoudness()
 		{
-			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, Filter = "Initialization files (*.ini)|*.ini" };
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = "Initialization files (*.ini)|*.ini" };
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;

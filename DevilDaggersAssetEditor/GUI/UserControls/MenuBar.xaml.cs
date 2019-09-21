@@ -14,6 +14,7 @@ using Microsoft.Win32;
 using Newtonsoft.Json;
 using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.ModFiles;
+using DevilDaggersAssetEditor.Code.User;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
@@ -41,6 +42,14 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 			MenuPanel.Items.Add(debug);
 #endif
+		}
+
+		private void Settings_Click(object sender, RoutedEventArgs e)
+		{
+			SettingsWindow settingsWindow = new SettingsWindow();
+			if (settingsWindow.ShowDialog() == true)
+				using (StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName)))
+					sw.Write(JsonConvert.SerializeObject(UserHandler.Instance.settings, Formatting.Indented));
 		}
 
 		private void About_Click(object sender, RoutedEventArgs e)
@@ -89,7 +98,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 		private void ConvertModFile0200_Click(object sender, RoutedEventArgs e)
 		{
 			string modFileFilter = "Audio mod files (*.audio)|*.audio";
-			OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
+			OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = modFileFilter };
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;

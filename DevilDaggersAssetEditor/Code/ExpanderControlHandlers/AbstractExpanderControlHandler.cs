@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetEditor.Code.User;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
 using System;
@@ -41,7 +42,7 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 
 		public void ImportFolder()
 		{
-			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true })
+			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
 			{
 				CommonFileDialogResult result = dialog.ShowDialog();
 				if (result != CommonFileDialogResult.Ok)

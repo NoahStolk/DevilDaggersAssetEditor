@@ -1,5 +1,8 @@
-﻿using DevilDaggersAssetEditor.Code.Web;
+﻿using DevilDaggersAssetEditor.Code.User;
+using DevilDaggersAssetEditor.Code.Web;
+using Newtonsoft.Json;
 using System.ComponentModel;
+using System.IO;
 using System.Windows;
 
 namespace DevilDaggersAssetEditor.GUI.Windows
@@ -9,6 +12,10 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			if (File.Exists(UserSettings.FileName))
+				using (StreamReader sr = new StreamReader(File.OpenRead(UserSettings.FileName)))
+					UserHandler.Instance.settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
 
 			App.Instance.MainWindow = this;
 			App.Instance.UpdateMainWindowTitle();

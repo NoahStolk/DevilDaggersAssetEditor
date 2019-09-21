@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetEditor.Code.User;
 using Microsoft.Win32;
 
 namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
@@ -22,7 +23,7 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 
 		public void BrowsePath()
 		{
-			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter };
+			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;

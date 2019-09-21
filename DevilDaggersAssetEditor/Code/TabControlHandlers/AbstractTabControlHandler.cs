@@ -3,6 +3,7 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.ExpanderControlHandlers;
+using DevilDaggersAssetEditor.Code.User;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
@@ -62,14 +63,14 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		private void Extract_Click()
 		{
-			OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder };
+			OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName()) };
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			using (CommonOpenFileDialog saveDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = Utils.DDFolder })
-				if (saveDialog.ShowDialog() == CommonFileDialogResult.Ok)
-					FileHandler.Extract(openDialog.FileName, saveDialog.FileName);
+			using (CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
+				if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
+					FileHandler.Extract(openDialog.FileName, folderDialog.FileName);
 		}
 
 		private void Compress_Click()
@@ -81,7 +82,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 					return;
 			}
 
-			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Path.Combine(Utils.DDFolder, FileHandler.BinaryFileType.GetSubfolderName()) };
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName()) };
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;
@@ -93,7 +94,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
-			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = modFileFilter };
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;
@@ -136,7 +137,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
-			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = Utils.DDFolder, Filter = modFileFilter };
+			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = modFileFilter };
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return null;
@@ -148,7 +149,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			if (modFile.HasRelativePaths)
 			{
 				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
-				using (CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true })
+				using (CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
 				{
 					CommonFileDialogResult result = basePathDialog.ShowDialog();
 					if (result == CommonFileDialogResult.Ok)

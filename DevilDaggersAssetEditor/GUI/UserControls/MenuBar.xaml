@@ -7,6 +7,9 @@
              d:DesignHeight="20" d:DesignWidth="800">
 	<Menu DockPanel.Dock="Top" Name="MenuPanel">
 		<MenuItem Header="File" Name="FileMenuItem" />
+		<MenuItem Header="Options">
+			<MenuItem Header="Settings" Click="Settings_Click" />
+		</MenuItem>
 		<MenuItem Header="Help">
 			<MenuItem Header="About" Click="About_Click" />
 			<MenuItem Header="View source code" Click="SourceCode_Click" />

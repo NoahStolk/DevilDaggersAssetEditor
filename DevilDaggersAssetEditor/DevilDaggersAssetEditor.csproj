@@ -190,11 +190,17 @@
     <Compile Include="Code\TabControlHandlers\CoreTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\ParticleTabControlHandler.cs" />
     <Compile Include="Code\TabControlHandlers\DDTabControlHandler.cs" />
+    <Compile Include="Code\User\UserHandler.cs" />
+    <Compile Include="Code\User\UserSettings.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Code\Web\NetworkHandler.cs" />
     <Compile Include="Code\Web\TimeoutWebClient.cs" />
     <Compile Include="Code\Web\UrlUtils.cs" />
     <Compile Include="Code\Web\VersionResult.cs" />
+    <Page Include="GUI\Windows\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Windows\UpdateRecommended.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -260,6 +266,9 @@
   <ItemGroup>
     <Compile Include="GUI\Windows\Message.xaml.cs">
       <DependentUpon>Message.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\UpdateRecommended.xaml.cs">
       <DependentUpon>UpdateRecommended.xaml</DependentUpon>
