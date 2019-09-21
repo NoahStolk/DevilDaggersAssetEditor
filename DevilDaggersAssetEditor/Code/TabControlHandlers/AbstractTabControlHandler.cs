@@ -32,15 +32,15 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			compressItem.Click += (sender, e) => Compress_Click();
 			openModFileItem.Click += (sender, e) =>
 			{
-				IEnumerable<GenericUserAsset> modFile = OpenModFile();
+				ModFile modFile = OpenModFile();
 				if (modFile == null)
 					return;
-				UpdateExpanderControls(modFile);
+				UpdateExpanderControls(modFile.Assets);
 			};
 			saveModFileItem.Click += (sender, e) =>
 			{
 				List<AbstractAsset> assets = GetAssets();
-				IEnumerable<GenericUserAsset> userAssets = CreateUserAssets(assets);
+				List<GenericUserAsset> userAssets = CreateUserAssets(assets);
 				SaveModFile(userAssets);
 			};
 
@@ -89,7 +89,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			FileHandler.Compress(GetAssets(), dialog.FileName);
 		}
 
-		private void SaveModFile(IEnumerable<GenericUserAsset> assets)
+		private void SaveModFile(List<GenericUserAsset> assets)
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
@@ -98,16 +98,41 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			if (!result.HasValue || !result.Value)
 				return;
 
-			JsonUtils.SerializeToFile(dialog.FileName, assets, true, Formatting.None);
+			bool samePaths = true;
+			List<GenericUserAsset> list = assets.ToList();
+			for (int i = 0; i < list.Count; i++)
+			{
+				if (Path.GetDirectoryName(list[i].EditorPath) != Path.GetDirectoryName(list[(i + 1) % list.Count].EditorPath))
+				{
+					samePaths = false;
+					break;
+				}
+			}
+
+			bool relativePaths = false;
+			if (samePaths)
+			{
+				MessageBoxResult relativePathsResult = MessageBox.Show("Specify whether you want this mod file to use relative paths (easier to share between computers or using zipped files containing assets).", "Use relative paths?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+				relativePaths = relativePathsResult == MessageBoxResult.Yes;
+
+				if (relativePaths)
+					foreach (GenericUserAsset asset in assets)
+						asset.EditorPath = Path.GetFileName(asset.EditorPath);
+			}
+			ModFile modFile = new ModFile(ApplicationUtils.ApplicationVersionNumber, relativePaths, assets);
+
+			JsonUtils.SerializeToFile(dialog.FileName, modFile, true, Formatting.None);
 		}
 
-		private IEnumerable<GenericUserAsset> CreateUserAssets(List<AbstractAsset> assets)
+		private List<GenericUserAsset> CreateUserAssets(List<AbstractAsset> assets)
 		{
+			List<GenericUserAsset> userAssets = new List<GenericUserAsset>();
 			foreach (AbstractAsset asset in assets)
-				yield return asset.ToUserAsset();
+				userAssets.Add(asset.ToUserAsset());
+			return userAssets;
 		}
 
-		private IEnumerable<GenericUserAsset> OpenModFile()
+		private ModFile OpenModFile()
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
@@ -116,15 +141,27 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			if (!openResult.HasValue || !openResult.Value)
 				return null;
 
-			IEnumerable<GenericUserAsset> jsonResult = JsonUtils.TryDeserializeFromFile<IEnumerable<GenericUserAsset>>(dialog.FileName, true);
-			if (jsonResult == null)
+			ModFile modFile = JsonUtils.TryDeserializeFromFile<ModFile>(dialog.FileName, true);
+			if (modFile == null)
 				App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
-			return jsonResult;
+
+			if (modFile.HasRelativePaths)
+			{
+				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
+				using (CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true })
+				{
+					CommonFileDialogResult result = basePathDialog.ShowDialog();
+					if (result == CommonFileDialogResult.Ok)
+						foreach (GenericUserAsset asset in modFile.Assets)
+							asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
+				}
+			}
+			return modFile;
 		}
 
-		protected abstract void UpdateExpanderControls(IEnumerable<GenericUserAsset> assets);
+		protected abstract void UpdateExpanderControls(List<GenericUserAsset> assets);
 
-		protected void UpdateExpanderControl<TUserAsset, TAsset, TAssetControl>(IEnumerable<TUserAsset> userAssets, AbstractExpanderControlHandler<TAsset, TAssetControl> expanderControlHandler) where TUserAsset : GenericUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
+		protected void UpdateExpanderControl<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractExpanderControlHandler<TAsset, TAssetControl> expanderControlHandler) where TUserAsset : GenericUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
 		{
 			for (int i = 0; i < expanderControlHandler.Assets.Count; i++)
 			{

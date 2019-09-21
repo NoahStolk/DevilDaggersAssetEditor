@@ -11,6 +11,9 @@ using System.Linq;
 using System.Windows.Media;
 using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using Microsoft.Win32;
+using Newtonsoft.Json;
+using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.ModFiles;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
@@ -95,7 +98,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			// Fix namespace.
 			string newFileContents = oldFileContents.Replace("Assets.UserAssets", "ModFiles");
 
-			File.WriteAllText(openDialog.FileName, newFileContents);
+			List<AudioUserAsset> assets = JsonConvert.DeserializeObject<List<AudioUserAsset>>(newFileContents);
+
+			JsonUtils.SerializeToFile(openDialog.FileName, new ModFile(ApplicationUtils.ApplicationVersionNumber, false, assets.Cast<GenericUserAsset>().ToList()), true, Formatting.None);
 		}
 	}
 }

@@ -3,7 +3,7 @@
 	public class GenericUserAsset
 	{
 		public string AssetName { get; }
-		public string EditorPath { get; }
+		public string EditorPath { get; set; }
 
 		public GenericUserAsset(string assetName, string editorPath)
 		{

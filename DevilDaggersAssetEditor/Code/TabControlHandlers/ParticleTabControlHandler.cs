@@ -29,7 +29,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			return App.Instance.MainWindow.ParticleParticlesExpanderControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 		}
 
-		protected override void UpdateExpanderControls(IEnumerable<GenericUserAsset> assets)
+		protected override void UpdateExpanderControls(List<GenericUserAsset> assets)
 		{
 			UpdateExpanderControl(assets, App.Instance.MainWindow.ParticleParticlesExpanderControl.Handler);
 		}
