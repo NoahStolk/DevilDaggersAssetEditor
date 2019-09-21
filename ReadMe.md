@@ -10,6 +10,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 	- Audio
 	- Models
 	- Model bindings
+	- Particles (binary)
 	- Shaders
 	- Textures
 
@@ -17,12 +18,13 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 	- res/audio
 	- res/dd
 	- core/core
-	- ~~dd/particle~~
+	- dd/particle
 
 - Compressing asset types
 	- Audio
 	- ~~Models~~
 	- ~~Model bindings~~
+	- Particles
 	- ~~Shaders~~
 	- ~~Textures~~
 	
@@ -30,7 +32,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 	- res/audio
 	- ~~res/dd~~
 	- ~~core/core~~
-	- ~~dd/particle~~
+	- dd/particle
 
 ## System requirements
 
@@ -50,6 +52,16 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 - [Discord server](https://discord.gg/NF32j8S)
 
 ## Changelog
+
+#### 0.3.0.0 - September 19, 2019
+
+- Implemented particle extraction, compression, and mod files. The particle files are in binary, so there is not much to mod until I figure out what the bytes mean, but you can switch particles and replace them with others.
+- Implemented functionality to specify whether or not to use relative paths in mod files.
+- Added user settings to specify Devil Daggers root folder, mods root folder, and assets root folder.
+- Improve initial directories for file and folder dialogs.
+- Small bug and crash fixes.
+
+Note that the mod file format has been changed, and mod files created using version 0.2.0.0 will no longer open. You'll need to convert these by navigating to Compatibility > Convert 0.2.0.0 mod file format and select your mod file.
 
 #### 0.2.0.0 - September 19, 2019
 
