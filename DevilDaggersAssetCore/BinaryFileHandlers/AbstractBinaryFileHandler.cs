@@ -14,9 +14,9 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			BinaryFileType = binaryFileType;
 		}
 
-		public abstract void Extract(string inputPath, string outputPath);
+		public abstract void Compress(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription);
 
-		public abstract void Compress(List<AbstractAsset> allAssets, string outputPath);
+		public abstract void Extract(string inputPath, string outputPath, Progress<float> progress, Progress<string> progressDescription);
 
 		/// <summary>
 		/// Reads a null terminated string from a buffer and returns it as a string object (excluding the null terminator itself).

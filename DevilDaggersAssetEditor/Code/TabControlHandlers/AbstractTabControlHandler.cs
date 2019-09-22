@@ -4,12 +4,15 @@ using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.ExpanderControlHandlers;
 using DevilDaggersAssetEditor.Code.User;
+using DevilDaggersAssetEditor.GUI.Windows;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -61,7 +64,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public abstract List<AbstractAsset> GetAssets();
 
-		private void Extract_Click()
+		private async void Extract_Click()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName()) };
 			bool? openResult = openDialog.ShowDialog();
@@ -69,11 +72,25 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				return;
 
 			using (CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
+			{
 				if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
-					FileHandler.Extract(openDialog.FileName, folderDialog.FileName);
+				{
+					ProgressWindow progressWindow = new ProgressWindow($"Extracting '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
+					progressWindow.Show();
+					await Task.Run(() =>
+					{
+						FileHandler.Extract(
+							openDialog.FileName,
+							folderDialog.FileName,
+							new Progress<float>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
+							new Progress<string>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
+						Application.Current.Dispatcher.Invoke(() => progressWindow.Finish());
+					});
+				}
+			}
 		}
 
-		private void Compress_Click()
+		private async void Compress_Click()
 		{
 			if (!IsComplete())
 			{
@@ -87,7 +104,17 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			if (!result.HasValue || !result.Value)
 				return;
 
-			FileHandler.Compress(GetAssets(), dialog.FileName);
+			ProgressWindow progressWindow = new ProgressWindow($"Compressing '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
+			progressWindow.Show();
+			await Task.Run(() =>
+			{
+				FileHandler.Compress(
+				GetAssets(),
+				dialog.FileName,
+				new Progress<float>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
+				new Progress<string>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
+				Application.Current.Dispatcher.Invoke(() => progressWindow.Finish());
+			});
 		}
 
 		private void SaveModFile(List<GenericUserAsset> assets)

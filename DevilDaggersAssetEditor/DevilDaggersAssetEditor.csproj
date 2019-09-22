@@ -197,6 +197,10 @@
     <Compile Include="Code\Web\TimeoutWebClient.cs" />
     <Compile Include="Code\Web\UrlUtils.cs" />
     <Compile Include="Code\Web\VersionResult.cs" />
+    <Page Include="GUI\Windows\Progress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Windows\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -266,6 +270,9 @@
   <ItemGroup>
     <Compile Include="GUI\Windows\Message.xaml.cs">
       <DependentUpon>Message.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\Progress.xaml.cs">
+      <DependentUpon>Progress.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
