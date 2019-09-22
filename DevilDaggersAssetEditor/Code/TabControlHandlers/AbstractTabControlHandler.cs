@@ -103,7 +103,9 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			List<GenericUserAsset> list = assets.ToList();
 			for (int i = 0; i < list.Count; i++)
 			{
-				if (Path.GetDirectoryName(list[i].EditorPath) != Path.GetDirectoryName(list[(i + 1) % list.Count].EditorPath))
+				string path1 = list[i].EditorPath;
+				string path2 = list[(i + 1) % list.Count].EditorPath;
+				if (!Utils.IsPathValid(path1) || !Utils.IsPathValid(path2) || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
 				{
 					samePaths = false;
 					break;

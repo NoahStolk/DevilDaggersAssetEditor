@@ -78,7 +78,7 @@ Note that the mod file format has been changed, and mod files created using vers
 
 #### 0.1.0.0 - September 11, 2019
 
-- Beta release.
+- Initial beta release.
 
 ## Credits
 

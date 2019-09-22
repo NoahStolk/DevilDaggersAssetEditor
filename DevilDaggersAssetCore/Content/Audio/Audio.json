@@ -58,7 +58,7 @@
 	{
 		"Loudness": 10,
 		"AssetName": "chatterminisquid",
-		"Description": "Squid I idle (double?)",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -142,7 +142,7 @@
 	{
 		"Loudness": 1,
 		"AssetName": "chattersquidsmall",
-		"Description": "Squid I idle (double?)",
+		"Description": "Squid I idle",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -352,14 +352,14 @@
 	{
 		"Loudness": 10,
 		"AssetName": "damagecentipede",
-		"Description": "Centipede gem comes off",
+		"Description": "Centipede gem is damaged",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 10,
 		"AssetName": "damagecentipede2",
-		"Description": "Gigapede gem comes off",
+		"Description": "Gigapede gem is damaged",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -387,7 +387,7 @@
 	{
 		"Loudness": 10,
 		"AssetName": "damagesquid",
-		"Description": "Squid I gem damage and maybe more (other squid / Levi gems dmg)",
+		"Description": "Squid I / II / III / Leviathan gem damage",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -401,14 +401,14 @@
 	{
 		"Loudness": 30,
 		"AssetName": "damagesquid3",
-		"Description": "Squid III gem comes off (or damage?)",
+		"Description": "Squid III gem comes off",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 35,
 		"AssetName": "damagesquid4",
-		"Description": "Squid III gem comes off (or unused?)",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1416,35 +1416,35 @@
 	{
 		"Loudness": 4,
 		"AssetName": "shard1",
-		"Description": "?",
+		"Description": "The Orb shard bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard2",
-		"Description": "?",
+		"Description": "The Orb shard bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard3",
-		"Description": "?",
+		"Description": "The Orb shard bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard4",
-		"Description": "?",
+		"Description": "The Orb shard bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 4,
 		"AssetName": "shard5",
-		"Description": "?",
+		"Description": "The Orb shard bounce on floor",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1465,7 +1465,7 @@
 	{
 		"Loudness": 3,
 		"AssetName": "shot3",
-		"Description": "Level 3 normal dagger shotgun",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1542,42 +1542,42 @@
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop1",
-		"Description": "Skull bounce on floor",
+		"Description": "Skull bounce on floor or with other skull",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop2",
-		"Description": "Skull bounce on floor",
+		"Description": "Skull bounce on floor or with other skull",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop3",
-		"Description": "Skull bounce on floor",
+		"Description": "Skull bounce on floor or with other skull",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop4",
-		"Description": "Skull bounce on floor",
+		"Description": "Skull bounce on floor or with other skull",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop5",
-		"Description": "Skull bounce on floor",
+		"Description": "Skull bounce on floor or with other skull",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "skullclop6",
-		"Description": "Skull bounce on floor",
+		"Description": "Skull bounce on floor or with other skull",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1661,14 +1661,14 @@
 	{
 		"Loudness": 25,
 		"AssetName": "spawnskulls",
-		"Description": "Squid I gush",
+		"Description": "Squid II gush (yes, really)",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 25,
 		"AssetName": "spawnskulls2",
-		"Description": "Squid II gush",
+		"Description": "Squid I gush (yes, really)",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1794,14 +1794,14 @@
 	{
 		"Loudness": 1,
 		"AssetName": "stealgib",
-		"Description": "Gem attracted by spiders",
+		"Description": "Gem attracted by Spider I",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "stealgib2",
-		"Description": "Unused",
+		"Description": "Gem attracted by Spider II",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1822,42 +1822,42 @@
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib1",
-		"Description": "?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib2",
-		"Description": "?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib3",
-		"Description": "?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib4",
-		"Description": "?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib5",
-		"Description": "?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "thorngib6",
-		"Description": "?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
