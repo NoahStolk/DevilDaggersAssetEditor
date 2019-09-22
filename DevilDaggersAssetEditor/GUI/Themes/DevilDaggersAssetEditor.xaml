@@ -11,7 +11,7 @@
 	<Style TargetType="{x:Type windows:ErrorWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:MainWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:MessageWindow}" BasedOn="{StaticResource {x:Type Window}}" />
-	<!--<Style TargetType="{x:Type windows:SettingsWindow}" BasedOn="{StaticResource {x:Type Window}}" />-->
+	<Style TargetType="{x:Type windows:SettingsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:UpdateRecommendedWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 
 	<Style TargetType="StackPanel" x:Key="PaddingStackPanel">
