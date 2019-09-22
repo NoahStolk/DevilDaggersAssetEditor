@@ -21,18 +21,6 @@ namespace DevilDaggersAssetEditor.Code
 			return AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
 		}
 
-		public static bool IsPathValid(string path)
-		{
-			try
-			{
-				return Path.IsPathRooted(path);
-			}
-			catch
-			{
-				return false;
-			}
-		}
-
 		public static void GenerateDDJsonFiles()
 		{
 			List<ModelBindingAsset> modelBindings = new List<ModelBindingAsset>();

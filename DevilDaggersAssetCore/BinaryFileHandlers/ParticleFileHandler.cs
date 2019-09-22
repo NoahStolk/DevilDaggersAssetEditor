@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using DevilDaggersAssetCore.Assets;
 
@@ -18,6 +19,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 		public override void Compress(List<AbstractAsset> allAssets, string outputPath)
 		{
+			allAssets = allAssets.Where(a => a.EditorPath.IsPathValid()).ToList();
+
 			byte[] fileBuffer;
 			using (MemoryStream stream = new MemoryStream())
 			{

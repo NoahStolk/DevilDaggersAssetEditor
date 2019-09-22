@@ -105,7 +105,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			{
 				string path1 = list[i].EditorPath;
 				string path2 = list[(i + 1) % list.Count].EditorPath;
-				if (!Utils.IsPathValid(path1) || !Utils.IsPathValid(path2) || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
+				if (!path1.IsPathValid() || !path2.IsPathValid() || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
 				{
 					samePaths = false;
 					break;

@@ -63,7 +63,7 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 		public bool IsComplete()
 		{
 			foreach (TAsset asset in Assets)
-				if (!Utils.IsPathValid(asset.EditorPath))
+				if (!asset.EditorPath.IsPathValid())
 					return false;
 			return true;
 		}

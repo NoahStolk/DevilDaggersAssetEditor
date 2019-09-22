@@ -38,6 +38,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		/// <param name="outputPath">The path where the compressed binary file will be placed.</param>
 		public override void Compress(List<AbstractAsset> allAssets, string outputPath)
 		{
+			allAssets = allAssets.Where(a => a.EditorPath.IsPathValid()).ToList();
+
 			Dictionary<ChunkInfo, List<AbstractChunk>> chunkCollections = GetChunks(allAssets);
 
 			// Create TOC stream.

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace DevilDaggersAssetCore
 {
@@ -22,6 +23,18 @@ namespace DevilDaggersAssetCore
 		public static bool HasFlagBothWays(this BinaryFileType a, BinaryFileType b)
 		{
 			return a.HasFlag(b) || b.HasFlag(a);
+		}
+
+		public static bool IsPathValid(this string path)
+		{
+			try
+			{
+				return Path.IsPathRooted(path);
+			}
+			catch
+			{
+				return false;
+			}
 		}
 	}
 }
