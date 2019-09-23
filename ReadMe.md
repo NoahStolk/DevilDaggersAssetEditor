@@ -53,6 +53,12 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 ## Changelog
 
+#### 0.3.3.0 - September 23, 2019
+
+- Created progress bar for lengthy tasks such as compressing and extracting.
+- Many bug fixes.
+- Improved audio descriptions.
+
 #### 0.3.0.0 - September 19, 2019
 
 - Implemented particle extraction, compression, and mod files. The particle files are in binary, so there is not much to mod until I figure out what the bytes mean, but you can switch particles and replace them with others.
