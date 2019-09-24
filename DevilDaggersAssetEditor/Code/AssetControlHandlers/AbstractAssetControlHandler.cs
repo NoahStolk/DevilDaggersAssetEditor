@@ -1,14 +1,15 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.User;
 using Microsoft.Win32;
+using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 {
-	public abstract class AbstractAssetControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset
+	public abstract class AbstractAssetControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset where TAssetControl : UserControl
 	{
 		public TAsset Asset { get; }
 		protected readonly TAssetControl parent;
-		private readonly string openDialogFilter;
+		protected readonly string openDialogFilter;
 
 		public AbstractAssetControlHandler(TAsset asset, TAssetControl parent, string openDialogFilter)
 		{
@@ -21,16 +22,21 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 
 		public abstract void UpdateGUI();
 
-		public void BrowsePath()
+		public virtual void BrowsePath()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			Asset.EditorPath = openDialog.FileName;
+			Asset.EditorPath = FileNameToChunkName(openDialog.FileName);
 
 			UpdateGUI();
+		}
+
+		public virtual string FileNameToChunkName(string fileName)
+		{
+			return fileName;
 		}
 	}
 }

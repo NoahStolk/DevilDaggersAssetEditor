@@ -19,5 +19,10 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 			ShaderAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;
 		}
+
+		public override string FileNameToChunkName(string fileName)
+		{
+			return fileName.Replace("_fragment", "").Replace("_vertex", "");
+		}
 	}
 }

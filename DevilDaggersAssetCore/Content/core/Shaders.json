@@ -1,31 +1,16 @@
 [
 	{
-		"AssetName": "guifont_fragment",
+		"AssetName": "guifont",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "guifont_vertex",
+		"AssetName": "gui",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "gui_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "gui_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "test_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "test_vertex",
+		"AssetName": "test",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	}

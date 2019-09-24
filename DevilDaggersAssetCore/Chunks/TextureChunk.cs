@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore.Headers;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -14,7 +15,17 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		public override IEnumerable<FileResult> ToFileResult()
+		public override void Compress(string path)
+		{
+			Image img = Image.FromFile(path);
+
+			byte[] headerBuffer = new byte[11]; // TODO: Get from TextureHeader.ByteCount but without creating an instance.
+			System.Buffer.BlockCopy(BitConverter.GetBytes(img.Width), 0, headerBuffer, 2, sizeof(uint));
+			System.Buffer.BlockCopy(BitConverter.GetBytes(img.Height), 0, headerBuffer, 6, sizeof(uint));
+			Header = new TextureHeader(headerBuffer);
+		}
+
+		public override IEnumerable<FileResult> Extract()
 		{
 			using Bitmap bitmap = new Bitmap((int)Header.Width, (int)Header.Height, (int)Header.Width * 4, PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 0));
 			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
@@ -28,17 +39,12 @@ namespace DevilDaggersAssetCore.Chunks
 				}
 			}
 
-			yield return new FileResult(Name, GetBitmapBytes(bitmap));
-		}
-
-		private static byte[] GetBitmapBytes(Bitmap image)
-		{
 			MemoryStream memoryStream = new MemoryStream();
 
 			// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
-			new Bitmap(image).Save(memoryStream, ImageFormat.Png);
+			new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
 
-			return memoryStream.ToArray();
+			yield return new FileResult(Name, memoryStream.ToArray());
 		}
 	}
 }

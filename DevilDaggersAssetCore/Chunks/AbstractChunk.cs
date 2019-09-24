@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace DevilDaggersAssetCore.Chunks
 {
@@ -6,7 +7,7 @@ namespace DevilDaggersAssetCore.Chunks
 	{
 		public string Name { get; set; }
 		public uint StartOffset { get; set; }
-		public uint Size { get; set; }
+		public uint Size { get; set; } // Probably redundant as you can use Buffer.Length instead.
 		public uint Unknown { get; set; }
 
 		public byte[] Buffer { get; set; }
@@ -19,29 +20,27 @@ namespace DevilDaggersAssetCore.Chunks
 			Unknown = unknown;
 		}
 
-		public virtual string ChunkNameToFileName(int i = 0)
-		{
-			return Name;
-		}
-
-		public virtual string FileNameToChunkName(int i = 0)
-		{
-			return Name;
-		}
-
+		// Only overridden by AbstractHeaderedChunk to take header into account.
 		public virtual void SetBuffer(byte[] buffer)
 		{
 			Buffer = buffer;
 		}
 
+		// Only overridden by AbstractHeaderedChunk to take header into account.
 		public virtual byte[] GetBuffer()
 		{
 			return Buffer;
 		}
 
-		public virtual IEnumerable<FileResult> ToFileResult()
+		public virtual void Compress(string path)
 		{
-			yield return new FileResult(ChunkNameToFileName(), GetBuffer());
+			Buffer = File.ReadAllBytes(path);
+			Size = (uint)Buffer.Length;
+		}
+
+		public virtual IEnumerable<FileResult> Extract()
+		{
+			yield return new FileResult(Name, Buffer);
 		}
 
 		public override string ToString()

@@ -4,6 +4,13 @@ namespace DevilDaggersAssetCore.Headers
 {
 	public class TextureHeader : AbstractHeader
 	{
+		public override int ByteCount => 11;
+
+		public ushort Unknown { get; } // Color format?
+		public uint Width { get; }
+		public uint Height { get; }
+		public byte Mipmaps { get; }
+
 		public TextureHeader(byte[] chunkBuffer)
 			: base(chunkBuffer)
 		{
@@ -12,12 +19,5 @@ namespace DevilDaggersAssetCore.Headers
 			Height = BitConverter.ToUInt32(Buffer, 6);
 			Mipmaps = Buffer[10];
 		}
-
-		public override int ByteCount => 11;
-
-		public ushort Unknown { get; set; } // Color format?
-		public uint Width { get; set; }
-		public uint Height { get; set; }
-		public byte Mipmaps { get; set; }
 	}
 }

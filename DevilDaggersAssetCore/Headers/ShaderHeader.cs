@@ -4,6 +4,12 @@ namespace DevilDaggersAssetCore.Headers
 {
 	public class ShaderHeader : AbstractHeader
 	{
+		public override int ByteCount => 12;
+
+		public uint NameLength { get; }
+		public uint VertexSize { get; }
+		public uint FragmentSize { get; }
+
 		public ShaderHeader(byte[] chunkBuffer)
 			: base(chunkBuffer)
 		{
@@ -11,11 +17,5 @@ namespace DevilDaggersAssetCore.Headers
 			VertexSize = BitConverter.ToUInt32(Buffer, 4);
 			FragmentSize = BitConverter.ToUInt32(Buffer, 8);
 		}
-
-		public override int ByteCount => 12;
-
-		public uint NameLength { get; set; }
-		public uint VertexSize { get; set; }
-		public uint FragmentSize { get; set; }
 	}
 }

@@ -1,321 +1,161 @@
 [
 	{
-		"AssetName": "boid_fragment",
+		"AssetName": "boid",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "boid_pop_fragment",
+		"AssetName": "boid_pop",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "boid_pop_vertex",
+		"AssetName": "debug",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "boid_vertex",
+		"AssetName": "default_texture",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "debug_fragment",
+		"AssetName": "depth",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "debug_vertex",
+		"AssetName": "egg",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "default_texture_fragment",
+		"AssetName": "gib",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "default_texture_vertex",
+		"AssetName": "hand",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "depth_fragment",
+		"AssetName": "light",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "depth_vertex",
+		"AssetName": "light_ring",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "egg_fragment",
+		"AssetName": "owlwing",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "egg_vertex",
+		"AssetName": "particle2",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "gib_fragment",
+		"AssetName": "particle_decal",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "gib_vertex",
+		"AssetName": "particle",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "hand_fragment",
+		"AssetName": "post_combine",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "hand_vertex",
+		"AssetName": "post_final",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "light_fragment",
+		"AssetName": "post",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "light_ring_fragment",
+		"AssetName": "post_title",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "light_ring_vertex",
+		"AssetName": "shadow",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "light_vertex",
+		"AssetName": "sorath",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "owlwing_fragment",
+		"AssetName": "sprite_debug",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "owlwing_vertex",
+		"AssetName": "sprite",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "particle2_fragment",
+		"AssetName": "sprite_terrain",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "particle2_vertex",
+		"AssetName": "squidarm",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "particle_decal_fragment",
+		"AssetName": "thorn",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "particle_decal_vertex",
+		"AssetName": "tile2",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "particle_fragment",
+		"AssetName": "tile",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "particle_vertex",
+		"AssetName": "unlit",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "post_combine_fragment",
+		"AssetName": "warp2",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "post_combine_vertex",
+		"AssetName": "warp3",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "post_final_fragment",
+		"AssetName": "warpeye",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
-		"AssetName": "post_final_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "post_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "post_title_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "post_title_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "post_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "shadow_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "shadow_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sorath_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sorath_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sprite_debug_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sprite_debug_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sprite_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sprite_terrain_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sprite_terrain_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "sprite_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "squidarm_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "squidarm_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "thorn_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "thorn_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "tile2_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "tile2_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "tile_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "tile_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "unlit_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "unlit_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warp2_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warp2_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warp3_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warp3_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warpeye_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warpeye_vertex",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warp_fragment",
-		"Description": "?",
-		"ChunkTypeName": "ShaderChunk"
-	},
-	{
-		"AssetName": "warp_vertex",
+		"AssetName": "warp",
 		"Description": "?",
 		"ChunkTypeName": "ShaderChunk"
 	}

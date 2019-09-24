@@ -21,7 +21,12 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		public override IEnumerable<FileResult> ToFileResult()
+		public override void Compress(string path)
+		{
+			throw new NotImplementedException();
+		}
+
+		public override IEnumerable<FileResult> Extract()
 		{
 			Vertex[] vertices = new Vertex[Header.VertexCount];
 			uint[] indices = new uint[Header.IndexCount];
@@ -72,7 +77,7 @@ namespace DevilDaggersAssetCore.Chunks
 				sb.AppendLine($"f {indices[i * 3] + 1} {indices[i * 3 + 1] + 1} {indices[i * 3 + 2] + 1}");
 			}
 
-			yield return new FileResult(ChunkNameToFileName(), Encoding.Default.GetBytes(sb.ToString()));
+			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
 		}
 	}
 }

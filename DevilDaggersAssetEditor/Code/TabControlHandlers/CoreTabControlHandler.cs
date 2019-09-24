@@ -16,7 +16,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
-			MenuItem shaderImport = new MenuItem { Header = $"Import Shader paths from folder", IsEnabled = false };
+			MenuItem shaderImport = new MenuItem { Header = $"Import Shader paths from folder" };
 
 			shaderImport.Click += (sender, e) => App.Instance.MainWindow.CoreShadersExpanderControl.Handler.ImportFolder();
 

@@ -50,10 +50,10 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 
 				foreach (string filePath in Directory.GetFiles(dialog.FileName))
 				{
-					TAsset asset = Assets.Where(a => a.AssetName == Path.GetFileNameWithoutExtension(filePath)).Cast<TAsset>().FirstOrDefault();
+					TAsset asset = Assets.Where(a => a.AssetName == FileNameToChunkName(Path.GetFileNameWithoutExtension(filePath))).Cast<TAsset>().FirstOrDefault();
 					if (asset != null)
 					{
-						asset.EditorPath = filePath;
+						asset.EditorPath = FileNameToChunkName(filePath);
 						UpdateGUI(asset);
 					}
 				}
@@ -66,6 +66,11 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 				if (!asset.EditorPath.IsPathValid())
 					return false;
 			return true;
+		}
+
+		public virtual string FileNameToChunkName(string fileName)
+		{
+			return fileName;
 		}
 	}
 }

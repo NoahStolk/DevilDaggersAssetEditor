@@ -23,12 +23,12 @@
 						<expanderControls:AudioExpanderControl x:Name="AudioAudioExpanderControl" BinaryFileType="Audio" />
 					</ScrollViewer>
 				</TabItem>
-				<TabItem Header="core" IsEnabled="False">
+				<TabItem Header="core">
 					<ScrollViewer>
 						<expanderControls:ShadersExpanderControl x:Name="CoreShadersExpanderControl" BinaryFileType="Core" />
 					</ScrollViewer>
 				</TabItem>
-				<TabItem Header="dd" IsEnabled="False">
+				<TabItem Header="dd">
 					<ScrollViewer>
 						<StackPanel>
 							<expanderControls:ModelBindingsExpanderControl x:Name="DDModelBindingsExpanderControl" BinaryFileType="DD" />
