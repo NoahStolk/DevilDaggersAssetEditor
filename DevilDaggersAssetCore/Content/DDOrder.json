@@ -1,0 +1,2647 @@
+[
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "debug",
+		"Item3": 1
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "depth",
+		"Item3": 2
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "particle",
+		"Item3": 3
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "particle2",
+		"Item3": 4
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "particle_decal",
+		"Item3": 5
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "post",
+		"Item3": 6
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "post_title",
+		"Item3": 7
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "post_combine",
+		"Item3": 8
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "post_final",
+		"Item3": 9
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "sprite_debug",
+		"Item3": 10
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "sprite",
+		"Item3": 11
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "sprite_terrain",
+		"Item3": 12
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "default_texture",
+		"Item3": 13
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "boid",
+		"Item3": 14
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "boid_pop",
+		"Item3": 15
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "squidarm",
+		"Item3": 16
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "thorn",
+		"Item3": 17
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "warp",
+		"Item3": 18
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "warp2",
+		"Item3": 19
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "warp3",
+		"Item3": 20
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "warpeye",
+		"Item3": 21
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "owlwing",
+		"Item3": 22
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "tile",
+		"Item3": 23
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "tile2",
+		"Item3": 24
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "gib",
+		"Item3": 25
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "egg",
+		"Item3": 26
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "hand",
+		"Item3": 27
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "unlit",
+		"Item3": 28
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "sorath",
+		"Item3": 29
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "shadow",
+		"Item3": 30
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "light",
+		"Item3": 31
+	},
+	{
+		"Item1": "ShaderChunk",
+		"Item2": "light_ring",
+		"Item3": 32
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "dagger",
+		"Item3": 33
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "dagger",
+		"Item3": 34
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "dagger",
+		"Item3": 35
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "dagger0",
+		"Item3": 36
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "dagger1",
+		"Item3": 37
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "dagger2",
+		"Item3": 38
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "dagger2",
+		"Item3": 39
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "dagger3",
+		"Item3": 40
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "dagger3",
+		"Item3": 41
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "dagger4",
+		"Item3": 42
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "dagger4",
+		"Item3": 43
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "dagger5",
+		"Item3": 44
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "dagger5",
+		"Item3": 45
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "dagger6",
+		"Item3": 46
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "dagger6",
+		"Item3": 47
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "daggerbronze",
+		"Item3": 48
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "daggerbronze",
+		"Item3": 49
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "daggerdevil",
+		"Item3": 50
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "daggergold",
+		"Item3": 51
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "daggergold",
+		"Item3": 52
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "daggersilver",
+		"Item3": 53
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "daggersilver",
+		"Item3": 54
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "hand",
+		"Item3": 55
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "hand",
+		"Item3": 56
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "hand",
+		"Item3": 57
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "hand0",
+		"Item3": 58
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "hand0",
+		"Item3": 59
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "hand2",
+		"Item3": 60
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "hand2",
+		"Item3": 61
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "hand2",
+		"Item3": 62
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "hand2left",
+		"Item3": 63
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "hand3",
+		"Item3": 64
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "hand3",
+		"Item3": 65
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "hand3",
+		"Item3": 66
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "hand3left",
+		"Item3": 67
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "hand4",
+		"Item3": 68
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "hand4",
+		"Item3": 69
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "hand4",
+		"Item3": 70
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "hand4left",
+		"Item3": 71
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "hand5",
+		"Item3": 72
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "hand5",
+		"Item3": 73
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "hand6",
+		"Item3": 74
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "hand6",
+		"Item3": 75
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "handleft",
+		"Item3": 76
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "logodagger",
+		"Item3": 77
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "logodagger",
+		"Item3": 78
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "logodagger",
+		"Item3": 79
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "logodagger2",
+		"Item3": 80
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "logohand",
+		"Item3": 81
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "logohand",
+		"Item3": 82
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "logohand",
+		"Item3": 83
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "logotext",
+		"Item3": 84
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "logotext",
+		"Item3": 85
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "sorathlogo",
+		"Item3": 86
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "sorathmask",
+		"Item3": 87
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "sorathtexture",
+		"Item3": 88
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "sorathvector",
+		"Item3": 89
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "bat",
+		"Item3": 90
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "bat",
+		"Item3": 91
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "boid",
+		"Item3": 92
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid",
+		"Item3": 93
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid",
+		"Item3": 94
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid2",
+		"Item3": 95
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2",
+		"Item3": 96
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2gib",
+		"Item3": 97
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2hit",
+		"Item3": 98
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid2horns",
+		"Item3": 99
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2horns",
+		"Item3": 100
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2hornsgib",
+		"Item3": 101
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2hornshit",
+		"Item3": 102
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2hornslev",
+		"Item3": 103
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2lev",
+		"Item3": 104
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid2levgib",
+		"Item3": 105
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid3",
+		"Item3": 106
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3",
+		"Item3": 107
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3gib",
+		"Item3": 108
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3hit",
+		"Item3": 109
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid3horns",
+		"Item3": 110
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3horns",
+		"Item3": 111
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3hornsgib",
+		"Item3": 112
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3hornshit",
+		"Item3": 113
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3hornslev",
+		"Item3": 114
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid3jaw",
+		"Item3": 115
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3jaw",
+		"Item3": 116
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3jawgib",
+		"Item3": 117
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3jawhit",
+		"Item3": 118
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3jawlev",
+		"Item3": 119
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid3lev",
+		"Item3": 120
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid4",
+		"Item3": 121
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4",
+		"Item3": 122
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4gib",
+		"Item3": 123
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4hit",
+		"Item3": 124
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "boid4jaw",
+		"Item3": 125
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4jaw",
+		"Item3": 126
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4jawgib",
+		"Item3": 127
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4jawhit",
+		"Item3": 128
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4jawlev",
+		"Item3": 129
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boid4lev",
+		"Item3": 130
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boidgib",
+		"Item3": 131
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boidhit",
+		"Item3": 132
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "boidlev",
+		"Item3": 133
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "boid_pop",
+		"Item3": 134
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "crystal",
+		"Item3": 135
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "gib",
+		"Item3": 136
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gib",
+		"Item3": 137
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib",
+		"Item3": 138
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib2",
+		"Item3": 139
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "gibegg",
+		"Item3": 140
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "gigaegg",
+		"Item3": 141
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaegg",
+		"Item3": 142
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaegg",
+		"Item3": 143
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspiderbody",
+		"Item3": 144
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderbody",
+		"Item3": 145
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspidercrest",
+		"Item3": 146
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspidercrest",
+		"Item3": 147
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspidercrestgib",
+		"Item3": 148
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspidercresthit",
+		"Item3": 149
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspiderfangs",
+		"Item3": 150
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderfangs",
+		"Item3": 151
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspiderfangs2",
+		"Item3": 152
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderfangs2",
+		"Item3": 153
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderfangs2gib",
+		"Item3": 154
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderfangs2hit",
+		"Item3": 155
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspiderhead",
+		"Item3": 156
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderhead",
+		"Item3": 157
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspiderhorns",
+		"Item3": 158
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderhorns",
+		"Item3": 159
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderhornsgib",
+		"Item3": 160
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderhornshit",
+		"Item3": 161
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspiderjaw",
+		"Item3": 162
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderjaw",
+		"Item3": 163
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderleg1",
+		"Item3": 164
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderleg2",
+		"Item3": 165
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderleg3",
+		"Item3": 166
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gigaspiderpalm",
+		"Item3": 167
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gigaspiderpalm",
+		"Item3": 168
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "immortaleye",
+		"Item3": 169
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "immortaleyehit",
+		"Item3": 170
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "immortalorb",
+		"Item3": 171
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levicrown",
+		"Item3": 172
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levicrown",
+		"Item3": 173
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levicrown2",
+		"Item3": 174
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levicrown2",
+		"Item3": 175
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levicrown2jaw",
+		"Item3": 176
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levicrown2jaw",
+		"Item3": 177
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levicrownjaw",
+		"Item3": 178
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levicrownjaw",
+		"Item3": 179
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levidividerskull",
+		"Item3": 180
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levidividerskull",
+		"Item3": 181
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levigem",
+		"Item3": 182
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levigem2",
+		"Item3": 183
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levileg1",
+		"Item3": 184
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levileg2",
+		"Item3": 185
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levileg3",
+		"Item3": 186
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "leviorb",
+		"Item3": 187
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "leviskull",
+		"Item3": 188
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "leviskull",
+		"Item3": 189
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "leviskull2",
+		"Item3": 190
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "leviskull2",
+		"Item3": 191
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "leviskulljaw",
+		"Item3": 192
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "leviskulljaw",
+		"Item3": 193
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "levitent",
+		"Item3": 194
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levitent",
+		"Item3": 195
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levitent",
+		"Item3": 196
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levitent2",
+		"Item3": 197
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levitent2",
+		"Item3": 198
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "levitentgib",
+		"Item3": 199
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levitentgib",
+		"Item3": 200
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "levitenthit",
+		"Item3": 201
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levitenthit",
+		"Item3": 202
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "leviwarp",
+		"Item3": 203
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "leviwarp",
+		"Item3": 204
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "leviwarp2",
+		"Item3": 205
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "leviwarp3",
+		"Item3": 206
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "minisquidarm",
+		"Item3": 207
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "minisquidarm",
+		"Item3": 208
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "minisquidcrest",
+		"Item3": 209
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "minisquidcrest",
+		"Item3": 210
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "minisquidcrestskull",
+		"Item3": 211
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "minisquidcrestskull",
+		"Item3": 212
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "minisquidgem",
+		"Item3": 213
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "minisquidhorns",
+		"Item3": 214
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "minisquidhorns",
+		"Item3": 215
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "minisquidjaw",
+		"Item3": 216
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "minisquidjaw",
+		"Item3": 217
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "minisquidjawskull",
+		"Item3": 218
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "minisquidjawskull",
+		"Item3": 219
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib1",
+		"Item3": 220
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib10",
+		"Item3": 221
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib11",
+		"Item3": 222
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib12",
+		"Item3": 223
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib13",
+		"Item3": 224
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib14",
+		"Item3": 225
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib15",
+		"Item3": 226
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib16",
+		"Item3": 227
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib2",
+		"Item3": 228
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib3",
+		"Item3": 229
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib4",
+		"Item3": 230
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib5",
+		"Item3": 231
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib6",
+		"Item3": 232
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib7",
+		"Item3": 233
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib8",
+		"Item3": 234
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "orbgib9",
+		"Item3": 235
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "owlwing",
+		"Item3": 236
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblackbody",
+		"Item3": 237
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblackhead",
+		"Item3": 238
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblackjaw",
+		"Item3": 239
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblackleg1",
+		"Item3": 240
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblackleg2",
+		"Item3": 241
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblackleg3",
+		"Item3": 242
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblacktail",
+		"Item3": 243
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeblacktaillegs",
+		"Item3": 244
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "pedebody",
+		"Item3": 245
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedebody",
+		"Item3": 246
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedebody",
+		"Item3": 247
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedebodyfragged",
+		"Item3": 248
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedebodygib",
+		"Item3": 249
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedebodyhit",
+		"Item3": 250
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "pedehead",
+		"Item3": 251
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedehead",
+		"Item3": 252
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedehead",
+		"Item3": 253
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeheadgib",
+		"Item3": 254
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeheadhit",
+		"Item3": 255
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "pedejaw",
+		"Item3": 256
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedejaw",
+		"Item3": 257
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedejaw",
+		"Item3": 258
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedejawgib",
+		"Item3": 259
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedejawhit",
+		"Item3": 260
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "pedeleg1",
+		"Item3": 261
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedeleg1",
+		"Item3": 262
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg1",
+		"Item3": 263
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg1gib",
+		"Item3": 264
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg1hit",
+		"Item3": 265
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "pedeleg2",
+		"Item3": 266
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedeleg2",
+		"Item3": 267
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg2",
+		"Item3": 268
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg2gib",
+		"Item3": 269
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg2hit",
+		"Item3": 270
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "pedeleg3",
+		"Item3": 271
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedeleg3",
+		"Item3": 272
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg3",
+		"Item3": 273
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg3gib",
+		"Item3": 274
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedeleg3hit",
+		"Item3": 275
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "pedetail",
+		"Item3": 276
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedetail",
+		"Item3": 277
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedetail",
+		"Item3": 278
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedetailgib",
+		"Item3": 279
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedetailhit",
+		"Item3": 280
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedetaillegs",
+		"Item3": 281
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedetaillegs",
+		"Item3": 282
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedetaillegsgib",
+		"Item3": 283
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pedetaillegshit",
+		"Item3": 284
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pedeweak",
+		"Item3": 285
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "rubble",
+		"Item3": 286
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "rubble",
+		"Item3": 287
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "skullscroll",
+		"Item3": 288
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "skulltile",
+		"Item3": 289
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "skullwarp",
+		"Item3": 290
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderbody",
+		"Item3": 291
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderbody",
+		"Item3": 292
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderbodygib",
+		"Item3": 293
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderbodyhit",
+		"Item3": 294
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "spideregg1",
+		"Item3": 295
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spideregg1",
+		"Item3": 296
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spideregg1",
+		"Item3": 297
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "spideregg2",
+		"Item3": 298
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spideregg2",
+		"Item3": 299
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spideregg2",
+		"Item3": 300
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "spidereggflash",
+		"Item3": 301
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spidereggflash",
+		"Item3": 302
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderfangs",
+		"Item3": 303
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderfangs",
+		"Item3": 304
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderfangsgib",
+		"Item3": 305
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderfangshit",
+		"Item3": 306
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spidergib",
+		"Item3": 307
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderhead",
+		"Item3": 308
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderhead",
+		"Item3": 309
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderheadgib",
+		"Item3": 310
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderheadhit",
+		"Item3": 311
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderjaw",
+		"Item3": 312
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderjaw",
+		"Item3": 313
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderjawgib",
+		"Item3": 314
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderjawhit",
+		"Item3": 315
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderleg1",
+		"Item3": 316
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg1",
+		"Item3": 317
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderleg1f",
+		"Item3": 318
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg1gib",
+		"Item3": 319
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg1hit",
+		"Item3": 320
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderleg2",
+		"Item3": 321
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg2",
+		"Item3": 322
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderleg2f",
+		"Item3": 323
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg2gib",
+		"Item3": 324
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg2hit",
+		"Item3": 325
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderleg3",
+		"Item3": 326
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg3",
+		"Item3": 327
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderleg3f",
+		"Item3": 328
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg3gib",
+		"Item3": 329
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderleg3hit",
+		"Item3": 330
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderling",
+		"Item3": 331
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderling",
+		"Item3": 332
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlinggib",
+		"Item3": 333
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlinghit",
+		"Item3": 334
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderlingleg1",
+		"Item3": 335
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg1",
+		"Item3": 336
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg1gib",
+		"Item3": 337
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg1hit",
+		"Item3": 338
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderlingleg2",
+		"Item3": 339
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg2",
+		"Item3": 340
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg2gib",
+		"Item3": 341
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg2hit",
+		"Item3": 342
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderlingleg3",
+		"Item3": 343
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg3",
+		"Item3": 344
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg3gib",
+		"Item3": 345
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingleg3hit",
+		"Item3": 346
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingpalm",
+		"Item3": 347
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingpalmgib",
+		"Item3": 348
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderlingpalmhit",
+		"Item3": 349
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderlingpalms",
+		"Item3": 350
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderpalm",
+		"Item3": 351
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderpalm",
+		"Item3": 352
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "spiderpalmf",
+		"Item3": 353
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderpalmgib",
+		"Item3": 354
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "spiderpalmhit",
+		"Item3": 355
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "squidarm",
+		"Item3": 356
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidarm",
+		"Item3": 357
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidarm",
+		"Item3": 358
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "squidarmgib",
+		"Item3": 359
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidarmgib",
+		"Item3": 360
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "squidarmhit",
+		"Item3": 361
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidarmhit",
+		"Item3": 362
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidcrest",
+		"Item3": 363
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidcrest",
+		"Item3": 364
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidcrestgib",
+		"Item3": 365
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidcresthit",
+		"Item3": 366
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidcrestskull",
+		"Item3": 367
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidcrestskull",
+		"Item3": 368
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidcrestskullgib",
+		"Item3": 369
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidcrestskullhit",
+		"Item3": 370
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidgem",
+		"Item3": 371
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidhorns",
+		"Item3": 372
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidhorns",
+		"Item3": 373
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidjaws",
+		"Item3": 374
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidjaws",
+		"Item3": 375
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidjawsgib",
+		"Item3": 376
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidjawshit",
+		"Item3": 377
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidjawskull",
+		"Item3": 378
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidjawskull",
+		"Item3": 379
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidjawskullfragged",
+		"Item3": 380
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidjawskullgib",
+		"Item3": 381
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidjawskullhit",
+		"Item3": 382
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "squidteeth",
+		"Item3": 383
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "squidteeth",
+		"Item3": 384
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidteeth",
+		"Item3": 385
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "squidteethgib",
+		"Item3": 386
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidteethgib",
+		"Item3": 387
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "squidteethhit",
+		"Item3": 388
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "squidteethhit",
+		"Item3": 389
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "thorn",
+		"Item3": 390
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "thorn",
+		"Item3": 391
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "thorn",
+		"Item3": 392
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "thorngib",
+		"Item3": 393
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "thorngib1",
+		"Item3": 394
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "thorngib2",
+		"Item3": 395
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "thorngib3",
+		"Item3": 396
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "thornhit",
+		"Item3": 397
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "thornhit",
+		"Item3": 398
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedebody",
+		"Item3": 399
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedebodyfragged",
+		"Item3": 400
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrapedecrown",
+		"Item3": 401
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedecrown",
+		"Item3": 402
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedecrowngib",
+		"Item3": 403
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedecrownhit",
+		"Item3": 404
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedehead",
+		"Item3": 405
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedejaw",
+		"Item3": 406
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedeleg1",
+		"Item3": 407
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedeleg2",
+		"Item3": 408
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedeleg3",
+		"Item3": 409
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrapedetail",
+		"Item3": 410
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidcrest",
+		"Item3": 411
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrasquidcrest",
+		"Item3": 412
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidcrestskull",
+		"Item3": 413
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrasquidcrestskull",
+		"Item3": 414
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidgem",
+		"Item3": 415
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidhorns",
+		"Item3": 416
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrasquidhorns",
+		"Item3": 417
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidjaw",
+		"Item3": 418
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrasquidjaw",
+		"Item3": 419
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidjawskull",
+		"Item3": 420
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "ultrasquidjawskull",
+		"Item3": 421
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidteeth",
+		"Item3": 422
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ultrasquidtent",
+		"Item3": 423
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "bottom",
+		"Item3": 424
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "bottom",
+		"Item3": 425
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontbronze",
+		"Item3": 426
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontbronzeover",
+		"Item3": 427
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontdevil",
+		"Item3": 428
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontdevilover",
+		"Item3": 429
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontgold",
+		"Item3": 430
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontgoldover",
+		"Item3": 431
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontgrad",
+		"Item3": 432
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontgrad2",
+		"Item3": 433
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontgrad3",
+		"Item3": 434
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontpleb",
+		"Item3": 435
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontplebover",
+		"Item3": 436
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontsilver",
+		"Item3": 437
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "fontsilverover",
+		"Item3": 438
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "iconcrosshair",
+		"Item3": 439
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "icondagger",
+		"Item3": 440
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "iconeye",
+		"Item3": 441
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "iconeye2",
+		"Item3": 442
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "icongem",
+		"Item3": 443
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "iconreplay",
+		"Item3": 444
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "iconreplay2",
+		"Item3": 445
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "iconskull",
+		"Item3": 446
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "iconstopwatch",
+		"Item3": 447
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "leviwarpover",
+		"Item3": 448
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "light_sphere",
+		"Item3": 449
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "lut",
+		"Item3": 450
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "pillar",
+		"Item3": 451
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "pillar",
+		"Item3": 452
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "plane400",
+		"Item3": 453
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut",
+		"Item3": 454
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_bronzeflash",
+		"Item3": 455
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_collect",
+		"Item3": 456
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_dagger",
+		"Item3": 457
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_death",
+		"Item3": 458
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_devilflash",
+		"Item3": 459
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_goldflash",
+		"Item3": 460
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_leveldown",
+		"Item3": 461
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_levelup",
+		"Item3": 462
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_levi",
+		"Item3": 463
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "post_lut_silverflash",
+		"Item3": 464
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "sorathstone",
+		"Item3": 465
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "sorathstone",
+		"Item3": 466
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "statue1",
+		"Item3": 467
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "statue1",
+		"Item3": 468
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "statue2",
+		"Item3": 469
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "statue2",
+		"Item3": 470
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "statue3",
+		"Item3": 471
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "statue3",
+		"Item3": 472
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "tile",
+		"Item3": 473
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "tile",
+		"Item3": 474
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "tile",
+		"Item3": 475
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "tile2",
+		"Item3": 476
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "tile2",
+		"Item3": 477
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "blood",
+		"Item3": 478
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood1",
+		"Item3": 479
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood10",
+		"Item3": 480
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood11",
+		"Item3": 481
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood2",
+		"Item3": 482
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood3",
+		"Item3": 483
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood4",
+		"Item3": 484
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood5",
+		"Item3": 485
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood6",
+		"Item3": 486
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood7",
+		"Item3": 487
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood8",
+		"Item3": 488
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "blood9",
+		"Item3": 489
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ember1",
+		"Item3": 490
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ember2",
+		"Item3": 491
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "ember3",
+		"Item3": 492
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "emberflame",
+		"Item3": 493
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "feather",
+		"Item3": 494
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "feather1",
+		"Item3": 495
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "feather2",
+		"Item3": 496
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame1",
+		"Item3": 497
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame2",
+		"Item3": 498
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame3",
+		"Item3": 499
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame4",
+		"Item3": 500
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame5",
+		"Item3": 501
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame6",
+		"Item3": 502
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame7",
+		"Item3": 503
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "flame8",
+		"Item3": 504
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gib1",
+		"Item3": 505
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib1a",
+		"Item3": 506
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib1b",
+		"Item3": 507
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib1c",
+		"Item3": 508
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib1d",
+		"Item3": 509
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gib2",
+		"Item3": 510
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib2a",
+		"Item3": 511
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib2b",
+		"Item3": 512
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib2c",
+		"Item3": 513
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib2d",
+		"Item3": 514
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "gib3",
+		"Item3": 515
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib3a",
+		"Item3": 516
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib3b",
+		"Item3": 517
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib3c",
+		"Item3": 518
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "gib3d",
+		"Item3": 519
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "levideath",
+		"Item3": 520
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "levideath",
+		"Item3": 521
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "particle",
+		"Item3": 522
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "particle2",
+		"Item3": 523
+	},
+	{
+		"Item1": "ModelBindingChunk",
+		"Item2": "particle_decal",
+		"Item3": 524
+	},
+	{
+		"Item1": "TextureChunk",
+		"Item2": "smokeblob",
+		"Item3": 525
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "smokeblob1",
+		"Item3": 526
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "smokeblob2",
+		"Item3": 527
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "smokeblob3",
+		"Item3": 528
+	},
+	{
+		"Item1": "ModelChunk",
+		"Item2": "smokeblob4",
+		"Item3": 529
+	}
+]
