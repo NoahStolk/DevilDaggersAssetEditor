@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				.ToList();
 		}
 
-		protected override void UpdateExpanderControls(List<GenericUserAsset> assets)
+		protected override void UpdateExpanderControls(List<AbstractUserAsset> assets)
 		{
 			UpdateExpanderControl(assets, App.Instance.MainWindow.DDModelBindingsExpanderControl.Handler);
 			UpdateExpanderControl(assets, App.Instance.MainWindow.DDModelsExpanderControl.Handler);

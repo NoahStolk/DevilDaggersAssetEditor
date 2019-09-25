@@ -32,7 +32,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		protected override void UpdateExpanderControls(List<GenericUserAsset> assets)
+		protected override void UpdateExpanderControls(List<AbstractUserAsset> assets)
 		{
 			UpdateExpanderControl(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioExpanderControl.Handler);
 		}

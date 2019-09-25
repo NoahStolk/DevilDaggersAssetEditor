@@ -7,9 +7,9 @@ namespace DevilDaggersAssetCore.ModFiles
 	{
 		public Version DDAEVersion { get; set; }
 		public bool HasRelativePaths { get; set; }
-		public List<GenericUserAsset> Assets { get; set; }
+		public List<AbstractUserAsset> Assets { get; set; }
 
-		public ModFile(Version ddaeVersion, bool hasRelativePaths, List<GenericUserAsset> assets)
+		public ModFile(Version ddaeVersion, bool hasRelativePaths, List<AbstractUserAsset> assets)
 		{
 			DDAEVersion = ddaeVersion;
 			HasRelativePaths = hasRelativePaths;

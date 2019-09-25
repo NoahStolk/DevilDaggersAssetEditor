@@ -44,7 +44,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			saveModFileItem.Click += (sender, e) =>
 			{
 				List<AbstractAsset> assets = GetAssets();
-				List<GenericUserAsset> userAssets = CreateUserAssets(assets);
+				List<AbstractUserAsset> userAssets = CreateUserAssets(assets);
 				SaveModFile(userAssets);
 			};
 
@@ -117,7 +117,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			});
 		}
 
-		private void SaveModFile(List<GenericUserAsset> assets)
+		private void SaveModFile(List<AbstractUserAsset> assets)
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
@@ -127,7 +127,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				return;
 
 			bool samePaths = true;
-			List<GenericUserAsset> list = assets.ToList();
+			List<AbstractUserAsset> list = assets.ToList();
 			for (int i = 0; i < list.Count; i++)
 			{
 				string path1 = list[i].EditorPath;
@@ -146,7 +146,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				relativePaths = relativePathsResult == MessageBoxResult.Yes;
 
 				if (relativePaths)
-					foreach (GenericUserAsset asset in assets)
+					foreach (AbstractUserAsset asset in assets)
 						asset.EditorPath = Path.GetFileName(asset.EditorPath);
 			}
 			ModFile modFile = new ModFile(ApplicationUtils.ApplicationVersionNumber, relativePaths, assets);
@@ -154,9 +154,9 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			JsonUtils.SerializeToFile(dialog.FileName, modFile, true, Formatting.None);
 		}
 
-		private List<GenericUserAsset> CreateUserAssets(List<AbstractAsset> assets)
+		private List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
 		{
-			List<GenericUserAsset> userAssets = new List<GenericUserAsset>();
+			List<AbstractUserAsset> userAssets = new List<AbstractUserAsset>();
 			foreach (AbstractAsset asset in assets)
 				userAssets.Add(asset.ToUserAsset());
 			return userAssets;
@@ -182,21 +182,21 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				{
 					CommonFileDialogResult result = basePathDialog.ShowDialog();
 					if (result == CommonFileDialogResult.Ok)
-						foreach (GenericUserAsset asset in modFile.Assets)
+						foreach (AbstractUserAsset asset in modFile.Assets)
 							asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
 				}
 			}
 			return modFile;
 		}
 
-		protected abstract void UpdateExpanderControls(List<GenericUserAsset> assets);
+		protected abstract void UpdateExpanderControls(List<AbstractUserAsset> assets);
 
-		protected void UpdateExpanderControl<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractExpanderControlHandler<TAsset, TAssetControl> expanderControlHandler) where TUserAsset : GenericUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
+		protected void UpdateExpanderControl<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractExpanderControlHandler<TAsset, TAssetControl> expanderControlHandler) where TUserAsset : AbstractUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
 		{
 			for (int i = 0; i < expanderControlHandler.Assets.Count; i++)
 			{
 				TAsset asset = expanderControlHandler.Assets[i];
-				TUserAsset userAsset = userAssets.Where(a => a.AssetName == asset.AssetName).FirstOrDefault();
+				TUserAsset userAsset = userAssets.Where(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName).FirstOrDefault();
 				if (userAsset != null)
 				{
 					asset.ImportValuesFromUserAsset(userAsset);

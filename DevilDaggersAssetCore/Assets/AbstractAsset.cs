@@ -22,12 +22,9 @@ namespace DevilDaggersAssetCore.Assets
 			ChunkTypeName = chunkTypeName;
 		}
 
-		public virtual GenericUserAsset ToUserAsset()
-		{
-			return new GenericUserAsset(AssetName, EditorPath);
-		}
+		public abstract AbstractUserAsset ToUserAsset();
 
-		public virtual void ImportValuesFromUserAsset(GenericUserAsset userAsset)
+		public virtual void ImportValuesFromUserAsset(AbstractUserAsset userAsset)
 		{
 			EditorPath = userAsset.EditorPath;
 		}
