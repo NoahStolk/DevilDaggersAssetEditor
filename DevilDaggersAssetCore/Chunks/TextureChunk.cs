@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore.Headers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,20 +11,13 @@ namespace DevilDaggersAssetCore.Chunks
 {
 	public class TextureChunk : AbstractHeaderedChunk<TextureHeader>
 	{
-		private readonly List<int> bufferLengths = new List<int>
+		private static readonly Dictionary<string, int> lengths;
+
+		static TextureChunk()
 		{
-			1398100,
-			349524,
-			307136,
-			87380,
-			87376,
-			43688,
-			21844,
-			21824,
-			5460,
-			2728,
-			1364
-		};
+			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream("DevilDaggersAssetCore.Content.TextureLengths.json"));
+			lengths = JsonConvert.DeserializeObject<Dictionary<string, int>>(sr.ReadToEnd());
+		}
 
 		public TextureChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
@@ -41,22 +35,7 @@ namespace DevilDaggersAssetCore.Chunks
 			System.Buffer.BlockCopy(new byte[] { (byte)(Math.Log(Math.Min(image.Width, image.Height), 2) + 1) }, 0, headerBuffer, 10, sizeof(byte));
 			Header = new TextureHeader(headerBuffer);
 
-			int lengthGuess = (int)Math.Floor(image.Width * image.Height * (16 / 3f) / 4) * 4;
-			if (!bufferLengths.Contains(lengthGuess))
-			{
-				int currDiff = 100000;
-				int newLength = 999999999;
-				foreach (int length in bufferLengths)
-				{
-					if (Math.Abs(length - lengthGuess) < currDiff)
-					{
-						currDiff = Math.Abs(length - lengthGuess);
-						newLength = length;
-					}
-				}
-				lengthGuess = newLength;
-			}
-			Buffer = new byte[lengthGuess];
+			Buffer = new byte[lengths[Name]];
 
 			using (Bitmap bitmap = new Bitmap(image))
 			{
@@ -65,13 +44,17 @@ namespace DevilDaggersAssetCore.Chunks
 					for (int y = 0; y < bitmap.Height; y++)
 					{
 						Color pixel = bitmap.GetPixel(x, y);
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.B), 0, Buffer, x * y * 4, sizeof(byte));
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.G), 0, Buffer, x * y * 4 + 1, sizeof(byte));
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.R), 0, Buffer, x * y * 4 + 2, sizeof(byte));
-						System.Buffer.BlockCopy(new byte[] { 255 }, 0, Buffer, x * y * 4 + 3, sizeof(byte));
+						int pos = (x * image.Width / 4 + y) * 4;
+						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.B), 0, Buffer, pos, sizeof(byte));
+						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.G), 0, Buffer, pos + 1, sizeof(byte));
+						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.R), 0, Buffer, pos + 2, sizeof(byte));
+						//System.Buffer.BlockCopy(new byte[] { 255 }, 0, Buffer, pos + 3, sizeof(byte));
 					}
 				}
 			}
+
+			for (int i = 3; i < Buffer.Length; i += 4)
+				System.Buffer.BlockCopy(new byte[] { 255 }, 0, Buffer, i, sizeof(byte));
 
 			//Bitmap map = new Bitmap(image).Clone(new Rectangle(0, 0, image.Width, image.Height), PixelFormat.Format32bppArgb);
 
@@ -86,7 +69,6 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override IEnumerable<FileResult> Extract()
 		{
-			//Logging.Log.Info($"{Name} - {Header.Width}x{Header.Height} - {Header.Mipmaps} - {Header.Unknown}");
 			using Bitmap bitmap = new Bitmap((int)Header.Width, (int)Header.Height, (int)Header.Width * 4, PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 0));
 			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 

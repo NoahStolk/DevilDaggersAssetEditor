@@ -9,12 +9,12 @@ namespace DevilDaggersAssetCore.Chunks
 {
 	public class ModelChunk : AbstractHeaderedChunk<ModelHeader>
 	{
-		private static readonly Dictionary<string, int> closures;
+		private static readonly Dictionary<string, byte[]> closures;
 
 		static ModelChunk()
 		{
 			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream("DevilDaggersAssetCore.Content.ModelClosures.json"));
-			closures = JsonConvert.DeserializeObject<Dictionary<string, int>>(sr.ReadToEnd());
+			closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
 		private class Vertex
@@ -124,11 +124,13 @@ namespace DevilDaggersAssetCore.Chunks
 			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertices.Count), 0, headerBuffer, 4, sizeof(uint));
 			Header = new ModelHeader(headerBuffer);
 
-			Buffer = new byte[vertices.Count * Vertex.ByteCount + indices.Count * sizeof(uint) + closures[Name]];
+			Buffer = new byte[vertices.Count * Vertex.ByteCount + indices.Count * sizeof(uint) + closures[Name].Length];
 			for (int j = 0; j < vertices.Count; j++)
 				System.Buffer.BlockCopy(vertices[j].ToByteArray(), 0, Buffer, j * Vertex.ByteCount, Vertex.ByteCount);
 			for (int j = 0; j < indices.Count; j++)
 				System.Buffer.BlockCopy(BitConverter.GetBytes(indices[j]), 0, Buffer, vertices.Count * Vertex.ByteCount + j * sizeof(uint), sizeof(uint));
+			for (int j = 0; j < closures[Name].Length; j++)
+				System.Buffer.BlockCopy(new byte[] { closures[Name][j] }, 0, Buffer, vertices.Count * Vertex.ByteCount + indices.Count * sizeof(uint) + j, sizeof(byte));
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}
