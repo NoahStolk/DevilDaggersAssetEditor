@@ -35,8 +35,10 @@ namespace DevilDaggersAssetCore.Chunks
 			Image image = Image.FromFile(path);
 
 			byte[] headerBuffer = new byte[11]; // TODO: Get from TextureHeader.ByteCount but without creating an instance.
+			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Width), 0, headerBuffer, 2, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Height), 0, headerBuffer, 6, sizeof(uint));
+			System.Buffer.BlockCopy(new byte[] { (byte)(Math.Log(Math.Min(image.Width, image.Height), 2) + 1) }, 0, headerBuffer, 10, sizeof(byte));
 			Header = new TextureHeader(headerBuffer);
 
 			int lengthGuess = (int)Math.Floor(image.Width * image.Height * (16 / 3f) / 4) * 4;
@@ -63,17 +65,19 @@ namespace DevilDaggersAssetCore.Chunks
 					for (int y = 0; y < bitmap.Height; y++)
 					{
 						Color pixel = bitmap.GetPixel(x, y);
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.A), 0, Buffer, x * y * 4, sizeof(byte));
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.B), 0, Buffer, x * y * 4 + 1, sizeof(byte));
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.G), 0, Buffer, x * y * 4 + 2, sizeof(byte));
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.R), 0, Buffer, x * y * 4 + 3, sizeof(byte));
+						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.B), 0, Buffer, x * y * 4, sizeof(byte));
+						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.G), 0, Buffer, x * y * 4 + 1, sizeof(byte));
+						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.R), 0, Buffer, x * y * 4 + 2, sizeof(byte));
+						System.Buffer.BlockCopy(new byte[] { 255 }, 0, Buffer, x * y * 4 + 3, sizeof(byte));
 					}
 				}
 			}
 
+			//Bitmap map = new Bitmap(image).Clone(new Rectangle(0, 0, image.Width, image.Height), PixelFormat.Format32bppArgb);
+
 			//using (MemoryStream ms = new MemoryStream())
 			//{
-			//	new Bitmap(image).Save(ms, PixelFormat.Format32bppArgb);
+			//	new Bitmap(map).Save(ms, ImageFormat.Png);
 			//	Buffer = ms.ToArray();
 			//}
 
