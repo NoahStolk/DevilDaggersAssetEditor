@@ -82,6 +82,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override IEnumerable<FileResult> Extract()
 		{
+			//Logging.Log.Info($"{Name} - {Header.Width}x{Header.Height} - {Header.Mipmaps} - {Header.Unknown}");
 			using Bitmap bitmap = new Bitmap((int)Header.Width, (int)Header.Height, (int)Header.Width * 4, PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 0));
 			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
