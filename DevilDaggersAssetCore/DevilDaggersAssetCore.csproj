@@ -16,7 +16,6 @@
     <EmbeddedResource Include="Content\dd\Textures.json" />
     <EmbeddedResource Include="Content\ModelClosures.json" />
     <EmbeddedResource Include="Content\particle\Particles.json" />
-    <EmbeddedResource Include="Content\TextureLengths.json" />
   </ItemGroup>
 
   <ItemGroup>
