@@ -39,30 +39,20 @@ namespace DevilDaggersAssetCore.Chunks
 
 			using (Bitmap bitmap = new Bitmap(image))
 			{
+				bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
 				for (int x = 0; x < bitmap.Width; x++)
 				{
 					for (int y = 0; y < bitmap.Height; y++)
 					{
 						Color pixel = bitmap.GetPixel(x, y);
-						int pos = (x * image.Width / 4 + y) * 4;
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.B), 0, Buffer, pos, sizeof(byte));
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.G), 0, Buffer, pos + 1, sizeof(byte));
-						System.Buffer.BlockCopy(BitConverter.GetBytes(pixel.R), 0, Buffer, pos + 2, sizeof(byte));
-						//System.Buffer.BlockCopy(new byte[] { 255 }, 0, Buffer, pos + 3, sizeof(byte));
+						int bufferPosition = x * image.Width * 4 + y * 4;
+						System.Buffer.BlockCopy(new byte[] { pixel.R }, 0, Buffer, bufferPosition, sizeof(byte));
+						System.Buffer.BlockCopy(new byte[] { pixel.G }, 0, Buffer, bufferPosition + 1, sizeof(byte));
+						System.Buffer.BlockCopy(new byte[] { pixel.B }, 0, Buffer, bufferPosition + 2, sizeof(byte));
+						System.Buffer.BlockCopy(new byte[] { pixel.A }, 0, Buffer, bufferPosition + 3, sizeof(byte));
 					}
 				}
 			}
-
-			for (int i = 3; i < Buffer.Length; i += 4)
-				System.Buffer.BlockCopy(new byte[] { 255 }, 0, Buffer, i, sizeof(byte));
-
-			//Bitmap map = new Bitmap(image).Clone(new Rectangle(0, 0, image.Width, image.Height), PixelFormat.Format32bppArgb);
-
-			//using (MemoryStream ms = new MemoryStream())
-			//{
-			//	new Bitmap(map).Save(ms, ImageFormat.Png);
-			//	Buffer = ms.ToArray();
-			//}
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}
