@@ -82,7 +82,6 @@ namespace DevilDaggersAssetCore.Chunks
 							System.Buffer.BlockCopy(new byte[] { pixel.G }, 0, Buffer, mipmapOffset + bufferPosition + 1, sizeof(byte));
 							System.Buffer.BlockCopy(new byte[] { pixel.B }, 0, Buffer, mipmapOffset + bufferPosition + 2, sizeof(byte));
 							System.Buffer.BlockCopy(new byte[] { pixel.A }, 0, Buffer, mipmapOffset + bufferPosition + 3, sizeof(byte));
-							//int bufferPosition = (x * image.Width * 4 + y * 4) / (increment * 2);
 							bufferPosition += 4;
 						}
 					}
