@@ -130,8 +130,7 @@ namespace DevilDaggersAssetCore.Chunks
 				System.Buffer.BlockCopy(vertices[j].ToByteArray(), 0, Buffer, j * Vertex.ByteCount, Vertex.ByteCount);
 			for (int j = 0; j < indices.Count; j++)
 				System.Buffer.BlockCopy(BitConverter.GetBytes(indices[j]), 0, Buffer, vertices.Count * Vertex.ByteCount + j * sizeof(uint), sizeof(uint));
-			for (int j = 0; j < closures[Name].Length; j++)
-				System.Buffer.BlockCopy(new byte[] { closures[Name][j] }, 0, Buffer, vertices.Count * Vertex.ByteCount + indices.Count * sizeof(uint) + j, sizeof(byte));
+			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertices.Count * Vertex.ByteCount + indices.Count * sizeof(uint), closures[Name].Length);
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}

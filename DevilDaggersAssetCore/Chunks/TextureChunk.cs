@@ -10,6 +10,8 @@ namespace DevilDaggersAssetCore.Chunks
 {
 	public class TextureChunk : AbstractHeaderedChunk<TextureHeader>
 	{
+		private static readonly bool ExtractMipmaps = false;
+
 		public TextureChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
 		{
@@ -19,55 +21,28 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 			Image image = Image.FromFile(path);
 
-			byte mipmaps = (byte)(Math.Log(Math.Min(image.Width, image.Height), 2) + 1);
-
 			byte[] headerBuffer = new byte[11]; // TODO: Get from TextureHeader.ByteCount but without creating an instance.
 			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Width), 0, headerBuffer, 2, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Height), 0, headerBuffer, 6, sizeof(uint));
-			System.Buffer.BlockCopy(new byte[] { mipmaps }, 0, headerBuffer, 10, sizeof(byte));
+			headerBuffer[10] = GetMipmapCountFromImage(image);
 			Header = new TextureHeader(headerBuffer);
 
-			int length = image.Width * image.Height * 4;
+			GetBufferSizes(Header, out int totalBufferLength, out int[] mipmapBufferSizes);
 
-			int[] mipmapBufferSizes = new int[mipmaps];
-			mipmapBufferSizes[0] = length;
-
-			if (image.Width != image.Height)
-			{
-				int lengthMod = length;
-				for (int i = 1; i < mipmaps; i++)
-				{
-					lengthMod /= 4;
-					int mipmapSize = lengthMod;
-					mipmapBufferSizes[i] = mipmapSize;
-					length += mipmapSize;
-				}
-			}
-			else
-			{
-				int lengthMod = image.Width;
-				for (int i = 1; i < mipmaps; i++)
-				{
-					lengthMod /= 2;
-					int mipmapSize = lengthMod * lengthMod * 4;
-					mipmapBufferSizes[i] = mipmapSize;
-					length += mipmapSize;
-				}
-			}
-
-			Buffer = new byte[length];
+			Buffer = new byte[totalBufferLength];
 
 			using (Bitmap bitmap = new Bitmap(image))
 			{
 				bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
 				int mipmapOffset = 0;
-
-				for (int i = 0; i < mipmaps - 1; i++)
+				for (int i = 0; i < Header.MipmapCount - 1; i++)
 				{
 					int increment = (int)Math.Pow(2, i);
 					int bufferPosition = 0;
+
+					// TODO: Figure out how mipmap blurring works to accurately reproduce this when recompressing assets. Now it's just skipping pixels which works but doesn't give the same exact result.
 					for (int x = 0; x < bitmap.Width; x += increment)
 					{
 						for (int y = 0; y < bitmap.Height; y += increment)
@@ -78,10 +53,10 @@ namespace DevilDaggersAssetCore.Chunks
 							if (bufferPosition >= mipmapBufferSizes[i])
 								continue;
 
-							System.Buffer.BlockCopy(new byte[] { pixel.R }, 0, Buffer, mipmapOffset + bufferPosition, sizeof(byte));
-							System.Buffer.BlockCopy(new byte[] { pixel.G }, 0, Buffer, mipmapOffset + bufferPosition + 1, sizeof(byte));
-							System.Buffer.BlockCopy(new byte[] { pixel.B }, 0, Buffer, mipmapOffset + bufferPosition + 2, sizeof(byte));
-							System.Buffer.BlockCopy(new byte[] { pixel.A }, 0, Buffer, mipmapOffset + bufferPosition + 3, sizeof(byte));
+							Buffer[mipmapOffset + bufferPosition] = pixel.R;
+							Buffer[mipmapOffset + bufferPosition + 1] = pixel.G;
+							Buffer[mipmapOffset + bufferPosition + 2] = pixel.B;
+							Buffer[mipmapOffset + bufferPosition + 3] = pixel.A;
 							bufferPosition += 4;
 						}
 					}
@@ -94,23 +69,67 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override IEnumerable<FileResult> Extract()
 		{
-			using Bitmap bitmap = new Bitmap((int)Header.Width, (int)Header.Height, (int)Header.Width * 4, PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 0));
-			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+			GetBufferSizes(Header, out int totalBufferLength, out int[] mipmapBufferSizes);
 
-			for (int x = 0; x < bitmap.Width; x++)
+			int mipmapOffset = 0;
+			for (int i = 0; i < (ExtractMipmaps ? Header.MipmapCount : 1); i++)
 			{
-				for (int y = 0; y < bitmap.Height; y++)
+				int mipmapSizeDivisor = (int)Math.Pow(2, i);
+				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset);
+				using Bitmap bitmap = new Bitmap((int)Header.Width / mipmapSizeDivisor, (int)Header.Height / mipmapSizeDivisor, (int)Header.Width / mipmapSizeDivisor * 4, PixelFormat.Format32bppArgb, intPtr);
+				bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+				for (int x = 0; x < bitmap.Width; x++)
 				{
-					Color pixel = bitmap.GetPixel(x, y);
-					bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse rgb).
+					for (int y = 0; y < bitmap.Height; y++)
+					{
+						Color pixel = bitmap.GetPixel(x, y);
+						bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse rgb).
+					}
+				}
+				mipmapOffset += mipmapBufferSizes[i];
+
+				using MemoryStream memoryStream = new MemoryStream();
+				// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
+				new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
+
+				yield return new FileResult($"{Name}{(ExtractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : "")}", memoryStream.ToArray());
+			}
+		}
+
+		private static byte GetMipmapCountFromImage(Image image)
+		{
+			return (byte)(Math.Log(Math.Min(image.Width, image.Height), 2) + 1);
+		}
+
+		private static void GetBufferSizes(TextureHeader header, out int totalBufferLength, out int[] mipmapBufferSizes)
+		{
+			totalBufferLength = (int)header.Width * (int)header.Height * 4;
+			mipmapBufferSizes = new int[header.MipmapCount];
+			mipmapBufferSizes[0] = totalBufferLength;
+
+			if (header.Width != header.Height)
+			{
+				int lengthMod = totalBufferLength;
+				for (int i = 1; i < header.MipmapCount; i++)
+				{
+					lengthMod /= 4;
+					int mipmapSize = lengthMod;
+					mipmapBufferSizes[i] = mipmapSize;
+					totalBufferLength += mipmapSize;
 				}
 			}
-
-			using MemoryStream memoryStream = new MemoryStream();
-			// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
-			new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
-
-			yield return new FileResult(Name, memoryStream.ToArray());
+			else
+			{
+				int lengthMod = (int)header.Width;
+				for (int i = 1; i < header.MipmapCount; i++)
+				{
+					lengthMod /= 2;
+					int mipmapSize = lengthMod * lengthMod * 4;
+					mipmapBufferSizes[i] = mipmapSize;
+					totalBufferLength += mipmapSize;
+				}
+			}
 		}
 	}
 }
