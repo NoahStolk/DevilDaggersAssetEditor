@@ -42,22 +42,44 @@ namespace DevilDaggersAssetCore.Chunks
 					int increment = (int)Math.Pow(2, i);
 					int bufferPosition = 0;
 
-					// TODO: Figure out how mipmap blurring works to accurately reproduce this when recompressing assets. Now it's just skipping pixels which works but doesn't give the same exact result.
 					for (int x = 0; x < bitmap.Width; x += increment)
 					{
 						for (int y = 0; y < bitmap.Height; y += increment)
 						{
-							Color pixel = bitmap.GetPixel(x, y);
+							// TODO: Rewrite this to use the previous mipmap level's average pixel values rather than those from the original texture.
+							int r = 0;
+							int g = 0;
+							int b = 0;
+							int a = 0;
+							int subIncrement = Math.Max(increment / 2, 1);
+							int steps = increment / subIncrement;
+							int pixelCount = steps * steps;
+							for (int xx = 0; xx < increment; xx += subIncrement)
+							{
+								for (int yy = 0; yy < increment; yy += subIncrement)
+								{
+									// To prevent 240x240 textures from going out of bounds.
+									if (x + xx >= bitmap.Width || y + yy >= bitmap.Height)
+										continue;
 
-							// To prevent 240x240 textures from going out of bounds for some reason.
+									Color p = bitmap.GetPixel(x + xx, y + yy);
+									r += p.R;
+									g += p.G;
+									b += p.B;
+									a += p.A;
+								}
+							}
+
+							Color pixel = Color.FromArgb(a / pixelCount, r / pixelCount, g / pixelCount, b / pixelCount);
+
+							// To prevent 240x240 textures from going out of bounds.
 							if (bufferPosition >= mipmapBufferSizes[i])
 								continue;
 
-							Buffer[mipmapOffset + bufferPosition] = pixel.R;
-							Buffer[mipmapOffset + bufferPosition + 1] = pixel.G;
-							Buffer[mipmapOffset + bufferPosition + 2] = pixel.B;
-							Buffer[mipmapOffset + bufferPosition + 3] = pixel.A;
-							bufferPosition += 4;
+							Buffer[mipmapOffset + bufferPosition++] = pixel.R;
+							Buffer[mipmapOffset + bufferPosition++] = pixel.G;
+							Buffer[mipmapOffset + bufferPosition++] = pixel.B;
+							Buffer[mipmapOffset + bufferPosition++] = pixel.A;
 						}
 					}
 					mipmapOffset += mipmapBufferSizes[i];
