@@ -51,6 +51,10 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 ## Changelog
 
+#### 0.x.x.x - To Be Released
+
+- Implemented shader, model, and texture compression. Features such as compressing and using mod files for "dd" and "core" are now available and functional.
+
 #### 0.3.3.0 - September 23, 2019
 
 - Created progress bar for lengthy tasks such as compressing and extracting.
