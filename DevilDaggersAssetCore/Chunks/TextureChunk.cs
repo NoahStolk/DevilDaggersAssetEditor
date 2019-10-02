@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -31,59 +32,37 @@ namespace DevilDaggersAssetCore.Chunks
 			GetBufferSizes(Header, out int totalBufferLength, out int[] mipmapBufferSizes);
 
 			Buffer = new byte[totalBufferLength];
-
-			using (Bitmap bitmap = new Bitmap(image))
+			int mipmapWidth = image.Width;
+			int mipmapHeight = image.Height;
+			int mipmapBufferOffset = 0;
+			for (int i = 0; i < Header.MipmapCount; i++)
 			{
+				using Bitmap bitmap = ResizeImage(image, mipmapWidth, mipmapHeight);
 				bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
-				int mipmapOffset = 0;
-				for (int i = 0; i < Header.MipmapCount - 1; i++)
+				int increment = (int)Math.Pow(2, i);
+				int bufferPosition = 0;
+
+				for (int x = 0; x < bitmap.Width; x++)
 				{
-					int increment = (int)Math.Pow(2, i);
-					int bufferPosition = 0;
-
-					for (int x = 0; x < bitmap.Width; x += increment)
+					for (int y = 0; y < bitmap.Height; y++)
 					{
-						for (int y = 0; y < bitmap.Height; y += increment)
-						{
-							// TODO: Rewrite this to use the previous mipmap level's average pixel values rather than those from the original texture.
-							int r = 0;
-							int g = 0;
-							int b = 0;
-							int a = 0;
-							int subIncrement = Math.Max(increment / 2, 1);
-							int steps = increment / subIncrement;
-							int pixelCount = steps * steps;
-							for (int xx = 0; xx < increment; xx += subIncrement)
-							{
-								for (int yy = 0; yy < increment; yy += subIncrement)
-								{
-									// To prevent 240x240 textures from going out of bounds.
-									if (x + xx >= bitmap.Width || y + yy >= bitmap.Height)
-										continue;
+						Color pixel = bitmap.GetPixel(x, y);
 
-									Color p = bitmap.GetPixel(x + xx, y + yy);
-									r += p.R;
-									g += p.G;
-									b += p.B;
-									a += p.A;
-								}
-							}
+						// To prevent 240x240 textures from going out of bounds.
+						if (bufferPosition >= mipmapBufferSizes[i])
+							continue;
 
-							Color pixel = Color.FromArgb(a / pixelCount, r / pixelCount, g / pixelCount, b / pixelCount);
-
-							// To prevent 240x240 textures from going out of bounds.
-							if (bufferPosition >= mipmapBufferSizes[i])
-								continue;
-
-							Buffer[mipmapOffset + bufferPosition++] = pixel.R;
-							Buffer[mipmapOffset + bufferPosition++] = pixel.G;
-							Buffer[mipmapOffset + bufferPosition++] = pixel.B;
-							Buffer[mipmapOffset + bufferPosition++] = pixel.A;
-						}
+						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.R;
+						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.G;
+						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.B;
+						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.A;
 					}
-					mipmapOffset += mipmapBufferSizes[i];
 				}
+
+				mipmapBufferOffset += mipmapBufferSizes[i];
+				mipmapWidth /= 2;
+				mipmapHeight /= 2;
 			}
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
@@ -152,6 +131,36 @@ namespace DevilDaggersAssetCore.Chunks
 					totalBufferLength += mipmapSize;
 				}
 			}
+		}
+
+		/// <summary>
+		/// Resize the image to the specified width and height.
+		/// </summary>
+		/// <param name="image">The image to resize.</param>
+		/// <param name="width">The width to resize to.</param>
+		/// <param name="height">The height to resize to.</param>
+		/// <returns>The resized image.</returns>
+		private static Bitmap ResizeImage(Image image, int width, int height)
+		{
+			Rectangle destRect = new Rectangle(0, 0, width, height);
+			Bitmap destImage = new Bitmap(width, height);
+
+			destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+			using (Graphics graphics = Graphics.FromImage(destImage))
+			{
+				graphics.CompositingMode = CompositingMode.SourceCopy;
+				graphics.CompositingQuality = CompositingQuality.HighQuality;
+				graphics.InterpolationMode = InterpolationMode.HighQualityBilinear;
+				graphics.SmoothingMode = SmoothingMode.HighQuality;
+				graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+				using ImageAttributes wrapMode = new ImageAttributes();
+				wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+				graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+			}
+
+			return destImage;
 		}
 	}
 }
