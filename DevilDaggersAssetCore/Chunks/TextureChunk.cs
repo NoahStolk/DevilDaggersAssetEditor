@@ -115,9 +115,9 @@ namespace DevilDaggersAssetCore.Chunks
 				for (int i = 1; i < header.MipmapCount; i++)
 				{
 					lengthMod /= 4;
-					int mipmapSize = lengthMod;
-					mipmapBufferSizes[i] = mipmapSize;
-					totalBufferLength += mipmapSize;
+
+					mipmapBufferSizes[i] = lengthMod;
+					totalBufferLength += lengthMod;
 				}
 			}
 			else
@@ -126,6 +126,7 @@ namespace DevilDaggersAssetCore.Chunks
 				for (int i = 1; i < header.MipmapCount; i++)
 				{
 					lengthMod /= 2;
+
 					int mipmapSize = lengthMod * lengthMod * 4;
 					mipmapBufferSizes[i] = mipmapSize;
 					totalBufferLength += mipmapSize;
