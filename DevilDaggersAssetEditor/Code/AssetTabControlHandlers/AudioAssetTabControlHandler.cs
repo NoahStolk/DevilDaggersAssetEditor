@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
 				if (!ReadLoudnessLine(lineClean, out string assetName, out float loudness))
 				{
-					App.Instance.ShowMessage($"Syntax error on line {lineNumber}", "Could not parse loudness file");
+					App.Instance.ShowMessage($"Syntax error on line {lineNumber}", "Could not parse loudness file.");
 					return;
 				}
 

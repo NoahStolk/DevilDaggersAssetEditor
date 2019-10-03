@@ -34,7 +34,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 			foreach (TAsset asset in Assets)
 			{
 				TAssetControl ac = (TAssetControl)Activator.CreateInstance(typeof(TAssetControl), asset);
-				ac.Background = new SolidColorBrush(++i % 2 == 0 ? Color.FromRgb(192, 192, 192) : Color.FromRgb(224, 224, 224));
+				ac.Background = new SolidColorBrush(Color.FromRgb(asset.ColorR, asset.ColorG, asset.ColorB) * (++i % 2 == 0 ? 0.125f : 0.25f));
 				assetControls.Add(ac);
 				yield return ac;
 			}

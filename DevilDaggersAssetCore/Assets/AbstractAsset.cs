@@ -15,6 +15,10 @@ namespace DevilDaggersAssetCore.Assets
 
 		public string EditorPath { get; set; } = "<NONE SPECIFIED>";
 
+		public abstract byte ColorR { get; }
+		public abstract byte ColorG { get; }
+		public abstract byte ColorB { get; }
+
 		protected AbstractAsset(string assetName, string description, string chunkTypeName)
 		{
 			AssetName = assetName;

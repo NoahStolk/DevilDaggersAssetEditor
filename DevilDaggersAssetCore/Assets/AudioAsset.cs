@@ -5,6 +5,10 @@ namespace DevilDaggersAssetCore.Assets
 {
 	public class AudioAsset : AbstractAsset
 	{
+		public override byte ColorR => 255;
+		public override byte ColorG => 0;
+		public override byte ColorB => 255;
+
 		[JsonProperty]
 		public float Loudness { get; set; }
 		[JsonProperty]
