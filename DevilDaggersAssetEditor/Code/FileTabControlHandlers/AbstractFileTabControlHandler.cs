@@ -2,7 +2,7 @@
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
-using DevilDaggersAssetEditor.Code.ExpanderControlHandlers;
+using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.GUI.Windows;
 using Microsoft.Win32;
@@ -16,9 +16,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	public abstract class AbstractTabControlHandler
+	public abstract class AbstractFileTabControlHandler
 	{
 		public abstract AbstractBinaryFileHandler FileHandler { get; }
 
@@ -39,7 +39,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				ModFile modFile = OpenModFile();
 				if (modFile == null)
 					return;
-				UpdateExpanderControls(modFile.Assets);
+				UpdateAssetTabControls(modFile.Assets);
 			};
 			saveModFileItem.Click += (sender, e) =>
 			{
@@ -189,19 +189,19 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			return modFile;
 		}
 
-		protected abstract void UpdateExpanderControls(List<AbstractUserAsset> assets);
+		protected abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		protected void UpdateExpanderControl<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractExpanderControlHandler<TAsset, TAssetControl> expanderControlHandler) where TUserAsset : AbstractUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
+		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetControl> assetTabControlHandler) where TUserAsset : AbstractUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
 		{
-			for (int i = 0; i < expanderControlHandler.Assets.Count; i++)
+			for (int i = 0; i < assetTabControlHandler.Assets.Count; i++)
 			{
-				TAsset asset = expanderControlHandler.Assets[i];
+				TAsset asset = assetTabControlHandler.Assets[i];
 				TUserAsset userAsset = userAssets.Where(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName).FirstOrDefault();
 				if (userAsset != null)
 				{
 					asset.ImportValuesFromUserAsset(userAsset);
 
-					expanderControlHandler.UpdateGUI(asset);
+					assetTabControlHandler.UpdateGUI(asset);
 				}
 			}
 		}

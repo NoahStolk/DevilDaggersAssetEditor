@@ -3,13 +3,13 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System.Linq;
 
-namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
+namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public class ParticlesExpanderControlHandler : AbstractExpanderControlHandler<ParticleAsset, ParticleAssetControl>
+	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Particles";
 
-		public ParticlesExpanderControlHandler(BinaryFileType binaryFileType)
+		public ParticlesAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}

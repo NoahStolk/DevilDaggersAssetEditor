@@ -7,7 +7,7 @@ namespace DevilDaggersAssetCore.Chunks
 	{
 		public string Name { get; set; }
 		public uint StartOffset { get; set; }
-		public uint Size { get; set; } // Probably redundant as you can use Buffer.Length instead.
+		public uint Size { get; set; }
 		public uint Unknown { get; set; }
 
 		public byte[] Buffer { get; set; }

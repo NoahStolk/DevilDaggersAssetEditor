@@ -1213,28 +1213,28 @@
 	{
 		"Loudness": 1,
 		"AssetName": "polarity1e",
-		"Description": "Arena east idle",
+		"Description": "Arena east",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "polarity2w",
-		"Description": "Arena west idle",
+		"Description": "Arena west",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "polarity3n",
-		"Description": "Arena north idle",
+		"Description": "Arena north",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "polarity4s",
-		"Description": "Arena south idle",
+		"Description": "Arena south",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},

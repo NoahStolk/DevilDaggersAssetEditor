@@ -10,9 +10,9 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
+namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public abstract class AbstractExpanderControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset where TAssetControl : UserControl
+	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset where TAssetControl : UserControl
 	{
 		public List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
@@ -20,7 +20,7 @@ namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
 
 		protected abstract string AssetTypeJsonFileName { get; }
 
-		protected AbstractExpanderControlHandler(BinaryFileType binaryFileType)
+		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
 			using (StreamReader sr = new StreamReader(DevilDaggersAssetCore.Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json")))
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());

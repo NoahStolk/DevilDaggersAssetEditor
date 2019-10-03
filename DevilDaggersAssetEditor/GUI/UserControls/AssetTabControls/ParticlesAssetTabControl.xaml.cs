@@ -3,17 +3,17 @@ using System.Windows;
 using System.Windows.Controls;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System;
-using DevilDaggersAssetEditor.Code.ExpanderControlHandlers;
+using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 
-namespace DevilDaggersAssetEditor.GUI.UserControls.ExpanderControls
+namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 {
-	public partial class ShadersExpanderControl : UserControl
+	public partial class ParticlesAssetTabControl : UserControl
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
 		(
 			nameof(BinaryFileType),
 			typeof(string),
-			typeof(ShadersExpanderControl)
+			typeof(ParticlesAssetTabControl)
 		);
 
 		public string BinaryFileType
@@ -22,9 +22,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.ExpanderControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ShadersExpanderControlHandler Handler { get; private set; }
+		public ParticlesAssetTabControlHandler Handler { get; private set; }
 
-		public ShadersExpanderControl()
+		public ParticlesAssetTabControl()
 		{
 			InitializeComponent();
 		}
@@ -33,9 +33,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.ExpanderControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new ShadersExpanderControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
+			Handler = new ParticlesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (ShaderAssetControl ac in Handler.CreateUserControls())
+			foreach (ParticleAssetControl ac in Handler.CreateUserControls())
 				AssetEditor.Children.Add(ac);
 		}
 	}

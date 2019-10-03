@@ -3,13 +3,13 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System.Linq;
 
-namespace DevilDaggersAssetEditor.Code.ExpanderControlHandlers
+namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public class ShadersExpanderControlHandler : AbstractExpanderControlHandler<ShaderAsset, ShaderAssetControl>
+	public class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Shaders";
 
-		public ShadersExpanderControlHandler(BinaryFileType binaryFileType)
+		public ShadersAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}

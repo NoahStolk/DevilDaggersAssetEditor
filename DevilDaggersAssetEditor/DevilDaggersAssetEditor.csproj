@@ -118,7 +118,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\ExpanderControls\ParticlesExpanderControl.xaml">
+    <Page Include="GUI\UserControls\AssetTabControls\ParticlesAssetTabControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -126,19 +126,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\ExpanderControls\TexturesExpanderControl.xaml">
+    <Page Include="GUI\UserControls\AssetTabControls\TexturesAssetTabControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\ExpanderControls\ModelsExpanderControl.xaml">
+    <Page Include="GUI\UserControls\AssetTabControls\ModelsAssetTabControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\ExpanderControls\ShadersExpanderControl.xaml">
+    <Page Include="GUI\UserControls\AssetTabControls\ShadersAssetTabControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GUI\UserControls\ExpanderControls\AudioExpanderControl.xaml">
+    <Page Include="GUI\UserControls\AssetTabControls\AudioAssetTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,7 +146,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\UserControls\ExpanderControls\ModelBindingsExpanderControl.xaml">
+    <Page Include="GUI\UserControls\AssetTabControls\ModelBindingsAssetTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,18 +178,18 @@
     <Compile Include="Code\AssetControlHandlers\TextureAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ModelAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ModelBindingAssetControlHandler.cs" />
-    <Compile Include="Code\ExpanderControlHandlers\AbstractExpanderControlHandler.cs" />
-    <Compile Include="Code\ExpanderControlHandlers\ShadersExpanderControlHandler.cs" />
-    <Compile Include="Code\ExpanderControlHandlers\ParticlesExpanderControlHandler.cs" />
-    <Compile Include="Code\ExpanderControlHandlers\TexturesExpanderControlHandler.cs" />
-    <Compile Include="Code\ExpanderControlHandlers\ModelsExpanderControlHandler.cs" />
-    <Compile Include="Code\ExpanderControlHandlers\ModelBindingsExpanderControlHandler.cs" />
-    <Compile Include="Code\ExpanderControlHandlers\AudioExpanderControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\AbstractTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\AudioTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\CoreTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\ParticleTabControlHandler.cs" />
-    <Compile Include="Code\TabControlHandlers\DDTabControlHandler.cs" />
+    <Compile Include="Code\AssetTabControlHandlers\AbstractAssetTabControlHandler.cs" />
+    <Compile Include="Code\AssetTabControlHandlers\ShadersAssetTabControlHandler.cs" />
+    <Compile Include="Code\AssetTabControlHandlers\ParticlesAssetTabControlHandler.cs" />
+    <Compile Include="Code\AssetTabControlHandlers\TexturesAssetTabControlHandler.cs" />
+    <Compile Include="Code\AssetTabControlHandlers\ModelsAssetTabControlHandler.cs" />
+    <Compile Include="Code\AssetTabControlHandlers\ModelBindingsAssetTabControlHandler.cs" />
+    <Compile Include="Code\AssetTabControlHandlers\AudioAssetTabControlHandler.cs" />
+    <Compile Include="Code\FileTabControlHandlers\AbstractFileTabControlHandler.cs" />
+    <Compile Include="Code\FileTabControlHandlers\AudioFileTabControlHandler.cs" />
+    <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
+    <Compile Include="Code\FileTabControlHandlers\ParticleFileTabControlHandler.cs" />
+    <Compile Include="Code\FileTabControlHandlers\DDFileTabControlHandler.cs" />
     <Compile Include="Code\User\UserHandler.cs" />
     <Compile Include="Code\User\UserSettings.cs" />
     <Compile Include="Code\Utils.cs" />
@@ -225,29 +225,29 @@
     <Compile Include="GUI\UserControls\AssetControls\ModelAssetControl.xaml.cs">
       <DependentUpon>ModelAssetControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\ExpanderControls\ParticlesExpanderControl.xaml.cs">
-      <DependentUpon>ParticlesExpanderControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\AssetTabControls\ParticlesAssetTabControl.xaml.cs">
+      <DependentUpon>ParticlesAssetTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\ExpanderControls\TexturesExpanderControl.xaml.cs">
-      <DependentUpon>TexturesExpanderControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\AssetTabControls\TexturesAssetTabControl.xaml.cs">
+      <DependentUpon>TexturesAssetTabControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\ExpanderControls\ModelsExpanderControl.xaml.cs">
-      <DependentUpon>ModelsExpanderControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\AssetTabControls\ModelsAssetTabControl.xaml.cs">
+      <DependentUpon>ModelsAssetTabControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\ExpanderControls\ShadersExpanderControl.xaml.cs">
-      <DependentUpon>ShadersExpanderControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\AssetTabControls\ShadersAssetTabControl.xaml.cs">
+      <DependentUpon>ShadersAssetTabControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\ExpanderControls\AudioExpanderControl.xaml.cs">
-      <DependentUpon>AudioExpanderControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\AssetTabControls\AudioAssetTabControl.xaml.cs">
+      <DependentUpon>AudioAssetTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\AssetControls\ModelBindingAssetControl.xaml.cs">
       <DependentUpon>ModelBindingAssetControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControls\ExpanderControls\ModelBindingsExpanderControl.xaml.cs">
-      <DependentUpon>ModelBindingsExpanderControl.xaml</DependentUpon>
+    <Compile Include="GUI\UserControls\AssetTabControls\ModelBindingsAssetTabControl.xaml.cs">
+      <DependentUpon>ModelBindingsAssetTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>

@@ -9,28 +9,28 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
-using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.User;
+using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
-		private readonly List<AbstractTabControlHandler> tabHandlers;
+		private readonly List<AbstractFileTabControlHandler> tabHandlers;
 
 		public MenuBarUserControl()
 		{
 			InitializeComponent();
 
-			tabHandlers = new List<AbstractTabControlHandler>();
-			foreach (Type type in App.Instance.Assembly.GetTypes().Where(t => t.BaseType == typeof(AbstractTabControlHandler) && !t.IsAbstract).OrderBy(t => t.Name))
-				tabHandlers.Add((AbstractTabControlHandler)Activator.CreateInstance(type));
+			tabHandlers = new List<AbstractFileTabControlHandler>();
+			foreach (Type type in App.Instance.Assembly.GetTypes().Where(t => t.BaseType == typeof(AbstractFileTabControlHandler) && !t.IsAbstract).OrderBy(t => t.Name))
+				tabHandlers.Add((AbstractFileTabControlHandler)Activator.CreateInstance(type));
 
-			foreach (AbstractTabControlHandler tabHandler in tabHandlers)
+			foreach (AbstractFileTabControlHandler tabHandler in tabHandlers)
 				FileMenuItem.Items.Add(tabHandler.CreateFileTypeMenuItem());
 
 #if DEBUG

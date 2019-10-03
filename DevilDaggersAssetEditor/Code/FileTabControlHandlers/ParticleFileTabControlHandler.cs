@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	public class ParticleTabControlHandler : AbstractTabControlHandler
+	public class ParticleFileTabControlHandler : AbstractFileTabControlHandler
 	{
 		public override AbstractBinaryFileHandler FileHandler => new ParticleFileHandler();
 
@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 			MenuItem particleBindingImport = new MenuItem { Header = $"Import Particle paths from folder" };
 
-			particleBindingImport.Click += (sender, e) => App.Instance.MainWindow.ParticleParticlesExpanderControl.Handler.ImportFolder();
+			particleBindingImport.Click += (sender, e) => App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.ImportFolder();
 
 			fileTypeMenuItem.Items.Add(particleBindingImport);
 
@@ -26,17 +26,17 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public override List<AbstractAsset> GetAssets()
 		{
-			return App.Instance.MainWindow.ParticleParticlesExpanderControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+			return App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 		}
 
-		protected override void UpdateExpanderControls(List<AbstractUserAsset> assets)
+		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
 		{
-			UpdateExpanderControl(assets, App.Instance.MainWindow.ParticleParticlesExpanderControl.Handler);
+			UpdateAssetTabControl(assets, App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler);
 		}
 
 		protected override bool IsComplete()
 		{
-			return App.Instance.MainWindow.ParticleParticlesExpanderControl.Handler.IsComplete();
+			return App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.IsComplete();
 		}
 	}
 }

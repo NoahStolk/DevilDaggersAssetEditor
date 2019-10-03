@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	public class AudioTabControlHandler : AbstractTabControlHandler
+	public class AudioFileTabControlHandler : AbstractFileTabControlHandler
 	{
 		public override AbstractBinaryFileHandler FileHandler => new ResourceFileHandler(BinaryFileType.Audio);
 
@@ -20,9 +20,9 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			MenuItem loudnessImport = new MenuItem { Header = $"Import Loudness from file" };
 			MenuItem loudnessExport = new MenuItem { Header = $"Export Loudness to file" };
 
-			audioImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ImportFolder();
-			loudnessImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ImportLoudness();
-			loudnessExport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioExpanderControl.Handler.ExportLoudness();
+			audioImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.ImportFolder();
+			loudnessImport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.ImportLoudness();
+			loudnessExport.Click += (sender, e) => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.ExportLoudness();
 
 			fileTypeMenuItem.Items.Add(audioImport);
 			fileTypeMenuItem.Items.Add(new Separator());
@@ -32,19 +32,19 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		protected override void UpdateExpanderControls(List<AbstractUserAsset> assets)
+		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
 		{
-			UpdateExpanderControl(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioExpanderControl.Handler);
+			UpdateAssetTabControl(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioAssetTabControl.Handler);
 		}
 
 		public override List<AbstractAsset> GetAssets()
 		{
-			return App.Instance.MainWindow.AudioAudioExpanderControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+			return App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 		}
 
 		protected override bool IsComplete()
 		{
-			return App.Instance.MainWindow.AudioAudioExpanderControl.Handler.IsComplete();
+			return App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.IsComplete();
 		}
 	}
 }
