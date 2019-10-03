@@ -6,12 +6,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
 			 Loaded="UserControl_Loaded">
+	<UserControl.Resources>
+		<Image x:Key="PauseImage" >
+			<Image.Source>
+				<BitmapImage UriSource="/Content/Images/AudioPlayer/Pause.png"></BitmapImage>
+			</Image.Source>
+		</Image>
+		<Image x:Key="PlayImage" >
+			<Image.Source>
+				<BitmapImage UriSource="/Content/Images/AudioPlayer/Play.png"></BitmapImage>
+			</Image.Source>
+		</Image>
+	</UserControl.Resources>
 	<Grid>
 		<Grid.RowDefinitions>
+			<RowDefinition Height="80" />
 			<RowDefinition Height="20" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
-		<Grid Grid.Row="0" Background="DarkGray">
+		<StackPanel Grid.Row="0" Width="256">
+			<TextBlock Name="AudioName" />
+			<Button Name="Toggle" Click="Toggle_Click" Width="20">
+				<Image Name="ToggleImage" />
+			</Button>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock Name="SeekText" />
+					<TextBlock Name="PitchText" />
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<Slider Name="Seek" Thumb.DragStarted="Seek_DragStarted" Thumb.DragCompleted="Seek_DragCompleted" />
+					<Slider Name="Pitch" ValueChanged="Pitch_ValueChanged" Minimum="0.02" Maximum="4" Value="1" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+		<Grid Grid.Row="1" Background="DarkGray">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="2*" />
 				<ColumnDefinition />
@@ -24,7 +57,7 @@
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" FontWeight="Bold">Path</TextBlock>
 		</Grid>
-		<ScrollViewer Grid.Row="1">
+		<ScrollViewer Grid.Row="2">
 			<StackPanel Name="AssetEditor" />
 		</ScrollViewer>
 	</Grid>

@@ -58,6 +58,10 @@
     <ApplicationIcon>Icon24.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="irrKlang.NET4, Version=1.0.6617.18810, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\irrKlang.NET4.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -321,6 +325,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icon24.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Images\AudioPlayer\Play.png" />
+    <Resource Include="Content\Images\AudioPlayer\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Images\AudioPlayer\Pause.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

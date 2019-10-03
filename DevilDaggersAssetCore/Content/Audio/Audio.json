@@ -296,7 +296,7 @@
 	{
 		"Loudness": 1.4,
 		"AssetName": "daggerhit1",
-		"Description": "Normal dagger hit enemy without dealing damage",
+		"Description": "Normal dagger hit enemy without dealing damage / Spiderling damage",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -443,14 +443,14 @@
 	{
 		"Loudness": 50,
 		"AssetName": "eggburst",
-		"Description": "Spider Egg I hatch",
+		"Description": "Spider Egg I / Spider Egg II burst (hatch or death)",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 1,
 		"AssetName": "eggburst2",
-		"Description": "Spider Egg II hatch",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": false,
 		"ChunkTypeName": "AudioChunk"
 	},
