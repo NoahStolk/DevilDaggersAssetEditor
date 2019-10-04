@@ -328,7 +328,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Content\Images\AudioPlayer\Play.png" />
-    <Resource Include="Content\Images\AudioPlayer\Stop.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Content\Images\AudioPlayer\Pause.png" />

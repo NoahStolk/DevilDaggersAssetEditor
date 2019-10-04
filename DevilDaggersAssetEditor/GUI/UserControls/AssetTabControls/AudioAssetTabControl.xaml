@@ -17,34 +17,55 @@
 			<RowDefinition Height="20" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
-		<StackPanel Grid.Row="0" Width="256">
-			<TextBlock Name="AudioInfo">
-				Audio name:<LineBreak />
-				Default loudness:
-			</TextBlock>
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-				<Button Name="Toggle" Click="Toggle_Click" Width="20">
-					<Image Name="ToggleImage" />
-				</Button>
-				<Button Name="ResetPitch" Click="ResetPitch_Click" Width="20">
-					<Image Name="ResetPitchImage" />
-				</Button>
-			</StackPanel>
-			<Grid>
+		<Grid Grid.Row="0" Width="768" HorizontalAlignment="Left">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid Grid.Column="0">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock Name="SeekText" Text="00:00.000 / ??:??.???" />
-					<TextBlock Name="PitchText" Text="x 1.00" />
+					<TextBlock>Audio name</TextBlock>
+					<TextBlock>Default loudness</TextBlock>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<Slider Name="Seek" Thumb.DragStarted="Seek_DragStarted" Thumb.DragCompleted="Seek_DragCompleted" ToolTip="Seek" />
-					<Slider Name="Pitch" ValueChanged="Pitch_ValueChanged" Minimum="0.02" Maximum="4" Value="1" ToolTip="Pitch" />
+					<TextBlock Name="AudioName">N/A</TextBlock>
+					<TextBlock Name="DefaultLoudness">N/A</TextBlock>
 				</StackPanel>
 			</Grid>
-		</StackPanel>
+			<StackPanel Grid.Column="1">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+					<Button Name="Toggle" Click="Toggle_Click" Width="20">
+						<Image Name="ToggleImage" />
+					</Button>
+					<Button Name="ResetPitch" Click="ResetPitch_Click" Width="20">
+						<Image Name="ResetPitchImage" />
+					</Button>
+				</StackPanel>
+				<TextBlock Name="AudioFile">N/A</TextBlock>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<StackPanel Grid.Column="0">
+						<Slider Name="Seek" Thumb.DragStarted="Seek_DragStarted" Thumb.DragCompleted="Seek_DragCompleted" ToolTip="Seek" />
+						<Slider Name="Pitch" ValueChanged="Pitch_ValueChanged" Minimum="0.02" Maximum="4" Value="1" ToolTip="Pitch" />
+					</StackPanel>
+					<StackPanel Grid.Column="1">
+						<TextBlock Name="SeekText" Text="00:00.000 / ??:??.???" />
+						<TextBlock Name="PitchText" Text="x 1.00" />
+					</StackPanel>
+				</Grid>
+			</StackPanel>
+			<StackPanel Grid.Column="2">
+				<CheckBox Name="Autoplay" IsChecked="True">Auto-play</CheckBox>
+			</StackPanel>
+		</Grid>
 		<Grid Grid.Row="1" Background="DarkGray">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="2*" />

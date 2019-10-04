@@ -1906,7 +1906,7 @@
 	{
 		"Loudness": 10,
 		"AssetName": "unburrowcentipede",
-		"Description": "Centipede emerge?",
+		"Description": "Centipede emerge",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	}

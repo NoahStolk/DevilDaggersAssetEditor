@@ -8,6 +8,7 @@ using DevilDaggersAssetCore.Assets;
 using System.Windows.Controls.Primitives;
 using IrrKlang;
 using System.Windows.Threading;
+using System.IO;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 {
@@ -85,19 +86,25 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 
 		private void Ac_MouseDoubleClick(AudioAsset audioAsset)
 		{
-			AudioInfo.Text = $"Audio name: {audioAsset.AssetName}\nDefault loudness: {(audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString() : "N/A")}";
+			AudioName.Text = audioAsset.AssetName;
+			DefaultLoudness.Text = audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString() : "N/A (1)";
+			AudioFile.Text = Path.GetFileName(audioAsset.EditorPath);
 
 			if (Song != null)
 				Song.Stop();
 
+			bool startPaused = !Autoplay.IsChecked ?? true;
 			SongData = engine.GetSoundSource(audioAsset.EditorPath);
-			Song = engine.Play2D(SongData, true, false, true);
+			Song = engine.Play2D(SongData, true, startPaused, true);
 
 			if (Song != null)
 			{
+				ToggleImage.Source = ((Image)Resources[startPaused ? "PlayImage" : "PauseImage"]).Source;
+
 				Seek.Maximum = Song.PlayLength;
 				Song.PlaybackSpeed = (float)Pitch.Value;
-				ToggleImage.Source = ((Image)Resources["PauseImage"]).Source;
+				Song.PlayPosition = 0;
+				Seek.Value = 0;
 
 				SeekText.Text = $"{ToTimeString((int)Song.PlayPosition)} / {ToTimeString((int)Song.PlayLength)}";
 				PitchText.Text = $"x {Song.PlaybackSpeed:0.00}";
@@ -118,7 +125,9 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 			float pitch = (float)e.NewValue;
 			if (Song != null)
 				Song.PlaybackSpeed = pitch;
-			PitchText.Text = $"x {pitch:0.00}";
+
+			if (PitchText != null) // Doesn't exist yet when initializing control.
+				PitchText.Text = $"x {pitch:0.00}";
 		}
 
 		private void ResetPitch_Click(object sender, RoutedEventArgs e)
