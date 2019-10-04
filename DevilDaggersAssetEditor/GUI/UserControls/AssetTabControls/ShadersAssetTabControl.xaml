@@ -18,7 +18,7 @@
 				<ColumnDefinition Width="9*" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Asset name</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Shader name</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Description</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Path</TextBlock>
 		</Grid>

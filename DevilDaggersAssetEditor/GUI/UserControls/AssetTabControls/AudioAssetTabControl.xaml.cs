@@ -88,7 +88,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 		{
 			AudioName.Text = audioAsset.AssetName;
 			DefaultLoudness.Text = audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString() : "N/A (1)";
-			AudioFile.Text = Path.GetFileName(audioAsset.EditorPath);
+			AudioFile.Text = audioAsset.EditorPath.IsPathValid() ? Path.GetFileName(audioAsset.EditorPath) : audioAsset.EditorPath;
 
 			if (Song != null)
 				Song.Stop();
