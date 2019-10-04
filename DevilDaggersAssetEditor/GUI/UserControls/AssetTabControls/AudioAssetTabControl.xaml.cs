@@ -8,9 +8,6 @@ using DevilDaggersAssetCore.Assets;
 using System.Windows.Controls.Primitives;
 using IrrKlang;
 using System.Windows.Threading;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.IO;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 {
@@ -42,6 +39,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 		{
 			InitializeComponent();
 			ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
+			ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
 
 			DispatcherTimer timer = new DispatcherTimer
 			{
@@ -87,7 +85,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 
 		private void Ac_MouseDoubleClick(AudioAsset audioAsset)
 		{
-			AudioName.Text = audioAsset.AssetName;
+			AudioInfo.Text = $"Audio name: {audioAsset.AssetName}\nDefault loudness: {(audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString() : "N/A")}";
 
 			if (Song != null)
 				Song.Stop();
@@ -109,21 +107,26 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 		private void Toggle_Click(object sender, RoutedEventArgs e)
 		{
 			if (Song != null)
+			{
 				Song.Paused = !Song.Paused;
-
-			if (Song.Paused)
-				ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
-			else
-				ToggleImage.Source = ((Image)Resources["PauseImage"]).Source;
+				ToggleImage.Source = ((Image)Resources[Song.Paused ? "PlayImage" : "PauseImage"]).Source;
+			}
 		}
 
 		private void Pitch_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
+			float pitch = (float)e.NewValue;
 			if (Song != null)
-			{
-				Song.PlaybackSpeed = (float)e.NewValue;
-				PitchText.Text = $"x {Song.PlaybackSpeed:0.00}";
-			}
+				Song.PlaybackSpeed = pitch;
+			PitchText.Text = $"x {pitch:0.00}";
+		}
+
+		private void ResetPitch_Click(object sender, RoutedEventArgs e)
+		{
+			if (Song != null)
+				Song.PlaybackSpeed = 1;
+			PitchText.Text = "x 1.00";
+			Pitch.Value = 1;
 		}
 
 		private void Seek_DragStarted(object sender, DragStartedEventArgs e)

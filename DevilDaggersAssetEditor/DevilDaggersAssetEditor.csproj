@@ -333,5 +333,8 @@
   <ItemGroup>
     <Resource Include="Content\Images\AudioPlayer\Pause.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Images\AudioPlayer\ResetPitch.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

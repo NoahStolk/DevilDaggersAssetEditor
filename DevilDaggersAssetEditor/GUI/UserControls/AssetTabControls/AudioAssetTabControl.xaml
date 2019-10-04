@@ -7,40 +7,41 @@
              d:DesignHeight="450" d:DesignWidth="800"
 			 Loaded="UserControl_Loaded">
 	<UserControl.Resources>
-		<Image x:Key="PauseImage" >
-			<Image.Source>
-				<BitmapImage UriSource="/Content/Images/AudioPlayer/Pause.png"></BitmapImage>
-			</Image.Source>
-		</Image>
-		<Image x:Key="PlayImage" >
-			<Image.Source>
-				<BitmapImage UriSource="/Content/Images/AudioPlayer/Play.png"></BitmapImage>
-			</Image.Source>
-		</Image>
+		<Image x:Key="PauseImage" Source="/Content/Images/AudioPlayer/Pause.png" />
+		<Image x:Key="PlayImage" Source="/Content/Images/AudioPlayer/Play.png" />
+		<Image x:Key="ResetPitchImage" Source="/Content/Images/AudioPlayer/ResetPitch.png" />
 	</UserControl.Resources>
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="80" />
+			<RowDefinition Height="96" />
 			<RowDefinition Height="20" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<StackPanel Grid.Row="0" Width="256">
-			<TextBlock Name="AudioName" />
-			<Button Name="Toggle" Click="Toggle_Click" Width="20">
-				<Image Name="ToggleImage" />
-			</Button>
+			<TextBlock Name="AudioInfo">
+				Audio name:<LineBreak />
+				Default loudness:
+			</TextBlock>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<Button Name="Toggle" Click="Toggle_Click" Width="20">
+					<Image Name="ToggleImage" />
+				</Button>
+				<Button Name="ResetPitch" Click="ResetPitch_Click" Width="20">
+					<Image Name="ResetPitchImage" />
+				</Button>
+			</StackPanel>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock Name="SeekText" />
-					<TextBlock Name="PitchText" />
+					<TextBlock Name="SeekText" Text="00:00.000 / ??:??.???" />
+					<TextBlock Name="PitchText" Text="x 1.00" />
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<Slider Name="Seek" Thumb.DragStarted="Seek_DragStarted" Thumb.DragCompleted="Seek_DragCompleted" />
-					<Slider Name="Pitch" ValueChanged="Pitch_ValueChanged" Minimum="0.02" Maximum="4" Value="1" />
+					<Slider Name="Seek" Thumb.DragStarted="Seek_DragStarted" Thumb.DragCompleted="Seek_DragCompleted" ToolTip="Seek" />
+					<Slider Name="Pitch" ValueChanged="Pitch_ValueChanged" Minimum="0.02" Maximum="4" Value="1" ToolTip="Pitch" />
 				</StackPanel>
 			</Grid>
 		</StackPanel>
