@@ -194,9 +194,16 @@
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\ParticleFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\DDFileTabControlHandler.cs" />
+    <Compile Include="Code\Previewers\AbstractPreviewer.cs" />
+    <Compile Include="Code\Previewers\AudioPreviewer.cs" />
+    <Compile Include="Code\Previewers\ModelBindingPreviewer.cs" />
+    <Compile Include="Code\Previewers\ModelPreviewer.cs" />
+    <Compile Include="Code\Previewers\ParticlePreviewer.cs" />
+    <Compile Include="Code\Previewers\ShaderPreviewer.cs" />
+    <Compile Include="Code\Previewers\TexturePreviewer.cs" />
     <Compile Include="Code\User\UserHandler.cs" />
     <Compile Include="Code\User\UserSettings.cs" />
-    <Compile Include="Code\Utils.cs" />
+    <Compile Include="Code\EditorUtils.cs" />
     <Compile Include="Code\Web\NetworkHandler.cs" />
     <Compile Include="Code\Web\TimeoutWebClient.cs" />
     <Compile Include="Code\Web\UrlUtils.cs" />

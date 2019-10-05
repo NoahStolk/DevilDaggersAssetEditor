@@ -35,7 +35,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 
 			Handler = new ShadersAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (ShaderAssetControl ac in Handler.CreateUserControls())
+			foreach (ShaderAssetControl ac in Handler.CreateAssetControls())
 				AssetEditor.Children.Add(ac);
 		}
 	}

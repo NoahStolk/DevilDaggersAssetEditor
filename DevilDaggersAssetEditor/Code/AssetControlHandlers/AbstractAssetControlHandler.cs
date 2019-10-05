@@ -5,7 +5,9 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 {
-	public abstract class AbstractAssetControlHandler<TAsset, TAssetControl> where TAsset : AbstractAsset where TAssetControl : UserControl
+	public abstract class AbstractAssetControlHandler<TAsset, TAssetControl>
+		where TAsset : AbstractAsset
+		where TAssetControl : UserControl
 	{
 		public TAsset Asset { get; }
 		protected readonly TAssetControl parent;

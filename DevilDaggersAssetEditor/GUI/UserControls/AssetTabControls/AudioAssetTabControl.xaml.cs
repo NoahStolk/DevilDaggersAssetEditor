@@ -4,23 +4,15 @@ using System.Windows.Controls;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System;
 using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
-using DevilDaggersAssetCore.Assets;
 using System.Windows.Controls.Primitives;
-using IrrKlang;
 using System.Windows.Threading;
+using DevilDaggersAssetEditor.Code;
 using System.IO;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 {
 	public partial class AudioAssetTabControl : UserControl
 	{
-		private readonly ISoundEngine engine = new ISoundEngine();
-
-		public ISound Song { get; private set; }
-		public ISoundSource SongData { get; private set; }
-
-		private bool dragging;
-
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
 		(
 			nameof(BinaryFileType),
@@ -34,6 +26,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
+		private bool dragging;
+
 		public AudioAssetTabControlHandler Handler { get; private set; }
 
 		public AudioAssetTabControl()
@@ -42,33 +36,18 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 			ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
 			ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
 
-			DispatcherTimer timer = new DispatcherTimer
+			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
+			timer.Tick += (sender, e) =>
 			{
-				Interval = new TimeSpan(0, 0, 0, 0, 10)
+				if (Handler.Previewer.Song != null && !Handler.Previewer.Song.Paused)
+				{
+					if (!dragging)
+						Seek.Value = Handler.Previewer.Song.PlayPosition / (float)Handler.Previewer.Song.PlayLength * Seek.Maximum;
+
+					SeekText.Text = $"{EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayLength)}";
+				}
 			};
-			timer.Tick += Timer_Tick;
 			timer.Start();
-		}
-
-		private void Timer_Tick(object sender, EventArgs e)
-		{
-			if (Song != null && !Song.Paused)
-			{
-				if (!dragging)
-					Seek.Value = Song.PlayPosition / (float)Song.PlayLength * Seek.Maximum;
-
-				SeekText.Text = $"{ToTimeString((int)Song.PlayPosition)} / {ToTimeString((int)Song.PlayLength)}";
-			}
-		}
-
-		private string ToTimeString(int milliseconds)
-		{
-			TimeSpan timeSpan = new TimeSpan(0, 0, 0, 0, milliseconds);
-			if (timeSpan.Days > 0)
-				return $"{timeSpan:dd\\:hh\\:mm\\:ss\\.fff}";
-			if (timeSpan.Hours > 0)
-				return $"{timeSpan:hh\\:mm\\:ss\\.fff}";
-			return $"{timeSpan:mm\\:ss\\.fff}";
 		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -77,65 +56,61 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 
 			Handler = new AudioAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (AudioAssetControl ac in Handler.CreateUserControls())
+			foreach (AudioAssetControl ac in Handler.CreateAssetControls())
 			{
 				AssetEditor.Children.Add(ac);
-				ac.MouseDoubleClick += (senderAC, eAC) => Ac_MouseDoubleClick(ac.Handler.Asset);
-			}
-		}
+				ac.MouseDoubleClick += (senderAC, eAC) =>
+				{
+					Handler.SelectAsset(ac.Handler.Asset);
 
-		private void Ac_MouseDoubleClick(AudioAsset audioAsset)
-		{
-			AudioName.Text = audioAsset.AssetName;
-			DefaultLoudness.Text = audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString() : "N/A (1)";
-			AudioFile.Text = audioAsset.EditorPath.IsPathValid() ? Path.GetFileName(audioAsset.EditorPath) : audioAsset.EditorPath;
+					AudioName.Text = Handler.SelectedAsset.AssetName;
+					DefaultLoudness.Text = Handler.SelectedAsset.PresentInDefaultLoudness ? Handler.SelectedAsset.DefaultLoudness.ToString() : "N/A (Defaults to 1)";
+					AudioFile.Text = Handler.SelectedAsset.EditorPath.IsPathValid() ? Path.GetFileName(Handler.SelectedAsset.EditorPath) : Handler.SelectedAsset.EditorPath;
 
-			if (Song != null)
-				Song.Stop();
+					bool startPaused = !Autoplay.IsChecked ?? true;
 
-			bool startPaused = !Autoplay.IsChecked ?? true;
-			SongData = engine.GetSoundSource(audioAsset.EditorPath);
-			Song = engine.Play2D(SongData, true, startPaused, true);
+					Handler.Previewer.SongSet(Handler.SelectedAsset.EditorPath, (float)Pitch.Value, startPaused);
 
-			if (Song != null)
-			{
-				ToggleImage.Source = ((Image)Resources[startPaused ? "PlayImage" : "PauseImage"]).Source;
+					if (Handler.Previewer.Song != null)
+					{
+						ToggleImage.Source = ((Image)Resources[startPaused ? "PlayImage" : "PauseImage"]).Source;
 
-				Seek.Maximum = Song.PlayLength;
-				Song.PlaybackSpeed = (float)Pitch.Value;
-				Song.PlayPosition = 0;
-				Seek.Value = 0;
+						Seek.Maximum = Handler.Previewer.Song.PlayLength;
+						Seek.Value = 0;
 
-				SeekText.Text = $"{ToTimeString((int)Song.PlayPosition)} / {ToTimeString((int)Song.PlayLength)}";
-				PitchText.Text = $"x {Song.PlaybackSpeed:0.00}";
+						SeekText.Text = $"{EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayLength)}";
+						PitchText.Text = $"x {Handler.Previewer.Song.PlaybackSpeed:0.00}";
+					}
+				};
 			}
 		}
 
 		private void Toggle_Click(object sender, RoutedEventArgs e)
 		{
-			if (Song != null)
-			{
-				Song.Paused = !Song.Paused;
-				ToggleImage.Source = ((Image)Resources[Song.Paused ? "PlayImage" : "PauseImage"]).Source;
-			}
+			if (Handler.Previewer.Song != null)
+				ToggleImage.Source = ((Image)Resources[Handler.Previewer.Song.Paused ? "PlayImage" : "PauseImage"]).Source;
+
+			Handler.Previewer.TogglePlay();
 		}
 
 		private void Pitch_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-			float pitch = (float)e.NewValue;
-			if (Song != null)
-				Song.PlaybackSpeed = pitch;
+			if (!IsInitialized)
+				return;
 
-			if (PitchText != null) // Doesn't exist yet when initializing control.
-				PitchText.Text = $"x {pitch:0.00}";
+			float pitch = (float)e.NewValue;
+
+			PitchText.Text = $"x {pitch:0.00}";
+
+			Handler.Previewer.PitchSet(pitch);
 		}
 
 		private void ResetPitch_Click(object sender, RoutedEventArgs e)
 		{
-			if (Song != null)
-				Song.PlaybackSpeed = 1;
 			PitchText.Text = "x 1.00";
 			Pitch.Value = 1;
+
+			Handler.Previewer.PitchReset();
 		}
 
 		private void Seek_DragStarted(object sender, DragStartedEventArgs e)
@@ -147,8 +122,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 		{
 			dragging = false;
 
-			if (Song != null)
-				Song.PlayPosition = (uint)Seek.Value;
+			Handler.Previewer.SeekDragComplete((uint)Seek.Value);
 		}
 	}
 }

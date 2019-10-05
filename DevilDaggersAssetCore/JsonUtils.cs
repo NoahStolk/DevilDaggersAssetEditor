@@ -29,7 +29,8 @@ namespace DevilDaggersAssetCore
 				DefaultSerializer.Serialize(jtw, obj);
 		}
 
-		public static T TryDeserializeFromFile<T>(string path, bool includeType = false) where T : class
+		public static T TryDeserializeFromFile<T>(string path, bool includeType = false)
+			where T : class
 		{
 			try
 			{

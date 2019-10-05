@@ -8,10 +8,38 @@
 			 Loaded="UserControl_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
+			<RowDefinition Height="96" />
 			<RowDefinition Height="20" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
-		<Grid Grid.Row="0" Background="DarkGray">
+		<Grid Grid.Row="0" Width="768" HorizontalAlignment="Left">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid Grid.Column="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock>Texture name</TextBlock>
+					<TextBlock>Dimensions</TextBlock>
+					<TextBlock>Mipmaps</TextBlock>
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="TextureName">N/A</TextBlock>
+					<TextBlock Name="Dimensions">N/A</TextBlock>
+					<TextBlock Name="Mipmaps">N/A</TextBlock>
+				</StackPanel>
+			</Grid>
+			<StackPanel Grid.Column="1">
+				<TextBlock Name="AudioFile">N/A</TextBlock>
+				<Image Width="96" Height="96"></Image>
+			</StackPanel>
+		</Grid>
+		<Grid Grid.Row="1" Background="DarkGray">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="5*" />
@@ -22,7 +50,7 @@
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Description</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Path</TextBlock>
 		</Grid>
-		<ScrollViewer Grid.Row="1">
+		<ScrollViewer Grid.Row="2">
 			<StackPanel Name="AssetEditor" />
 		</ScrollViewer>
 	</Grid>

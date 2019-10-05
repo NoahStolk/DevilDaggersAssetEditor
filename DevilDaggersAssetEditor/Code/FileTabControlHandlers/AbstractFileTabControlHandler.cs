@@ -3,6 +3,7 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
+using DevilDaggersAssetEditor.Code.Previewers;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.GUI.Windows;
 using Microsoft.Win32;
@@ -191,7 +192,11 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 		protected abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetControl> assetTabControlHandler) where TUserAsset : AbstractUserAsset where TAsset : AbstractAsset where TAssetControl : UserControl
+		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetControl, TPreviewer>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetControl, TPreviewer> assetTabControlHandler)
+			where TUserAsset : AbstractUserAsset
+			where TAsset : AbstractAsset
+			where TAssetControl : UserControl
+			where TPreviewer : AbstractPreviewer
 		{
 			for (int i = 0; i < assetTabControlHandler.Assets.Count; i++)
 			{

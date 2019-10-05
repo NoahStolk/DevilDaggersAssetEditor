@@ -3,7 +3,8 @@ using System;
 
 namespace DevilDaggersAssetCore.Chunks
 {
-	public abstract class AbstractHeaderedChunk<T> : AbstractChunk where T : AbstractHeader
+	public abstract class AbstractHeaderedChunk<T> : AbstractChunk
+		where T : AbstractHeader
 	{
 		public T Header { get; set; }
 
