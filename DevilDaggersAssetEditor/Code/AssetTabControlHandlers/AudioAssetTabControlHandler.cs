@@ -4,7 +4,6 @@ using DevilDaggersAssetEditor.Code.Previewers;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

@@ -39,13 +39,13 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
-				if (Handler.Previewer.Song != null && !Handler.Previewer.Song.Paused)
-				{
-					if (!dragging)
-						Seek.Value = Handler.Previewer.Song.PlayPosition / (float)Handler.Previewer.Song.PlayLength * Seek.Maximum;
+				if (Handler.Previewer.Song == null || Handler.Previewer.Song.Paused)
+					return;
 
-					SeekText.Text = $"{EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayLength)}";
-				}
+				if (!dragging)
+					Seek.Value = Handler.Previewer.Song.PlayPosition / (float)Handler.Previewer.Song.PlayLength * Seek.Maximum;
+
+				SeekText.Text = $"{EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Handler.Previewer.Song.PlayLength)}";
 			};
 			timer.Start();
 		}

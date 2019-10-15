@@ -36,7 +36,7 @@
 			</Grid>
 			<StackPanel Grid.Column="1">
 				<TextBlock Name="AudioFile">N/A</TextBlock>
-				<Image Width="96" Height="96"></Image>
+				<Image HorizontalAlignment="Left" Width="64" Height="64"></Image>
 			</StackPanel>
 		</Grid>
 		<Grid Grid.Row="1" Background="DarkGray">

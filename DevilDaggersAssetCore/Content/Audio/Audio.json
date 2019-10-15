@@ -296,7 +296,7 @@
 	{
 		"Loudness": 1.4,
 		"AssetName": "daggerhit1",
-		"Description": "Normal dagger hit enemy without dealing damage / Spiderling damage",
+		"Description": "Default dagger hit",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
