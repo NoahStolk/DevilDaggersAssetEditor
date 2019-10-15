@@ -1,12 +1,11 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.Previewers;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System.Linq;
 
 namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetControl, ModelPreviewer>
+	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Models";
 

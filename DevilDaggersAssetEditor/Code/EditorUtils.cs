@@ -5,6 +5,7 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
 using System.Collections.Generic;
 using DevilDaggersAssetCore;
+using System.Drawing;
 
 namespace DevilDaggersAssetEditor.Code
 {
@@ -32,21 +33,22 @@ namespace DevilDaggersAssetEditor.Code
 			List<ModelAsset> models = new List<ModelAsset>();
 			List<TextureAsset> textures = new List<TextureAsset>();
 
-			foreach (string file in Directory.GetFiles(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\Extracted\dd", "*.*", SearchOption.AllDirectories))
+			foreach (string path in Directory.GetFiles(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\Extracted\dd", "*.*", SearchOption.AllDirectories))
 			{
-				switch (Path.GetExtension(file))
+				switch (Path.GetExtension(path))
 				{
 					case ".txt":
-						modelBindings.Add(new ModelBindingAsset(Path.GetFileNameWithoutExtension(file), "?", nameof(ModelBindingChunk)));
+						modelBindings.Add(new ModelBindingAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(ModelBindingChunk)));
 						break;
 					case ".glsl":
-						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(file), "?", nameof(ShaderChunk)));
+						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(ShaderChunk)));
 						break;
 					case ".obj":
-						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(file), "?", nameof(ModelChunk)));
+						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(ModelChunk)));
 						break;
 					case ".png":
-						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(file), "?", nameof(TextureChunk)));
+						Image image = Image.FromFile(path);
+						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(TextureChunk), new Point(image.Width, image.Height)));
 						break;
 				}
 			}

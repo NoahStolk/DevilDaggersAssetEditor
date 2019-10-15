@@ -1,12 +1,11 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.Previewers;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System.Linq;
 
 namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetControl, ParticlePreviewer>
+	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Particles";
 

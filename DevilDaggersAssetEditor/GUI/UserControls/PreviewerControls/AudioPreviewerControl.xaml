@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls.AudioPreviewerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<UserControl.Resources>
+		<Image x:Key="PauseImage" Source="/Content/Images/AudioPlayer/Pause.png" />
+		<Image x:Key="PlayImage" Source="/Content/Images/AudioPlayer/Play.png" />
+		<Image x:Key="ResetPitchImage" Source="/Content/Images/AudioPlayer/ResetPitch.png" />
+	</UserControl.Resources>
+	<Grid Grid.Row="0" Width="768" HorizontalAlignment="Left">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Column="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<StackPanel Grid.Column="0">
+				<TextBlock FontWeight="Bold">Audio name</TextBlock>
+				<TextBlock FontWeight="Bold">Default loudness</TextBlock>
+			</StackPanel>
+			<StackPanel Grid.Column="1">
+				<TextBlock Name="AudioName">N/A</TextBlock>
+				<TextBlock Name="DefaultLoudness">N/A</TextBlock>
+			</StackPanel>
+		</Grid>
+		<StackPanel Grid.Column="1">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+				<Button Name="Toggle" Click="Toggle_Click" Width="20">
+					<Image Name="ToggleImage" />
+				</Button>
+				<Button Name="ResetPitch" Click="ResetPitch_Click" Width="20">
+					<Image Name="ResetPitchImage" />
+				</Button>
+				<CheckBox Name="Autoplay" IsChecked="True" Margin="4,4,4,4">Auto-play</CheckBox>
+			</StackPanel>
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<Slider Name="Seek" Thumb.DragStarted="Seek_DragStarted" Thumb.DragCompleted="Seek_DragCompleted" ToolTip="Seek" />
+					<Slider Name="Pitch" ValueChanged="Pitch_ValueChanged" Minimum="0.02" Maximum="4" Value="1" ToolTip="Pitch" />
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="SeekText" Text="00:00.000 / ??:??.???" />
+					<TextBlock Name="PitchText" Text="x 1.00" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+		<StackPanel Grid.Column="2">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock FontWeight="Bold">Path</TextBlock>
+					<TextBlock FontWeight="Bold">Loudness</TextBlock>
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="FilePath">N/A</TextBlock>
+					<TextBlock Name="FileLoudness">N/A</TextBlock>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+	</Grid>
+</UserControl>

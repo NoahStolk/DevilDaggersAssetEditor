@@ -1,6 +1,5 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.Previewers;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using Microsoft.Win32;
@@ -11,7 +10,7 @@ using System.Text;
 
 namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetControl, AudioPreviewer>
+	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Audio";
 

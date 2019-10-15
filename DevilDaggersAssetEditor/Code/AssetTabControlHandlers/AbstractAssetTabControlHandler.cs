@@ -1,6 +1,5 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.Previewers;
 using DevilDaggersAssetEditor.Code.User;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
@@ -13,10 +12,9 @@ using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetControl, TPreviewer>
+	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetControl>
 		where TAsset : AbstractAsset
 		where TAssetControl : UserControl
-		where TPreviewer : AbstractPreviewer
 	{
 		public TAsset SelectedAsset { get; set; }
 
@@ -26,14 +24,10 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 
 		protected abstract string AssetTypeJsonFileName { get; }
 
-		public TPreviewer Previewer { get; }
-
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
 			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json")))
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
-
-			Previewer = Activator.CreateInstance<TPreviewer>();
 		}
 
 		public abstract void UpdateGUI(TAsset asset);

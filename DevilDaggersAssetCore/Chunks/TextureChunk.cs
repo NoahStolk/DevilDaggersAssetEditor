@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetCore.Headers;
+﻿using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.Headers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -100,7 +101,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		private static byte GetMipmapCountFromImage(Image image)
 		{
-			return (byte)(Math.Log(Math.Min(image.Width, image.Height), 2) + 1);
+			return TextureAsset.GetMipmapCount(image.Width, image.Height);
 		}
 
 		private static void GetBufferSizes(TextureHeader header, out int totalBufferLength, out int[] mipmapBufferSizes)

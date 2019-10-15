@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 
 namespace DevilDaggersAssetCore.Assets
 {
+	[JsonObject(MemberSerialization.OptIn)]
 	public class AudioAsset : AbstractAsset
 	{
 		public override byte ColorR => 255;
@@ -12,7 +13,7 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public float Loudness { get; set; }
 		[JsonProperty]
-		public bool PresentInDefaultLoudness { get; set; }
+		public bool PresentInDefaultLoudness { get; }
 
 		public float DefaultLoudness { get; }
 

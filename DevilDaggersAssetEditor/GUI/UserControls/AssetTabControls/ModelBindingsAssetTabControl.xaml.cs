@@ -36,7 +36,15 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 			Handler = new ModelBindingsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
 			foreach (ModelBindingAssetControl ac in Handler.CreateAssetControls())
-				AssetEditor.Children.Add(ac);
+				AssetEditor.Items.Add(ac);
+		}
+
+		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			ModelBindingAssetControl ac = e.AddedItems[0] as ModelBindingAssetControl;
+
+			Handler.SelectAsset(ac.Handler.Asset);
+			Previewer.Initialize(ac.Handler.Asset);
 		}
 	}
 }

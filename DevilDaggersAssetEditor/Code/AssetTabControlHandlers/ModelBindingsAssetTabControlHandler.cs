@@ -1,12 +1,11 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.Previewers;
 using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
 using System.Linq;
 
 namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public class ModelBindingsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelBindingAsset, ModelBindingAssetControl, ModelBindingPreviewer>
+	public class ModelBindingsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelBindingAsset, ModelBindingAssetControl>
 	{
 		protected override string AssetTypeJsonFileName => "Model Bindings";
 

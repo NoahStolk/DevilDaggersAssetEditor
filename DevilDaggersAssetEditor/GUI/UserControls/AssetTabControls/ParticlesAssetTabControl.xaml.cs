@@ -36,7 +36,15 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls
 			Handler = new ParticlesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
 			foreach (ParticleAssetControl ac in Handler.CreateAssetControls())
-				AssetEditor.Children.Add(ac);
+				AssetEditor.Items.Add(ac);
+		}
+
+		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			ParticleAssetControl ac = e.AddedItems[0] as ParticleAssetControl;
+
+			Handler.SelectAsset(ac.Handler.Asset);
+			Previewer.Initialize(ac.Handler.Asset);
 		}
 	}
 }

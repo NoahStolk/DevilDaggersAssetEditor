@@ -15,6 +15,27 @@
 	<Style TargetType="{x:Type windows:SettingsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:UpdateRecommendedWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 
+	<ControlTemplate x:Key="ListViewTemplate" TargetType="{x:Type ListBox}">
+		<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="0" SnapsToDevicePixels="True">
+			<ScrollViewer Focusable="False" Padding="{TemplateBinding Padding}">
+				<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+			</ScrollViewer>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+			</Trigger>
+			<Trigger Property="IsGrouping" Value="True">
+				<Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+
+	<Style TargetType="ListBoxItem" x:Key="ListViewItemContainerStyle">
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="BorderThickness" Value="0" />
+	</Style>
+
 	<Style TargetType="StackPanel" x:Key="PaddingStackPanel">
 		<Style.Setters>
 			<Setter Property="Margin" Value="12,12,12,12" />

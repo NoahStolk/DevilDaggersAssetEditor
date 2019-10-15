@@ -3,15 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:previewerControls="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
 			 Loaded="UserControl_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
+			<RowDefinition Height="96" />
 			<RowDefinition Height="20" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
-		<Grid Grid.Row="0" Background="DarkGray">
+		<previewerControls:ModelPreviewerControl Grid.Row="0" x:Name="Previewer" />
+		<Grid Grid.Row="1" Background="DarkGray">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="5*" />
@@ -22,8 +25,6 @@
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Description</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Path</TextBlock>
 		</Grid>
-		<ScrollViewer Grid.Row="1">
-			<StackPanel Name="AssetEditor" />
-		</ScrollViewer>
+		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" Template="{DynamicResource ListViewTemplate}" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
 	</Grid>
 </UserControl>

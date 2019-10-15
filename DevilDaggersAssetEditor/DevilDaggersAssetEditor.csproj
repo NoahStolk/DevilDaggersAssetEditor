@@ -154,6 +154,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\UserControls\PreviewerControls\AudioPreviewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\PreviewerControls\ModelBindingPreviewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\PreviewerControls\ModelPreviewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\PreviewerControls\ParticlePreviewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\PreviewerControls\ShaderPreviewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\PreviewerControls\TexturePreviewerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Windows\About.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -194,13 +218,6 @@
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\ParticleFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\DDFileTabControlHandler.cs" />
-    <Compile Include="Code\Previewers\AbstractPreviewer.cs" />
-    <Compile Include="Code\Previewers\AudioPreviewer.cs" />
-    <Compile Include="Code\Previewers\ModelBindingPreviewer.cs" />
-    <Compile Include="Code\Previewers\ModelPreviewer.cs" />
-    <Compile Include="Code\Previewers\ParticlePreviewer.cs" />
-    <Compile Include="Code\Previewers\ShaderPreviewer.cs" />
-    <Compile Include="Code\Previewers\TexturePreviewer.cs" />
     <Compile Include="Code\User\UserHandler.cs" />
     <Compile Include="Code\User\UserSettings.cs" />
     <Compile Include="Code\EditorUtils.cs" />
@@ -259,6 +276,24 @@
     </Compile>
     <Compile Include="GUI\UserControls\AssetTabControls\ModelBindingsAssetTabControl.xaml.cs">
       <DependentUpon>ModelBindingsAssetTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\PreviewerControls\AudioPreviewerControl.xaml.cs">
+      <DependentUpon>AudioPreviewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\PreviewerControls\ModelBindingPreviewerControl.xaml.cs">
+      <DependentUpon>ModelBindingPreviewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\PreviewerControls\ModelPreviewerControl.xaml.cs">
+      <DependentUpon>ModelPreviewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\PreviewerControls\ParticlePreviewerControl.xaml.cs">
+      <DependentUpon>ParticlePreviewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\PreviewerControls\ShaderPreviewerControl.xaml.cs">
+      <DependentUpon>ShaderPreviewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\PreviewerControls\TexturePreviewerControl.xaml.cs">
+      <DependentUpon>TexturePreviewerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
