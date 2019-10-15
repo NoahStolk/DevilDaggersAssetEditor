@@ -76,6 +76,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 			DefaultLoudness.Text = asset.PresentInDefaultLoudness ? asset.DefaultLoudness.ToString() : "N/A (Defaults to 1)";
 
 			FilePath.Text = asset.EditorPath.IsPathValid() ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
+			FileLoudness.Text = asset.Loudness.ToString();
 
 			bool startPaused = !Autoplay.IsChecked ?? true;
 
