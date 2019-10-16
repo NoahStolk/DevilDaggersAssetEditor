@@ -18,29 +18,25 @@
 		</DockPanel>
 		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Background="#777">
 			<TabControl Grid.Row="1" Name="TabControl" Width="1366" Height="768">
-				<TabItem Header="audio">
+				<TabItem Header="audio/Audio">
 					<assetTabControls:AudioAssetTabControl x:Name="AudioAudioAssetTabControl" BinaryFileType="Audio" />
 				</TabItem>
-				<TabItem Header="core">
+				<TabItem Header="core/Shaders">
 					<assetTabControls:ShadersAssetTabControl x:Name="CoreShadersAssetTabControl" BinaryFileType="Core" />
 				</TabItem>
-				<TabItem Header="dd">
-					<TabControl>
-						<TabItem Header="Model Bindings">
-							<assetTabControls:ModelBindingsAssetTabControl x:Name="DDModelBindingsAssetTabControl" BinaryFileType="DD" />
-						</TabItem>
-						<TabItem Header="Models">
-							<assetTabControls:ModelsAssetTabControl x:Name="DDModelsAssetTabControl" BinaryFileType="DD" />
-						</TabItem>
-						<TabItem Header="Shaders">
-							<assetTabControls:ShadersAssetTabControl x:Name="DDShadersAssetTabControl" BinaryFileType="DD" />
-						</TabItem>
-						<TabItem Header="Textures">
-							<assetTabControls:TexturesAssetTabControl x:Name="DDTexturesAssetTabControl" BinaryFileType="DD" />
-						</TabItem>
-					</TabControl>
+				<TabItem Header="dd/Model Bindings">
+					<assetTabControls:ModelBindingsAssetTabControl x:Name="DDModelBindingsAssetTabControl" BinaryFileType="DD" />
 				</TabItem>
-				<TabItem Header="particle">
+				<TabItem Header="dd/Models">
+					<assetTabControls:ModelsAssetTabControl x:Name="DDModelsAssetTabControl" BinaryFileType="DD" />
+				</TabItem>
+				<TabItem Header="dd/Shaders">
+					<assetTabControls:ShadersAssetTabControl x:Name="DDShadersAssetTabControl" BinaryFileType="DD" />
+				</TabItem>
+				<TabItem Header="dd/Textures">
+					<assetTabControls:TexturesAssetTabControl x:Name="DDTexturesAssetTabControl" BinaryFileType="DD" />
+				</TabItem>
+				<TabItem Header="particle/Particles">
 					<assetTabControls:ParticlesAssetTabControl x:Name="ParticleParticlesAssetTabControl" BinaryFileType="Particle" />
 				</TabItem>
 			</TabControl>
