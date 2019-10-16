@@ -16,21 +16,44 @@
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<Grid Grid.Column="0">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
-			<StackPanel Grid.Column="0">
-				<TextBlock FontWeight="Bold">Audio name</TextBlock>
-				<TextBlock FontWeight="Bold">Default loudness</TextBlock>
-			</StackPanel>
-			<StackPanel Grid.Column="1">
-				<TextBlock Name="AudioName">N/A</TextBlock>
-				<TextBlock Name="DefaultLoudness">N/A</TextBlock>
-			</StackPanel>
-		</Grid>
+		<StackPanel Grid.Column="0">
+			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock FontWeight="Bold">Audio name</TextBlock>
+					<TextBlock FontWeight="Bold">Default loudness</TextBlock>
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="AudioName">N/A</TextBlock>
+					<TextBlock Name="DefaultLoudness">N/A</TextBlock>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+
 		<StackPanel Grid.Column="1">
+			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock FontWeight="Bold">File name</TextBlock>
+					<TextBlock FontWeight="Bold">Loudness</TextBlock>
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="FilePath">N/A</TextBlock>
+					<TextBlock Name="FileLoudness">N/A</TextBlock>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+
+		<StackPanel Grid.Column="2">
+			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 				<Button Name="Toggle" Click="Toggle_Click" Width="20">
 					<Image Name="ToggleImage" />
@@ -53,22 +76,6 @@
 				<StackPanel Grid.Column="1">
 					<TextBlock Name="SeekText" Text="00:00.000 / ??:??.???" />
 					<TextBlock Name="PitchText" Text="x 1.00" />
-				</StackPanel>
-			</Grid>
-		</StackPanel>
-		<StackPanel Grid.Column="2">
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition />
-				</Grid.ColumnDefinitions>
-				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Path</TextBlock>
-					<TextBlock FontWeight="Bold">Loudness</TextBlock>
-				</StackPanel>
-				<StackPanel Grid.Column="1">
-					<TextBlock Name="FilePath">N/A</TextBlock>
-					<TextBlock Name="FileLoudness">N/A</TextBlock>
 				</StackPanel>
 			</Grid>
 		</StackPanel>

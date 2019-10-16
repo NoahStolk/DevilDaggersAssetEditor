@@ -11,33 +11,35 @@
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<Grid Grid.Column="0">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
-			<StackPanel Grid.Column="0">
-				<TextBlock FontWeight="Bold">Texture name</TextBlock>
-				<TextBlock FontWeight="Bold">Default dimensions</TextBlock>
-				<TextBlock FontWeight="Bold">Mipmaps</TextBlock>
-			</StackPanel>
-			<StackPanel Grid.Column="1">
-				<TextBlock Name="TextureName">N/A</TextBlock>
-				<TextBlock Name="DefaultDimensions">N/A</TextBlock>
-				<TextBlock Name="DefaultMipmaps">N/A</TextBlock>
-			</StackPanel>
-		</Grid>
-
-		<Image Grid.Column="1" Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="88" MaxHeight="88" />
-
-		<StackPanel Grid.Column="2">
+		<StackPanel Grid.Column="0">
+			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Path</TextBlock>
+					<TextBlock FontWeight="Bold">Texture name</TextBlock>
+					<TextBlock FontWeight="Bold">Default dimensions</TextBlock>
+					<TextBlock FontWeight="Bold">Mipmaps</TextBlock>
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="TextureName">N/A</TextBlock>
+					<TextBlock Name="DefaultDimensions">N/A</TextBlock>
+					<TextBlock Name="DefaultMipmaps">N/A</TextBlock>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+
+		<StackPanel Grid.Column="1">
+			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock FontWeight="Bold">File name</TextBlock>
 					<TextBlock FontWeight="Bold">Dimensions</TextBlock>
 					<TextBlock FontWeight="Bold">Mipmaps</TextBlock>
 				</StackPanel>
@@ -47,6 +49,11 @@
 					<TextBlock Name="FileMipmaps">N/A</TextBlock>
 				</StackPanel>
 			</Grid>
+		</StackPanel>
+
+		<StackPanel Grid.Column="2">
+			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
+			<Image Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="64" MaxHeight="64" />
 		</StackPanel>
 	</Grid>
 </UserControl>
