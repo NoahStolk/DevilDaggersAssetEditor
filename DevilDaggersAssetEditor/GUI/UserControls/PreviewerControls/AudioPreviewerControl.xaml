@@ -10,10 +10,10 @@
 		<Image x:Key="PlayImage" Source="/Content/Images/AudioPlayer/Play.png" />
 		<Image x:Key="ResetPitchImage" Source="/Content/Images/AudioPlayer/ResetPitch.png" />
 	</UserControl.Resources>
-	<Grid Grid.Row="0" Width="768" HorizontalAlignment="Left">
+	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition />
-			<ColumnDefinition />
+			<ColumnDefinition Width="256" />
+			<ColumnDefinition Width="256" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<StackPanel Grid.Column="0">
@@ -46,7 +46,7 @@
 					<TextBlock FontWeight="Bold">Loudness</TextBlock>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="FilePath">N/A</TextBlock>
+					<TextBlock Name="FileName">N/A</TextBlock>
 					<TextBlock Name="FileLoudness">N/A</TextBlock>
 				</StackPanel>
 			</Grid>

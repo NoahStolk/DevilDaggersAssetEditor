@@ -1,4 +1,6 @@
-﻿using DevilDaggersAssetCore.Assets;
+﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
+using System.IO;
 using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
@@ -12,6 +14,18 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 
 		public void Initialize(ModelAsset asset)
 		{
+			TextureName.Text = asset.AssetName;
+			//DefaultVertexCount.Text = asset.DefaultVertexCount;
+			//DefaultIndexCount.Text = asset.DefaultIndexCount;
+
+			bool isPathValid = asset.EditorPath.IsPathValid();
+
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
+
+			if (isPathValid)
+			{
+				// TODO: Open in OBJ Viewer
+			}
 		}
 	}
 }

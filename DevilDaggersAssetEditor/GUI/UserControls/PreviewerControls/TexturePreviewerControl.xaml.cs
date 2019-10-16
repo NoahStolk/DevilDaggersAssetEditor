@@ -21,7 +21,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 
 			bool isPathValid = asset.EditorPath.IsPathValid();
 
-			FilePath.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
 
 			if (isPathValid)
 			{
