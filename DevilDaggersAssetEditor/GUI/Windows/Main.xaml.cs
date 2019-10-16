@@ -57,10 +57,10 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 			for (int i = 0; i < tabControlSizes.Count; i++)
 			{
 				Point size = tabControlSizes[i];
-				if (i == tabControlSizes.Count - 1 || (ActualWidth > size.X && ActualHeight > size.Y))
+				if (i == tabControlSizes.Count - 1 || (ActualWidth >= size.X && ActualHeight >= size.Y))
 				{
-					TabControl.Width = size.X;
-					TabControl.Height = size.Y;
+					TabControl.Width = size.X - 8;
+					TabControl.Height = size.Y - 64;
 					break;
 				}
 			}
