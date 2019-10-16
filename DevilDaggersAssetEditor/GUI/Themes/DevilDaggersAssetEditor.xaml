@@ -117,10 +117,12 @@
 			<Setter Property="Margin" Value="2,2,2,2" />
 		</Style.Setters>
 	</Style>
-	<Style TargetType="TextBlock" x:Key="CodeTextBlock">
+	<Style TargetType="TextBox" x:Key="CodeTextBox">
 		<Style.Setters>
-			<Setter Property="TextWrapping" Value="WrapWithOverflow" />
 			<Setter Property="FontFamily" Value="Consolas" />
+			<Setter Property="Background" Value="Black" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="IsReadOnly" Value="True" />
 		</Style.Setters>
 	</Style>
 

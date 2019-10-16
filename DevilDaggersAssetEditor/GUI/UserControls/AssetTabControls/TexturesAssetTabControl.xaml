@@ -9,7 +9,7 @@
 			 Loaded="UserControl_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="96" />
+			<RowDefinition Height="256" />
 			<RowDefinition Height="20" />
 			<RowDefinition />
 		</Grid.RowDefinitions>

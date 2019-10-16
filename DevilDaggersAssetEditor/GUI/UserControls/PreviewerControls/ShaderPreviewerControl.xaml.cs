@@ -25,8 +25,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 
 			if (isPathValid)
 			{
-				PreviewVertexTextBlock.Text = File.ReadAllText(asset.EditorPath.Replace(".glsl", "_vertex.glsl"));
-				PreviewFragmentTextBlock.Text = File.ReadAllText(asset.EditorPath.Replace(".glsl", "_fragment.glsl"));
+				PreviewVertexTextBox.Text = File.ReadAllText(asset.EditorPath.Replace(".glsl", "_vertex.glsl"));
+				PreviewFragmentTextBox.Text = File.ReadAllText(asset.EditorPath.Replace(".glsl", "_fragment.glsl"));
 			}
 		}
 	}

@@ -8,7 +8,7 @@
 	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="256" />
-			<ColumnDefinition Width="256" />
+			<ColumnDefinition Width="320" />
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
@@ -48,15 +48,15 @@
 
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">Vertex shader preview</Label>
-			<ScrollViewer Height="64">
-				<TextBlock Name="PreviewVertexTextBlock" Style="{StaticResource CodeTextBlock}" />
+			<ScrollViewer Height="480" HorizontalScrollBarVisibility="Visible">
+				<TextBox Name="PreviewVertexTextBox" Style="{StaticResource CodeTextBox}" />
 			</ScrollViewer>
 		</StackPanel>
 
 		<StackPanel Grid.Column="3">
 			<Label Style="{StaticResource PreviewTitleLabel}">Fragment shader preview</Label>
-			<ScrollViewer Height="64">
-				<TextBlock Name="PreviewFragmentTextBlock" Style="{StaticResource CodeTextBlock}" />
+			<ScrollViewer Height="480" HorizontalScrollBarVisibility="Visible">
+				<TextBox Name="PreviewFragmentTextBox" Style="{StaticResource CodeTextBox}" />
 			</ScrollViewer>
 		</StackPanel>
 	</Grid>

@@ -22,7 +22,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 
 			if (isPathValid)
 			{
-				PreviewTextBlock.Text = File.ReadAllText(asset.EditorPath);
+				PreviewTextBox.Text = File.ReadAllText(asset.EditorPath);
 			}
 		}
 	}

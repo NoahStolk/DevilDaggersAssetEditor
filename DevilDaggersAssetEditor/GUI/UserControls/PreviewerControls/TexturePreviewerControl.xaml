@@ -8,7 +8,7 @@
 	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="256" />
-			<ColumnDefinition Width="256" />
+			<ColumnDefinition Width="320" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<StackPanel Grid.Column="0">
@@ -53,7 +53,7 @@
 
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
-			<Image Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="64" MaxHeight="64" />
+			<Image Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="224" MaxHeight="224" RenderOptions.BitmapScalingMode="NearestNeighbor" />
 		</StackPanel>
 	</Grid>
 </UserControl>

@@ -7,7 +7,8 @@
         xmlns:assetTabControls="clr-namespace:DevilDaggersAssetEditor.GUI.UserControls.AssetTabControls"
         mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="900" Width="1600"
-		Loaded="Window_Loaded">
+		Loaded="Window_Loaded"
+		SizeChanged="Window_SizeChanged">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="18"/>

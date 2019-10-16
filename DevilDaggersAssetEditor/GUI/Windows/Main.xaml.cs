@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Code.Web;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Windows;
@@ -9,6 +10,18 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 {
 	public partial class MainWindow : Window
 	{
+		private readonly List<Point> tabControlSizes = new List<Point>
+		{
+			new Point(3840, 2160),
+			new Point(2560, 1440),
+			new Point(2048, 1152),
+			new Point(1920, 1200),
+			new Point(1920, 1080),
+			new Point(1680, 1050),
+			new Point(1440, 900),
+			new Point(1366, 768)
+		};
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -37,6 +50,20 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 				}
 			};
 			worker.RunWorkerAsync();
+		}
+
+		private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+		{
+			for (int i = 0; i < tabControlSizes.Count; i++)
+			{
+				Point size = tabControlSizes[i];
+				if (i == tabControlSizes.Count - 1 || (ActualWidth > size.X && ActualHeight > size.Y))
+				{
+					TabControl.Width = size.X;
+					TabControl.Height = size.Y;
+					break;
+				}
+			}
 		}
 	}
 }

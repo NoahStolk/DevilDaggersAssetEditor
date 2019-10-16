@@ -25,7 +25,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 			if (isPathValid)
 			{
 				byte[] bytes = File.ReadAllBytes(asset.EditorPath);
-				PreviewTextBlock.Text = Regex.Replace(BitConverter.ToString(bytes).Replace("-", string.Empty), ".{" + (bytes.Length / 2) + "}", "$0\n");
+				PreviewTextBox.Text = Regex.Replace(BitConverter.ToString(bytes).Replace("-", string.Empty), ".{" + (bytes.Length / 2) + "}", "$0\n").TrimEnd('\n');
 			}
 		}
 	}
