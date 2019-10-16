@@ -46,7 +46,7 @@
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
 			<ScrollViewer Height="64">
-				<TextBlock Name="PreviewTextBlock" />
+				<TextBlock Name="PreviewTextBlock" Style="{StaticResource CodeTextBlock}" />
 			</ScrollViewer>
 		</StackPanel>
 	</Grid>

@@ -1,7 +1,8 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using System;
 using System.IO;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
@@ -23,7 +24,8 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 
 			if (isPathValid)
 			{
-				PreviewTextBlock.Text = Encoding.UTF8.GetString(File.ReadAllBytes(asset.EditorPath));
+				byte[] bytes = File.ReadAllBytes(asset.EditorPath);
+				PreviewTextBlock.Text = Regex.Replace(BitConverter.ToString(bytes).Replace("-", string.Empty), ".{" + (bytes.Length / 2) + "}", "$0\n");
 			}
 		}
 	}

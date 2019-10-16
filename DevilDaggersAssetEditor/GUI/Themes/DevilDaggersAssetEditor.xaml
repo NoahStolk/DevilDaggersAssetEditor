@@ -17,7 +17,7 @@
 
 	<ControlTemplate x:Key="ListViewTemplate" TargetType="{x:Type ListBox}">
 		<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="0" SnapsToDevicePixels="True">
-			<ScrollViewer Focusable="False" Padding="{TemplateBinding Padding}">
+			<ScrollViewer Focusable="False" Padding="{TemplateBinding Padding}" VerticalScrollBarVisibility="Visible">
 				<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 			</ScrollViewer>
 		</Border>
@@ -115,6 +115,12 @@
 	<Style TargetType="TextBlock" x:Key="AssetTextBlock">
 		<Style.Setters>
 			<Setter Property="Margin" Value="2,2,2,2" />
+		</Style.Setters>
+	</Style>
+	<Style TargetType="TextBlock" x:Key="CodeTextBlock">
+		<Style.Setters>
+			<Setter Property="TextWrapping" Value="WrapWithOverflow" />
+			<Setter Property="FontFamily" Value="Consolas" />
 		</Style.Setters>
 	</Style>
 

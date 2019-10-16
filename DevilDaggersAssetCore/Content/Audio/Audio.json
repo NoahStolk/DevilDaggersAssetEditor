@@ -793,7 +793,7 @@
 	{
 		"Loudness": 10,
 		"AssetName": "killsuperskull3",
-		"Description": "Skull IV death",
+		"Description": "Skull IV death / Transmuted Skull IV death",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},

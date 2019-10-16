@@ -18,7 +18,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.PreviewerControls
 
 			bool isPathValid = asset.EditorPath.IsPathValid();
 
-			string basePath = isPathValid ? Path.GetFileNameWithoutExtension(asset.EditorPath) : asset.EditorPath;
+			string basePath = isPathValid ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
 
 			VertexFileName.Text = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl") : asset.EditorPath;
 			FragmentFileName.Text = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl") : asset.EditorPath;
