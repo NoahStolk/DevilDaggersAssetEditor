@@ -6,6 +6,8 @@ namespace DevilDaggersAssetCore.Assets
 	[JsonObject(MemberSerialization.OptIn)]
 	public abstract class AbstractAsset
 	{
+		public static string EditorPathNone = "<NONE SPECIFIED>";
+
 		[JsonProperty]
 		public string AssetName { get; }
 		[JsonProperty]
@@ -13,7 +15,7 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public string ChunkTypeName { get; }
 
-		public string EditorPath { get; set; } = "<NONE SPECIFIED>";
+		public string EditorPath { get; set; } = EditorPathNone;
 
 		public abstract byte ColorR { get; }
 		public abstract byte ColorG { get; }

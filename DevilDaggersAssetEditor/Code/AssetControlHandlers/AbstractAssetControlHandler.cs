@@ -36,6 +36,13 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 			UpdateGUI();
 		}
 
+		public void RemovePath()
+		{
+			Asset.EditorPath = AbstractAsset.EditorPathNone;
+
+			UpdateGUI();
+		}
+
 		public virtual string FileNameToChunkName(string fileName)
 		{
 			return fileName;

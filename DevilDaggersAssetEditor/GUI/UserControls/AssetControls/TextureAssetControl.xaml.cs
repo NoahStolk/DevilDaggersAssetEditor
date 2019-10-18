@@ -18,6 +18,11 @@ namespace DevilDaggersAssetEditor.GUI.UserControls.AssetControls
 			Data.DataContext = asset;
 		}
 
+		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)
+		{
+			Handler.RemovePath();
+		}
+
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e)
 		{
 			Handler.BrowsePath();

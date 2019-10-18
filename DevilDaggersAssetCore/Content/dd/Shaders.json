@@ -11,7 +11,7 @@
 	},
 	{
 		"AssetName": "debug",
-		"Description": "?",
+		"Description": "Unused?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
@@ -51,7 +51,7 @@
 	},
 	{
 		"AssetName": "owlwing",
-		"Description": "?",
+		"Description": "Unused?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
@@ -101,7 +101,7 @@
 	},
 	{
 		"AssetName": "sprite_debug",
-		"Description": "?",
+		"Description": "Unused?",
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{

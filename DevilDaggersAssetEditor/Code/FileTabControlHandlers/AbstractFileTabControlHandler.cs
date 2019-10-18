@@ -94,7 +94,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		{
 			if (!IsComplete())
 			{
-				MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up. Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
+				MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up (or sometimes randomly at runtime). Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
 				if (promptResult == MessageBoxResult.No)
 					return;
 			}
