@@ -6,7 +6,7 @@
 
 		public static string DiscordInviteLink => "https://discord.gg/NF32j8S";
 
-		public static string GetToolVersions => $"{baseUrl}/API/GetToolVersions";
+		public static string GetTools => $"{baseUrl}/API/GetTools";
 
 		public static string SourceCode => "https://bitbucket.org/NoahStolk/devildaggersasseteditor/src/master/";
 
