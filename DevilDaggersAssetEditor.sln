@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Particle", "Particle\Partic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersCore", "..\DevilDaggersCore\DevilDaggersCore\DevilDaggersCore.csproj", "{65E7D153-FC35-4427-B868-FD10D9BFCD42}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetBase", "..\NetBase\NetBase\NetBase.csproj", "{3EE19F2E-BFE1-49C2-89AC-5258595723B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{65E7D153-FC35-4427-B868-FD10D9BFCD42}.Release|x64.Build.0 = Release|Any CPU
 		{65E7D153-FC35-4427-B868-FD10D9BFCD42}.Release|x86.ActiveCfg = Release|Any CPU
 		{65E7D153-FC35-4427-B868-FD10D9BFCD42}.Release|x86.Build.0 = Release|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Debug|x64.Build.0 = Debug|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Debug|x86.ActiveCfg = Debug|x86
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Debug|x86.Build.0 = Debug|x86
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Release|x64.ActiveCfg = Release|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Release|x64.Build.0 = Release|Any CPU
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Release|x86.ActiveCfg = Release|x86
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
