@@ -198,7 +198,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Code\ApplicationUtils.cs" />
     <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\AudioAssetControlHandler.cs" />
     <Compile Include="Code\AssetControlHandlers\ShaderAssetControlHandler.cs" />
@@ -218,13 +217,10 @@
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\ParticleFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\DDFileTabControlHandler.cs" />
+    <Compile Include="Code\Network\NetworkHandler.cs" />
     <Compile Include="Code\User\UserHandler.cs" />
     <Compile Include="Code\User\UserSettings.cs" />
     <Compile Include="Code\EditorUtils.cs" />
-    <Compile Include="Code\Web\NetworkHandler.cs" />
-    <Compile Include="Code\Web\TimeoutWebClient.cs" />
-    <Compile Include="Code\Web\UrlUtils.cs" />
-    <Compile Include="Code\Web\VersionResult.cs" />
     <Page Include="GUI\Windows\Progress.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

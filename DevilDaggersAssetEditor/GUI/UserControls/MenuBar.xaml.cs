@@ -1,6 +1,4 @@
-﻿using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.Code.Web;
-using DevilDaggersAssetEditor.GUI.Windows;
+﻿using DevilDaggersAssetEditor.GUI.Windows;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -15,6 +13,8 @@ using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
+using DevilDaggersCore.Tools;
+using DevilDaggersAssetEditor.Code.Network;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
@@ -60,7 +60,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 
 		private void SourceCode_Click(object sender, RoutedEventArgs e)
 		{
-			Process.Start(UrlUtils.SourceCode);
+			Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
 		}
 
 		private void Update_Click(object sender, RoutedEventArgs e)
@@ -77,7 +77,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 				}
 				else
 				{
-					App.Instance.ShowMessage("Up to date", $"{ApplicationUtils.ApplicationDisplayNameWithVersion} is up to date.");
+					App.Instance.ShowMessage("Up to date", $"{App.ApplicationDisplayName} {App.LocalVersion} is up to date.");
 				}
 			}
 		}
@@ -112,7 +112,7 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 				// Audio was the only asset type to edit in 0.2.0.0.
 				List<AudioUserAsset> assets = JsonConvert.DeserializeObject<List<AudioUserAsset>>(newFileContents);
 
-				JsonUtils.SerializeToFile(openDialog.FileName, new ModFile(ApplicationUtils.ApplicationVersionNumber, false, assets.Cast<AbstractUserAsset>().ToList()), true, Formatting.None);
+				JsonUtils.SerializeToFile(openDialog.FileName, new ModFile(App.LocalVersion, false, assets.Cast<AbstractUserAsset>().ToList()), true, Formatting.None);
 			}
 			catch (Exception ex)
 			{

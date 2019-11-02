@@ -1,5 +1,5 @@
-﻿using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.GUI.Windows;
+﻿using DevilDaggersAssetEditor.GUI.Windows;
+using DevilDaggersCore.Tools;
 using log4net;
 using log4net.Config;
 using System;
@@ -13,12 +13,15 @@ namespace DevilDaggersAssetEditor
 {
 	public partial class App : Application
 	{
-		public static App Instance => (App)Current;
+		public static string ApplicationName => "DevilDaggersAssetEditor";
+		public static string ApplicationDisplayName => "Devil Daggers Asset Editor";
 
 		public static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 		public Assembly Assembly { get; private set; }
+		public static Version LocalVersion { get; private set; }
 
+		public static App Instance => (App)Current;
 		public new MainWindow MainWindow { get; set; }
 
 		public App()
@@ -27,6 +30,7 @@ namespace DevilDaggersAssetEditor
 			Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
 
 			Assembly = Assembly.GetExecutingAssembly();
+			LocalVersion = VersionHandler.Instance.GetLocalVersion(Assembly);
 			Dispatcher.UnhandledException += OnDispatcherUnhandledException;
 
 			XmlConfigurator.Configure();
@@ -44,7 +48,7 @@ namespace DevilDaggersAssetEditor
 		{
 			Dispatcher.Invoke(() =>
 			{
-				MainWindow.Title = $"{ApplicationUtils.ApplicationDisplayNameWithVersion}";
+				MainWindow.Title = $"{ApplicationDisplayName} {LocalVersion}";
 			});
 		}
 
@@ -53,21 +57,16 @@ namespace DevilDaggersAssetEditor
 		/// </summary>
 		public void ShowError(string title, string message, Exception ex = null)
 		{
-			LogError(message, ex);
+			if (ex != null)
+				Log.Error(message, ex);
+			else
+				Log.Error(message);
 
 			Dispatcher.Invoke(() =>
 			{
 				ErrorWindow errorWindow = new ErrorWindow(title, message, ex);
 				errorWindow.ShowDialog();
 			});
-		}
-
-		public void LogError(string message, Exception ex = null)
-		{
-			if (ex != null)
-				Log.Error(message, ex);
-			else
-				Log.Error(message);
 		}
 
 		public void ShowMessage(string title, string message)

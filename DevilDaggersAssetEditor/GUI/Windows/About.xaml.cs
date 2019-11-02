@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.Code;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Navigation;
 
@@ -11,7 +10,7 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 		{
 			InitializeComponent();
 
-			VersionLabel.Content = $"Version {ApplicationUtils.ApplicationVersionNumber}";
+			VersionLabel.Content = $"Version {App.LocalVersion}";
 		}
 
 		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

@@ -1,5 +1,6 @@
-﻿using DevilDaggersAssetEditor.Code.User;
-using DevilDaggersAssetEditor.Code.Web;
+﻿using DevilDaggersAssetEditor.Code.Network;
+using DevilDaggersAssetEditor.Code.User;
+using DevilDaggersCore.Tools;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,7 +40,7 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 			BackgroundWorker worker = new BackgroundWorker();
 			worker.DoWork += (object checkVersionSender, DoWorkEventArgs checkVersionE) =>
 			{
-				NetworkHandler.Instance.RetrieveVersion();
+				NetworkHandler.Instance.VersionResult = VersionHandler.Instance.GetOnlineVersion(App.ApplicationName, App.LocalVersion);
 			};
 			worker.RunWorkerCompleted += (object checkVersionSender, RunWorkerCompletedEventArgs echeckVersionE) =>
 			{

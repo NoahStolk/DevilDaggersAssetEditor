@@ -149,7 +149,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 					foreach (AbstractUserAsset asset in assets)
 						asset.EditorPath = Path.GetFileName(asset.EditorPath);
 			}
-			ModFile modFile = new ModFile(ApplicationUtils.ApplicationVersionNumber, relativePaths, assets);
+			ModFile modFile = new ModFile(App.LocalVersion, relativePaths, assets);
 
 			JsonUtils.SerializeToFile(dialog.FileName, modFile, true, Formatting.None);
 		}

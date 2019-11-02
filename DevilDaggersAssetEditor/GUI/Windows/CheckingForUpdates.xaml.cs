@@ -1,4 +1,6 @@
-﻿using DevilDaggersAssetEditor.Code.Web;
+﻿using DevilDaggersAssetEditor.Code.Network;
+using DevilDaggersCore.Tools;
+using System;
 using System.ComponentModel;
 using System.Windows;
 
@@ -19,7 +21,7 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 
 		private void Thread_DoWork(object sender, DoWorkEventArgs e)
 		{
-			NetworkHandler.Instance.RetrieveVersion();
+			NetworkHandler.Instance.VersionResult = VersionHandler.Instance.GetOnlineVersion(App.ApplicationName, App.LocalVersion);
 		}
 
 		private void Thread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -29,7 +31,7 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 
 		private void CancelButton_Click(object sender, RoutedEventArgs e)
 		{
-			NetworkHandler.Instance.VersionResult = new VersionResult(null, string.Empty, "Canceled by user");
+			NetworkHandler.Instance.VersionResult.Exception = new Exception("Canceled by user");
 			Close();
 		}
 	}
