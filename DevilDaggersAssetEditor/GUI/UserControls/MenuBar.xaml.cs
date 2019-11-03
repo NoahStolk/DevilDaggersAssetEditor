@@ -7,10 +7,7 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
-using Microsoft.Win32;
 using Newtonsoft.Json;
-using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersCore.Tools;
@@ -110,31 +107,6 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 		private void TestException_Click(object sender, RoutedEventArgs e)
 		{
 			throw new Exception("Test Exception");
-		}
-
-		private void ConvertModFile0200_Click(object sender, RoutedEventArgs e)
-		{
-			try
-			{
-				string modFileFilter = "Audio mod files (*.audio)|*.audio";
-				OpenFileDialog openDialog = new OpenFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = modFileFilter };
-				bool? openResult = openDialog.ShowDialog();
-				if (!openResult.HasValue || !openResult.Value)
-					return;
-				string oldFileContents = File.ReadAllText(openDialog.FileName);
-
-				// Fix namespace.
-				string newFileContents = oldFileContents.Replace("Assets.UserAssets", "ModFiles");
-
-				// Audio was the only asset type to edit in 0.2.0.0.
-				List<AudioUserAsset> assets = JsonConvert.DeserializeObject<List<AudioUserAsset>>(newFileContents);
-
-				JsonUtils.SerializeToFile(openDialog.FileName, new ModFile(App.LocalVersion, false, assets.Cast<AbstractUserAsset>().ToList()), true, Formatting.None);
-			}
-			catch (Exception ex)
-			{
-				App.Instance.ShowError("File conversion failed", "Could not convert file.", ex);
-			}
 		}
 	}
 }

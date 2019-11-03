@@ -19,7 +19,8 @@
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="5*" />
 				<ColumnDefinition Width="9*" />
-				<ColumnDefinition />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="18" />
 			</Grid.ColumnDefinitions>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Model Binding name</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Description</TextBlock>

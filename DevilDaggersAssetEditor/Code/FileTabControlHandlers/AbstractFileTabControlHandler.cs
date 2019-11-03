@@ -82,9 +82,9 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 						FileHandler.Extract(
 							openDialog.FileName,
 							folderDialog.FileName,
-							new Progress<float>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
-							new Progress<string>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
-						Application.Current.Dispatcher.Invoke(() => progressWindow.Finish());
+							new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
+							new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
+						App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
 					});
 				}
 			}
@@ -108,12 +108,24 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			progressWindow.Show();
 			await Task.Run(() =>
 			{
-				FileHandler.Compress(
-				GetAssets(),
-				dialog.FileName,
-				new Progress<float>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
-				new Progress<string>(value => Application.Current.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
-				Application.Current.Dispatcher.Invoke(() => progressWindow.Finish());
+				try
+				{
+					FileHandler.Compress(
+						allAssets: GetAssets(),
+						outputPath: dialog.FileName,
+						progress: new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
+						progressDescription: new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
+
+					App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
+				}
+				catch (Exception ex)
+				{
+					App.Instance.Dispatcher.Invoke(() =>
+					{
+						App.Instance.ShowError("Compression failed", $"Compressing assets failed during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
+						progressWindow.Error();
+					});
+				}
 			});
 		}
 
