@@ -182,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\Windows\Changelog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Windows\CheckingForUpdates.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -292,6 +296,9 @@
     </Compile>
     <Compile Include="GUI\Windows\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\Changelog.xaml.cs">
+      <DependentUpon>Changelog.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\CheckingForUpdates.xaml.cs">
       <DependentUpon>CheckingForUpdates.xaml</DependentUpon>

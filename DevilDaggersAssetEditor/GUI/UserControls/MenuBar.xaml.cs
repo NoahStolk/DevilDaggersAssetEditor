@@ -57,6 +57,19 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			aboutWindow.ShowDialog();
 		}
 
+		private void Changelog_Click(object sender, RoutedEventArgs e)
+		{
+			if (VersionHandler.Instance.VersionResult.Tool.Changelog != null)
+			{
+				ChangelogWindow changelogWindow = new ChangelogWindow();
+				changelogWindow.ShowDialog();
+			}
+			else
+			{
+				App.Instance.ShowError("Changelog not retrieved", "The changelog has not been retrieved from DevilDaggers.info.");
+			}
+		}
+
 		private void SourceCode_Click(object sender, RoutedEventArgs e)
 		{
 			Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
