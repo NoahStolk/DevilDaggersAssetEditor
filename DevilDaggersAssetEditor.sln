@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersCore", "..\Devi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetBase", "..\NetBase\NetBase\NetBase.csproj", "{3EE19F2E-BFE1-49C2-89AC-5258595723B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4CD4CF51-DF75-4FE2-81CF-214C191DE036}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65E7D153-FC35-4427-B868-FD10D9BFCD42} = {4CD4CF51-DF75-4FE2-81CF-214C191DE036}
+		{3EE19F2E-BFE1-49C2-89AC-5258595723B0} = {4CD4CF51-DF75-4FE2-81CF-214C191DE036}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F735091C-097D-4A47-A854-5AC70B55C5FB}
