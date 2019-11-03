@@ -14,7 +14,6 @@ using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersCore.Tools;
-using DevilDaggersAssetEditor.Code.Network;
 
 namespace DevilDaggersAssetEditor.GUI.UserControls
 {
@@ -68,9 +67,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 			CheckingForUpdatesWindow window = new CheckingForUpdatesWindow();
 			window.ShowDialog();
 
-			if (NetworkHandler.Instance.VersionResult.IsUpToDate.HasValue)
+			VersionResult versionResult = VersionHandler.Instance.VersionResult;
+			if (versionResult.IsUpToDate.HasValue)
 			{
-				if (!NetworkHandler.Instance.VersionResult.IsUpToDate.Value)
+				if (!versionResult.IsUpToDate.Value)
 				{
 					UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow();
 					updateRecommendedWindow.ShowDialog();
@@ -79,6 +79,10 @@ namespace DevilDaggersAssetEditor.GUI.UserControls
 				{
 					App.Instance.ShowMessage("Up to date", $"{App.ApplicationDisplayName} {App.LocalVersion} is up to date.");
 				}
+			}
+			else
+			{
+				App.Instance.ShowError($"Error retrieving version number for '{App.ApplicationName}'", versionResult.Exception.Message, versionResult.Exception.InnerException);
 			}
 		}
 

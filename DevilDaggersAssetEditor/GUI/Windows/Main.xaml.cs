@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.Code.Network;
-using DevilDaggersAssetEditor.Code.User;
+﻿using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersCore.Tools;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -40,11 +39,16 @@ namespace DevilDaggersAssetEditor.GUI.Windows
 			BackgroundWorker worker = new BackgroundWorker();
 			worker.DoWork += (object checkVersionSender, DoWorkEventArgs checkVersionE) =>
 			{
-				NetworkHandler.Instance.VersionResult = VersionHandler.Instance.GetOnlineVersion(App.ApplicationName, App.LocalVersion);
+				VersionHandler.Instance.GetOnlineVersion(App.ApplicationName, App.LocalVersion);
 			};
 			worker.RunWorkerCompleted += (object checkVersionSender, RunWorkerCompletedEventArgs echeckVersionE) =>
 			{
-				if (NetworkHandler.Instance.VersionResult.IsUpToDate.HasValue && !NetworkHandler.Instance.VersionResult.IsUpToDate.Value)
+				VersionResult versionResult = VersionHandler.Instance.VersionResult;
+
+				if (versionResult.Exception != null)
+					App.Instance.ShowError($"Error retrieving version number for '{App.ApplicationName}'", versionResult.Exception.Message, versionResult.Exception.InnerException);
+
+				if (versionResult.IsUpToDate.HasValue && !versionResult.IsUpToDate.Value)
 				{
 					UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow();
 					updateRecommendedWindow.ShowDialog();
