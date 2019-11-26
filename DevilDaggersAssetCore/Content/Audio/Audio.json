@@ -303,42 +303,42 @@
 	{
 		"Loudness": 4,
 		"AssetName": "daggerseek",
-		"Description": "Homing dagger attracted by Ghostpede",
+		"Description": "Level 4 homing dagger fire",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal1",
-		"Description": "Unused?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal2",
-		"Description": "Unused?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal3",
-		"Description": "Unused?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal4",
-		"Description": "Unused?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
 		"Loudness": 8,
 		"AssetName": "daggersteal5",
-		"Description": "Unused?",
+		"Description": "Unused",
 		"PresentInDefaultLoudness": true,
 		"ChunkTypeName": "AudioChunk"
 	},
