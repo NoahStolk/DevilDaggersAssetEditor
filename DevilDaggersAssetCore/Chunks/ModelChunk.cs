@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore.Headers;
+using NetBase.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,49 +18,46 @@ namespace DevilDaggersAssetCore.Chunks
 			closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
-		private class Vertex
+		private struct Vertex
 		{
 			public const int ByteCount = 32;
 
-			public float[] Position { get; set; } = new float[3];
-			public float[] Normal { get; set; } = new float[3];
-			public float[] UV { get; set; } = new float[2];
+			public float[] Position { get; set; }
+			public float[] UV { get; set; }
+			public float[] Normal { get; set; }
 
-			public static Vertex Create(byte[] buffer, int i)
+			public Vertex(byte[] buffer, int i)
 			{
-				return new Vertex
+				Position = new float[3]
 				{
-					Position = new float[3]
-					{
-						BitConverter.ToSingle(buffer, i * ByteCount),
-						BitConverter.ToSingle(buffer, i * ByteCount + 4),
-						BitConverter.ToSingle(buffer, i * ByteCount + 8)
-					},
-					Normal = new float[3]
-					{
-						BitConverter.ToSingle(buffer, i * ByteCount + 12),
-						BitConverter.ToSingle(buffer, i * ByteCount + 16),
-						BitConverter.ToSingle(buffer, i * ByteCount + 20)
-					},
-					UV = new float[2]
-					{
-						BitConverter.ToSingle(buffer, i * ByteCount + 24),
-						BitConverter.ToSingle(buffer, i * ByteCount + 28)
-					}
+					BitConverter.ToSingle(buffer, i * ByteCount),
+					BitConverter.ToSingle(buffer, i * ByteCount + 4),
+					BitConverter.ToSingle(buffer, i * ByteCount + 8)
+				};
+				UV = new float[2]
+				{
+					BitConverter.ToSingle(buffer, i * ByteCount + 24),
+					BitConverter.ToSingle(buffer, i * ByteCount + 28)
+				};
+				Normal = new float[3]
+				{
+					BitConverter.ToSingle(buffer, i * ByteCount + 12),
+					BitConverter.ToSingle(buffer, i * ByteCount + 16),
+					BitConverter.ToSingle(buffer, i * ByteCount + 20)
 				};
 			}
 
 			public byte[] ToByteArray()
 			{
 				byte[] bytes = new byte[ByteCount];
-				System.Buffer.BlockCopy(BitConverter.GetBytes(Position[0]), 0, bytes, 0, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(Position[1]), 0, bytes, 4, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(Position[2]), 0, bytes, 8, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(Normal[0]), 0, bytes, 12, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(Normal[1]), 0, bytes, 16, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(Normal[2]), 0, bytes, 20, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(UV[0]), 0, bytes, 24, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(UV[1]), 0, bytes, 28, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(Position != null ? Position[0] : 0), 0, bytes, 0, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(Position != null ? Position[1] : 0), 0, bytes, 4, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(Position != null ? Position[2] : 0), 0, bytes, 8, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(Normal != null ? Normal[0] : 0), 0, bytes, 12, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(Normal != null ? Normal[1] : 0), 0, bytes, 16, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(Normal != null ? Normal[2] : 0), 0, bytes, 20, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(UV != null ? UV[0] : 0), 0, bytes, 24, sizeof(float));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(UV != null ? UV[1] : 0), 0, bytes, 28, sizeof(float));
 				return bytes;
 			}
 		}
@@ -71,66 +69,82 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override void Compress(string path)
 		{
-			string[] lines = File.ReadAllLines(path);
+			string text = File.ReadAllText(path);
+			int vertexLines = text.CountOccurrences("v ");
+			int indexLines = text.CountOccurrences("f ");
 
-			List<Vertex> vertices = new List<Vertex>();
-			List<uint> indices = new List<uint>();
+			string[] lines = text.Split('\n');
 
-			int i = 0;
-			while (i < lines.Length)
+			Vertex[] vertices = new Vertex[vertexLines];
+			uint[] indices = new uint[indexLines * 3];
+
+			int vCount = 0;
+			int vtCount = 0;
+			int vnCount = 0;
+			int fCount = 0;
+
+			if (Name == "boid")
+				fCount = 0;
+			for (int i = 0; i < lines.Length; i++)
 			{
-				if (lines[i].StartsWith("v"))
+				string line = lines[i];
+				string[] values = line.Split(' ');
+				string identifier = values[0];
+
+				switch (identifier)
 				{
-					string[] position = lines[i].Split(' ');
-					string[] uv = lines[i + 1].Split(' ');
-					string[] normal = lines[i + 2].Split(' ');
-					vertices.Add(new Vertex
-					{
-						Position = new float[3]
+					case "v":
+						vertices[vCount].Position = new float[3]
 						{
-							float.Parse(position[1]),
-							float.Parse(position[2]),
-							float.Parse(position[3])
-						},
-						UV = new float[2]
+							float.Parse(values[1]),
+							float.Parse(values[2]),
+							float.Parse(values[3])
+						};
+						vCount++;
+						break;
+					case "vt":
+						vertices[vtCount].UV = new float[2]
 						{
-							float.Parse(uv[1]),
-							float.Parse(uv[2])
-						},
-						Normal = new float[3]
+							float.Parse(values[1]),
+							float.Parse(values[2])
+						};
+						vtCount++;
+						break;
+					case "vn":
+						vertices[vnCount].Normal = new float[3]
 						{
-							float.Parse(normal[1]),
-							float.Parse(normal[2]),
-							float.Parse(normal[3])
+							float.Parse(values[1]),
+							float.Parse(values[2]),
+							float.Parse(values[3])
+						};
+						vnCount++;
+						break;
+					case "f":
+						for (int j = 0; j < 3; j++)
+						{
+							string value = values[j + 1];
+
+							if (value.Contains("/"))
+								value = value.Substring(0, value.IndexOf('/'));
+
+							indices[fCount++] = uint.Parse(value) - 1;
 						}
-					});
-
-					i += 3;
+						break;
 				}
-				else if (lines[i].StartsWith("f"))
-				{
-					string[] indicesLine = lines[i].Split(' ');
-					indices.Add(uint.Parse(indicesLine[1]) - 1);
-					indices.Add(uint.Parse(indicesLine[2]) - 1);
-					indices.Add(uint.Parse(indicesLine[3]) - 1);
-
-					i++;
-				}
-				else i++;
 			}
 
 			byte[] headerBuffer = new byte[BinaryFileUtils.ModelHeaderByteCount];
-			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)indices.Count), 0, headerBuffer, 0, sizeof(uint));
-			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertices.Count), 0, headerBuffer, 4, sizeof(uint));
+			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)indices.Length), 0, headerBuffer, 0, sizeof(uint));
+			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertices.Length), 0, headerBuffer, 4, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
 			Header = new ModelHeader(headerBuffer);
 
-			Buffer = new byte[vertices.Count * Vertex.ByteCount + indices.Count * sizeof(uint) + closures[Name].Length];
-			for (int j = 0; j < vertices.Count; j++)
+			Buffer = new byte[vertices.Length * Vertex.ByteCount + indices.Length * sizeof(uint) + closures[Name].Length];
+			for (int j = 0; j < vertices.Length; j++)
 				System.Buffer.BlockCopy(vertices[j].ToByteArray(), 0, Buffer, j * Vertex.ByteCount, Vertex.ByteCount);
-			for (int j = 0; j < indices.Count; j++)
-				System.Buffer.BlockCopy(BitConverter.GetBytes(indices[j]), 0, Buffer, vertices.Count * Vertex.ByteCount + j * sizeof(uint), sizeof(uint));
-			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertices.Count * Vertex.ByteCount + indices.Count * sizeof(uint), closures[Name].Length);
+			for (int j = 0; j < indices.Length; j++)
+				System.Buffer.BlockCopy(BitConverter.GetBytes(indices[j]), 0, Buffer, vertices.Length * Vertex.ByteCount + j * sizeof(uint), sizeof(uint));
+			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertices.Length * Vertex.ByteCount + indices.Length * sizeof(uint), closures[Name].Length);
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}
@@ -141,7 +155,7 @@ namespace DevilDaggersAssetCore.Chunks
 			uint[] indices = new uint[Header.IndexCount];
 
 			for (int i = 0; i < vertices.Length; i++)
-				vertices[i] = Vertex.Create(Buffer, i);
+				vertices[i] = new Vertex(Buffer, i);
 
 			for (int i = 0; i < indices.Length; i++)
 				indices[i] = BitConverter.ToUInt32(Buffer, vertices.Length * Vertex.ByteCount + i * sizeof(uint));
