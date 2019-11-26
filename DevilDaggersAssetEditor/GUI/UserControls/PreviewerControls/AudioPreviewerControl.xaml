@@ -56,10 +56,10 @@
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 				<Button Name="Toggle" Click="Toggle_Click" Width="20">
-					<Image Name="ToggleImage" />
+					<Image Name="ToggleImage" ToolTip="Play / Pause" />
 				</Button>
 				<Button Name="ResetPitch" Click="ResetPitch_Click" Width="20">
-					<Image Name="ResetPitchImage" />
+					<Image Name="ResetPitchImage" ToolTip="Reset pitch" />
 				</Button>
 				<CheckBox Name="Autoplay" IsChecked="True" Margin="4,4,4,4">Auto-play</CheckBox>
 			</StackPanel>
