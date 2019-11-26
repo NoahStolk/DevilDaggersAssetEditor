@@ -119,7 +119,7 @@ namespace DevilDaggersAssetCore.Chunks
 				else i++;
 			}
 
-			byte[] headerBuffer = new byte[10]; // TODO: Get from ModelHeader.ByteCount but without creating an instance.
+			byte[] headerBuffer = new byte[BinaryFileUtils.ModelHeaderByteCount];
 			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)indices.Count), 0, headerBuffer, 0, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertices.Count), 0, headerBuffer, 4, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));

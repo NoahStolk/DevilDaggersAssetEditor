@@ -5,6 +5,10 @@ namespace DevilDaggersAssetCore
 {
 	public static class BinaryFileUtils
 	{
+		public const int ModelHeaderByteCount = 10;
+		public const int ShaderHeaderByteCount = 12;
+		public const int TextureHeaderByteCount = 11;
+
 		public static readonly List<ChunkInfo> ChunkInfos = new List<ChunkInfo>
 		{
 			new ChunkInfo(BinaryFileType.DD, typeof(ModelChunk), new ushort[] { 0x01 }, ".obj", "Models"),

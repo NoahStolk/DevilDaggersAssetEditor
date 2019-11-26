@@ -23,7 +23,7 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 			Image image = Image.FromFile(path);
 
-			byte[] headerBuffer = new byte[11]; // TODO: Get from TextureHeader.ByteCount but without creating an instance.
+			byte[] headerBuffer = new byte[BinaryFileUtils.TextureHeaderByteCount];
 			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Width), 0, headerBuffer, 2, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Height), 0, headerBuffer, 6, sizeof(uint));

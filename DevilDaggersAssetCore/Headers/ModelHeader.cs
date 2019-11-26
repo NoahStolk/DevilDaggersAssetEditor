@@ -4,7 +4,7 @@ namespace DevilDaggersAssetCore.Headers
 {
 	public class ModelHeader : AbstractHeader
 	{
-		public override int ByteCount => 10;
+		public override int ByteCount => BinaryFileUtils.ModelHeaderByteCount;
 
 		public uint IndexCount { get; }
 		public uint VertexCount { get; }

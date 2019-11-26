@@ -4,7 +4,7 @@ namespace DevilDaggersAssetCore.Headers
 {
 	public class TextureHeader : AbstractHeader
 	{
-		public override int ByteCount => 11;
+		public override int ByteCount => BinaryFileUtils.TextureHeaderByteCount;
 
 		public ushort Unknown { get; } // Color format?
 		public uint Width { get; }

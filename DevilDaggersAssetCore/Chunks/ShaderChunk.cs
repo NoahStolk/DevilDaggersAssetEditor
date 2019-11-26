@@ -39,7 +39,7 @@ namespace DevilDaggersAssetCore.Chunks
 			uint vertexSize = (uint)vertexBuffer.Length;
 			uint fragmentSize = (uint)fragmentBuffer.Length;
 
-			byte[] headerBuffer = new byte[12]; // TODO: Get from ShaderHeader.ByteCount but without creating an instance.
+			byte[] headerBuffer = new byte[BinaryFileUtils.ShaderHeaderByteCount];
 			System.Buffer.BlockCopy(BitConverter.GetBytes(nameLength), 0, headerBuffer, 0, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(vertexSize), 0, headerBuffer, 4, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes(fragmentSize), 0, headerBuffer, 8, sizeof(uint));

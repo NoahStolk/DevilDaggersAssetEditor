@@ -4,7 +4,7 @@ namespace DevilDaggersAssetCore.Headers
 {
 	public class ShaderHeader : AbstractHeader
 	{
-		public override int ByteCount => 12;
+		public override int ByteCount => BinaryFileUtils.ShaderHeaderByteCount;
 
 		public uint NameLength { get; }
 		public uint VertexSize { get; }
