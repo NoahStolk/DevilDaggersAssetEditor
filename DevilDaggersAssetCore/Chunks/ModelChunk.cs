@@ -83,8 +83,6 @@ namespace DevilDaggersAssetCore.Chunks
 			int vnCount = 0;
 			int fCount = 0;
 
-			if (Name == "boid")
-				fCount = 0;
 			for (int i = 0; i < lines.Length; i++)
 			{
 				string line = lines[i];
