@@ -1,6 +1,5 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,14 +44,6 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 			((IProgress<string>)progressDescription).Report("Generating chunks based on asset list.");
 			List<AbstractChunk> chunks = CreateChunks(allAssets, progress, progressDescription);
-
-			if (BinaryFileType == BinaryFileType.DD)
-			{
-				using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream("DevilDaggersAssetCore.Content.DDOrder.json"));
-				List<Tuple<string, string, int>> order = JsonConvert.DeserializeObject<List<Tuple<string, string, int>>>(sr.ReadToEnd());
-
-				chunks = chunks.OrderBy(c => order.Where(o => o.Item1 == c.GetType().Name && o.Item2 == c.Name).FirstOrDefault().Item3).ToList();
-			}
 
 			// Create TOC stream.
 			((IProgress<string>)progressDescription).Report("Generating TOC stream.");

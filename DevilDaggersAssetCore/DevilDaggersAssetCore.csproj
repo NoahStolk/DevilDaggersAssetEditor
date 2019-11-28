@@ -9,7 +9,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Content\audio\Audio.json" />
     <EmbeddedResource Include="Content\core\Shaders.json" />
-    <EmbeddedResource Include="Content\DDOrder.json" />
     <EmbeddedResource Include="Content\dd\Model Bindings.json" />
     <EmbeddedResource Include="Content\dd\Models.json" />
     <EmbeddedResource Include="Content\dd\Shaders.json" />
