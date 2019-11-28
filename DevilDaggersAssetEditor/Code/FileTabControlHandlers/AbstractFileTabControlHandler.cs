@@ -163,7 +163,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			}
 			ModFile modFile = new ModFile(App.LocalVersion, relativePaths, assets);
 
-			JsonUtils.SerializeToFile(dialog.FileName, modFile, true, Formatting.None);
+			JsonUtils.SerializeToFile(dialog.FileName, modFile, true);
 		}
 
 		private List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
