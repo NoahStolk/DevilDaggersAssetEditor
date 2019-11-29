@@ -29,6 +29,10 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 2. Unzip its contents.
 3. Run DevilDaggersAssetEditor.exe inside the folder.
 
+## Running from source
+
+- DevilDaggersAssetEditor is dependent on NetBase and DevilDaggersCore. Their sources need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
+
 ## Links
 
 - [DevilDaggers.info website](https://devildaggers.info)
