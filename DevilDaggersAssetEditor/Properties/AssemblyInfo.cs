@@ -13,6 +13,6 @@ using log4net.Config;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
-[assembly: AssemblyVersion("0.7.8.0")]
-[assembly: AssemblyFileVersion("0.7.8.0")]
+[assembly: AssemblyVersion("0.7.12.0")]
+[assembly: AssemblyFileVersion("0.7.12.0")]
 [assembly: XmlConfigurator(ConfigFile = "log4net.config")]
