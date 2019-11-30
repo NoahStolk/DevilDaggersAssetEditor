@@ -119,20 +119,32 @@ namespace DevilDaggersAssetCore.Chunks
 			sb.AppendLine($"# {Name}.obj\n");
 
 			sb.AppendLine("# Vertex Attributes");
+			StringBuilder v = new StringBuilder();
+			StringBuilder vt = new StringBuilder();
+			StringBuilder vn = new StringBuilder();
 			for (uint i = 0; i < Header.VertexCount; ++i)
 			{
-				sb.AppendLine($"v {vertices[i].Position[0]} {vertices[i].Position[1]} {vertices[i].Position[2]}");
-				sb.AppendLine($"vt {vertices[i].UV[0]} {vertices[i].UV[1]}");
-				sb.AppendLine($"vn {vertices[i].Normal[0]} {vertices[i].Normal[1]} {vertices[i].Normal[2]}");
+				v.AppendLine($"v {vertices[i].Position[0]} {vertices[i].Position[1]} {vertices[i].Position[2]}");
+				vt.AppendLine($"vt {vertices[i].UV[0]} {vertices[i].UV[1]}");
+				vn.AppendLine($"vn {vertices[i].Normal[0]} {vertices[i].Normal[1]} {vertices[i].Normal[2]}");
 			}
+
+			sb.Append(v.ToString());
+			sb.Append(vt.ToString());
+			sb.Append(vn.ToString());
 
 			sb.AppendLine("\n# Triangles");
 			for (uint i = 0; i < Header.IndexCount / 3; ++i)
 			{
-				sb.AppendLine($"f {indices[i * 3] + 1} {indices[i * 3 + 1] + 1} {indices[i * 3 + 2] + 1}");
+				sb.AppendLine($"f {Face(indices[i * 3] + 1)} {Face(indices[i * 3 + 1] + 1)} {Face(indices[i * 3 + 2] + 1)}");
 			}
 
 			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
+
+			static string Face(uint face)
+			{
+				return $"{face}/{face}/{face}";
+			}
 		}
 	}
 }
