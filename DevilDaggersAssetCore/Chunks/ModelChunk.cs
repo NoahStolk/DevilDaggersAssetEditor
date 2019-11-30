@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace DevilDaggersAssetCore.Chunks
@@ -26,7 +27,7 @@ namespace DevilDaggersAssetCore.Chunks
 		public override void Compress(string path)
 		{
 			string text = File.ReadAllText(path);
-			int vertexLines = text.CountOccurrences("v ");
+			int vertexLines = new List<int> { text.CountOccurrences("v "), text.CountOccurrences("vt "), text.CountOccurrences("vn ") }.Max();
 			int indexLines = text.CountOccurrences("f ");
 
 			string[] lines = text.Split('\n');
