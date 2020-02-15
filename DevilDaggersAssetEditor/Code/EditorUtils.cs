@@ -1,11 +1,13 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
+﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using DevilDaggersAssetCore;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace DevilDaggersAssetEditor.Code
 {
@@ -74,6 +76,27 @@ namespace DevilDaggersAssetEditor.Code
 			}
 
 			JsonUtils.SerializeToFile(@"C:\Users\NOAH\source\repos\DevilDaggersAssetEditor\DevilDaggersAssetCore\Content\core\Shaders.json", shaders);
+		}
+
+		public static void ReadTextureDataFromTextFile()
+		{
+			List<TextureAsset> textures;
+			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.dd.Textures.json")))
+				textures = JsonConvert.DeserializeObject<List<TextureAsset>>(sr.ReadToEnd());
+
+			foreach (string line in File.ReadAllLines(@"C:\Users\NOAH\Desktop\textures.txt"))
+			{
+				string[] split = line.Split('\t');
+				string name = split[0].Replace(".png", "");
+
+				TextureAsset t = textures.FirstOrDefault(a => a.AssetName == name);
+
+				t.EntityName = split[1];
+				t.Description = split[2];
+				t.ModelBinding = split[3];
+			}
+
+			JsonUtils.SerializeToFile(@"C:\Users\NOAH\source\repos\DevilDaggersAssetEditor\DevilDaggersAssetCore\Content\dd\Textures.json", textures);
 		}
 	}
 }
