@@ -38,17 +38,17 @@ namespace DevilDaggersAssetEditor.Code
 				switch (Path.GetExtension(path))
 				{
 					case ".txt":
-						modelBindings.Add(new ModelBindingAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(ModelBindingChunk)));
+						modelBindings.Add(new ModelBindingAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ModelBindingChunk)));
 						break;
 					case ".glsl":
-						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(ShaderChunk)));
+						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ShaderChunk)));
 						break;
 					case ".obj":
-						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(ModelChunk)));
+						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ModelChunk)));
 						break;
 					case ".png":
 						Image image = Image.FromFile(path);
-						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", nameof(TextureChunk), new Point(image.Width, image.Height)));
+						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(TextureChunk), new Point(image.Width, image.Height), ""));
 						break;
 				}
 			}
@@ -68,7 +68,7 @@ namespace DevilDaggersAssetEditor.Code
 				switch (Path.GetExtension(file))
 				{
 					case ".glsl":
-						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(file), "?", nameof(ShaderChunk)));
+						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(file), "?", "?", nameof(ShaderChunk)));
 						break;
 				}
 			}

@@ -17,8 +17,8 @@ namespace DevilDaggersAssetCore.Assets
 
 		public float DefaultLoudness { get; }
 
-		public AudioAsset(string assetName, string description, string chunkTypeName, float loudness, bool presentInDefaultLoudness)
-			: base(assetName, description, chunkTypeName)
+		public AudioAsset(string assetName, string description, string entityName, string chunkTypeName, float loudness, bool presentInDefaultLoudness)
+			: base(assetName, description, entityName, chunkTypeName)
 		{
 			Loudness = loudness;
 			PresentInDefaultLoudness = presentInDefaultLoudness;

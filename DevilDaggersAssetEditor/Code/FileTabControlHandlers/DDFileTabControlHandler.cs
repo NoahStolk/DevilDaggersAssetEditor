@@ -16,10 +16,10 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
-			MenuItem modelBindingImport = new MenuItem { Header = $"Import Model Binding paths from folder" };
-			MenuItem modelImport = new MenuItem { Header = $"Import Model paths from folder" };
-			MenuItem shaderImport = new MenuItem { Header = $"Import Shader paths from folder" };
-			MenuItem textureImport = new MenuItem { Header = $"Import Texture paths from folder" };
+			MenuItem modelBindingImport = new MenuItem { Header = "Import Model Binding paths from folder" };
+			MenuItem modelImport = new MenuItem { Header = "Import Model paths from folder" };
+			MenuItem shaderImport = new MenuItem { Header = "Import Shader paths from folder" };
+			MenuItem textureImport = new MenuItem { Header = "Import Texture paths from folder" };
 
 			modelBindingImport.Click += (sender, e) => App.Instance.MainWindow.DDModelBindingsAssetTabControl.Handler.ImportFolder();
 			modelImport.Click += (sender, e) => App.Instance.MainWindow.DDModelsAssetTabControl.Handler.ImportFolder();

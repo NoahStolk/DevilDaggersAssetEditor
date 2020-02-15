@@ -11,7 +11,9 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public string AssetName { get; }
 		[JsonProperty]
-		public string Description { get; }
+		public string Description { get; set; }
+		[JsonProperty]
+		public string EntityName { get; set; }
 		[JsonProperty]
 		public string ChunkTypeName { get; }
 
@@ -21,10 +23,11 @@ namespace DevilDaggersAssetCore.Assets
 		public abstract byte ColorG { get; }
 		public abstract byte ColorB { get; }
 
-		protected AbstractAsset(string assetName, string description, string chunkTypeName)
+		protected AbstractAsset(string assetName, string description, string entityName, string chunkTypeName)
 		{
 			AssetName = assetName;
 			Description = description;
+			EntityName = entityName; // TODO: Link to DevilDaggersCore.Game.DevilDaggersEntity to do more cool stuff...
 			ChunkTypeName = chunkTypeName;
 		}
 

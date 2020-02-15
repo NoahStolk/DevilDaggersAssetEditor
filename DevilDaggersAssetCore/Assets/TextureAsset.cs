@@ -15,8 +15,8 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public Point DefaultDimensions { get; }
 
-		public TextureAsset(string assetName, string description, string chunkTypeName, Point defaultDimensions)
-			: base(assetName, description, chunkTypeName)
+		public TextureAsset(string assetName, string description, string chunkTypeName, string entityName, Point defaultDimensions, string modelBinding)
+			: base(assetName, description, chunkTypeName, entityName)
 		{
 			DefaultDimensions = defaultDimensions;
 		}

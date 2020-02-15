@@ -8,8 +8,8 @@ namespace DevilDaggersAssetCore.Assets
 		public override byte ColorG => 0;
 		public override byte ColorB => 0;
 
-		public ModelAsset(string assetName, string description, string chunkTypeName)
-			: base(assetName, description, chunkTypeName)
+		public ModelAsset(string assetName, string description, string entityName, string chunkTypeName)
+			: base(assetName, description, entityName, chunkTypeName)
 		{
 		}
 
