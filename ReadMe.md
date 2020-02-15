@@ -37,6 +37,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 - [DevilDaggers.info website](https://devildaggers.info)
 - [Main web page for DevilDaggersAssetEditor](https://devildaggers.info/Tools/DevilDaggersAssetEditor)
+- [List of mods made with DevilDaggersAssetEditor](https://devildaggers.info/Mods)
 - [Asset mod guide](https://devildaggers.info/Wiki/AssetGuide)
 - [Discord server](https://discord.gg/NF32j8S)
 
@@ -48,7 +49,7 @@ This program's core functionality is heavily based on [Devil Daggers Extractor b
 
 MIT License
 
-Copyright (c) 2019 Noah Stolk
+Copyright (c) 2019-2020 Noah Stolk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
