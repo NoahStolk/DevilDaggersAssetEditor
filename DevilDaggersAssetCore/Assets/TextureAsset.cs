@@ -9,7 +9,7 @@ namespace DevilDaggersAssetCore.Assets
 	public class TextureAsset : AbstractAsset
 	{
 		public override byte ColorR => 255;
-		public override byte ColorG => 128;
+		public override byte ColorG => 127;
 		public override byte ColorB => 0;
 
 		[JsonProperty]

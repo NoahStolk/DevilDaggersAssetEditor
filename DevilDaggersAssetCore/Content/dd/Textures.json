@@ -528,8 +528,8 @@
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "gigaegg",
-		"Description": "Spider II Egg base texture",
-		"EntityName": "Spider II Egg"
+		"Description": "Spider Egg II base texture",
+		"EntityName": "Spider Egg II"
 	},
 	{
 		"DefaultDimensions": "256, 256",
@@ -766,112 +766,112 @@
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levicrown",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levicrown2",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "levicrown2jaw",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "levicrownjaw",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "levideath",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levidividerskull",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levileg1",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levileg2",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levileg3",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "leviskull",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "leviskull2",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "leviskulljaw",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levitent",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levitent2",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levitentgib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levitenthit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Leviathan"
 	},
 	{
@@ -921,7 +921,7 @@
 		"ModelBinding": "",
 		"AssetName": "lut",
 		"Description": "Unused post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "256, 256",
@@ -1208,77 +1208,77 @@
 		"ModelBinding": "",
 		"AssetName": "post_lut",
 		"Description": "Arena In-game post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_bronzeflash",
 		"Description": "Bronze Score post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_collect",
 		"Description": "Gem Collected post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_dagger",
 		"Description": "Lobby post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_death",
 		"Description": "Post Death post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_devilflash",
 		"Description": ">500 Devil Score post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_goldflash",
 		"Description": "Golden Score post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_leveldown",
 		"Description": "Unused",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_levelup",
 		"Description": "Level Up post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_levi",
 		"Description": "Leviathan Spawn post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_silverflash",
 		"Description": "Silver Score post filter",
-		"EntityName": "Postprocessing"
+		"EntityName": "Post-processing"
 	},
 	{
 		"DefaultDimensions": "256, 256",
@@ -1333,168 +1333,168 @@
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "spiderbody",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderbodygib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderbodyhit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spideregg1",
-		"Description": "Spider Egg Goo base texture",
-		"EntityName": "Spider Egg"
+		"Description": "Spider Egg I Goo base texture",
+		"EntityName": "Spider Egg I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spideregg2",
-		"Description": "Spider Egg base texture",
-		"EntityName": "Spider Egg"
+		"Description": "Spider Egg I base texture",
+		"EntityName": "Spider Egg I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spidereggflash",
-		"Description": "Spider Egg flashing texture",
-		"EntityName": "Spider Egg"
+		"Description": "Spider Egg I flashing texture",
+		"EntityName": "Spider Egg I"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderfangs",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderfangsgib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderfangshit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderhead",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderheadgib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderheadhit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderjaw",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderjawgib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderjawhit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg1",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg1gib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg1hit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg2",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg2gib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg2hit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg3",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg3gib",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg3hit",
-		"Description": "",
+		"Description": "?",
 		"EntityName": "Spider I"
 	},
 	{
