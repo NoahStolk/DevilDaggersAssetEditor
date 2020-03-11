@@ -30,7 +30,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
 
-		public abstract void UpdateGUI(TAsset asset);
+		public abstract void UpdateGui(TAsset asset);
 
 		public void SelectAsset(TAsset asset)
 		{
@@ -63,7 +63,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 					if (asset != null)
 					{
 						asset.EditorPath = FileNameToChunkName(filePath);
-						UpdateGUI(asset);
+						UpdateGui(asset);
 					}
 				}
 			}

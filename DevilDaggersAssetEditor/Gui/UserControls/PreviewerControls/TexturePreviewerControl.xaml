@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls.TexturePreviewerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="256" />
+			<ColumnDefinition Width="320" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Column="0">
+			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock FontWeight="Bold">Texture name</TextBlock>
+					<TextBlock FontWeight="Bold">Default dimensions</TextBlock>
+					<TextBlock FontWeight="Bold">Default mipmaps</TextBlock>
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="TextureName">N/A</TextBlock>
+					<TextBlock Name="DefaultDimensions">N/A</TextBlock>
+					<TextBlock Name="DefaultMipmaps">N/A</TextBlock>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+
+		<StackPanel Grid.Column="1">
+			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0">
+					<TextBlock FontWeight="Bold">File name</TextBlock>
+					<TextBlock FontWeight="Bold">Dimensions</TextBlock>
+					<TextBlock FontWeight="Bold">Mipmaps</TextBlock>
+				</StackPanel>
+				<StackPanel Grid.Column="1">
+					<TextBlock Name="FileName">N/A</TextBlock>
+					<TextBlock Name="FileDimensions">N/A</TextBlock>
+					<TextBlock Name="FileMipmaps">N/A</TextBlock>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+
+		<StackPanel Grid.Column="2">
+			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
+			<Image Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="224" MaxHeight="224" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+		</StackPanel>
+	</Grid>
+</UserControl>

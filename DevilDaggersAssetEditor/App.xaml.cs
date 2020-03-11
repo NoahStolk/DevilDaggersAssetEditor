@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.GUI.Windows;
+﻿using DevilDaggersAssetEditor.Gui.Windows;
 using DevilDaggersCore.Tools;
 using log4net;
 using log4net.Config;

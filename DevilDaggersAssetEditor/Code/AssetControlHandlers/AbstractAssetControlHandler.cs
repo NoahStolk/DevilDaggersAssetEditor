@@ -19,10 +19,10 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 			this.parent = parent;
 			this.openDialogFilter = openDialogFilter;
 
-			UpdateGUI();
+			UpdateGui();
 		}
 
-		public abstract void UpdateGUI();
+		public abstract void UpdateGui();
 
 		public virtual void BrowsePath()
 		{
@@ -33,14 +33,14 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 
 			Asset.EditorPath = FileNameToChunkName(openDialog.FileName);
 
-			UpdateGUI();
+			UpdateGui();
 		}
 
 		public void RemovePath()
 		{
 			Asset.EditorPath = AbstractAsset.EditorPathNone;
 
-			UpdateGUI();
+			UpdateGui();
 		}
 
 		public virtual string FileNameToChunkName(string fileName)

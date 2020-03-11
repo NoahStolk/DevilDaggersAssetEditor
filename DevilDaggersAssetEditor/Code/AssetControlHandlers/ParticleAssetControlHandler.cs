@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
 
 namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 {
@@ -10,7 +10,7 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 		{
 		}
 
-		public override void UpdateGUI()
+		public override void UpdateGui()
 		{
 			parent.TextBlockEditorPath.Text = Asset.EditorPath;
 		}

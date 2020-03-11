@@ -1,6 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
 using System.Linq;
 
 namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
@@ -14,7 +14,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 		{
 		}
 
-		public override void UpdateGUI(ShaderAsset asset)
+		public override void UpdateGui(ShaderAsset asset)
 		{
 			ShaderAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;

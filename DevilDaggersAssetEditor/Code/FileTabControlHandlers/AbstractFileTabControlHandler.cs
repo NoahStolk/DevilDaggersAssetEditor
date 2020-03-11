@@ -4,7 +4,7 @@ using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Code.User;
-using DevilDaggersAssetEditor.GUI.Windows;
+using DevilDaggersAssetEditor.Gui.Windows;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
@@ -216,7 +216,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				{
 					asset.ImportValuesFromUserAsset(userAsset);
 
-					assetTabControlHandler.UpdateGUI(asset);
+					assetTabControlHandler.UpdateGui(asset);
 				}
 			}
 		}

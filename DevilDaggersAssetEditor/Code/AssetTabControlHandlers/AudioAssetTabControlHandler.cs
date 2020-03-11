@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.User;
-using DevilDaggersAssetEditor.GUI.UserControls.AssetControls;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +19,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 		{
 		}
 
-		public override void UpdateGUI(AudioAsset asset)
+		public override void UpdateGui(AudioAsset asset)
 		{
 			AudioAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;
@@ -68,7 +68,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 					}
 
 					AudioAssetControl aac = assetControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
-					aac.Handler.UpdateGUI();
+					aac.Handler.UpdateGui();
 				}
 			}
 
