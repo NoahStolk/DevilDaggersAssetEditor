@@ -33,7 +33,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new ModelBindingsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
+			Handler = new ModelBindingsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
 			foreach (ModelBindingAssetControl ac in Handler.CreateAssetControls())
 				AssetEditor.Items.Add(ac);

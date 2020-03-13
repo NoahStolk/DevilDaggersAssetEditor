@@ -220,7 +220,7 @@
     <Compile Include="Code\FileTabControlHandlers\AudioFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\ParticleFileTabControlHandler.cs" />
-    <Compile Include="Code\FileTabControlHandlers\DDFileTabControlHandler.cs" />
+    <Compile Include="Code\FileTabControlHandlers\DdFileTabControlHandler.cs" />
     <Compile Include="Code\User\UserHandler.cs" />
     <Compile Include="Code\User\UserSettings.cs" />
     <Compile Include="Code\EditorUtils.cs" />

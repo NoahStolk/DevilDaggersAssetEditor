@@ -33,7 +33,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new TexturesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
+			Handler = new TexturesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
 			foreach (TextureAssetControl ac in Handler.CreateAssetControls())
 				AssetEditor.Items.Add(ac);
