@@ -26,16 +26,16 @@
 					<assetTabControls:ShadersAssetTabControl x:Name="CoreShadersAssetTabControl" BinaryFileType="Core" />
 				</TabItem>
 				<TabItem Header="dd/Model Bindings">
-					<assetTabControls:ModelBindingsAssetTabControl x:Name="DDModelBindingsAssetTabControl" BinaryFileType="DD" />
+					<assetTabControls:ModelBindingsAssetTabControl x:Name="DdModelBindingsAssetTabControl" BinaryFileType="DD" />
 				</TabItem>
 				<TabItem Header="dd/Models">
-					<assetTabControls:ModelsAssetTabControl x:Name="DDModelsAssetTabControl" BinaryFileType="DD" />
+					<assetTabControls:ModelsAssetTabControl x:Name="DdModelsAssetTabControl" BinaryFileType="DD" />
 				</TabItem>
 				<TabItem Header="dd/Shaders">
-					<assetTabControls:ShadersAssetTabControl x:Name="DDShadersAssetTabControl" BinaryFileType="DD" />
+					<assetTabControls:ShadersAssetTabControl x:Name="DdShadersAssetTabControl" BinaryFileType="DD" />
 				</TabItem>
 				<TabItem Header="dd/Textures">
-					<assetTabControls:TexturesAssetTabControl x:Name="DDTexturesAssetTabControl" BinaryFileType="DD" />
+					<assetTabControls:TexturesAssetTabControl x:Name="DdTexturesAssetTabControl" BinaryFileType="DD" />
 				</TabItem>
 				<TabItem Header="particle/Particles">
 					<assetTabControls:ParticlesAssetTabControl x:Name="ParticleParticlesAssetTabControl" BinaryFileType="Particle" />

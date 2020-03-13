@@ -28,7 +28,7 @@ namespace DevilDaggersAssetEditor.Code
 			return $"{timeSpan:mm\\:ss\\.fff}";
 		}
 
-		public static void GenerateDDJsonFiles()
+		public static void GenerateDdJsonFiles()
 		{
 			List<ModelBindingAsset> modelBindings = new List<ModelBindingAsset>();
 			List<ShaderAsset> shaders = new List<ShaderAsset>();

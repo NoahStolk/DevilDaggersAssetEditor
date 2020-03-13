@@ -10,7 +10,7 @@ namespace DevilDaggersAssetCore
 			switch (binaryFileType)
 			{
 				case BinaryFileType.Audio:
-				case BinaryFileType.DD:
+				case BinaryFileType.Dd:
 					return "res";
 				case BinaryFileType.Core:
 					return "core";
