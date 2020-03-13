@@ -43,9 +43,6 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 			UpdateGui();
 		}
 
-		public virtual string FileNameToChunkName(string fileName)
-		{
-			return fileName;
-		}
+		public virtual string FileNameToChunkName(string fileName) => fileName;
 	}
 }

@@ -13,10 +13,7 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public static class EditorUtils
 	{
-		public static Uri MakeUri(string localPath)
-		{
-			return new Uri($"pack://application:,,,/{Assembly.GetCallingAssembly().GetName().Name};component/{localPath}");
-		}
+		public static Uri MakeUri(string localPath) => new Uri($"pack://application:,,,/{Assembly.GetCallingAssembly().GetName().Name};component/{localPath}");
 
 		public static string ToTimeString(int milliseconds)
 		{

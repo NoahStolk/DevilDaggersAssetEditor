@@ -15,9 +15,6 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 			parent.TextBlockEditorPath.Text = Asset.EditorPath;
 		}
 
-		public override string FileNameToChunkName(string fileName)
-		{
-			return fileName.Replace("_fragment", "").Replace("_vertex", "");
-		}
+		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
 	}
 }

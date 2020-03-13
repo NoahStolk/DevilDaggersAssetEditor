@@ -35,13 +35,11 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		}
 
 		public override List<AbstractAsset> GetAssets()
-		{
-			return App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.Assets.Cast<AbstractAsset>()
+			=> App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.Assets.Cast<AbstractAsset>()
 				.Concat(App.Instance.MainWindow.DdModelsAssetTabControl.Handler.Assets.Cast<AbstractAsset>())
 				.Concat(App.Instance.MainWindow.DdShadersAssetTabControl.Handler.Assets.Cast<AbstractAsset>())
 				.Concat(App.Instance.MainWindow.DdTexturesAssetTabControl.Handler.Assets.Cast<AbstractAsset>())
 				.ToList();
-		}
 
 		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
 		{
@@ -52,11 +50,9 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		}
 
 		protected override bool IsComplete()
-		{
-			return App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.IsComplete()
-				&& App.Instance.MainWindow.DdModelsAssetTabControl.Handler.IsComplete()
-				&& App.Instance.MainWindow.DdShadersAssetTabControl.Handler.IsComplete()
-				&& App.Instance.MainWindow.DdTexturesAssetTabControl.Handler.IsComplete();
-		}
+			=> App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.IsComplete()
+			&& App.Instance.MainWindow.DdModelsAssetTabControl.Handler.IsComplete()
+			&& App.Instance.MainWindow.DdShadersAssetTabControl.Handler.IsComplete()
+			&& App.Instance.MainWindow.DdTexturesAssetTabControl.Handler.IsComplete();
 	}
 }

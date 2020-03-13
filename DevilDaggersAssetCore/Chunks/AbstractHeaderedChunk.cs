@@ -3,10 +3,10 @@ using System;
 
 namespace DevilDaggersAssetCore.Chunks
 {
-	public abstract class AbstractHeaderedChunk<T> : AbstractChunk
-		where T : AbstractHeader
+	public abstract class AbstractHeaderedChunk<THeader> : AbstractChunk
+		where THeader : AbstractHeader
 	{
-		public T Header { get; set; }
+		public THeader Header { get; set; }
 
 		protected AbstractHeaderedChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
@@ -15,7 +15,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override void SetBuffer(byte[] buffer)
 		{
-			Header = Activator.CreateInstance(typeof(T), buffer) as T;
+			Header = Activator.CreateInstance(typeof(THeader), buffer) as THeader;
 
 			Buffer = new byte[buffer.Length - Header.ByteCount];
 			System.Buffer.BlockCopy(buffer, Header.ByteCount, Buffer, 0, Buffer.Length);

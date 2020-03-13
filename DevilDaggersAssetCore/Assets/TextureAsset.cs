@@ -24,14 +24,8 @@ namespace DevilDaggersAssetCore.Assets
 			ModelBinding = modelBinding;
 		}
 
-		public override AbstractUserAsset ToUserAsset()
-		{
-			return new TextureUserAsset(AssetName, EditorPath);
-		}
+		public override AbstractUserAsset ToUserAsset() => new TextureUserAsset(AssetName, EditorPath);
 
-		public static byte GetMipmapCount(int width, int height)
-		{
-			return (byte)(Math.Log(Math.Min(width, height), 2) + 1);
-		}
+		public static byte GetMipmapCount(int width, int height) => (byte)(Math.Log(Math.Min(width, height), 2) + 1);
 	}
 }

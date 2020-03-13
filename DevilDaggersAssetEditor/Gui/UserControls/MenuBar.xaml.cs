@@ -69,10 +69,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 			}
 		}
 
-		private void SourceCode_Click(object sender, RoutedEventArgs e)
-		{
-			Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
-		}
+		private void SourceCode_Click(object sender, RoutedEventArgs e) => Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
 
 		private void Update_Click(object sender, RoutedEventArgs e)
 		{
@@ -106,9 +103,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 				App.Instance.ShowMessage("No log file", "Log file does not exist.");
 		}
 
-		private void TestException_Click(object sender, RoutedEventArgs e)
-		{
-			throw new Exception("Test Exception");
-		}
+		private void TestException_Click(object sender, RoutedEventArgs e) => throw new Exception("Test Exception");
 	}
 }

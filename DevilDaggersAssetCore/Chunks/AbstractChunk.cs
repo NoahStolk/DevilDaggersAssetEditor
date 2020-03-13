@@ -21,16 +21,10 @@ namespace DevilDaggersAssetCore.Chunks
 		}
 
 		// Only overridden by AbstractHeaderedChunk to take header into account.
-		public virtual void SetBuffer(byte[] buffer)
-		{
-			Buffer = buffer;
-		}
+		public virtual void SetBuffer(byte[] buffer) => Buffer = buffer;
 
 		// Only overridden by AbstractHeaderedChunk to take header into account.
-		public virtual byte[] GetBuffer()
-		{
-			return Buffer;
-		}
+		public virtual byte[] GetBuffer() => Buffer;
 
 		public virtual void Compress(string path)
 		{
@@ -43,9 +37,6 @@ namespace DevilDaggersAssetCore.Chunks
 			yield return new FileResult(Name, Buffer);
 		}
 
-		public override string ToString()
-		{
-			return $"Type: {GetType().Name} | Name: {Name} | Size: {Size}";
-		}
+		public override string ToString() => $"Type: {GetType().Name} | Name: {Name} | Size: {Size}";
 	}
 }

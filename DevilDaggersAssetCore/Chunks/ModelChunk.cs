@@ -135,16 +135,11 @@ namespace DevilDaggersAssetCore.Chunks
 
 			sb.AppendLine("\n# Triangles");
 			for (uint i = 0; i < Header.IndexCount / 3; ++i)
-			{
 				sb.AppendLine($"f {Face(indices[i * 3] + 1)} {Face(indices[i * 3 + 1] + 1)} {Face(indices[i * 3 + 2] + 1)}");
-			}
 
 			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
 
-			static string Face(uint face)
-			{
-				return $"{face}/{face}/{face}";
-			}
+			static string Face(uint face) => $"{face}/{face}/{face}";
 		}
 	}
 }

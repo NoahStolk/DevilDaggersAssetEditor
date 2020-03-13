@@ -13,9 +13,6 @@ namespace DevilDaggersAssetCore.Assets
 		{
 		}
 
-		public override AbstractUserAsset ToUserAsset()
-		{
-			return new ShaderUserAsset(AssetName, EditorPath);
-		}
+		public override AbstractUserAsset ToUserAsset() => new ShaderUserAsset(AssetName, EditorPath);
 	}
 }

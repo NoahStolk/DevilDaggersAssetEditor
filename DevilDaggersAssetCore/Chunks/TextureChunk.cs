@@ -99,10 +99,7 @@ namespace DevilDaggersAssetCore.Chunks
 			}
 		}
 
-		private static byte GetMipmapCountFromImage(Image image)
-		{
-			return TextureAsset.GetMipmapCount(image.Width, image.Height);
-		}
+		private static byte GetMipmapCountFromImage(Image image) => TextureAsset.GetMipmapCount(image.Width, image.Height);
 
 		private static void GetBufferSizes(TextureHeader header, out int totalBufferLength, out int[] mipmapBufferSizes)
 		{

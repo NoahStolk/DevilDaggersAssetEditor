@@ -77,9 +77,6 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 			return true;
 		}
 
-		public virtual string FileNameToChunkName(string fileName)
-		{
-			return fileName;
-		}
+		public virtual string FileNameToChunkName(string fileName) => fileName;
 	}
 }

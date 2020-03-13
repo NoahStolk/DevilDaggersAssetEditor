@@ -17,9 +17,6 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			StackPanel.DataContext = this;
 		}
 
-		private void OKButton_Click(object sender, RoutedEventArgs e)
-		{
-			DialogResult = true;
-		}
+		private void OKButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
 	}
 }

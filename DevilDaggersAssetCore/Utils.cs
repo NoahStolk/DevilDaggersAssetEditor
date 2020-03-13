@@ -6,9 +6,6 @@ namespace DevilDaggersAssetCore
 {
 	public static class Utils
 	{
-		public static Assembly GetAssemblyByName(string name)
-		{
-			return AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
-		}
+		public static Assembly GetAssemblyByName(string name) => AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
 	}
 }

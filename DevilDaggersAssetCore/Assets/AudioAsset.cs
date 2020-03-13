@@ -26,10 +26,7 @@ namespace DevilDaggersAssetCore.Assets
 			DefaultLoudness = loudness;
 		}
 
-		public override AbstractUserAsset ToUserAsset()
-		{
-			return new AudioUserAsset(AssetName, EditorPath, Loudness);
-		}
+		public override AbstractUserAsset ToUserAsset() => new AudioUserAsset(AssetName, EditorPath, Loudness);
 
 		public override void ImportValuesFromUserAsset(AbstractUserAsset userAsset)
 		{

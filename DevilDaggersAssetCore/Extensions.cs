@@ -16,14 +16,12 @@ namespace DevilDaggersAssetCore
 					return "core";
 				case BinaryFileType.Particle:
 					return "dd";
-				default: throw new Exception($"{nameof(BinaryFileType)} '{binaryFileType}' has not been implemented in this method.");
+				default:
+					throw new Exception($"{nameof(BinaryFileType)} '{binaryFileType}' has not been implemented in the {nameof(GetSubfolderName)} method.");
 			}
 		}
 
-		public static bool HasFlagBothWays(this BinaryFileType a, BinaryFileType b)
-		{
-			return a.HasFlag(b) || b.HasFlag(a);
-		}
+		public static bool HasFlagBothWays(this BinaryFileType a, BinaryFileType b) => a.HasFlag(b) || b.HasFlag(a);
 
 		public static bool IsPathValid(this string path)
 		{

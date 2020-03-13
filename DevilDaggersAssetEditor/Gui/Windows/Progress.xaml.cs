@@ -28,10 +28,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 		}
 
-		private void OKButton_Click(object sender, RoutedEventArgs e)
-		{
-			Close();
-		}
+		private void OKButton_Click(object sender, RoutedEventArgs e) => Close();
 
 		public void Finish()
 		{
