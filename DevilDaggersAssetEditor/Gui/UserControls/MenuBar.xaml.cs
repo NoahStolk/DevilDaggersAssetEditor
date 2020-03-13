@@ -10,6 +10,9 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+#if DEBUG
+using System.Windows.Media;
+#endif
 
 namespace DevilDaggersAssetEditor.Gui.UserControls
 {
