@@ -1,11 +1,11 @@
 ﻿using DevilDaggersAssetCore;
-using System.Windows;
-using System.Windows.Controls;
+using DevilDaggersAssetEditor.Code;
+using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
 using System;
-using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
-using DevilDaggersAssetEditor.Code;
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 {

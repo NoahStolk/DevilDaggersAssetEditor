@@ -1,16 +1,15 @@
-﻿using DevilDaggersAssetEditor.Gui.Windows;
+﻿using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
+using DevilDaggersAssetEditor.Code.User;
+using DevilDaggersAssetEditor.Gui.Windows;
+using DevilDaggersCore.Tools;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Media;
-using Newtonsoft.Json;
-using DevilDaggersAssetEditor.Code.User;
-using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
-using DevilDaggersCore.Tools;
 
 namespace DevilDaggersAssetEditor.Gui.UserControls
 {

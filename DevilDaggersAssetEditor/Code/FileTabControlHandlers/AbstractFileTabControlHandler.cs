@@ -7,7 +7,6 @@ using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Gui.Windows;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
