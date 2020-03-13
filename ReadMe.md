@@ -31,7 +31,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 ## Running from source
 
-- DevilDaggersAssetEditor is dependent on [NetBase](https://github.com/NoahStolk/netbase/src/master/) and [DevilDaggersCore](https://github.com/NoahStolk/devildaggerscore/src/master/). Their sources need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
+- DevilDaggersAssetEditor is dependent on [NetBase](https://github.com/NoahStolk/NetBase/) and [DevilDaggersCore](https://github.com/NoahStolk/DevilDaggersCore/). Their sources need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
 
 ## Links
 
