@@ -16,7 +16,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 
 		public override void UpdateGui(ParticleAsset asset)
 		{
-			ParticleAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			ParticleAssetControl ac = assetControls.FirstOrDefault(a => a.Handler.Asset == asset);
 			ac.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}

@@ -135,7 +135,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness.ToString("0.0")}");
 
 				// Create chunk.
-				AbstractChunk chunk = (AbstractChunk)Activator.CreateInstance(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetTypes().Where(t => t.Name == asset.ChunkTypeName).FirstOrDefault(), asset.AssetName, 0U/*Don't know start offset yet.*/, 0U/*Don't know size yet.*/, 0U);
+				Type type = Utils.GetAssemblyByName("DevilDaggersAssetCore").GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);
+				AbstractChunk chunk = (AbstractChunk)Activator.CreateInstance(type, asset.AssetName, 0U/*Don't know start offset yet.*/, 0U/*Don't know size yet.*/, 0U);
 				chunk.Compress(asset.EditorPath);
 
 				chunks.Add(chunk);
