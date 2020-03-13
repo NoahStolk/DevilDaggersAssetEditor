@@ -18,7 +18,7 @@ namespace DevilDaggersAssetCore.Assets
 		public string ModelBinding { get; set; }
 
 		public TextureAsset(string assetName, string description, string chunkTypeName, string entityName, Point defaultDimensions, string modelBinding)
-			: base(assetName, description, chunkTypeName, entityName)
+			: base(assetName, description, entityName, chunkTypeName)
 		{
 			DefaultDimensions = defaultDimensions;
 			ModelBinding = modelBinding;

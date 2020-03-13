@@ -4,1924 +4,2199 @@
 		"ModelBinding": "",
 		"AssetName": "blood",
 		"Description": "Blood decals",
-		"EntityName": "Particles"
+		"EntityName": "Particles",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid",
 		"Description": "Skull I base texture",
-		"EntityName": "Skull I"
+		"EntityName": "Skull I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid2",
 		"Description": "Skull II base texture",
-		"EntityName": "Skull II"
+		"EntityName": "Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid2gib",
 		"Description": "Skull II death",
-		"EntityName": "Skull II"
+		"EntityName": "Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid2hit",
 		"Description": "Skull II damage",
-		"EntityName": "Skull II"
+		"EntityName": "Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid2horns",
 		"Description": "Skull II horns",
-		"EntityName": "Skull II"
+		"EntityName": "Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid2hornsgib",
 		"Description": "Skull II horns death",
-		"EntityName": "Skull II"
+		"EntityName": "Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid2hornshit",
 		"Description": "Skull II horns damage",
-		"EntityName": "Skull II"
+		"EntityName": "Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "boid2hornslev",
 		"Description": "Transmuted Skull II horns",
-		"EntityName": "Transmuted Skull II"
+		"EntityName": "Transmuted Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "boid2lev",
 		"Description": "Transmuted Skull II base texture",
-		"EntityName": "Transmuted Skull II"
+		"EntityName": "Transmuted Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "boid2levgib",
 		"Description": "Transmuted Skull II death",
-		"EntityName": "Transmuted Skull II"
+		"EntityName": "Transmuted Skull II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid3",
 		"Description": "Skull III base texture",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid3gib",
 		"Description": "Skull III death",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid3hit",
 		"Description": "Skull III damage",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid3horns",
 		"Description": "Skull III horns",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid3hornsgib",
 		"Description": "Skull III horns death",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid3hornshit",
 		"Description": "Skull III horns damage",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "boid3hornslev",
 		"Description": "Transmuted Skull III horns",
-		"EntityName": "Transmuted Skull III"
+		"EntityName": "Transmuted Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "boid3jaw",
 		"Description": "Skull III jaw",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "boid3jawgib",
 		"Description": "Skull III jaw death",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "boid3jawhit",
 		"Description": "Skull III jaw damage",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid3jawlev",
 		"Description": "Transmuted Skull III jaw",
-		"EntityName": "Transmuted Skull III"
+		"EntityName": "Transmuted Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "boid3lev",
 		"Description": "Transmuted Skull III base texture",
-		"EntityName": "Skull III"
+		"EntityName": "Skull III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "512, 512",
 		"ModelBinding": "",
 		"AssetName": "boid4",
 		"Description": "Skull IV base texture",
-		"EntityName": "Skull IV"
+		"EntityName": "Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid4gib",
 		"Description": "Skull IV death",
-		"EntityName": "Skull IV"
+		"EntityName": "Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid4hit",
 		"Description": "Skull IV damage",
-		"EntityName": "Skull IV"
+		"EntityName": "Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid4jaw",
 		"Description": "Skull IV jaw",
-		"EntityName": "Skull IV"
+		"EntityName": "Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid4jawgib",
 		"Description": "Skull IV jaw death",
-		"EntityName": "Skull IV"
+		"EntityName": "Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boid4jawhit",
 		"Description": "Skull IV jaw damage",
-		"EntityName": "Skull IV"
+		"EntityName": "Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "boid4jawlev",
 		"Description": "Transmuted Skull IV jaw",
-		"EntityName": "Skull IV"
+		"EntityName": "Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "512, 512",
 		"ModelBinding": "",
 		"AssetName": "boid4lev",
 		"Description": "Transmuted Skull IV base texture",
-		"EntityName": "Transmuted Skull IV"
+		"EntityName": "Transmuted Skull IV",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boidgib",
 		"Description": "Skull I death",
-		"EntityName": "Skull I"
+		"EntityName": "Skull I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "boidhit",
 		"Description": "Skull I damage",
-		"EntityName": "Skull I"
+		"EntityName": "Skull I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "boidlev",
 		"Description": "Transmuted Skull I",
-		"EntityName": "Transmuted Skull I"
+		"EntityName": "Transmuted Skull I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "tile2",
 		"AssetName": "bottom",
 		"Description": "Tile bottom?",
-		"EntityName": "Arena?"
+		"EntityName": "Arena?",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "crystal",
 		"Description": "?",
-		"EntityName": ""
+		"EntityName": "",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger1",
 		"AssetName": "dagger",
 		"Description": "Level 1 Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger",
 		"AssetName": "dagger0",
 		"Description": "Pleb Lobby Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger2",
 		"AssetName": "dagger2",
 		"Description": "Level 2 Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger3",
 		"AssetName": "dagger3",
 		"Description": "Level 3 Dagger / Devil Lobby Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger4",
 		"AssetName": "dagger4",
 		"Description": "Magical Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger5",
 		"AssetName": "dagger5",
 		"Description": "Level 4 Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger6",
 		"AssetName": "dagger6",
 		"Description": "Explosive Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "daggerbronze",
 		"AssetName": "daggerbronze",
 		"Description": "Bronze Lobby Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "daggergold",
 		"AssetName": "daggergold",
 		"Description": "Golden Lobby Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "daggersilver",
 		"AssetName": "daggersilver",
 		"Description": "Silver Lobby Dagger",
-		"EntityName": "Dagger"
+		"EntityName": "Dagger",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "emberflame",
 		"Description": "Primary fire after-embers / Decals base texture",
-		"EntityName": "Particles"
+		"EntityName": "Particles",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 64",
 		"ModelBinding": "",
 		"AssetName": "feather",
 		"Description": "Unused",
-		"EntityName": "Unknown"
+		"EntityName": "Unknown",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontbronze",
 		"Description": "Bronze font",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontbronzeover",
 		"Description": "Bronze font hover",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontdevil",
 		"Description": "Devil font",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontdevilover",
 		"Description": "Devil font hover",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontgold",
 		"Description": "Golden font",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontgoldover",
 		"Description": "Golden font hover",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontgrad",
 		"Description": "Default UI font",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontgrad2",
 		"Description": "Default UI colored font",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontgrad3",
 		"Description": "Default UI colored font over",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontpleb",
 		"Description": "Pleb font",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontplebover",
 		"Description": "Pleb font hover",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontsilver",
 		"Description": "Silver font",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "fontsilverover",
 		"Description": "Silver font hover",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib",
 		"Description": "Gem",
-		"EntityName": "Gem"
+		"EntityName": "Gem",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib1a",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib1b",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib1c",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib1d",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "gib",
 		"AssetName": "gib2",
 		"Description": "Alternate Gem (unused)",
-		"EntityName": "Gem"
+		"EntityName": "Gem",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib2a",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib2b",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib2c",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib2d",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib3a",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib3b",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib3c",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib3d",
 		"Description": "Meat piece base texture",
-		"EntityName": "Gore"
+		"EntityName": "Gore",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "gigaegg",
 		"Description": "Spider Egg II base texture",
-		"EntityName": "Spider Egg II"
+		"EntityName": "Spider Egg II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderbody",
 		"Description": "Spider II ",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "gigaspidercrest",
 		"Description": "?",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gigaspidercrestgib",
 		"Description": "Spider II death",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gigaspidercresthit",
 		"Description": "Spider II damage",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderfangs",
 		"Description": "Spider II Primary Fangs",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderfangs2",
 		"Description": "Spider II Secondary Fangs",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderfangs2gib",
 		"Description": "Spider II Fangs death",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderfangs2hit",
 		"Description": "Spider II Fangs damage",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderhead",
 		"Description": "Spider II Gem Holder",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderhorns",
 		"Description": "Spider II Horns",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderhornsgib",
 		"Description": "Spider II Horns death",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderhornshit",
 		"Description": "Spider II Horns damage",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderjaw",
 		"Description": "Spider II Mouth",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderleg1",
 		"Description": "Spider II Leg 1",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderleg2",
 		"Description": "Spider II Leg 2",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderleg3",
 		"Description": "Spider II Leg 3",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "gigaspiderpalm",
 		"Description": "Spider II Palm",
-		"EntityName": "Spider II"
+		"EntityName": "Spider II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "hand",
 		"AssetName": "hand",
 		"Description": "Level 1 Hand",
-		"EntityName": "Player Hand"
+		"EntityName": "Player Hand",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "hand0",
 		"AssetName": "hand0",
 		"Description": "Lobby Hand",
-		"EntityName": "Player Hand"
+		"EntityName": "Player Hand",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "hand2",
 		"AssetName": "hand2",
 		"Description": "Level 2 Hand",
-		"EntityName": "Player Hand"
+		"EntityName": "Player Hand",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "hand3",
 		"AssetName": "hand3",
 		"Description": "Level 3 Hand",
-		"EntityName": "Player Hand"
+		"EntityName": "Player Hand",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "hand4",
 		"AssetName": "hand4",
 		"Description": "Level 3 Hand Flash",
-		"EntityName": "Player Hand"
+		"EntityName": "Player Hand",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "hand5",
 		"AssetName": "hand5",
 		"Description": "Level 4 Hand",
-		"EntityName": "Player Hand"
+		"EntityName": "Player Hand",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "hand6",
 		"AssetName": "hand6",
 		"Description": "Level 4 Hand Flash",
-		"EntityName": "Player Hand"
+		"EntityName": "Player Hand",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "iconcrosshair",
 		"Description": "Accuracy Icon",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "icondagger",
 		"Description": "Enemies Killed Icon",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 16",
 		"ModelBinding": "",
 		"AssetName": "iconeye",
 		"Description": "Replay Recorded Run Icon",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 16",
 		"ModelBinding": "",
 		"AssetName": "iconeye2",
 		"Description": "Replay Recorded Run Icon hover",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "icongem",
 		"Description": "Gems Collected Icon",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 16",
 		"ModelBinding": "",
 		"AssetName": "iconreplay",
 		"Description": "Unused?",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 16",
 		"ModelBinding": "",
 		"AssetName": "iconreplay2",
 		"Description": "Unused?",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "iconskull",
 		"Description": "Death Type / Total Deaths Icon",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "iconstopwatch",
 		"Description": "Run Time Icon",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levicrown",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levicrown2",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "levicrown2jaw",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "levicrownjaw",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "levideath",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levidividerskull",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levileg1",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levileg2",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levileg3",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "leviskull",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "leviskull2",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "leviskulljaw",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levitent",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "levitent2",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levitentgib",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "levitenthit",
 		"Description": "?",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "leviwarp",
 		"Description": "Leviathan Secondary Dome effect",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "leviwarpover",
 		"Description": "Levithan Dome effect / Beckoned Skulls override",
-		"EntityName": "Leviathan"
+		"EntityName": "Leviathan",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "logodagger",
 		"AssetName": "logodagger",
 		"Description": "Splash Screen Dagger",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "logodagger2",
 		"Description": "Unused",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "logohand",
 		"AssetName": "logohand",
 		"Description": "Splash Screen Hand",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 64",
 		"ModelBinding": "",
 		"AssetName": "logotext",
 		"Description": "Splash Screen Text",
-		"EntityName": "UI"
+		"EntityName": "UI",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "lut",
 		"Description": "Unused post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "minisquidarm",
 		"Description": "Squid I Tentacle",
-		"EntityName": "Squid I"
+		"EntityName": "Squid I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "minisquidcrest",
 		"Description": "Squid I Body texture",
-		"EntityName": "Squid I"
+		"EntityName": "Squid I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "minisquidcrestskull",
 		"Description": "Squid I Gem Holder",
-		"EntityName": "Squid I"
+		"EntityName": "Squid I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "minisquidhorns",
 		"Description": "Squid I Gem Holder Horns",
-		"EntityName": "Squid I"
+		"EntityName": "Squid I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "minisquidjaw",
 		"Description": "Squid I Gem Holder Skull Jaw",
-		"EntityName": "Squid I"
+		"EntityName": "Squid I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "minisquidjawskull",
 		"Description": "Squid I Gem Holder Skull",
-		"EntityName": "Squid I"
+		"EntityName": "Squid I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "pedeblackbody",
 		"Description": "Gigapede Segment texture",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "pedeblackhead",
 		"Description": "Gigapede Head texture",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "pedeblackjaw",
 		"Description": "Gigapede Jaw",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeblackleg1",
 		"Description": "Gigapede Leg 1",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeblackleg2",
 		"Description": "Gigapede Leg 2",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeblackleg3",
 		"Description": "Gigapede Leg 3",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "pedeblacktail",
 		"Description": "Gigapede Tail",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "pedeblacktaillegs",
 		"Description": "Gigapede Tail Legs",
-		"EntityName": "Gigapede"
+		"EntityName": "Gigapede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "pedebody",
 		"Description": "Centipede Body",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "pedebodyfragged",
 		"Description": "Centipede / Gigapede / Ghostpede Segment without gem",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedebodygib",
 		"Description": "Centipede / Gigapede / Ghostpede Segment damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedebodyhit",
 		"Description": "Centipede / Gigapede / Ghostpede Segment damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "pedehead",
 		"Description": "Centipede Head texture",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "pedeheadgib",
 		"Description": "Centipede / Gigapede / Ghostpede Head death",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "pedeheadhit",
 		"Description": "Centipede / Gigapede / Ghostpede Head damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "pedejaw",
 		"Description": "Centipede Jaw",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "pedejawgib",
 		"Description": "Centipede / Gigapede / Ghostpede Jaw death",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 16",
 		"ModelBinding": "",
 		"AssetName": "pedejawhit",
 		"Description": "Centipede / Gigapede / Ghostpede Jaw damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg1",
 		"Description": "Centipede Leg 1",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg1gib",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 1 death",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg1hit",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 1 damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg2",
 		"Description": "Centipede Leg 2",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg2gib",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 2 death",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg2hit",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 2 damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg3",
 		"Description": "Centipede Leg 3",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg3gib",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 3 death",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedeleg3hit",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 3 damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "pedetail",
 		"Description": "Centipede Tail",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedetailgib",
 		"Description": "Centipede / Gigapede / Ghostpede Tail death",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedetailhit",
 		"Description": "Centipede / Gigapede / Ghostpede Tail damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "pedetaillegs",
 		"Description": "Centipede Tail Legs",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedetaillegsgib",
 		"Description": "Centipede / Gigapede / Ghostpede Tail Leg death",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "pedetaillegshit",
 		"Description": "Centipede / Gigapede / Ghostpede Tail Leg damage",
-		"EntityName": "Centipede"
+		"EntityName": "Centipede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "tile2",
 		"AssetName": "pillar",
 		"Description": "Tile sides texture",
-		"EntityName": "Arena"
+		"EntityName": "Arena",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut",
 		"Description": "Arena In-game post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_bronzeflash",
 		"Description": "Bronze Score post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_collect",
 		"Description": "Gem Collected post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_dagger",
 		"Description": "Lobby post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_death",
 		"Description": "Post Death post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_devilflash",
 		"Description": ">500 Devil Score post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_goldflash",
 		"Description": "Golden Score post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_leveldown",
 		"Description": "Unused",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_levelup",
 		"Description": "Level Up post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_levi",
 		"Description": "Leviathan Spawn post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_silverflash",
 		"Description": "Silver Score post filter",
-		"EntityName": "Post-processing"
+		"EntityName": "Post-processing",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "rubble",
 		"Description": "Thorn Tile Destruction texture",
-		"EntityName": "Thorn"
+		"EntityName": "Thorn",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "skulltile",
 		"Description": "Unused",
-		"EntityName": "Unknown"
+		"EntityName": "Unknown",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "smokeblob",
 		"Description": "Emerging Enemies texture",
-		"EntityName": "Particles"
+		"EntityName": "Particles",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "240, 240",
 		"ModelBinding": "",
 		"AssetName": "sorathmask",
 		"Description": "Sorath Logo texture mask",
-		"EntityName": "Splash Screen"
+		"EntityName": "Splash Screen",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "sorathstone",
 		"Description": "Sorath Stone base texture",
-		"EntityName": "Easter Egg"
+		"EntityName": "Easter Egg",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "240, 240",
 		"ModelBinding": "",
 		"AssetName": "sorathtexture",
 		"Description": "Sorath Logo base texture",
-		"EntityName": "Splash Screen"
+		"EntityName": "Splash Screen",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "sorathvector",
 		"Description": "Sorath Logo texture filter",
-		"EntityName": "Splash Screen"
+		"EntityName": "Splash Screen",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "spiderbody",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderbodygib",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderbodyhit",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spideregg1",
 		"Description": "Spider Egg I Goo base texture",
-		"EntityName": "Spider Egg I"
+		"EntityName": "Spider Egg I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spideregg2",
 		"Description": "Spider Egg I base texture",
-		"EntityName": "Spider Egg I"
+		"EntityName": "Spider Egg I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spidereggflash",
 		"Description": "Spider Egg I flashing texture",
-		"EntityName": "Spider Egg I"
+		"EntityName": "Spider Egg I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderfangs",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderfangsgib",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderfangshit",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderhead",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderheadgib",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderheadhit",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderjaw",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderjawgib",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderjawhit",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg1",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg1gib",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg1hit",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg2",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg2gib",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg2hit",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg3",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg3gib",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderleg3hit",
 		"Description": "?",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "spiderling",
 		"Description": "Spiderling Body base texture",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderlinggib",
 		"Description": "Spiderling Body death",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderlinghit",
 		"Description": "Spiderling Body damage",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg1",
 		"Description": "Spiderling Leg 1",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg1gib",
 		"Description": "Spiderling Leg 1 death",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg1hit",
 		"Description": "Spiderling Leg 1",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg2",
 		"Description": "Spiderling Leg 2",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg2gib",
 		"Description": "Spiderling Leg 2 death",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg2hit",
 		"Description": "Spiderling Leg 2 damage",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg3",
 		"Description": "Spiderling Leg 3",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg3gib",
 		"Description": "Spiderling Leg 3 death",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingleg3hit",
 		"Description": "Spiderling Leg 3 damage",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingpalm",
 		"Description": "Spiderling Palm",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingpalmgib",
 		"Description": "Spiderling Palm death",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderlingpalmhit",
 		"Description": "Spiderling Palm damage",
-		"EntityName": "Spiderling"
+		"EntityName": "Spiderling",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "spiderpalm",
 		"Description": "Spider I Palm",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderpalmgib",
 		"Description": "Spider I Palm death",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "spiderpalmhit",
 		"Description": "Spider I Palm damage",
-		"EntityName": "Spider I"
+		"EntityName": "Spider I",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "squidarm",
 		"Description": "Squid II Tentacle",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidarmgib",
 		"Description": "Squid II Tentacle death",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidarmhit",
 		"Description": "Squid II Tentacle damage",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "squidcrest",
 		"Description": "Squid II Body texture",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidcrestgib",
 		"Description": "Squid II Body damage",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "squidcresthit",
 		"Description": "Squid II Body death",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidcrestskull",
 		"Description": "Squid II Gem Holder Skull",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "squidcrestskullgib",
 		"Description": "Squid II Gem Holder Skull death",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "squidcrestskullhit",
 		"Description": "Squid II Gem Holder Skull damage",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "squidhorns",
 		"Description": "Squid II Horns",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "squidjaws",
 		"Description": "Squid II Gem Holder Skull Jaw",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidjawsgib",
 		"Description": "Squid II Gem Holder Skull Jaw death",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidjawshit",
 		"Description": "Squid II Gem Holder Skull Jaw damage",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidjawskull",
 		"Description": "Squid II",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidjawskullfragged",
 		"Description": "Squid II Gem Holder Without Gem",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "squidjawskullgib",
 		"Description": "Squid II Gem Holder Skull Jaw",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "squidjawskullhit",
 		"Description": "Squid II Gem Holder Skull Jaw death",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "squidteeth",
 		"Description": "Squid II Bottom Teeth",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "squidteethgib",
 		"Description": "Squid II Bottom Teeth death",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "squidteethhit",
 		"Description": "Squid II Bottom Teeth damage",
-		"EntityName": "Squid II"
+		"EntityName": "Squid II",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "statue1",
 		"Description": "Player Number 3",
-		"EntityName": "Easter Egg"
+		"EntityName": "Easter Egg",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "512, 512",
 		"ModelBinding": "",
 		"AssetName": "statue2",
 		"Description": "Player Number 2",
-		"EntityName": "Easter Egg"
+		"EntityName": "Easter Egg",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "512, 512",
 		"ModelBinding": "",
 		"AssetName": "statue3",
 		"Description": "Player Number 1",
-		"EntityName": "Easter Egg"
+		"EntityName": "Easter Egg",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "thorn",
 		"AssetName": "thorn",
 		"Description": "Thorn Body base texture",
-		"EntityName": "Thorn"
+		"EntityName": "Thorn",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "thorn",
 		"AssetName": "thorngib",
 		"Description": "Thorn Body death",
-		"EntityName": "Thorn"
+		"EntityName": "Thorn",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "thornhit",
 		"AssetName": "thornhit",
 		"Description": "Thorn Body damage",
-		"EntityName": "Thorn"
+		"EntityName": "Thorn",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "tile2",
 		"AssetName": "tile",
 		"Description": "Floor texture",
-		"EntityName": "Arena"
+		"EntityName": "Arena",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "ultrapedebody",
 		"Description": "Ghostpede segment",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "ultrapedebodyfragged",
 		"Description": "Ghostpede segment without gem",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "ultrapedecrown",
 		"Description": "Ghostpede extra horns",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "ultrapedecrowngib",
 		"Description": "Ghostpede extra horns death",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "ultrapedecrownhit",
 		"Description": "Ghostpede extra horns damage",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "ultrapedehead",
 		"Description": "Ghostpede head",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "ultrapedejaw",
 		"Description": "Ghostpede jaw",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "ultrapedeleg1",
 		"Description": "Ghostpede leg texture?",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "ultrapedeleg2",
 		"Description": "Ghostpede leg texture?",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "32, 32",
 		"ModelBinding": "",
 		"AssetName": "ultrapedeleg3",
 		"Description": "Ghostpede leg texture?",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "ultrapedetail",
 		"Description": "Ghostpede tail texture",
-		"EntityName": "Ghostpede"
+		"EntityName": "Ghostpede",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "ultrasquidcrest",
 		"Description": "Squid III body",
-		"EntityName": "Squid III"
+		"EntityName": "Squid III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "ultrasquidcrestskull",
 		"Description": "Squid III body skull",
-		"EntityName": "Squid III"
+		"EntityName": "Squid III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "512, 512",
 		"ModelBinding": "",
 		"AssetName": "ultrasquidhorns",
 		"Description": "Squid III skull gem holder horns",
-		"EntityName": "Squid III"
+		"EntityName": "Squid III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "256, 256",
 		"ModelBinding": "",
 		"AssetName": "ultrasquidjaw",
 		"Description": "Squid III skull jaw gem holder",
-		"EntityName": "Squid III"
+		"EntityName": "Squid III",
+		"ChunkTypeName": "TextureChunk"
 	},
 	{
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "ultrasquidjawskull",
 		"Description": "Squid III skull gem holder",
-		"EntityName": "Squid III"
+		"EntityName": "Squid III",
+		"ChunkTypeName": "TextureChunk"
 	}
 ]
