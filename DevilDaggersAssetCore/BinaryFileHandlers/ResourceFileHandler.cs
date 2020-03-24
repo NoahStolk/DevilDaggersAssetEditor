@@ -132,7 +132,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				((IProgress<string>)progressDescription).Report($"Generating {asset.ChunkTypeName.Replace("Chunk", "")} chunk \"{asset.AssetName}\".");
 
 				if (asset is AudioAsset audioAsset)
-					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness.ToString("0.0")}");
+					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
 
 				// Create chunk.
 				Type type = Utils.GetAssemblyByName("DevilDaggersAssetCore").GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);

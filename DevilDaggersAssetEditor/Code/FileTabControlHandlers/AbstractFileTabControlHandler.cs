@@ -131,7 +131,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		private void SaveModFile(List<AbstractUserAsset> assets)
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
-			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
+			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = modFileFilter };
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
@@ -176,7 +176,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		private ModFile OpenModFile()
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
-			string modFileFilter = $"{FileHandler.BinaryFileType.ToString()} mod files (*.{modFileExtension})|*.{modFileExtension}";
+			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = modFileFilter };
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
