@@ -1,9 +1,19 @@
 # DevilDaggersAssetEditor ([Download](https://devildaggers.info/API/GetTool?toolName=DevilDaggersAssetEditor))
+DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as compressing them back to create mods. It is a .NET WPF application built using Visual Studio 2019.
 
-DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as compressing them back to create mods.
+## Frameworks
+- .NET Standard 2.0 (Core library)
+- .NET Framework 4.6.1 (GUI)
+
+## Languages
+- C# 8.0 (Core library)
+- C# 7.3 (GUI)
+
+## Dependencies
+- [NetBase](https://github.com/NoahStolk/NetBase)
+- [DevilDaggersCore](https://github.com/NoahStolk/DevilDaggersCore)
 
 ## Main features
-
 - Extracting and compressing asset types
 	- Audio
 	- Models
@@ -19,22 +29,18 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 	- dd/particle
 
 ## System requirements
-
 - Microsoft Windows (64-bit)
 - .NET Framework 4.6.1
 
 ## Installation
-
 1. Download the zip file.
 2. Unzip its contents.
 3. Run DevilDaggersAssetEditor.exe inside the folder.
 
 ## Running from source
-
 - DevilDaggersAssetEditor is dependent on [NetBase](https://github.com/NoahStolk/NetBase/) and [DevilDaggersCore](https://github.com/NoahStolk/DevilDaggersCore/). Their sources need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
 
 ## Links
-
 - [DevilDaggers.info website](https://devildaggers.info)
 - [Main web page for DevilDaggersAssetEditor](https://devildaggers.info/Tools/DevilDaggersAssetEditor)
 - [List of mods made with DevilDaggersAssetEditor](https://devildaggers.info/Mods)
@@ -42,11 +48,9 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 - [Discord server](https://discord.gg/NF32j8S)
 
 ## Credits
-
 This program's core functionality is heavily based on [Devil Daggers Extractor by pmcc](https://github.com/pmcc/devil-daggers-extractor), and inspired by [Sojk](https://github.com/sojk)'s asset editor created with QT.
 
 ## License
-
 MIT License
 
 Copyright (c) 2019-2020 Noah Stolk
