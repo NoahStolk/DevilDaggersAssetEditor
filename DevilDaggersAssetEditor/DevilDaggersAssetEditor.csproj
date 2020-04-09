@@ -362,7 +362,7 @@
       <Project>{65E7D153-FC35-4427-B868-FD10D9BFCD42}</Project>
       <Name>DevilDaggersCore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SyntaxHighlighter\SyntaxHighlighter.csproj">
+    <ProjectReference Include="..\..\SyntaxHighlighter\SyntaxHighlighter\SyntaxHighlighter.csproj">
       <Project>{436c9bb2-d0e5-4801-8589-5f5acad919f4}</Project>
       <Name>SyntaxHighlighter</Name>
     </ProjectReference>
