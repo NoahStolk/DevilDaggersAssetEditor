@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetBase", "..\NetBase\NetBa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4CD4CF51-DF75-4FE2-81CF-214C191DE036}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyntaxHighlighter", "..\SyntaxHighlighter\SyntaxHighlighter.csproj", "{436C9BB2-D0E5-4801-8589-5F5ACAD919F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyntaxHighlighter", "..\SyntaxHighlighter\SyntaxHighlighter\SyntaxHighlighter.csproj", "{436C9BB2-D0E5-4801-8589-5F5ACAD919F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
