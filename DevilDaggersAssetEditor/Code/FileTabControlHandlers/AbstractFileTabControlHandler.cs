@@ -5,6 +5,7 @@ using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Gui.Windows;
+using JsonUtils;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
@@ -162,7 +163,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			}
 			ModFile modFile = new ModFile(App.LocalVersion, relativePaths, assets);
 
-			JsonUtils.SerializeToFile(dialog.FileName, modFile, true);
+			JsonFileUtils.SerializeToFile(dialog.FileName, modFile, true);
 		}
 
 		private List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
@@ -182,8 +183,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!openResult.HasValue || !openResult.Value)
 				return null;
 
-			ModFile modFile = JsonUtils.TryDeserializeFromFile<ModFile>(dialog.FileName, true);
-			if (modFile == null)
+			if (!JsonFileUtils.TryDeserializeFromFile(dialog.FileName, true, out ModFile modFile))
 				App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
 
 			if (modFile.HasRelativePaths)
