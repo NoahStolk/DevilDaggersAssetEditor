@@ -8,6 +8,6 @@
 	<StackPanel Margin="20,40,20,0">
 		<ProgressBar Name="ProgressBar" Height="18" Minimum="0" Maximum="1" />
 		<TextBlock Name="ProgressDescription" />
-		<Button Name="OKButton" Click="OKButton_Click" Visibility="Hidden" Width="80" Margin="0,16,0,0">OK</Button>
+		<Button Name="OkButton" Click="OkButton_Click" Visibility="Hidden" Width="80" Margin="0,16,0,0">OK</Button>
 	</StackPanel>
 </Window>

@@ -25,6 +25,6 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			Error.DataContext = this;
 		}
 
-		private void OKButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
+		private void OkButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
 	}
 }

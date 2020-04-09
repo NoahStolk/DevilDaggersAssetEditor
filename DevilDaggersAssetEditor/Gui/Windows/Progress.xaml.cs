@@ -28,19 +28,19 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 		}
 
-		private void OKButton_Click(object sender, RoutedEventArgs e) => Close();
+		private void OkButton_Click(object sender, RoutedEventArgs e) => Close();
 
 		public void Finish()
 		{
 			ProgressBar.Value = 1;
 			ProgressDescription.Text = "Completed successfully.";
-			OKButton.Visibility = Visibility.Visible;
+			OkButton.Visibility = Visibility.Visible;
 		}
 
 		public void Error()
 		{
 			ProgressDescription.Text = "Execution failed.";
-			OKButton.Visibility = Visibility.Visible;
+			OkButton.Visibility = Visibility.Visible;
 		}
 	}
 }
