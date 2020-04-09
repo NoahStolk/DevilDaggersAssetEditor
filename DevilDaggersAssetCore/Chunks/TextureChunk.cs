@@ -12,7 +12,7 @@ namespace DevilDaggersAssetCore.Chunks
 {
 	public class TextureChunk : AbstractHeaderedChunk<TextureHeader>
 	{
-		private static readonly bool ExtractMipmaps = false;
+		private static readonly bool extractMipmaps = false;
 
 		public TextureChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
@@ -71,10 +71,10 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override IEnumerable<FileResult> Extract()
 		{
-			GetBufferSizes(Header, out int totalBufferLength, out int[] mipmapBufferSizes);
+			GetBufferSizes(Header, out _, out int[] mipmapBufferSizes);
 
 			int mipmapOffset = 0;
-			for (int i = 0; i < (ExtractMipmaps ? Header.MipmapCount : 1); i++)
+			for (int i = 0; i < (extractMipmaps ? Header.MipmapCount : 1); i++)
 			{
 				int mipmapSizeDivisor = (int)Math.Pow(2, i);
 				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset);
@@ -95,7 +95,7 @@ namespace DevilDaggersAssetCore.Chunks
 				// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
 				new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
 
-				yield return new FileResult($"{Name}{(ExtractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : "")}", memoryStream.ToArray());
+				yield return new FileResult($"{Name}{(extractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : "")}", memoryStream.ToArray());
 			}
 		}
 
