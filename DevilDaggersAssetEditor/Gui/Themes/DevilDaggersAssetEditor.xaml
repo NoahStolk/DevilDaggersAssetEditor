@@ -126,6 +126,14 @@
 			<Setter Property="IsReadOnly" Value="True" />
 		</Style.Setters>
 	</Style>
+	<Style TargetType="RichTextBox" x:Key="CodeRichTextBox">
+		<Style.Setters>
+			<Setter Property="FontFamily" Value="Consolas" />
+			<Setter Property="Background" Value="Black" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="IsReadOnly" Value="True" />
+		</Style.Setters>
+	</Style>
 
 	<Style TargetType="Image" x:Key="Logo">
 		<Style.Setters>
