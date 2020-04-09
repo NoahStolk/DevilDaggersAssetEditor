@@ -1,17 +1,17 @@
-﻿using System;
+﻿using DevilDaggersAssetCore.Assets;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using DevilDaggersAssetCore.Assets;
 
 namespace DevilDaggersAssetCore.BinaryFileHandlers
 {
 	public class ParticleFileHandler : AbstractBinaryFileHandler
 	{
-		private const string FolderName = "Particles";
-		private const string FileExtension = ".bin";
-		private const int ParticleBufferLength = 188;
+		private const string folderName = "Particles";
+		private const string fileExtension = ".bin";
+		private const int particleBufferLength = 188;
 
 		public ParticleFileHandler()
 			: base(BinaryFileType.Particle)
@@ -59,7 +59,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 
-			Directory.CreateDirectory(Path.Combine(outputPath, FolderName));
+			Directory.CreateDirectory(Path.Combine(outputPath, folderName));
 
 			// Byte 0 - 3 = version?
 			// Byte 4 - 7 = particle amount
@@ -72,11 +72,11 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				((IProgress<float>)progress).Report(i / (float)fileBuffer.Length);
 				((IProgress<string>)progressDescription).Report($"Creating Particle file for chunk \"{name}\".");
 
-				byte[] chunkBuffer = new byte[ParticleBufferLength];
+				byte[] chunkBuffer = new byte[particleBufferLength];
 				Buffer.BlockCopy(fileBuffer, i, chunkBuffer, 0, chunkBuffer.Length);
-				i += ParticleBufferLength;
+				i += particleBufferLength;
 
-				File.WriteAllBytes(Path.Combine(outputPath, FolderName, $"{name}{FileExtension}"), chunkBuffer);
+				File.WriteAllBytes(Path.Combine(outputPath, folderName, $"{name}{fileExtension}"), chunkBuffer);
 			}
 		}
 	}
