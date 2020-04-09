@@ -108,7 +108,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			App.Instance.ShowMessage("Devil Daggers process not found", "Please make sure Devil Daggers is running and try again.");
 		}
 
-		private void OKButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
+		private void OkButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
 
 		private void SetDevilDaggersRootFolder(string path)
 		{

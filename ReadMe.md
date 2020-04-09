@@ -12,6 +12,7 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 ## Dependencies
 - [NetBase](https://github.com/NoahStolk/NetBase)
 - [DevilDaggersCore](https://github.com/NoahStolk/DevilDaggersCore)
+- [SyntaxHighlighter](https://github.com/NoahStolk/SyntaxHighlighter)
 
 ## Main features
 - Extracting and compressing asset types
@@ -38,7 +39,7 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 3. Run DevilDaggersAssetEditor.exe inside the folder.
 
 ## Running from source
-- DevilDaggersAssetEditor is dependent on [NetBase](https://github.com/NoahStolk/NetBase/) and [DevilDaggersCore](https://github.com/NoahStolk/DevilDaggersCore/). Their sources need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
+- Make sure all the projects listed under "Dependencies" are properly referenced. The sources for the projects need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
 
 ## Links
 - [DevilDaggers.info website](https://devildaggers.info)
