@@ -21,8 +21,6 @@ namespace DevilDaggersAssetCore
 			}
 		}
 
-		public static bool HasFlagBothWays(this BinaryFileType a, BinaryFileType b) => a.HasFlag(b) || b.HasFlag(a);
-
 		public static bool IsPathValid(this string path)
 		{
 			try

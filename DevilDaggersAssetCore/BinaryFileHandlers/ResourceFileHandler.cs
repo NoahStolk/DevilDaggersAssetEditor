@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
+using NetBase.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
