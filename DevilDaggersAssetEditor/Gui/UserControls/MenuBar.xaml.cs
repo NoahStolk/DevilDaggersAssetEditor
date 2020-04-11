@@ -24,9 +24,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		{
 			InitializeComponent();
 
-			tabHandlers = new List<AbstractFileTabControlHandler>();
-			foreach (Type type in App.Instance.Assembly.GetTypes().Where(t => t.BaseType == typeof(AbstractFileTabControlHandler) && !t.IsAbstract).OrderBy(t => t.Name))
-				tabHandlers.Add((AbstractFileTabControlHandler)Activator.CreateInstance(type));
+			tabHandlers = App.Instance.Assembly
+				.GetTypes()
+				.Where(t => t.BaseType == typeof(AbstractFileTabControlHandler) && !t.IsAbstract)
+				.OrderBy(t => t.Name)
+				.Select(t => (AbstractFileTabControlHandler)Activator.CreateInstance(t))
+				.ToList();
 
 			foreach (AbstractFileTabControlHandler tabHandler in tabHandlers)
 				FileMenuItem.Items.Add(tabHandler.CreateFileTypeMenuItem());
