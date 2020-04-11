@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using System;
 using System.Linq;
 using System.Windows;
@@ -37,16 +37,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ShadersAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ShaderAssetRowControl ac in Handler.CreateAssetControls())
-				AssetEditor.Items.Add(ac);
+			foreach (ShaderAssetRowControl arc in Handler.CreateAssetRowControls())
+				AssetEditor.Items.Add(arc);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			ShaderAssetRowControl ac = e.AddedItems[0] as ShaderAssetRowControl;
+			ShaderAssetRowControl arc = e.AddedItems[0] as ShaderAssetRowControl;
 
-			Handler.SelectAsset(ac.Handler.Asset);
-			Previewer.Initialize(ac.Handler.Asset);
+			Handler.SelectAsset(arc.Handler.Asset);
+			Previewer.Initialize(arc.Handler.Asset);
 		}
 	}
 
@@ -61,8 +61,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		internal override void UpdateGui(ShaderAsset asset)
 		{
-			ShaderAssetRowControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
-			ac.TextBlockEditorPath.Text = asset.EditorPath;
+			ShaderAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			arc.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 
 		internal override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");

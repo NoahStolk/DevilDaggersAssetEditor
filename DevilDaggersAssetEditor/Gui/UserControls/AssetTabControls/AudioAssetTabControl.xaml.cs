@@ -2,7 +2,7 @@
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
 using DevilDaggersAssetEditor.Code.User;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -56,16 +56,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new AudioAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (AudioAssetRowControl ac in Handler.CreateAssetControls())
-				AssetEditor.Items.Add(ac);
+			foreach (AudioAssetRowControl arc in Handler.CreateAssetRowControls())
+				AssetEditor.Items.Add(arc);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			AudioAssetRowControl ac = e.AddedItems[0] as AudioAssetRowControl;
+			AudioAssetRowControl arc = e.AddedItems[0] as AudioAssetRowControl;
 
-			Handler.SelectAsset(ac.Handler.Asset);
-			Previewer.Initialize(ac.Handler.Asset);
+			Handler.SelectAsset(arc.Handler.Asset);
+			Previewer.Initialize(arc.Handler.Asset);
 		}
 	}
 
@@ -80,9 +80,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		internal override void UpdateGui(AudioAsset asset)
 		{
-			AudioAssetRowControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
-			ac.TextBlockEditorPath.Text = asset.EditorPath;
-			ac.TextBoxLoudness.Text = asset.Loudness.ToString();
+			AudioAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			arc.TextBlockEditorPath.Text = asset.EditorPath;
+			arc.TextBoxLoudness.Text = asset.Loudness.ToString();
 		}
 
 		internal void ImportLoudness()
@@ -126,7 +126,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 						successCount++;
 					}
 
-					AudioAssetRowControl aac = assetControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
+					AudioAssetRowControl aac = assetRowControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
 					aac.Handler.UpdateGui();
 				}
 			}

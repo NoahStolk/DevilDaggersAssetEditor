@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using System;
 using System.Linq;
 using System.Windows;
@@ -37,16 +37,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ModelsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ModelAssetRowControl ac in Handler.CreateAssetControls())
-				AssetEditor.Items.Add(ac);
+			foreach (ModelAssetRowControl arc in Handler.CreateAssetRowControls())
+				AssetEditor.Items.Add(arc);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			ModelAssetRowControl ac = e.AddedItems[0] as ModelAssetRowControl;
+			ModelAssetRowControl arc = e.AddedItems[0] as ModelAssetRowControl;
 
-			Handler.SelectAsset(ac.Handler.Asset);
-			Previewer.Initialize(ac.Handler.Asset);
+			Handler.SelectAsset(arc.Handler.Asset);
+			Previewer.Initialize(arc.Handler.Asset);
 		}
 	}
 
@@ -61,8 +61,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		internal override void UpdateGui(ModelAsset asset)
 		{
-			ModelAssetRowControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
-			ac.TextBlockEditorPath.Text = asset.EditorPath;
+			ModelAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			arc.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}
 }

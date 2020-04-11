@@ -12,17 +12,16 @@ using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Code
 {
-	internal abstract class AbstractAssetTabControlHandler<TAsset, TAssetControl>
+	internal abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl>
 		where TAsset : AbstractAsset
-		where TAssetControl : UserControl
+		where TAssetRowControl : UserControl
 	{
-		internal TAsset SelectedAsset { get; set; }
+		private protected abstract string AssetTypeJsonFileName { get; }
 
+		internal TAsset SelectedAsset { get; set; }
 		internal List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
-		private protected readonly List<TAssetControl> assetControls = new List<TAssetControl>();
-
-		private protected abstract string AssetTypeJsonFileName { get; }
+		private protected readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
@@ -37,15 +36,15 @@ namespace DevilDaggersAssetEditor.Code
 			SelectedAsset = asset;
 		}
 
-		internal IEnumerable<TAssetControl> CreateAssetControls()
+		internal IEnumerable<TAssetRowControl> CreateAssetRowControls()
 		{
 			int i = 0;
 			foreach (TAsset asset in Assets)
 			{
-				TAssetControl ac = (TAssetControl)Activator.CreateInstance(typeof(TAssetControl), asset);
-				ac.Background = new SolidColorBrush(Color.FromRgb(asset.ColorR, asset.ColorG, asset.ColorB) * (++i % 2 == 0 ? 0.125f : 0.25f));
-				assetControls.Add(ac);
-				yield return ac;
+				TAssetRowControl assetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), asset);
+				assetRowControl.Background = new SolidColorBrush(Color.FromRgb(asset.ColorR, asset.ColorG, asset.ColorB) * (++i % 2 == 0 ? 0.125f : 0.25f));
+				assetRowControls.Add(assetRowControl);
+				yield return assetRowControl;
 			}
 		}
 
