@@ -137,21 +137,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!result.HasValue || !result.Value)
 				return;
 
-			bool samePaths = true;
-			List<AbstractUserAsset> list = assets.ToList();
-			for (int i = 0; i < list.Count; i++)
-			{
-				string path1 = list[i].EditorPath;
-				string path2 = list[(i + 1) % list.Count].EditorPath;
-				if (!path1.IsPathValid() || !path2.IsPathValid() || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
-				{
-					samePaths = false;
-					break;
-				}
-			}
-
 			bool relativePaths = false;
-			if (samePaths)
+			if (AssetsHaveSameBasePaths())
 			{
 				MessageBoxResult relativePathsResult = MessageBox.Show("Specify whether you want this mod file to use relative paths (easier to share between computers or using zipped files containing assets).", "Use relative paths?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 				relativePaths = relativePathsResult == MessageBoxResult.Yes;
@@ -163,6 +150,20 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			ModFile modFile = new ModFile(App.LocalVersion, relativePaths, assets);
 
 			JsonFileUtils.SerializeToFile(dialog.FileName, modFile, true);
+
+			bool AssetsHaveSameBasePaths()
+			{
+				List<AbstractUserAsset> assetList = assets.ToList();
+				for (int i = 0; i < assetList.Count; i++)
+				{
+					string path1 = assetList[i].EditorPath;
+					string path2 = assetList[(i + 1) % assetList.Count].EditorPath;
+					if (!path1.IsPathValid() || !path2.IsPathValid() || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
+						return false;
+				}
+
+				return true;
+			}
 		}
 
 		private List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
