@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using JsonUtils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +19,7 @@ namespace ParticleExtract
 
 			File.WriteAllBytes(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\dd\particle", DictToBytes(ShuffleParticles(particleChunks)));
 
-			//SaveHexRepresentationFile(particleChunks);
+			SaveHexRepresentationFile(particleChunks);
 		}
 
 		private static Dictionary<string, byte[]> ShuffleParticles(Dictionary<string, byte[]> particleChunks)
@@ -77,7 +77,7 @@ namespace ParticleExtract
 			foreach (KeyValuePair<string, byte[]> kvp in particleChunks)
 				hex[kvp.Key] = BitConverter.ToString(kvp.Value).Replace(" - ", "");
 
-			SerializeToFile(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\Extracted\particle\Particle.json", hex);
+			JsonFileUtils.SerializeToFile(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\Extracted\particle\Particle.json", hex, false);
 		}
 
 		/// <summary>
@@ -98,25 +98,5 @@ namespace ParticleExtract
 			}
 			throw new Exception($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
 		}
-
-		private static void SerializeToFile(string path, object obj)
-		{
-			using (StreamWriter sw = new StreamWriter(File.Create(path)))
-			using (JsonTextWriter jtw = new JsonTextWriter(sw) { Formatting = Formatting.Indented, IndentChar = '\t', Indentation = 1 })
-				DefaultSerializer.Serialize(jtw, obj);
-		}
-
-		private static readonly JsonSerializerSettings DefaultSerializationSettings = new JsonSerializerSettings()
-		{
-			DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate
-		};
-		private static readonly JsonSerializerSettings TypeNameSerializationSettings = new JsonSerializerSettings()
-		{
-			TypeNameHandling = TypeNameHandling.Objects,
-			DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate
-		};
-
-		public static readonly JsonSerializer DefaultSerializer = JsonSerializer.Create(DefaultSerializationSettings);
-		public static readonly JsonSerializer TypeNameSerializer = JsonSerializer.Create(TypeNameSerializationSettings);
 	}
 }
