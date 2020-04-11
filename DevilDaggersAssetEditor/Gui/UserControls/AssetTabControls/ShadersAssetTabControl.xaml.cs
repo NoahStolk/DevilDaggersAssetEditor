@@ -62,7 +62,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		internal override void UpdateGui(ShaderAsset asset)
 		{
 			ShaderAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
-			arc.TextBlockEditorPath.Text = asset.EditorPath;
+			arc.TextBlockVertexEditorPath.Text = asset.EditorPath;
+			arc.TextBlockFragmentEditorPath.Text = asset.EditorPath;
 		}
 
 		internal override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");

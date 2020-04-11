@@ -16,11 +16,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			Handler = new ShaderAssetRowControlHandler(asset, this);
 
 			Data.DataContext = asset;
+
+			TextBlockVertexName.Text = $"{asset.AssetName}_vertex";
+			TextBlockFragmentName.Text = $"{asset.AssetName}_fragment";
 		}
 
-		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
+		private void ButtonVertexRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
+		private void ButtonVertexBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 
-		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
+		private void ButtonFragmentRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
+		private void ButtonFragmentBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 	}
 
 	internal class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>
@@ -32,7 +37,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		internal override void UpdateGui()
 		{
-			parent.TextBlockEditorPath.Text = Asset.EditorPath;
+			parent.TextBlockVertexEditorPath.Text = Asset.EditorPath; // TODO
+			parent.TextBlockFragmentEditorPath.Text = Asset.EditorPath; // TODO
 		}
 
 		internal override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
