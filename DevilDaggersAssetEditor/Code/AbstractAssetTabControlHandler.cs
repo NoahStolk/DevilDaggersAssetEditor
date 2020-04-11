@@ -10,7 +10,7 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
+namespace DevilDaggersAssetEditor.Code
 {
 	internal abstract class AbstractAssetTabControlHandler<TAsset, TAssetControl>
 		where TAsset : AbstractAsset

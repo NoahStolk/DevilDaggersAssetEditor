@@ -3,7 +3,7 @@ using DevilDaggersAssetEditor.Code.User;
 using Microsoft.Win32;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
+namespace DevilDaggersAssetEditor.Code
 {
 	internal abstract class AbstractAssetControlHandler<TAsset, TAssetControl>
 		where TAsset : AbstractAsset

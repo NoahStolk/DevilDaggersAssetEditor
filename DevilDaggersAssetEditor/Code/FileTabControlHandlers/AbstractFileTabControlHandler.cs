@@ -2,7 +2,6 @@
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
-using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Gui.Windows;
 using JsonUtils;

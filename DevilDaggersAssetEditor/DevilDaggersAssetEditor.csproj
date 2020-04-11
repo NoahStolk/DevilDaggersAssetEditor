@@ -202,8 +202,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\AbstractAssetTabControlHandler.cs" />
+    <Compile Include="Code\AbstractAssetControlHandler.cs" />
+    <Compile Include="Code\AbstractAssetTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\AbstractFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\AudioFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
