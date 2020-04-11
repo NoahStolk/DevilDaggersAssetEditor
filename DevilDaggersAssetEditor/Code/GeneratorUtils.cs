@@ -10,9 +10,9 @@ using System.Linq;
 
 namespace DevilDaggersAssetEditor.Code
 {
-	public static class GeneratorUtils
+	internal static class GeneratorUtils
 	{
-		public static void GenerateDdJsonFiles()
+		internal static void GenerateDdJsonFiles()
 		{
 			List<ModelBindingAsset> modelBindings = new List<ModelBindingAsset>();
 			List<ShaderAsset> shaders = new List<ShaderAsset>();
@@ -45,7 +45,7 @@ namespace DevilDaggersAssetEditor.Code
 			JsonFileUtils.SerializeToFile(@"C:\Users\NOAH\source\repos\DevilDaggersAssetEditor\DevilDaggersAssetCore\Content\dd\Textures.json", textures, false);
 		}
 
-		public static void GenerateCoreJsonFile()
+		internal static void GenerateCoreJsonFile()
 		{
 			List<ShaderAsset> shaders = new List<ShaderAsset>();
 
@@ -62,7 +62,7 @@ namespace DevilDaggersAssetEditor.Code
 			JsonFileUtils.SerializeToFile(@"C:\Users\NOAH\source\repos\DevilDaggersAssetEditor\DevilDaggersAssetCore\Content\core\Shaders.json", shaders, false);
 		}
 
-		public static void ReadTextureDataFromTextFile()
+		internal static void ReadTextureDataFromTextFile()
 		{
 			List<TextureAsset> textures;
 			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.dd.Textures.json")))

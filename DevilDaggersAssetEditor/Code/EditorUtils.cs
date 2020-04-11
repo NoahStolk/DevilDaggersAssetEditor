@@ -3,11 +3,11 @@ using System.Reflection;
 
 namespace DevilDaggersAssetEditor.Code
 {
-	public static class EditorUtils
+	internal static class EditorUtils
 	{
-		public static Uri MakeUri(string localPath) => new Uri($"pack://application:,,,/{Assembly.GetCallingAssembly().GetName().Name};component/{localPath}");
+		internal static Uri MakeUri(string localPath) => new Uri($"pack://application:,,,/{Assembly.GetCallingAssembly().GetName().Name};component/{localPath}");
 
-		public static string ToTimeString(int milliseconds)
+		internal static string ToTimeString(int milliseconds)
 		{
 			TimeSpan timeSpan = new TimeSpan(0, 0, 0, 0, milliseconds);
 			if (timeSpan.Days > 0)

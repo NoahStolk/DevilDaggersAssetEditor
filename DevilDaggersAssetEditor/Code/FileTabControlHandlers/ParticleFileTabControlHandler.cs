@@ -7,11 +7,11 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	public class ParticleFileTabControlHandler : AbstractFileTabControlHandler
+	internal class ParticleFileTabControlHandler : AbstractFileTabControlHandler
 	{
-		public override AbstractBinaryFileHandler FileHandler => new ParticleFileHandler();
+		internal override AbstractBinaryFileHandler FileHandler => new ParticleFileHandler();
 
-		public override MenuItem CreateFileTypeMenuItem()
+		internal override MenuItem CreateFileTypeMenuItem()
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
@@ -24,10 +24,10 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+		internal override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 
-		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets, App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler);
+		private protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets, App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler);
 
-		protected override bool IsComplete() => App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.IsComplete();
+		private protected override bool IsComplete() => App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.IsComplete();
 	}
 }

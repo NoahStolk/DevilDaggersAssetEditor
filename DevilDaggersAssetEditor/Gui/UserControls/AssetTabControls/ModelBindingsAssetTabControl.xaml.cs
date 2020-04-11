@@ -52,7 +52,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 	internal class ModelBindingsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelBindingAsset, ModelBindingAssetRowControl>
 	{
-		protected override string AssetTypeJsonFileName => "Model Bindings";
+		private protected override string AssetTypeJsonFileName => "Model Bindings";
 
 		internal ModelBindingsAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)

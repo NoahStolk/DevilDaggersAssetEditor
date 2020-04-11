@@ -52,7 +52,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 	internal class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetRowControl>
 	{
-		protected override string AssetTypeJsonFileName => "Shaders";
+		private protected override string AssetTypeJsonFileName => "Shaders";
 
 		internal ShadersAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)

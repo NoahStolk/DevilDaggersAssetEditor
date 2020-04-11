@@ -10,8 +10,8 @@ namespace DevilDaggersAssetEditor.Code
 		where TAssetControl : UserControl
 	{
 		internal TAsset Asset { get; }
-		protected readonly TAssetControl parent;
-		protected readonly string openDialogFilter;
+		private protected readonly TAssetControl parent;
+		private protected readonly string openDialogFilter;
 
 		internal AbstractAssetRowControlHandler(TAsset asset, TAssetControl parent, string openDialogFilter)
 		{

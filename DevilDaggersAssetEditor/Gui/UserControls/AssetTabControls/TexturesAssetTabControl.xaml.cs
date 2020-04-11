@@ -52,7 +52,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 	internal class TexturesAssetTabControlHandler : AbstractAssetTabControlHandler<TextureAsset, TextureAssetRowControl>
 	{
-		protected override string AssetTypeJsonFileName => "Textures";
+		private protected override string AssetTypeJsonFileName => "Textures";
 
 		internal TexturesAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)

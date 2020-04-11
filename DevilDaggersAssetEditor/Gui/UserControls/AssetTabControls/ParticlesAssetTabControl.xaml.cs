@@ -52,7 +52,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 	internal class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetRowControl>
 	{
-		protected override string AssetTypeJsonFileName => "Particles";
+		private protected override string AssetTypeJsonFileName => "Particles";
 
 		internal ParticlesAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)

@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 	internal class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl>
 	{
-		protected override string AssetTypeJsonFileName => "Audio";
+		private protected override string AssetTypeJsonFileName => "Audio";
 
 		internal AudioAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)

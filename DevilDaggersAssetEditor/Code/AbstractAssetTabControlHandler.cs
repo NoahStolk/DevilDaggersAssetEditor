@@ -20,9 +20,9 @@ namespace DevilDaggersAssetEditor.Code
 
 		internal List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
-		protected readonly List<TAssetControl> assetControls = new List<TAssetControl>();
+		private protected readonly List<TAssetControl> assetControls = new List<TAssetControl>();
 
-		protected abstract string AssetTypeJsonFileName { get; }
+		private protected abstract string AssetTypeJsonFileName { get; }
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
