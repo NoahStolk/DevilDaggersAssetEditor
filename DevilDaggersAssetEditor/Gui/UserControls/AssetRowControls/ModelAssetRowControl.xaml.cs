@@ -5,15 +5,15 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 {
-	public partial class ModelBindingAssetControl : UserControl
+	public partial class ModelAssetRowControl : UserControl
 	{
-		internal ModelBindingAssetControlHandler Handler { get; private set; }
+		internal ModelAssetRowControlHandler Handler { get; private set; }
 
-		public ModelBindingAssetControl(ModelBindingAsset asset)
+		public ModelAssetRowControl(ModelAsset asset)
 		{
 			InitializeComponent();
 
-			Handler = new ModelBindingAssetControlHandler(asset, this);
+			Handler = new ModelAssetRowControlHandler(asset, this);
 
 			Data.DataContext = asset;
 		}
@@ -23,10 +23,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 	}
 
-	internal class ModelBindingAssetControlHandler : AbstractAssetControlHandler<ModelBindingAsset, ModelBindingAssetControl>
+	internal class ModelAssetRowControlHandler : AbstractAssetRowControlHandler<ModelAsset, ModelAssetRowControl>
 	{
-		internal ModelBindingAssetControlHandler(ModelBindingAsset asset, ModelBindingAssetControl parent)
-			: base(asset, parent, "Model binding files (*.txt)|*.txt")
+		internal ModelAssetRowControlHandler(ModelAsset asset, ModelAssetRowControl parent)
+			: base(asset, parent, "Model files (*.obj)|*.obj")
 		{
 		}
 

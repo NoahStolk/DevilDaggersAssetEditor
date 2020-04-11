@@ -5,15 +5,15 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 {
-	public partial class TextureAssetControl : UserControl
+	public partial class ParticleAssetRowControl : UserControl
 	{
-		internal TextureAssetControlHandler Handler { get; private set; }
+		internal ParticleAssetRowControlHandler Handler { get; private set; }
 
-		public TextureAssetControl(TextureAsset asset)
+		public ParticleAssetRowControl(ParticleAsset asset)
 		{
 			InitializeComponent();
 
-			Handler = new TextureAssetControlHandler(asset, this);
+			Handler = new ParticleAssetRowControlHandler(asset, this);
 
 			Data.DataContext = asset;
 		}
@@ -23,10 +23,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 	}
 
-	internal class TextureAssetControlHandler : AbstractAssetControlHandler<TextureAsset, TextureAssetControl>
+	internal class ParticleAssetRowControlHandler : AbstractAssetRowControlHandler<ParticleAsset, ParticleAssetRowControl>
 	{
-		internal TextureAssetControlHandler(TextureAsset asset, TextureAssetControl parent)
-			: base(asset, parent, "Texture files (*.png)|*.png")
+		internal ParticleAssetRowControlHandler(ParticleAsset asset, ParticleAssetRowControl parent)
+			: base(asset, parent, "Particle files (*.bin)|*.bin")
 		{
 		}
 

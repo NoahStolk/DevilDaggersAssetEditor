@@ -37,20 +37,20 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ShadersAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ShaderAssetControl ac in Handler.CreateAssetControls())
+			foreach (ShaderAssetRowControl ac in Handler.CreateAssetControls())
 				AssetEditor.Items.Add(ac);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			ShaderAssetControl ac = e.AddedItems[0] as ShaderAssetControl;
+			ShaderAssetRowControl ac = e.AddedItems[0] as ShaderAssetRowControl;
 
 			Handler.SelectAsset(ac.Handler.Asset);
 			Previewer.Initialize(ac.Handler.Asset);
 		}
 	}
 
-	internal class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetControl>
+	internal class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetRowControl>
 	{
 		protected override string AssetTypeJsonFileName => "Shaders";
 
@@ -61,7 +61,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		internal override void UpdateGui(ShaderAsset asset)
 		{
-			ShaderAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			ShaderAssetRowControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 

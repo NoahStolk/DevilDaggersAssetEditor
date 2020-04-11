@@ -5,15 +5,15 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 {
-	public partial class ShaderAssetControl : UserControl
+	public partial class ShaderAssetRowControl : UserControl
 	{
-		internal ShaderAssetControlHandler Handler { get; private set; }
+		internal ShaderAssetRowControlHandler Handler { get; private set; }
 
-		public ShaderAssetControl(ShaderAsset asset)
+		public ShaderAssetRowControl(ShaderAsset asset)
 		{
 			InitializeComponent();
 
-			Handler = new ShaderAssetControlHandler(asset, this);
+			Handler = new ShaderAssetRowControlHandler(asset, this);
 
 			Data.DataContext = asset;
 		}
@@ -23,9 +23,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 	}
 
-	internal class ShaderAssetControlHandler : AbstractAssetControlHandler<ShaderAsset, ShaderAssetControl>
+	internal class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>
 	{
-		internal ShaderAssetControlHandler(ShaderAsset asset, ShaderAssetControl parent)
+		internal ShaderAssetRowControlHandler(ShaderAsset asset, ShaderAssetRowControl parent)
 			: base(asset, parent, "Shader files (*.glsl)|*.glsl")
 		{
 		}

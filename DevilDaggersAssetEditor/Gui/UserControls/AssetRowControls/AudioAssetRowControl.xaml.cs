@@ -6,15 +6,15 @@ using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 {
-	public partial class AudioAssetControl : UserControl
+	public partial class AudioAssetRowControl : UserControl
 	{
-		internal AudioAssetControlHandler Handler { get; private set; }
+		internal AudioAssetRowControlHandler Handler { get; private set; }
 
-		public AudioAssetControl(AudioAsset asset)
+		public AudioAssetRowControl(AudioAsset asset)
 		{
 			InitializeComponent();
 
-			Handler = new AudioAssetControlHandler(asset, this);
+			Handler = new AudioAssetRowControlHandler(asset, this);
 
 			Data.DataContext = asset;
 		}
@@ -41,9 +41,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) => TextBoxLoudness.TextChanged += TextBoxLoudness_TextChanged;
 	}
 
-	internal class AudioAssetControlHandler : AbstractAssetControlHandler<AudioAsset, AudioAssetControl>
+	internal class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
 	{
-		internal AudioAssetControlHandler(AudioAsset asset, AudioAssetControl parent)
+		internal AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent)
 			: base(asset, parent, "Audio files (*.wav)|*.wav")
 		{
 		}

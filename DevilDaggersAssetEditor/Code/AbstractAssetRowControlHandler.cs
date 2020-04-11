@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code
 {
-	internal abstract class AbstractAssetControlHandler<TAsset, TAssetControl>
+	internal abstract class AbstractAssetRowControlHandler<TAsset, TAssetControl>
 		where TAsset : AbstractAsset
 		where TAssetControl : UserControl
 	{
@@ -13,7 +13,7 @@ namespace DevilDaggersAssetEditor.Code
 		protected readonly TAssetControl parent;
 		protected readonly string openDialogFilter;
 
-		internal AbstractAssetControlHandler(TAsset asset, TAssetControl parent, string openDialogFilter)
+		internal AbstractAssetRowControlHandler(TAsset asset, TAssetControl parent, string openDialogFilter)
 		{
 			Asset = asset;
 			this.parent = parent;

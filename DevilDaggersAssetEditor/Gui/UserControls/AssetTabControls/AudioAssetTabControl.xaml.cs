@@ -56,20 +56,20 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new AudioAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (AudioAssetControl ac in Handler.CreateAssetControls())
+			foreach (AudioAssetRowControl ac in Handler.CreateAssetControls())
 				AssetEditor.Items.Add(ac);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			AudioAssetControl ac = e.AddedItems[0] as AudioAssetControl;
+			AudioAssetRowControl ac = e.AddedItems[0] as AudioAssetRowControl;
 
 			Handler.SelectAsset(ac.Handler.Asset);
 			Previewer.Initialize(ac.Handler.Asset);
 		}
 	}
 
-	internal class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetControl>
+	internal class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl>
 	{
 		protected override string AssetTypeJsonFileName => "Audio";
 
@@ -80,7 +80,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		internal override void UpdateGui(AudioAsset asset)
 		{
-			AudioAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			AudioAssetRowControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			ac.TextBlockEditorPath.Text = asset.EditorPath;
 			ac.TextBoxLoudness.Text = asset.Loudness.ToString();
 		}
@@ -126,7 +126,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 						successCount++;
 					}
 
-					AudioAssetControl aac = assetControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
+					AudioAssetRowControl aac = assetControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
 					aac.Handler.UpdateGui();
 				}
 			}
