@@ -12,13 +12,13 @@ using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 {
-	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetControl>
+	internal abstract class AbstractAssetTabControlHandler<TAsset, TAssetControl>
 		where TAsset : AbstractAsset
 		where TAssetControl : UserControl
 	{
-		public TAsset SelectedAsset { get; set; }
+		internal TAsset SelectedAsset { get; set; }
 
-		public List<TAsset> Assets { get; private set; } = new List<TAsset>();
+		internal List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
 		protected readonly List<TAssetControl> assetControls = new List<TAssetControl>();
 
@@ -30,14 +30,14 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
 
-		public abstract void UpdateGui(TAsset asset);
+		internal abstract void UpdateGui(TAsset asset);
 
-		public void SelectAsset(TAsset asset)
+		internal void SelectAsset(TAsset asset)
 		{
 			SelectedAsset = asset;
 		}
 
-		public IEnumerable<TAssetControl> CreateAssetControls()
+		internal IEnumerable<TAssetControl> CreateAssetControls()
 		{
 			int i = 0;
 			foreach (TAsset asset in Assets)
@@ -49,7 +49,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 			}
 		}
 
-		public void ImportFolder()
+		internal void ImportFolder()
 		{
 			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
 			{
@@ -69,7 +69,7 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 			}
 		}
 
-		public bool IsComplete()
+		internal bool IsComplete()
 		{
 			foreach (TAsset asset in Assets)
 				if (!asset.EditorPath.IsPathValid())
@@ -77,6 +77,6 @@ namespace DevilDaggersAssetEditor.Code.AssetTabControlHandlers
 			return true;
 		}
 
-		public virtual string FileNameToChunkName(string fileName) => fileName;
+		internal virtual string FileNameToChunkName(string fileName) => fileName;
 	}
 }

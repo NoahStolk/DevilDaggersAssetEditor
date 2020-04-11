@@ -7,7 +7,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 {
 	public partial class ModelAssetControl : UserControl
 	{
-		public ModelAssetControlHandler Handler { get; private set; }
+		internal ModelAssetControlHandler Handler { get; private set; }
 
 		public ModelAssetControl(ModelAsset asset)
 		{
@@ -21,5 +21,18 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
+	}
+
+	internal class ModelAssetControlHandler : AbstractAssetControlHandler<ModelAsset, ModelAssetControl>
+	{
+		internal ModelAssetControlHandler(ModelAsset asset, ModelAssetControl parent)
+			: base(asset, parent, "Model files (*.obj)|*.obj")
+		{
+		}
+
+		internal override void UpdateGui()
+		{
+			parent.TextBlockEditorPath.Text = Asset.EditorPath;
+		}
 	}
 }

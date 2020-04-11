@@ -7,7 +7,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 {
 	public partial class TextureAssetControl : UserControl
 	{
-		public TextureAssetControlHandler Handler { get; private set; }
+		internal TextureAssetControlHandler Handler { get; private set; }
 
 		public TextureAssetControl(TextureAsset asset)
 		{
@@ -21,5 +21,18 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
+	}
+
+	internal class TextureAssetControlHandler : AbstractAssetControlHandler<TextureAsset, TextureAssetControl>
+	{
+		internal TextureAssetControlHandler(TextureAsset asset, TextureAssetControl parent)
+			: base(asset, parent, "Texture files (*.png)|*.png")
+		{
+		}
+
+		internal override void UpdateGui()
+		{
+			parent.TextBlockEditorPath.Text = Asset.EditorPath;
+		}
 	}
 }

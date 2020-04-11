@@ -1,7 +1,9 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,7 +24,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ParticlesAssetTabControlHandler Handler { get; private set; }
+		internal ParticlesAssetTabControlHandler Handler { get; private set; }
 
 		public ParticlesAssetTabControl()
 		{
@@ -45,6 +47,22 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler.SelectAsset(ac.Handler.Asset);
 			Previewer.Initialize(ac.Handler.Asset);
+		}
+	}
+
+	internal class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetControl>
+	{
+		protected override string AssetTypeJsonFileName => "Particles";
+
+		internal ParticlesAssetTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
+		{
+		}
+
+		internal override void UpdateGui(ParticleAsset asset)
+		{
+			ParticleAssetControl ac = assetControls.FirstOrDefault(a => a.Handler.Asset == asset);
+			ac.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}
 }

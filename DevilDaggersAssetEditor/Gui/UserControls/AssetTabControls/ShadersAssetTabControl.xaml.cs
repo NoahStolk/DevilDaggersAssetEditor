@@ -1,7 +1,9 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,7 +24,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ShadersAssetTabControlHandler Handler { get; private set; }
+		internal ShadersAssetTabControlHandler Handler { get; private set; }
 
 		public ShadersAssetTabControl()
 		{
@@ -46,5 +48,23 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			Handler.SelectAsset(ac.Handler.Asset);
 			Previewer.Initialize(ac.Handler.Asset);
 		}
+	}
+
+	internal class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetControl>
+	{
+		protected override string AssetTypeJsonFileName => "Shaders";
+
+		internal ShadersAssetTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
+		{
+		}
+
+		internal override void UpdateGui(ShaderAsset asset)
+		{
+			ShaderAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			ac.TextBlockEditorPath.Text = asset.EditorPath;
+		}
+
+		internal override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
 	}
 }

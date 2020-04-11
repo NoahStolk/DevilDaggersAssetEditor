@@ -5,15 +5,15 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 {
-	public abstract class AbstractAssetControlHandler<TAsset, TAssetControl>
+	internal abstract class AbstractAssetControlHandler<TAsset, TAssetControl>
 		where TAsset : AbstractAsset
 		where TAssetControl : UserControl
 	{
-		public TAsset Asset { get; }
+		internal TAsset Asset { get; }
 		protected readonly TAssetControl parent;
 		protected readonly string openDialogFilter;
 
-		public AbstractAssetControlHandler(TAsset asset, TAssetControl parent, string openDialogFilter)
+		internal AbstractAssetControlHandler(TAsset asset, TAssetControl parent, string openDialogFilter)
 		{
 			Asset = asset;
 			this.parent = parent;
@@ -22,9 +22,9 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 			UpdateGui();
 		}
 
-		public abstract void UpdateGui();
+		internal abstract void UpdateGui();
 
-		public virtual void BrowsePath()
+		internal virtual void BrowsePath()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
 			bool? openResult = openDialog.ShowDialog();
@@ -36,13 +36,13 @@ namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
 			UpdateGui();
 		}
 
-		public void RemovePath()
+		internal void RemovePath()
 		{
 			Asset.EditorPath = AbstractAsset.EditorPathNone;
 
 			UpdateGui();
 		}
 
-		public virtual string FileNameToChunkName(string fileName) => fileName;
+		internal virtual string FileNameToChunkName(string fileName) => fileName;
 	}
 }

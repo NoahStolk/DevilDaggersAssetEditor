@@ -203,19 +203,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\AudioAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ShaderAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ParticleAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\TextureAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ModelAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ModelBindingAssetControlHandler.cs" />
     <Compile Include="Code\AssetTabControlHandlers\AbstractAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ShadersAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ParticlesAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\TexturesAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ModelsAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ModelBindingsAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\AudioAssetTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\AbstractFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\AudioFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />

@@ -7,7 +7,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 {
 	public partial class ShaderAssetControl : UserControl
 	{
-		public ShaderAssetControlHandler Handler { get; private set; }
+		internal ShaderAssetControlHandler Handler { get; private set; }
 
 		public ShaderAssetControl(ShaderAsset asset)
 		{
@@ -21,5 +21,20 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
+	}
+
+	internal class ShaderAssetControlHandler : AbstractAssetControlHandler<ShaderAsset, ShaderAssetControl>
+	{
+		internal ShaderAssetControlHandler(ShaderAsset asset, ShaderAssetControl parent)
+			: base(asset, parent, "Shader files (*.glsl)|*.glsl")
+		{
+		}
+
+		internal override void UpdateGui()
+		{
+			parent.TextBlockEditorPath.Text = Asset.EditorPath;
+		}
+
+		internal override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
 	}
 }

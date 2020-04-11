@@ -1,7 +1,9 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,7 +24,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ModelBindingsAssetTabControlHandler Handler { get; private set; }
+		internal ModelBindingsAssetTabControlHandler Handler { get; private set; }
 
 		public ModelBindingsAssetTabControl()
 		{
@@ -45,6 +47,22 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler.SelectAsset(ac.Handler.Asset);
 			Previewer.Initialize(ac.Handler.Asset);
+		}
+	}
+
+	internal class ModelBindingsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelBindingAsset, ModelBindingAssetControl>
+	{
+		protected override string AssetTypeJsonFileName => "Model Bindings";
+
+		internal ModelBindingsAssetTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
+		{
+		}
+
+		internal override void UpdateGui(ModelBindingAsset asset)
+		{
+			ModelBindingAssetControl ac = assetControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			ac.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}
 }
