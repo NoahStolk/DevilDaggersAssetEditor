@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Code.User;
-using DevilDaggersCore.MemoryHandling;
+using DevilDaggersCore.Processes;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.ComponentModel;
