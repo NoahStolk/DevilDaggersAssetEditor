@@ -25,8 +25,8 @@ namespace DevilDaggersAssetEditor.Code
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
-			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json")))
-				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
+			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json"));
+			Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
 
 		public abstract void UpdateGui(TAsset asset);
@@ -50,20 +50,18 @@ namespace DevilDaggersAssetEditor.Code
 
 		public void ImportFolder()
 		{
-			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
-			{
-				CommonFileDialogResult result = dialog.ShowDialog();
-				if (result != CommonFileDialogResult.Ok)
-					return;
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
+			CommonFileDialogResult result = dialog.ShowDialog();
+			if (result != CommonFileDialogResult.Ok)
+				return;
 
-				foreach (string filePath in Directory.GetFiles(dialog.FileName))
+			foreach (string filePath in Directory.GetFiles(dialog.FileName))
+			{
+				TAsset asset = Assets.Where(a => a.AssetName == FileNameToChunkName(Path.GetFileNameWithoutExtension(filePath))).Cast<TAsset>().FirstOrDefault();
+				if (asset != null)
 				{
-					TAsset asset = Assets.Where(a => a.AssetName == FileNameToChunkName(Path.GetFileNameWithoutExtension(filePath))).Cast<TAsset>().FirstOrDefault();
-					if (asset != null)
-					{
-						asset.EditorPath = FileNameToChunkName(filePath);
-						UpdateGui(asset);
-					}
+					asset.EditorPath = FileNameToChunkName(filePath);
+					UpdateGui(asset);
 				}
 			}
 		}

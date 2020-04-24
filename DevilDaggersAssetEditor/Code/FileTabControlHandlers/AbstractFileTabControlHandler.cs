@@ -70,22 +70,20 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			using (CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
+			using CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
+			if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
 			{
-				if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
+				ProgressWindow progressWindow = new ProgressWindow($"Extracting '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
+				progressWindow.Show();
+				await Task.Run(() =>
 				{
-					ProgressWindow progressWindow = new ProgressWindow($"Extracting '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
-					progressWindow.Show();
-					await Task.Run(() =>
-					{
-						FileHandler.Extract(
-							openDialog.FileName,
-							folderDialog.FileName,
-							new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
-							new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
-						App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
-					});
-				}
+					FileHandler.Extract(
+						openDialog.FileName,
+						folderDialog.FileName,
+						new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
+						new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
+					App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
+				});
 			}
 		}
 
@@ -189,13 +187,11 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (modFile.HasRelativePaths)
 			{
 				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
-				using (CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
-				{
-					CommonFileDialogResult result = basePathDialog.ShowDialog();
-					if (result == CommonFileDialogResult.Ok)
-						foreach (AbstractUserAsset asset in modFile.Assets)
-							asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
-				}
+				using CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
+				CommonFileDialogResult result = basePathDialog.ShowDialog();
+				if (result == CommonFileDialogResult.Ok)
+					foreach (AbstractUserAsset asset in modFile.Assets)
+						asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
 			}
 			return modFile;
 		}

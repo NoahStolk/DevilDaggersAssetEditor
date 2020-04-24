@@ -49,52 +49,46 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void BrowseDevilDaggersRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog
 			{
 				IsFolderPicker = true,
 				InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder
-			})
-			{
-				CommonFileDialogResult result = dialog.ShowDialog();
+			};
+			CommonFileDialogResult result = dialog.ShowDialog();
 
-				if (result == CommonFileDialogResult.Ok)
-					SetDevilDaggersRootFolder(dialog.FileName);
-			}
+			if (result == CommonFileDialogResult.Ok)
+				SetDevilDaggersRootFolder(dialog.FileName);
 		}
 
 		private void BrowseModsRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog
 			{
 				IsFolderPicker = true,
 				InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder
-			})
-			{
-				CommonFileDialogResult result = dialog.ShowDialog();
+			};
+			CommonFileDialogResult result = dialog.ShowDialog();
 
-				if (result == CommonFileDialogResult.Ok)
-				{
-					UserHandler.Instance.settings.ModsRootFolder = dialog.FileName;
-					LabelModsRootFolder.Content = UserHandler.Instance.settings.ModsRootFolder;
-				}
+			if (result == CommonFileDialogResult.Ok)
+			{
+				UserHandler.Instance.settings.ModsRootFolder = dialog.FileName;
+				LabelModsRootFolder.Content = UserHandler.Instance.settings.ModsRootFolder;
 			}
 		}
 
 		private void BrowseAssetsRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog
 			{
 				IsFolderPicker = true,
 				InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder
-			})
-			{
-				CommonFileDialogResult result = dialog.ShowDialog();
+			};
+			CommonFileDialogResult result = dialog.ShowDialog();
 
-				if (result == CommonFileDialogResult.Ok)
-				{
-					UserHandler.Instance.settings.AssetsRootFolder = dialog.FileName;
-					LabelAssetsRootFolder.Content = UserHandler.Instance.settings.AssetsRootFolder;
-				}
+			if (result == CommonFileDialogResult.Ok)
+			{
+				UserHandler.Instance.settings.AssetsRootFolder = dialog.FileName;
+				LabelAssetsRootFolder.Content = UserHandler.Instance.settings.AssetsRootFolder;
 			}
 		}
 

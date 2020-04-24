@@ -49,8 +49,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		{
 			SettingsWindow settingsWindow = new SettingsWindow();
 			if (settingsWindow.ShowDialog() == true)
-				using (StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName)))
-					sw.Write(JsonConvert.SerializeObject(UserHandler.Instance.settings, Formatting.Indented));
+			{
+				using StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName));
+				sw.Write(JsonConvert.SerializeObject(UserHandler.Instance.settings, Formatting.Indented));
+			}
 		}
 
 		private void About_Click(object sender, RoutedEventArgs e)
