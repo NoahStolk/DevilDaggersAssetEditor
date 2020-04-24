@@ -17,11 +17,11 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	internal abstract class AbstractFileTabControlHandler
+	public abstract class AbstractFileTabControlHandler
 	{
-		internal abstract AbstractBinaryFileHandler FileHandler { get; }
+		public abstract AbstractBinaryFileHandler FileHandler { get; }
 
-		internal virtual MenuItem CreateFileTypeMenuItem()
+		public virtual MenuItem CreateFileTypeMenuItem()
 		{
 			BinaryFileType binaryFileType = FileHandler.BinaryFileType;
 			string fileName = binaryFileType.ToString().ToLower();
@@ -59,9 +59,9 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		private protected abstract bool IsComplete();
+		protected abstract bool IsComplete();
 
-		internal abstract List<AbstractAsset> GetAssets();
+		public abstract List<AbstractAsset> GetAssets();
 
 		private async void Extract_Click()
 		{
@@ -200,9 +200,9 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return modFile;
 		}
 
-		private protected abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
+		protected abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		private protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl> assetTabControlHandler)
+		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl> assetTabControlHandler)
 			where TUserAsset : AbstractUserAsset
 			where TAsset : AbstractAsset
 			where TAssetRowControl : UserControl

@@ -24,7 +24,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		internal ShadersAssetTabControlHandler Handler { get; private set; }
+		public ShadersAssetTabControlHandler Handler { get; private set; }
 
 		public ShadersAssetTabControl()
 		{
@@ -50,22 +50,22 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	internal class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetRowControl>
+	public class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetRowControl>
 	{
-		private protected override string AssetTypeJsonFileName => "Shaders";
+		protected override string AssetTypeJsonFileName => "Shaders";
 
-		internal ShadersAssetTabControlHandler(BinaryFileType binaryFileType)
+		public ShadersAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
 
-		internal override void UpdateGui(ShaderAsset asset)
+		public override void UpdateGui(ShaderAsset asset)
 		{
 			ShaderAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			arc.TextBlockVertexEditorPath.Text = asset.EditorPath;
 			arc.TextBlockFragmentEditorPath.Text = asset.EditorPath;
 		}
 
-		internal override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
+		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
 	}
 }

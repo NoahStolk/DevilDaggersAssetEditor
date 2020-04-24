@@ -8,11 +8,11 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	internal class DdFileTabControlHandler : AbstractFileTabControlHandler
+	public class DdFileTabControlHandler : AbstractFileTabControlHandler
 	{
-		internal override AbstractBinaryFileHandler FileHandler => new ResourceFileHandler(BinaryFileType.Dd);
+		public override AbstractBinaryFileHandler FileHandler => new ResourceFileHandler(BinaryFileType.Dd);
 
-		internal override MenuItem CreateFileTypeMenuItem()
+		public override MenuItem CreateFileTypeMenuItem()
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
@@ -34,14 +34,14 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		internal override List<AbstractAsset> GetAssets()
+		public override List<AbstractAsset> GetAssets()
 			=> App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.Assets.Cast<AbstractAsset>()
 				.Concat(App.Instance.MainWindow.DdModelsAssetTabControl.Handler.Assets.Cast<AbstractAsset>())
 				.Concat(App.Instance.MainWindow.DdShadersAssetTabControl.Handler.Assets.Cast<AbstractAsset>())
 				.Concat(App.Instance.MainWindow.DdTexturesAssetTabControl.Handler.Assets.Cast<AbstractAsset>())
 				.ToList();
 
-		private protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
+		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
 		{
 			UpdateAssetTabControl(assets, App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler);
 			UpdateAssetTabControl(assets, App.Instance.MainWindow.DdModelsAssetTabControl.Handler);
@@ -49,7 +49,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			UpdateAssetTabControl(assets, App.Instance.MainWindow.DdTexturesAssetTabControl.Handler);
 		}
 
-		private protected override bool IsComplete()
+		protected override bool IsComplete()
 			=> App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.IsComplete()
 			&& App.Instance.MainWindow.DdModelsAssetTabControl.Handler.IsComplete()
 			&& App.Instance.MainWindow.DdShadersAssetTabControl.Handler.IsComplete()

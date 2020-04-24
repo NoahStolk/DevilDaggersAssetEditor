@@ -24,7 +24,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		internal TexturesAssetTabControlHandler Handler { get; private set; }
+		public TexturesAssetTabControlHandler Handler { get; private set; }
 
 		public TexturesAssetTabControl()
 		{
@@ -50,16 +50,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	internal class TexturesAssetTabControlHandler : AbstractAssetTabControlHandler<TextureAsset, TextureAssetRowControl>
+	public class TexturesAssetTabControlHandler : AbstractAssetTabControlHandler<TextureAsset, TextureAssetRowControl>
 	{
-		private protected override string AssetTypeJsonFileName => "Textures";
+		protected override string AssetTypeJsonFileName => "Textures";
 
-		internal TexturesAssetTabControlHandler(BinaryFileType binaryFileType)
+		public TexturesAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
 
-		internal override void UpdateGui(TextureAsset asset)
+		public override void UpdateGui(TextureAsset asset)
 		{
 			TextureAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			arc.TextBlockEditorPath.Text = asset.EditorPath;

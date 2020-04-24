@@ -30,7 +30,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		internal AudioAssetTabControlHandler Handler { get; private set; }
+		public AudioAssetTabControlHandler Handler { get; private set; }
 
 		public AudioAssetTabControl()
 		{
@@ -69,23 +69,23 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	internal class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl>
+	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl>
 	{
-		private protected override string AssetTypeJsonFileName => "Audio";
+		protected override string AssetTypeJsonFileName => "Audio";
 
-		internal AudioAssetTabControlHandler(BinaryFileType binaryFileType)
+		public AudioAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
 
-		internal override void UpdateGui(AudioAsset asset)
+		public override void UpdateGui(AudioAsset asset)
 		{
 			AudioAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.TextBoxLoudness.Text = asset.Loudness.ToString();
 		}
 
-		internal void ImportLoudness()
+		public void ImportLoudness()
 		{
 			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = "Initialization files (*.ini)|*.ini" };
 			bool? openResult = dialog.ShowDialog();
@@ -150,7 +150,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			}
 		}
 
-		internal void ExportLoudness()
+		public void ExportLoudness()
 		{
 			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = "Initialization files (*.ini)|*.ini" };
 			bool? result = dialog.ShowDialog();

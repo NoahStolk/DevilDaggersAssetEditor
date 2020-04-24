@@ -8,11 +8,11 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	internal class CoreFileTabControlHandler : AbstractFileTabControlHandler
+	public class CoreFileTabControlHandler : AbstractFileTabControlHandler
 	{
-		internal override AbstractBinaryFileHandler FileHandler => new ResourceFileHandler(BinaryFileType.Core);
+		public override AbstractBinaryFileHandler FileHandler => new ResourceFileHandler(BinaryFileType.Core);
 
-		internal override MenuItem CreateFileTypeMenuItem()
+		public override MenuItem CreateFileTypeMenuItem()
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
@@ -25,10 +25,10 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		internal override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 
-		private protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets, App.Instance.MainWindow.CoreShadersAssetTabControl.Handler);
+		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets, App.Instance.MainWindow.CoreShadersAssetTabControl.Handler);
 
-		private protected override bool IsComplete() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.IsComplete();
+		protected override bool IsComplete() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.IsComplete();
 	}
 }

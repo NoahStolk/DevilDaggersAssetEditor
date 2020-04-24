@@ -3,17 +3,17 @@
 namespace DevilDaggersAssetEditor.Code.User
 {
 	[JsonObject(MemberSerialization.OptIn)]
-	internal class UserSettings
+	public class UserSettings
 	{
-		internal const string FileName = "user.json";
+		public const string FileName = "user.json";
 
 		[JsonProperty]
-		internal string DevilDaggersRootFolder { get; set; } = @"C:\Program Files (x86)\Steam\steamapps\common\devildaggers";
+		public string DevilDaggersRootFolder { get; set; } = @"C:\Program Files (x86)\Steam\steamapps\common\devildaggers";
 
 		[JsonProperty]
-		internal string ModsRootFolder { get; set; } = @"C:\Program Files (x86)\Steam\steamapps\common\devildaggers";
+		public string ModsRootFolder { get; set; } = @"C:\Program Files (x86)\Steam\steamapps\common\devildaggers";
 
 		[JsonProperty]
-		internal string AssetsRootFolder { get; set; } = @"C:\Program Files (x86)\Steam\steamapps\common\devildaggers";
+		public string AssetsRootFolder { get; set; } = @"C:\Program Files (x86)\Steam\steamapps\common\devildaggers";
 	}
 }

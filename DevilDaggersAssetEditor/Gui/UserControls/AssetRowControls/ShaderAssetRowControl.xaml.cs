@@ -7,7 +7,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class ShaderAssetRowControl : UserControl
 	{
-		internal ShaderAssetRowControlHandler Handler { get; private set; }
+		public ShaderAssetRowControlHandler Handler { get; private set; }
 
 		public ShaderAssetRowControl(ShaderAsset asset)
 		{
@@ -28,19 +28,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		private void ButtonFragmentBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 	}
 
-	internal class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>
+	public class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>
 	{
-		internal ShaderAssetRowControlHandler(ShaderAsset asset, ShaderAssetRowControl parent)
+		public ShaderAssetRowControlHandler(ShaderAsset asset, ShaderAssetRowControl parent)
 			: base(asset, parent, "Shader files (*.glsl)|*.glsl")
 		{
 		}
 
-		internal override void UpdateGui()
+		public override void UpdateGui()
 		{
 			parent.TextBlockVertexEditorPath.Text = Asset.EditorPath; // TODO
 			parent.TextBlockFragmentEditorPath.Text = Asset.EditorPath; // TODO
 		}
 
-		internal override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
+		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
 	}
 }

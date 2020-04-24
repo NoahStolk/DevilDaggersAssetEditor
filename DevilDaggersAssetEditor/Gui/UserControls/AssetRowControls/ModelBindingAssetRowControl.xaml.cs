@@ -7,7 +7,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class ModelBindingAssetRowControl : UserControl
 	{
-		internal ModelBindingAssetRowControlHandler Handler { get; private set; }
+		public ModelBindingAssetRowControlHandler Handler { get; private set; }
 
 		public ModelBindingAssetRowControl(ModelBindingAsset asset)
 		{
@@ -23,14 +23,14 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 	}
 
-	internal class ModelBindingAssetRowControlHandler : AbstractAssetRowControlHandler<ModelBindingAsset, ModelBindingAssetRowControl>
+	public class ModelBindingAssetRowControlHandler : AbstractAssetRowControlHandler<ModelBindingAsset, ModelBindingAssetRowControl>
 	{
-		internal ModelBindingAssetRowControlHandler(ModelBindingAsset asset, ModelBindingAssetRowControl parent)
+		public ModelBindingAssetRowControlHandler(ModelBindingAsset asset, ModelBindingAssetRowControl parent)
 			: base(asset, parent, "Model binding files (*.txt)|*.txt")
 		{
 		}
 
-		internal override void UpdateGui()
+		public override void UpdateGui()
 		{
 			parent.TextBlockEditorPath.Text = Asset.EditorPath;
 		}

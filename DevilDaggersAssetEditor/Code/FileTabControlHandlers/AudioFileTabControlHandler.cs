@@ -8,11 +8,11 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 {
-	internal class AudioFileTabControlHandler : AbstractFileTabControlHandler
+	public class AudioFileTabControlHandler : AbstractFileTabControlHandler
 	{
-		internal override AbstractBinaryFileHandler FileHandler => new ResourceFileHandler(BinaryFileType.Audio);
+		public override AbstractBinaryFileHandler FileHandler => new ResourceFileHandler(BinaryFileType.Audio);
 
-		internal override MenuItem CreateFileTypeMenuItem()
+		public override MenuItem CreateFileTypeMenuItem()
 		{
 			MenuItem fileTypeMenuItem = base.CreateFileTypeMenuItem();
 
@@ -32,10 +32,10 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		internal override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
 
-		private protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioAssetTabControl.Handler);
+		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioAssetTabControl.Handler);
 
-		private protected override bool IsComplete() => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.IsComplete();
+		protected override bool IsComplete() => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.IsComplete();
 	}
 }

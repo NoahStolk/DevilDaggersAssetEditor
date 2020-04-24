@@ -12,16 +12,16 @@ using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Code
 {
-	internal abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl>
+	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl>
 		where TAsset : AbstractAsset
 		where TAssetRowControl : UserControl
 	{
-		private protected abstract string AssetTypeJsonFileName { get; }
+		protected abstract string AssetTypeJsonFileName { get; }
 
-		internal TAsset SelectedAsset { get; set; }
-		internal List<TAsset> Assets { get; private set; } = new List<TAsset>();
+		public TAsset SelectedAsset { get; set; }
+		public List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
-		private protected readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
+		protected readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
@@ -29,14 +29,14 @@ namespace DevilDaggersAssetEditor.Code
 				Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
 
-		internal abstract void UpdateGui(TAsset asset);
+		public abstract void UpdateGui(TAsset asset);
 
-		internal void SelectAsset(TAsset asset)
+		public void SelectAsset(TAsset asset)
 		{
 			SelectedAsset = asset;
 		}
 
-		internal IEnumerable<TAssetRowControl> CreateAssetRowControls()
+		public IEnumerable<TAssetRowControl> CreateAssetRowControls()
 		{
 			int i = 0;
 			foreach (TAsset asset in Assets)
@@ -48,7 +48,7 @@ namespace DevilDaggersAssetEditor.Code
 			}
 		}
 
-		internal void ImportFolder()
+		public void ImportFolder()
 		{
 			using (CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
 			{
@@ -68,7 +68,7 @@ namespace DevilDaggersAssetEditor.Code
 			}
 		}
 
-		internal bool IsComplete()
+		public bool IsComplete()
 		{
 			foreach (TAsset asset in Assets)
 				if (!asset.EditorPath.IsPathValid())
@@ -76,6 +76,6 @@ namespace DevilDaggersAssetEditor.Code
 			return true;
 		}
 
-		internal virtual string FileNameToChunkName(string fileName) => fileName;
+		public virtual string FileNameToChunkName(string fileName) => fileName;
 	}
 }

@@ -8,7 +8,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class AudioAssetRowControl : UserControl
 	{
-		internal AudioAssetRowControlHandler Handler { get; private set; }
+		public AudioAssetRowControlHandler Handler { get; private set; }
 
 		public AudioAssetRowControl(AudioAsset asset)
 		{
@@ -41,14 +41,14 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) => TextBoxLoudness.TextChanged += TextBoxLoudness_TextChanged;
 	}
 
-	internal class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
+	public class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
 	{
-		internal AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent)
+		public AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent)
 			: base(asset, parent, "Audio files (*.wav)|*.wav")
 		{
 		}
 
-		internal override void UpdateGui()
+		public override void UpdateGui()
 		{
 			parent.TextBlockEditorPath.Text = Asset.EditorPath;
 			parent.TextBoxLoudness.Text = Asset.Loudness.ToString();
