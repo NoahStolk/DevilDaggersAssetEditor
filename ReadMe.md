@@ -6,8 +6,7 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 - .NET Framework 4.6.1 (GUI)
 
 ## Languages
-- C# 8.0 (Core library)
-- C# 7.3 (GUI)
+- C# 8.0
 
 ## Dependencies
 - [NetBase](https://github.com/NoahStolk/NetBase)
