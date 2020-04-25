@@ -6,7 +6,7 @@ namespace DevilDaggersAssetCore.Assets
 	[JsonObject(MemberSerialization.OptIn)]
 	public abstract class AbstractAsset
 	{
-		public static string EditorPathNone = "<NONE SPECIFIED>";
+		public static readonly string EditorPathNone = "<NONE SPECIFIED>";
 
 		[JsonProperty]
 		public string AssetName { get; }

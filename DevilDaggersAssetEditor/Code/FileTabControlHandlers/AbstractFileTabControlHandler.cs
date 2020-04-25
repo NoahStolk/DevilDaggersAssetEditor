@@ -2,7 +2,6 @@
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
-using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
 using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Gui.Windows;
 using JsonUtils;
@@ -71,22 +70,20 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			using (CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
+			using CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
+			if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
 			{
-				if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
+				ProgressWindow progressWindow = new ProgressWindow($"Extracting '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
+				progressWindow.Show();
+				await Task.Run(() =>
 				{
-					ProgressWindow progressWindow = new ProgressWindow($"Extracting '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
-					progressWindow.Show();
-					await Task.Run(() =>
-					{
-						FileHandler.Extract(
-							openDialog.FileName,
-							folderDialog.FileName,
-							new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
-							new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
-						App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
-					});
-				}
+					FileHandler.Extract(
+						openDialog.FileName,
+						folderDialog.FileName,
+						new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
+						new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
+					App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
+				});
 			}
 		}
 
@@ -138,21 +135,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!result.HasValue || !result.Value)
 				return;
 
-			bool samePaths = true;
-			List<AbstractUserAsset> list = assets.ToList();
-			for (int i = 0; i < list.Count; i++)
-			{
-				string path1 = list[i].EditorPath;
-				string path2 = list[(i + 1) % list.Count].EditorPath;
-				if (!path1.IsPathValid() || !path2.IsPathValid() || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
-				{
-					samePaths = false;
-					break;
-				}
-			}
-
 			bool relativePaths = false;
-			if (samePaths)
+			if (AssetsHaveSameBasePaths())
 			{
 				MessageBoxResult relativePathsResult = MessageBox.Show("Specify whether you want this mod file to use relative paths (easier to share between computers or using zipped files containing assets).", "Use relative paths?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 				relativePaths = relativePathsResult == MessageBoxResult.Yes;
@@ -164,6 +148,20 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			ModFile modFile = new ModFile(App.LocalVersion, relativePaths, assets);
 
 			JsonFileUtils.SerializeToFile(dialog.FileName, modFile, true);
+
+			bool AssetsHaveSameBasePaths()
+			{
+				List<AbstractUserAsset> assetList = assets.ToList();
+				for (int i = 0; i < assetList.Count; i++)
+				{
+					string path1 = assetList[i].EditorPath;
+					string path2 = assetList[(i + 1) % assetList.Count].EditorPath;
+					if (!path1.IsPathValid() || !path2.IsPathValid() || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
+						return false;
+				}
+
+				return true;
+			}
 		}
 
 		private List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
@@ -189,23 +187,21 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (modFile.HasRelativePaths)
 			{
 				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
-				using (CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder })
-				{
-					CommonFileDialogResult result = basePathDialog.ShowDialog();
-					if (result == CommonFileDialogResult.Ok)
-						foreach (AbstractUserAsset asset in modFile.Assets)
-							asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
-				}
+				using CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
+				CommonFileDialogResult result = basePathDialog.ShowDialog();
+				if (result == CommonFileDialogResult.Ok)
+					foreach (AbstractUserAsset asset in modFile.Assets)
+						asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
 			}
 			return modFile;
 		}
 
 		protected abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetControl> assetTabControlHandler)
+		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl> assetTabControlHandler)
 			where TUserAsset : AbstractUserAsset
 			where TAsset : AbstractAsset
-			where TAssetControl : UserControl
+			where TAssetRowControl : UserControl
 		{
 			for (int i = 0; i < assetTabControlHandler.Assets.Count; i++)
 			{

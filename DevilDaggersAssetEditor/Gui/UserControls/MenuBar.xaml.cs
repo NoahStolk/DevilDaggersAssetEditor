@@ -24,9 +24,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		{
 			InitializeComponent();
 
-			tabHandlers = new List<AbstractFileTabControlHandler>();
-			foreach (Type type in App.Instance.Assembly.GetTypes().Where(t => t.BaseType == typeof(AbstractFileTabControlHandler) && !t.IsAbstract).OrderBy(t => t.Name))
-				tabHandlers.Add((AbstractFileTabControlHandler)Activator.CreateInstance(type));
+			tabHandlers = App.Instance.Assembly
+				.GetTypes()
+				.Where(t => t.BaseType == typeof(AbstractFileTabControlHandler) && !t.IsAbstract)
+				.OrderBy(t => t.Name)
+				.Select(t => (AbstractFileTabControlHandler)Activator.CreateInstance(t))
+				.ToList();
 
 			foreach (AbstractFileTabControlHandler tabHandler in tabHandlers)
 				FileMenuItem.Items.Add(tabHandler.CreateFileTypeMenuItem());
@@ -46,8 +49,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		{
 			SettingsWindow settingsWindow = new SettingsWindow();
 			if (settingsWindow.ShowDialog() == true)
-				using (StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName)))
-					sw.Write(JsonConvert.SerializeObject(UserHandler.Instance.settings, Formatting.Indented));
+			{
+				using StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName));
+				sw.Write(JsonConvert.SerializeObject(UserHandler.Instance.settings, Formatting.Indented));
+			}
 		}
 
 		private void About_Click(object sender, RoutedEventArgs e)

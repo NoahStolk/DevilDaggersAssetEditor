@@ -3,17 +3,17 @@ using DevilDaggersAssetEditor.Code.User;
 using Microsoft.Win32;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code.AssetControlHandlers
+namespace DevilDaggersAssetEditor.Code
 {
-	public abstract class AbstractAssetControlHandler<TAsset, TAssetControl>
+	public abstract class AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 		where TAsset : AbstractAsset
-		where TAssetControl : UserControl
+		where TAssetRowControl : UserControl
 	{
 		public TAsset Asset { get; }
-		protected readonly TAssetControl parent;
+		protected readonly TAssetRowControl parent;
 		protected readonly string openDialogFilter;
 
-		public AbstractAssetControlHandler(TAsset asset, TAssetControl parent, string openDialogFilter)
+		public AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter)
 		{
 			Asset = asset;
 			this.parent = parent;

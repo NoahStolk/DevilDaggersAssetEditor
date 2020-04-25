@@ -1,8 +1,14 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
+using DevilDaggersAssetEditor.Code.User;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
+using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -50,16 +56,111 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new AudioAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (AudioAssetControl ac in Handler.CreateAssetControls())
-				AssetEditor.Items.Add(ac);
+			foreach (AudioAssetRowControl arc in Handler.CreateAssetRowControls())
+				AssetEditor.Items.Add(arc);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			AudioAssetControl ac = e.AddedItems[0] as AudioAssetControl;
+			AudioAssetRowControl arc = e.AddedItems[0] as AudioAssetRowControl;
 
-			Handler.SelectAsset(ac.Handler.Asset);
-			Previewer.Initialize(ac.Handler.Asset);
+			Handler.SelectAsset(arc.Handler.Asset);
+			Previewer.Initialize(arc.Handler.Asset);
+		}
+	}
+
+	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl>
+	{
+		protected override string AssetTypeJsonFileName => "Audio";
+
+		public AudioAssetTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
+		{
+		}
+
+		public override void UpdateGui(AudioAsset asset)
+		{
+			AudioAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			arc.TextBlockEditorPath.Text = asset.EditorPath;
+			arc.TextBoxLoudness.Text = asset.Loudness.ToString();
+		}
+
+		public void ImportLoudness()
+		{
+			OpenFileDialog dialog = new OpenFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = "Initialization files (*.ini)|*.ini" };
+			bool? openResult = dialog.ShowDialog();
+			if (!openResult.HasValue || !openResult.Value)
+				return;
+
+			Dictionary<string, float> values = new Dictionary<string, float>();
+			int lineNumber = 0;
+			foreach (string line in File.ReadAllLines(dialog.FileName))
+			{
+				lineNumber++;
+				string lineClean = line
+					.Replace(" ", "") // Remove spaces to make things easier.
+					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
+				if (!ReadLoudnessLine(lineClean, out string assetName, out float loudness))
+				{
+					App.Instance.ShowMessage($"Syntax error on line {lineNumber}", "Could not parse loudness file.");
+					return;
+				}
+
+				values[assetName] = loudness;
+			}
+
+			int successCount = 0;
+			int unchangedCount = 0;
+			foreach (KeyValuePair<string, float> kvp in values)
+			{
+				AudioAsset audioAsset = Assets.Where(a => a.AssetName == kvp.Key).Cast<AudioAsset>().FirstOrDefault();
+				if (audioAsset != null)
+				{
+					if (audioAsset.Loudness == kvp.Value)
+					{
+						unchangedCount++;
+					}
+					else
+					{
+						audioAsset.Loudness = kvp.Value;
+						successCount++;
+					}
+
+					AudioAssetRowControl aac = assetRowControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
+					aac.Handler.UpdateGui();
+				}
+			}
+
+			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {Assets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
+
+			bool ReadLoudnessLine(string line, out string assetName, out float loudness)
+			{
+				try
+				{
+					assetName = line.Substring(0, line.IndexOf('='));
+					loudness = float.Parse(line.Substring(line.IndexOf('=') + 1, line.Length - assetName.Length - 1));
+					return true;
+				}
+				catch
+				{
+					assetName = null;
+					loudness = 0;
+					return false;
+				}
+			}
+		}
+
+		public void ExportLoudness()
+		{
+			SaveFileDialog dialog = new SaveFileDialog { InitialDirectory = UserHandler.Instance.settings.ModsRootFolder, Filter = "Initialization files (*.ini)|*.ini" };
+			bool? result = dialog.ShowDialog();
+			if (!result.HasValue || !result.Value)
+				return;
+
+			StringBuilder sb = new StringBuilder();
+			foreach (AudioAsset audioAsset in Assets)
+				sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
+			File.WriteAllText(dialog.FileName, sb.ToString());
 		}
 	}
 }

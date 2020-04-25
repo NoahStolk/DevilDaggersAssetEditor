@@ -53,5 +53,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\JsonUtils\JsonUtils\JsonUtils.csproj">
+      <Project>{5ced0e44-2b47-4107-8a84-92102f7cce5d}</Project>
+      <Name>JsonUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

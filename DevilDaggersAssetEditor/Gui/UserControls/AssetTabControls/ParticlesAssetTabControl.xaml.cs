@@ -1,7 +1,9 @@
 ﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
+using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetEditor.Code;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -35,16 +37,32 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ParticlesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (ParticleAssetControl ac in Handler.CreateAssetControls())
-				AssetEditor.Items.Add(ac);
+			foreach (ParticleAssetRowControl arc in Handler.CreateAssetRowControls())
+				AssetEditor.Items.Add(arc);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			ParticleAssetControl ac = e.AddedItems[0] as ParticleAssetControl;
+			ParticleAssetRowControl arc = e.AddedItems[0] as ParticleAssetRowControl;
 
-			Handler.SelectAsset(ac.Handler.Asset);
-			Previewer.Initialize(ac.Handler.Asset);
+			Handler.SelectAsset(arc.Handler.Asset);
+			Previewer.Initialize(arc.Handler.Asset);
+		}
+	}
+
+	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetRowControl>
+	{
+		protected override string AssetTypeJsonFileName => "Particles";
+
+		public ParticlesAssetTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
+		{
+		}
+
+		public override void UpdateGui(ParticleAsset asset)
+		{
+			ParticleAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
+			arc.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}
 }

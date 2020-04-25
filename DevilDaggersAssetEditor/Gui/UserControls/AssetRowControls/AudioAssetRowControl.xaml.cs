@@ -1,20 +1,20 @@
 ﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.AssetControlHandlers;
+using DevilDaggersAssetEditor.Code;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
+namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
-	public partial class AudioAssetControl : UserControl
+	public partial class AudioAssetRowControl : UserControl
 	{
-		public AudioAssetControlHandler Handler { get; private set; }
+		public AudioAssetRowControlHandler Handler { get; private set; }
 
-		public AudioAssetControl(AudioAsset asset)
+		public AudioAssetRowControl(AudioAsset asset)
 		{
 			InitializeComponent();
 
-			Handler = new AudioAssetControlHandler(asset, this);
+			Handler = new AudioAssetRowControlHandler(asset, this);
 
 			Data.DataContext = asset;
 		}
@@ -39,5 +39,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetControls
 		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) => TextBoxLoudness.TextChanged += TextBoxLoudness_TextChanged;
+	}
+
+	public class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
+	{
+		public AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent)
+			: base(asset, parent, "Audio files (*.wav)|*.wav")
+		{
+		}
+
+		public override void UpdateGui()
+		{
+			parent.TextBlockEditorPath.Text = Asset.EditorPath;
+			parent.TextBoxLoudness.Text = Asset.Loudness.ToString();
+		}
 	}
 }

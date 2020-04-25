@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -53,12 +56,13 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Icon24.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="irrKlang.NET4, Version=1.0.6617.18810, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86">
+    <Reference Include="irrKlang.NET4, Version=1.0.6617.18847, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\irrKlang.NET4.dll</HintPath>
     </Reference>
@@ -102,23 +106,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gui\UserControls\AssetControls\AudioAssetControl.xaml">
+    <Page Include="Gui\UserControls\AssetRowControls\AudioAssetRowControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gui\UserControls\AssetControls\ShaderAssetControl.xaml">
+    <Page Include="Gui\UserControls\AssetRowControls\ShaderAssetRowControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Gui\UserControls\AssetControls\ParticleAssetControl.xaml">
+    <Page Include="Gui\UserControls\AssetRowControls\ParticleAssetRowControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Gui\UserControls\AssetControls\TextureAssetControl.xaml">
+    <Page Include="Gui\UserControls\AssetRowControls\TextureAssetRowControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Gui\UserControls\AssetControls\ModelAssetControl.xaml">
+    <Page Include="Gui\UserControls\AssetRowControls\ModelAssetRowControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -146,7 +150,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gui\UserControls\AssetControls\ModelBindingAssetControl.xaml">
+    <Page Include="Gui\UserControls\AssetRowControls\ModelBindingAssetRowControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,25 +206,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Code\AssetControlHandlers\AbstractAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\AudioAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ShaderAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ParticleAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\TextureAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ModelAssetControlHandler.cs" />
-    <Compile Include="Code\AssetControlHandlers\ModelBindingAssetControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\AbstractAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ShadersAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ParticlesAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\TexturesAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ModelsAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\ModelBindingsAssetTabControlHandler.cs" />
-    <Compile Include="Code\AssetTabControlHandlers\AudioAssetTabControlHandler.cs" />
+    <Compile Include="Code\AbstractAssetRowControlHandler.cs" />
+    <Compile Include="Code\AbstractAssetTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\AbstractFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\AudioFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\ParticleFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\DdFileTabControlHandler.cs" />
+    <Compile Include="Code\GeneratorUtils.cs" />
     <Compile Include="Code\User\UserHandler.cs" />
     <Compile Include="Code\User\UserSettings.cs" />
     <Compile Include="Code\EditorUtils.cs" />
@@ -237,20 +230,20 @@
       <SubType>Designer</SubType>
     </Page>
     <Resource Include="Content\Images\Icon\Icon32.png" />
-    <Compile Include="Gui\UserControls\AssetControls\AudioAssetControl.xaml.cs">
-      <DependentUpon>AudioAssetControl.xaml</DependentUpon>
+    <Compile Include="Gui\UserControls\AssetRowControls\AudioAssetRowControl.xaml.cs">
+      <DependentUpon>AudioAssetRowControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\UserControls\AssetControls\ShaderAssetControl.xaml.cs">
-      <DependentUpon>ShaderAssetControl.xaml</DependentUpon>
+    <Compile Include="Gui\UserControls\AssetRowControls\ShaderAssetRowControl.xaml.cs">
+      <DependentUpon>ShaderAssetRowControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\UserControls\AssetControls\ParticleAssetControl.xaml.cs">
-      <DependentUpon>ParticleAssetControl.xaml</DependentUpon>
+    <Compile Include="Gui\UserControls\AssetRowControls\ParticleAssetRowControl.xaml.cs">
+      <DependentUpon>ParticleAssetRowControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\UserControls\AssetControls\TextureAssetControl.xaml.cs">
-      <DependentUpon>TextureAssetControl.xaml</DependentUpon>
+    <Compile Include="Gui\UserControls\AssetRowControls\TextureAssetRowControl.xaml.cs">
+      <DependentUpon>TextureAssetRowControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\UserControls\AssetControls\ModelAssetControl.xaml.cs">
-      <DependentUpon>ModelAssetControl.xaml</DependentUpon>
+    <Compile Include="Gui\UserControls\AssetRowControls\ModelAssetRowControl.xaml.cs">
+      <DependentUpon>ModelAssetRowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gui\UserControls\AssetTabControls\ParticlesAssetTabControl.xaml.cs">
       <DependentUpon>ParticlesAssetTabControl.xaml</DependentUpon>
@@ -270,8 +263,8 @@
     <Compile Include="Gui\UserControls\AssetTabControls\AudioAssetTabControl.xaml.cs">
       <DependentUpon>AudioAssetTabControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\UserControls\AssetControls\ModelBindingAssetControl.xaml.cs">
-      <DependentUpon>ModelBindingAssetControl.xaml</DependentUpon>
+    <Compile Include="Gui\UserControls\AssetRowControls\ModelBindingAssetRowControl.xaml.cs">
+      <DependentUpon>ModelBindingAssetRowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gui\UserControls\AssetTabControls\ModelBindingsAssetTabControl.xaml.cs">
       <DependentUpon>ModelBindingsAssetTabControl.xaml</DependentUpon>

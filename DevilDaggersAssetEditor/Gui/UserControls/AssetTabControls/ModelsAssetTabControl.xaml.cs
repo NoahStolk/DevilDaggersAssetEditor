@@ -1,7 +1,9 @@
 ﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetEditor.Code.AssetTabControlHandlers;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetControls;
+using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetEditor.Code;
+using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -35,16 +37,32 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ModelsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ModelAssetControl ac in Handler.CreateAssetControls())
-				AssetEditor.Items.Add(ac);
+			foreach (ModelAssetRowControl arc in Handler.CreateAssetRowControls())
+				AssetEditor.Items.Add(arc);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			ModelAssetControl ac = e.AddedItems[0] as ModelAssetControl;
+			ModelAssetRowControl arc = e.AddedItems[0] as ModelAssetRowControl;
 
-			Handler.SelectAsset(ac.Handler.Asset);
-			Previewer.Initialize(ac.Handler.Asset);
+			Handler.SelectAsset(arc.Handler.Asset);
+			Previewer.Initialize(arc.Handler.Asset);
+		}
+	}
+
+	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetRowControl>
+	{
+		protected override string AssetTypeJsonFileName => "Models";
+
+		public ModelsAssetTabControlHandler(BinaryFileType binaryFileType)
+			: base(binaryFileType)
+		{
+		}
+
+		public override void UpdateGui(ModelAsset asset)
+		{
+			ModelAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			arc.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}
 }

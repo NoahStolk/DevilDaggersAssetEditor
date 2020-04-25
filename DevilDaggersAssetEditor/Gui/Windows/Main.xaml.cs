@@ -27,8 +27,10 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			InitializeComponent();
 
 			if (File.Exists(UserSettings.FileName))
-				using (StreamReader sr = new StreamReader(File.OpenRead(UserSettings.FileName)))
-					UserHandler.Instance.settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
+			{
+				using StreamReader sr = new StreamReader(File.OpenRead(UserSettings.FileName));
+				UserHandler.Instance.settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
+			}
 
 			App.Instance.MainWindow = this;
 			App.Instance.UpdateMainWindowTitle();
