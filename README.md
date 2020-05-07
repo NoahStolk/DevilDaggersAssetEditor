@@ -5,7 +5,7 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 - .NET Standard 2.0 (Core library)
 - .NET Framework 4.6.1 (GUI)
 
-## Languages
+## Language
 - C# 8.0
 
 ## Dependencies
