@@ -70,7 +70,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 							if (value.Contains("/")) // f 1/2/3 4/5/6 7/8/9
 							{
-								string[] references = line.Split('/');
+								string[] references = value.Split('/');
 
 								vertices.Add(new VertexReference(int.Parse(references[0]), int.Parse(references[1]), int.Parse(references[2])));
 								indices.Add(uint.Parse(references[0]) - 1); // Not sure which reference... Or if this is even right at all.
