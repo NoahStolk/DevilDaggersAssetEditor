@@ -26,15 +26,15 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		/// <returns>The null terminated string.</returns>
 		protected string ReadNullTerminatedString(byte[] buffer, int offset)
 		{
-			if (offset >= buffer.Length)
-				throw new ArgumentOutOfRangeException(nameof(offset), $"Parameter '{nameof(offset)}' was out of range. Offset: {offset}, Buffer size: {buffer.Length}");
-
-			string str = Encoding.UTF8.GetString(buffer);
-
-			if (!str.Substring(offset).Contains("\0"))
-				throw new Exception($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
-
-			return str.Substring(offset, str.IndexOf('\0'));
+			StringBuilder name = new StringBuilder();
+			for (int i = offset; i < buffer.Length; i++)
+			{
+				char c = (char)buffer[i];
+				if (c == '\0')
+					return name.ToString();
+				name.Append(c);
+			}
+			throw new Exception($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
 		}
 	}
 }
