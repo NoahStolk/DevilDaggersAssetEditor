@@ -1,4 +1,6 @@
-﻿namespace DevilDaggersAssetCore.Headers
+﻿using Buf = System.Buffer;
+
+namespace DevilDaggersAssetCore.Headers
 {
 	public abstract class AbstractHeader
 	{
@@ -9,7 +11,7 @@
 		protected AbstractHeader(byte[] chunkBuffer)
 		{
 			Buffer = new byte[ByteCount];
-			System.Buffer.BlockCopy(chunkBuffer, 0, Buffer, 0, ByteCount);
+			Buf.BlockCopy(chunkBuffer, 0, Buffer, 0, ByteCount);
 		}
 	}
 }

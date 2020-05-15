@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Buf = System.Buffer;
 
 namespace DevilDaggersAssetCore.Chunks
 {
@@ -129,21 +130,21 @@ namespace DevilDaggersAssetCore.Chunks
 			int vertexCount = outPositions.Count;
 
 			byte[] headerBuffer = new byte[BinaryFileUtils.ModelHeaderByteCount];
-			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
-			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
-			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
 			Header = new ModelHeader(headerBuffer);
 
 			Buffer = new byte[vertexCount * VertexByteCount + vertexCount * sizeof(uint) + closures[Name].Length];
 			for (int i = 0; i < vertexCount; i++)
 			{
 				byte[] vertexBytes = ToByteArray(outPositions[outVertices[i].PositionReference - 1], outTexCoords[outVertices[i].TexCoordReference - 1], outNormals[outVertices[i].NormalReference - 1]);
-				System.Buffer.BlockCopy(vertexBytes, 0, Buffer, i * VertexByteCount, VertexByteCount);
+				Buf.BlockCopy(vertexBytes, 0, Buffer, i * VertexByteCount, VertexByteCount);
 			}
 
 			for (int i = 0; i < vertexCount; i++)
-				System.Buffer.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
-			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closures[Name].Length);
+				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
+			Buf.BlockCopy(closures[Name], 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closures[Name].Length);
 
 #if DEBUG_BINARY
 			if (path.EndsWith("bat.obj"))
@@ -157,14 +158,14 @@ namespace DevilDaggersAssetCore.Chunks
 			static byte[] ToByteArray(Vector3 position, Vector2 texCoord, Vector3 normal)
 			{
 				byte[] bytes = new byte[32];
-				System.Buffer.BlockCopy(BitConverter.GetBytes(position.X), 0, bytes, 0, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(position.Y), 0, bytes, 4, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(position.Z), 0, bytes, 8, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(normal.X), 0, bytes, 12, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(normal.Y), 0, bytes, 16, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(normal.Z), 0, bytes, 20, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(texCoord.X), 0, bytes, 24, sizeof(float));
-				System.Buffer.BlockCopy(BitConverter.GetBytes(texCoord.Y), 0, bytes, 28, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(position.X), 0, bytes, 0, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(position.Y), 0, bytes, 4, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(position.Z), 0, bytes, 8, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(normal.X), 0, bytes, 12, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(normal.Y), 0, bytes, 16, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(normal.Z), 0, bytes, 20, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(texCoord.X), 0, bytes, 24, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(texCoord.Y), 0, bytes, 28, sizeof(float));
 				return bytes;
 			}
 		}

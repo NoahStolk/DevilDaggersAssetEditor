@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
+using Buf = System.Buffer;
 
 namespace DevilDaggersAssetCore.Chunks
 {
@@ -24,9 +25,9 @@ namespace DevilDaggersAssetCore.Chunks
 			Image image = Image.FromFile(path);
 
 			byte[] headerBuffer = new byte[BinaryFileUtils.TextureHeaderByteCount];
-			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
-			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Width), 0, headerBuffer, 2, sizeof(uint));
-			System.Buffer.BlockCopy(BitConverter.GetBytes(image.Height), 0, headerBuffer, 6, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
+			Buf.BlockCopy(BitConverter.GetBytes(image.Width), 0, headerBuffer, 2, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes(image.Height), 0, headerBuffer, 6, sizeof(uint));
 			headerBuffer[10] = GetMipmapCountFromImage(image);
 			Header = new TextureHeader(headerBuffer);
 
