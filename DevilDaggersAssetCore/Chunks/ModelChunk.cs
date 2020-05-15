@@ -29,9 +29,6 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override void Compress(string path)
 		{
-			if (path.Contains("gib"))
-				Debugger.Break();
-
 			string text = File.ReadAllText(path);
 			int vertexCount = text.CountOccurrences("v ");
 			int indexCount = text.CountOccurrences("f ") * 3;
@@ -72,12 +69,12 @@ namespace DevilDaggersAssetCore.Chunks
 							{
 								string[] references = value.Split('/');
 
-								vertices.Add(new VertexReference(int.Parse(references[0]), int.Parse(references[1]), int.Parse(references[2])));
+								vertices.Add(new VertexReference(int.Parse(references[0]) - 1, int.Parse(references[1]) - 1, int.Parse(references[2]) - 1));
 								indices.Add(uint.Parse(references[0]) - 1); // Not sure which reference... Or if this is even right at all.
 							}
 							else // f 1 2 3
 							{
-								vertices.Add(new VertexReference(int.Parse(value)));
+								vertices.Add(new VertexReference(int.Parse(value) - 1));
 								indices.Add(uint.Parse(value) - 1);
 							}
 						}
@@ -92,10 +89,14 @@ namespace DevilDaggersAssetCore.Chunks
 			Header = new ModelHeader(headerBuffer);
 
 			Buffer = new byte[vertexCount * VertexByteCount + indexCount * sizeof(uint) + closures[Name].Length];
-			for (int j = 0; j < vertexCount; j++)
-				System.Buffer.BlockCopy(ToByteArray(positions[vertices[j].PositionReference], texCoords[vertices[j].TexCoordReference], normals[vertices[j].NormalReference]), 0, Buffer, j * VertexByteCount, VertexByteCount);
-			for (int j = 0; j < indexCount; j++)
-				System.Buffer.BlockCopy(BitConverter.GetBytes(indices[j]), 0, Buffer, vertexCount * VertexByteCount + j * sizeof(uint), sizeof(uint));
+			for (int i = 0; i < vertexCount; i++)
+			{
+				byte[] vertexBytes = ToByteArray(positions[vertices[i].PositionReference], texCoords[vertices[i].TexCoordReference], normals[vertices[i].NormalReference]);
+				System.Buffer.BlockCopy(vertexBytes, 0, Buffer, i * VertexByteCount, VertexByteCount);
+			}
+
+			for (int i = 0; i < indexCount; i++)
+				System.Buffer.BlockCopy(BitConverter.GetBytes(indices[i]), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
 			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertexCount * VertexByteCount + indexCount * sizeof(uint), closures[Name].Length);
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
