@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Data;
+﻿#define DEBUG_BINARY
+using DevilDaggersAssetCore.Data;
 using DevilDaggersAssetCore.Headers;
-using NetBase.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -29,15 +29,12 @@ namespace DevilDaggersAssetCore.Chunks
 		public override void Compress(string path)
 		{
 			string text = File.ReadAllText(path);
-			int vertexCount = text.CountOccurrences("v ");
-			int indexCount = text.CountOccurrences("f ") * 3;
 			string[] lines = text.Split('\n');
 
 			List<Vector3> positions = new List<Vector3>();
 			List<Vector2> texCoords = new List<Vector2>();
 			List<Vector3> normals = new List<Vector3>();
 			List<VertexReference> vertices = new List<VertexReference>();
-			List<uint> indices = new List<uint>();
 
 			for (int i = 0; i < lines.Length; i++)
 			{
@@ -68,35 +65,87 @@ namespace DevilDaggersAssetCore.Chunks
 							{
 								string[] references = value.Split('/');
 
-								vertices.Add(new VertexReference(int.Parse(references[0]) - 1, int.Parse(references[1]) - 1, int.Parse(references[2]) - 1));
-								indices.Add(uint.Parse(references[0]) - 1); // Not sure which reference... Or if this is even right at all.
+								vertices.Add(new VertexReference(int.Parse(references[0]), int.Parse(references[1]), int.Parse(references[2])));
 							}
 							else // f 1 2 3
 							{
-								vertices.Add(new VertexReference(int.Parse(value) - 1));
-								indices.Add(uint.Parse(value) - 1);
+								vertices.Add(new VertexReference(int.Parse(value)));
 							}
 						}
 						break;
 				}
 			}
 
+			List<Vector3> outPositions = new List<Vector3>();
+			List<Vector2> outTexCoords = new List<Vector2>();
+			List<Vector3> outNormals = new List<Vector3>();
+			int vertNum = 1;
+
+			// Duplicate vertices as needed.
+			for (int i = 0; i < vertices.Count; i += 3)
+			{
+				VertexReference vert1 = vertices[i];
+				VertexReference vert2 = vertices[i + 1];
+				VertexReference vert3 = vertices[i + 2];
+
+				outPositions.Add(positions[vert1.PositionReference - 1]);
+				outPositions.Add(positions[vert2.PositionReference - 1]);
+				outPositions.Add(positions[vert3.PositionReference - 1]);
+
+				outTexCoords.Add(texCoords[vert1.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[vert2.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[vert3.TexCoordReference - 1]);
+
+				outNormals.Add(normals[vert1.NormalReference - 1]);
+				outNormals.Add(normals[vert2.NormalReference - 1]);
+				outNormals.Add(normals[vert3.NormalReference - 1]);
+
+				vertNum += 3;
+			}
+
+#if DEBUG_OBJ_CONVERSION
+			StringBuilder sb = new StringBuilder();
+			foreach (Vector3 op in outPositions)
+				sb.AppendLine($"v {op.X} {op.Y} {op.Z}");
+			sb.AppendLine();
+			foreach (Vector2 ot in outTexCoords)
+				sb.AppendLine($"vt {ot.X} {ot.Y}");
+			sb.AppendLine();
+			foreach (Vector3 on in outNormals)
+				sb.AppendLine($"vn {on.X} {on.Y} {on.Z}");
+			sb.AppendLine();
+			for (int i = 1; i < vertNum; i += 3)
+				sb.AppendLine($"f {i}/{i}/{i} {i + 1}/{i + 1}/{i + 1} {i + 2}/{i + 2}/{i + 2}");
+			sb.AppendLine();
+			if (path.EndsWith("bat.obj"))
+				File.WriteAllText("bat.obj", sb.ToString());
+#endif
+
+			int vertexCount = outPositions.Count;
+
 			byte[] headerBuffer = new byte[BinaryFileUtils.ModelHeaderByteCount];
-			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)indexCount), 0, headerBuffer, 0, sizeof(uint));
+			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
 			System.Buffer.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
 			Header = new ModelHeader(headerBuffer);
 
-			Buffer = new byte[vertexCount * VertexByteCount + indexCount * sizeof(uint) + closures[Name].Length];
+			Buffer = new byte[vertexCount * VertexByteCount + vertexCount * sizeof(uint) + closures[Name].Length];
 			for (int i = 0; i < vertexCount; i++)
 			{
-				byte[] vertexBytes = ToByteArray(positions[vertices[i].PositionReference], texCoords[vertices[i].TexCoordReference], normals[vertices[i].NormalReference]);
+				byte[] vertexBytes = ToByteArray(outPositions[vertices[i].PositionReference - 1], outTexCoords[vertices[i].TexCoordReference - 1], outNormals[vertices[i].NormalReference - 1]);
 				System.Buffer.BlockCopy(vertexBytes, 0, Buffer, i * VertexByteCount, VertexByteCount);
 			}
 
-			for (int i = 0; i < indexCount; i++)
-				System.Buffer.BlockCopy(BitConverter.GetBytes(indices[i]), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
-			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertexCount * VertexByteCount + indexCount * sizeof(uint), closures[Name].Length);
+			for (int i = 0; i < vertexCount; i++)
+				System.Buffer.BlockCopy(BitConverter.GetBytes(i), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
+			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closures[Name].Length);
+
+#if DEBUG_BINARY
+			if (path.EndsWith("bat.obj"))
+			{
+				File.WriteAllBytes("blender_bat.bin", Buffer);
+			}
+#endif
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 
