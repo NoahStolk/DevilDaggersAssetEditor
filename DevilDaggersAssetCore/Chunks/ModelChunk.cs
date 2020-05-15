@@ -79,6 +79,7 @@ namespace DevilDaggersAssetCore.Chunks
 			List<Vector3> outPositions = new List<Vector3>();
 			List<Vector2> outTexCoords = new List<Vector2>();
 			List<Vector3> outNormals = new List<Vector3>();
+			List<VertexReference> outVertices = new List<VertexReference>();
 			int vertNum = 1;
 
 			// Duplicate vertices as needed.
@@ -99,6 +100,10 @@ namespace DevilDaggersAssetCore.Chunks
 				outNormals.Add(normals[vert1.NormalReference - 1]);
 				outNormals.Add(normals[vert2.NormalReference - 1]);
 				outNormals.Add(normals[vert3.NormalReference - 1]);
+
+				outVertices.Add(vert1);
+				outVertices.Add(vert2);
+				outVertices.Add(vert3);
 
 				vertNum += 3;
 			}
@@ -132,12 +137,12 @@ namespace DevilDaggersAssetCore.Chunks
 			Buffer = new byte[vertexCount * VertexByteCount + vertexCount * sizeof(uint) + closures[Name].Length];
 			for (int i = 0; i < vertexCount; i++)
 			{
-				byte[] vertexBytes = ToByteArray(outPositions[vertices[i].PositionReference - 1], outTexCoords[vertices[i].TexCoordReference - 1], outNormals[vertices[i].NormalReference - 1]);
+				byte[] vertexBytes = ToByteArray(outPositions[outVertices[i].PositionReference - 1], outTexCoords[outVertices[i].TexCoordReference - 1], outNormals[outVertices[i].NormalReference - 1]);
 				System.Buffer.BlockCopy(vertexBytes, 0, Buffer, i * VertexByteCount, VertexByteCount);
 			}
 
 			for (int i = 0; i < vertexCount; i++)
-				System.Buffer.BlockCopy(BitConverter.GetBytes(i), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
+				System.Buffer.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
 			System.Buffer.BlockCopy(closures[Name], 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closures[Name].Length);
 
 #if DEBUG_BINARY
