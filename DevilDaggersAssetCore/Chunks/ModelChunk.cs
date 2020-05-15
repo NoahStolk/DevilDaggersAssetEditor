@@ -135,7 +135,8 @@ namespace DevilDaggersAssetCore.Chunks
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
 			Header = new ModelHeader(headerBuffer);
 
-			Buffer = new byte[vertexCount * VertexByteCount + vertexCount * sizeof(uint) + closures[Name].Length];
+			byte[] closure = closures[Name];
+			Buffer = new byte[vertexCount * VertexByteCount + vertexCount * sizeof(uint) + closure.Length];
 			for (int i = 0; i < vertexCount; i++)
 			{
 				byte[] vertexBytes = ToByteArray(outPositions[outVertices[i].PositionReference - 1], outTexCoords[outVertices[i].TexCoordReference - 1], outNormals[outVertices[i].NormalReference - 1]);
@@ -144,7 +145,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 			for (int i = 0; i < vertexCount; i++)
 				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
-			Buf.BlockCopy(closures[Name], 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closures[Name].Length);
+			Buf.BlockCopy(closure, 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closure.Length);
 
 #if DEBUG_BINARY
 			if (path.EndsWith("bat.obj"))
