@@ -203,7 +203,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
 				ushort type = BitConverter.ToUInt16(tocBuffer, i);
-				string name = ReadNullTerminatedString(tocBuffer, i + 2);
+				string name = Utils.ReadNullTerminatedString(tocBuffer, i + 2);
 
 				i += name.Length + 1; // + 1 to include null terminator.
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
