@@ -55,7 +55,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			return dict;
 		}
 
-		public override void Extract(string inputPath, string outputPath, Progress<float> progress, Progress<string> progressDescription)
+		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 

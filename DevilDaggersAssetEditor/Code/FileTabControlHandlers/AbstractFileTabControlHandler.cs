@@ -80,6 +80,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 					FileHandler.Extract(
 						openDialog.FileName,
 						folderDialog.FileName,
+						FileHandler.BinaryFileType,
 						new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
 						new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
 					App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());

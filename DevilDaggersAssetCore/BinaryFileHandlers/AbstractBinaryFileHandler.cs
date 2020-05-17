@@ -15,6 +15,6 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 		public abstract void Compress(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription);
 
-		public abstract void Extract(string inputPath, string outputPath, Progress<float> progress, Progress<string> progressDescription);
+		public abstract void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription);
 	}
 }

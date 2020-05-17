@@ -168,7 +168,10 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		/// </summary>
 		/// <param name="inputPath">The binary file path.</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
-		public override void Extract(string inputPath, string outputPath, Progress<float> progress, Progress<string> progressDescription)
+		/// <param name="binaryFileType">The binary file type of the file that's being extracted. This is only used for saving the mod file.</param>
+		/// <param name="progress">The progress as percentage.</param>
+		/// <param name="progressDescription">The progress description displayed in the progress window.</param>
+		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
 		{
 			// Read file contents.
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
