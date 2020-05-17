@@ -80,36 +80,34 @@ namespace DevilDaggersAssetCore.Chunks
 			List<Vector2> outTexCoords = new List<Vector2>();
 			List<Vector3> outNormals = new List<Vector3>();
 			List<VertexReference> outVertices = new List<VertexReference>();
-			int vertNum = 1;
 
 			// Duplicate vertices as needed.
 			for (int i = 0; i < vertices.Count; i += 3)
 			{
-				VertexReference vert1 = vertices[i];
-				VertexReference vert2 = vertices[i + 1];
-				VertexReference vert3 = vertices[i + 2];
+				// Three vertices make up one face.
+				VertexReference vertex1 = vertices[i];
+				VertexReference vertex2 = vertices[i + 1];
+				VertexReference vertex3 = vertices[i + 2];
 
-				outPositions.Add(positions[vert1.PositionReference - 1]);
-				outPositions.Add(positions[vert2.PositionReference - 1]);
-				outPositions.Add(positions[vert3.PositionReference - 1]);
+				outPositions.Add(positions[vertex1.PositionReference - 1]);
+				outPositions.Add(positions[vertex2.PositionReference - 1]);
+				outPositions.Add(positions[vertex3.PositionReference - 1]);
 
-				outTexCoords.Add(texCoords[vert1.TexCoordReference - 1]);
-				outTexCoords.Add(texCoords[vert2.TexCoordReference - 1]);
-				outTexCoords.Add(texCoords[vert3.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[vertex1.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[vertex2.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[vertex3.TexCoordReference - 1]);
 
-				outNormals.Add(normals[vert1.NormalReference - 1]);
-				outNormals.Add(normals[vert2.NormalReference - 1]);
-				outNormals.Add(normals[vert3.NormalReference - 1]);
+				outNormals.Add(normals[vertex1.NormalReference - 1]);
+				outNormals.Add(normals[vertex2.NormalReference - 1]);
+				outNormals.Add(normals[vertex3.NormalReference - 1]);
 
-				VertexReference outVert1 = new VertexReference(i + 1);
-				VertexReference outVert2 = new VertexReference(i + 2);
-				VertexReference outVert3 = new VertexReference(i + 3);
+				VertexReference outVertex1 = new VertexReference(i + 1);
+				VertexReference outVertex2 = new VertexReference(i + 2);
+				VertexReference outVertex3 = new VertexReference(i + 3);
 
-				outVertices.Add(outVert1);
-				outVertices.Add(outVert2);
-				outVertices.Add(outVert3);
-
-				vertNum += 3;
+				outVertices.Add(outVertex1);
+				outVertices.Add(outVertex2);
+				outVertices.Add(outVertex3);
 			}
 
 			int vertexCount = outPositions.Count;
@@ -130,7 +128,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 			for (int i = 0; i < vertexCount; i++)
 				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
-			Buf.BlockCopy(closure, 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closure.Length);
+			Buf.BlockCopy(closure, 0, Buffer, vertexCount * (VertexByteCount + sizeof(uint)), closure.Length);
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 
