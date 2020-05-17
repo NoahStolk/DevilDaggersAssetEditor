@@ -100,7 +100,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				string lineClean = line
 					.Replace(" ", "") // Remove spaces to make things easier.
 					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
-				if (!ReadLoudnessLine(lineClean, out string assetName, out float loudness))
+				if (!LoudnessUtils.ReadLoudnessLine(lineClean, out string assetName, out float loudness))
 				{
 					App.Instance.ShowMessage($"Syntax error on line {lineNumber}", "Could not parse loudness file.");
 					return;
@@ -132,22 +132,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			}
 
 			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {Assets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
-
-			bool ReadLoudnessLine(string line, out string assetName, out float loudness)
-			{
-				try
-				{
-					assetName = line.Substring(0, line.IndexOf('='));
-					loudness = float.Parse(line.Substring(line.IndexOf('=') + 1, line.Length - assetName.Length - 1));
-					return true;
-				}
-				catch
-				{
-					assetName = null;
-					loudness = 0;
-					return false;
-				}
-			}
 		}
 
 		public void ExportLoudness()

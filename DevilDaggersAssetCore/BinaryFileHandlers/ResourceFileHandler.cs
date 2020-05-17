@@ -235,7 +235,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				ChunkInfo info = BinaryFileUtils.ChunkInfos.FirstOrDefault(c => c.Type == chunk.GetType());
 
 				((IProgress<float>)progress).Report(chunksDone++ / (float)totalChunks);
-				((IProgress<string>)progressDescription).Report($"Creating {info.Type.Name.Replace("Chunk", "")} file{(info.Type == typeof(ShaderChunk) ? "(s)" : "")} for chunk \"{chunk.Name}\".");
+				((IProgress<string>)progressDescription).Report($"Creating {info.Type.Name.Replace("Chunk", "")} file{(info.Type == typeof(ShaderChunk) ? "s" : "")} for chunk \"{chunk.Name}\".");
 
 				byte[] buf = new byte[chunk.Size];
 				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);
