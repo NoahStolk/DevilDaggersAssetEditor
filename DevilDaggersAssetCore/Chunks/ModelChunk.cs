@@ -102,9 +102,13 @@ namespace DevilDaggersAssetCore.Chunks
 				outNormals.Add(normals[vert2.NormalReference - 1]);
 				outNormals.Add(normals[vert3.NormalReference - 1]);
 
-				outVertices.Add(vert1);
-				outVertices.Add(vert2);
-				outVertices.Add(vert3);
+				VertexReference outVert1 = new VertexReference(i + 1);
+				VertexReference outVert2 = new VertexReference(i + 2);
+				VertexReference outVert3 = new VertexReference(i + 3);
+
+				outVertices.Add(outVert1);
+				outVertices.Add(outVert2);
+				outVertices.Add(outVert3);
 
 				vertNum += 3;
 			}
