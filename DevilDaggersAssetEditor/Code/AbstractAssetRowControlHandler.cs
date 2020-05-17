@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetCore.Assets;
+﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.User;
 using Microsoft.Win32;
 using System.Windows.Controls;
@@ -38,7 +39,7 @@ namespace DevilDaggersAssetEditor.Code
 
 		public void RemovePath()
 		{
-			Asset.EditorPath = AbstractAsset.EditorPathNone;
+			Asset.EditorPath = Utils.NoPath;
 
 			UpdateGui();
 		}
