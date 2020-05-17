@@ -66,7 +66,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			int i = 8;
 			while (i < fileBuffer.Length)
 			{
-				string name = ReadNullTerminatedString(fileBuffer, i);
+				string name = Utils.ReadNullTerminatedString(fileBuffer, i);
 				i += name.Length;
 
 				((IProgress<float>)progress).Report(i / (float)fileBuffer.Length);

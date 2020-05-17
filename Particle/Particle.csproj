@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ParticleExtract</RootNamespace>
     <AssemblyName>ParticleExtract</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,6 +58,10 @@
     <ProjectReference Include="..\..\JsonUtils\JsonUtils\JsonUtils.csproj">
       <Project>{5ced0e44-2b47-4107-8a84-92102f7cce5d}</Project>
       <Name>JsonUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevilDaggersAssetCore\DevilDaggersAssetCore.csproj">
+      <Project>{281857fb-02af-4425-b3c6-c0e00381d8d2}</Project>
+      <Name>DevilDaggersAssetCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

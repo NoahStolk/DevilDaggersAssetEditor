@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Headers;
 using System;
+using Buf = System.Buffer;
 
 namespace DevilDaggersAssetCore.Chunks
 {
@@ -18,15 +19,15 @@ namespace DevilDaggersAssetCore.Chunks
 			Header = Activator.CreateInstance(typeof(THeader), buffer) as THeader;
 
 			Buffer = new byte[buffer.Length - Header.ByteCount];
-			System.Buffer.BlockCopy(buffer, Header.ByteCount, Buffer, 0, Buffer.Length);
+			Buf.BlockCopy(buffer, Header.ByteCount, Buffer, 0, Buffer.Length);
 		}
 
 		public override byte[] GetBuffer()
 		{
 			byte[] buffer = new byte[Header.ByteCount + Buffer.Length];
 
-			System.Buffer.BlockCopy(Header.Buffer, 0, buffer, 0, Header.ByteCount);
-			System.Buffer.BlockCopy(Buffer, 0, buffer, Header.ByteCount, Buffer.Length);
+			Buf.BlockCopy(Header.Buffer, 0, buffer, 0, Header.ByteCount);
+			Buf.BlockCopy(Buffer, 0, buffer, Header.ByteCount, Buffer.Length);
 
 			return buffer;
 		}
