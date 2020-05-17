@@ -1,5 +1,4 @@
-﻿#define DEBUG_BINARY
-using DevilDaggersAssetCore.Data;
+﻿using DevilDaggersAssetCore.Data;
 using DevilDaggersAssetCore.Headers;
 using Newtonsoft.Json;
 using System;
@@ -55,7 +54,7 @@ namespace DevilDaggersAssetCore.Chunks
 						normals.Add(new Vector3(float.Parse(values[1]), float.Parse(values[2]), float.Parse(values[3])));
 						break;
 					case "f":
-						// Should be compatible with both:
+						// Compatible with both:
 						// f 1 2 3
 						// f 1/2/3 4/5/6 7/8/9
 						for (int j = 0; j < 3; j++)
@@ -113,24 +112,6 @@ namespace DevilDaggersAssetCore.Chunks
 				vertNum += 3;
 			}
 
-#if DEBUG_OBJ_CONVERSION
-			StringBuilder sb = new StringBuilder();
-			foreach (Vector3 op in outPositions)
-				sb.AppendLine($"v {op.X} {op.Y} {op.Z}");
-			sb.AppendLine();
-			foreach (Vector2 ot in outTexCoords)
-				sb.AppendLine($"vt {ot.X} {ot.Y}");
-			sb.AppendLine();
-			foreach (Vector3 on in outNormals)
-				sb.AppendLine($"vn {on.X} {on.Y} {on.Z}");
-			sb.AppendLine();
-			for (int i = 1; i < vertNum; i += 3)
-				sb.AppendLine($"f {i}/{i}/{i} {i + 1}/{i + 1}/{i + 1} {i + 2}/{i + 2}/{i + 2}");
-			sb.AppendLine();
-			if (path.EndsWith("bat.obj"))
-				File.WriteAllText("bat.obj", sb.ToString());
-#endif
-
 			int vertexCount = outPositions.Count;
 
 			byte[] headerBuffer = new byte[BinaryFileUtils.ModelHeaderByteCount];
@@ -150,13 +131,6 @@ namespace DevilDaggersAssetCore.Chunks
 			for (int i = 0; i < vertexCount; i++)
 				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
 			Buf.BlockCopy(closure, 0, Buffer, vertexCount * VertexByteCount + vertexCount * sizeof(uint), closure.Length);
-
-#if DEBUG_BINARY
-			if (path.EndsWith("bat.obj"))
-			{
-				File.WriteAllBytes("blender_bat.bin", Buffer);
-			}
-#endif
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 
