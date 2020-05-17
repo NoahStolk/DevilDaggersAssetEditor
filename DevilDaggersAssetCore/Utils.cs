@@ -7,6 +7,8 @@ namespace DevilDaggersAssetCore
 {
 	public static class Utils
 	{
+		public static readonly string NoPath = "<No path specified>";
+
 		public static Assembly GetAssemblyByName(string name) => AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
 
 		/// <summary>
