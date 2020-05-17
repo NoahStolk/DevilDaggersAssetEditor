@@ -7,7 +7,7 @@
 		public string AssetName { get; }
 		public string EditorPath { get; set; }
 
-		public AbstractUserAsset(string assetName, string editorPath)
+		protected AbstractUserAsset(string assetName, string editorPath)
 		{
 			AssetName = assetName;
 			EditorPath = editorPath;

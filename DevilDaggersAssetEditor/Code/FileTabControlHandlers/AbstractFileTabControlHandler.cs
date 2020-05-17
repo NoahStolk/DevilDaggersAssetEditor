@@ -139,9 +139,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (AssetsHaveSameBasePaths())
 			{
 				MessageBoxResult relativePathsResult = MessageBox.Show("Specify whether you want this mod file to use relative paths (easier to share between computers or using zipped files containing assets).", "Use relative paths?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-				relativePaths = relativePathsResult == MessageBoxResult.Yes;
 
-				if (relativePaths)
+				if (relativePathsResult == MessageBoxResult.Yes)
 					foreach (AbstractUserAsset asset in assets)
 						asset.EditorPath = Path.GetFileName(asset.EditorPath);
 			}
