@@ -13,8 +13,6 @@ namespace DevilDaggersAssetCore.Chunks
 	{
 		private static readonly Dictionary<string, byte[]> closures;
 
-		public static readonly int VertexByteCount = 32;
-
 		static ModelChunk()
 		{
 			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream("DevilDaggersAssetCore.Content.ModelClosures.json"));
@@ -65,11 +63,11 @@ namespace DevilDaggersAssetCore.Chunks
 							{
 								string[] references = value.Split('/');
 
-								vertices.Add(new VertexReference(int.Parse(references[0]), int.Parse(references[1]), int.Parse(references[2])));
+								vertices.Add(new VertexReference(uint.Parse(references[0]), uint.Parse(references[1]), uint.Parse(references[2])));
 							}
 							else // f 1 2 3
 							{
-								vertices.Add(new VertexReference(int.Parse(value)));
+								vertices.Add(new VertexReference(uint.Parse(value)));
 							}
 						}
 						break;
@@ -82,24 +80,24 @@ namespace DevilDaggersAssetCore.Chunks
 			List<VertexReference> outVertices = new List<VertexReference>();
 
 			// Duplicate vertices as needed.
-			for (int i = 0; i < vertices.Count; i += 3)
+			for (uint i = 0; i < vertices.Count; i += 3)
 			{
 				// Three vertices make up one face.
-				VertexReference vertex1 = vertices[i];
-				VertexReference vertex2 = vertices[i + 1];
-				VertexReference vertex3 = vertices[i + 2];
+				VertexReference vertex1 = vertices[(int)i];
+				VertexReference vertex2 = vertices[(int)i + 1];
+				VertexReference vertex3 = vertices[(int)i + 2];
 
-				outPositions.Add(positions[vertex1.PositionReference - 1]);
-				outPositions.Add(positions[vertex2.PositionReference - 1]);
-				outPositions.Add(positions[vertex3.PositionReference - 1]);
+				outPositions.Add(positions[(int)vertex1.PositionReference - 1]);
+				outPositions.Add(positions[(int)vertex2.PositionReference - 1]);
+				outPositions.Add(positions[(int)vertex3.PositionReference - 1]);
 
-				outTexCoords.Add(texCoords[vertex1.TexCoordReference - 1]);
-				outTexCoords.Add(texCoords[vertex2.TexCoordReference - 1]);
-				outTexCoords.Add(texCoords[vertex3.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[(int)vertex1.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[(int)vertex2.TexCoordReference - 1]);
+				outTexCoords.Add(texCoords[(int)vertex3.TexCoordReference - 1]);
 
-				outNormals.Add(normals[vertex1.NormalReference - 1]);
-				outNormals.Add(normals[vertex2.NormalReference - 1]);
-				outNormals.Add(normals[vertex3.NormalReference - 1]);
+				outNormals.Add(normals[(int)vertex1.NormalReference - 1]);
+				outNormals.Add(normals[(int)vertex2.NormalReference - 1]);
+				outNormals.Add(normals[(int)vertex3.NormalReference - 1]);
 
 				VertexReference outVertex1 = new VertexReference(i + 1);
 				VertexReference outVertex2 = new VertexReference(i + 2);
@@ -119,44 +117,31 @@ namespace DevilDaggersAssetCore.Chunks
 			Header = new ModelHeader(headerBuffer);
 
 			byte[] closure = closures[Name];
-			Buffer = new byte[vertexCount * VertexByteCount + vertexCount * sizeof(uint) + closure.Length];
+			Buffer = new byte[vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
 			for (int i = 0; i < vertexCount; i++)
 			{
-				byte[] vertexBytes = ToByteArray(outPositions[outVertices[i].PositionReference - 1], outTexCoords[outVertices[i].TexCoordReference - 1], outNormals[outVertices[i].NormalReference - 1]);
-				Buf.BlockCopy(vertexBytes, 0, Buffer, i * VertexByteCount, VertexByteCount);
+				Vertex vertex = new Vertex(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
+				byte[] vertexBytes = vertex.ToByteArray();
+				Buf.BlockCopy(vertexBytes, 0, Buffer, i * Vertex.ByteCount, Vertex.ByteCount);
 			}
 
 			for (int i = 0; i < vertexCount; i++)
-				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * VertexByteCount + i * sizeof(uint), sizeof(uint));
-			Buf.BlockCopy(closure, 0, Buffer, vertexCount * (VertexByteCount + sizeof(uint)), closure.Length);
+				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
+			Buf.BlockCopy(closure, 0, Buffer, vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
 
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
-
-			static byte[] ToByteArray(Vector3 position, Vector2 texCoord, Vector3 normal)
-			{
-				byte[] bytes = new byte[32];
-				Buf.BlockCopy(BitConverter.GetBytes(position.X), 0, bytes, 0, sizeof(float));
-				Buf.BlockCopy(BitConverter.GetBytes(position.Y), 0, bytes, 4, sizeof(float));
-				Buf.BlockCopy(BitConverter.GetBytes(position.Z), 0, bytes, 8, sizeof(float));
-				Buf.BlockCopy(BitConverter.GetBytes(normal.X), 0, bytes, 12, sizeof(float));
-				Buf.BlockCopy(BitConverter.GetBytes(normal.Y), 0, bytes, 16, sizeof(float));
-				Buf.BlockCopy(BitConverter.GetBytes(normal.Z), 0, bytes, 20, sizeof(float));
-				Buf.BlockCopy(BitConverter.GetBytes(texCoord.X), 0, bytes, 24, sizeof(float));
-				Buf.BlockCopy(BitConverter.GetBytes(texCoord.Y), 0, bytes, 28, sizeof(float));
-				return bytes;
-			}
 		}
 
 		public override IEnumerable<FileResult> Extract()
 		{
-			(Vector3 position, Vector2 texCoord, Vector3 normal)[] vertices = new (Vector3 position, Vector2 texCoord, Vector3 normal)[Header.VertexCount];
+			Vertex[] vertices = new Vertex[Header.VertexCount];
 			uint[] indices = new uint[Header.IndexCount];
 
 			for (int i = 0; i < vertices.Length; i++)
-				vertices[i] = VertexFromBuffer(Buffer, i);
+				vertices[i] = Vertex.CreateFromBuffer(Buffer, i);
 
 			for (int i = 0; i < indices.Length; i++)
-				indices[i] = BitConverter.ToUInt32(Buffer, vertices.Length * VertexByteCount + i * sizeof(uint));
+				indices[i] = BitConverter.ToUInt32(Buffer, vertices.Length * Vertex.ByteCount + i * sizeof(uint));
 
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine($"# {Name}.obj\n");
@@ -167,9 +152,9 @@ namespace DevilDaggersAssetCore.Chunks
 			StringBuilder vn = new StringBuilder();
 			for (uint i = 0; i < Header.VertexCount; ++i)
 			{
-				v.AppendLine($"v {vertices[i].position.X} {vertices[i].position.Y} {vertices[i].position.Z}");
-				vt.AppendLine($"vt {vertices[i].texCoord.X} {vertices[i].texCoord.Y}");
-				vn.AppendLine($"vn {vertices[i].normal.X} {vertices[i].normal.Y} {vertices[i].normal.Z}");
+				v.AppendLine($"v {vertices[i].Position.X} {vertices[i].Position.Y} {vertices[i].Position.Z}");
+				vt.AppendLine($"vt {vertices[i].TexCoord.X} {vertices[i].TexCoord.Y}");
+				vn.AppendLine($"vn {vertices[i].Normal.X} {vertices[i].Normal.Y} {vertices[i].Normal.Z}");
 			}
 
 			sb.Append(v.ToString());
@@ -178,27 +163,14 @@ namespace DevilDaggersAssetCore.Chunks
 
 			sb.AppendLine("\n# Triangles");
 			for (uint i = 0; i < Header.IndexCount / 3; ++i)
-				sb.AppendLine($"f {Face(indices[i * 3] + 1)} {Face(indices[i * 3 + 1] + 1)} {Face(indices[i * 3 + 2] + 1)}");
+			{
+				VertexReference vertex1 = new VertexReference(indices[i * 3] + 1);
+				VertexReference vertex2 = new VertexReference(indices[i * 3 + 1] + 1);
+				VertexReference vertex3 = new VertexReference(indices[i * 3 + 2] + 1);
+				sb.AppendLine($"f {vertex1} {vertex2} {vertex3}");
+			}
 
 			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
-
-			static string Face(uint face) => $"{face}/{face}/{face}";
-
-			static (Vector3 position, Vector2 texCoord, Vector3 normal) VertexFromBuffer(byte[] buffer, int vertexIndex)
-			{
-				Vector3 position = new Vector3(
-					x: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount),
-					y: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount + 4),
-					z: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount + 8));
-				Vector2 texCoord = new Vector2(
-					x: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount + 24),
-					y: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount + 28));
-				Vector3 normal = new Vector3(
-					x: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount + 12),
-					y: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount + 16),
-					z: BitConverter.ToSingle(buffer, vertexIndex * VertexByteCount + 20));
-				return (position, texCoord, normal);
-			}
 		}
 	}
 }

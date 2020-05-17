@@ -2,18 +2,18 @@
 {
 	public struct VertexReference
 	{
-		public int PositionReference { get; set; }
-		public int TexCoordReference { get; set; }
-		public int NormalReference { get; set; }
+		public uint PositionReference { get; set; }
+		public uint TexCoordReference { get; set; }
+		public uint NormalReference { get; set; }
 
-		public VertexReference(int positionReference, int texCoordReference, int normalReference)
+		public VertexReference(uint positionReference, uint texCoordReference, uint normalReference)
 		{
 			PositionReference = positionReference;
 			TexCoordReference = texCoordReference;
 			NormalReference = normalReference;
 		}
 
-		public VertexReference(int unifiedReference)
+		public VertexReference(uint unifiedReference)
 		{
 			PositionReference = unifiedReference;
 			TexCoordReference = unifiedReference;
