@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.Gui.Windows;
+﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetEditor.Gui.Windows;
 using DevilDaggersCore.Tools;
 using log4net;
 using log4net.Config;
@@ -31,6 +32,8 @@ namespace DevilDaggersAssetEditor
 
 			Assembly = Assembly.GetExecutingAssembly();
 			LocalVersion = VersionHandler.GetLocalVersion(Assembly);
+			Utils.GuiVersion = LocalVersion;
+
 			Dispatcher.UnhandledException += OnDispatcherUnhandledException;
 
 			XmlConfigurator.Configure();
