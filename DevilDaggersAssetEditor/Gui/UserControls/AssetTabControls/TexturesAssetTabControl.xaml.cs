@@ -61,7 +61,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(TextureAsset asset)
 		{
-			TextureAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			TextureAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 		}
 	}

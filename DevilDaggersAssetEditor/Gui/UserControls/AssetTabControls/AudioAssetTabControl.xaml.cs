@@ -80,7 +80,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(AudioAsset asset)
 		{
-			AudioAssetRowControl arc = assetRowControls.Where(a => a.Handler.Asset == asset).FirstOrDefault();
+			AudioAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.TextBoxLoudness.Text = asset.Loudness.ToString();
 		}
@@ -126,7 +126,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 						successCount++;
 					}
 
-					AudioAssetRowControl aac = assetRowControls.Where(a => a.Handler.Asset == audioAsset).FirstOrDefault();
+					AudioAssetRowControl aac = assetRowControls.FirstOrDefault(a => a.Handler.Asset == audioAsset);
 					aac.Handler.UpdateGui();
 				}
 			}

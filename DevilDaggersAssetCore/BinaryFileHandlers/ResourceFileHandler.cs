@@ -55,7 +55,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				foreach (AbstractChunk chunk in chunks)
 				{
 					Type chunkType = chunk.GetType();
-					ushort type = BinaryFileUtils.ChunkInfos.Where(c => c.Type == chunkType).FirstOrDefault().BinaryTypes[0]; // TODO: Shaders have multiple types.
+					ushort type = BinaryFileUtils.ChunkInfos.FirstOrDefault(c => c.Type == chunkType).BinaryTypes[0]; // TODO: Shaders have multiple types.
 
 					// Write asset type.
 					tocStream.Write(BitConverter.GetBytes(type), 0, sizeof(byte));
@@ -211,7 +211,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
-				ChunkInfo chunkInfo = BinaryFileUtils.ChunkInfos.Where(c => c.BinaryTypes.Contains(type)).FirstOrDefault();
+				ChunkInfo chunkInfo = BinaryFileUtils.ChunkInfos.FirstOrDefault(c => c.BinaryTypes.Contains(type));
 				if (chunkInfo != null)
 					chunks.Add(Activator.CreateInstance(chunkInfo.Type, name, startOffset, size, unknown) as AbstractChunk);
 			}
@@ -232,7 +232,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				if (chunk.Size == 0)
 					continue;
 
-				ChunkInfo info = BinaryFileUtils.ChunkInfos.Where(c => c.Type == chunk.GetType()).FirstOrDefault();
+				ChunkInfo info = BinaryFileUtils.ChunkInfos.FirstOrDefault(c => c.Type == chunk.GetType());
 
 				((IProgress<float>)progress).Report(chunksDone++ / (float)totalChunks);
 				((IProgress<string>)progressDescription).Report($"Creating {info.Type.Name.Replace("Chunk", "")} file{(info.Type == typeof(ShaderChunk) ? "(s)" : "")} for chunk \"{chunk.Name}\".");
