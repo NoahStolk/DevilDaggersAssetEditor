@@ -25,12 +25,10 @@
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockFragmentEditorPath" Height="20" />
 		</StackPanel>
 		<StackPanel Grid.Column="3">
-			<Button Click="ButtonVertexRemovePath_Click">Reset</Button>
-			<Button Click="ButtonFragmentRemovePath_Click">Reset</Button>
+			<Button Click="ButtonRemovePath_Click">Reset</Button>
 		</StackPanel>
 		<StackPanel Grid.Column="4">
-			<Button Click="ButtonVertexBrowsePath_Click">Browse</Button>
-			<Button Click="ButtonFragmentBrowsePath_Click">Browse</Button>
+			<Button Click="ButtonBrowsePath_Click">Browse</Button>
 		</StackPanel>
 	</Grid>
 </UserControl>

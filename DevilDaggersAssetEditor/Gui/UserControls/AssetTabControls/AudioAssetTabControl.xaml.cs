@@ -83,6 +83,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			AudioAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.TextBoxLoudness.Text = asset.Loudness.ToString();
+			arc.Handler.UpdateGui();
 		}
 
 		public void ImportLoudness()

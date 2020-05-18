@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetCore.Assets;
+﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,11 +22,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			TextBlockFragmentName.Text = $"{asset.AssetName}_fragment";
 		}
 
-		private void ButtonVertexRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
-		private void ButtonVertexBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
-
-		private void ButtonFragmentRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
-		private void ButtonFragmentBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
+		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
+		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 	}
 
 	public class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>
@@ -37,8 +35,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		public override void UpdateGui()
 		{
-			parent.TextBlockVertexEditorPath.Text = Asset.EditorPath; // TODO
-			parent.TextBlockFragmentEditorPath.Text = Asset.EditorPath; // TODO
+			parent.TextBlockVertexEditorPath.Text = Asset.EditorPath.IsPathValid() ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex") : Asset.EditorPath;
+			parent.TextBlockFragmentEditorPath.Text = Asset.EditorPath.IsPathValid() ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment") : Asset.EditorPath;
 		}
 
 		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");

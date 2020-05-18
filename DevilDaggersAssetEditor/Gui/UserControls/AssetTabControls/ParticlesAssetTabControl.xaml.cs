@@ -63,6 +63,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			ParticleAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
+			arc.Handler.UpdateGui();
 		}
 	}
 }
