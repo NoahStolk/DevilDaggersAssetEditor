@@ -6,11 +6,12 @@
 		mc:Ignorable="d"
         Title="Settings" Height="512" Width="768" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing">
 	<StackPanel x:Name="Data" Style="{StaticResource PaddingStackPanel}">
-		<Label FontWeight="Bold" FontSize="14">General</Label>
+		<Label FontWeight="Bold" FontSize="14">Standard folders</Label>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
 			<Label>Devil Daggers root folder</Label>
 			<Label Name="LabelDevilDaggersRootFolder" />
 			<StackPanel Orientation="Horizontal">
+				<CheckBox Name="CheckBoxDevilDaggersRootFolder" Margin="4">Enable</CheckBox>
 				<Button Content="Browse" Click="BrowseDevilDaggersRootFolderButton_Click" Width="128" />
 				<Button Content="Auto-detect" Click="AutoDetectButton_Click" Width="128" />
 			</StackPanel>
@@ -18,14 +19,22 @@
 			<Label>Mods root folder</Label>
 			<Label Name="LabelModsRootFolder" />
 			<StackPanel Orientation="Horizontal">
+				<CheckBox Name="CheckBoxModsRootFolder" Margin="4">Enable</CheckBox>
 				<Button Content="Browse" Click="BrowseModsRootFolderButton_Click" Width="128" />
 			</StackPanel>
 
 			<Label>Assets root folder</Label>
 			<Label Name="LabelAssetsRootFolder" />
 			<StackPanel Orientation="Horizontal">
+				<CheckBox Name="CheckBoxAssetsRootFolder" Margin="4">Enable</CheckBox>
 				<Button Content="Browse" Click="BrowseAssetsRootFolderButton_Click" Width="128" />
 			</StackPanel>
+		</StackPanel>
+
+		<Label FontWeight="Bold" FontSize="14">Mod files</Label>
+		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
+			<Label>Automatically create mod file when extracting assets</Label>
+			<CheckBox Name="CheckBoxExtractCreateModFile" Margin="4">Enable</CheckBox>
 		</StackPanel>
 
 		<Button HorizontalAlignment="Left" Click="OkButton_Click" Style="{StaticResource OkButton}">OK</Button>
