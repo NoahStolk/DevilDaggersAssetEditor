@@ -52,9 +52,10 @@ namespace DevilDaggersAssetCore.Chunks
 						normals.Add(new Vector3(float.Parse(values[1]), float.Parse(values[2]), float.Parse(values[3])));
 						break;
 					case "f":
-						// Compatible with both:
+						// Compatible with:
 						// f 1 2 3
 						// f 1/2/3 4/5/6 7/8/9
+						// f 1/2/3 4/5/6 7/8/9 10/11/12
 						for (int j = 0; j < 3; j++)
 						{
 							string value = values[j + 1];
@@ -68,6 +69,24 @@ namespace DevilDaggersAssetCore.Chunks
 							else // f 1 2 3
 							{
 								vertices.Add(new VertexReference(uint.Parse(value)));
+							}
+						}
+
+						// If there are 4 vertices, we're dealing with quads. Convert quads by making a second triangle (CDA).
+						if (values.Length == 5)
+						{
+							for (int j = 2; j < 5; j++)
+							{
+								int k = j;
+								if (j > 3)
+									k -= 4;
+								string value = values[k + 1];
+								if (value.Contains("/")) // f 1/2/3 4/5/6 7/8/9
+								{
+									string[] references = value.Split('/');
+
+									vertices.Add(new VertexReference(uint.Parse(references[0]), uint.Parse(references[1]), uint.Parse(references[2])));
+								}
 							}
 						}
 						break;
