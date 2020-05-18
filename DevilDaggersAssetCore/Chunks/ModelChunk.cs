@@ -56,6 +56,9 @@ namespace DevilDaggersAssetCore.Chunks
 						// f 1 2 3
 						// f 1/2/3 4/5/6 7/8/9
 						// f 1/2/3 4/5/6 7/8/9 10/11/12
+						if (values.Length > 5)
+							throw new NotImplementedException("Compressing NGons has not been implemented.");
+
 						for (int j = 0; j < 3; j++)
 						{
 							string value = values[j + 1];
