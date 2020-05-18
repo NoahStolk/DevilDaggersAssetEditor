@@ -1,5 +1,7 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
+using DevilDaggersAssetCore.ModFiles;
+using JsonUtils;
 using NetBase.Utils;
 using System;
 using System.Collections.Generic;
@@ -196,6 +198,69 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			// Create folders and files based on chunks.
 			((IProgress<string>)progressDescription).Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress, progressDescription);
+
+			// Create mod file.
+			// TODO: If setting...
+
+			List<AbstractUserAsset> assets = binaryFileType switch
+			{
+				BinaryFileType.Audio => GetAudioAssets(outputPath),
+				BinaryFileType.Core => GetNonAudioAssets(outputPath),
+				BinaryFileType.Dd => GetNonAudioAssets(outputPath),
+				BinaryFileType.Particle => GetNonAudioAssets(outputPath),
+				_ => throw new NotImplementedException()
+			};
+			ModFile modFile = new ModFile(Utils.GuiVersion, false, assets);
+
+			string folderName = new DirectoryInfo(outputPath).Name;
+			JsonFileUtils.SerializeToFile(Path.Combine(outputPath, $"{folderName}.{binaryFileType.ToString().ToLower()}"), modFile, true);
+		}
+
+		private List<AbstractUserAsset> GetAudioAssets(string outputPath)
+		{
+			string loudnessFilePath = Directory.GetFiles(outputPath, "*.ini").FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == "loudness");
+			if (loudnessFilePath == null)
+				throw new Exception("Loudness file not found when attempting to create a mod based on newly extracted assets.");
+
+			Dictionary<string, float> loudnessValues = new Dictionary<string, float>();
+			foreach (string line in File.ReadAllLines(loudnessFilePath))
+			{
+				LoudnessUtils.ReadLoudnessLine(line, out string assetName, out float loudness);
+				loudnessValues.Add(assetName, loudness);
+			}
+
+			List<AbstractUserAsset> assets = new List<AbstractUserAsset>();
+			foreach (string path in Directory.GetFiles(outputPath, "*.*", SearchOption.AllDirectories))
+			{
+				string name = Path.GetFileNameWithoutExtension(path);
+				float loudness = loudnessValues[name];
+				assets.Add(new AudioUserAsset(name, path, loudness));
+			}
+			return assets.Cast<AbstractUserAsset>().ToList();
+		}
+
+		private List<AbstractUserAsset> GetNonAudioAssets(string outputPath)
+		{
+			Dictionary<string, Type> typeConversions = new Dictionary<string, Type>
+			{
+				{ "Model Bindings", typeof(ModelBindingUserAsset) },
+				{ "Models", typeof(ModelUserAsset) },
+				{ "Shaders", typeof(ShaderUserAsset) },
+				{ "Textures", typeof(TextureUserAsset) }
+			};
+
+			List<AbstractUserAsset> assets = new List<AbstractUserAsset>();
+
+			foreach (string path in Directory.GetFiles(outputPath, "*.*", SearchOption.AllDirectories))
+			{
+				string name = Path.GetFileNameWithoutExtension(path);
+				// TODO: Remove _fragment and _vertex
+
+				string folderName = new DirectoryInfo(Path.GetDirectoryName(path)).Name;
+				if (typeConversions.TryGetValue(folderName, out Type type))
+					assets.Add(Activator.CreateInstance(type, name, path) as AbstractUserAsset);
+			}
+			return assets;
 		}
 
 		private List<AbstractChunk> ReadChunks(byte[] tocBuffer)
