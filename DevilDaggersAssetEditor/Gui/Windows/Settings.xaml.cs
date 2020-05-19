@@ -58,6 +58,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			if (result == CommonFileDialogResult.Ok)
 				SetDevilDaggersRootFolder(dialog.FileName);
+
+			Focus();
 		}
 
 		private void BrowseModsRootFolderButton_Click(object sender, RoutedEventArgs e)
@@ -74,6 +76,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				UserHandler.Instance.settings.ModsRootFolder = dialog.FileName;
 				LabelModsRootFolder.Content = UserHandler.Instance.settings.ModsRootFolder;
 			}
+
+			Focus();
 		}
 
 		private void BrowseAssetsRootFolderButton_Click(object sender, RoutedEventArgs e)
@@ -90,6 +94,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				UserHandler.Instance.settings.AssetsRootFolder = dialog.FileName;
 				LabelAssetsRootFolder.Content = UserHandler.Instance.settings.AssetsRootFolder;
 			}
+
+			Focus();
 		}
 
 		private void AutoDetectButton_Click(object sender, RoutedEventArgs e)
