@@ -19,7 +19,7 @@ namespace DevilDaggersAssetEditor.Code
 			List<ModelAsset> models = new List<ModelAsset>();
 			List<TextureAsset> textures = new List<TextureAsset>();
 
-			foreach (string path in Directory.GetFiles(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\Extracted\dd", "*.*", SearchOption.AllDirectories))
+			foreach (string path in Directory.GetFiles(@"C:\Program Files (x86)\Steam\steamapps\common\devildaggers\Mods\Original\dd", "*.*", SearchOption.AllDirectories))
 			{
 				switch (Path.GetExtension(path))
 				{
@@ -30,7 +30,23 @@ namespace DevilDaggersAssetEditor.Code
 						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ShaderChunk)));
 						break;
 					case ".obj":
-						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ModelChunk)));
+						string[] lines = File.ReadAllLines(path);
+						int v = 0;
+						int vt = 0;
+						int vn = 0;
+						int f = 0;
+						foreach (string line in lines)
+						{
+							switch (line.Split(' ')[0])
+							{
+								case "v": v++; break;
+								case "vt": vt++; break;
+								case "vn": vn++; break;
+								case "f": f++; break;
+							}
+						}
+
+						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ModelChunk), new[] { v, vt, vn }.Max(), f));
 						break;
 					case ".png":
 						Image image = Image.FromFile(path);

@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore.ModFiles;
+using Newtonsoft.Json;
 
 namespace DevilDaggersAssetCore.Assets
 {
@@ -8,9 +9,16 @@ namespace DevilDaggersAssetCore.Assets
 		public override byte ColorG => 0;
 		public override byte ColorB => 0;
 
-		public ModelAsset(string assetName, string description, string entityName, string chunkTypeName)
+		[JsonProperty]
+		public int DefaultVertexCount { get; set; }
+		[JsonProperty]
+		public int DefaultIndexCount { get; set; }
+
+		public ModelAsset(string assetName, string description, string entityName, string chunkTypeName, int vertexCount, int indexCount)
 			: base(assetName, description, entityName, chunkTypeName)
 		{
+			DefaultVertexCount = vertexCount;
+			DefaultIndexCount = indexCount;
 		}
 
 		public override AbstractUserAsset ToUserAsset() => new ModelUserAsset(AssetName, EditorPath);

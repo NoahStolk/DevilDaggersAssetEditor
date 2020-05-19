@@ -15,8 +15,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		public void Initialize(ModelAsset asset)
 		{
 			TextureName.Text = asset.AssetName;
-			//DefaultVertexCount.Text = asset.DefaultVertexCount;
-			//DefaultIndexCount.Text = asset.DefaultIndexCount;
+			DefaultVertexCount.Text = asset.DefaultVertexCount.ToString();
+			DefaultIndexCount.Text = asset.DefaultIndexCount.ToString();
 
 			bool isPathValid = asset.EditorPath.IsPathValid();
 
