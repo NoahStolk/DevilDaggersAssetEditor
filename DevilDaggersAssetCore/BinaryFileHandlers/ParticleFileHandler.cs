@@ -55,7 +55,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			return dict;
 		}
 
-		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
+		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, bool createModFile, Progress<float> progress, Progress<string> progressDescription)
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 
@@ -78,6 +78,10 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 				File.WriteAllBytes(Path.Combine(outputPath, folderName, $"{name}{fileExtension}"), chunkBuffer);
 			}
+
+			// Create mod file.
+			if (createModFile)
+				CreateModFile(outputPath, binaryFileType);
 		}
 	}
 }

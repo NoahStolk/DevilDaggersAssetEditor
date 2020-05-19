@@ -23,6 +23,8 @@ namespace DevilDaggersAssetEditor.Code
 
 		protected readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
 
+		private UserSettings settings => UserHandler.Instance.settings;
+
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
 			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json"));
@@ -50,7 +52,10 @@ namespace DevilDaggersAssetEditor.Code
 
 		public void ImportFolder()
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+			if (settings.EnableAssetsRootFolder)
+				dialog.InitialDirectory = settings.AssetsRootFolder;
+
 			CommonFileDialogResult result = dialog.ShowDialog();
 			if (result != CommonFileDialogResult.Ok)
 				return;

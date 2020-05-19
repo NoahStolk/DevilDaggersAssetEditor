@@ -7,6 +7,8 @@
         Title="Settings" Height="512" Width="768" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing">
 	<StackPanel x:Name="Data" Style="{StaticResource PaddingStackPanel}">
 		<Label FontWeight="Bold" FontSize="14">Standard folders</Label>
+		<Label>When enabled, these folders will be used as the initial directory for certain browse actions (selecting files or folders).</Label>
+
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
 			<Label>Devil Daggers root folder</Label>
 			<Label Name="LabelDevilDaggersRootFolder" />
@@ -33,8 +35,7 @@
 
 		<Label FontWeight="Bold" FontSize="14">Mod files</Label>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
-			<Label>Automatically create mod file when extracting assets</Label>
-			<CheckBox Name="CheckBoxExtractCreateModFile" Margin="4">Enable</CheckBox>
+			<CheckBox Name="CheckBoxCreateModFileWhenExtracting" Margin="4">Automatically create mod file when extracting assets</CheckBox>
 		</StackPanel>
 
 		<Button HorizontalAlignment="Left" Click="OkButton_Click" Style="{StaticResource OkButton}">OK</Button>

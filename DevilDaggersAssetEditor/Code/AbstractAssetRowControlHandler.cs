@@ -14,6 +14,8 @@ namespace DevilDaggersAssetEditor.Code
 		protected readonly TAssetRowControl parent;
 		protected readonly string openDialogFilter;
 
+		private UserSettings settings => UserHandler.Instance.settings;
+
 		public AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter)
 		{
 			Asset = asset;
@@ -27,7 +29,10 @@ namespace DevilDaggersAssetEditor.Code
 
 		public virtual void BrowsePath()
 		{
-			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter, InitialDirectory = UserHandler.Instance.settings.AssetsRootFolder };
+			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter };
+			if (settings.EnableAssetsRootFolder)
+				openDialog.InitialDirectory = settings.AssetsRootFolder;
+
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;

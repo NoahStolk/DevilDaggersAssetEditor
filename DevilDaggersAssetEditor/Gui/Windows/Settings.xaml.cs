@@ -4,7 +4,6 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
@@ -22,15 +21,21 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		[DllImport("user32.dll")]
 		private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
+		private UserSettings settings => UserHandler.Instance.settings;
+
 		public SettingsWindow()
 		{
 			InitializeComponent();
 
-			LabelDevilDaggersRootFolder.Content = UserHandler.Instance.settings.DevilDaggersRootFolder;
-			LabelModsRootFolder.Content = UserHandler.Instance.settings.ModsRootFolder;
-			LabelAssetsRootFolder.Content = UserHandler.Instance.settings.AssetsRootFolder;
+			LabelAssetsRootFolder.Content = settings.AssetsRootFolder;
+			LabelDevilDaggersRootFolder.Content = settings.DevilDaggersRootFolder;
+			LabelModsRootFolder.Content = settings.ModsRootFolder;
 
-			Data.DataContext = UserHandler.Instance.settings;
+			CheckBoxAssetsRootFolder.IsChecked = settings.EnableAssetsRootFolder;
+			CheckBoxDevilDaggersRootFolder.IsChecked = settings.EnableDevilDaggersRootFolder;
+			CheckBoxModsRootFolder.IsChecked = settings.EnableModsRootFolder;
+
+			CheckBoxCreateModFileWhenExtracting.IsChecked = settings.CreateModFileWhenExtracting;
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -49,51 +54,33 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void BrowseDevilDaggersRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog
-			{
-				IsFolderPicker = true,
-				InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder
-			};
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = LabelDevilDaggersRootFolder.Content.ToString() };
 			CommonFileDialogResult result = dialog.ShowDialog();
 
 			if (result == CommonFileDialogResult.Ok)
-				SetDevilDaggersRootFolder(dialog.FileName);
+				LabelDevilDaggersRootFolder.Content = dialog.FileName;
 
 			Focus();
 		}
 
 		private void BrowseModsRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog
-			{
-				IsFolderPicker = true,
-				InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder
-			};
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = LabelModsRootFolder.Content.ToString() };
 			CommonFileDialogResult result = dialog.ShowDialog();
 
 			if (result == CommonFileDialogResult.Ok)
-			{
-				UserHandler.Instance.settings.ModsRootFolder = dialog.FileName;
-				LabelModsRootFolder.Content = UserHandler.Instance.settings.ModsRootFolder;
-			}
+				LabelModsRootFolder.Content = dialog.FileName;
 
 			Focus();
 		}
 
 		private void BrowseAssetsRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog
-			{
-				IsFolderPicker = true,
-				InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder
-			};
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = LabelAssetsRootFolder.Content.ToString() };
 			CommonFileDialogResult result = dialog.ShowDialog();
 
 			if (result == CommonFileDialogResult.Ok)
-			{
-				UserHandler.Instance.settings.AssetsRootFolder = dialog.FileName;
-				LabelAssetsRootFolder.Content = UserHandler.Instance.settings.AssetsRootFolder;
-			}
+				LabelAssetsRootFolder.Content = dialog.FileName;
 
 			Focus();
 		}
@@ -102,20 +89,24 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			Process process = ProcessUtils.GetDevilDaggersProcess();
 			if (process != null)
-			{
-				SetDevilDaggersRootFolder(Path.GetDirectoryName(process.MainModule.FileName));
-				return;
-			}
-
-			App.Instance.ShowMessage("Devil Daggers process not found", "Please make sure Devil Daggers is running and try again.");
+				LabelDevilDaggersRootFolder.Content = process.MainModule.FileName;
+			else
+				App.Instance.ShowMessage("Devil Daggers process not found", "Please make sure Devil Daggers is running and try again.");
 		}
 
-		private void OkButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
-
-		private void SetDevilDaggersRootFolder(string path)
+		private void OkButton_Click(object sender, RoutedEventArgs e)
 		{
-			UserHandler.Instance.settings.DevilDaggersRootFolder = path;
-			LabelDevilDaggersRootFolder.Content = UserHandler.Instance.settings.DevilDaggersRootFolder;
+			settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString();
+			settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString();
+			settings.ModsRootFolder = LabelModsRootFolder.Content.ToString();
+
+			settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
+			settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
+			settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
+
+			settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
+
+			DialogResult = true;
 		}
 	}
 }
