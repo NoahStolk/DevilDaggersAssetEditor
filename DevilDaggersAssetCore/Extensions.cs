@@ -17,7 +17,7 @@ namespace DevilDaggersAssetCore
 				case BinaryFileType.Particle:
 					return "dd";
 				default:
-					throw new Exception($"{nameof(BinaryFileType)} '{binaryFileType}' has not been implemented in the {nameof(GetSubfolderName)} method.");
+					throw new NotImplementedException($"{nameof(BinaryFileType)} '{binaryFileType}' has not been implemented in the {nameof(GetSubfolderName)} method.");
 			}
 		}
 
