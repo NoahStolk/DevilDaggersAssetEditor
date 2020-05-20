@@ -16,7 +16,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		public void Initialize(TextureAsset asset)
 		{
 			TextureName.Text = asset.AssetName;
-			DefaultDimensions.Text = $"{asset.DefaultDimensions.X}, {asset.DefaultDimensions.Y}";
+			DefaultDimensions.Text = $"{asset.DefaultDimensions.X}x{asset.DefaultDimensions.Y}";
 			DefaultMipmaps.Text = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString();
 
 			bool isPathValid = asset.EditorPath.IsPathValid();
@@ -26,7 +26,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			if (isPathValid)
 			{
 				System.Drawing.Image image = System.Drawing.Image.FromFile(asset.EditorPath);
-				FileDimensions.Text = $"{image.Width}, {image.Height}";
+				FileDimensions.Text = $"{image.Width}x{image.Height}";
 				FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString();
 
 				FileStream stream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
