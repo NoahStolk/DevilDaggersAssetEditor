@@ -74,7 +74,7 @@ namespace DevilDaggersAssetEditor.Code
 		public bool IsComplete()
 		{
 			foreach (TAsset asset in Assets)
-				if (!asset.EditorPath.IsPathValid())
+				if (asset.EditorPath.GetPathValidity() != PathValidity.Valid)
 					return false;
 			return true;
 		}

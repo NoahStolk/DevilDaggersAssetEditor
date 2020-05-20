@@ -30,18 +30,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		{
 			ShaderName.Text = asset.AssetName;
 
-			bool isPathValid = asset.EditorPath.IsPathValid();
+			string vertexPath = asset.EditorPath.Replace(".glsl", "_vertex.glsl");
+			bool isPathValid = vertexPath.GetPathValidity() == PathValidity.Valid;
 
-			string basePath = isPathValid ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
+			string basePath = isPathValid ? Path.GetFileName(vertexPath).Replace("_vertex", "") : Utils.GetPathValidityMessage(asset.EditorPath); // TODO: Trim end "vertex" instead of Replace
 
-			VertexFileName.Text = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl") : asset.EditorPath;
-			FragmentFileName.Text = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl") : asset.EditorPath;
+			VertexFileName.Text = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl") : basePath;
+			FragmentFileName.Text = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl") : basePath;
+
+			PreviewVertexTextBox.Document.Blocks.Clear();
+			PreviewFragmentTextBox.Document.Blocks.Clear();
 
 			if (isPathValid)
 			{
-				PreviewVertexTextBox.Document.Blocks.Clear();
-				PreviewFragmentTextBox.Document.Blocks.Clear();
-
 				string vertexCode = SanitizeCode(File.ReadAllText(asset.EditorPath.Replace(".glsl", "_vertex.glsl")));
 				string fragmentCode = SanitizeCode(File.ReadAllText(asset.EditorPath.Replace(".glsl", "_fragment.glsl")));
 

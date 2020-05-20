@@ -170,7 +170,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				{
 					string path1 = assetList[i].EditorPath;
 					string path2 = assetList[(i + 1) % assetList.Count].EditorPath;
-					if (!path1.IsPathValid() || !path2.IsPathValid() || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
+					if (path1.GetPathValidity() != PathValidity.Valid || path2.GetPathValidity() != PathValidity.Valid || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
 						return false;
 				}
 

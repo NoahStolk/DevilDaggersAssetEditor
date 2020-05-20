@@ -44,7 +44,7 @@ namespace DevilDaggersAssetEditor.Code
 
 		public void RemovePath()
 		{
-			Asset.EditorPath = Utils.NoPath;
+			Asset.EditorPath = Utils.FileNotFound;
 
 			UpdateGui();
 		}

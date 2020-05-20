@@ -18,14 +18,18 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		{
 			ParticleName.Text = asset.AssetName;
 
-			bool isPathValid = asset.EditorPath.IsPathValid();
+			bool isPathValid = asset.EditorPath.GetPathValidity() == PathValidity.Valid;
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.GetPathValidityMessage(asset.EditorPath);
 
 			if (isPathValid)
 			{
 				byte[] bytes = File.ReadAllBytes(asset.EditorPath);
 				PreviewTextBox.Text = Regex.Replace(BitConverter.ToString(bytes).Replace("-", string.Empty), $".{{{bytes.Length / 2}}}", "$0\n").TrimEnd('\n');
+			}
+			else
+			{
+				PreviewTextBox.Text = string.Empty;
 			}
 		}
 	}

@@ -23,7 +23,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		{
 			((IProgress<string>)progressDescription).Report("Initializing 'particle' file creation.");
 
-			allAssets = allAssets.Where(a => a.EditorPath.IsPathValid()).ToList();
+			allAssets = allAssets.Where(a => a.EditorPath.GetPathValidity() == PathValidity.Valid).ToList();
 
 			byte[] fileBuffer;
 			using (MemoryStream stream = new MemoryStream())

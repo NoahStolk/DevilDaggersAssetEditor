@@ -19,9 +19,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			DefaultVertexCount.Text = asset.DefaultVertexCount.ToString();
 			DefaultIndexCount.Text = asset.DefaultIndexCount.ToString();
 
-			bool isPathValid = asset.EditorPath.IsPathValid();
+			bool isPathValid = asset.EditorPath.GetPathValidity() == PathValidity.Valid;
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : asset.EditorPath;
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.GetPathValidityMessage(asset.EditorPath);
 
 			if (isPathValid)
 			{
@@ -44,6 +44,11 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 				FileIndexCount.Text = f.ToString();
 
 				// TODO: Open in OBJ Viewer
+			}
+			else
+			{
+				FileVertexCount.Text = "N/A";
+				FileIndexCount.Text = "N/A";
 			}
 		}
 	}

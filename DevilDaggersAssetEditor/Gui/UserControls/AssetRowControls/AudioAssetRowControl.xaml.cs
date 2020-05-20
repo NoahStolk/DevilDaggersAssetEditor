@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetCore.Assets;
+﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
 using System.Windows;
 using System.Windows.Controls;
@@ -50,7 +51,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		public override void UpdateGui()
 		{
-			parent.TextBlockEditorPath.Text = Asset.EditorPath;
+			bool isPathValid = Asset.EditorPath.GetPathValidity() == PathValidity.Valid;
+			parent.TextBlockEditorPath.Text = isPathValid ? Asset.EditorPath : Utils.GetPathValidityMessage(Asset.EditorPath);
+
 			parent.TextBoxLoudness.Text = Asset.Loudness.ToString();
 		}
 	}

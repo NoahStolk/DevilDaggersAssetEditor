@@ -35,8 +35,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		public override void UpdateGui()
 		{
-			parent.TextBlockVertexEditorPath.Text = Asset.EditorPath.IsPathValid() ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex") : Asset.EditorPath;
-			parent.TextBlockFragmentEditorPath.Text = Asset.EditorPath.IsPathValid() ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment") : Asset.EditorPath;
+			bool isPathValid = Asset.EditorPath.Replace(".glsl", "_vertex.glsl").GetPathValidity() == PathValidity.Valid;
+			parent.TextBlockVertexEditorPath.Text = isPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex") : Utils.GetPathValidityMessage(Asset.EditorPath);
+			parent.TextBlockFragmentEditorPath.Text = isPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment") : Utils.GetPathValidityMessage(Asset.EditorPath);
 		}
 
 		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");

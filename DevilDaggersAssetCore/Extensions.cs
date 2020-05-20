@@ -21,15 +21,18 @@ namespace DevilDaggersAssetCore
 			}
 		}
 
-		public static bool IsPathValid(this string path)
+		public static PathValidity GetPathValidity(this string path)
 		{
 			try
 			{
-				return Path.IsPathRooted(path);
+				if (Path.IsPathRooted(path) && File.Exists(path))
+					return PathValidity.Valid;
+
+				return PathValidity.NotFound;
 			}
 			catch
 			{
-				return false;
+				return PathValidity.Invalid;
 			}
 		}
 	}

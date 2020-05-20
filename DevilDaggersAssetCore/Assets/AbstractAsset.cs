@@ -15,7 +15,7 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public string ChunkTypeName { get; }
 
-		public string EditorPath { get; set; } = Utils.NoPath;
+		public string EditorPath { get; set; } = Utils.FileNotFound;
 
 		public abstract byte ColorR { get; }
 		public abstract byte ColorG { get; }

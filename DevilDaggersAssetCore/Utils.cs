@@ -9,7 +9,8 @@ namespace DevilDaggersAssetCore
 	{
 		public static Version GuiVersion;
 
-		public static readonly string NoPath = "<No path specified>";
+		public static readonly string InvalidPathSpecified = "<Invalid or empty path>";
+		public static readonly string FileNotFound = "<File not found>";
 
 		public static Assembly GetAssemblyByName(string name) => AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
 
@@ -31,5 +32,12 @@ namespace DevilDaggersAssetCore
 			}
 			throw new Exception($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
 		}
+
+		public static string GetPathValidityMessage(string path) => path.GetPathValidity() switch
+		{
+			PathValidity.Invalid => InvalidPathSpecified,
+			PathValidity.NotFound => FileNotFound,
+			_ => path
+		};
 	}
 }
