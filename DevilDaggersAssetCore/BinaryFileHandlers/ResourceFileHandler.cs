@@ -172,7 +172,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		/// <param name="createModFile">Whether to create mod file or not.</param>
 		/// <param name="progress">The progress as percentage.</param>
 		/// <param name="progressDescription">The progress description displayed in the progress window.</param>
-		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, bool createModFile, Progress<float> progress, Progress<string> progressDescription)
+		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
 		{
 			// Read file contents.
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
@@ -199,7 +199,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress, progressDescription);
 
 			// Create mod file.
-			if (createModFile)
+			if (settings.CreateModFileWhenExtracting)
 				CreateModFile(outputPath, binaryFileType);
 		}
 

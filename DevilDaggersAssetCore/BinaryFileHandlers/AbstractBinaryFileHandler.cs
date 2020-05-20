@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.ModFiles;
+using DevilDaggersAssetCore.User;
 using JsonUtils;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 {
 	public abstract class AbstractBinaryFileHandler
 	{
+		protected UserSettings settings => UserHandler.Instance.settings;
+
 		public BinaryFileType BinaryFileType { get; }
 
 		protected AbstractBinaryFileHandler(BinaryFileType binaryFileType)
@@ -19,7 +22,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 		public abstract void Compress(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription);
 
-		public abstract void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, bool createModFile, Progress<float> progress, Progress<string> progressDescription);
+		public abstract void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription);
 
 		protected void CreateModFile(string outputPath, BinaryFileType binaryFileType)
 		{
