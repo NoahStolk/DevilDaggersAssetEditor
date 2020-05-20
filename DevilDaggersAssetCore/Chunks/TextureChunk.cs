@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Headers;
+using DevilDaggersAssetCore.User;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -26,7 +27,7 @@ namespace DevilDaggersAssetCore.Chunks
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
-			while (maxDimension > 512/*settings.TextureSizeLimit*/)
+			while (maxDimension > UserHandler.Instance.settings.TextureSizeLimit)
 			{
 				newWidth /= 2;
 				newHeight /= 2;

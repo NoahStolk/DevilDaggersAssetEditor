@@ -6,7 +6,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Gui.Windows
 {
@@ -27,6 +29,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			InitializeComponent();
 
+			TextBoxTextureSizeLimit.TextChanged += TextBoxTextureSizeLimit_TextChanged;
+
 			LabelAssetsRootFolder.Content = settings.AssetsRootFolder;
 			LabelDevilDaggersRootFolder.Content = settings.DevilDaggersRootFolder;
 			LabelModsRootFolder.Content = settings.ModsRootFolder;
@@ -37,6 +41,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			CheckBoxCreateModFileWhenExtracting.IsChecked = settings.CreateModFileWhenExtracting;
 			CheckBoxOpenModFolderAfterExtracting.IsChecked = settings.OpenModFolderAfterExtracting;
+
+			TextBoxTextureSizeLimit.Text = settings.TextureSizeLimit.ToString();
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -95,6 +101,11 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				App.Instance.ShowMessage("Devil Daggers process not found", "Please make sure Devil Daggers is running and try again.");
 		}
 
+		private void TextBoxTextureSizeLimit_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			TextBoxTextureSizeLimit.Background = uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0 ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 128, 128));
+		}
+
 		private void OkButton_Click(object sender, RoutedEventArgs e)
 		{
 			settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString();
@@ -107,6 +118,9 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
 			settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
+
+			if (uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0)
+				settings.TextureSizeLimit = res;
 
 			DialogResult = true;
 		}

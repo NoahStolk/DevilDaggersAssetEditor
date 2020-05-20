@@ -39,6 +39,12 @@
 			<CheckBox Name="CheckBoxOpenModFolderAfterExtracting" Margin="4">Automatically open folder after extracting</CheckBox>
 		</StackPanel>
 
+		<Label FontWeight="Bold" FontSize="14">Compression</Label>
+		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
+			<TextBlock Style="{StaticResource PaddingTextBlock}">Texture dimension limit in pixels</TextBlock>
+			<TextBox Name="TextBoxTextureSizeLimit" MaxLength="4" Width="64" HorizontalAlignment="Left" />
+		</StackPanel>
+
 		<Button HorizontalAlignment="Left" Click="OkButton_Click" Style="{StaticResource OkButton}">OK</Button>
 	</StackPanel>
 </Window>
