@@ -23,23 +23,34 @@ namespace DevilDaggersAssetCore.Chunks
 		public override void Compress(string path)
 		{
 			using Image image = Image.FromFile(path);
+			int maxDimension = Math.Max(image.Width, image.Height);
+			int newWidth = image.Width;
+			int newHeight = image.Height;
+			while (maxDimension > 512/*settings.TextureSizeLimit*/)
+			{
+				newWidth /= 2;
+				newHeight /= 2;
+				maxDimension /= 2;
+			}
+
+			using Bitmap resizedImage = ResizeImage(image, newWidth, newHeight);
 
 			byte[] headerBuffer = new byte[BinaryFileUtils.TextureHeaderByteCount];
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
-			Buf.BlockCopy(BitConverter.GetBytes(image.Width), 0, headerBuffer, 2, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes(image.Height), 0, headerBuffer, 6, sizeof(uint));
-			headerBuffer[10] = GetMipmapCountFromImage(image);
+			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Width), 0, headerBuffer, 2, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Height), 0, headerBuffer, 6, sizeof(uint));
+			headerBuffer[10] = GetMipmapCountFromImage(resizedImage);
 			Header = new TextureHeader(headerBuffer);
 
 			GetBufferSizes(Header, out int totalBufferLength, out int[] mipmapBufferSizes);
 
 			Buffer = new byte[totalBufferLength];
-			int mipmapWidth = image.Width;
-			int mipmapHeight = image.Height;
+			int mipmapWidth = resizedImage.Width;
+			int mipmapHeight = resizedImage.Height;
 			int mipmapBufferOffset = 0;
 			for (int i = 0; i < Header.MipmapCount; i++)
 			{
-				using Bitmap bitmap = ResizeImage(image, mipmapWidth, mipmapHeight);
+				using Bitmap bitmap = ResizeImage(resizedImage, mipmapWidth, mipmapHeight);
 				bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
 				int increment = (int)Math.Pow(2, i);
