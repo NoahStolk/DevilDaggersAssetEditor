@@ -33,7 +33,7 @@ namespace DevilDaggersAssetCore.Chunks
 				maxDimension /= 2;
 			}
 
-			using Bitmap resizedImage = ResizeImage(image, newWidth, newHeight);
+			using Bitmap resizedImage = ResizeImage(image, Math.Max(1, newWidth), Math.Max(1, newHeight));
 
 			byte[] headerBuffer = new byte[BinaryFileUtils.TextureHeaderByteCount];
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
