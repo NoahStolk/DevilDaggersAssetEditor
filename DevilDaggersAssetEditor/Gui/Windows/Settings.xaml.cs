@@ -36,6 +36,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			CheckBoxModsRootFolder.IsChecked = settings.EnableModsRootFolder;
 
 			CheckBoxCreateModFileWhenExtracting.IsChecked = settings.CreateModFileWhenExtracting;
+			CheckBoxOpenModFolderAfterExtracting.IsChecked = settings.OpenModFolderAfterExtracting;
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -105,6 +106,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
 
 			settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
+			settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
 
 			DialogResult = true;
 		}

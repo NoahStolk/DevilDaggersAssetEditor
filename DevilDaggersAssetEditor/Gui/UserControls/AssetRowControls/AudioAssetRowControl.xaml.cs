@@ -23,7 +23,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 
-		private bool ValidateTextBox(TextBox textBox)
+		private bool ValidateTextBoxLoudness(TextBox textBox)
 		{
 			bool isValid = float.TryParse(textBox.Text, out float res) && res >= 0;
 
@@ -34,7 +34,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		private void TextBoxLoudness_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			if (ValidateTextBox(TextBoxLoudness))
+			if (ValidateTextBoxLoudness(TextBoxLoudness))
 				Handler.Asset.Loudness = float.Parse(TextBoxLoudness.Text);
 		}
 

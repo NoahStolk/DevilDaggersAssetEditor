@@ -24,5 +24,8 @@ namespace DevilDaggersAssetCore.User
 
 		[JsonProperty]
 		public bool CreateModFileWhenExtracting { get; set; }
+
+		[JsonProperty]
+		public bool OpenModFolderAfterExtracting { get; set; }
 	}
 }
