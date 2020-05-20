@@ -1,6 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.User;
+using DevilDaggersAssetCore.User;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
 using System;

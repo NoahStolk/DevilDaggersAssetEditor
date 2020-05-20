@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevilDaggersAssetEditor.Code.User
+namespace DevilDaggersAssetCore.User
 {
 	public sealed class UserHandler
 	{

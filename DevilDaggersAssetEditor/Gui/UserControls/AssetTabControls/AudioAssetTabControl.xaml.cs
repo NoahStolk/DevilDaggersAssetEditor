@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.Code.User;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using Microsoft.Win32;
 using System;

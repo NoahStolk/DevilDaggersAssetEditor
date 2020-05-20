@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace DevilDaggersAssetEditor.Code.User
+namespace DevilDaggersAssetCore.User
 {
 	[JsonObject(MemberSerialization.OptIn)]
 	public class UserSettings

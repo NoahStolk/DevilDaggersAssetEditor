@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Code.User;
+﻿using DevilDaggersAssetCore.User;
 using DevilDaggersCore.Tools;
 using Newtonsoft.Json;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
-﻿using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
-using DevilDaggersAssetEditor.Code.User;
+﻿using DevilDaggersAssetCore.User;
+using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersAssetEditor.Gui.Windows;
 using DevilDaggersCore.Tools;
 using Newtonsoft.Json;

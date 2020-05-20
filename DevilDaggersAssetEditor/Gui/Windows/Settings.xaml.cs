@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Code.User;
+﻿using DevilDaggersAssetCore.User;
 using DevilDaggersCore.Processes;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
