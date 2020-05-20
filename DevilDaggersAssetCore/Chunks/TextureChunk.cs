@@ -22,7 +22,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		public override void Compress(string path)
 		{
-			Image image = Image.FromFile(path);
+			using Image image = Image.FromFile(path);
 
 			byte[] headerBuffer = new byte[BinaryFileUtils.TextureHeaderByteCount];
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
