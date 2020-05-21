@@ -175,40 +175,45 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		/// <param name="progressDescription">The progress description displayed in the progress window.</param>
 		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
 		{
-			// Read file contents.
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
-			// Validate file.
 			((IProgress<string>)progressDescription).Report("Validating file.");
-			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
-			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
-			if (magic1FromFile != Magic1 && magic2FromFile != Magic2)
-				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}\nHeader value 2: {magic2FromFile} should be {Magic2}");
+			ValidateFile(sourceFileBytes);
 
-			// Read toc buffer.
-			((IProgress<string>)progressDescription).Report("Reading TOC.");
-			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
-			byte[] tocBuffer = new byte[tocSize];
-			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)tocSize);
+			((IProgress<string>)progressDescription).Report("Reading TOC buffer.");
+			byte[] tocBuffer = ReadTocBuffer(sourceFileBytes);
 
-			// Create chunks based on toc buffer.
 			((IProgress<string>)progressDescription).Report("Creating chunks.");
 			List<AbstractChunk> chunks = ReadChunks(tocBuffer);
 
-			// Create folders and files based on chunks.
 			((IProgress<string>)progressDescription).Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress, progressDescription);
 
-			// Create mod file.
 			if (settings.CreateModFileWhenExtracting)
 				CreateModFile(outputPath, binaryFileType);
 
-			// Open the output path.
 			if (settings.OpenModFolderAfterExtracting)
 				Process.Start(outputPath);
 		}
 
-		private List<AbstractChunk> ReadChunks(byte[] tocBuffer)
+		public void ValidateFile(byte[] sourceFileBytes)
+		{
+			// TODO: Show message instead of throwing exception.
+			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
+			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
+			if (magic1FromFile != Magic1 && magic2FromFile != Magic2)
+				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}\nHeader value 2: {magic2FromFile} should be {Magic2}");
+		}
+
+		public byte[] ReadTocBuffer(byte[] sourceFileBytes)
+		{
+			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
+			byte[] tocBuffer = new byte[tocSize];
+			Buffer.BlockCopy(sourceFileBytes, 12, tocBuffer, 0, (int)tocSize);
+			return tocBuffer;
+		}
+
+		public List<AbstractChunk> ReadChunks(byte[] tocBuffer)
 		{
 			List<AbstractChunk> chunks = new List<AbstractChunk>();
 
