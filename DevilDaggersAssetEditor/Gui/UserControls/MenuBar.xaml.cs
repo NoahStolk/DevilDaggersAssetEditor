@@ -34,6 +34,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 			foreach (AbstractFileTabControlHandler tabHandler in tabHandlers)
 				FileMenuItem.Items.Add(tabHandler.CreateFileTypeMenuItem());
 
+			MenuItem fileAnalyzerMenuItem = new MenuItem
+			{
+				Header = "Open file analyzer"
+			};
+			fileAnalyzerMenuItem.Click += FileAnalyzerMenuItem_Click;
+			FileMenuItem.Items.Add(fileAnalyzerMenuItem);
+
 #if DEBUG
 			MenuItem testException = new MenuItem { Header = "Test Exception", Background = new SolidColorBrush(Color.FromRgb(0, 255, 64)) };
 			testException.Click += TestException_Click;
@@ -43,6 +50,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 
 			MenuPanel.Items.Add(debug);
 #endif
+		}
+
+		private void FileAnalyzerMenuItem_Click(object sender, RoutedEventArgs e)
+		{
+			FileAnalyzerWindow fileAnalyzerWindow = new FileAnalyzerWindow();
+			fileAnalyzerWindow.ShowDialog();
 		}
 
 		private void Settings_Click(object sender, RoutedEventArgs e)
