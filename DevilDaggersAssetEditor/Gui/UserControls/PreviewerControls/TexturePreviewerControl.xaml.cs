@@ -26,11 +26,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 
 			if (isPathValid)
 			{
-				using SdImage image = SdImage.FromFile(asset.EditorPath);
-				FileDimensions.Text = $"{image.Width}x{image.Height}";
-				FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString();
+				using (SdImage image = SdImage.FromFile(asset.EditorPath))
+				{
+					FileDimensions.Text = $"{image.Width}x{image.Height}";
+					FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString();
+				}
 
-				using FileStream stream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
+				FileStream stream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
 				BitmapImage src = new BitmapImage();
 				src.BeginInit();
 				src.StreamSource = stream;
@@ -39,7 +41,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			}
 			else
 			{
-				// TODO: Clear image
+				PreviewImage.Source = null;
 				FileDimensions.Text = "N/A";
 				FileMipmaps.Text = "N/A";
 			}
