@@ -323,7 +323,7 @@
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger4",
 		"AssetName": "dagger4",
-		"Description": "Magical Dagger",
+		"Description": "Level 3 Homing Dagger",
 		"EntityName": "Dagger",
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -339,7 +339,7 @@
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "dagger6",
 		"AssetName": "dagger6",
-		"Description": "Explosive Dagger",
+		"Description": "Level 4 Homing Dagger",
 		"EntityName": "Dagger",
 		"ChunkTypeName": "TextureChunk"
 	},
