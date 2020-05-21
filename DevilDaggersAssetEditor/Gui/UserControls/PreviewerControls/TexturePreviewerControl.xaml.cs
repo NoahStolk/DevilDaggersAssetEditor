@@ -3,6 +3,7 @@ using DevilDaggersAssetCore.Assets;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using SdImage = System.Drawing.Image;
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 {
@@ -25,11 +26,11 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 
 			if (isPathValid)
 			{
-				System.Drawing.Image image = System.Drawing.Image.FromFile(asset.EditorPath);
+				using SdImage image = SdImage.FromFile(asset.EditorPath);
 				FileDimensions.Text = $"{image.Width}x{image.Height}";
 				FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString();
 
-				FileStream stream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
+				using FileStream stream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
 				BitmapImage src = new BitmapImage();
 				src.BeginInit();
 				src.StreamSource = stream;
