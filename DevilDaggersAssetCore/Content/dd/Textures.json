@@ -491,7 +491,7 @@
 		"DefaultDimensions": "64, 64",
 		"ModelBinding": "",
 		"AssetName": "gib",
-		"Description": "Gem",
+		"Description": "Gem (including gems in Squids)",
 		"EntityName": "Gem",
 		"ChunkTypeName": "TextureChunk"
 	},
