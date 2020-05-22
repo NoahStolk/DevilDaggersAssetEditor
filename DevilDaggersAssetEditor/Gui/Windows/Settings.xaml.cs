@@ -103,7 +103,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void TextBoxTextureSizeLimit_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			TextBoxTextureSizeLimit.Background = uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0 ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 128, 128));
+			TextBoxTextureSizeLimit.Background = uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0 ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 127, 127));
 		}
 
 		private void OkButton_Click(object sender, RoutedEventArgs e)

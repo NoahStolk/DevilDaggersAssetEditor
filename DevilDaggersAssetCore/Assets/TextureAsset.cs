@@ -8,10 +8,6 @@ namespace DevilDaggersAssetCore.Assets
 	[JsonObject(MemberSerialization.OptIn)]
 	public class TextureAsset : AbstractAsset
 	{
-		public override byte ColorR => 255;
-		public override byte ColorG => 127;
-		public override byte ColorB => 0;
-
 		[JsonProperty]
 		public Point DefaultDimensions { get; }
 		[JsonProperty]

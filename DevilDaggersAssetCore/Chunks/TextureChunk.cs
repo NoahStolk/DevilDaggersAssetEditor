@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Headers;
+using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 			using Bitmap resizedImage = ResizeImage(image, Math.Max(1, newWidth), Math.Max(1, newHeight));
 
-			byte[] headerBuffer = new byte[BinaryFileUtils.TextureHeaderByteCount];
+			byte[] headerBuffer = new byte[ChunkInfo.Texture.HeaderInfo.FixedSize.Value];
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
 			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Width), 0, headerBuffer, 2, sizeof(uint));
 			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Height), 0, headerBuffer, 6, sizeof(uint));

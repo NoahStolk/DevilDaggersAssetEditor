@@ -1,9 +1,10 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.Chunks;
+using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
+using DevilDaggersAssetEditor.Code;
 using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -84,33 +85,23 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			}
 		}
 
-		private string ChunkTypeToString(Type type)
+		private static Color GetColor(string type)
 		{
-			if (type == typeof(AudioChunk)) return "Audio";
-			if (type == typeof(ModelBindingChunk)) return "Model binding";
-			if (type == typeof(ModelChunk)) return "Model";
-			if (type == typeof(ShaderChunk)) return "Shader";
-			if (type == typeof(TextureChunk)) return "Texture";
-			if (type == typeof(ParticleChunk)) return "Particle";
-			return null;
-		}
+			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.DataName == type);
+			if (chunkInfo != null)
+				return chunkInfo.GetColor();
 
-		private static Color GetColor(string type) => type switch
-		{
-			"Audio" => Color.FromRgb(255, 0, 255),
-			"Model binding" => Color.FromRgb(0, 255, 255),
-			"Model" => Color.FromRgb(255, 0, 0),
-			"Model header" => Color.FromRgb(127, 0, 0),
-			"Shader" => Color.FromRgb(0, 255, 0),
-			"Shader header" => Color.FromRgb(0, 127, 0),
-			"Texture" => Color.FromRgb(255, 127, 0),
-			"Texture header" => Color.FromRgb(127, 63, 0),
-			"Particle" => Color.FromRgb(255, 255, 0),
-			"Particle header" => Color.FromRgb(127, 127, 0),
-			"File header" => Color.FromRgb(255, 127, 127),
-			"Unknown" => Color.FromRgb(127, 127, 255),
-			_ => Color.FromRgb(255, 255, 255)
-		};
+			chunkInfo = ChunkInfo.All.FirstOrDefault(c => $"{c.DataName} header" == type);
+			if (chunkInfo != null)
+				return chunkInfo.GetColor() * 0.5f;
+
+			return type switch
+			{
+				"File header" => Color.FromRgb(255, 127, 127),
+				"Unknown" => Color.FromRgb(127, 127, 255),
+				_ => Color.FromRgb(255, 255, 255)
+			};
+		}
 
 		private void UpdateGui()
 		{
@@ -119,7 +110,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				{ "File header", (GetColor("File header"), headerByteCount, 0) }
 			};
 
-			IEnumerable<IGrouping<string, AbstractChunk>> chunksByType = chunks.GroupBy(c => ChunkTypeToString(c.GetType()));
+			IEnumerable<IGrouping<string, AbstractChunk>> chunksByType = chunks.GroupBy(c => ChunkInfo.All.FirstOrDefault(ci => ci.ChunkType == c.GetType()).DataName);
 			foreach (IGrouping<string, AbstractChunk> group in chunksByType.OrderBy(c => c.Key))
 			{
 				IEnumerable<AbstractChunk> validChunks = group.Where(c => c.Size != 0); // Filter empty chunks (garbage in core file TOC buffer).
@@ -127,20 +118,12 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				uint headerSize = 0;
 				foreach (AbstractChunk chunk in validChunks)
 				{
-					if (chunk is ModelChunk)
+					if (chunk is ModelChunk || chunk is ShaderChunk || chunk is TextureChunk)
 					{
-						size += chunk.Size - BinaryFileUtils.ModelHeaderByteCount;
-						headerSize += BinaryFileUtils.ModelHeaderByteCount;
-					}
-					else if (chunk is ShaderChunk)
-					{
-						size += chunk.Size - BinaryFileUtils.ShaderHeaderByteCount;
-						headerSize += BinaryFileUtils.ShaderHeaderByteCount;
-					}
-					else if (chunk is TextureChunk)
-					{
-						size += chunk.Size - BinaryFileUtils.TextureHeaderByteCount;
-						headerSize += BinaryFileUtils.TextureHeaderByteCount;
+						uint headerChunkSize = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType()).HeaderInfo.FixedSize.Value;
+
+						size += chunk.Size - headerChunkSize;
+						headerSize += headerChunkSize;
 					}
 					else if (chunk is ParticleChunk particleChunk)
 					{
@@ -173,6 +156,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			FileSize.Content = $"{fileByteCount:N0} bytes";
 			C.Children.Clear();
 			Data.ColumnDefinitions.Clear();
+			Data.Children.Clear();
 			foreach (KeyValuePair<string, (Color color, uint byteCount, uint chunkCount)> chunkInfo in chunkInfos)
 			{
 				float sizePercentage = chunkInfo.Value.byteCount / (float)fileByteCount;

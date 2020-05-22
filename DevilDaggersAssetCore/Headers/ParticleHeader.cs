@@ -2,7 +2,7 @@
 {
 	public class ParticleHeader : AbstractHeader
 	{
-		public override int ByteCount => Buffer.Length;
+		public override uint ByteCount => (uint)Buffer.Length;
 
 		public ParticleHeader(byte[] headerBuffer)
 		{

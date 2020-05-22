@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Data;
 using DevilDaggersAssetCore.Headers;
+using DevilDaggersAssetCore.Info;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -132,7 +133,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 			int vertexCount = outPositions.Count;
 
-			byte[] headerBuffer = new byte[BinaryFileUtils.ModelHeaderByteCount];
+			byte[] headerBuffer = new byte[ChunkInfo.Model.HeaderInfo.FixedSize.Value];
 			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
 			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));

@@ -28,7 +28,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		{
 			bool isValid = float.TryParse(textBox.Text, out float res) && res >= 0;
 
-			textBox.Background = isValid ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 128, 128));
+			textBox.Background = isValid ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 127, 127));
 
 			return isValid;
 		}

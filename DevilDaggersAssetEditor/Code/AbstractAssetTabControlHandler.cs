@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
@@ -25,8 +26,15 @@ namespace DevilDaggersAssetEditor.Code
 
 		private UserSettings settings => UserHandler.Instance.settings;
 
+		private readonly Color colorEven;
+		private readonly Color colorOdd;
+
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
+			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == typeof(TAsset));
+			colorEven = chunkInfo.GetColor() * 0.25f;
+			colorOdd = chunkInfo.GetColor() * 0.125f;
+
 			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json"));
 			Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
 		}
@@ -44,7 +52,7 @@ namespace DevilDaggersAssetEditor.Code
 			foreach (TAsset asset in Assets)
 			{
 				TAssetRowControl assetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), asset);
-				assetRowControl.Background = new SolidColorBrush(Color.FromRgb(asset.ColorR, asset.ColorG, asset.ColorB) * (++i % 2 == 0 ? 0.125f : 0.25f));
+				assetRowControl.Background = new SolidColorBrush(++i % 2 == 0 ? colorOdd : colorEven);
 				assetRowControls.Add(assetRowControl);
 				yield return assetRowControl;
 			}

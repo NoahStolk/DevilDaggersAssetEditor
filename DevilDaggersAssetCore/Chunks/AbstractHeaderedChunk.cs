@@ -19,15 +19,15 @@ namespace DevilDaggersAssetCore.Chunks
 			Header = Activator.CreateInstance(typeof(THeader), buffer) as THeader;
 
 			Buffer = new byte[buffer.Length - Header.ByteCount];
-			Buf.BlockCopy(buffer, Header.ByteCount, Buffer, 0, Buffer.Length);
+			Buf.BlockCopy(buffer, (int)Header.ByteCount, Buffer, 0, Buffer.Length);
 		}
 
 		public override byte[] GetBuffer()
 		{
 			byte[] buffer = new byte[Header.ByteCount + Buffer.Length];
 
-			Buf.BlockCopy(Header.Buffer, 0, buffer, 0, Header.ByteCount);
-			Buf.BlockCopy(Buffer, 0, buffer, Header.ByteCount, Buffer.Length);
+			Buf.BlockCopy(Header.Buffer, 0, buffer, 0, (int)Header.ByteCount);
+			Buf.BlockCopy(Buffer, 0, buffer, (int)Header.ByteCount, Buffer.Length);
 
 			return buffer;
 		}

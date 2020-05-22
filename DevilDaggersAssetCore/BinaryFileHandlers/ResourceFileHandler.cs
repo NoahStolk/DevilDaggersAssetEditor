@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
+using DevilDaggersAssetCore.Info;
 using NetBase.Utils;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				foreach (AbstractResourceChunk chunk in chunks)
 				{
 					Type chunkType = chunk.GetType();
-					ushort type = BinaryFileUtils.ChunkInfos.FirstOrDefault(c => c.Type == chunkType).BinaryTypes[0]; // TODO: Shaders have multiple types.
+					ushort type = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunkType).BinaryTypes[0]; // TODO: Shaders have multiple types.
 
 					// Write asset type.
 					tocStream.Write(BitConverter.GetBytes(type), 0, sizeof(byte));
@@ -232,9 +233,9 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
-				ChunkInfo chunkInfo = BinaryFileUtils.ChunkInfos.FirstOrDefault(c => c.BinaryTypes.Contains(type));
+				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryTypes.Contains(type));
 				if (chunkInfo != null)
-					chunks.Add(Activator.CreateInstance(chunkInfo.Type, name, startOffset, size, unknown) as AbstractResourceChunk);
+					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size, unknown) as AbstractResourceChunk);
 			}
 
 			return chunks;
@@ -245,7 +246,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			int chunksDone = 0;
 			int totalChunks = chunks.Count();
 
-			foreach (ChunkInfo chunkInfo in BinaryFileUtils.ChunkInfos.Where(c => BinaryFileType.HasFlagBothWays(c.BinaryFileType)))
+			foreach (ChunkInfo chunkInfo in ChunkInfo.All.Where(c => BinaryFileType.HasFlagBothWays(c.BinaryFileType)))
 				Directory.CreateDirectory(Path.Combine(outputPath, chunkInfo.FolderName));
 
 			foreach (AbstractResourceChunk chunk in chunks)
@@ -253,10 +254,10 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				if (chunk.Size == 0) // Filter empty chunks (garbage in core file TOC buffer).
 					continue;
 
-				ChunkInfo info = BinaryFileUtils.ChunkInfos.FirstOrDefault(c => c.Type == chunk.GetType());
+				ChunkInfo info = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType());
 
 				((IProgress<float>)progress).Report(chunksDone++ / (float)totalChunks);
-				((IProgress<string>)progressDescription).Report($"Creating {info.Type.Name.Replace("Chunk", "")} file{(info.Type == typeof(ShaderChunk) ? "s" : "")} for chunk \"{chunk.Name}\".");
+				((IProgress<string>)progressDescription).Report($"Creating {info.ChunkType.Name.Replace("Chunk", "")} file{(info.ChunkType == typeof(ShaderChunk) ? "s" : "")} for chunk \"{chunk.Name}\".");
 
 				byte[] buf = new byte[chunk.Size];
 				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);

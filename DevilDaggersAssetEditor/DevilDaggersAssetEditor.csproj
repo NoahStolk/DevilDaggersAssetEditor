@@ -233,6 +233,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Resource Include="Content\Images\Icon\Icon32.png" />
+    <Compile Include="Code\WpfExtensions.cs" />
     <Compile Include="Gui\UserControls\AssetRowControls\AudioAssetRowControl.xaml.cs">
       <DependentUpon>AudioAssetRowControl.xaml</DependentUpon>
     </Compile>

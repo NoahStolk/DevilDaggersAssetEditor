@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DevilDaggersAssetCore.Info;
+using System;
 
 namespace DevilDaggersAssetCore.Headers
 {
 	public class ShaderHeader : AbstractResourceHeader
 	{
-		public override int ByteCount => BinaryFileUtils.ShaderHeaderByteCount;
+		public override uint ByteCount => ChunkInfo.Shader.HeaderInfo.FixedSize.Value;
 
 		public uint NameLength { get; }
 		public uint VertexSize { get; }

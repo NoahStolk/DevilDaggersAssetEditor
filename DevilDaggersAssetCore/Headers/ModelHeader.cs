@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DevilDaggersAssetCore.Info;
+using System;
 
 namespace DevilDaggersAssetCore.Headers
 {
 	public class ModelHeader : AbstractResourceHeader
 	{
-		public override int ByteCount => BinaryFileUtils.ModelHeaderByteCount;
+		public override uint ByteCount => ChunkInfo.Model.HeaderInfo.FixedSize.Value;
 
 		public uint IndexCount { get; }
 		public uint VertexCount { get; }

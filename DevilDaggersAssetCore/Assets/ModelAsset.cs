@@ -5,10 +5,6 @@ namespace DevilDaggersAssetCore.Assets
 {
 	public class ModelAsset : AbstractAsset
 	{
-		public override byte ColorR => 255;
-		public override byte ColorG => 0;
-		public override byte ColorB => 0;
-
 		[JsonProperty]
 		public int DefaultVertexCount { get; set; }
 		[JsonProperty]

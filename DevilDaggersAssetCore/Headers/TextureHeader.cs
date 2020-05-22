@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DevilDaggersAssetCore.Info;
+using System;
 
 namespace DevilDaggersAssetCore.Headers
 {
 	public class TextureHeader : AbstractResourceHeader
 	{
-		public override int ByteCount => BinaryFileUtils.TextureHeaderByteCount;
+		public override uint ByteCount => ChunkInfo.Texture.HeaderInfo.FixedSize.Value;
 
 		public ushort Unknown { get; } // Color format?
 		public uint Width { get; }
