@@ -2,7 +2,7 @@
 
 namespace DevilDaggersAssetCore.Headers
 {
-	public class ModelHeader : AbstractHeader
+	public class ModelHeader : AbstractResourceHeader
 	{
 		public override int ByteCount => BinaryFileUtils.ModelHeaderByteCount;
 
@@ -10,8 +10,8 @@ namespace DevilDaggersAssetCore.Headers
 		public uint VertexCount { get; }
 		public ushort Unknown { get; }
 
-		public ModelHeader(byte[] chunkBuffer)
-			: base(chunkBuffer)
+		public ModelHeader(byte[] headerBuffer)
+			: base(headerBuffer)
 		{
 			IndexCount = BitConverter.ToUInt32(Buffer, 0);
 			VertexCount = BitConverter.ToUInt32(Buffer, 4);

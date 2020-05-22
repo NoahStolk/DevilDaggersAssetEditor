@@ -226,7 +226,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			for (int i = 0; i < assetTabControlHandler.Assets.Count; i++)
 			{
 				TAsset asset = assetTabControlHandler.Assets[i];
-				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && (asset.ChunkTypeName == null /*particles don't have a chunk type*/ || a.ChunkTypeName == asset.ChunkTypeName));
+				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName);
 				if (userAsset != null)
 				{
 					asset.ImportValuesFromUserAsset(userAsset);

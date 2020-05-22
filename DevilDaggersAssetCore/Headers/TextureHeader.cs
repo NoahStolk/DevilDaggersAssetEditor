@@ -2,7 +2,7 @@
 
 namespace DevilDaggersAssetCore.Headers
 {
-	public class TextureHeader : AbstractHeader
+	public class TextureHeader : AbstractResourceHeader
 	{
 		public override int ByteCount => BinaryFileUtils.TextureHeaderByteCount;
 
@@ -17,8 +17,8 @@ namespace DevilDaggersAssetCore.Headers
 		/// </summary>
 		public byte MipmapCount { get; }
 
-		public TextureHeader(byte[] chunkBuffer)
-			: base(chunkBuffer)
+		public TextureHeader(byte[] headerBuffer)
+			: base(headerBuffer)
 		{
 			Unknown = BitConverter.ToUInt16(Buffer, 0);
 			Width = BitConverter.ToUInt32(Buffer, 2);

@@ -1,9 +1,10 @@
-﻿namespace DevilDaggersAssetCore.ModFiles
+﻿using DevilDaggersAssetCore.Chunks;
+
+namespace DevilDaggersAssetCore.ModFiles
 {
 	public class ParticleUserAsset : AbstractUserAsset
 	{
-		// TODO: Create a distiction between particles and other asset types in the hierarchy.
-		public override string ChunkTypeName => "";
+		public override string ChunkTypeName => nameof(ParticleChunk);
 
 		public ParticleUserAsset(string assetName, string editorPath)
 			: base(assetName, editorPath)

@@ -2,7 +2,7 @@
 
 namespace DevilDaggersAssetCore.Headers
 {
-	public class ShaderHeader : AbstractHeader
+	public class ShaderHeader : AbstractResourceHeader
 	{
 		public override int ByteCount => BinaryFileUtils.ShaderHeaderByteCount;
 
@@ -10,8 +10,8 @@ namespace DevilDaggersAssetCore.Headers
 		public uint VertexSize { get; }
 		public uint FragmentSize { get; }
 
-		public ShaderHeader(byte[] chunkBuffer)
-			: base(chunkBuffer)
+		public ShaderHeader(byte[] headerBuffer)
+			: base(headerBuffer)
 		{
 			NameLength = BitConverter.ToUInt32(Buffer, 0);
 			VertexSize = BitConverter.ToUInt32(Buffer, 4);

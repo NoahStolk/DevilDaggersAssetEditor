@@ -4,7 +4,7 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetCore.Chunks
 {
-	public abstract class AbstractHeaderedChunk<THeader> : AbstractChunk
+	public abstract class AbstractHeaderedChunk<THeader> : AbstractResourceChunk
 		where THeader : AbstractHeader
 	{
 		public THeader Header { get; set; }
