@@ -30,24 +30,57 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
 			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder)
-				openDialog.InitialDirectory = SPath.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, "res");
+				openDialog.InitialDirectory = SPath.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder);
 
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult.HasValue && openResult.Value)
 			{
 				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
+
+				if (!TryReadResourceFile(sourceFileBytes))
+					TryReadParticleFile(sourceFileBytes);
+
+				UpdateGui();
+			}
+		}
+
+		private bool TryReadResourceFile(byte[] sourceFileBytes)
+		{
+			try
+			{
 				fileByteCount = (uint)sourceFileBytes.Length;
 
-				// TODO: Particle
 				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.Audio | BinaryFileType.Core | BinaryFileType.Dd);
 				fileHandler.ValidateFile(sourceFileBytes);
 
 				byte[] tocBuffer = fileHandler.ReadTocBuffer(sourceFileBytes);
-				headerByteCount = (uint)tocBuffer.Length + 12; // 12 for first 12 bytes in resource file
+				headerByteCount = (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize;
 
 				chunks = fileHandler.ReadChunks(tocBuffer);
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
 
-				UpdateGui();
+		private void TryReadParticleFile(byte[] sourceFileBytes)
+		{
+			fileByteCount = (uint)sourceFileBytes.Length;
+			headerByteCount = ParticleFileHandler.HeaderSize;
+
+			ParticleFileHandler fileHandler = new ParticleFileHandler();
+			fileHandler.ValidateFile(sourceFileBytes);
+
+			int i = (int)headerByteCount;
+			chunks = new List<AbstractChunk>();
+			while (i < sourceFileBytes.Length)
+			{
+				ParticleChunk chunk = fileHandler.ReadParticleChunk(sourceFileBytes, i);
+				i += chunk.Name.Length;
+				i += chunk.Buffer.Length;
+				chunks.Add(chunk);
 			}
 		}
 
@@ -58,6 +91,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			if (type == typeof(ModelChunk)) return "Model";
 			if (type == typeof(ShaderChunk)) return "Shader";
 			if (type == typeof(TextureChunk)) return "Texture";
+			if (type == typeof(ParticleChunk)) return "Particle";
 			return null;
 		}
 
@@ -66,28 +100,70 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			"Audio" => Color.FromRgb(255, 0, 255),
 			"Model binding" => Color.FromRgb(0, 255, 255),
 			"Model" => Color.FromRgb(255, 0, 0),
+			"Model header" => Color.FromRgb(127, 0, 0),
 			"Shader" => Color.FromRgb(0, 255, 0),
+			"Shader header" => Color.FromRgb(0, 127, 0),
 			"Texture" => Color.FromRgb(255, 127, 0),
+			"Texture header" => Color.FromRgb(127, 63, 0),
 			"Particle" => Color.FromRgb(255, 255, 0),
-			"Header" => Color.FromRgb(255, 127, 127),
+			"Particle header" => Color.FromRgb(127, 127, 0),
+			"File header" => Color.FromRgb(255, 127, 127),
 			"Unknown" => Color.FromRgb(127, 127, 255),
 			_ => Color.FromRgb(255, 255, 255)
 		};
 
 		private void UpdateGui()
 		{
-			Dictionary<string, (Color color, uint byteCount)> sizeInfos = new Dictionary<string, (Color color, uint byteCount)>
+			Dictionary<string, (Color color, uint byteCount, uint chunkCount)> chunkInfos = new Dictionary<string, (Color color, uint byteCount, uint chunkCount)>
 			{
-				{ "Header", (GetColor("Header"), headerByteCount) }
+				{ "File header", (GetColor("File header"), headerByteCount, 0) }
 			};
 
 			IEnumerable<IGrouping<string, AbstractChunk>> chunksByType = chunks.GroupBy(c => ChunkTypeToString(c.GetType()));
 			foreach (IGrouping<string, AbstractChunk> group in chunksByType.OrderBy(c => c.Key))
-				sizeInfos.Add(group.Key, (GetColor(group.Key), (uint)group.Sum(c => c.Size)));
+			{
+				IEnumerable<AbstractChunk> validChunks = group.Where(c => c.Size != 0); // Filter empty chunks (garbage in core file TOC buffer).
+				uint size = 0;
+				uint headerSize = 0;
+				foreach (AbstractChunk chunk in validChunks)
+				{
+					if (chunk is ModelChunk)
+					{
+						size += chunk.Size - BinaryFileUtils.ModelHeaderByteCount;
+						headerSize += BinaryFileUtils.ModelHeaderByteCount;
+					}
+					else if (chunk is ShaderChunk)
+					{
+						size += chunk.Size - BinaryFileUtils.ShaderHeaderByteCount;
+						headerSize += BinaryFileUtils.ShaderHeaderByteCount;
+					}
+					else if (chunk is TextureChunk)
+					{
+						size += chunk.Size - BinaryFileUtils.TextureHeaderByteCount;
+						headerSize += BinaryFileUtils.TextureHeaderByteCount;
+					}
+					else if (chunk is ParticleChunk particleChunk)
+					{
+						size += ParticleFileHandler.ParticleBufferLength;
+						headerSize += (uint)particleChunk.Name.Length;
+					}
+					else
+					{
+						size += chunk.Size;
+					}
+				}
 
-			uint unknownSize = (uint)(fileByteCount - headerByteCount - chunksByType.Sum(c => c.Sum(c => c.Size)));
+				chunkInfos.Add(group.Key, (GetColor(group.Key), size, (uint)validChunks.Count()));
+				if (headerSize > 0)
+				{
+					string headerKey = $"{group.Key} header";
+					chunkInfos.Add(headerKey, (GetColor(headerKey), headerSize, (uint)validChunks.Count()));
+				}
+			}
+
+			uint unknownSize = (uint)(fileByteCount - chunkInfos.Sum(c => c.Value.byteCount));
 			if (unknownSize > 0)
-				sizeInfos.Add("Unknown", (GetColor("Unknown"), unknownSize));
+				chunkInfos.Add("Unknown", (GetColor("Unknown"), unknownSize, 0));
 
 			int totalWidth = 1280;
 			int totalHeight = 32;
@@ -97,15 +173,15 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			FileSize.Content = $"{fileByteCount:N0} bytes";
 			C.Children.Clear();
 			Data.ColumnDefinitions.Clear();
-			foreach (KeyValuePair<string, (Color color, uint byteCount)> sizeInfo in sizeInfos)
+			foreach (KeyValuePair<string, (Color color, uint byteCount, uint chunkCount)> chunkInfo in chunkInfos)
 			{
-				float sizePercentage = sizeInfo.Value.byteCount / (float)fileByteCount;
+				float sizePercentage = chunkInfo.Value.byteCount / (float)fileByteCount;
 				int width = (int)(sizePercentage * totalWidth);
 				Rectangle rect = new Rectangle
 				{
 					Width = width,
 					Height = totalHeight,
-					Fill = new SolidColorBrush(sizeInfo.Value.color)
+					Fill = new SolidColorBrush(chunkInfo.Value.color)
 				};
 				Canvas.SetLeft(rect, pos);
 				C.Children.Add(rect);
@@ -113,9 +189,13 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				pos += width;
 
 				Data.ColumnDefinitions.Add(new ColumnDefinition());
-				Label label = new Label { Content = $"{sizeInfo.Key} data: {sizeInfo.Value.byteCount:N0} bytes ({sizePercentage:0.000%})", Background = new SolidColorBrush(GetColor(sizeInfo.Key)) };
-				Grid.SetColumn(label, col++);
-				Data.Children.Add(label);
+				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(GetColor(chunkInfo.Key)) };
+				Grid.SetColumn(stackPanel, col++);
+				stackPanel.Children.Add(new Label { Content = $"{chunkInfo.Key} data ({sizePercentage:0.000%})", FontWeight = FontWeights.Bold });
+				stackPanel.Children.Add(new Label { Content = $"{chunkInfo.Value.byteCount:N0} bytes" });
+				if (chunkInfo.Value.chunkCount > 0)
+					stackPanel.Children.Add(new Label { Content = $"{chunkInfo.Value.chunkCount} chunks" });
+				Data.Children.Add(stackPanel);
 			}
 		}
 	}
