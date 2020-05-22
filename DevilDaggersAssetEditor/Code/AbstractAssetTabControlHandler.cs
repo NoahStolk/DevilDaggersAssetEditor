@@ -62,10 +62,10 @@ namespace DevilDaggersAssetEditor.Code
 
 			foreach (string filePath in Directory.GetFiles(dialog.FileName))
 			{
-				TAsset asset = Assets.Where(a => a.AssetName == FileNameToChunkName(Path.GetFileNameWithoutExtension(filePath))).Cast<TAsset>().FirstOrDefault();
+				TAsset asset = Assets.Where(a => a.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", "").Replace("_vertex", "")).Cast<TAsset>().FirstOrDefault();
 				if (asset != null)
 				{
-					asset.EditorPath = FileNameToChunkName(filePath);
+					asset.EditorPath = filePath.Replace("_fragment", "").Replace("_vertex", "");
 					UpdateGui(asset);
 				}
 			}
@@ -74,11 +74,9 @@ namespace DevilDaggersAssetEditor.Code
 		public bool IsComplete()
 		{
 			foreach (TAsset asset in Assets)
-				if (asset.EditorPath.GetPathValidity() != PathValidity.Valid)
+				if (asset.EditorPath.Replace(".glsl", "_vertex.glsl").GetPathValidity() != PathValidity.Valid)
 					return false;
 			return true;
 		}
-
-		public virtual string FileNameToChunkName(string fileName) => fileName;
 	}
 }

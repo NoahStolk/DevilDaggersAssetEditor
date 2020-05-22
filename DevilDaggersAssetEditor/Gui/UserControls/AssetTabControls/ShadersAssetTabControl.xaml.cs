@@ -66,7 +66,5 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			arc.TextBlockFragmentEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}
-
-		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
 	}
 }
