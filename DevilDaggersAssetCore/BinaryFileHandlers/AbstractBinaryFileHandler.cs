@@ -24,6 +24,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 		public abstract void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription);
 
+		public abstract void ValidateFile(byte[] sourceFileBytes);
+
 		protected void CreateModFile(string outputPath, BinaryFileType binaryFileType)
 		{
 			List<AbstractUserAsset> assets = binaryFileType switch

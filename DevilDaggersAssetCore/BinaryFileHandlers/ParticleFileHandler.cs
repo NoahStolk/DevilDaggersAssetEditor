@@ -1,4 +1,6 @@
 ﻿using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.Chunks;
+using DevilDaggersAssetCore.Headers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,9 +12,16 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 {
 	public class ParticleFileHandler : AbstractBinaryFileHandler
 	{
+		/// <summary>
+		/// uint magic, uint particle amount = 8 bytes
+		/// </summary>
+		public const int HeaderSize = 8;
+		public const int ParticleBufferLength = 188;
+
+		public static readonly uint Magic1 = 4; // Maybe represents format version? Similar to survival file.
+
 		private const string folderName = "Particles";
 		private const string fileExtension = ".bin";
-		private const int particleBufferLength = 188;
 
 		public ParticleFileHandler()
 			: base(BinaryFileType.Particle)
@@ -62,22 +71,17 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 			Directory.CreateDirectory(Path.Combine(outputPath, folderName));
 
-			// Byte 0 - 3 = version?
-			// Byte 4 - 7 = particle amount
-			int i = 8;
+			int i = HeaderSize;
 			while (i < fileBuffer.Length)
 			{
-				string name = Utils.ReadNullTerminatedString(fileBuffer, i);
-				i += name.Length;
+				ParticleChunk chunk = ReadParticleChunk(fileBuffer, i);
+				i += chunk.Name.Length;
+				i += chunk.Buffer.Length;
 
 				((IProgress<float>)progress).Report(i / (float)fileBuffer.Length);
-				((IProgress<string>)progressDescription).Report($"Creating Particle file for chunk \"{name}\".");
+				((IProgress<string>)progressDescription).Report($"Creating Particle file for chunk \"{chunk.Name}\".");
 
-				byte[] chunkBuffer = new byte[particleBufferLength];
-				Buffer.BlockCopy(fileBuffer, i, chunkBuffer, 0, chunkBuffer.Length);
-				i += particleBufferLength;
-
-				File.WriteAllBytes(Path.Combine(outputPath, folderName, $"{name}{fileExtension}"), chunkBuffer);
+				File.WriteAllBytes(Path.Combine(outputPath, folderName, $"{chunk.Name}{fileExtension}"), chunk.Buffer);
 			}
 
 			// Create mod file.
@@ -87,6 +91,23 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			// Open the output path.
 			if (settings.OpenModFolderAfterExtracting)
 				Process.Start(outputPath);
+		}
+
+		public override void ValidateFile(byte[] sourceFileBytes)
+		{
+			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
+			if (magic1FromFile != Magic1)
+				throw new Exception($"Invalid file format. The magic number value is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}");
+		}
+
+		public ParticleChunk ReadParticleChunk(byte[] fileBuffer, int i)
+		{
+			string name = Utils.ReadNullTerminatedString(fileBuffer, i);
+
+			byte[] chunkBuffer = new byte[ParticleBufferLength];
+			Buffer.BlockCopy(fileBuffer, i, chunkBuffer, 0, chunkBuffer.Length);
+
+			return new ParticleChunk(name, (uint)i, (uint)chunkBuffer.Length) { Buffer = chunkBuffer, Header = new ParticleHeader(Encoding.Default.GetBytes(name)) };
 		}
 	}
 }
