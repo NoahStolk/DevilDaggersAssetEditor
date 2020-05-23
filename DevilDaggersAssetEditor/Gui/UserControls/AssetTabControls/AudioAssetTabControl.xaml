@@ -16,18 +16,18 @@
 		<previewerControls:AudioPreviewerControl Grid.Row="0" x:Name="Previewer" />
 		<Grid Grid.Row="1" Background="DarkGray">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="5*" />
-				<ColumnDefinition Width="6*" />
+				<ColumnDefinition />
+				<ColumnDefinition Width="5*" />
 				<ColumnDefinition Width="2*" />
 				<ColumnDefinition Width="18" />
 			</Grid.ColumnDefinitions>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Loudness</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Audio name</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Tags</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" FontWeight="Bold">Description</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Audio name</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Tags</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" FontWeight="Bold">Loudness</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="4" FontWeight="Bold">Path</TextBlock>
 		</Grid>
 		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" Template="{DynamicResource ListViewTemplate}" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />

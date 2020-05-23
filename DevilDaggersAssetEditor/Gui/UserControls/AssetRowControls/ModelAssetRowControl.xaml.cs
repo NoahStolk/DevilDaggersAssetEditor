@@ -10,11 +10,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public ModelAssetRowControlHandler Handler { get; private set; }
 
-		public ModelAssetRowControl(ModelAsset asset)
+		public ModelAssetRowControl(ModelAsset asset, bool isEven)
 		{
 			InitializeComponent();
+			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new ModelAssetRowControlHandler(asset, this);
+			Handler = new ModelAssetRowControlHandler(asset, this, isEven);
+
+			Data.Children.Add(Handler.rectangleInfo);
+			Data.Children.Add(Handler.rectangle);
 
 			Data.DataContext = asset;
 		}
@@ -26,8 +30,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class ModelAssetRowControlHandler : AbstractAssetRowControlHandler<ModelAsset, ModelAssetRowControl>
 	{
-		public ModelAssetRowControlHandler(ModelAsset asset, ModelAssetRowControl parent)
-			: base(asset, parent, "Model files (*.obj)|*.obj")
+		public ModelAssetRowControlHandler(ModelAsset asset, ModelAssetRowControl parent, bool isEven)
+			: base(asset, parent, "Model files (*.obj)|*.obj", isEven)
 		{
 		}
 

@@ -10,12 +10,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public TextureAssetRowControlHandler Handler { get; private set; }
 
-		public TextureAssetRowControl(TextureAsset asset)
+		public TextureAssetRowControl(TextureAsset asset, bool isEven)
 		{
 			InitializeComponent();
-			TextBlockTags.Text = string.Join(", ", asset.Tags);
+			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new TextureAssetRowControlHandler(asset, this);
+			Handler = new TextureAssetRowControlHandler(asset, this, isEven);
+
+			Data.Children.Add(Handler.rectangleInfo);
+			Data.Children.Add(Handler.rectangle);
 
 			Data.DataContext = asset;
 		}
@@ -27,8 +30,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class TextureAssetRowControlHandler : AbstractAssetRowControlHandler<TextureAsset, TextureAssetRowControl>
 	{
-		public TextureAssetRowControlHandler(TextureAsset asset, TextureAssetRowControl parent)
-			: base(asset, parent, "Texture files (*.png)|*.png")
+		public TextureAssetRowControlHandler(TextureAsset asset, TextureAssetRowControl parent, bool isEven)
+			: base(asset, parent, "Texture files (*.png)|*.png", isEven)
 		{
 		}
 

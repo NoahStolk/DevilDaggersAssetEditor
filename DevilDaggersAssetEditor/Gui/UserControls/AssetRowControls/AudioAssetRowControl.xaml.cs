@@ -11,12 +11,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public AudioAssetRowControlHandler Handler { get; private set; }
 
-		public AudioAssetRowControl(AudioAsset asset)
+		public AudioAssetRowControl(AudioAsset asset, bool isEven)
 		{
 			InitializeComponent();
-			TextBlockTags.Text = string.Join(", ", asset.Tags);
+			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new AudioAssetRowControlHandler(asset, this);
+			Handler = new AudioAssetRowControlHandler(asset, this, isEven);
+
+			Data.Children.Add(Handler.rectangleInfo);
+			Data.Children.Add(Handler.rectangle);
 
 			Data.DataContext = asset;
 		}
@@ -45,8 +48,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
 	{
-		public AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent)
-			: base(asset, parent, "Audio files (*.wav)|*.wav")
+		public AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent, bool isEven)
+			: base(asset, parent, "Audio files (*.wav)|*.wav", isEven)
 		{
 		}
 

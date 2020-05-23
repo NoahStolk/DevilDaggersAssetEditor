@@ -10,11 +10,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public ShaderAssetRowControlHandler Handler { get; private set; }
 
-		public ShaderAssetRowControl(ShaderAsset asset)
+		public ShaderAssetRowControl(ShaderAsset asset, bool isEven)
 		{
 			InitializeComponent();
+			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new ShaderAssetRowControlHandler(asset, this);
+			Handler = new ShaderAssetRowControlHandler(asset, this, isEven);
+
+			Data.Children.Add(Handler.rectangleInfo);
+			Data.Children.Add(Handler.rectangle);
 
 			Data.DataContext = asset;
 
@@ -28,8 +32,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>
 	{
-		public ShaderAssetRowControlHandler(ShaderAsset asset, ShaderAssetRowControl parent)
-			: base(asset, parent, "Shader files (*.glsl)|*.glsl")
+		public ShaderAssetRowControlHandler(ShaderAsset asset, ShaderAssetRowControl parent, bool isEven)
+			: base(asset, parent, "Shader files (*.glsl)|*.glsl", isEven)
 		{
 		}
 

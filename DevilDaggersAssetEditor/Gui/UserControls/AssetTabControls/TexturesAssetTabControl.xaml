@@ -16,10 +16,10 @@
 		<previewerControls:TexturePreviewerControl Grid.Row="0" x:Name="Previewer" />
 		<Grid Grid.Row="1" Background="DarkGray">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="2*" />
-				<ColumnDefinition Width="2*" />
-				<ColumnDefinition Width="4*" />
-				<ColumnDefinition Width="9*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="5*" />
+				<ColumnDefinition Width="6*" />
 				<ColumnDefinition Width="2*" />
 				<ColumnDefinition Width="18" />
 			</Grid.ColumnDefinitions>

@@ -8,8 +8,9 @@
 	<Grid x:Name="Data">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="3*" />
+			<ColumnDefinition Width="3*" />
 			<ColumnDefinition Width="5*" />
-			<ColumnDefinition Width="9*" />
+			<ColumnDefinition Width="6*" />
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
@@ -18,16 +19,19 @@
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockFragmentName" Height="20" />
 		</StackPanel>
 		<StackPanel Grid.Column="1">
-			<TextBlock Style="{StaticResource AssetTextBlock}" Text="{Binding Description}" Height="40" />
+			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockTags" />
 		</StackPanel>
 		<StackPanel Grid.Column="2">
+			<TextBlock Style="{StaticResource AssetTextBlock}" Text="{Binding Description}" Height="40" />
+		</StackPanel>
+		<StackPanel Grid.Column="3">
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockVertexEditorPath" Height="20" />
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockFragmentEditorPath" Height="20" />
 		</StackPanel>
-		<StackPanel Grid.Column="3">
+		<StackPanel Grid.Column="4">
 			<Button Click="ButtonRemovePath_Click">Reset</Button>
 		</StackPanel>
-		<StackPanel Grid.Column="4">
+		<StackPanel Grid.Column="5">
 			<Button Click="ButtonBrowsePath_Click">Browse</Button>
 		</StackPanel>
 	</Grid>

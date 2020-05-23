@@ -10,11 +10,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public ParticleAssetRowControlHandler Handler { get; private set; }
 
-		public ParticleAssetRowControl(ParticleAsset asset)
+		public ParticleAssetRowControl(ParticleAsset asset, bool isEven)
 		{
 			InitializeComponent();
+			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new ParticleAssetRowControlHandler(asset, this);
+			Handler = new ParticleAssetRowControlHandler(asset, this, isEven);
+
+			Data.Children.Add(Handler.rectangleInfo);
+			Data.Children.Add(Handler.rectangle);
 
 			Data.DataContext = asset;
 		}
@@ -26,8 +30,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class ParticleAssetRowControlHandler : AbstractAssetRowControlHandler<ParticleAsset, ParticleAssetRowControl>
 	{
-		public ParticleAssetRowControlHandler(ParticleAsset asset, ParticleAssetRowControl parent)
-			: base(asset, parent, "Particle files (*.bin)|*.bin")
+		public ParticleAssetRowControlHandler(ParticleAsset asset, ParticleAssetRowControl parent, bool isEven)
+			: base(asset, parent, "Particle files (*.bin)|*.bin", isEven)
 		{
 		}
 
