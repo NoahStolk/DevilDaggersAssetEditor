@@ -131,8 +131,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 						successCount++;
 					}
 
-					AudioAssetRowControl aac = assetRowControls.FirstOrDefault(a => a.Handler.Asset == audioAsset);
-					aac.Handler.UpdateGui();
+					AudioAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == audioAsset);
+					arc.Handler.UpdateGui();
 				}
 			}
 

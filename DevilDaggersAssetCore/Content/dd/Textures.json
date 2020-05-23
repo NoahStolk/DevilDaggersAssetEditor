@@ -258,7 +258,7 @@
 		"Description": "Transmuted Skull III base texture",
 		"Tags": [
 			"Enemy",
-			"Skull III"
+			"Transmuted Skull III"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -339,7 +339,7 @@
 		"Description": "Transmuted Skull IV jaw",
 		"Tags": [
 			"Enemy",
-			"Skull IV"
+			"Transmuted Skull IV"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -395,7 +395,7 @@
 		"AssetName": "bottom",
 		"Description": "Tile bottom?",
 		"Tags": [
-			"Arena?"
+			"Arena"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -405,7 +405,7 @@
 		"AssetName": "crystal",
 		"Description": "?",
 		"Tags": [
-			""
+			"?"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -525,7 +525,7 @@
 		"AssetName": "feather",
 		"Description": "Unused",
 		"Tags": [
-			"Unknown"
+			"?"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1325,7 +1325,8 @@
 		"Description": "?",
 		"Tags": [
 			"Enemy",
-			"Leviathan"
+			"Leviathan",
+			"Death"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1336,7 +1337,8 @@
 		"Description": "?",
 		"Tags": [
 			"Enemy",
-			"Leviathan"
+			"Leviathan",
+			"Damage"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -2028,7 +2030,7 @@
 		"AssetName": "skulltile",
 		"Description": "Unused",
 		"Tags": [
-			"Unknown"
+			"?"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},

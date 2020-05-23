@@ -20,7 +20,7 @@ namespace DevilDaggersAssetEditor.Code
 		public TAsset SelectedAsset { get; set; }
 		public List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
-		protected readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
+		public readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
 
 		private UserSettings settings => UserHandler.Instance.settings;
 

@@ -218,6 +218,7 @@
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\ParticleFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\DdFileTabControlHandler.cs" />
+    <Compile Include="Code\FilterOperation.cs" />
     <Compile Include="Code\GeneratorUtils.cs" />
     <Compile Include="Code\EditorUtils.cs" />
     <Page Include="Gui\Windows\Progress.xaml">

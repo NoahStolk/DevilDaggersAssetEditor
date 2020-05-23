@@ -10,11 +10,15 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="256" />
-			<RowDefinition Height="20" />
+			<RowDefinition Height="160" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<previewerControls:TexturePreviewerControl Grid.Row="0" x:Name="Previewer" />
 		<Grid Grid.Row="1" Background="DarkGray">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="5*" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="3*" />
@@ -23,10 +27,22 @@
 				<ColumnDefinition Width="2*" />
 				<ColumnDefinition Width="18" />
 			</Grid.ColumnDefinitions>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Texture name</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Tags</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" FontWeight="Bold">Path</TextBlock>
+
+			<ScrollViewer Grid.Row="0" Grid.ColumnSpan="6">
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tag filters</TextBlock>
+						<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationAnd">And</RadioButton>
+						<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
+					</StackPanel>
+					<Grid Name="Filters" />
+				</StackPanel>
+			</ScrollViewer>
+
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="0" FontWeight="Bold">Texture name</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="1" FontWeight="Bold">Tags</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="3" FontWeight="Bold">Path</TextBlock>
 		</Grid>
 		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" Template="{DynamicResource ListViewTemplate}" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
 	</Grid>
