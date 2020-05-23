@@ -14,6 +14,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		public AudioAssetRowControl(AudioAsset asset)
 		{
 			InitializeComponent();
+			TextBlockTags.Text = string.Join(", ", asset.Tags);
 
 			Handler = new AudioAssetRowControlHandler(asset, this);
 

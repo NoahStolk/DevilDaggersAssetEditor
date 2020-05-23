@@ -18,7 +18,7 @@
 		</Grid.ColumnDefinitions>
 		<TextBox Grid.Column="0" Name="TextBoxLoudness" />
 		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" Text="{Binding AssetName}" />
-		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" Text="{Binding EntityName}" />
+		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" Name="TextBlockTags" />
 		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" Text="{Binding Description}" />
 		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="4" Name="TextBlockEditorPath" />
 		<Button Grid.Column="5" Click="ButtonRemovePath_Click">Reset</Button>

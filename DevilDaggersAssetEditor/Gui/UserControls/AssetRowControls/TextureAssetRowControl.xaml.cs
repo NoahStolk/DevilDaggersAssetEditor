@@ -13,6 +13,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		public TextureAssetRowControl(TextureAsset asset)
 		{
 			InitializeComponent();
+			TextBlockTags.Text = string.Join(", ", asset.Tags);
 
 			Handler = new TextureAssetRowControlHandler(asset, this);
 

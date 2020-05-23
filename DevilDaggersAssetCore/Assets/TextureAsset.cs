@@ -13,8 +13,8 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public string ModelBinding { get; set; }
 
-		public TextureAsset(string assetName, string description, string chunkTypeName, string entityName, Point defaultDimensions, string modelBinding)
-			: base(assetName, description, entityName, chunkTypeName)
+		public TextureAsset(string assetName, string description, string[] tags, string chunkTypeName, Point defaultDimensions, string modelBinding)
+			: base(assetName, description, tags, chunkTypeName)
 		{
 			DefaultDimensions = defaultDimensions;
 			ModelBinding = modelBinding;

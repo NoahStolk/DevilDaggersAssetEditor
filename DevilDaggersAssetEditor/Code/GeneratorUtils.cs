@@ -24,10 +24,10 @@ namespace DevilDaggersAssetEditor.Code
 				switch (Path.GetExtension(path))
 				{
 					case ".txt":
-						modelBindings.Add(new ModelBindingAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ModelBindingChunk)));
+						modelBindings.Add(new ModelBindingAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(ModelBindingChunk)));
 						break;
 					case ".glsl":
-						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ShaderChunk)));
+						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(ShaderChunk)));
 						break;
 					case ".obj":
 						string[] lines = File.ReadAllLines(path);
@@ -46,11 +46,11 @@ namespace DevilDaggersAssetEditor.Code
 							}
 						}
 
-						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(ModelChunk), new[] { v, vt, vn }.Max(), f));
+						models.Add(new ModelAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(ModelChunk), new[] { v, vt, vn }.Max(), f));
 						break;
 					case ".png":
 						Image image = Image.FromFile(path);
-						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", "?", nameof(TextureChunk), new Point(image.Width, image.Height), ""));
+						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(TextureChunk), new Point(image.Width, image.Height), ""));
 						break;
 				}
 			}
@@ -70,7 +70,7 @@ namespace DevilDaggersAssetEditor.Code
 				switch (Path.GetExtension(file))
 				{
 					case ".glsl":
-						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(file), "?", "?", nameof(ShaderChunk)));
+						shaders.Add(new ShaderAsset(Path.GetFileNameWithoutExtension(file), "?", new[] { "?" }, nameof(ShaderChunk)));
 						break;
 				}
 			}
@@ -91,8 +91,8 @@ namespace DevilDaggersAssetEditor.Code
 
 				TextureAsset t = textures.FirstOrDefault(a => a.AssetName == name);
 
-				t.EntityName = split[1];
-				t.Description = split[2];
+				//t.EntityName = split[1];
+				//t.Description = split[2];
 				t.ModelBinding = split[3];
 			}
 

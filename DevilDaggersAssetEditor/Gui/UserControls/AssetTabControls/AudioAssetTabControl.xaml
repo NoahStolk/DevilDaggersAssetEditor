@@ -26,7 +26,7 @@
 			</Grid.ColumnDefinitions>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Loudness</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Audio name</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Entity name</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Tags</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" FontWeight="Bold">Description</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="4" FontWeight="Bold">Path</TextBlock>
 		</Grid>

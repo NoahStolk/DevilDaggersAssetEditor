@@ -2,556 +2,911 @@
 	{
 		"AssetName": "blood",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "centipedeburrow",
 		"Description": "?",
+		"Tags": [
+			"?",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "centipedeburst",
 		"Description": "?",
+		"Tags": [
+			"?",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "centipededecals",
 		"Description": "?",
+		"Tags": [
+			"?",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "centipededecals2",
 		"Description": "?",
+		"Tags": [
+			"?",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "centipedeemerge",
 		"Description": "?",
+		"Tags": [
+			"?",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "centipedefrags",
 		"Description": "?",
+		"Tags": [
+			"?",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "daggerfireflight",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "default",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "eggburst",
 		"Description": "?",
+		"Tags": [
+			"Spider Egg I",
+			"Spider Egg II"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "eggdecals",
 		"Description": "?",
+		"Tags": [
+			"Spider Egg I",
+			"Spider Egg II"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "egghit",
 		"Description": "?",
+		"Tags": [
+			"Spider Egg I",
+			"Spider Egg II"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "eggspores",
 		"Description": "?",
+		"Tags": [
+			"Spider Egg I",
+			"Spider Egg II"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "fire",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "fire1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "fire2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "fire3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "fire4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "fire5",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "gibs",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "gibtrail",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "hit1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "hitbone",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "hominghit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "levdeath",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "levelup",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "levfire",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "levfountain",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "leviathansuck",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "levideath",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "levidust",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "levidust2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "magentabomb",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "magic",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "medal1bronze",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "medal2silver",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "medal3gold",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "medal4devil",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid1ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid2ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid3alt",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid3altember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid3ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid4alt",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid4altember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rapid4ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "ricochet1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "ricochet2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "ricochet3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "ricochet4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "ricochet5",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "ricochet6",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "ricochetdecal",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rockethit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "rockethit2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot1ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot2ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot3alt",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot3altember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot3ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot4alt",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot4altember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "shot4ember",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "skulldecals",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "skulldecals2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "skullfrags",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "skullpop",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdeath",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdeath2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdeath3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdeath4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdecals",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdecals2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdecals3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderdecals4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderlingdecals",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderlingdecals2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderlingfrags",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderlinghit1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderlingpop",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderspit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderspit2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "spiderstring",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squidbubbles",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squidburst",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squidburst2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squidburst3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squidburstgibs",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squidburstgibs2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squiddecals",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squiddecals2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squiddecals3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squiddecals4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squiddrill",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squiddrill2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "squidweak",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "superskulldecals",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "superskulldecals2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "superskullfrags",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "superskullpop",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "thornemerge",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "thornfrag",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	},
 	{
 		"AssetName": "weakhit1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ParticleChunk"
 	}
 ]

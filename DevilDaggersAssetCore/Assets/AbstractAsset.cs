@@ -9,19 +9,19 @@ namespace DevilDaggersAssetCore.Assets
 		[JsonProperty]
 		public string AssetName { get; }
 		[JsonProperty]
-		public string Description { get; set; }
+		public string Description { get; }
 		[JsonProperty]
-		public string EntityName { get; set; }
+		public string[] Tags { get; }
 		[JsonProperty]
 		public string ChunkTypeName { get; }
 
 		public string EditorPath { get; set; } = Utils.FileNotFound;
 
-		protected AbstractAsset(string assetName, string description, string entityName, string chunkTypeName)
+		protected AbstractAsset(string assetName, string description, string[] tags, string chunkTypeName)
 		{
 			AssetName = assetName;
 			Description = description;
-			EntityName = entityName; // TODO: Link to DevilDaggersCore.Game.DevilDaggersEntity to do more cool stuff...
+			Tags = tags;
 			ChunkTypeName = chunkTypeName;
 		}
 
