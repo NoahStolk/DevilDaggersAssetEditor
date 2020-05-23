@@ -199,7 +199,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gui\Windows\FileAnalyzer.xaml">
+    <Page Include="Gui\Windows\BinaryFileAnalyzer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -303,8 +303,8 @@
     <Compile Include="Gui\Windows\Error.xaml.cs">
       <DependentUpon>Error.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Windows\FileAnalyzer.xaml.cs">
-      <DependentUpon>FileAnalyzer.xaml</DependentUpon>
+    <Compile Include="Gui\Windows\BinaryFileAnalyzer.xaml.cs">
+      <DependentUpon>BinaryFileAnalyzer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gui\Windows\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>

@@ -16,13 +16,13 @@ using SPath = System.IO.Path;
 
 namespace DevilDaggersAssetEditor.Gui.Windows
 {
-	public partial class FileAnalyzerWindow : Window
+	public partial class BinaryFileAnalyzerWindow : Window
 	{
 		public uint fileByteCount;
 		public uint headerByteCount;
 		public List<AbstractChunk> chunks;
 
-		public FileAnalyzerWindow()
+		public BinaryFileAnalyzerWindow()
 		{
 			InitializeComponent();
 		}
