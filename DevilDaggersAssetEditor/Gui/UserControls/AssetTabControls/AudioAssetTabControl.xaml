@@ -32,8 +32,8 @@
 
 			<StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" Background="#bbb">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tag filters</TextBlock>
-				<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationAnd">And</RadioButton>
-				<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
+				<RadioButton Margin="4" Name="FilterOperationAnd">And</RadioButton>
+				<RadioButton Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
 			</StackPanel>
 			<ScrollViewer Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="#ccc">
 				<Grid Name="Filters" />
