@@ -2,161 +2,257 @@
 	{
 		"AssetName": "boid",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "boid_pop",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "debug",
 		"Description": "Unused?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "default_texture",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "depth",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "egg",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "gib",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "hand",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "light",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "light_ring",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "owlwing",
 		"Description": "Unused?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle_decal",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "particle",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_combine",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_final",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "post_title",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "shadow",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sorath",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_debug",
 		"Description": "Unused?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "sprite_terrain",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "squidarm",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "thorn",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "tile2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "tile",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "unlit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warpeye",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "warp",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	}
 ]

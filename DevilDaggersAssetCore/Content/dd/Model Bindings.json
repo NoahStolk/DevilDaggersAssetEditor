@@ -2,311 +2,497 @@
 	{
 		"AssetName": "bat",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "boid",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "boid_pop",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "dagger",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "dagger1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "dagger2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "dagger3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "dagger4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "dagger5",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "dagger6",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "daggerbronze",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "daggerdevil",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "daggergold",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "daggersilver",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "gib",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "gibegg",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "gigaegg",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "hand",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "hand0",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "hand2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "hand3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "hand4",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "hand5",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "hand6",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "immortaleye",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "immortaleyehit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "levitent",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "levitentgib",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "levitenthit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "leviwarp",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "leviwarp2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "leviwarp3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "logodagger",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "logohand",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "logotext",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "minisquidarm",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "particle",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "particle2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "particle_decal",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "pedebody",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "pedehead",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "pedejaw",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "pedeleg1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "pedeleg2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "pedeleg3",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "pedetail",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "skullscroll",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "skullwarp",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "sorathlogo",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "spideregg1",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "spideregg2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "spidereggflash",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "squidarm",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "squidarmgib",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "squidarmhit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "squidteeth",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "squidteethgib",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "squidteethhit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "thorn",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "thornhit",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "tile",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	},
 	{
 		"AssetName": "tile2",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ModelBindingChunk"
 	}
 ]
