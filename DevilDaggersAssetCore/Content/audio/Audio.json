@@ -2243,7 +2243,8 @@
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
 			"Enemy",
-			"Skull"
+			"Skull I",
+			"Skull III"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2254,7 +2255,8 @@
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
 			"Enemy",
-			"Skull"
+			"Skull I",
+			"Skull III"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2265,7 +2267,8 @@
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
 			"Enemy",
-			"Skull"
+			"Skull I",
+			"Skull III"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2276,7 +2279,8 @@
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
 			"Enemy",
-			"Skull"
+			"Skull I",
+			"Skull III"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2287,7 +2291,8 @@
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
 			"Enemy",
-			"Skull"
+			"Skull I",
+			"Skull III"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2298,7 +2303,8 @@
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
 			"Enemy",
-			"Skull"
+			"Skull I",
+			"Skull III"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
