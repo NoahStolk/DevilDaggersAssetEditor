@@ -403,9 +403,9 @@
 		"DefaultDimensions": "128, 128",
 		"ModelBinding": "",
 		"AssetName": "crystal",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
-			"?"
+			"Unused"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -425,7 +425,8 @@
 		"AssetName": "dagger0",
 		"Description": "Pleb Lobby Dagger",
 		"Tags": [
-			"Dagger"
+			"Dagger",
+			"Pleb"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -445,7 +446,8 @@
 		"AssetName": "dagger3",
 		"Description": "Level 3 Dagger / Devil Lobby Dagger",
 		"Tags": [
-			"Dagger"
+			"Dagger",
+			"Devil"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -485,7 +487,8 @@
 		"AssetName": "daggerbronze",
 		"Description": "Bronze Lobby Dagger",
 		"Tags": [
-			"Dagger"
+			"Dagger",
+			"Bronze"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -495,7 +498,8 @@
 		"AssetName": "daggergold",
 		"Description": "Golden Lobby Dagger",
 		"Tags": [
-			"Dagger"
+			"Dagger",
+			"Golden"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -505,7 +509,8 @@
 		"AssetName": "daggersilver",
 		"Description": "Silver Lobby Dagger",
 		"Tags": [
-			"Dagger"
+			"Dagger",
+			"Silver"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -525,7 +530,7 @@
 		"AssetName": "feather",
 		"Description": "Unused",
 		"Tags": [
-			"?"
+			"Unused"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -535,7 +540,9 @@
 		"AssetName": "fontbronze",
 		"Description": "Bronze font",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Bronze"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -545,7 +552,10 @@
 		"AssetName": "fontbronzeover",
 		"Description": "Bronze font hover",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Bronze",
+			"Hover"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -555,7 +565,9 @@
 		"AssetName": "fontdevil",
 		"Description": "Devil font",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Devil"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -565,7 +577,10 @@
 		"AssetName": "fontdevilover",
 		"Description": "Devil font hover",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Hover",
+			"Devil"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -575,7 +590,9 @@
 		"AssetName": "fontgold",
 		"Description": "Golden font",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Golden"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -585,7 +602,10 @@
 		"AssetName": "fontgoldover",
 		"Description": "Golden font hover",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Golden",
+			"Hover"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -595,7 +615,8 @@
 		"AssetName": "fontgrad",
 		"Description": "Default UI font",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -605,7 +626,8 @@
 		"AssetName": "fontgrad2",
 		"Description": "Default UI colored font",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -615,7 +637,9 @@
 		"AssetName": "fontgrad3",
 		"Description": "Default UI colored font over",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Hover"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -625,7 +649,9 @@
 		"AssetName": "fontpleb",
 		"Description": "Pleb font",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Pleb"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -635,7 +661,10 @@
 		"AssetName": "fontplebover",
 		"Description": "Pleb font hover",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Pleb",
+			"Hover"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -645,7 +674,9 @@
 		"AssetName": "fontsilver",
 		"Description": "Silver font",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Silver"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -655,7 +686,10 @@
 		"AssetName": "fontsilverover",
 		"Description": "Silver font hover",
 		"Tags": [
-			"UI"
+			"UI",
+			"Font",
+			"Silver",
+			"Hover"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1079,7 +1113,8 @@
 		"AssetName": "iconcrosshair",
 		"Description": "Accuracy Icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1089,7 +1124,8 @@
 		"AssetName": "icondagger",
 		"Description": "Enemies Killed Icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1099,7 +1135,8 @@
 		"AssetName": "iconeye",
 		"Description": "Replay Recorded Run Icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1109,7 +1146,9 @@
 		"AssetName": "iconeye2",
 		"Description": "Replay Recorded Run Icon hover",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon",
+			"Hover"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1119,7 +1158,8 @@
 		"AssetName": "icongem",
 		"Description": "Gems Collected Icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1127,9 +1167,11 @@
 		"DefaultDimensions": "32, 16",
 		"ModelBinding": "",
 		"AssetName": "iconreplay",
-		"Description": "Unused?",
+		"Description": "Unused icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon",
+			"Unused"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1137,9 +1179,11 @@
 		"DefaultDimensions": "32, 16",
 		"ModelBinding": "",
 		"AssetName": "iconreplay2",
-		"Description": "Unused?",
+		"Description": "Unused icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon",
+			"Unused"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1149,7 +1193,8 @@
 		"AssetName": "iconskull",
 		"Description": "Death Type / Total Deaths Icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1159,7 +1204,8 @@
 		"AssetName": "iconstopwatch",
 		"Description": "Run Time Icon",
 		"Tags": [
-			"UI"
+			"UI",
+			"Icon"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1410,7 +1456,8 @@
 		"AssetName": "lut",
 		"Description": "Unused post filter",
 		"Tags": [
-			"Post-processing"
+			"Post-processing",
+			"Unused"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1919,7 +1966,8 @@
 		"AssetName": "post_lut_bronzeflash",
 		"Description": "Bronze Score post filter",
 		"Tags": [
-			"Post-processing"
+			"Post-processing",
+			"Bronze"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1959,7 +2007,8 @@
 		"AssetName": "post_lut_devilflash",
 		"Description": "Devil Score post filter",
 		"Tags": [
-			"Post-processing"
+			"Post-processing",
+			"Devil"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1969,7 +2018,8 @@
 		"AssetName": "post_lut_goldflash",
 		"Description": "Golden Score post filter",
 		"Tags": [
-			"Post-processing"
+			"Post-processing",
+			"Golden"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -1977,9 +2027,10 @@
 		"DefaultDimensions": "16, 256",
 		"ModelBinding": "",
 		"AssetName": "post_lut_leveldown",
-		"Description": "Unused",
+		"Description": "Unused post filter",
 		"Tags": [
-			"Post-processing"
+			"Post-processing",
+			"Unused"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -2009,7 +2060,8 @@
 		"AssetName": "post_lut_silverflash",
 		"Description": "Silver Score post filter",
 		"Tags": [
-			"Post-processing"
+			"Post-processing",
+			"Silver"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
@@ -2030,7 +2082,7 @@
 		"AssetName": "skulltile",
 		"Description": "Unused",
 		"Tags": [
-			"?"
+			"Unused"
 		],
 		"ChunkTypeName": "TextureChunk"
 	},
