@@ -2,16 +2,26 @@
 	{
 		"AssetName": "guifont",
 		"Description": "?",
+		"Tags": [
+			"UI",
+			"Font"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "gui",
 		"Description": "?",
+		"Tags": [
+			"UI"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	},
 	{
 		"AssetName": "test",
 		"Description": "?",
+		"Tags": [
+			"?"
+		],
 		"ChunkTypeName": "ShaderChunk"
 	}
 ]

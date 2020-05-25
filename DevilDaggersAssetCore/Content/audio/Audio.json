@@ -1216,7 +1216,8 @@
 		"AssetName": "levelup2",
 		"Description": "Level 2 upgrade",
 		"Tags": [
-			"Player"
+			"Player",
+			"Upgrade"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1226,7 +1227,8 @@
 		"AssetName": "levelup3",
 		"Description": "Level 3 upgrade",
 		"Tags": [
-			"Player"
+			"Player",
+			"Upgrade"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1236,7 +1238,8 @@
 		"AssetName": "levelup4",
 		"Description": "Level 4 upgrade",
 		"Tags": [
-			"Player"
+			"Player",
+			"Upgrade"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1260,7 +1263,11 @@
 		"Tags": [
 			"Enemy",
 			"Leviathan",
-			"The Orb"
+			"The Orb",
+			"Skull I",
+			"Skull II",
+			"Skull III",
+			"Skull IV"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1272,7 +1279,11 @@
 		"Tags": [
 			"Enemy",
 			"Leviathan",
-			"The Orb"
+			"The Orb",
+			"Transmuted Skull I",
+			"Transmuted Skull II",
+			"Transmuted Skull III",
+			"Transmuted Skull IV"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1349,7 +1360,8 @@
 		"Description": "Level 4 homing dagger shotgun",
 		"Tags": [
 			"Level 4",
-			"Homing dagger"
+			"Homing dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1360,7 +1372,8 @@
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 4",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1371,7 +1384,8 @@
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 4",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1382,7 +1396,8 @@
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 4",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1393,7 +1408,8 @@
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 4",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1404,7 +1420,8 @@
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 4",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1415,7 +1432,8 @@
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 3",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1426,7 +1444,8 @@
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 3",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1437,7 +1456,8 @@
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 3",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1448,7 +1468,8 @@
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 3",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1459,7 +1480,8 @@
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
 			"Level 3",
-			"Homing dagger"
+			"Homing dagger",
+			"Dagger pierce"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2122,7 +2144,8 @@
 		"Description": "Level 1 normal dagger shotgun",
 		"Tags": [
 			"Level 1",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2133,7 +2156,8 @@
 		"Description": "Level 2 normal dagger shotgun",
 		"Tags": [
 			"Level 2",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2144,7 +2168,8 @@
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
 			"Level 3",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2155,7 +2180,8 @@
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
 			"Level 3",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2166,7 +2192,8 @@
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
 			"Level 3",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2177,7 +2204,8 @@
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
 			"Level 3",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2188,7 +2216,8 @@
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
 			"Level 4",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2199,7 +2228,8 @@
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
 			"Level 4",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2210,7 +2240,8 @@
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
 			"Level 4",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2221,7 +2252,8 @@
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
 			"Level 4",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2232,7 +2264,8 @@
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
 			"Level 4",
-			"Normal dagger"
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},

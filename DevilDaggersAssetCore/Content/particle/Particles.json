@@ -3,7 +3,7 @@
 		"AssetName": "blood",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Blood"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -11,10 +11,7 @@
 		"AssetName": "centipedeburrow",
 		"Description": "?",
 		"Tags": [
-			"?",
-			"Centipede",
-			"Gigapede",
-			"Ghostpede"
+			"Enemy"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -22,10 +19,7 @@
 		"AssetName": "centipedeburst",
 		"Description": "?",
 		"Tags": [
-			"?",
-			"Centipede",
-			"Gigapede",
-			"Ghostpede"
+			"Enemy"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -33,10 +27,7 @@
 		"AssetName": "centipededecals",
 		"Description": "?",
 		"Tags": [
-			"?",
-			"Centipede",
-			"Gigapede",
-			"Ghostpede"
+			"Enemy"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -44,10 +35,7 @@
 		"AssetName": "centipededecals2",
 		"Description": "?",
 		"Tags": [
-			"?",
-			"Centipede",
-			"Gigapede",
-			"Ghostpede"
+			"Enemy"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -55,10 +43,7 @@
 		"AssetName": "centipedeemerge",
 		"Description": "?",
 		"Tags": [
-			"?",
-			"Centipede",
-			"Gigapede",
-			"Ghostpede"
+			"Enemy"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -66,10 +51,7 @@
 		"AssetName": "centipedefrags",
 		"Description": "?",
 		"Tags": [
-			"?",
-			"Centipede",
-			"Gigapede",
-			"Ghostpede"
+			"Enemy"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -77,7 +59,7 @@
 		"AssetName": "daggerfireflight",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -93,8 +75,7 @@
 		"AssetName": "eggburst",
 		"Description": "?",
 		"Tags": [
-			"Spider Egg I",
-			"Spider Egg II"
+			"Spider Egg"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -102,8 +83,7 @@
 		"AssetName": "eggdecals",
 		"Description": "?",
 		"Tags": [
-			"Spider Egg I",
-			"Spider Egg II"
+			"Spider Egg"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -111,8 +91,7 @@
 		"AssetName": "egghit",
 		"Description": "?",
 		"Tags": [
-			"Spider Egg I",
-			"Spider Egg II"
+			"Spider Egg"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -120,8 +99,7 @@
 		"AssetName": "eggspores",
 		"Description": "?",
 		"Tags": [
-			"Spider Egg I",
-			"Spider Egg II"
+			"Spider Egg"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -177,7 +155,7 @@
 		"AssetName": "gibs",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Gore"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -185,7 +163,7 @@
 		"AssetName": "gibtrail",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Gore"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -209,7 +187,7 @@
 		"AssetName": "hominghit",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Homing dagger"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -217,7 +195,9 @@
 		"AssetName": "levdeath",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Leviathan",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -225,7 +205,7 @@
 		"AssetName": "levelup",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Upgrade"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -233,7 +213,8 @@
 		"AssetName": "levfire",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Leviathan"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -241,7 +222,8 @@
 		"AssetName": "levfountain",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Leviathan"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -249,7 +231,8 @@
 		"AssetName": "leviathansuck",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Leviathan"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -257,7 +240,9 @@
 		"AssetName": "levideath",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Leviathan",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -265,7 +250,8 @@
 		"AssetName": "levidust",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Leviathan"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -273,7 +259,8 @@
 		"AssetName": "levidust2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Leviathan"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -281,7 +268,8 @@
 		"AssetName": "magentabomb",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -289,7 +277,8 @@
 		"AssetName": "magic",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -297,7 +286,7 @@
 		"AssetName": "medal1bronze",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Bronze"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -305,7 +294,7 @@
 		"AssetName": "medal2silver",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Silver"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -313,7 +302,7 @@
 		"AssetName": "medal3gold",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Golden"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -321,7 +310,7 @@
 		"AssetName": "medal4devil",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Devil"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -329,7 +318,9 @@
 		"AssetName": "rapid1",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 1",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -337,7 +328,9 @@
 		"AssetName": "rapid1ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 1",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -345,7 +338,9 @@
 		"AssetName": "rapid2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 2",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -353,7 +348,9 @@
 		"AssetName": "rapid2ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 2",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -361,7 +358,8 @@
 		"AssetName": "rapid3",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -369,7 +367,8 @@
 		"AssetName": "rapid3alt",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -377,7 +376,8 @@
 		"AssetName": "rapid3altember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -385,7 +385,8 @@
 		"AssetName": "rapid3ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -393,7 +394,8 @@
 		"AssetName": "rapid4",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -401,7 +403,8 @@
 		"AssetName": "rapid4alt",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -409,7 +412,8 @@
 		"AssetName": "rapid4altember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -417,7 +421,8 @@
 		"AssetName": "rapid4ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Spray"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -425,7 +430,8 @@
 		"AssetName": "ricochet1",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -433,7 +439,8 @@
 		"AssetName": "ricochet2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -441,7 +448,8 @@
 		"AssetName": "ricochet3",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -449,7 +457,8 @@
 		"AssetName": "ricochet4",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -457,7 +466,8 @@
 		"AssetName": "ricochet5",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -465,7 +475,8 @@
 		"AssetName": "ricochet6",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -473,7 +484,8 @@
 		"AssetName": "ricochetdecal",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -497,7 +509,9 @@
 		"AssetName": "shot1",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 1",
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -505,7 +519,9 @@
 		"AssetName": "shot1ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 1",
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -513,7 +529,9 @@
 		"AssetName": "shot2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 2",
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -521,7 +539,9 @@
 		"AssetName": "shot2ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 2",
+			"Normal dagger",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -529,7 +549,8 @@
 		"AssetName": "shot3",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -537,7 +558,8 @@
 		"AssetName": "shot3alt",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -545,7 +567,8 @@
 		"AssetName": "shot3altember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -553,7 +576,8 @@
 		"AssetName": "shot3ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 3",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -561,7 +585,8 @@
 		"AssetName": "shot4",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -569,7 +594,8 @@
 		"AssetName": "shot4alt",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -577,7 +603,8 @@
 		"AssetName": "shot4altember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -585,7 +612,8 @@
 		"AssetName": "shot4ember",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Level 4",
+			"Shot"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -593,7 +621,7 @@
 		"AssetName": "skulldecals",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -601,7 +629,7 @@
 		"AssetName": "skulldecals2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -609,7 +637,7 @@
 		"AssetName": "skullfrags",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -617,7 +645,7 @@
 		"AssetName": "skullpop",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -625,7 +653,7 @@
 		"AssetName": "spiderdeath",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -633,7 +661,7 @@
 		"AssetName": "spiderdeath2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -641,7 +669,7 @@
 		"AssetName": "spiderdeath3",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -649,7 +677,7 @@
 		"AssetName": "spiderdeath4",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -657,7 +685,7 @@
 		"AssetName": "spiderdecals",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -665,7 +693,7 @@
 		"AssetName": "spiderdecals2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -673,7 +701,7 @@
 		"AssetName": "spiderdecals3",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -681,7 +709,7 @@
 		"AssetName": "spiderdecals4",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -689,7 +717,7 @@
 		"AssetName": "spiderlingdecals",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spiderling"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -697,7 +725,7 @@
 		"AssetName": "spiderlingdecals2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spiderling"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -705,7 +733,7 @@
 		"AssetName": "spiderlingfrags",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spiderling"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -713,7 +741,7 @@
 		"AssetName": "spiderlinghit1",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spiderling"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -721,7 +749,7 @@
 		"AssetName": "spiderlingpop",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spiderling"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -729,7 +757,7 @@
 		"AssetName": "spiderspit",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -737,7 +765,7 @@
 		"AssetName": "spiderspit2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -745,7 +773,7 @@
 		"AssetName": "spiderstring",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Spider"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -753,7 +781,7 @@
 		"AssetName": "squidbubbles",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -761,7 +789,7 @@
 		"AssetName": "squidburst",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -769,7 +797,7 @@
 		"AssetName": "squidburst2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -777,7 +805,7 @@
 		"AssetName": "squidburst3",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -785,7 +813,7 @@
 		"AssetName": "squidburstgibs",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -793,7 +821,7 @@
 		"AssetName": "squidburstgibs2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -801,7 +829,7 @@
 		"AssetName": "squiddecals",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -809,7 +837,7 @@
 		"AssetName": "squiddecals2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -817,7 +845,7 @@
 		"AssetName": "squiddecals3",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -825,7 +853,7 @@
 		"AssetName": "squiddecals4",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -833,7 +861,7 @@
 		"AssetName": "squiddrill",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -841,7 +869,7 @@
 		"AssetName": "squiddrill2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -849,7 +877,7 @@
 		"AssetName": "squidweak",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Squid"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -857,7 +885,7 @@
 		"AssetName": "superskulldecals",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -865,7 +893,7 @@
 		"AssetName": "superskulldecals2",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -873,7 +901,7 @@
 		"AssetName": "superskullfrags",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -881,7 +909,7 @@
 		"AssetName": "superskullpop",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Skull"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -889,7 +917,7 @@
 		"AssetName": "thornemerge",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Thorn"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -897,7 +925,7 @@
 		"AssetName": "thornfrag",
 		"Description": "?",
 		"Tags": [
-			"?"
+			"Thorn"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
