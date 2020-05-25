@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.IO;
 
 namespace DevilDaggersAssetCore.User
 {
@@ -12,6 +14,21 @@ namespace DevilDaggersAssetCore.User
 
 		private UserHandler()
 		{
+		}
+
+		public void SaveSettings()
+		{
+			using StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName));
+			sw.Write(JsonConvert.SerializeObject(settings, Formatting.Indented));
+		}
+
+		public void LoadSettings()
+		{
+			if (File.Exists(UserSettings.FileName))
+			{
+				using StreamReader sr = new StreamReader(File.OpenRead(UserSettings.FileName));
+				settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
+			}
 		}
 	}
 }

@@ -2,7 +2,6 @@
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersAssetEditor.Gui.Windows;
 using DevilDaggersCore.Tools;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -55,10 +54,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		{
 			SettingsWindow settingsWindow = new SettingsWindow();
 			if (settingsWindow.ShowDialog() == true)
-			{
-				using StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName));
-				sw.Write(JsonConvert.SerializeObject(UserHandler.Instance.settings, Formatting.Indented));
-			}
+				UserHandler.Instance.SaveSettings();
 		}
 
 		private void About_Click(object sender, RoutedEventArgs e)
