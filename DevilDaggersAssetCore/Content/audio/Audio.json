@@ -5,7 +5,9 @@
 		"AssetName": "andrasimpact",
 		"Description": "Unused",
 		"Tags": [
-			"Andras (unused)"
+			"Enemy",
+			"Andras",
+			"Unused"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -15,7 +17,9 @@
 		"AssetName": "andrasrise",
 		"Description": "Unused",
 		"Tags": [
-			"Andras (unused)"
+			"Enemy",
+			"Andras",
+			"Unused"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -25,7 +29,9 @@
 		"AssetName": "burrowcentipede",
 		"Description": "Centipede burrow",
 		"Tags": [
-			"Centipede"
+			"Enemy",
+			"Centipede",
+			"Underground"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -35,7 +41,10 @@
 		"AssetName": "chatterandras",
 		"Description": "Unused",
 		"Tags": [
-			"Andras (unused)"
+			"Enemy",
+			"Andras",
+			"Chatter",
+			"Unused"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -43,9 +52,11 @@
 		"Loudness": 5.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chattercentipede",
-		"Description": "Centipede idle",
+		"Description": "Centipede chatter",
 		"Tags": [
-			"Centipede"
+			"Enemy",
+			"Centipede",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -53,9 +64,11 @@
 		"Loudness": 10.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chattercentipede2",
-		"Description": "Gigapede idle",
+		"Description": "Gigapede chatter",
 		"Tags": [
-			"Gigapede"
+			"Enemy",
+			"Gigapede",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -63,9 +76,11 @@
 		"Loudness": 20.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chattergigaspider",
-		"Description": "Spider II idle",
+		"Description": "Spider II chatter",
 		"Tags": [
-			"Spider II"
+			"Enemy",
+			"Spider II",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -73,9 +88,11 @@
 		"Loudness": 50.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterleviathan",
-		"Description": "Leviathan idle",
+		"Description": "Leviathan chatter",
 		"Tags": [
-			"Leviathan"
+			"Enemy",
+			"Leviathan",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -83,9 +100,11 @@
 		"Loudness": 2.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull",
-		"Description": "Skull I idle",
+		"Description": "Skull I chatter",
 		"Tags": [
-			"Skull I"
+			"Enemy",
+			"Skull I",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -93,9 +112,11 @@
 		"Loudness": 5.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull2",
-		"Description": "Skull II idle",
+		"Description": "Skull II chatter",
 		"Tags": [
-			"Skull II"
+			"Enemy",
+			"Skull II",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -103,9 +124,11 @@
 		"Loudness": 10.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull2black",
-		"Description": "Transmuted Skull II idle",
+		"Description": "Transmuted Skull II chatter",
 		"Tags": [
-			"Transmuted Skull II"
+			"Enemy",
+			"Transmuted Skull II",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -113,9 +136,11 @@
 		"Loudness": 25.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull3",
-		"Description": "Skull III idle",
+		"Description": "Skull III chatter",
 		"Tags": [
-			"Skull III"
+			"Enemy",
+			"Skull III",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -123,9 +148,11 @@
 		"Loudness": 20.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull3black",
-		"Description": "Transmuted Skull III idle",
+		"Description": "Transmuted Skull III chatter",
 		"Tags": [
-			"Transmuted Skull III"
+			"Enemy",
+			"Transmuted Skull III",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -133,9 +160,11 @@
 		"Loudness": 25.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull4",
-		"Description": "Skull IV idle",
+		"Description": "Skull IV chatter",
 		"Tags": [
-			"Skull IV"
+			"Enemy",
+			"Skull IV",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -143,9 +172,11 @@
 		"Loudness": 30.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull4black",
-		"Description": "Transmuted Skull IV idle",
+		"Description": "Transmuted Skull IV chatter",
 		"Tags": [
-			"Transmuted Skull IV"
+			"Enemy",
+			"Transmuted Skull IV",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -153,9 +184,11 @@
 		"Loudness": 5.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskullblack",
-		"Description": "Transmuted Skull I idle",
+		"Description": "Transmuted Skull I chatter",
 		"Tags": [
-			"Transmuted Skull I"
+			"Enemy",
+			"Transmuted Skull I",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -163,9 +196,11 @@
 		"Loudness": 10.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterspider",
-		"Description": "Spider I idle",
+		"Description": "Spider I chatter",
 		"Tags": [
-			"Spider I"
+			"Enemy",
+			"Spider I",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -173,9 +208,11 @@
 		"Loudness": 4.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterspiderling",
-		"Description": "Spiderling idle",
+		"Description": "Spiderling chatter",
 		"Tags": [
-			"Spiderling"
+			"Enemy",
+			"Spiderling",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -183,9 +220,11 @@
 		"Loudness": 10.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chattersquid",
-		"Description": "Squid II idle",
+		"Description": "Squid II chatter",
 		"Tags": [
-			"Squid II"
+			"Enemy",
+			"Squid II",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -193,9 +232,11 @@
 		"Loudness": 1.0,
 		"PresentInDefaultLoudness": false,
 		"AssetName": "chattersquidsmall",
-		"Description": "Squid I idle",
+		"Description": "Squid I chatter",
 		"Tags": [
-			"Squid I"
+			"Enemy",
+			"Squid I",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -203,9 +244,11 @@
 		"Loudness": 15.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chattersquidultra",
-		"Description": "Squid III idle",
+		"Description": "Squid III chatter",
 		"Tags": [
-			"Squid III"
+			"Enemy",
+			"Squid III",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -213,9 +256,11 @@
 		"Loudness": 10.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterthorn",
-		"Description": "Thorn idle",
+		"Description": "Thorn chatter",
 		"Tags": [
-			"Thorn"
+			"Enemy",
+			"Thorn",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -223,9 +268,11 @@
 		"Loudness": 25.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterultrapede",
-		"Description": "Ghostpede idle",
+		"Description": "Ghostpede chatter",
 		"Tags": [
-			"Ghostpede"
+			"Enemy",
+			"Ghostpede",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -233,9 +280,11 @@
 		"Loudness": 1.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall",
-		"Description": "Default Dagger in lobby",
+		"Description": "Pleb Dagger in lobby",
 		"Tags": [
-			"Default Dagger"
+			"Default",
+			"Dagger",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -245,7 +294,9 @@
 		"AssetName": "daggercall1bronze",
 		"Description": "Bronze Dagger in lobby",
 		"Tags": [
-			"Bronze Dagger"
+			"Bronze",
+			"Dagger",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -255,7 +306,9 @@
 		"AssetName": "daggercall2silver",
 		"Description": "Silver Dagger in lobby",
 		"Tags": [
-			"Silver Dagger"
+			"Silver",
+			"Dagger",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -265,7 +318,9 @@
 		"AssetName": "daggercall3gold",
 		"Description": "Golden Dagger in lobby",
 		"Tags": [
-			"Golden Dagger"
+			"Golden",
+			"Dagger",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -275,7 +330,9 @@
 		"AssetName": "daggercall4devil",
 		"Description": "Devil Dagger in lobby",
 		"Tags": [
-			"Devil Dagger"
+			"Devil",
+			"Dagger",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -285,7 +342,8 @@
 		"AssetName": "daggercollect",
 		"Description": "Dagger lobby grab",
 		"Tags": [
-			"Any lobby dagger"
+			"Dagger",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -295,7 +353,9 @@
 		"AssetName": "daggercollect1bronze",
 		"Description": "Bronze Dagger unlock",
 		"Tags": [
-			"Bronze Dagger"
+			"Bronze",
+			"Dagger",
+			"Unlock"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -305,7 +365,9 @@
 		"AssetName": "daggercollect2silver",
 		"Description": "Silver Dagger unlock",
 		"Tags": [
-			"Silver Dagger"
+			"Silver",
+			"Dagger",
+			"Unlock"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -315,7 +377,9 @@
 		"AssetName": "daggercollect3gold",
 		"Description": "Golden Dagger unlock",
 		"Tags": [
-			"Golden Dagger"
+			"Golden",
+			"Dagger",
+			"Unlock"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -325,7 +389,9 @@
 		"AssetName": "daggercollect4devil",
 		"Description": "Devil Dagger unlock",
 		"Tags": [
-			"Devil Dagger"
+			"Devil",
+			"Dagger",
+			"Unlock"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -333,9 +399,10 @@
 		"Loudness": 3.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "daggerdrone",
-		"Description": "Level 3 homing dagger idle",
+		"Description": "Level 3 homing dagger noise",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -345,7 +412,7 @@
 		"AssetName": "daggerhit1",
 		"Description": "Default dagger hit",
 		"Tags": [
-			"Any dagger"
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -355,7 +422,8 @@
 		"AssetName": "daggerseek",
 		"Description": "Level 4 homing dagger fire",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -365,7 +433,9 @@
 		"AssetName": "damagecentipede",
 		"Description": "Centipede gem is damaged",
 		"Tags": [
-			"Centipede"
+			"Enemy",
+			"Centipede",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -375,7 +445,9 @@
 		"AssetName": "damagecentipede2",
 		"Description": "Gigapede gem is damaged",
 		"Tags": [
-			"Gigapede"
+			"Enemy",
+			"Gigapede",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -385,7 +457,9 @@
 		"AssetName": "damagegigaspider",
 		"Description": "Spider II damage",
 		"Tags": [
-			"Spider II"
+			"Enemy",
+			"Spider II",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -395,7 +469,9 @@
 		"AssetName": "damageleviathan",
 		"Description": "Leviathan gem comes off",
 		"Tags": [
-			"Leviathan"
+			"Enemy",
+			"Leviathan",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -405,7 +481,9 @@
 		"AssetName": "damagespider",
 		"Description": "Spider I damage",
 		"Tags": [
-			"Spider I"
+			"Enemy",
+			"Spider I",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -415,7 +493,12 @@
 		"AssetName": "damagesquid",
 		"Description": "Squid I / II / III / Leviathan gem damage",
 		"Tags": [
-			"Squid I / II / III / Leviathan"
+			"Enemy",
+			"Squid I",
+			"Squid II",
+			"Squid III",
+			"Leviathan",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -425,7 +508,9 @@
 		"AssetName": "damagesquid2",
 		"Description": "Squid II gem comes off",
 		"Tags": [
-			"Squid II"
+			"Enemy",
+			"Squid II",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -435,7 +520,9 @@
 		"AssetName": "damagesquid3",
 		"Description": "Squid III gem comes off",
 		"Tags": [
-			"Squid III"
+			"Enemy",
+			"Squid III",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -445,7 +532,9 @@
 		"AssetName": "damagethorn",
 		"Description": "Thorn damage",
 		"Tags": [
-			"Thorn"
+			"Enemy",
+			"Thorn",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -455,7 +544,9 @@
 		"AssetName": "damageultrapede",
 		"Description": "Ghostpede gem comes off",
 		"Tags": [
-			"Ghostpede"
+			"Enemy",
+			"Ghostpede",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -465,7 +556,8 @@
 		"AssetName": "death",
 		"Description": "Player death from enemy",
 		"Tags": [
-			"Player"
+			"Player",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -475,7 +567,9 @@
 		"AssetName": "eggbounce",
 		"Description": "Spider Egg I / Spider Egg II bounce on floor",
 		"Tags": [
-			"Spider Egg I / Spider Egg II"
+			"Enemy",
+			"Spider Egg I",
+			"Spider Egg II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -485,7 +579,10 @@
 		"AssetName": "eggburst",
 		"Description": "Spider Egg I / Spider Egg II burst (hatch or death)",
 		"Tags": [
-			"Spider Egg I / Spider Egg II"
+			"Enemy",
+			"Spider Egg I",
+			"Spider Egg II",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -493,8 +590,9 @@
 		"Loudness": 1.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "eggdrone",
-		"Description": "Spider Egg I idle",
+		"Description": "Spider Egg I chatter",
 		"Tags": [
+			"Enemy",
 			"Spider Egg I"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -503,8 +601,9 @@
 		"Loudness": 2.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "eggdrone2",
-		"Description": "Spider Egg II idle",
+		"Description": "Spider Egg II chatter",
 		"Tags": [
+			"Enemy",
 			"Spider Egg II"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -515,6 +614,7 @@
 		"AssetName": "eyearouse",
 		"Description": "The Orb is locating Player",
 		"Tags": [
+			"Enemy",
 			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -525,6 +625,7 @@
 		"AssetName": "eyearousedrone",
 		"Description": "The Orb sees Player",
 		"Tags": [
+			"Enemy",
 			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -535,7 +636,9 @@
 		"AssetName": "eyehit",
 		"Description": "The Orb damage",
 		"Tags": [
-			"The Orb"
+			"Enemy",
+			"The Orb",
+			"Damage"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -545,7 +648,8 @@
 		"AssetName": "fall",
 		"Description": "Player death from falling",
 		"Tags": [
-			"Player"
+			"Player",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -605,7 +709,10 @@
 		"AssetName": "gigaricochet1",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"Tags": [
-			"Level 3 / 4 normal dagger"
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -615,7 +722,10 @@
 		"AssetName": "gigaricochet2",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"Tags": [
-			"Level 3 / 4 normal dagger"
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -625,7 +735,10 @@
 		"AssetName": "gigaricochet3",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"Tags": [
-			"Level 3 / 4 normal dagger"
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -635,7 +748,10 @@
 		"AssetName": "gigaricochet4",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"Tags": [
-			"Level 3 / 4 normal dagger"
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -645,7 +761,10 @@
 		"AssetName": "gigaricochet5",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"Tags": [
-			"Level 3 / 4 normal dagger"
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -705,7 +824,9 @@
 		"AssetName": "killandras",
 		"Description": "Unused",
 		"Tags": [
-			"Andras (unused)"
+			"Enemy",
+			"Andras",
+			"Unused"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -715,7 +836,9 @@
 		"AssetName": "killcentipede",
 		"Description": "Centipede death",
 		"Tags": [
-			"Centipede"
+			"Enemy",
+			"Centipede",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -725,7 +848,9 @@
 		"AssetName": "killcentipede2",
 		"Description": "Gigapede death",
 		"Tags": [
-			"Gigapede"
+			"Enemy",
+			"Gigapede",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -735,7 +860,9 @@
 		"AssetName": "killeye",
 		"Description": "The Orb death",
 		"Tags": [
-			"The Orb"
+			"Enemy",
+			"The Orb",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -745,7 +872,9 @@
 		"AssetName": "killgigaspider",
 		"Description": "Spider II death",
 		"Tags": [
-			"Spider II"
+			"Enemy",
+			"Spider II",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -755,7 +884,9 @@
 		"AssetName": "killleviathan",
 		"Description": "Leviathan death",
 		"Tags": [
-			"Leviathan"
+			"Enemy",
+			"Leviathan",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -765,7 +896,9 @@
 		"AssetName": "killminisquid",
 		"Description": "Squid I death",
 		"Tags": [
-			"Squid I"
+			"Enemy",
+			"Squid I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -775,7 +908,9 @@
 		"AssetName": "killskull1",
 		"Description": "Skull I death",
 		"Tags": [
-			"Skull I"
+			"Enemy",
+			"Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -785,7 +920,9 @@
 		"AssetName": "killskull2",
 		"Description": "Skull I death",
 		"Tags": [
-			"Skull I"
+			"Enemy",
+			"Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -795,7 +932,9 @@
 		"AssetName": "killskull3",
 		"Description": "Skull I death",
 		"Tags": [
-			"Skull I"
+			"Enemy",
+			"Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -805,7 +944,9 @@
 		"AssetName": "killskull4",
 		"Description": "Skull I death",
 		"Tags": [
-			"Skull I"
+			"Enemy",
+			"Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -815,7 +956,9 @@
 		"AssetName": "killskull5",
 		"Description": "Skull I death",
 		"Tags": [
-			"Skull I"
+			"Enemy",
+			"Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -825,7 +968,9 @@
 		"AssetName": "killskullblack1",
 		"Description": "Transmuted Skull I death",
 		"Tags": [
-			"Transmuted Skull I"
+			"Enemy",
+			"Transmuted Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -835,7 +980,9 @@
 		"AssetName": "killskullblack2",
 		"Description": "Transmuted Skull I death",
 		"Tags": [
-			"Transmuted Skull I"
+			"Enemy",
+			"Transmuted Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -845,7 +992,9 @@
 		"AssetName": "killskullblack3",
 		"Description": "Transmuted Skull I death",
 		"Tags": [
-			"Transmuted Skull I"
+			"Enemy",
+			"Transmuted Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -855,7 +1004,9 @@
 		"AssetName": "killskullblack4",
 		"Description": "Transmuted Skull I death",
 		"Tags": [
-			"Transmuted Skull I"
+			"Enemy",
+			"Transmuted Skull I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -865,7 +1016,9 @@
 		"AssetName": "killspider",
 		"Description": "Spider I death",
 		"Tags": [
-			"Spider I"
+			"Enemy",
+			"Spider I",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -875,7 +1028,9 @@
 		"AssetName": "killspiderling1",
 		"Description": "Spiderling death",
 		"Tags": [
-			"Spiderling"
+			"Enemy",
+			"Spiderling",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -885,7 +1040,9 @@
 		"AssetName": "killspiderling2",
 		"Description": "Spiderling death",
 		"Tags": [
-			"Spiderling"
+			"Enemy",
+			"Spiderling",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -895,7 +1052,9 @@
 		"AssetName": "killspiderling3",
 		"Description": "Spiderling death",
 		"Tags": [
-			"Spiderling"
+			"Enemy",
+			"Spiderling",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -905,7 +1064,9 @@
 		"AssetName": "killspiderling4",
 		"Description": "Spiderling death",
 		"Tags": [
-			"Spiderling"
+			"Enemy",
+			"Spiderling",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -915,7 +1076,9 @@
 		"AssetName": "killspiderling5",
 		"Description": "Spiderling death",
 		"Tags": [
-			"Spiderling"
+			"Enemy",
+			"Spiderling",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -925,7 +1088,9 @@
 		"AssetName": "killsquid",
 		"Description": "Squid II death",
 		"Tags": [
-			"Squid II"
+			"Enemy",
+			"Squid II",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -935,7 +1100,9 @@
 		"AssetName": "killsuperskull",
 		"Description": "Skull II death",
 		"Tags": [
-			"Skull II"
+			"Enemy",
+			"Skull II",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -945,7 +1112,9 @@
 		"AssetName": "killsuperskull2",
 		"Description": "Skull III death",
 		"Tags": [
-			"Skull III"
+			"Enemy",
+			"Skull III",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -955,7 +1124,9 @@
 		"AssetName": "killsuperskull2black",
 		"Description": "Transmuted Skull III death",
 		"Tags": [
-			"Transmuted Skull III"
+			"Enemy",
+			"Transmuted Skull III",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -965,7 +1136,10 @@
 		"AssetName": "killsuperskull3",
 		"Description": "Skull IV death / Transmuted Skull IV death",
 		"Tags": [
-			"Skull IV death / Transmuted Skull IV"
+			"Enemy",
+			"Skull IV",
+			"Transmuted Skull IV",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -975,7 +1149,9 @@
 		"AssetName": "killsuperskullblack",
 		"Description": "Transmuted Skull II death",
 		"Tags": [
-			"Transmuted Skull II"
+			"Enemy",
+			"Transmuted Skull II",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -985,7 +1161,9 @@
 		"AssetName": "killthorn",
 		"Description": "Thorn death",
 		"Tags": [
-			"Thorn"
+			"Enemy",
+			"Thorn",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -995,7 +1173,9 @@
 		"AssetName": "killultrasquid",
 		"Description": "Squid III death",
 		"Tags": [
-			"Squid III"
+			"Enemy",
+			"Squid III",
+			"Death"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1025,7 +1205,8 @@
 		"AssetName": "legends",
 		"Description": "Easter egg music for skull thrones",
 		"Tags": [
-			"Music"
+			"Music",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1065,7 +1246,9 @@
 		"AssetName": "leviathanbeckon",
 		"Description": "Leviathan / The Orb beckon",
 		"Tags": [
-			"Leviathan / The Orb"
+			"Enemy",
+			"Leviathan",
+			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1075,7 +1258,9 @@
 		"AssetName": "leviathanbeckon2",
 		"Description": "Plays when a skull touches Leviathan's or The Orb's beckon ring.",
 		"Tags": [
-			"Leviathan / The Orb"
+			"Enemy",
+			"Leviathan",
+			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1085,7 +1270,9 @@
 		"AssetName": "leviathantransmute",
 		"Description": "Plays when a skull is transmuted by Leviathan (and The Orb?).",
 		"Tags": [
-			"Leviathan / The Orb"
+			"Enemy",
+			"Leviathan",
+			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1095,7 +1282,8 @@
 		"AssetName": "magentadetonate1",
 		"Description": "Level 4 homing dagger explode",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1105,7 +1293,8 @@
 		"AssetName": "magentadetonate2",
 		"Description": "Level 4 homing dagger explode",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1115,7 +1304,8 @@
 		"AssetName": "magentadetonate3",
 		"Description": "Level 4 homing dagger explode",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1125,7 +1315,8 @@
 		"AssetName": "magentadetonate4",
 		"Description": "Level 4 homing dagger explode",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1135,7 +1326,8 @@
 		"AssetName": "magentadetonate5",
 		"Description": "Level 4 homing dagger explode",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1143,9 +1335,10 @@
 		"Loudness": 30.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadrone",
-		"Description": "Level 4 homing dagger idle",
+		"Description": "Level 4 homing dagger noise",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1155,7 +1348,8 @@
 		"AssetName": "magentashot",
 		"Description": "Level 4 homing dagger shotgun",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1165,7 +1359,8 @@
 		"AssetName": "magentastuckenemy1",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1175,7 +1370,8 @@
 		"AssetName": "magentastuckenemy2",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1185,7 +1381,8 @@
 		"AssetName": "magentastuckenemy3",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1195,7 +1392,8 @@
 		"AssetName": "magentastuckenemy4",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1205,7 +1403,8 @@
 		"AssetName": "magentastuckenemy5",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1215,7 +1414,8 @@
 		"AssetName": "magicpierce1",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1225,7 +1425,8 @@
 		"AssetName": "magicpierce2",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1235,7 +1436,8 @@
 		"AssetName": "magicpierce3",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1245,7 +1447,8 @@
 		"AssetName": "magicpierce4",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1255,7 +1458,8 @@
 		"AssetName": "magicpierce5",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1575,7 +1779,9 @@
 		"AssetName": "rapid1",
 		"Description": "Level 1 normal dagger spray",
 		"Tags": [
-			"Level 1 normal dagger"
+			"Level 1",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1585,7 +1791,9 @@
 		"AssetName": "rapid2",
 		"Description": "Level 2 normal dagger spray",
 		"Tags": [
-			"Level 2 normal dagger"
+			"Level 2",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1595,7 +1803,9 @@
 		"AssetName": "rapid3",
 		"Description": "Level 3 normal dagger spray",
 		"Tags": [
-			"Level 3 normal dagger"
+			"Level 3",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1605,7 +1815,9 @@
 		"AssetName": "rapid4",
 		"Description": "Level 4 normal dagger spray",
 		"Tags": [
-			"Level 4 normal dagger"
+			"Level 4",
+			"Normal dagger",
+			"Spray"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1615,7 +1827,9 @@
 		"AssetName": "ricochet1",
 		"Description": "Level 1 normal dagger ricochet",
 		"Tags": [
-			"Level 1 normal dagger"
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1625,7 +1839,9 @@
 		"AssetName": "ricochet2",
 		"Description": "Level 1 normal dagger ricochet",
 		"Tags": [
-			"Level 1 normal dagger"
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1635,7 +1851,9 @@
 		"AssetName": "ricochet3",
 		"Description": "Level 1 normal dagger ricochet",
 		"Tags": [
-			"Level 1 normal dagger"
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1645,7 +1863,9 @@
 		"AssetName": "ricochet4",
 		"Description": "Level 1 normal dagger ricochet",
 		"Tags": [
-			"Level 1 normal dagger"
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1655,7 +1875,9 @@
 		"AssetName": "ricochet5",
 		"Description": "Level 1 normal dagger ricochet",
 		"Tags": [
-			"Level 1 normal dagger"
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1665,7 +1887,9 @@
 		"AssetName": "ricochetmagenta1",
 		"Description": "Level 4 homing dagger ricochet",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1675,7 +1899,9 @@
 		"AssetName": "ricochetmagenta2",
 		"Description": "Level 4 homing dagger ricochet",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1685,7 +1911,9 @@
 		"AssetName": "ricochetmagenta3",
 		"Description": "Level 4 homing dagger ricochet",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1695,7 +1923,9 @@
 		"AssetName": "ricochetmagenta4",
 		"Description": "Level 4 homing dagger ricochet",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1705,7 +1935,9 @@
 		"AssetName": "ricochetmagenta5",
 		"Description": "Level 4 homing dagger ricochet",
 		"Tags": [
-			"Level 4 homing dagger"
+			"Level 4",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1715,7 +1947,9 @@
 		"AssetName": "ricochetmagic1",
 		"Description": "Level 3 homing dagger ricochet",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1725,7 +1959,9 @@
 		"AssetName": "ricochetmagic2",
 		"Description": "Level 3 homing dagger ricochet",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1735,7 +1971,9 @@
 		"AssetName": "ricochetmagic3",
 		"Description": "Level 3 homing dagger ricochet",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1745,7 +1983,9 @@
 		"AssetName": "ricochetmagic4",
 		"Description": "Level 3 homing dagger ricochet",
 		"Tags": [
-			"Level 3 homing dagger"
+			"Level 3",
+			"Homing dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1755,7 +1995,9 @@
 		"AssetName": "ricochetmed1",
 		"Description": "Level 2 normal dagger ricochet",
 		"Tags": [
-			"Level 2 normal dagger"
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1765,7 +2007,9 @@
 		"AssetName": "ricochetmed2",
 		"Description": "Level 2 normal dagger ricochet",
 		"Tags": [
-			"Level 2 normal dagger"
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1775,7 +2019,9 @@
 		"AssetName": "ricochetmed3",
 		"Description": "Level 2 normal dagger ricochet",
 		"Tags": [
-			"Level 2 normal dagger"
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1785,7 +2031,9 @@
 		"AssetName": "ricochetmed4",
 		"Description": "Level 2 normal dagger ricochet",
 		"Tags": [
-			"Level 2 normal dagger"
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1795,7 +2043,9 @@
 		"AssetName": "ricochetmed5",
 		"Description": "Level 2 normal dagger ricochet",
 		"Tags": [
-			"Level 2 normal dagger"
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1805,7 +2055,8 @@
 		"AssetName": "secretsnake2",
 		"Description": "Plays when discovering an easter egg in the lobby.",
 		"Tags": [
-			"Easter Egg"
+			"Easter Egg",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1815,6 +2066,7 @@
 		"AssetName": "shard1",
 		"Description": "The Orb shard bounce on floor",
 		"Tags": [
+			"Enemy",
 			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -1825,6 +2077,7 @@
 		"AssetName": "shard2",
 		"Description": "The Orb shard bounce on floor",
 		"Tags": [
+			"Enemy",
 			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -1835,6 +2088,7 @@
 		"AssetName": "shard3",
 		"Description": "The Orb shard bounce on floor",
 		"Tags": [
+			"Enemy",
 			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -1845,6 +2099,7 @@
 		"AssetName": "shard4",
 		"Description": "The Orb shard bounce on floor",
 		"Tags": [
+			"Enemy",
 			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -1855,6 +2110,7 @@
 		"AssetName": "shard5",
 		"Description": "The Orb shard bounce on floor",
 		"Tags": [
+			"Enemy",
 			"The Orb"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -1865,7 +2121,8 @@
 		"AssetName": "shot1",
 		"Description": "Level 1 normal dagger shotgun",
 		"Tags": [
-			"Level 1 normal dagger"
+			"Level 1",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1875,7 +2132,8 @@
 		"AssetName": "shot2",
 		"Description": "Level 2 normal dagger shotgun",
 		"Tags": [
-			"Level 2 normal dagger"
+			"Level 2",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1885,7 +2143,8 @@
 		"AssetName": "shot3alt1",
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
-			"Level 3 normal dagger"
+			"Level 3",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1895,7 +2154,8 @@
 		"AssetName": "shot3alt2",
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
-			"Level 3 normal dagger"
+			"Level 3",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1905,7 +2165,8 @@
 		"AssetName": "shot3alt3",
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
-			"Level 3 normal dagger"
+			"Level 3",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1915,7 +2176,8 @@
 		"AssetName": "shot3alt4",
 		"Description": "Level 3 normal dagger shotgun",
 		"Tags": [
-			"Level 3 normal dagger"
+			"Level 3",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1925,7 +2187,8 @@
 		"AssetName": "shot4alt1",
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
-			"Level 4 normal dagger"
+			"Level 4",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1935,7 +2198,8 @@
 		"AssetName": "shot4alt2",
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
-			"Level 4 normal dagger"
+			"Level 4",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1945,7 +2209,8 @@
 		"AssetName": "shot4alt3",
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
-			"Level 4 normal dagger"
+			"Level 4",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1955,7 +2220,8 @@
 		"AssetName": "shot4alt4",
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
-			"Level 4 normal dagger"
+			"Level 4",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1965,7 +2231,8 @@
 		"AssetName": "shot4alt5",
 		"Description": "Level 4 normal dagger shotgun",
 		"Tags": [
-			"Level 4 normal dagger"
+			"Level 4",
+			"Normal dagger"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -1975,6 +2242,7 @@
 		"AssetName": "skullclop1",
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
+			"Enemy",
 			"Skull"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -1985,6 +2253,7 @@
 		"AssetName": "skullclop2",
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
+			"Enemy",
 			"Skull"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -1995,6 +2264,7 @@
 		"AssetName": "skullclop3",
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
+			"Enemy",
 			"Skull"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2005,6 +2275,7 @@
 		"AssetName": "skullclop4",
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
+			"Enemy",
 			"Skull"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2015,6 +2286,7 @@
 		"AssetName": "skullclop5",
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
+			"Enemy",
 			"Skull"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2025,6 +2297,7 @@
 		"AssetName": "skullclop6",
 		"Description": "Skull bounce on floor or with other skull",
 		"Tags": [
+			"Enemy",
 			"Skull"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2045,7 +2318,8 @@
 		"AssetName": "sorathstone",
 		"Description": "Sorath stone easter egg music",
 		"Tags": [
-			"Music"
+			"Music",
+			"Lobby"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2055,7 +2329,9 @@
 		"AssetName": "spawnandras",
 		"Description": "Unused",
 		"Tags": [
-			"Andras (unused)"
+			"Enemy",
+			"Andras",
+			"Unused"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2065,6 +2341,7 @@
 		"AssetName": "spawncentipede",
 		"Description": "Centipede spawn",
 		"Tags": [
+			"Enemy",
 			"Centipede"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2075,6 +2352,7 @@
 		"AssetName": "spawncentipede2",
 		"Description": "Gigapede spawn",
 		"Tags": [
+			"Enemy",
 			"Gigapede"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2085,7 +2363,9 @@
 		"AssetName": "spawnegg",
 		"Description": "Spider I / Spider II shoot egg",
 		"Tags": [
-			"Spider I / Spider II"
+			"Enemy",
+			"Spider I",
+			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2095,6 +2375,7 @@
 		"AssetName": "spawngigaspider",
 		"Description": "Spider II spawn",
 		"Tags": [
+			"Enemy",
 			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2105,6 +2386,7 @@
 		"AssetName": "spawnleviathan",
 		"Description": "Leviathan spawn",
 		"Tags": [
+			"Enemy",
 			"Leviathan"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2115,6 +2397,7 @@
 		"AssetName": "spawnminisquid",
 		"Description": "Squid I spawn",
 		"Tags": [
+			"Enemy",
 			"Squid I"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2135,6 +2418,7 @@
 		"AssetName": "spawnskulls",
 		"Description": "Squid II gush (yes, really)",
 		"Tags": [
+			"Enemy",
 			"Squid II"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2145,6 +2429,7 @@
 		"AssetName": "spawnskulls2",
 		"Description": "Squid I gush (yes, really)",
 		"Tags": [
+			"Enemy",
 			"Squid I"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2155,6 +2440,7 @@
 		"AssetName": "spawnskulls3",
 		"Description": "Squid III gush",
 		"Tags": [
+			"Enemy",
 			"Squid III"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2165,6 +2451,7 @@
 		"AssetName": "spawnspider",
 		"Description": "Spider I spawn",
 		"Tags": [
+			"Enemy",
 			"Spider I"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2175,6 +2462,7 @@
 		"AssetName": "spawnsquid",
 		"Description": "Squid II spawn",
 		"Tags": [
+			"Enemy",
 			"Squid II"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2185,6 +2473,7 @@
 		"AssetName": "spawnultrapede",
 		"Description": "Ghostpede spawn",
 		"Tags": [
+			"Enemy",
 			"Ghostpede"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2195,6 +2484,7 @@
 		"AssetName": "spawnultrasquid",
 		"Description": "Squid III spawn",
 		"Tags": [
+			"Enemy",
 			"Squid III"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2205,7 +2495,9 @@
 		"AssetName": "spidereat1",
 		"Description": "Spider I / Spider II eat gem",
 		"Tags": [
-			"Spider I / Spider II"
+			"Enemy",
+			"Spider I",
+			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2215,7 +2507,9 @@
 		"AssetName": "spidereat2",
 		"Description": "Spider I / Spider II eat gem",
 		"Tags": [
-			"Spider I / Spider II"
+			"Enemy",
+			"Spider I",
+			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2225,7 +2519,9 @@
 		"AssetName": "spidereat3",
 		"Description": "Spider I / Spider II eat gem",
 		"Tags": [
-			"Spider I / Spider II"
+			"Enemy",
+			"Spider I",
+			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2235,7 +2531,9 @@
 		"AssetName": "spidereat4",
 		"Description": "Spider I / Spider II eat gem",
 		"Tags": [
-			"Spider I / Spider II"
+			"Enemy",
+			"Spider I",
+			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2245,7 +2543,9 @@
 		"AssetName": "spidereat5",
 		"Description": "Spider I / Spider II eat gem",
 		"Tags": [
-			"Spider I / Spider II"
+			"Enemy",
+			"Spider I",
+			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2255,7 +2555,9 @@
 		"AssetName": "spidereat6",
 		"Description": "Spider I / Spider II eat gem",
 		"Tags": [
-			"Spider I / Spider II"
+			"Enemy",
+			"Spider I",
+			"Spider II"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2265,7 +2567,9 @@
 		"AssetName": "splashgiga",
 		"Description": "Squid II death splash",
 		"Tags": [
-			"Squid II"
+			"Enemy",
+			"Squid II",
+			"Death splash"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2275,7 +2579,10 @@
 		"AssetName": "splashgiga2",
 		"Description": "Centipede / Gigapede death splash",
 		"Tags": [
-			"Centipede / Gigapede"
+			"Enemy",
+			"Centipede",
+			"Gigapede",
+			"Death splash"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2285,7 +2592,9 @@
 		"AssetName": "splashgiga3",
 		"Description": "Spider I death splash",
 		"Tags": [
-			"Spider I"
+			"Enemy",
+			"Spider I",
+			"Death splash"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2295,7 +2604,9 @@
 		"AssetName": "splashgiga4",
 		"Description": "Squid III death splash",
 		"Tags": [
-			"Squid III"
+			"Enemy",
+			"Squid III",
+			"Death splash"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2305,7 +2616,9 @@
 		"AssetName": "splashgiga5",
 		"Description": "Spider II death splash",
 		"Tags": [
-			"Spider II"
+			"Enemy",
+			"Spider II",
+			"Death splash"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2315,7 +2628,9 @@
 		"AssetName": "splashgiga6",
 		"Description": "Ghostpede death splash",
 		"Tags": [
-			"Ghostpede"
+			"Enemy",
+			"Ghostpede",
+			"Death splash"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2325,7 +2640,7 @@
 		"AssetName": "stealgib",
 		"Description": "Gem attracted by Spider I",
 		"Tags": [
-			"Spider I"
+			"Gem"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2335,7 +2650,7 @@
 		"AssetName": "stealgib2",
 		"Description": "Gem attracted by Spider II",
 		"Tags": [
-			"Spider II"
+			"Gem"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2345,7 +2660,11 @@
 		"AssetName": "subchattercentipede",
 		"Description": "Centipede / Gigapede / Ghostpede underground",
 		"Tags": [
-			"Centipede / Gigapede / Ghostpede"
+			"Enemy",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede",
+			"Underground"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2355,7 +2674,9 @@
 		"AssetName": "thornemerge",
 		"Description": "Thorn spawn",
 		"Tags": [
-			"Thorn"
+			"Enemy",
+			"Thorn",
+			"Underground"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -2395,6 +2716,7 @@
 		"AssetName": "ultrapedecrash",
 		"Description": "Ghostpede collide with floor",
 		"Tags": [
+			"Enemy",
 			"Ghostpede"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2405,6 +2727,7 @@
 		"AssetName": "ultrapedeeat",
 		"Description": "Ghostpede eat homing dagger",
 		"Tags": [
+			"Enemy",
 			"Ghostpede"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2415,6 +2738,7 @@
 		"AssetName": "ultrapedefall",
 		"Description": "Ghostpede death",
 		"Tags": [
+			"Enemy",
 			"Ghostpede"
 		],
 		"ChunkTypeName": "AudioChunk"
@@ -2425,7 +2749,9 @@
 		"AssetName": "unburrowcentipede",
 		"Description": "Centipede emerge",
 		"Tags": [
-			"Centipede"
+			"Enemy",
+			"Centipede",
+			"Underground"
 		],
 		"ChunkTypeName": "AudioChunk"
 	}
