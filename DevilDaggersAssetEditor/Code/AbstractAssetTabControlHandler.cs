@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code
@@ -23,6 +24,9 @@ namespace DevilDaggersAssetEditor.Code
 		public readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
 
 		private UserSettings settings => UserHandler.Instance.settings;
+
+		public readonly List<StackPanel> filterStackPanels = new List<StackPanel>();
+		public readonly List<CheckBox> filterCheckBoxes = new List<CheckBox>();
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
@@ -75,6 +79,50 @@ namespace DevilDaggersAssetEditor.Code
 				if (asset.EditorPath.Replace(".glsl", "_vertex.glsl").GetPathValidity() != PathValidity.Valid)
 					return false;
 			return true;
+		}
+
+		public void CreateFiltersGui()
+		{
+			IEnumerable<string> tags = Assets.SelectMany(a => a.Tags ?? (new string[] { })).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
+			int filterColumnCount = 5;
+			int i = 0;
+			for (; i < filterColumnCount; i++)
+			{
+				StackPanel stackPanel = new StackPanel { Tag = i };
+				Grid.SetColumn(stackPanel, i);
+				filterStackPanels.Add(stackPanel);
+			}
+
+			i = 0;
+			foreach (string tag in tags)
+			{
+				int pos = (int)(i++ / (float)tags.Count() * filterColumnCount);
+				CheckBox checkBox = new CheckBox { Content = tag };
+				filterCheckBoxes.Add(checkBox);
+				filterStackPanels.FirstOrDefault(s => (int)s.Tag == pos).Children.Add(checkBox);
+			}
+		}
+
+		public void ApplyFilter(FilterOperation filterOperation, Dictionary<TAssetRowControl, TAsset> assets)
+		{
+			IEnumerable<string> checkedFiters = filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
+			if (checkedFiters.Count() == 0)
+			{
+				foreach (TAssetRowControl arc in assets.Keys)
+					arc.Visibility = Visibility.Visible;
+			}
+			else
+			{
+				foreach (KeyValuePair<TAssetRowControl, TAsset> kvp in assets)
+				{
+					kvp.Key.Visibility = filterOperation switch
+					{
+						FilterOperation.And => checkedFiters.All(t => kvp.Value.Tags.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
+						FilterOperation.Or => kvp.Value.Tags.Any(t => checkedFiters.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
+						_ => kvp.Key.Visibility,
+					};
+				}
+			}
 		}
 	}
 }

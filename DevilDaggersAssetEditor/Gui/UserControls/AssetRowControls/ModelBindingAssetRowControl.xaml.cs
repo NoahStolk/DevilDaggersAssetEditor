@@ -20,6 +20,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
 
+			Handler.UpdateBackgroundRectangleColors(isEven);
+
 			Data.DataContext = asset;
 		}
 

@@ -3,6 +3,7 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,6 +40,50 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			foreach (ShaderAssetRowControl arc in Handler.CreateAssetRowControls())
 				AssetEditor.Items.Add(arc);
+
+			CreateFiltersGui();
+		}
+
+		private void CreateFiltersGui()
+		{
+			FilterOperationAnd.Checked += ApplyFilter;
+			FilterOperationOr.Checked += ApplyFilter;
+
+			Handler.CreateFiltersGui();
+
+			foreach (StackPanel stackPanel in Handler.filterStackPanels)
+			{
+				Filters.ColumnDefinitions.Add(new ColumnDefinition());
+				Filters.Children.Add(stackPanel);
+			}
+
+			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			{
+				checkBox.Checked += ApplyFilter;
+				checkBox.Unchecked += ApplyFilter;
+			}
+		}
+
+		private void ApplyFilter(object sender, RoutedEventArgs e)
+		{
+			Handler.ApplyFilter(GetFilterOperation(), Handler.assetRowControls.Select(a => new KeyValuePair<ShaderAssetRowControl, ShaderAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+			SetAssetEditorBackgroundColors();
+		}
+
+		private FilterOperation GetFilterOperation()
+		{
+			if (FilterOperationAnd.IsChecked.Value)
+				return FilterOperation.And;
+			if (FilterOperationOr.IsChecked.Value)
+				return FilterOperation.Or;
+			return FilterOperation.None;
+		}
+
+		private void SetAssetEditorBackgroundColors()
+		{
+			List<ShaderAssetRowControl> rows = Handler.assetRowControls.Where(c => c.Visibility == Visibility.Visible).ToList();
+			foreach (ShaderAssetRowControl row in rows)
+				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)

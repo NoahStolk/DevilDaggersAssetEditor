@@ -5,16 +5,21 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:previewerControls="clr-namespace:DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls"
 			 mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="800" d:DesignWidth="800"
 			 Loaded="UserControl_Loaded">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="96" />
-			<RowDefinition Height="20" />
+			<RowDefinition Height="160" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<previewerControls:AudioPreviewerControl Grid.Row="0" x:Name="Previewer" />
 		<Grid Grid.Row="1" Background="DarkGray">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="22" />
+				<RowDefinition />
+				<RowDefinition Height="20" />
+			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="3*" />
@@ -24,11 +29,22 @@
 				<ColumnDefinition Width="2*" />
 				<ColumnDefinition Width="18" />
 			</Grid.ColumnDefinitions>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" FontWeight="Bold">Audio name</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="1" FontWeight="Bold">Tags</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="3" FontWeight="Bold">Loudness</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="4" FontWeight="Bold">Path</TextBlock>
+
+			<StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" Background="#bbb">
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tag filters</TextBlock>
+				<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationAnd">And</RadioButton>
+				<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
+			</StackPanel>
+			<ScrollViewer Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="#ccc">
+				<Grid Name="Filters" />
+			</ScrollViewer>
+
+			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="#bbb" />
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="0" FontWeight="Bold">Audio name</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="1" FontWeight="Bold">Tags</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="3" FontWeight="Bold">Loudness</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="4" FontWeight="Bold">Path</TextBlock>
 		</Grid>
 		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" Template="{DynamicResource ListViewTemplate}" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
 	</Grid>

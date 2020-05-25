@@ -58,6 +58,50 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			foreach (AudioAssetRowControl arc in Handler.CreateAssetRowControls())
 				AssetEditor.Items.Add(arc);
+
+			CreateFiltersGui();
+		}
+
+		private void CreateFiltersGui()
+		{
+			FilterOperationAnd.Checked += ApplyFilter;
+			FilterOperationOr.Checked += ApplyFilter;
+
+			Handler.CreateFiltersGui();
+
+			foreach (StackPanel stackPanel in Handler.filterStackPanels)
+			{
+				Filters.ColumnDefinitions.Add(new ColumnDefinition());
+				Filters.Children.Add(stackPanel);
+			}
+
+			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			{
+				checkBox.Checked += ApplyFilter;
+				checkBox.Unchecked += ApplyFilter;
+			}
+		}
+
+		private void ApplyFilter(object sender, RoutedEventArgs e)
+		{
+			Handler.ApplyFilter(GetFilterOperation(), Handler.assetRowControls.Select(a => new KeyValuePair<AudioAssetRowControl, AudioAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+			SetAssetEditorBackgroundColors();
+		}
+
+		private FilterOperation GetFilterOperation()
+		{
+			if (FilterOperationAnd.IsChecked.Value)
+				return FilterOperation.And;
+			if (FilterOperationOr.IsChecked.Value)
+				return FilterOperation.Or;
+			return FilterOperation.None;
+		}
+
+		private void SetAssetEditorBackgroundColors()
+		{
+			List<AudioAssetRowControl> rows = Handler.assetRowControls.Where(c => c.Visibility == Visibility.Visible).ToList();
+			foreach (AudioAssetRowControl row in rows)
+				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)

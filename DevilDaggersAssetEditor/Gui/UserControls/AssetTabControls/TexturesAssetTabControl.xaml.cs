@@ -25,8 +25,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		private readonly List<CheckBox> checkBoxes = new List<CheckBox>();
-
 		public TexturesAssetTabControlHandler Handler { get; private set; }
 
 		public TexturesAssetTabControl()
@@ -48,60 +46,27 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void CreateFiltersGui()
 		{
-			FilterOperationAnd.Checked += (sender, e) => ApplyFilter();
-			FilterOperationOr.Checked += (sender, e) => ApplyFilter();
+			FilterOperationAnd.Checked += ApplyFilter;
+			FilterOperationOr.Checked += ApplyFilter;
 
-			IEnumerable<string> tags = Handler.Assets.SelectMany(a => a.Tags).Distinct().OrderBy(s => s);
-			int filterColumnCount = 5;
-			int i = 0;
-			List<StackPanel> stackPanels = new List<StackPanel>();
-			for (; i < filterColumnCount; i++)
+			Handler.CreateFiltersGui();
+
+			foreach (StackPanel stackPanel in Handler.filterStackPanels)
 			{
 				Filters.ColumnDefinitions.Add(new ColumnDefinition());
-				StackPanel stackPanel = new StackPanel { Tag = i };
-				Grid.SetColumn(stackPanel, i);
 				Filters.Children.Add(stackPanel);
-				stackPanels.Add(stackPanel);
 			}
 
-			i = 0;
-			foreach (string tag in tags)
+			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
 			{
-				int pos = (int)(i++ / (float)tags.Count() * filterColumnCount);
-				CheckBox checkBox = new CheckBox { Content = tag };
-				checkBox.Checked += (sender, e) => ApplyFilter();
-				checkBox.Unchecked += (sender, e) => ApplyFilter();
-				checkBoxes.Add(checkBox);
-				stackPanels.FirstOrDefault(s => (int)s.Tag == pos).Children.Add(checkBox);
+				checkBox.Checked += ApplyFilter;
+				checkBox.Unchecked += ApplyFilter;
 			}
 		}
 
-		private void ApplyFilter()
+		private void ApplyFilter(object sender, RoutedEventArgs e)
 		{
-			FilterOperation filterOperation = GetFilterOperation();
-			IEnumerable<string> checkedFiters = checkBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
-			if (checkedFiters.Count() == 0)
-			{
-				foreach (TextureAssetRowControl arc in Handler.assetRowControls)
-					arc.Visibility = Visibility.Visible;
-			}
-			else
-			{
-				foreach (TextureAssetRowControl arc in Handler.assetRowControls)
-				{
-					TextureAsset asset = Handler.Assets.FirstOrDefault(a => a == arc.Handler.Asset);
-					if (asset != null)
-					{
-						arc.Visibility = filterOperation switch
-						{
-							FilterOperation.And => checkedFiters.All(t => asset.Tags.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
-							FilterOperation.Or => asset.Tags.Any(t => checkedFiters.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
-							_ => arc.Visibility,
-						};
-					}
-				}
-			}
-
+			Handler.ApplyFilter(GetFilterOperation(), Handler.assetRowControls.Select(a => new KeyValuePair<TextureAssetRowControl, TextureAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -114,19 +79,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			return FilterOperation.None;
 		}
 
+		private void SetAssetEditorBackgroundColors()
+		{
+			List<TextureAssetRowControl> rows = Handler.assetRowControls.Where(c => c.Visibility == Visibility.Visible).ToList();
+			foreach (TextureAssetRowControl row in rows)
+				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
+		}
+
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			TextureAssetRowControl arc = e.AddedItems[0] as TextureAssetRowControl;
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
-		}
-
-		private void SetAssetEditorBackgroundColors()
-		{
-			List<TextureAssetRowControl> rows = AssetEditor.Items.OfType<TextureAssetRowControl>().Where(c => c.Visibility == Visibility.Visible).ToList();
-			foreach (TextureAssetRowControl row in rows)
-				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
 		}
 	}
 
