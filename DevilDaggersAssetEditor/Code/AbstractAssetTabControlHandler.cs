@@ -92,7 +92,7 @@ namespace DevilDaggersAssetEditor.Code
 		public void CreateFiltersGui()
 		{
 			IEnumerable<string> tags = Assets.SelectMany(a => a.Tags ?? (new string[] { })).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
-			int filterColumnCount = 8;
+			int filterColumnCount = 9;
 			int i = 0;
 			for (; i < filterColumnCount; i++)
 			{
