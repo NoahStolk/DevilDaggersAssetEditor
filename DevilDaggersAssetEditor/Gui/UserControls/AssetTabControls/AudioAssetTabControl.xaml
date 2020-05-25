@@ -35,9 +35,7 @@
 				<RadioButton Margin="4" Name="FilterOperationAnd">And</RadioButton>
 				<RadioButton Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
 			</StackPanel>
-			<ScrollViewer Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="#ccc">
-				<Grid Name="Filters" />
-			</ScrollViewer>
+			<Grid Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="#ccc" Name="Filters" />
 
 			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="#bbb" />
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="0" FontWeight="Bold">Audio name</TextBlock>
