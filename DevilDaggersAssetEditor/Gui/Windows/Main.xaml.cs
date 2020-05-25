@@ -25,6 +25,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			InitializeComponent();
 
 			UserHandler.Instance.LoadSettings();
+			UserHandler.Instance.LoadCache();
 
 			App.Instance.MainWindow = this;
 			App.Instance.UpdateMainWindowTitle();
