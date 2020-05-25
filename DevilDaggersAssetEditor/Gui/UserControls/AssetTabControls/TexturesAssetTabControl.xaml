@@ -14,10 +14,11 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<previewerControls:TexturePreviewerControl Grid.Row="0" x:Name="Previewer" />
-		<Grid Grid.Row="1" Background="DarkGray">
+		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="5*" />
+				<RowDefinition Height="22" />
 				<RowDefinition />
+				<RowDefinition Height="20" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="3*" />
@@ -28,21 +29,20 @@
 				<ColumnDefinition Width="18" />
 			</Grid.ColumnDefinitions>
 
-			<ScrollViewer Grid.Row="0" Grid.ColumnSpan="6">
-				<StackPanel>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tag filters</TextBlock>
-						<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationAnd">And</RadioButton>
-						<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
-					</StackPanel>
-					<Grid Name="Filters" />
-				</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" Background="#ddd">
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tag filters</TextBlock>
+				<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationAnd">And</RadioButton>
+				<RadioButton GroupName="FilterOperations" Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
+			</StackPanel>
+			<ScrollViewer Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="#ccc">
+				<Grid Name="Filters" />
 			</ScrollViewer>
 
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="0" FontWeight="Bold">Texture name</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="1" FontWeight="Bold">Tags</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="1" Grid.Column="3" FontWeight="Bold">Path</TextBlock>
+			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="#bbb" />
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="0" FontWeight="Bold">Texture name</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="1" FontWeight="Bold">Tags</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
+			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="3" FontWeight="Bold">Path</TextBlock>
 		</Grid>
 		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" Template="{DynamicResource ListViewTemplate}" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
 	</Grid>
