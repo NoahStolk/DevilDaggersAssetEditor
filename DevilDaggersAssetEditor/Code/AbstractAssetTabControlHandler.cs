@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
@@ -9,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Code
 {
@@ -28,10 +31,15 @@ namespace DevilDaggersAssetEditor.Code
 		public readonly List<StackPanel> filterStackPanels = new List<StackPanel>();
 		public readonly List<CheckBox> filterCheckBoxes = new List<CheckBox>();
 
+		private readonly Color filterHighlightColor;
+
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
 			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json"));
 			Assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
+
+			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == typeof(TAsset));
+			filterHighlightColor = chunkInfo.GetColor() * 0.25f;
 		}
 
 		public abstract void UpdateGui(TAsset asset);
@@ -108,8 +116,13 @@ namespace DevilDaggersAssetEditor.Code
 			IEnumerable<string> checkedFiters = filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
 			if (checkedFiters.Count() == 0)
 			{
-				foreach (TAssetRowControl arc in assets.Keys)
-					arc.Visibility = Visibility.Visible;
+				foreach (KeyValuePair<TAssetRowControl, TAsset> kvp in assets)
+				{
+					kvp.Key.Visibility = Visibility.Visible;
+
+					TextBlock textBlockTags = (kvp.Key.Content as Grid).Children.OfType<TextBlock>().FirstOrDefault(c => c.Name == "TextBlockTags") as TextBlock;
+					textBlockTags.Text = string.Join(", ", kvp.Value.Tags);
+				}
 			}
 			else
 			{
@@ -121,6 +134,24 @@ namespace DevilDaggersAssetEditor.Code
 						FilterOperation.Or => kvp.Value.Tags.Any(t => checkedFiters.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
 						_ => kvp.Key.Visibility,
 					};
+					if (kvp.Key.Visibility == Visibility.Collapsed)
+						continue;
+
+					// If not collapsed, change TextBlock colors for found tags.
+					TextBlock textBlockTags = (kvp.Key.Content as Grid).Children.OfType<TextBlock>().FirstOrDefault(c => c.Name == "TextBlockTags") as TextBlock;
+					textBlockTags.Inlines.Clear();
+
+					string[] tags = Assets.FirstOrDefault(a => a == kvp.Value).Tags;
+					for (int i = 0; i < tags.Length; i++)
+					{
+						string tag = tags[i];
+						Run tagRun = new Run(tag);
+						if (checkedFiters.Contains(tag))
+							tagRun.Background = new SolidColorBrush(filterHighlightColor);
+						textBlockTags.Inlines.Add(tagRun);
+						if (i != tags.Length - 1)
+							textBlockTags.Inlines.Add(new Run(", "));
+					}
 				}
 			}
 		}
