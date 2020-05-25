@@ -18,9 +18,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		{
 			ParticleName.Text = asset.AssetName;
 
-			bool isPathValid = asset.EditorPath.GetPathValidity() == PathValidity.Valid;
+			bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.GetPathValidityMessage(asset.EditorPath);
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.FileNotFound;
 
 			if (isPathValid)
 			{

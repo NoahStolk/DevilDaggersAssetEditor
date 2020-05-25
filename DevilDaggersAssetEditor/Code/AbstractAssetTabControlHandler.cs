@@ -76,7 +76,7 @@ namespace DevilDaggersAssetEditor.Code
 		public bool IsComplete()
 		{
 			foreach (TAsset asset in Assets)
-				if (asset.EditorPath.Replace(".glsl", "_vertex.glsl").GetPathValidity() != PathValidity.Valid)
+				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl")))
 					return false;
 			return true;
 		}

@@ -19,9 +19,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			DefaultVertexCount.Text = asset.DefaultVertexCount.ToString();
 			DefaultIndexCount.Text = asset.DefaultIndexCount.ToString();
 
-			bool isPathValid = asset.EditorPath.GetPathValidity() == PathValidity.Valid;
+			bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.GetPathValidityMessage(asset.EditorPath);
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.FileNotFound;
 
 			if (isPathValid)
 			{

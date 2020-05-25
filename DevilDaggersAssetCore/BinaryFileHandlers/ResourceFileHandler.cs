@@ -46,7 +46,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			((IProgress<string>)progressDescription).Report($"Initializing '{BinaryFileType.ToString().ToLower()}' file creation.");
 
 			string binaryFileTypeName = BinaryFileType.ToString().ToLower();
-			allAssets = allAssets.Where(a => a.EditorPath.Replace(".glsl", "_vertex.glsl").GetPathValidity() == PathValidity.Valid).ToList();
+			allAssets = allAssets.Where(a => File.Exists(a.EditorPath.Replace(".glsl", "_vertex.glsl"))).ToList();
 
 			((IProgress<string>)progressDescription).Report("Generating chunks based on asset list.");
 			List<AbstractResourceChunk> chunks = CreateChunks(allAssets, progress, progressDescription);

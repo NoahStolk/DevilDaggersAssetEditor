@@ -31,9 +31,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			ShaderName.Text = asset.AssetName;
 
 			string vertexPath = asset.EditorPath.Replace(".glsl", "_vertex.glsl");
-			bool isPathValid = vertexPath.GetPathValidity() == PathValidity.Valid;
+			bool isPathValid = File.Exists(vertexPath);
 
-			string basePath = isPathValid ? Path.GetFileName(vertexPath).Replace("_vertex", "") : Utils.GetPathValidityMessage(asset.EditorPath); // TODO: Trim end "vertex" instead of Replace
+			string basePath = isPathValid ? Path.GetFileName(vertexPath).Replace("_vertex", "") : Utils.FileNotFound; // TODO: Trim end "vertex" instead of Replace
 
 			VertexFileName.Text = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl") : basePath;
 			FragmentFileName.Text = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl") : basePath;

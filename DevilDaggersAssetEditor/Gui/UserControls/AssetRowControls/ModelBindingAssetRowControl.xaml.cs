@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -39,8 +40,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		public override void UpdateGui()
 		{
-			bool isPathValid = Asset.EditorPath.GetPathValidity() == PathValidity.Valid;
-			parent.TextBlockEditorPath.Text = isPathValid ? Asset.EditorPath : Utils.GetPathValidityMessage(Asset.EditorPath);
+			bool isPathValid = File.Exists(Asset.EditorPath);
+			parent.TextBlockEditorPath.Text = isPathValid ? Asset.EditorPath : Utils.FileNotFound;
 		}
 	}
 }

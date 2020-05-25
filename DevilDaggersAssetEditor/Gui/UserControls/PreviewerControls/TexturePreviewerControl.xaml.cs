@@ -20,9 +20,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			DefaultDimensions.Text = $"{asset.DefaultDimensions.X}x{asset.DefaultDimensions.Y}";
 			DefaultMipmaps.Text = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString();
 
-			bool isPathValid = asset.EditorPath.GetPathValidity() == PathValidity.Valid;
+			bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.GetPathValidityMessage(asset.EditorPath);
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.FileNotFound;
 
 			if (isPathValid)
 			{

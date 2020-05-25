@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -41,9 +42,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		public override void UpdateGui()
 		{
-			bool isPathValid = Asset.EditorPath.Replace(".glsl", "_vertex.glsl").GetPathValidity() == PathValidity.Valid;
-			parent.TextBlockVertexEditorPath.Text = isPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex") : Utils.GetPathValidityMessage(Asset.EditorPath);
-			parent.TextBlockFragmentEditorPath.Text = isPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment") : Utils.GetPathValidityMessage(Asset.EditorPath);
+			bool isVertexPathValid = File.Exists(Asset.EditorPath.Replace(".glsl", "_vertex.glsl"));
+			bool isFragmentPathValid = File.Exists(Asset.EditorPath.Replace(".glsl", "_fragment.glsl"));
+			parent.TextBlockVertexEditorPath.Text = isVertexPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex") : Utils.FileNotFound;
+			parent.TextBlockFragmentEditorPath.Text = isFragmentPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment") : Utils.FileNotFound;
 		}
 
 		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
