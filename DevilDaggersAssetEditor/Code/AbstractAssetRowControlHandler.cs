@@ -18,12 +18,13 @@ namespace DevilDaggersAssetEditor.Code
 
 		protected readonly TAssetRowControl parent;
 		protected readonly string openDialogFilter;
-		private readonly Color colorInfoEven;
-		private readonly Color colorInfoOdd;
-		private readonly Color colorEven;
-		private readonly Color colorOdd;
-		public readonly Rectangle rectangleInfo;
-		public readonly Rectangle rectangle;
+
+		private Color colorInfoEven;
+		private Color colorInfoOdd;
+		private Color colorEven;
+		private Color colorOdd;
+		public Rectangle rectangleInfo = new Rectangle();
+		public Rectangle rectangleEdit = new Rectangle();
 
 		private UserSettings settings => UserHandler.Instance.settings;
 
@@ -33,21 +34,28 @@ namespace DevilDaggersAssetEditor.Code
 			this.parent = parent;
 			this.openDialogFilter = openDialogFilter;
 
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == asset.GetType());
-			colorInfoEven = chunkInfo.GetColor() * 0.25f;
-			colorInfoOdd = chunkInfo.GetColor() * 0.125f;
-			colorEven = colorInfoEven * 0.5f;
-			colorOdd = colorInfoOdd * 0.5f;
-
-			rectangleInfo = new Rectangle { Fill = new SolidColorBrush(isEven ? colorInfoEven : colorInfoOdd) };
-			Panel.SetZIndex(rectangleInfo, -1);
-			Grid.SetColumnSpan(rectangleInfo, 3);
-			rectangle = new Rectangle { Fill = new SolidColorBrush(isEven ? colorEven : colorOdd) };
-			Panel.SetZIndex(rectangle, -1);
-			Grid.SetColumn(rectangle, 3);
-			Grid.SetColumnSpan(rectangle, 4);
+			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
+			colorEven = chunkInfo.GetColor() * 0.25f;
+			colorOdd = colorEven * 0.5f;
+			colorInfoEven = colorOdd;
+			colorInfoOdd = colorOdd * 0.5f;
 
 			UpdateGui();
+
+			Panel.SetZIndex(rectangleInfo, -1);
+			Grid.SetColumnSpan(rectangleInfo, 3);
+
+			Panel.SetZIndex(rectangleEdit, -1);
+			Grid.SetColumn(rectangleEdit, 3);
+			Grid.SetColumnSpan(rectangleEdit, 4);
+
+			UpdateBackgroundRectangleColors(isEven);
+		}
+
+		public void UpdateBackgroundRectangleColors(bool isEven)
+		{
+			rectangleInfo.Fill = new SolidColorBrush(isEven ? colorInfoEven : colorInfoOdd);
+			rectangleEdit.Fill = new SolidColorBrush(isEven ? colorEven : colorOdd);
 		}
 
 		public abstract void UpdateGui();

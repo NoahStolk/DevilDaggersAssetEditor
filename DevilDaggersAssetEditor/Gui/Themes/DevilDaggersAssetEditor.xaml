@@ -16,7 +16,7 @@
 	<Style TargetType="{x:Type windows:SettingsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:UpdateRecommendedWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 
-	<ControlTemplate x:Key="ListViewTemplate" TargetType="{x:Type ListBox}">
+	<ControlTemplate x:Key="ListViewTemplate" TargetType="{x:Type ListView}">
 		<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="0" SnapsToDevicePixels="True">
 			<ScrollViewer Focusable="False" Padding="{TemplateBinding Padding}" VerticalScrollBarVisibility="Visible">
 				<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />

@@ -18,7 +18,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			Handler = new ModelBindingAssetRowControlHandler(asset, this, isEven);
 
 			Data.Children.Add(Handler.rectangleInfo);
-			Data.Children.Add(Handler.rectangle);
+			Data.Children.Add(Handler.rectangleEdit);
 
 			Data.DataContext = asset;
 		}

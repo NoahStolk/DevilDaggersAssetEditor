@@ -18,7 +18,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			Handler = new TextureAssetRowControlHandler(asset, this, isEven);
 
 			Data.Children.Add(Handler.rectangleInfo);
-			Data.Children.Add(Handler.rectangle);
+			Data.Children.Add(Handler.rectangleEdit);
+
+			Handler.UpdateBackgroundRectangleColors(isEven);
 
 			Data.DataContext = asset;
 		}

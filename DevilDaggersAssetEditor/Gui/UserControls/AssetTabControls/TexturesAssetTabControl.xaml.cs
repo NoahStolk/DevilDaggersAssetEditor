@@ -52,10 +52,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			FilterOperationOr.Checked += (sender, e) => ApplyFilter();
 
 			IEnumerable<string> tags = Handler.Assets.SelectMany(a => a.Tags).Distinct().OrderBy(s => s);
-			int cols = 5;
+			int filterColumnCount = 5;
 			int i = 0;
 			List<StackPanel> stackPanels = new List<StackPanel>();
-			for (; i < cols; i++)
+			for (; i < filterColumnCount; i++)
 			{
 				Filters.ColumnDefinitions.Add(new ColumnDefinition());
 				StackPanel stackPanel = new StackPanel { Tag = i };
@@ -67,7 +67,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			i = 0;
 			foreach (string tag in tags)
 			{
-				int pos = (int)(i++ / (float)tags.Count() * cols);
+				int pos = (int)(i++ / (float)tags.Count() * filterColumnCount);
 				CheckBox checkBox = new CheckBox { Content = tag };
 				checkBox.Checked += (sender, e) => ApplyFilter();
 				checkBox.Unchecked += (sender, e) => ApplyFilter();
@@ -92,18 +92,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 					TextureAsset asset = Handler.Assets.FirstOrDefault(a => a == arc.Handler.Asset);
 					if (asset != null)
 					{
-						switch (filterOperation)
+						arc.Visibility = filterOperation switch
 						{
-							case FilterOperation.And:
-								arc.Visibility = checkedFiters.All(t => asset.Tags.Contains(t)) ? Visibility.Visible : Visibility.Collapsed;
-								break;
-							case FilterOperation.Or:
-								arc.Visibility = asset.Tags.Any(t => checkedFiters.Contains(t)) ? Visibility.Visible : Visibility.Collapsed;
-								break;
-						}
+							FilterOperation.And => checkedFiters.All(t => asset.Tags.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
+							FilterOperation.Or => asset.Tags.Any(t => checkedFiters.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
+							_ => arc.Visibility,
+						};
 					}
 				}
 			}
+
+			SetAssetEditorBackgroundColors();
 		}
 
 		private FilterOperation GetFilterOperation()
@@ -121,6 +120,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
+		}
+
+		private void SetAssetEditorBackgroundColors()
+		{
+			List<TextureAssetRowControl> rows = AssetEditor.Items.OfType<TextureAssetRowControl>().Where(c => c.Visibility == Visibility.Visible).ToList();
+			foreach (TextureAssetRowControl row in rows)
+				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
 		}
 	}
 
