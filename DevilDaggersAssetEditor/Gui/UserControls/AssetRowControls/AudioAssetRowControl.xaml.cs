@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			InitializeComponent();
 			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new AudioAssetRowControlHandler(asset, this, isEven);
+			Handler = new AudioAssetRowControlHandler(asset, this, TextBlockTags, isEven);
 
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
@@ -51,8 +51,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
 	{
-		public AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent, bool isEven)
-			: base(asset, parent, "Audio files (*.wav)|*.wav", isEven)
+		public AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent, TextBlock textBlockTags, bool isEven)
+			: base(asset, parent, "Audio files (*.wav)|*.wav", textBlockTags, isEven)
 		{
 		}
 

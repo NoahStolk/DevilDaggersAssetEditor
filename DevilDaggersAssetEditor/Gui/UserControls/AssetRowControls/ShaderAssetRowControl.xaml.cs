@@ -16,7 +16,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			InitializeComponent();
 			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new ShaderAssetRowControlHandler(asset, this, isEven);
+			Handler = new ShaderAssetRowControlHandler(asset, this, TextBlockTags, isEven);
 
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
@@ -35,8 +35,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>
 	{
-		public ShaderAssetRowControlHandler(ShaderAsset asset, ShaderAssetRowControl parent, bool isEven)
-			: base(asset, parent, "Shader files (*.glsl)|*.glsl", isEven)
+		public ShaderAssetRowControlHandler(ShaderAsset asset, ShaderAssetRowControl parent, TextBlock textBlockTags, bool isEven)
+			: base(asset, parent, "Shader files (*.glsl)|*.glsl", textBlockTags, isEven)
 		{
 		}
 

@@ -84,7 +84,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void ApplyFilter(object sender, RoutedEventArgs e)
 		{
-			Handler.ApplyFilter(GetFilterOperation(), Handler.assetRowControls.Select(a => new KeyValuePair<AudioAssetRowControl, AudioAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+			Handler.ApplyFilter(
+				GetFilterOperation(),
+				Handler.assetRowControls.Select(a => new KeyValuePair<AudioAssetRowControl, AudioAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+				Handler.assetRowControls.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a, a.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
 			foreach (KeyValuePair<AudioAssetRowControl, bool> kvp in Handler.assetRowControlActiveDict)
 			{

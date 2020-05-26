@@ -16,7 +16,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			InitializeComponent();
 			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
 
-			Handler = new ModelAssetRowControlHandler(asset, this, isEven);
+			Handler = new ModelAssetRowControlHandler(asset, this, TextBlockTags, isEven);
 
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
@@ -33,8 +33,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class ModelAssetRowControlHandler : AbstractAssetRowControlHandler<ModelAsset, ModelAssetRowControl>
 	{
-		public ModelAssetRowControlHandler(ModelAsset asset, ModelAssetRowControl parent, bool isEven)
-			: base(asset, parent, "Model files (*.obj)|*.obj", isEven)
+		public ModelAssetRowControlHandler(ModelAsset asset, ModelAssetRowControl parent, TextBlock textBlockTags, bool isEven)
+			: base(asset, parent, "Model files (*.obj)|*.obj", textBlockTags, isEven)
 		{
 		}
 

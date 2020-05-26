@@ -112,22 +112,21 @@ namespace DevilDaggersAssetEditor.Code
 			}
 		}
 
-		public void ApplyFilter(FilterOperation filterOperation, Dictionary<TAssetRowControl, TAsset> assets)
+		public void ApplyFilter(FilterOperation filterOperation, Dictionary<TAssetRowControl, TAsset> assets, Dictionary<TAssetRowControl, TextBlock> textBlocks)
 		{
 			IEnumerable<string> checkedFiters = filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
-			if (checkedFiters.Count() == 0)
+
+			foreach (KeyValuePair<TAssetRowControl, TAsset> kvp in assets)
 			{
-				foreach (KeyValuePair<TAssetRowControl, TAsset> kvp in assets)
+				TextBlock textBlockTags = textBlocks.FirstOrDefault(t => t.Key == kvp.Key).Value;
+
+				if (checkedFiters.Count() == 0)
 				{
 					assetRowControlActiveDict[kvp.Key] = true;
 
-					TextBlock textBlockTags = (kvp.Key.Content as Grid).Children.OfType<TextBlock>().FirstOrDefault(c => c.Name == "TextBlockTags") as TextBlock;
 					textBlockTags.Text = string.Join(", ", kvp.Value.Tags);
 				}
-			}
-			else
-			{
-				foreach (KeyValuePair<TAssetRowControl, TAsset> kvp in assets)
+				else
 				{
 					assetRowControlActiveDict[kvp.Key] = filterOperation switch
 					{
@@ -139,7 +138,6 @@ namespace DevilDaggersAssetEditor.Code
 						continue;
 
 					// If not collapsed, change TextBlock colors for found tags.
-					TextBlock textBlockTags = (kvp.Key.Content as Grid).Children.OfType<TextBlock>().FirstOrDefault(c => c.Name == "TextBlockTags") as TextBlock;
 					textBlockTags.Inlines.Clear();
 
 					string[] tags = Assets.FirstOrDefault(a => a == kvp.Value).Tags;

@@ -19,6 +19,8 @@ namespace DevilDaggersAssetEditor.Code
 		protected readonly TAssetRowControl parent;
 		protected readonly string openDialogFilter;
 
+		public TextBlock TextBlockTags { get; }
+
 		private Color colorInfoEven;
 		private Color colorInfoOdd;
 		private Color colorEven;
@@ -28,11 +30,12 @@ namespace DevilDaggersAssetEditor.Code
 
 		private UserSettings settings => UserHandler.Instance.settings;
 
-		public AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter, bool isEven)
+		public AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter, TextBlock textBlockTags, bool isEven)
 		{
 			Asset = asset;
 			this.parent = parent;
 			this.openDialogFilter = openDialogFilter;
+			TextBlockTags = textBlockTags;
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
 			colorEven = chunkInfo.GetColor() * 0.25f;
