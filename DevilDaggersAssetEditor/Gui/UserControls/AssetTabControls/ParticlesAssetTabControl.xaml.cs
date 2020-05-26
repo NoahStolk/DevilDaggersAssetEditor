@@ -67,6 +67,21 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		private void ApplyFilter(object sender, RoutedEventArgs e)
 		{
 			Handler.ApplyFilter(GetFilterOperation(), Handler.assetRowControls.Select(a => new KeyValuePair<ParticleAssetRowControl, ParticleAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+
+			foreach (KeyValuePair<ParticleAssetRowControl, bool> kvp in Handler.assetRowControlActiveDict)
+			{
+				if (!kvp.Value)
+				{
+					if (AssetEditor.Items.Contains(kvp.Key))
+						AssetEditor.Items.Remove(kvp.Key);
+				}
+				else
+				{
+					if (!AssetEditor.Items.Contains(kvp.Key))
+						AssetEditor.Items.Add(kvp.Key);
+				}
+			}
+
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -81,13 +96,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void SetAssetEditorBackgroundColors()
 		{
-			List<ParticleAssetRowControl> rows = Handler.assetRowControls.Where(c => c.Visibility == Visibility.Visible).ToList();
+			List<ParticleAssetRowControl> rows = AssetEditor.Items.OfType<ParticleAssetRowControl>().ToList();
 			foreach (ParticleAssetRowControl row in rows)
 				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			if (e.AddedItems.Count == 0)
+				return;
+
 			ParticleAssetRowControl arc = e.AddedItems[0] as ParticleAssetRowControl;
 
 			Handler.SelectAsset(arc.Handler.Asset);

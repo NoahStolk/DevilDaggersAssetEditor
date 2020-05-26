@@ -67,6 +67,21 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		private void ApplyFilter(object sender, RoutedEventArgs e)
 		{
 			Handler.ApplyFilter(GetFilterOperation(), Handler.assetRowControls.Select(a => new KeyValuePair<ModelAssetRowControl, ModelAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+
+			foreach (KeyValuePair<ModelAssetRowControl, bool> kvp in Handler.assetRowControlActiveDict)
+			{
+				if (!kvp.Value)
+				{
+					if (AssetEditor.Items.Contains(kvp.Key))
+						AssetEditor.Items.Remove(kvp.Key);
+				}
+				else
+				{
+					if (!AssetEditor.Items.Contains(kvp.Key))
+						AssetEditor.Items.Add(kvp.Key);
+				}
+			}
+
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -81,13 +96,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void SetAssetEditorBackgroundColors()
 		{
-			List<ModelAssetRowControl> rows = Handler.assetRowControls.Where(c => c.Visibility == Visibility.Visible).ToList();
+			List<ModelAssetRowControl> rows = AssetEditor.Items.OfType<ModelAssetRowControl>().ToList();
 			foreach (ModelAssetRowControl row in rows)
 				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			if (e.AddedItems.Count == 0)
+				return;
+
 			ModelAssetRowControl arc = e.AddedItems[0] as ModelAssetRowControl;
 
 			Handler.SelectAsset(arc.Handler.Asset);

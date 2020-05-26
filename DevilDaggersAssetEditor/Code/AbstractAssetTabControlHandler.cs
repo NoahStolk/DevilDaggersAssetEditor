@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -25,6 +24,7 @@ namespace DevilDaggersAssetEditor.Code
 		public List<TAsset> Assets { get; private set; } = new List<TAsset>();
 
 		public readonly List<TAssetRowControl> assetRowControls = new List<TAssetRowControl>();
+		public readonly Dictionary<TAssetRowControl, bool> assetRowControlActiveDict = new Dictionary<TAssetRowControl, bool>();
 
 		private UserSettings settings => UserHandler.Instance.settings;
 
@@ -56,6 +56,7 @@ namespace DevilDaggersAssetEditor.Code
 			{
 				TAssetRowControl assetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), asset, i++ % 2 == 0);
 				assetRowControls.Add(assetRowControl);
+				assetRowControlActiveDict.Add(assetRowControl, true);
 				yield return assetRowControl;
 			}
 		}
@@ -118,7 +119,7 @@ namespace DevilDaggersAssetEditor.Code
 			{
 				foreach (KeyValuePair<TAssetRowControl, TAsset> kvp in assets)
 				{
-					kvp.Key.Visibility = Visibility.Visible;
+					assetRowControlActiveDict[kvp.Key] = true;
 
 					TextBlock textBlockTags = (kvp.Key.Content as Grid).Children.OfType<TextBlock>().FirstOrDefault(c => c.Name == "TextBlockTags") as TextBlock;
 					textBlockTags.Text = string.Join(", ", kvp.Value.Tags);
@@ -128,13 +129,13 @@ namespace DevilDaggersAssetEditor.Code
 			{
 				foreach (KeyValuePair<TAssetRowControl, TAsset> kvp in assets)
 				{
-					kvp.Key.Visibility = filterOperation switch
+					assetRowControlActiveDict[kvp.Key] = filterOperation switch
 					{
-						FilterOperation.And => checkedFiters.All(t => kvp.Value.Tags.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
-						FilterOperation.Or => kvp.Value.Tags.Any(t => checkedFiters.Contains(t)) ? Visibility.Visible : Visibility.Collapsed,
-						_ => kvp.Key.Visibility,
+						FilterOperation.And => checkedFiters.All(t => kvp.Value.Tags.Contains(t)),
+						FilterOperation.Or => kvp.Value.Tags.Any(t => checkedFiters.Contains(t)),
+						_ => throw new NotImplementedException($"{nameof(FilterOperation)} {filterOperation} not implemented in {nameof(ApplyFilter)} method.")
 					};
-					if (kvp.Key.Visibility == Visibility.Collapsed)
+					if (!assetRowControlActiveDict[kvp.Key])
 						continue;
 
 					// If not collapsed, change TextBlock colors for found tags.

@@ -85,6 +85,21 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		private void ApplyFilter(object sender, RoutedEventArgs e)
 		{
 			Handler.ApplyFilter(GetFilterOperation(), Handler.assetRowControls.Select(a => new KeyValuePair<AudioAssetRowControl, AudioAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+
+			foreach (KeyValuePair<AudioAssetRowControl, bool> kvp in Handler.assetRowControlActiveDict)
+			{
+				if (!kvp.Value)
+				{
+					if (AssetEditor.Items.Contains(kvp.Key))
+						AssetEditor.Items.Remove(kvp.Key);
+				}
+				else
+				{
+					if (!AssetEditor.Items.Contains(kvp.Key))
+						AssetEditor.Items.Add(kvp.Key);
+				}
+			}
+
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -99,13 +114,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void SetAssetEditorBackgroundColors()
 		{
-			List<AudioAssetRowControl> rows = Handler.assetRowControls.Where(c => c.Visibility == Visibility.Visible).ToList();
+			List<AudioAssetRowControl> rows = AssetEditor.Items.OfType<AudioAssetRowControl>().ToList();
 			foreach (AudioAssetRowControl row in rows)
 				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			if (e.AddedItems.Count == 0)
+				return;
+
 			AudioAssetRowControl arc = e.AddedItems[0] as AudioAssetRowControl;
 
 			Handler.SelectAsset(arc.Handler.Asset);
