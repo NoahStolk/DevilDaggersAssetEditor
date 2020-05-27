@@ -56,7 +56,7 @@ namespace DevilDaggersAssetEditor
 		}
 
 		/// <summary>
-		/// Shows the error using the <see cref="ErrorWindow">ErrorWindow</see> and logs the error message (and <see cref="Exception">Exception</see> if there is one).
+		/// Shows the error using the <see cref="ErrorWindow" /> and logs the error message (and <see cref="Exception" /> if there is one).
 		/// </summary>
 		public void ShowError(string title, string message, Exception ex = null)
 		{
