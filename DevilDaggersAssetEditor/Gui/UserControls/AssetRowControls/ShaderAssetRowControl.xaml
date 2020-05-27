@@ -22,7 +22,7 @@
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockTags" />
 		</StackPanel>
 		<StackPanel Grid.Column="2">
-			<TextBlock Style="{StaticResource AssetTextBlock}" Text="{Binding Description}" Height="40" />
+			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockDescription" Height="40" />
 		</StackPanel>
 		<StackPanel Grid.Column="3">
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockVertexEditorPath" Height="20" />

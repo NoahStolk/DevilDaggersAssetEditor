@@ -14,7 +14,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		public ShaderAssetRowControl(ShaderAsset asset, bool isEven)
 		{
 			InitializeComponent();
-			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
+			TextBlockTags.Text = string.Join(", ", asset.Tags);
 
 			Handler = new ShaderAssetRowControlHandler(asset, this, TextBlockTags, isEven);
 
@@ -42,10 +42,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		public override void UpdateGui()
 		{
-			bool isVertexPathValid = File.Exists(Asset.EditorPath.Replace(".glsl", "_vertex.glsl"));
-			bool isFragmentPathValid = File.Exists(Asset.EditorPath.Replace(".glsl", "_fragment.glsl"));
-			parent.TextBlockVertexEditorPath.Text = isVertexPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex") : Utils.FileNotFound;
-			parent.TextBlockFragmentEditorPath.Text = isFragmentPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment") : Utils.FileNotFound;
+			parent.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
+			parent.TextBlockVertexEditorPath.Text = File.Exists(Asset.EditorPath.Replace(".glsl", "_vertex.glsl")) ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex").TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
+			parent.TextBlockFragmentEditorPath.Text = File.Exists(Asset.EditorPath.Replace(".glsl", "_fragment.glsl")) ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment").TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
 		}
 	}
 }

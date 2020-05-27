@@ -14,7 +14,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		public TextureAssetRowControl(TextureAsset asset, bool isEven)
 		{
 			InitializeComponent();
-			TextBlockTags.Text = asset.Tags != null ? string.Join(", ", asset.Tags) : string.Empty;
+			TextBlockTags.Text = string.Join(", ", asset.Tags);
 
 			Handler = new TextureAssetRowControlHandler(asset, this, TextBlockTags, isEven);
 
@@ -40,8 +40,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		public override void UpdateGui()
 		{
-			bool isPathValid = File.Exists(Asset.EditorPath);
-			parent.TextBlockEditorPath.Text = isPathValid ? Asset.EditorPath : Utils.FileNotFound;
+			parent.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
+			parent.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
 		}
 	}
 }

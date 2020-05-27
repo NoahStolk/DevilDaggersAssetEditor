@@ -134,15 +134,21 @@ namespace DevilDaggersAssetEditor.Code
 					textBlockTags.Inlines.Clear();
 
 					string[] assetTags = assetRowEntry.Asset.Tags;
+					int maxLength = EditorUtils.TagsMaxLength;
+					int chars = 0;
 					for (int i = 0; i < assetTags.Length; i++)
 					{
 						string tag = assetTags[i];
-						Run tagRun = new Run(tag);
+						chars += tag.Length;
+						Run tagRun = new Run(chars > maxLength ? tag.TrimRight(chars - maxLength) : tag);
 						if (checkedFiters.Contains(tag))
 							tagRun.Background = new SolidColorBrush(filterHighlightColor);
 						textBlockTags.Inlines.Add(tagRun);
 						if (i != assetTags.Length - 1)
 							textBlockTags.Inlines.Add(new Run(", "));
+
+						if (chars > maxLength)
+							break;
 					}
 				}
 			}
