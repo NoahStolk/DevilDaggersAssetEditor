@@ -198,25 +198,10 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!openResult.HasValue || !openResult.Value)
 				return null;
 
-			if (!JsonFileUtils.TryDeserializeFromFile(dialog.FileName, true, out ModFile modFile))
-				App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
-
-			if (modFile.HasRelativePaths)
-			{
-				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
-				using CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true };
-				if (settings.EnableAssetsRootFolder)
-					basePathDialog.InitialDirectory = settings.AssetsRootFolder;
-
-				CommonFileDialogResult result = basePathDialog.ShowDialog();
-				if (result == CommonFileDialogResult.Ok)
-					foreach (AbstractUserAsset asset in modFile.Assets)
-						asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
-			}
-			return modFile;
+			return ModHandler.Instance.GetModFileFromPath(dialog.FileName);
 		}
 
-		protected abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
+		public abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
 		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl> assetTabControlHandler)
 			where TUserAsset : AbstractUserAsset

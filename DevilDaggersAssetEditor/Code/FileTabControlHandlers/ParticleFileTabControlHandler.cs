@@ -26,7 +26,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.AssetRowEntries.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
 
-		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets, App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler);
+		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.OfType<ParticleUserAsset>().ToList(), App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler);
 
 		protected override bool IsComplete() => App.Instance.MainWindow.ParticleParticlesAssetTabControl.Handler.IsComplete();
 	}

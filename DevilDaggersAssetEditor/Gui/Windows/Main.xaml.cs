@@ -1,8 +1,15 @@
-﻿using DevilDaggersAssetCore.User;
+﻿using DevilDaggersAssetCore.ModFiles;
+using DevilDaggersAssetCore.User;
+using DevilDaggersAssetEditor.Code;
+using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersCore.Tools;
+using NetBase.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.Gui.Windows
 {
@@ -26,6 +33,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			UserHandler.Instance.LoadSettings();
 			UserHandler.Instance.LoadCache();
+
+			TabControl.SelectedIndex = MathUtils.Clamp(UserHandler.Instance.cache.LastActiveTabIndex, 0, 6);
 
 			App.Instance.MainWindow = this;
 			App.Instance.UpdateMainWindowTitle();
@@ -52,6 +61,21 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				}
 			};
 			worker.RunWorkerAsync();
+
+			// After the window has loaded, some user controls still need to finish loading, so set a timer to make sure everything has loaded.
+			// TODO: Find a better way to do this.
+			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
+			timer.Tick += (sender, e) =>
+			{
+				if (File.Exists(UserHandler.Instance.cache.LastOpenedModFile))
+				{
+					ModFile modFile = ModHandler.Instance.GetModFileFromPath(UserHandler.Instance.cache.LastOpenedModFile);
+					if (modFile != null)
+						foreach (AbstractFileTabControlHandler tabHandler in MenuBar.tabHandlers)
+							tabHandler.UpdateAssetTabControls(modFile.Assets);
+				}
+			};
+			timer.Start();
 		}
 
 		private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

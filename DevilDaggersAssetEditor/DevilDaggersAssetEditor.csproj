@@ -236,6 +236,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Resource Include="Content\Images\Icon\Icon32.png" />
+    <Compile Include="Code\ModHandler.cs" />
     <Compile Include="Code\WpfExtensions.cs" />
     <Compile Include="Gui\UserControls\AssetRowControls\AudioAssetRowControl.xaml.cs">
       <DependentUpon>AudioAssetRowControl.xaml</DependentUpon>
@@ -368,6 +369,10 @@
     <ProjectReference Include="..\..\JsonUtils\JsonUtils\JsonUtils.csproj">
       <Project>{5CED0E44-2B47-4107-8A84-92102F7CCE5D}</Project>
       <Name>JsonUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NetBase\NetBase\NetBase.csproj">
+      <Project>{3EE19F2E-BFE1-49C2-89AC-5258595723B0}</Project>
+      <Name>NetBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SyntaxHighlighter\SyntaxHighlighter\SyntaxHighlighter.csproj">
       <Project>{436c9bb2-d0e5-4801-8589-5f5acad919f4}</Project>

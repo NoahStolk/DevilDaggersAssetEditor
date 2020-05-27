@@ -27,7 +27,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.AssetRowEntries.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
 
-		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets, App.Instance.MainWindow.CoreShadersAssetTabControl.Handler);
+		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.OfType<ShaderUserAsset>().ToList(), App.Instance.MainWindow.CoreShadersAssetTabControl.Handler);
 
 		protected override bool IsComplete() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.IsComplete();
 	}

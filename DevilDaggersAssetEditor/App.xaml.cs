@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Gui.Windows;
 using DevilDaggersCore.Tools;
 using log4net;
@@ -79,6 +80,12 @@ namespace DevilDaggersAssetEditor
 				MessageWindow messageWindow = new MessageWindow(title, message);
 				messageWindow.ShowDialog();
 			});
+		}
+
+		private void Application_Exit(object sender, ExitEventArgs e)
+		{
+			UserHandler.Instance.cache.LastActiveTabIndex = MainWindow.TabControl.SelectedIndex;
+			UserHandler.Instance.SaveCache();
 		}
 	}
 }

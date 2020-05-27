@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
-		private readonly List<AbstractFileTabControlHandler> tabHandlers;
+		public readonly List<AbstractFileTabControlHandler> tabHandlers;
 
 		public MenuBarUserControl()
 		{

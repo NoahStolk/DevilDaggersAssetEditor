@@ -41,12 +41,12 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				.Concat(App.Instance.MainWindow.DdTexturesAssetTabControl.Handler.AssetRowEntries.Select(a => a.Asset).Cast<AbstractAsset>())
 				.ToList();
 
-		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
+		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
 		{
-			UpdateAssetTabControl(assets, App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler);
-			UpdateAssetTabControl(assets, App.Instance.MainWindow.DdModelsAssetTabControl.Handler);
-			UpdateAssetTabControl(assets, App.Instance.MainWindow.DdShadersAssetTabControl.Handler);
-			UpdateAssetTabControl(assets, App.Instance.MainWindow.DdTexturesAssetTabControl.Handler);
+			UpdateAssetTabControl(assets.OfType<ModelBindingUserAsset>().ToList(), App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler);
+			UpdateAssetTabControl(assets.OfType<ModelUserAsset>().ToList(), App.Instance.MainWindow.DdModelsAssetTabControl.Handler);
+			UpdateAssetTabControl(assets.OfType<ShaderUserAsset>().ToList(), App.Instance.MainWindow.DdShadersAssetTabControl.Handler);
+			UpdateAssetTabControl(assets.OfType<TextureUserAsset>().ToList(), App.Instance.MainWindow.DdTexturesAssetTabControl.Handler);
 		}
 
 		protected override bool IsComplete()
