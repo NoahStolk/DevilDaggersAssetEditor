@@ -390,5 +390,8 @@
   <ItemGroup>
     <Resource Include="Content\Images\AudioPlayer\ResetPitch.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Images\AssetEditor\Sort.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,6 +16,15 @@
 	<Style TargetType="{x:Type windows:SettingsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:UpdateRecommendedWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 
+	<Style TargetType="Image" x:Key="SortIcon">
+		<Setter Property="ToolTip" Value="Sort assets" />
+		<Setter Property="Width" Value="12" />
+		<Setter Property="Height" Value="12" />
+		<Setter Property="Source" Value="/Content/Images/AssetEditor/Sort.png" />
+		<Setter Property="Stretch" Value="None" />
+		<Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+	</Style>
+
 	<Style TargetType="ListBoxItem" x:Key="ListViewItemContainerStyle">
 		<Setter Property="Padding" Value="0" />
 		<Setter Property="BorderThickness" Value="0" />

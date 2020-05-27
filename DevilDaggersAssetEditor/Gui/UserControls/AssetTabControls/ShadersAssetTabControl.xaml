@@ -39,19 +39,27 @@
 			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="#bbb" />
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Shader name</TextBlock>
-				<Button Name="NameSortButton" Click="NameSortButton_Click">S</Button>
+				<Button Name="NameSortButton" Click="NameSortButton_Click">
+					<Image Style="{StaticResource SortIcon}" />
+				</Button>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tags</TextBlock>
-				<Button Name="TagsSortButton" Click="TagsSortButton_Click">S</Button>
+				<Button Name="TagsSortButton" Click="TagsSortButton_Click">
+					<Image Style="{StaticResource SortIcon}" />
+				</Button>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Description</TextBlock>
-				<Button Name="DescriptionSortButton" Click="DescriptionSortButton_Click">S</Button>
+				<Button Name="DescriptionSortButton" Click="DescriptionSortButton_Click">
+					<Image Style="{StaticResource SortIcon}" />
+				</Button>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Path</TextBlock>
-				<Button Name="PathSortButton" Click="PathSortButton_Click">S</Button>
+				<Button Name="PathSortButton" Click="PathSortButton_Click">
+					<Image Style="{StaticResource SortIcon}" />
+				</Button>
 			</StackPanel>
 		</Grid>
 		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
