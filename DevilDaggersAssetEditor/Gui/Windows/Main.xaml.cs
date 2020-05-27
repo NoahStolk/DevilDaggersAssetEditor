@@ -51,11 +51,11 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			BackgroundWorker worker = new BackgroundWorker();
-			worker.DoWork += (object checkVersionSender, DoWorkEventArgs eCheckVersion) =>
+			worker.DoWork += (object senderCheckVersion, DoWorkEventArgs eCheckVersion) =>
 			{
 				VersionHandler.Instance.GetOnlineVersion(App.ApplicationName, App.LocalVersion);
 			};
-			worker.RunWorkerCompleted += (object checkVersionSender, RunWorkerCompletedEventArgs eCheckVersion) =>
+			worker.RunWorkerCompleted += (object senderCheckVersion, RunWorkerCompletedEventArgs eCheckVersion) =>
 			{
 				VersionResult versionResult = VersionHandler.Instance.VersionResult;
 
