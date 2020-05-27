@@ -203,10 +203,11 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 		public abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl> assetTabControlHandler)
+		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl, TAssetRowControlHandler>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler> assetTabControlHandler)
 			where TUserAsset : AbstractUserAsset
 			where TAsset : AbstractAsset
 			where TAssetRowControl : UserControl
+			where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 		{
 			for (int i = 0; i < assetTabControlHandler.AssetRowEntries.Count; i++)
 			{

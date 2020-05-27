@@ -73,7 +73,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelAssetRowControl, ModelAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
 			foreach (AssetRowEntry<ModelAsset, ModelAssetRowControl> are in Handler.AssetRowEntries)
 			{
@@ -146,7 +147,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetRowControl>
+	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>
 	{
 		protected override string AssetTypeJsonFileName => "Models";
 

@@ -5,9 +5,9 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public static class EditorUtils
 	{
-		public static readonly int TagsMaxLength = 30;
-		public static readonly int DescriptionMaxLength = 50;
-		public static readonly int EditorPathMaxLength = 50;
+		public static int TagsMaxLength => 30/*(int)(App.Instance.MainWindow.CurrentTabControlSize.X / 45)*/;
+		public static int DescriptionMaxLength => (int)(App.Instance.MainWindow.CurrentTabControlSize.X / 27);
+		public static int EditorPathMaxLength => (int)(App.Instance.MainWindow.CurrentTabControlSize.X / 27); // TODO: Can be larger for assets other than audio (due to loudness TextBox taking space).
 
 		public static Uri MakeUri(string localPath) => new Uri($"pack://application:,,,/{Assembly.GetCallingAssembly().GetName().Name};component/{localPath}");
 

@@ -14,7 +14,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		public ShaderAssetRowControl(ShaderAsset asset, bool isEven)
 		{
 			InitializeComponent();
-			TextBlockTags.Text = string.Join(", ", asset.Tags);
+			TextBlockTags.Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
 
 			Handler = new ShaderAssetRowControlHandler(asset, this, TextBlockTags, isEven);
 
@@ -31,6 +31,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler.UpdateGui();
 	}
 
 	public class ShaderAssetRowControlHandler : AbstractAssetRowControlHandler<ShaderAsset, ShaderAssetRowControl>

@@ -9,14 +9,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Code
 {
-	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl>
+	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler>
 		where TAsset : AbstractAsset
 		where TAssetRowControl : UserControl
+		where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 	{
 		protected abstract string AssetTypeJsonFileName { get; }
 
@@ -25,7 +25,9 @@ namespace DevilDaggersAssetEditor.Code
 
 		public readonly List<StackPanel> filterStackPanels = new List<StackPanel>();
 		public readonly List<CheckBox> filterCheckBoxes = new List<CheckBox>();
-		private readonly Color filterHighlightColor;
+		public Color FilterHighlightColor { get; private set; }
+
+		public IEnumerable<string> CheckedFilters => filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
 
 		public AssetRowSorting<TAsset, TAssetRowControl> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl>((a) => a.Asset.AssetName);
 
@@ -44,7 +46,7 @@ namespace DevilDaggersAssetEditor.Code
 			}
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == typeof(TAsset));
-			filterHighlightColor = chunkInfo.GetColor() * 0.25f;
+			FilterHighlightColor = chunkInfo.GetColor() * 0.25f;
 		}
 
 		public abstract void UpdateGui(TAsset asset);
@@ -105,51 +107,31 @@ namespace DevilDaggersAssetEditor.Code
 			}
 		}
 
-		public void ApplyFilter(FilterOperation filterOperation, Dictionary<TAssetRowControl, TextBlock> textBlocks)
+		public void ApplyFilter(FilterOperation filterOperation, Dictionary<TAssetRowControl, TextBlock> textBlocks, Dictionary<TAssetRowControl, TAssetRowControlHandler> handlers)
 		{
-			IEnumerable<string> checkedFiters = filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
-
 			foreach (AssetRowEntry<TAsset, TAssetRowControl> assetRowEntry in AssetRowEntries)
 			{
-				TextBlock textBlockTags = textBlocks.FirstOrDefault(t => t.Key == assetRowEntry.AssetRowControl).Value;
+				TextBlock textBlockTags = textBlocks.FirstOrDefault(kvp => kvp.Key == assetRowEntry.AssetRowControl).Value;
+				AbstractAssetRowControlHandler<TAsset, TAssetRowControl> handler = handlers.FirstOrDefault(kvp => kvp.Key == assetRowEntry.AssetRowControl).Value;
 
-				if (checkedFiters.Count() == 0)
+				if (CheckedFilters.Count() == 0)
 				{
 					assetRowEntry.IsActive = true;
 
-					textBlockTags.Text = string.Join(", ", assetRowEntry.Asset.Tags);
+					textBlockTags.Text = string.Join(", ", assetRowEntry.Asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
 				}
 				else
 				{
 					assetRowEntry.IsActive = filterOperation switch
 					{
-						FilterOperation.And => checkedFiters.All(t => assetRowEntry.Asset.Tags.Contains(t)),
-						FilterOperation.Or => assetRowEntry.Asset.Tags.Any(t => checkedFiters.Contains(t)),
+						FilterOperation.And => CheckedFilters.All(t => assetRowEntry.Asset.Tags.Contains(t)),
+						FilterOperation.Or => assetRowEntry.Asset.Tags.Any(t => CheckedFilters.Contains(t)),
 						_ => throw new NotImplementedException($"{nameof(FilterOperation)} {filterOperation} not implemented in {nameof(ApplyFilter)} method.")
 					};
 					if (!assetRowEntry.IsActive)
 						continue;
 
-					// If not collapsed, change TextBlock colors for found tags.
-					textBlockTags.Inlines.Clear();
-
-					string[] assetTags = assetRowEntry.Asset.Tags;
-					int maxLength = EditorUtils.TagsMaxLength;
-					int chars = 0;
-					for (int i = 0; i < assetTags.Length; i++)
-					{
-						string tag = assetTags[i];
-						chars += tag.Length;
-						Run tagRun = new Run(chars > maxLength ? tag.TrimRight(chars - maxLength) : tag);
-						if (checkedFiters.Contains(tag))
-							tagRun.Background = new SolidColorBrush(filterHighlightColor);
-						textBlockTags.Inlines.Add(tagRun);
-						if (i != assetTags.Length - 1)
-							textBlockTags.Inlines.Add(new Run(", "));
-
-						if (chars > maxLength)
-							break;
-					}
+					handler.UpdateTagHighlighting(textBlockTags, CheckedFilters, FilterHighlightColor);
 				}
 			}
 		}

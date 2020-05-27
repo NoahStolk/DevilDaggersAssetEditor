@@ -92,7 +92,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<AudioAssetRowControl, AudioAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
 			foreach (AssetRowEntry<AudioAsset, AudioAssetRowControl> are in Handler.AssetRowEntries)
 			{
@@ -166,7 +167,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl>
+	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>
 	{
 		protected override string AssetTypeJsonFileName => "Audio";
 

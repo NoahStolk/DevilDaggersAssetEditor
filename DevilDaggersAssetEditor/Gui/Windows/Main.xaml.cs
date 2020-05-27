@@ -27,6 +27,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			new Point(1366, 768)
 		};
 
+		public Point CurrentTabControlSize { get; private set; }
+
 		private UserCache Cache => UserHandler.Instance.cache;
 
 		public MainWindow()
@@ -93,6 +95,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				Point size = tabControlSizes[i];
 				if (i == tabControlSizes.Count - 1 || ActualWidth >= size.X && ActualHeight >= size.Y - 24)
 				{
+					CurrentTabControlSize = size;
 					TabControl.Width = size.X - 17;
 					TabControl.Height = size.Y - 81;
 					break;

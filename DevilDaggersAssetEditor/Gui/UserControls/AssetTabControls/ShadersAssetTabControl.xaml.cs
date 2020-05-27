@@ -73,7 +73,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ShaderAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ShaderAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ShaderAssetRowControl, ShaderAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
 			foreach (AssetRowEntry<ShaderAsset, ShaderAssetRowControl> are in Handler.AssetRowEntries)
 			{
@@ -146,7 +147,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	public class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetRowControl>
+	public class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>
 	{
 		protected override string AssetTypeJsonFileName => "Shaders";
 

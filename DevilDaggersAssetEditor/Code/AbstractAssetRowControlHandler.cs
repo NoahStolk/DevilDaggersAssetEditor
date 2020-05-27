@@ -3,8 +3,10 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
 using Microsoft.Win32;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -62,6 +64,29 @@ namespace DevilDaggersAssetEditor.Code
 		}
 
 		public abstract void UpdateGui();
+
+		public void UpdateTagHighlighting(TextBlock textBlockTags, IEnumerable<string> checkedFilters, Color filterHighlightColor)
+		{
+			textBlockTags.Inlines.Clear();
+
+			string[] assetTags = Asset.Tags;
+			int maxLength = EditorUtils.TagsMaxLength;
+			int chars = 0;
+			for (int i = 0; i < assetTags.Length; i++)
+			{
+				string tag = assetTags[i];
+				chars += tag.Length;
+				Run tagRun = new Run(chars > maxLength ? tag.TrimRight(chars - maxLength) : tag);
+				if (checkedFilters.Contains(tag))
+					tagRun.Background = new SolidColorBrush(filterHighlightColor);
+				TextBlockTags.Inlines.Add(tagRun);
+				if (i != assetTags.Length - 1)
+					TextBlockTags.Inlines.Add(new Run(", "));
+
+				if (chars > maxLength)
+					break;
+			}
+		}
 
 		public virtual void BrowsePath()
 		{

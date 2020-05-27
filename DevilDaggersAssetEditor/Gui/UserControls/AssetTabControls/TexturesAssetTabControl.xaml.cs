@@ -73,7 +73,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<TextureAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<TextureAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<TextureAssetRowControl, TextureAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
 			foreach (AssetRowEntry<TextureAsset, TextureAssetRowControl> are in Handler.AssetRowEntries)
 			{
@@ -146,7 +147,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	public class TexturesAssetTabControlHandler : AbstractAssetTabControlHandler<TextureAsset, TextureAssetRowControl>
+	public class TexturesAssetTabControlHandler : AbstractAssetTabControlHandler<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>
 	{
 		protected override string AssetTypeJsonFileName => "Textures";
 

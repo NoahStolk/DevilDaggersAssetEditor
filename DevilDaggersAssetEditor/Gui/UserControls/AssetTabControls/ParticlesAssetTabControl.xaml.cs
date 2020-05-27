@@ -73,7 +73,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ParticleAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ParticleAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ParticleAssetRowControl, ParticleAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
 			foreach (AssetRowEntry<ParticleAsset, ParticleAssetRowControl> are in Handler.AssetRowEntries)
 			{
@@ -146,7 +147,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 	}
 
-	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetRowControl>
+	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>
 	{
 		protected override string AssetTypeJsonFileName => "Particles";
 

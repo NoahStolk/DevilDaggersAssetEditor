@@ -15,7 +15,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 		public AudioAssetRowControl(AudioAsset asset, bool isEven)
 		{
 			InitializeComponent();
-			TextBlockTags.Text = string.Join(", ", asset.Tags);
+			TextBlockTags.Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
 
 			Handler = new AudioAssetRowControlHandler(asset, this, TextBlockTags, isEven);
 
@@ -26,10 +26,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 			Data.DataContext = asset;
 		}
-
-		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
-
-		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 
 		private bool ValidateTextBoxLoudness(TextBox textBox)
 		{
@@ -46,7 +42,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 				Handler.Asset.Loudness = float.Parse(TextBoxLoudness.Text);
 		}
 
+		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
+		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) => TextBoxLoudness.TextChanged += TextBoxLoudness_TextChanged;
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler.UpdateGui();
 	}
 
 	public class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
