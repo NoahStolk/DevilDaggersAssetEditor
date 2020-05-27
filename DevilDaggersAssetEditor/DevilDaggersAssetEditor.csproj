@@ -213,6 +213,7 @@
     </Compile>
     <Compile Include="Code\AbstractAssetRowControlHandler.cs" />
     <Compile Include="Code\AbstractAssetTabControlHandler.cs" />
+    <Compile Include="Code\AssetRowEntry.cs" />
     <Compile Include="Code\FileTabControlHandlers\AbstractFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\AudioFileTabControlHandler.cs" />
     <Compile Include="Code\FileTabControlHandlers\CoreFileTabControlHandler.cs" />

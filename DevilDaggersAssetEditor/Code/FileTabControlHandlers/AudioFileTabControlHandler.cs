@@ -32,7 +32,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.Assets.Cast<AbstractAsset>().ToList();
+		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.AudioAudioAssetTabControl.Handler.AssetRowEntries.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
 
 		protected override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.Cast<AudioUserAsset>().ToList(), App.Instance.MainWindow.AudioAudioAssetTabControl.Handler);
 

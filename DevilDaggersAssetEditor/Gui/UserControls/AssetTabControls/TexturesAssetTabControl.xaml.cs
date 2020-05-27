@@ -38,7 +38,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new TexturesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (TextureAssetRowControl arc in Handler.CreateAssetRowControls())
+			foreach (TextureAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -68,20 +68,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.assetRowControls.Select(a => new KeyValuePair<TextureAssetRowControl, TextureAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
-				Handler.assetRowControls.Select(a => new KeyValuePair<TextureAssetRowControl, TextBlock>(a, a.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<TextureAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (KeyValuePair<TextureAssetRowControl, bool> kvp in Handler.assetRowControlActiveDict)
+			foreach (AssetRowEntry<TextureAsset, TextureAssetRowControl> are in Handler.AssetRowEntries)
 			{
-				if (!kvp.Value)
+				if (!are.IsActive)
 				{
-					if (AssetEditor.Items.Contains(kvp.Key))
-						AssetEditor.Items.Remove(kvp.Key);
+					if (AssetEditor.Items.Contains(are.AssetRowControl))
+						AssetEditor.Items.Remove(are.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(kvp.Key))
-						AssetEditor.Items.Add(kvp.Key);
+					if (!AssetEditor.Items.Contains(are.AssetRowControl))
+						AssetEditor.Items.Add(are.AssetRowControl);
 				}
 			}
 
@@ -127,7 +126,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(TextureAsset asset)
 		{
-			TextureAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
+			TextureAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}

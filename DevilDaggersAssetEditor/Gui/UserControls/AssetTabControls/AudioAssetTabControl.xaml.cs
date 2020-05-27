@@ -56,7 +56,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new AudioAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (AudioAssetRowControl arc in Handler.CreateAssetRowControls())
+			foreach (AudioAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -86,20 +86,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.assetRowControls.Select(a => new KeyValuePair<AudioAssetRowControl, AudioAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
-				Handler.assetRowControls.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a, a.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (KeyValuePair<AudioAssetRowControl, bool> kvp in Handler.assetRowControlActiveDict)
+			foreach (AssetRowEntry<AudioAsset, AudioAssetRowControl> are in Handler.AssetRowEntries)
 			{
-				if (!kvp.Value)
+				if (!are.IsActive)
 				{
-					if (AssetEditor.Items.Contains(kvp.Key))
-						AssetEditor.Items.Remove(kvp.Key);
+					if (AssetEditor.Items.Contains(are.AssetRowControl))
+						AssetEditor.Items.Remove(are.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(kvp.Key))
-						AssetEditor.Items.Add(kvp.Key);
+					if (!AssetEditor.Items.Contains(are.AssetRowControl))
+						AssetEditor.Items.Add(are.AssetRowControl);
 				}
 			}
 
@@ -147,7 +146,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(AudioAsset asset)
 		{
-			AudioAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
+			AudioAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.TextBoxLoudness.Text = asset.Loudness.ToString();
 			arc.Handler.UpdateGui();
@@ -183,7 +182,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			int unchangedCount = 0;
 			foreach (KeyValuePair<string, float> kvp in values)
 			{
-				AudioAsset audioAsset = Assets.Where(a => a.AssetName == kvp.Key).Cast<AudioAsset>().FirstOrDefault();
+				AssetRowEntry<AudioAsset, AudioAssetRowControl> assetRowEntry = AssetRowEntries.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
+				AudioAsset audioAsset = assetRowEntry.Asset;
 				if (audioAsset != null)
 				{
 					if (audioAsset.Loudness == kvp.Value)
@@ -196,12 +196,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 						successCount++;
 					}
 
-					AudioAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == audioAsset);
+					AudioAssetRowControl arc = assetRowEntry.AssetRowControl;
 					arc.Handler.UpdateGui();
 				}
 			}
 
-			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {Assets.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
+			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {AssetRowEntries.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
 		}
 
 		public void ExportLoudness()
@@ -214,7 +214,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				return;
 
 			StringBuilder sb = new StringBuilder();
-			foreach (AudioAsset audioAsset in Assets)
+			foreach (AudioAsset audioAsset in AssetRowEntries.Select(a => a.Asset))
 				sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
 			File.WriteAllText(dialog.FileName, sb.ToString());
 		}

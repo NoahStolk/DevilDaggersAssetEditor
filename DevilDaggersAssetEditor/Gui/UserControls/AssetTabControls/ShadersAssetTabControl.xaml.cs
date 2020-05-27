@@ -38,7 +38,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ShadersAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ShaderAssetRowControl arc in Handler.CreateAssetRowControls())
+			foreach (ShaderAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -68,20 +68,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.assetRowControls.Select(a => new KeyValuePair<ShaderAssetRowControl, ShaderAsset>(a, a.Handler.Asset)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
-				Handler.assetRowControls.Select(a => new KeyValuePair<ShaderAssetRowControl, TextBlock>(a, a.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ShaderAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (KeyValuePair<ShaderAssetRowControl, bool> kvp in Handler.assetRowControlActiveDict)
+			foreach (AssetRowEntry<ShaderAsset, ShaderAssetRowControl> are in Handler.AssetRowEntries)
 			{
-				if (!kvp.Value)
+				if (!are.IsActive)
 				{
-					if (AssetEditor.Items.Contains(kvp.Key))
-						AssetEditor.Items.Remove(kvp.Key);
+					if (AssetEditor.Items.Contains(are.AssetRowControl))
+						AssetEditor.Items.Remove(are.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(kvp.Key))
-						AssetEditor.Items.Add(kvp.Key);
+					if (!AssetEditor.Items.Contains(are.AssetRowControl))
+						AssetEditor.Items.Add(are.AssetRowControl);
 				}
 			}
 
@@ -127,7 +126,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(ShaderAsset asset)
 		{
-			ShaderAssetRowControl arc = assetRowControls.FirstOrDefault(a => a.Handler.Asset == asset);
+			ShaderAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
 			arc.TextBlockVertexEditorPath.Text = asset.EditorPath;
 			arc.TextBlockFragmentEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();

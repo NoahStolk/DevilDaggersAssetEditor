@@ -223,9 +223,9 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			where TAsset : AbstractAsset
 			where TAssetRowControl : UserControl
 		{
-			for (int i = 0; i < assetTabControlHandler.Assets.Count; i++)
+			for (int i = 0; i < assetTabControlHandler.AssetRowEntries.Count; i++)
 			{
-				TAsset asset = assetTabControlHandler.Assets[i];
+				TAsset asset = assetTabControlHandler.AssetRowEntries[i].Asset;
 				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName);
 				if (userAsset != null)
 				{
