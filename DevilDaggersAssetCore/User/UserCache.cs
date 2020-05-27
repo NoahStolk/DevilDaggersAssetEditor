@@ -7,8 +7,14 @@ namespace DevilDaggersAssetCore.User
 		public const string FileName = "cache.json";
 
 		[JsonProperty]
-		public string LastOpenedModFile { get; set; }
+		public string OpenedModFilePath { get; set; }
 		[JsonProperty]
-		public int LastActiveTabIndex { get; set; }
+		public int ActiveTabIndex { get; set; }
+		[JsonProperty]
+		public int WindowWidth { get; set; }
+		[JsonProperty]
+		public int WindowHeight { get; set; }
+		[JsonProperty]
+		public bool WindowIsFullScreen { get; set; }
 	}
 }

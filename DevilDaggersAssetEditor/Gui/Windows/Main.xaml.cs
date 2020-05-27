@@ -27,6 +27,8 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			new Point(1366, 768)
 		};
 
+		private UserCache Cache => UserHandler.Instance.cache;
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -34,7 +36,13 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			UserHandler.Instance.LoadSettings();
 			UserHandler.Instance.LoadCache();
 
-			TabControl.SelectedIndex = MathUtils.Clamp(UserHandler.Instance.cache.LastActiveTabIndex, 0, 6);
+			TabControl.SelectedIndex = MathUtils.Clamp(Cache.ActiveTabIndex, 0, 6);
+			if (Cache.WindowWidth > 128)
+				Width = Cache.WindowWidth;
+			if (Cache.WindowHeight > 128)
+				Height = Cache.WindowHeight;
+			if (Cache.WindowIsFullScreen)
+				WindowState = WindowState.Maximized;
 
 			App.Instance.MainWindow = this;
 			App.Instance.UpdateMainWindowTitle();
@@ -67,9 +75,9 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
-				if (File.Exists(UserHandler.Instance.cache.LastOpenedModFile))
+				if (File.Exists(Cache.OpenedModFilePath))
 				{
-					ModFile modFile = ModHandler.Instance.GetModFileFromPath(UserHandler.Instance.cache.LastOpenedModFile);
+					ModFile modFile = ModHandler.Instance.GetModFileFromPath(Cache.OpenedModFilePath);
 					if (modFile != null)
 						foreach (AbstractFileTabControlHandler tabHandler in MenuBar.tabHandlers)
 							tabHandler.UpdateAssetTabControls(modFile.Assets);

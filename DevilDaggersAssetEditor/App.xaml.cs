@@ -26,6 +26,8 @@ namespace DevilDaggersAssetEditor
 		public static App Instance => (App)Current;
 		public new MainWindow MainWindow { get; set; }
 
+		private UserCache Cache => UserHandler.Instance.cache;
+
 		public App()
 		{
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
@@ -84,7 +86,10 @@ namespace DevilDaggersAssetEditor
 
 		private void Application_Exit(object sender, ExitEventArgs e)
 		{
-			UserHandler.Instance.cache.LastActiveTabIndex = MainWindow.TabControl.SelectedIndex;
+			Cache.ActiveTabIndex = MainWindow.TabControl.SelectedIndex;
+			Cache.WindowWidth = (int)MainWindow.Width;
+			Cache.WindowHeight = (int)MainWindow.Height;
+			Cache.WindowIsFullScreen = MainWindow.WindowState == WindowState.Maximized;
 			UserHandler.Instance.SaveCache();
 		}
 	}
