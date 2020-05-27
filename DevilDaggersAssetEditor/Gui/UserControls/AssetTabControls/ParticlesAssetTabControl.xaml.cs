@@ -27,6 +27,11 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public ParticlesAssetTabControlHandler Handler { get; private set; }
 
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> nameSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> tagsSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> descriptionSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> pathSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => a.Asset.EditorPath);
+
 		public ParticlesAssetTabControl()
 		{
 			InitializeComponent();
@@ -84,6 +89,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				}
 			}
 
+			ApplySort();
+		}
+
+		private void ApplySort()
+		{
+			List<AssetRowEntry<ParticleAsset, ParticleAssetRowControl>> sorted = Handler.ApplySort();
+			for (int i = 0; i < sorted.Count; i++)
+			{
+				ParticleAssetRowControl arc = AssetEditor.Items.OfType<ParticleAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				AssetEditor.Items.Remove(arc);
+				AssetEditor.Items.Insert(i, arc);
+			}
+
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -112,6 +130,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
+		}
+
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+
+		private void SetSorting(AssetRowSorting<ParticleAsset, ParticleAssetRowControl> sorting)
+		{
+			sorting.IsAscending = !sorting.IsAscending;
+			Handler.ActiveSorting = sorting;
+
+			ApplySort();
 		}
 	}
 

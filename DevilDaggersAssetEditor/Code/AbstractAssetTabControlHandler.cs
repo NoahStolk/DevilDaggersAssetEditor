@@ -27,6 +27,8 @@ namespace DevilDaggersAssetEditor.Code
 		public readonly List<CheckBox> filterCheckBoxes = new List<CheckBox>();
 		private readonly Color filterHighlightColor;
 
+		public AssetRowSorting<TAsset, TAssetRowControl> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl>((a) => a.Asset.AssetName);
+
 		private UserSettings settings => UserHandler.Instance.settings;
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
@@ -144,6 +146,13 @@ namespace DevilDaggersAssetEditor.Code
 					}
 				}
 			}
+		}
+
+		public List<AssetRowEntry<TAsset, TAssetRowControl>> ApplySort()
+		{
+			IEnumerable<AssetRowEntry<TAsset, TAssetRowControl>> query = AssetRowEntries.Where(a => a.IsActive);
+			query = ActiveSorting.IsAscending ? query.OrderBy(ActiveSorting.SortingFunction) : query.OrderByDescending(ActiveSorting.SortingFunction);
+			return query.ToList();
 		}
 	}
 }

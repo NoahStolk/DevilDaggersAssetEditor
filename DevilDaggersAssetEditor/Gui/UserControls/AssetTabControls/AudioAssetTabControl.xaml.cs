@@ -32,6 +32,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public AudioAssetTabControlHandler Handler { get; private set; }
 
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl> nameSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl> tagsSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl> descriptionSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl> loudnessSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl>((a) => a.Asset.Loudness);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl> pathSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl>((a) => a.Asset.EditorPath);
+
 		public AudioAssetTabControl()
 		{
 			InitializeComponent();
@@ -102,6 +108,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				}
 			}
 
+			ApplySort();
+		}
+
+		private void ApplySort()
+		{
+			List<AssetRowEntry<AudioAsset, AudioAssetRowControl>> sorted = Handler.ApplySort();
+			for (int i = 0; i < sorted.Count; i++)
+			{
+				AudioAssetRowControl arc = AssetEditor.Items.OfType<AudioAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				AssetEditor.Items.Remove(arc);
+				AssetEditor.Items.Insert(i, arc);
+			}
+
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -130,6 +149,20 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
+		}
+
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
+		private void LoudnessSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(loudnessSort);
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+
+		private void SetSorting(AssetRowSorting<AudioAsset, AudioAssetRowControl> sorting)
+		{
+			sorting.IsAscending = !sorting.IsAscending;
+			Handler.ActiveSorting = sorting;
+
+			ApplySort();
 		}
 	}
 

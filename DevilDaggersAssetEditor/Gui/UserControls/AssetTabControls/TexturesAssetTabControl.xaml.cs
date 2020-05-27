@@ -27,6 +27,11 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public TexturesAssetTabControlHandler Handler { get; private set; }
 
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl> nameSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl> tagsSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl> descriptionSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl> pathSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl>((a) => a.Asset.EditorPath);
+
 		public TexturesAssetTabControl()
 		{
 			InitializeComponent();
@@ -84,6 +89,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				}
 			}
 
+			ApplySort();
+		}
+
+		private void ApplySort()
+		{
+			List<AssetRowEntry<TextureAsset, TextureAssetRowControl>> sorted = Handler.ApplySort();
+			for (int i = 0; i < sorted.Count; i++)
+			{
+				TextureAssetRowControl arc = AssetEditor.Items.OfType<TextureAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				AssetEditor.Items.Remove(arc);
+				AssetEditor.Items.Insert(i, arc);
+			}
+
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -112,6 +130,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
+		}
+
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+
+		private void SetSorting(AssetRowSorting<TextureAsset, TextureAssetRowControl> sorting)
+		{
+			sorting.IsAscending = !sorting.IsAscending;
+			Handler.ActiveSorting = sorting;
+
+			ApplySort();
 		}
 	}
 

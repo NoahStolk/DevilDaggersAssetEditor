@@ -27,6 +27,11 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public ModelBindingsAssetTabControlHandler Handler { get; private set; }
 
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> nameSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> tagsSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> descriptionSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> pathSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => a.Asset.EditorPath);
+
 		public ModelBindingsAssetTabControl()
 		{
 			InitializeComponent();
@@ -84,6 +89,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				}
 			}
 
+			ApplySort();
+		}
+
+		private void ApplySort()
+		{
+			List<AssetRowEntry<ModelBindingAsset, ModelBindingAssetRowControl>> sorted = Handler.ApplySort();
+			for (int i = 0; i < sorted.Count; i++)
+			{
+				ModelBindingAssetRowControl arc = AssetEditor.Items.OfType<ModelBindingAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				AssetEditor.Items.Remove(arc);
+				AssetEditor.Items.Insert(i, arc);
+			}
+
 			SetAssetEditorBackgroundColors();
 		}
 
@@ -112,6 +130,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
+		}
+
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+
+		private void SetSorting(AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> sorting)
+		{
+			sorting.IsAscending = !sorting.IsAscending;
+			Handler.ActiveSorting = sorting;
+
+			ApplySort();
 		}
 	}
 
