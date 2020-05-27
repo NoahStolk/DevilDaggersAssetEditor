@@ -47,7 +47,5 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			parent.TextBlockVertexEditorPath.Text = isVertexPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_vertex") : Utils.FileNotFound;
 			parent.TextBlockFragmentEditorPath.Text = isFragmentPathValid ? Asset.EditorPath.Insert(Asset.EditorPath.LastIndexOf('.'), "_fragment") : Utils.FileNotFound;
 		}
-
-		public override string FileNameToChunkName(string fileName) => fileName.Replace("_fragment", "").Replace("_vertex", "");
 	}
 }

@@ -30,7 +30,7 @@ namespace DevilDaggersAssetEditor.Code
 
 		private UserSettings Settings => UserHandler.Instance.settings;
 
-		public AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter, TextBlock textBlockTags, bool isEven)
+		protected AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter, TextBlock textBlockTags, bool isEven)
 		{
 			Asset = asset;
 			this.parent = parent;
@@ -73,7 +73,7 @@ namespace DevilDaggersAssetEditor.Code
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			Asset.EditorPath = FileNameToChunkName(openDialog.FileName);
+			Asset.EditorPath = openDialog.FileName.Replace("_fragment", "").Replace("_vertex", "");
 
 			UpdateGui();
 		}
@@ -84,7 +84,5 @@ namespace DevilDaggersAssetEditor.Code
 
 			UpdateGui();
 		}
-
-		public virtual string FileNameToChunkName(string fileName) => fileName;
 	}
 }
