@@ -593,7 +593,8 @@
 		"Description": "Spider Egg I chatter",
 		"Tags": [
 			"Enemy",
-			"Spider Egg I"
+			"Spider Egg I",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
@@ -604,7 +605,8 @@
 		"Description": "Spider Egg II chatter",
 		"Tags": [
 			"Enemy",
-			"Spider Egg II"
+			"Spider Egg II",
+			"Chatter"
 		],
 		"ChunkTypeName": "AudioChunk"
 	},
