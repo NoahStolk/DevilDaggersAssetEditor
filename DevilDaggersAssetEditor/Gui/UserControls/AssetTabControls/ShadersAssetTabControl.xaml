@@ -42,6 +42,6 @@
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="2" FontWeight="Bold">Description</TextBlock>
 			<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Row="2" Grid.Column="3" FontWeight="Bold">Paths</TextBlock>
 		</Grid>
-		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
+		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
 	</Grid>
 </UserControl>
