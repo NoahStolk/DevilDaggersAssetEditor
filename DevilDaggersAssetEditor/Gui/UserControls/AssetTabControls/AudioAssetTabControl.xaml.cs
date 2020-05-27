@@ -170,7 +170,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 	{
 		protected override string AssetTypeJsonFileName => "Audio";
 
-		private UserSettings settings => UserHandler.Instance.settings;
+		private UserSettings Settings => UserHandler.Instance.settings;
 
 		public AudioAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
@@ -188,8 +188,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		public void ImportLoudness()
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
-			if (settings.EnableModsRootFolder)
-				dialog.InitialDirectory = settings.ModsRootFolder;
+			if (Settings.EnableModsRootFolder)
+				dialog.InitialDirectory = Settings.ModsRootFolder;
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
@@ -240,8 +240,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		public void ExportLoudness()
 		{
 			SaveFileDialog dialog = new SaveFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
-			if (settings.EnableModsRootFolder)
-				dialog.InitialDirectory = settings.ModsRootFolder;
+			if (Settings.EnableModsRootFolder)
+				dialog.InitialDirectory = Settings.ModsRootFolder;
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;

@@ -23,7 +23,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		[DllImport("user32.dll")]
 		private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
-		private UserSettings settings => UserHandler.Instance.settings;
+		private UserSettings Settings => UserHandler.Instance.settings;
 
 		public SettingsWindow()
 		{
@@ -31,18 +31,18 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			TextBoxTextureSizeLimit.TextChanged += TextBoxTextureSizeLimit_TextChanged;
 
-			LabelAssetsRootFolder.Content = settings.AssetsRootFolder;
-			LabelDevilDaggersRootFolder.Content = settings.DevilDaggersRootFolder;
-			LabelModsRootFolder.Content = settings.ModsRootFolder;
+			LabelAssetsRootFolder.Content = Settings.AssetsRootFolder;
+			LabelDevilDaggersRootFolder.Content = Settings.DevilDaggersRootFolder;
+			LabelModsRootFolder.Content = Settings.ModsRootFolder;
 
-			CheckBoxAssetsRootFolder.IsChecked = settings.EnableAssetsRootFolder;
-			CheckBoxDevilDaggersRootFolder.IsChecked = settings.EnableDevilDaggersRootFolder;
-			CheckBoxModsRootFolder.IsChecked = settings.EnableModsRootFolder;
+			CheckBoxAssetsRootFolder.IsChecked = Settings.EnableAssetsRootFolder;
+			CheckBoxDevilDaggersRootFolder.IsChecked = Settings.EnableDevilDaggersRootFolder;
+			CheckBoxModsRootFolder.IsChecked = Settings.EnableModsRootFolder;
 
-			CheckBoxCreateModFileWhenExtracting.IsChecked = settings.CreateModFileWhenExtracting;
-			CheckBoxOpenModFolderAfterExtracting.IsChecked = settings.OpenModFolderAfterExtracting;
+			CheckBoxCreateModFileWhenExtracting.IsChecked = Settings.CreateModFileWhenExtracting;
+			CheckBoxOpenModFolderAfterExtracting.IsChecked = Settings.OpenModFolderAfterExtracting;
 
-			TextBoxTextureSizeLimit.Text = settings.TextureSizeLimit.ToString();
+			TextBoxTextureSizeLimit.Text = Settings.TextureSizeLimit.ToString();
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -108,19 +108,19 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void OkButton_Click(object sender, RoutedEventArgs e)
 		{
-			settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString();
-			settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString();
-			settings.ModsRootFolder = LabelModsRootFolder.Content.ToString();
+			Settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString();
+			Settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString();
+			Settings.ModsRootFolder = LabelModsRootFolder.Content.ToString();
 
-			settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
-			settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
-			settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
+			Settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
+			Settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
+			Settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
 
-			settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
-			settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
+			Settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
+			Settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
 
 			if (uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0)
-				settings.TextureSizeLimit = res;
+				Settings.TextureSizeLimit = res;
 
 			DialogResult = true;
 		}

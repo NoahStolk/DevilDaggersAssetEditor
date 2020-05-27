@@ -28,7 +28,7 @@ namespace DevilDaggersAssetEditor.Code
 		public Rectangle rectangleInfo = new Rectangle();
 		public Rectangle rectangleEdit = new Rectangle();
 
-		private UserSettings settings => UserHandler.Instance.settings;
+		private UserSettings Settings => UserHandler.Instance.settings;
 
 		public AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter, TextBlock textBlockTags, bool isEven)
 		{
@@ -66,8 +66,8 @@ namespace DevilDaggersAssetEditor.Code
 		public virtual void BrowsePath()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter };
-			if (settings.EnableAssetsRootFolder)
-				openDialog.InitialDirectory = settings.AssetsRootFolder;
+			if (Settings.EnableAssetsRootFolder)
+				openDialog.InitialDirectory = Settings.AssetsRootFolder;
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)

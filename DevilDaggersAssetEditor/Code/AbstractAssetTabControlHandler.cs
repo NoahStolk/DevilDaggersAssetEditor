@@ -29,7 +29,7 @@ namespace DevilDaggersAssetEditor.Code
 
 		public AssetRowSorting<TAsset, TAssetRowControl> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl>((a) => a.Asset.AssetName);
 
-		private UserSettings settings => UserHandler.Instance.settings;
+		private UserSettings Settings => UserHandler.Instance.settings;
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
@@ -57,8 +57,8 @@ namespace DevilDaggersAssetEditor.Code
 		public void ImportFolder()
 		{
 			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
-			if (settings.EnableAssetsRootFolder)
-				dialog.InitialDirectory = settings.AssetsRootFolder;
+			if (Settings.EnableAssetsRootFolder)
+				dialog.InitialDirectory = Settings.AssetsRootFolder;
 
 			CommonFileDialogResult result = dialog.ShowDialog();
 			if (result != CommonFileDialogResult.Ok)

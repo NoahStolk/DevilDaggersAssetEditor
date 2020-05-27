@@ -9,7 +9,7 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public sealed class ModHandler
 	{
-		private UserSettings settings => UserHandler.Instance.settings;
+		private UserSettings Settings => UserHandler.Instance.settings;
 
 		private static readonly Lazy<ModHandler> lazy = new Lazy<ModHandler>(() => new ModHandler());
 		public static ModHandler Instance => lazy.Value;
@@ -27,8 +27,8 @@ namespace DevilDaggersAssetEditor.Code
 			{
 				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
 				using CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true };
-				if (settings.EnableAssetsRootFolder)
-					basePathDialog.InitialDirectory = settings.AssetsRootFolder;
+				if (Settings.EnableAssetsRootFolder)
+					basePathDialog.InitialDirectory = Settings.AssetsRootFolder;
 
 				CommonFileDialogResult result = basePathDialog.ShowDialog();
 				if (result == CommonFileDialogResult.Ok)
@@ -36,7 +36,7 @@ namespace DevilDaggersAssetEditor.Code
 						asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
 			}
 
-			UserHandler.Instance.cache.LastOpenedModFile = path;
+			UserHandler.Instance.cache.OpenedModFilePath = path;
 
 			return modFile;
 		}
