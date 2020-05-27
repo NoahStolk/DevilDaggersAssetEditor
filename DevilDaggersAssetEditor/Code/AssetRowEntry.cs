@@ -17,5 +17,7 @@ namespace DevilDaggersAssetEditor.Code
 			AssetRowControl = assetRowControl;
 			IsActive = isActive;
 		}
+
+		public override string ToString() => $"{Asset.AssetName} {(IsActive ? "" : "(Inactive)")}";
 	}
 }

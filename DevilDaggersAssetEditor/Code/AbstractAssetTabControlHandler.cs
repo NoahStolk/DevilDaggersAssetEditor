@@ -20,16 +20,14 @@ namespace DevilDaggersAssetEditor.Code
 	{
 		protected abstract string AssetTypeJsonFileName { get; }
 
-		public TAsset SelectedAsset { get; set; }
-
 		public List<AssetRowEntry<TAsset, TAssetRowControl>> AssetRowEntries { get; private set; } = new List<AssetRowEntry<TAsset, TAssetRowControl>>();
-
-		private UserSettings settings => UserHandler.Instance.settings;
+		public TAsset SelectedAsset { get; set; }
 
 		public readonly List<StackPanel> filterStackPanels = new List<StackPanel>();
 		public readonly List<CheckBox> filterCheckBoxes = new List<CheckBox>();
-
 		private readonly Color filterHighlightColor;
+
+		private UserSettings settings => UserHandler.Instance.settings;
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
