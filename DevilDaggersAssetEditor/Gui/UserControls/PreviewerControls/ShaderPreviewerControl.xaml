@@ -4,7 +4,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="416" d:DesignWidth="800">
 	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="256" />
@@ -48,12 +48,12 @@
 
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">Vertex shader preview</Label>
-			<RichTextBox Height="480" Name="PreviewVertexTextBox" Style="{StaticResource CodeRichTextBox}" />
+			<RichTextBox Height="384" Name="PreviewVertexTextBox" Style="{StaticResource CodeRichTextBox}" />
 		</StackPanel>
 
 		<StackPanel Grid.Column="3">
 			<Label Style="{StaticResource PreviewTitleLabel}">Fragment shader preview</Label>
-			<RichTextBox Height="480" Name="PreviewFragmentTextBox" Style="{StaticResource CodeRichTextBox}" />
+			<RichTextBox Height="384" Name="PreviewFragmentTextBox" Style="{StaticResource CodeRichTextBox}" />
 		</StackPanel>
 	</Grid>
 </UserControl>
