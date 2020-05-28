@@ -198,7 +198,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!openResult.HasValue || !openResult.Value)
 				return null;
 
-			return ModHandler.Instance.GetModFileFromPath(dialog.FileName);
+			return ModHandler.Instance.GetModFileFromPath(dialog.FileName, FileHandler.BinaryFileType);
 		}
 
 		public abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);

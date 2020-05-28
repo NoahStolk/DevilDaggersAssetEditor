@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetCore.ModFiles;
+﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
 using JsonUtils;
 using Microsoft.WindowsAPICodePack.Dialogs;
@@ -18,7 +19,7 @@ namespace DevilDaggersAssetEditor.Code
 		{
 		}
 
-		public ModFile GetModFileFromPath(string path)
+		public ModFile GetModFileFromPath(string path, BinaryFileType binaryFileType)
 		{
 			if (!JsonFileUtils.TryDeserializeFromFile(path, true, out ModFile modFile))
 				App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
@@ -36,7 +37,14 @@ namespace DevilDaggersAssetEditor.Code
 						asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
 			}
 
-			UserHandler.Instance.cache.OpenedModFilePath = path;
+			switch (binaryFileType)
+			{
+				case BinaryFileType.Audio: UserHandler.Instance.cache.OpenedAudioModFilePath = path; break;
+				case BinaryFileType.Core: UserHandler.Instance.cache.OpenedCoreModFilePath = path; break;
+				case BinaryFileType.Dd: UserHandler.Instance.cache.OpenedDdModFilePath = path; break;
+				case BinaryFileType.Particle: UserHandler.Instance.cache.OpenedParticleModFilePath = path; break;
+				default: throw new NotImplementedException($"{nameof(BinaryFileType)} {binaryFileType} not implemented in {nameof(GetModFileFromPath)} method.");
+			}
 
 			return modFile;
 		}

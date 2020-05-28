@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetCore.ModFiles;
+﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -77,12 +79,20 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
-				if (File.Exists(Cache.OpenedModFilePath))
+				AutoLoadMod(Cache.OpenedAudioModFilePath, BinaryFileType.Audio);
+				AutoLoadMod(Cache.OpenedCoreModFilePath, BinaryFileType.Core);
+				AutoLoadMod(Cache.OpenedDdModFilePath, BinaryFileType.Dd);
+				AutoLoadMod(Cache.OpenedParticleModFilePath, BinaryFileType.Particle);
+
+				void AutoLoadMod(string path, BinaryFileType binaryFileType)
 				{
-					ModFile modFile = ModHandler.Instance.GetModFileFromPath(Cache.OpenedModFilePath);
-					if (modFile != null)
-						foreach (AbstractFileTabControlHandler tabHandler in MenuBar.tabHandlers)
-							tabHandler.UpdateAssetTabControls(modFile.Assets);
+					if (File.Exists(path))
+					{
+						ModFile modFile = ModHandler.Instance.GetModFileFromPath(path, binaryFileType);
+						if (modFile != null)
+							foreach (AbstractFileTabControlHandler tabHandler in MenuBar.tabHandlers.Where(t => t.FileHandler.BinaryFileType == binaryFileType))
+								tabHandler.UpdateAssetTabControls(modFile.Assets);
+					}
 				}
 			};
 			timer.Start();
