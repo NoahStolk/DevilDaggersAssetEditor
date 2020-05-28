@@ -1,6 +1,8 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code;
+using DevilDaggersAssetEditor.Code.RowControlHandlers;
+using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using System;
 using System.Collections.Generic;
@@ -145,21 +147,5 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 
 		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler?.UpdateTagHighlighting();
-	}
-
-	public class TexturesAssetTabControlHandler : AbstractAssetTabControlHandler<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>
-	{
-		protected override string AssetTypeJsonFileName => "Textures";
-
-		public TexturesAssetTabControlHandler(BinaryFileType binaryFileType)
-			: base(binaryFileType)
-		{
-		}
-
-		public override void UpdateGui(TextureAsset asset)
-		{
-			TextureAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
-			arc.Handler.UpdateGui();
-		}
 	}
 }

@@ -12,7 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 {
 	public abstract class AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 		where TAsset : AbstractAsset

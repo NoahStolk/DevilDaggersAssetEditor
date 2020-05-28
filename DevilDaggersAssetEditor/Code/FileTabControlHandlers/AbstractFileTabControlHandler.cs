@@ -3,6 +3,8 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.BinaryFileHandlers;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
+using DevilDaggersAssetEditor.Code.RowControlHandlers;
+using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using DevilDaggersAssetEditor.Gui.Windows;
 using JsonUtils;
 using Microsoft.Win32;

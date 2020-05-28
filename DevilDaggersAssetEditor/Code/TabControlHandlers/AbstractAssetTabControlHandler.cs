@@ -2,6 +2,7 @@
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
+using DevilDaggersAssetEditor.Code.RowControlHandlers;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
 using System;
@@ -11,7 +12,7 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
 	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler>
 		where TAsset : AbstractAsset

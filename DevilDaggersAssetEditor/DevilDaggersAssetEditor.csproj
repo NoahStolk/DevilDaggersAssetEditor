@@ -211,8 +211,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Code\AbstractAssetRowControlHandler.cs" />
-    <Compile Include="Code\AbstractAssetTabControlHandler.cs" />
+    <Compile Include="Code\RowControlHandlers\AbstractAssetRowControlHandler.cs" />
+    <Compile Include="Code\RowControlHandlers\AudioAssetRowControlHandler.cs" />
+    <Compile Include="Code\RowControlHandlers\ModelAssetRowControlHandler.cs" />
+    <Compile Include="Code\RowControlHandlers\ModelBindingAssetRowControlHandler.cs" />
+    <Compile Include="Code\RowControlHandlers\ParticleAssetRowControlHandler.cs" />
+    <Compile Include="Code\RowControlHandlers\ShaderAssetRowControlHandler.cs" />
+    <Compile Include="Code\RowControlHandlers\TextureAssetRowControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\AbstractAssetTabControlHandler.cs" />
     <Compile Include="Code\AssetRowEntry.cs" />
     <Compile Include="Code\AssetRowSorting.cs" />
     <Compile Include="Code\FileTabControlHandlers\AbstractFileTabControlHandler.cs" />
@@ -237,6 +243,12 @@
     </Page>
     <Resource Include="Content\Images\Icon\Icon32.png" />
     <Compile Include="Code\ModHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\AudioAssetTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ModelAssetTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ModelBindingAssetTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ParticleAssetTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\ShaderAssetTabControlHandler.cs" />
+    <Compile Include="Code\TabControlHandlers\TextureAssetTabControlHandler.cs" />
     <Compile Include="Code\WpfExtensions.cs" />
     <Compile Include="Gui\UserControls\AssetRowControls\AudioAssetRowControl.xaml.cs">
       <DependentUpon>AudioAssetRowControl.xaml</DependentUpon>
