@@ -33,10 +33,10 @@
 			</StackPanel>
 		</StackPanel>
 
-		<Label FontWeight="Bold" FontSize="14">Mod files</Label>
+		<Label FontWeight="Bold" FontSize="14">Extraction</Label>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
 			<CheckBox Name="CheckBoxCreateModFileWhenExtracting" Margin="4">Automatically create mod file when extracting assets</CheckBox>
-			<CheckBox Name="CheckBoxOpenModFolderAfterExtracting" Margin="4">Automatically open folder after extracting</CheckBox>
+			<CheckBox Name="CheckBoxOpenModFolderAfterExtracting" Margin="4">Automatically open folder after extracting assets</CheckBox>
 		</StackPanel>
 
 		<Label FontWeight="Bold" FontSize="14">Compression</Label>
