@@ -2,6 +2,7 @@
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
 using JsonUtils;
+using NetBase.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -87,8 +88,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				{
 					if (type == typeof(ShaderUserAsset))
 					{
-						if (name.EndsWith("_vertex"))
-							assets.Add(Activator.CreateInstance(type, name.Replace("_vertex", ""), path.Replace("_vertex", "")) as AbstractUserAsset); // TODO: TrimEnd "_vertex" instead of Replace
+						if (name.EndsWith("_vertex")) // Skip _fragment to avoid getting duplicate assets.
+							assets.Add(Activator.CreateInstance(type, name.TrimEnd("_vertex"), path.TrimEnd("_vertex")) as AbstractUserAsset);
 					}
 					else
 					{

@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using NetBase.Extensions;
 using SyntaxHighlighter;
 using SyntaxHighlighter.Parsers;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			string vertexPath = asset.EditorPath.Replace(".glsl", "_vertex.glsl");
 			bool isPathValid = File.Exists(vertexPath);
 
-			string basePath = isPathValid ? Path.GetFileName(vertexPath).Replace("_vertex", "") : Utils.FileNotFound; // TODO: Trim end "vertex" instead of Replace
+			string basePath = isPathValid ? Path.GetFileName(vertexPath).TrimEnd("_vertex") : Utils.FileNotFound;
 
 			VertexFileName.Text = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl") : basePath;
 			FragmentFileName.Text = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl") : basePath;
