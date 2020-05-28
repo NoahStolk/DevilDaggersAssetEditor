@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code;
 using IrrKlang;
 using System.IO;
@@ -21,6 +22,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		public AudioPreviewerControl()
 		{
 			InitializeComponent();
+
+			Autoplay.IsChecked = UserHandler.Instance.cache.AudioPlayerIsAutoplayEnabled;
 
 			ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
 			ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
@@ -108,5 +111,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 				Song.PlayPosition = 0;
 			}
 		}
+
+		private void Autoplay_ChangeState(object sender, RoutedEventArgs e) => UserHandler.Instance.cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked ?? false;
 	}
 }

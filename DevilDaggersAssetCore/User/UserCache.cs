@@ -22,5 +22,7 @@ namespace DevilDaggersAssetCore.User
 		public int WindowHeight { get; set; }
 		[JsonProperty]
 		public bool WindowIsFullScreen { get; set; }
+		[JsonProperty]
+		public bool AudioPlayerIsAutoplayEnabled { get; set; }
 	}
 }

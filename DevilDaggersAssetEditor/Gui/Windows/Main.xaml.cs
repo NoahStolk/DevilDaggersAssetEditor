@@ -35,10 +35,10 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		public MainWindow()
 		{
-			InitializeComponent();
-
 			UserHandler.Instance.LoadSettings();
 			UserHandler.Instance.LoadCache();
+
+			InitializeComponent();
 
 			TabControl.SelectedIndex = MathUtils.Clamp(Cache.ActiveTabIndex, 0, 6);
 			if (Cache.WindowWidth > 128)

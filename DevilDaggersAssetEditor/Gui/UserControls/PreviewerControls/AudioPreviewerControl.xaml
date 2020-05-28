@@ -61,7 +61,7 @@
 				<Button Name="ResetPitch" Click="ResetPitch_Click" Width="20">
 					<Image Name="ResetPitchImage" ToolTip="Reset pitch" />
 				</Button>
-				<CheckBox Name="Autoplay" IsChecked="True" Margin="4,4,4,4">Auto-play</CheckBox>
+				<CheckBox Name="Autoplay" Checked="Autoplay_ChangeState" Unchecked="Autoplay_ChangeState" Margin="4,4,4,4">Auto-play</CheckBox>
 			</StackPanel>
 
 			<Grid>
