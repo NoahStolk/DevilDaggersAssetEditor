@@ -116,9 +116,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void SetAssetEditorBackgroundColors()
 		{
-			List<TextureAssetRowControl> rows = AssetEditor.Items.OfType<TextureAssetRowControl>().ToList();
-			foreach (TextureAssetRowControl row in rows)
-				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
+			foreach (TextureAssetRowControl row in AssetEditor.Items)
+				row.Handler.UpdateBackgroundRectangleColors(AssetEditor.Items.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -160,7 +159,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		public override void UpdateGui(TextureAsset asset)
 		{
 			TextureAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
-			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}
 	}

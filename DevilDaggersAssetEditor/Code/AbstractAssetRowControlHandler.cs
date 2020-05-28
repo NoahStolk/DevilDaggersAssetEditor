@@ -25,10 +25,15 @@ namespace DevilDaggersAssetEditor.Code
 
 		public TextBlock TextBlockTags { get; }
 
-		private Color colorInfoEven;
-		private Color colorInfoOdd;
-		private Color colorEven;
-		private Color colorOdd;
+		private readonly Color colorInfoEven;
+		private readonly Color colorInfoOdd;
+		private readonly Color colorEditEven;
+		private readonly Color colorEditOdd;
+		private readonly SolidColorBrush brushInfoEven;
+		private readonly SolidColorBrush brushInfoOdd;
+		private readonly SolidColorBrush brushEditEven;
+		private readonly SolidColorBrush brushEditOdd;
+
 		public Rectangle rectangleInfo = new Rectangle();
 		public Rectangle rectangleEdit = new Rectangle();
 
@@ -44,13 +49,17 @@ namespace DevilDaggersAssetEditor.Code
 			};
 			Grid.SetColumn(TextBlockTags, 1);
 
-			AssetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), this, isEven);
+			AssetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), this);
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
-			colorEven = chunkInfo.GetColor() * 0.25f;
-			colorOdd = colorEven * 0.5f;
-			colorInfoEven = colorOdd;
-			colorInfoOdd = colorOdd * 0.5f;
+			colorEditEven = chunkInfo.GetColor() * 0.25f;
+			colorEditOdd = colorEditEven * 0.5f;
+			colorInfoEven = colorEditOdd;
+			colorInfoOdd = colorEditOdd * 0.5f;
+			brushInfoEven = new SolidColorBrush(colorInfoEven);
+			brushInfoOdd = new SolidColorBrush(colorInfoOdd);
+			brushEditEven = new SolidColorBrush(colorEditEven);
+			brushEditOdd = new SolidColorBrush(colorEditOdd);
 
 			UpdateGui();
 
@@ -66,8 +75,8 @@ namespace DevilDaggersAssetEditor.Code
 
 		public void UpdateBackgroundRectangleColors(bool isEven)
 		{
-			rectangleInfo.Fill = new SolidColorBrush(isEven ? colorInfoEven : colorInfoOdd);
-			rectangleEdit.Fill = new SolidColorBrush(isEven ? colorEven : colorOdd);
+			rectangleInfo.Fill = isEven ? brushInfoEven : brushInfoOdd;
+			rectangleEdit.Fill = isEven ? brushEditEven : brushEditOdd;
 		}
 
 		public abstract void UpdateGui();

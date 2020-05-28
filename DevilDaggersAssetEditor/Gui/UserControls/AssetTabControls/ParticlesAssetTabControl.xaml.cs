@@ -116,9 +116,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void SetAssetEditorBackgroundColors()
 		{
-			List<ParticleAssetRowControl> rows = AssetEditor.Items.OfType<ParticleAssetRowControl>().ToList();
-			foreach (ParticleAssetRowControl row in rows)
-				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
+			foreach (ParticleAssetRowControl row in AssetEditor.Items)
+				row.Handler.UpdateBackgroundRectangleColors(AssetEditor.Items.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -160,7 +159,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		public override void UpdateGui(ParticleAsset asset)
 		{
 			ParticleAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
-			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}
 	}

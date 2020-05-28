@@ -11,7 +11,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public ModelBindingAssetRowControlHandler Handler { get; private set; }
 
-		public ModelBindingAssetRowControl(ModelBindingAssetRowControlHandler handler, bool isEven)
+		public ModelBindingAssetRowControl(ModelBindingAssetRowControlHandler handler)
 		{
 			Handler = handler;
 
@@ -20,8 +20,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			Data.Children.Add(Handler.TextBlockTags);
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
-
-			Handler.UpdateBackgroundRectangleColors(isEven);
 
 			Data.DataContext = Handler.Asset;
 		}

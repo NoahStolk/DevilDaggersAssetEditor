@@ -116,9 +116,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void SetAssetEditorBackgroundColors()
 		{
-			List<ShaderAssetRowControl> rows = AssetEditor.Items.OfType<ShaderAssetRowControl>().ToList();
-			foreach (ShaderAssetRowControl row in rows)
-				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
+			foreach (ShaderAssetRowControl row in AssetEditor.Items)
+				row.Handler.UpdateBackgroundRectangleColors(AssetEditor.Items.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -160,8 +159,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		public override void UpdateGui(ShaderAsset asset)
 		{
 			ShaderAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
-			arc.TextBlockVertexEditorPath.Text = asset.EditorPath;
-			arc.TextBlockFragmentEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}
 	}

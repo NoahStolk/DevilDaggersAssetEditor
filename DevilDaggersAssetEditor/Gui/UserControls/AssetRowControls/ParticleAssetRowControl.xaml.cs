@@ -11,7 +11,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public ParticleAssetRowControlHandler Handler { get; private set; }
 
-		public ParticleAssetRowControl(ParticleAssetRowControlHandler handler, bool isEven)
+		public ParticleAssetRowControl(ParticleAssetRowControlHandler handler)
 		{
 			Handler = handler;
 
@@ -20,8 +20,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			Data.Children.Add(Handler.TextBlockTags);
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
-
-			Handler.UpdateBackgroundRectangleColors(isEven);
 
 			Data.DataContext = Handler.Asset;
 		}

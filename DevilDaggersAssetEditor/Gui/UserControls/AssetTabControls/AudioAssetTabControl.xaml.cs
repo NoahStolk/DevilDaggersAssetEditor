@@ -135,9 +135,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void SetAssetEditorBackgroundColors()
 		{
-			List<AudioAssetRowControl> rows = AssetEditor.Items.OfType<AudioAssetRowControl>().ToList();
-			foreach (AudioAssetRowControl row in rows)
-				row.Handler.UpdateBackgroundRectangleColors(rows.IndexOf(row) % 2 == 0);
+			foreach (AudioAssetRowControl row in AssetEditor.Items)
+				row.Handler.UpdateBackgroundRectangleColors(AssetEditor.Items.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -182,8 +181,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		public override void UpdateGui(AudioAsset asset)
 		{
 			AudioAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
-			arc.TextBlockEditorPath.Text = asset.EditorPath;
-			arc.TextBoxLoudness.Text = asset.Loudness.ToString();
 			arc.Handler.UpdateGui();
 		}
 
