@@ -29,10 +29,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public TexturesAssetTabControlHandler Handler { get; private set; }
 
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> nameSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.AssetName);
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> tagsSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => string.Join(", ", a.AssetRowControlHandler.Asset.Tags));
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> descriptionSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.Description);
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> pathSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.EditorPath);
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> nameSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> tagsSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> descriptionSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> pathSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.EditorPath);
 
 		public TexturesAssetTabControl()
 		{
@@ -45,7 +45,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new TexturesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (TextureAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.AssetRowControl))
+			foreach (TextureAssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -75,19 +75,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<TextureAssetRowControl, TextBlock>(a.AssetRowControlHandler.AssetRowControl, a.AssetRowControlHandler.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.RowHandlers.Select(a => new KeyValuePair<TextureAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (AssetRowEntry<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> are in Handler.AssetRowEntries)
+			foreach (TextureAssetRowControlHandler rowHandler in Handler.RowHandlers)
 			{
-				if (!are.IsActive)
+				if (!rowHandler.IsActive)
 				{
-					if (AssetEditor.Items.Contains(are.AssetRowControlHandler.AssetRowControl))
-						AssetEditor.Items.Remove(are.AssetRowControlHandler.AssetRowControl);
+					if (AssetEditor.Items.Contains(rowHandler.AssetRowControl))
+						AssetEditor.Items.Remove(rowHandler.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(are.AssetRowControlHandler.AssetRowControl))
-						AssetEditor.Items.Add(are.AssetRowControlHandler.AssetRowControl);
+					if (!AssetEditor.Items.Contains(rowHandler.AssetRowControl))
+						AssetEditor.Items.Add(rowHandler.AssetRowControl);
 				}
 			}
 
@@ -96,10 +96,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<AssetRowEntry<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>> sorted = Handler.ApplySort();
+			List<TextureAssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				TextureAssetRowControl arc = AssetEditor.Items.OfType<TextureAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].AssetRowControlHandler.Asset);
+				TextureAssetRowControl arc = AssetEditor.Items.OfType<TextureAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}

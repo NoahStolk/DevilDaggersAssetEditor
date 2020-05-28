@@ -35,10 +35,10 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		}
 
 		public override List<AbstractAsset> GetAssets()
-			=> App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.Asset).Cast<AbstractAsset>()
-				.Concat(App.Instance.MainWindow.DdModelsAssetTabControl.Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.Asset).Cast<AbstractAsset>())
-				.Concat(App.Instance.MainWindow.DdShadersAssetTabControl.Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.Asset).Cast<AbstractAsset>())
-				.Concat(App.Instance.MainWindow.DdTexturesAssetTabControl.Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.Asset).Cast<AbstractAsset>())
+			=> App.Instance.MainWindow.DdModelBindingsAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>()
+				.Concat(App.Instance.MainWindow.DdModelsAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>())
+				.Concat(App.Instance.MainWindow.DdShadersAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>())
+				.Concat(App.Instance.MainWindow.DdTexturesAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>())
 				.ToList();
 
 		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)

@@ -30,11 +30,11 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public AudioAssetTabControlHandler Handler { get; private set; }
 
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> nameSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.AssetName);
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> tagsSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => string.Join(", ", a.AssetRowControlHandler.Asset.Tags));
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> descriptionSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.Description);
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> loudnessSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.Loudness);
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> pathSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.EditorPath);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> nameSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> tagsSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> descriptionSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> loudnessSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.Loudness);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> pathSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.EditorPath);
 
 		public AudioAssetTabControl()
 		{
@@ -60,7 +60,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new AudioAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (AudioAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.AssetRowControl))
+			foreach (AudioAssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -90,19 +90,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a.AssetRowControlHandler.AssetRowControl, a.AssetRowControlHandler.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.RowHandlers.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (AssetRowEntry<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> assetRowEntry in Handler.AssetRowEntries)
+			foreach (AudioAssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
 				if (!assetRowEntry.IsActive)
 				{
-					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
-						AssetEditor.Items.Remove(assetRowEntry.AssetRowControlHandler.AssetRowControl);
+					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControl))
+						AssetEditor.Items.Remove(assetRowEntry.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
-						AssetEditor.Items.Add(assetRowEntry.AssetRowControlHandler.AssetRowControl);
+					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControl))
+						AssetEditor.Items.Add(assetRowEntry.AssetRowControl);
 				}
 			}
 
@@ -111,10 +111,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<AssetRowEntry<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>> sorted = Handler.ApplySort();
+			List<AudioAssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				AudioAssetRowControl arc = AssetEditor.Items.OfType<AudioAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].AssetRowControlHandler.Asset);
+				AudioAssetRowControl arc = AssetEditor.Items.OfType<AudioAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}

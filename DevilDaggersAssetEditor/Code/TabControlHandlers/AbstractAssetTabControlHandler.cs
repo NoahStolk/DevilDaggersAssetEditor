@@ -21,7 +21,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 	{
 		protected abstract string AssetTypeJsonFileName { get; }
 
-		public List<AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler>> AssetRowEntries { get; private set; } = new List<AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler>>();
+		public List<TAssetRowControlHandler> RowHandlers { get; private set; } = new List<TAssetRowControlHandler>();
 		public TAsset SelectedAsset { get; set; }
 
 		public readonly List<StackPanel> filterStackPanels = new List<StackPanel>();
@@ -30,7 +30,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public IEnumerable<string> CheckedFilters => filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
 
-		public AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.AssetName);
+		public AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler>((a) => a.Asset.AssetName);
 
 		private UserSettings Settings => UserHandler.Instance.settings;
 
@@ -42,8 +42,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			int i = 0;
 			foreach (TAsset asset in assets)
 			{
-				TAssetRowControlHandler assetRowControlHandler = (TAssetRowControlHandler)Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0);
-				AssetRowEntries.Add(new AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler>(assetRowControlHandler, true));
+				TAssetRowControlHandler rowHandler = (TAssetRowControlHandler)Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0);
+				RowHandlers.Add(rowHandler);
 			}
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == typeof(TAsset));
@@ -54,8 +54,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public void UpdateTagHighlighting()
 		{
-			foreach (AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler> assetRowEntry in AssetRowEntries.Where(a => a.IsActive))
-				assetRowEntry.AssetRowControlHandler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
+			foreach (TAssetRowControlHandler handler in RowHandlers.Where(a => a.IsActive))
+				handler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
 		}
 
 		public void SelectAsset(TAsset asset)
@@ -75,7 +75,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 			foreach (string filePath in Directory.GetFiles(dialog.FileName))
 			{
-				TAsset asset = AssetRowEntries.Where(a => a.AssetRowControlHandler.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", "").Replace("_vertex", "")).Cast<TAsset>().FirstOrDefault();
+				TAsset asset = RowHandlers.Where(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", "").Replace("_vertex", "")).Cast<TAsset>().FirstOrDefault();
 				if (asset != null)
 				{
 					asset.EditorPath = filePath.Replace("_fragment", "").Replace("_vertex", "");
@@ -86,7 +86,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public bool IsComplete()
 		{
-			foreach (TAsset asset in AssetRowEntries.Select(a => a.AssetRowControlHandler.Asset))
+			foreach (TAsset asset in RowHandlers.Select(a => a.Asset))
 				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl")))
 					return false;
 			return true;
@@ -94,7 +94,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public void CreateFiltersGui()
 		{
-			IEnumerable<string> tags = AssetRowEntries.Select(a => a.AssetRowControlHandler.Asset).SelectMany(a => a.Tags ?? (new string[] { })).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
+			IEnumerable<string> tags = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? (new string[] { })).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			int filterColumnCount = 9;
 			int i = 0;
 			for (; i < filterColumnCount; i++)
@@ -116,20 +116,20 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public void ApplyFilter(FilterOperation filterOperation, Dictionary<TAssetRowControl, TextBlock> textBlocks)
 		{
-			foreach (AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler> assetRowEntry in AssetRowEntries)
+			foreach (TAssetRowControlHandler rowHandler in RowHandlers)
 			{
-				TextBlock textBlockTags = textBlocks.FirstOrDefault(kvp => kvp.Key == assetRowEntry.AssetRowControlHandler.AssetRowControl).Value;
+				TextBlock textBlockTags = textBlocks.FirstOrDefault(kvp => kvp.Key == rowHandler.AssetRowControl).Value;
 
 				if (CheckedFilters.Count() == 0)
 				{
-					assetRowEntry.IsActive = true;
+					rowHandler.IsActive = true;
 				}
 				else
 				{
-					assetRowEntry.IsActive = filterOperation switch
+					rowHandler.IsActive = filterOperation switch
 					{
-						FilterOperation.And => CheckedFilters.All(t => assetRowEntry.AssetRowControlHandler.Asset.Tags.Contains(t)),
-						FilterOperation.Or => assetRowEntry.AssetRowControlHandler.Asset.Tags.Any(t => CheckedFilters.Contains(t)),
+						FilterOperation.And => CheckedFilters.All(t => rowHandler.Asset.Tags.Contains(t)),
+						FilterOperation.Or => rowHandler.Asset.Tags.Any(t => CheckedFilters.Contains(t)),
 						_ => throw new NotImplementedException($"{nameof(FilterOperation)} {filterOperation} not implemented in {nameof(ApplyFilter)} method.")
 					};
 				}
@@ -138,9 +138,9 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			UpdateTagHighlighting();
 		}
 
-		public List<AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler>> ApplySort()
+		public List<TAssetRowControlHandler> ApplySort()
 		{
-			IEnumerable<AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler>> query = AssetRowEntries.Where(a => a.IsActive);
+			IEnumerable<TAssetRowControlHandler> query = RowHandlers.Where(a => a.IsActive);
 			query = ActiveSorting.IsAscending ? query.OrderBy(ActiveSorting.SortingFunction) : query.OrderByDescending(ActiveSorting.SortingFunction);
 			return query.ToList();
 		}

@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public override void UpdateGui(ShaderAsset asset)
 		{
-			ShaderAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
+			ShaderAssetRowControl arc = RowHandlers.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
 			arc.Handler.UpdateGui();
 		}
 	}

@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public override void UpdateGui(ModelBindingAsset asset)
 		{
-			ModelBindingAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
+			ModelBindingAssetRowControl arc = RowHandlers.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
 			arc.Handler.UpdateGui();
 		}
 	}

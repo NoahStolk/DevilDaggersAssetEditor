@@ -29,10 +29,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public ShadersAssetTabControlHandler Handler { get; private set; }
 
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> nameSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.AssetName);
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> tagsSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => string.Join(", ", a.AssetRowControlHandler.Asset.Tags));
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> descriptionSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.Description);
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> pathSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.EditorPath);
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> nameSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> tagsSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> descriptionSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> pathSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.EditorPath);
 
 		public ShadersAssetTabControl()
 		{
@@ -45,7 +45,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ShadersAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ShaderAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.AssetRowControl))
+			foreach (ShaderAssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -75,19 +75,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ShaderAssetRowControl, TextBlock>(a.AssetRowControlHandler.AssetRowControl, a.AssetRowControlHandler.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.RowHandlers.Select(a => new KeyValuePair<ShaderAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (AssetRowEntry<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> assetRowEntry in Handler.AssetRowEntries)
+			foreach (ShaderAssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
 				if (!assetRowEntry.IsActive)
 				{
-					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
-						AssetEditor.Items.Remove(assetRowEntry.AssetRowControlHandler.AssetRowControl);
+					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControl))
+						AssetEditor.Items.Remove(assetRowEntry.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
-						AssetEditor.Items.Add(assetRowEntry.AssetRowControlHandler.AssetRowControl);
+					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControl))
+						AssetEditor.Items.Add(assetRowEntry.AssetRowControl);
 				}
 			}
 
@@ -96,10 +96,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<AssetRowEntry<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>> sorted = Handler.ApplySort();
+			List<ShaderAssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				ShaderAssetRowControl arc = AssetEditor.Items.OfType<ShaderAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].AssetRowControlHandler.Asset);
+				ShaderAssetRowControl arc = AssetEditor.Items.OfType<ShaderAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}

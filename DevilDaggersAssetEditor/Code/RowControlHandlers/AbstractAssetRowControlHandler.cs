@@ -21,6 +21,8 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 		public TAsset Asset { get; }
 		public TAssetRowControl AssetRowControl { get; }
 
+		public bool IsActive { get; set; } = true;
+
 		public abstract string OpenDialogFilter { get; }
 
 		public TextBlock TextBlockTags { get; }

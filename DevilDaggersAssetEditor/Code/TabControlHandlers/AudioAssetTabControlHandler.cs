@@ -24,7 +24,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public override void UpdateGui(AudioAsset asset)
 		{
-			AudioAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
+			AudioAssetRowControl arc = RowHandlers.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
 			arc.Handler.UpdateGui();
 		}
 
@@ -58,8 +58,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			int unchangedCount = 0;
 			foreach (KeyValuePair<string, float> kvp in values)
 			{
-				AssetRowEntry<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> assetRowEntry = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset.AssetName == kvp.Key);
-				AudioAsset audioAsset = assetRowEntry.AssetRowControlHandler.Asset;
+				AudioAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
+				AudioAsset audioAsset = rowHandler.Asset;
 				if (audioAsset != null)
 				{
 					if (audioAsset.Loudness == kvp.Value)
@@ -72,12 +72,12 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 						successCount++;
 					}
 
-					AudioAssetRowControl arc = assetRowEntry.AssetRowControlHandler.AssetRowControl;
+					AudioAssetRowControl arc = rowHandler.AssetRowControl;
 					arc.Handler.UpdateGui();
 				}
 			}
 
-			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {AssetRowEntries.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
+			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {RowHandlers.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
 		}
 
 		public void ExportLoudness()
@@ -90,7 +90,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				return;
 
 			StringBuilder sb = new StringBuilder();
-			foreach (AudioAsset audioAsset in AssetRowEntries.Select(a => a.AssetRowControlHandler.Asset))
+			foreach (AudioAsset audioAsset in RowHandlers.Select(a => a.Asset))
 				sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
 			File.WriteAllText(dialog.FileName, sb.ToString());
 		}
