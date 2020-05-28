@@ -9,7 +9,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class ParticleAssetRowControl : UserControl
 	{
-		public ParticleAssetRowControlHandler Handler { get; private set; }
+		public ParticleAssetRowControlHandler Handler { get; }
 
 		public ParticleAssetRowControl(ParticleAssetRowControlHandler handler)
 		{

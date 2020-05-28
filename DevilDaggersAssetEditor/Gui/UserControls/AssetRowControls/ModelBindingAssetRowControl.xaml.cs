@@ -9,7 +9,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class ModelBindingAssetRowControl : UserControl
 	{
-		public ModelBindingAssetRowControlHandler Handler { get; private set; }
+		public ModelBindingAssetRowControlHandler Handler { get; }
 
 		public ModelBindingAssetRowControl(ModelBindingAssetRowControlHandler handler)
 		{

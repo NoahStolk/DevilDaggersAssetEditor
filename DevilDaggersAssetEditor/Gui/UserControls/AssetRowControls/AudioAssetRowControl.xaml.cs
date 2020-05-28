@@ -10,9 +10,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class AudioAssetRowControl : UserControl
 	{
-		public string openDialogFilter = "Audio files (*.wav)|*.wav";
-
-		public AudioAssetRowControlHandler Handler { get; private set; }
+		public AudioAssetRowControlHandler Handler { get; }
 
 		public AudioAssetRowControl(AudioAssetRowControlHandler handler)
 		{
