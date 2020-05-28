@@ -24,11 +24,12 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public List<TAssetRowControlHandler> RowHandlers { get; private set; } = new List<TAssetRowControlHandler>();
 		public TAsset SelectedAsset { get; set; }
 
-		public readonly List<StackPanel> filterStackPanels = new List<StackPanel>();
 		public readonly List<CheckBox> filterCheckBoxes = new List<CheckBox>();
 		public Color FilterHighlightColor { get; private set; }
 
 		public IEnumerable<string> CheckedFilters => filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
+		public IEnumerable<string> AllFilters { get; }
+		public int FiltersCount { get; }
 
 		public AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler>((a) => a.Asset.AssetName);
 
@@ -45,6 +46,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				TAssetRowControlHandler rowHandler = (TAssetRowControlHandler)Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0);
 				RowHandlers.Add(rowHandler);
 			}
+			AllFilters = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? (new string[] { })).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
+			FiltersCount = AllFilters.Count();
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == typeof(TAsset));
 			FilterHighlightColor = chunkInfo.GetColor() * 0.25f;
@@ -92,25 +95,16 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			return true;
 		}
 
-		public void CreateFiltersGui()
+		public void CreateFiltersGui(int rows)
 		{
-			IEnumerable<string> tags = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? (new string[] { })).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
-			int filterColumnCount = 9;
 			int i = 0;
-			for (; i < filterColumnCount; i++)
+			foreach (string tag in AllFilters)
 			{
-				StackPanel stackPanel = new StackPanel { Tag = i };
-				Grid.SetColumn(stackPanel, i);
-				filterStackPanels.Add(stackPanel);
-			}
-
-			i = 0;
-			foreach (string tag in tags)
-			{
-				int pos = (int)(i++ / (float)tags.Count() * filterColumnCount);
 				CheckBox checkBox = new CheckBox { Content = tag };
+				Grid.SetColumn(checkBox, i / rows);
+				Grid.SetRow(checkBox, i % rows);
 				filterCheckBoxes.Add(checkBox);
-				filterStackPanels.FirstOrDefault(s => (int)s.Tag == pos).Children.Add(checkBox);
+				i++;
 			}
 		}
 

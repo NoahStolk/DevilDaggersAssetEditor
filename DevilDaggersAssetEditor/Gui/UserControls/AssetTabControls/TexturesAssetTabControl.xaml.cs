@@ -56,18 +56,20 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			FilterOperationAnd.Checked += ApplyFilter;
 			FilterOperationOr.Checked += ApplyFilter;
 
-			Handler.CreateFiltersGui();
+			int columns = 9;
+			int rows = (int)Math.Ceiling(Handler.FiltersCount / (double)columns);
+			Handler.CreateFiltersGui(rows);
 
-			foreach (StackPanel stackPanel in Handler.filterStackPanels)
-			{
+			for (int i = 0; i < columns; i++)
 				Filters.ColumnDefinitions.Add(new ColumnDefinition());
-				Filters.Children.Add(stackPanel);
-			}
+			for (int i = 0; i < rows; i++)
+				Filters.RowDefinitions.Add(new RowDefinition());
 
 			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
 			{
 				checkBox.Checked += ApplyFilter;
 				checkBox.Unchecked += ApplyFilter;
+				Filters.Children.Add(checkBox);
 			}
 		}
 
