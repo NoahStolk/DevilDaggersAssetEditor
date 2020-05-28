@@ -11,19 +11,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public ParticleAssetRowControlHandler Handler { get; private set; }
 
-		public ParticleAssetRowControl(ParticleAsset asset, bool isEven)
+		public ParticleAssetRowControl(ParticleAssetRowControlHandler handler, bool isEven)
 		{
+			Handler = handler;
+
 			InitializeComponent();
-			TextBlockTags.Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
 
-			Handler = new ParticleAssetRowControlHandler(asset, this, TextBlockTags, isEven);
-
+			Data.Children.Add(Handler.TextBlockTags);
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
 
 			Handler.UpdateBackgroundRectangleColors(isEven);
 
-			Data.DataContext = asset;
+			Data.DataContext = Handler.Asset;
 		}
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
@@ -33,15 +33,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class ParticleAssetRowControlHandler : AbstractAssetRowControlHandler<ParticleAsset, ParticleAssetRowControl>
 	{
-		public ParticleAssetRowControlHandler(ParticleAsset asset, ParticleAssetRowControl parent, TextBlock textBlockTags, bool isEven)
-			: base(asset, parent, "Particle files (*.bin)|*.bin", textBlockTags, isEven)
+		public override string OpenDialogFilter => "Particle files (*.bin)|*.bin";
+
+		public ParticleAssetRowControlHandler(ParticleAsset asset, bool isEven)
+			: base(asset, isEven)
 		{
 		}
 
 		public override void UpdateGui()
 		{
-			parent.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
-			parent.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
+			AssetRowControl.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
+			AssetRowControl.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
 		}
 	}
 }

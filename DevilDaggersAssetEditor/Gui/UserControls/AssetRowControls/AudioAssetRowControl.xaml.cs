@@ -10,21 +10,23 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class AudioAssetRowControl : UserControl
 	{
+		public string openDialogFilter = "Audio files (*.wav)|*.wav";
+
 		public AudioAssetRowControlHandler Handler { get; private set; }
 
-		public AudioAssetRowControl(AudioAsset asset, bool isEven)
+		public AudioAssetRowControl(AudioAssetRowControlHandler handler, bool isEven)
 		{
+			Handler = handler;
+
 			InitializeComponent();
-			TextBlockTags.Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
 
-			Handler = new AudioAssetRowControlHandler(asset, this, TextBlockTags, isEven);
-
+			Data.Children.Add(Handler.TextBlockTags);
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
 
 			Handler.UpdateBackgroundRectangleColors(isEven);
 
-			Data.DataContext = asset;
+			Data.DataContext = Handler.Asset;
 		}
 
 		private bool ValidateTextBoxLoudness(TextBox textBox)
@@ -50,16 +52,18 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class AudioAssetRowControlHandler : AbstractAssetRowControlHandler<AudioAsset, AudioAssetRowControl>
 	{
-		public AudioAssetRowControlHandler(AudioAsset asset, AudioAssetRowControl parent, TextBlock textBlockTags, bool isEven)
-			: base(asset, parent, "Audio files (*.wav)|*.wav", textBlockTags, isEven)
+		public override string OpenDialogFilter => "Audio files (*.wav)|*.wav";
+
+		public AudioAssetRowControlHandler(AudioAsset asset, bool isEven)
+			: base(asset, isEven)
 		{
 		}
 
 		public override void UpdateGui()
 		{
-			parent.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
-			parent.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
-			parent.TextBoxLoudness.Text = Asset.Loudness.ToString();
+			AssetRowControl.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
+			AssetRowControl.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
+			AssetRowControl.TextBoxLoudness.Text = Asset.Loudness.ToString();
 		}
 	}
 }

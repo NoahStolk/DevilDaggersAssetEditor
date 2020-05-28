@@ -3,8 +3,10 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -17,9 +19,9 @@ namespace DevilDaggersAssetEditor.Code
 		where TAssetRowControl : UserControl
 	{
 		public TAsset Asset { get; }
+		public TAssetRowControl AssetRowControl { get; }
 
-		protected readonly TAssetRowControl parent;
-		protected readonly string openDialogFilter;
+		public abstract string OpenDialogFilter { get; }
 
 		public TextBlock TextBlockTags { get; }
 
@@ -32,12 +34,17 @@ namespace DevilDaggersAssetEditor.Code
 
 		private UserSettings Settings => UserHandler.Instance.settings;
 
-		protected AbstractAssetRowControlHandler(TAsset asset, TAssetRowControl parent, string openDialogFilter, TextBlock textBlockTags, bool isEven)
+		protected AbstractAssetRowControlHandler(TAsset asset, bool isEven)
 		{
 			Asset = asset;
-			this.parent = parent;
-			this.openDialogFilter = openDialogFilter;
-			TextBlockTags = textBlockTags;
+			TextBlockTags = new TextBlock
+			{
+				Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength),
+				Margin = new Thickness(2)
+			};
+			Grid.SetColumn(TextBlockTags, 1);
+
+			AssetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), this, isEven);
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
 			colorEven = chunkInfo.GetColor() * 0.25f;
@@ -65,22 +72,27 @@ namespace DevilDaggersAssetEditor.Code
 
 		public abstract void UpdateGui();
 
-		public void UpdateTagHighlighting(TextBlock textBlockTags, IEnumerable<string> checkedFilters, Color filterHighlightColor)
+		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
 		{
-			textBlockTags.Inlines.Clear();
+			if (checkedFilters.Count() == 0)
+			{
+				TextBlockTags.Text = string.Join(", ", Asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
+				return;
+			}
 
-			string[] assetTags = Asset.Tags;
+			TextBlockTags.Inlines.Clear();
+
 			int maxLength = EditorUtils.TagsMaxLength;
 			int chars = 0;
-			for (int i = 0; i < assetTags.Length; i++)
+			for (int i = 0; i < Asset.Tags.Length; i++)
 			{
-				string tag = assetTags[i];
+				string tag = Asset.Tags[i];
 				chars += tag.Length;
 				Run tagRun = new Run(chars > maxLength ? tag.TrimRight(chars - maxLength) : tag);
 				if (checkedFilters.Contains(tag))
 					tagRun.Background = new SolidColorBrush(filterHighlightColor);
 				TextBlockTags.Inlines.Add(tagRun);
-				if (i != assetTags.Length - 1)
+				if (i != Asset.Tags.Length - 1)
 					TextBlockTags.Inlines.Add(new Run(", "));
 
 				if (chars > maxLength)
@@ -90,7 +102,7 @@ namespace DevilDaggersAssetEditor.Code
 
 		public virtual void BrowsePath()
 		{
-			OpenFileDialog openDialog = new OpenFileDialog { Filter = openDialogFilter };
+			OpenFileDialog openDialog = new OpenFileDialog { Filter = OpenDialogFilter };
 			if (Settings.EnableAssetsRootFolder)
 				openDialog.InitialDirectory = Settings.AssetsRootFolder;
 

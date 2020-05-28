@@ -27,10 +27,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public ModelBindingsAssetTabControlHandler Handler { get; private set; }
 
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> nameSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> tagsSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> descriptionSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> pathSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> nameSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.AssetName);
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> tagsSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => string.Join(", ", a.AssetRowControlHandler.Asset.Tags));
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> descriptionSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.Description);
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> pathSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.EditorPath);
 
 		public ModelBindingsAssetTabControl()
 		{
@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ModelBindingsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ModelBindingAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControl))
+			foreach (ModelBindingAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -73,20 +73,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelBindingAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelBindingAssetRowControl, TextBlock>(a.AssetRowControlHandler.AssetRowControl, a.AssetRowControlHandler.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (AssetRowEntry<ModelBindingAsset, ModelBindingAssetRowControl> are in Handler.AssetRowEntries)
+			foreach (AssetRowEntry<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> assetRowEntry in Handler.AssetRowEntries)
 			{
-				if (!are.IsActive)
+				if (!assetRowEntry.IsActive)
 				{
-					if (AssetEditor.Items.Contains(are.AssetRowControl))
-						AssetEditor.Items.Remove(are.AssetRowControl);
+					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
+						AssetEditor.Items.Remove(assetRowEntry.AssetRowControlHandler.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(are.AssetRowControl))
-						AssetEditor.Items.Add(are.AssetRowControl);
+					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
+						AssetEditor.Items.Add(assetRowEntry.AssetRowControlHandler.AssetRowControl);
 				}
 			}
 
@@ -95,10 +94,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<AssetRowEntry<ModelBindingAsset, ModelBindingAssetRowControl>> sorted = Handler.ApplySort();
+			List<AssetRowEntry<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				ModelBindingAssetRowControl arc = AssetEditor.Items.OfType<ModelBindingAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				ModelBindingAssetRowControl arc = AssetEditor.Items.OfType<ModelBindingAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].AssetRowControlHandler.Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}
@@ -138,13 +137,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
 		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
 
-		private void SetSorting(AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl> sorting)
+		private void SetSorting(AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;
 
 			ApplySort();
 		}
+
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler?.UpdateTagHighlighting();
 	}
 
 	public class ModelBindingsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>
@@ -158,7 +159,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(ModelBindingAsset asset)
 		{
-			ModelBindingAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
+			ModelBindingAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}

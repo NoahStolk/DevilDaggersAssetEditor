@@ -11,19 +11,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 	{
 		public ModelBindingAssetRowControlHandler Handler { get; private set; }
 
-		public ModelBindingAssetRowControl(ModelBindingAsset asset, bool isEven)
+		public ModelBindingAssetRowControl(ModelBindingAssetRowControlHandler handler, bool isEven)
 		{
+			Handler = handler;
+
 			InitializeComponent();
-			TextBlockTags.Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
 
-			Handler = new ModelBindingAssetRowControlHandler(asset, this, TextBlockTags, isEven);
-
+			Data.Children.Add(Handler.TextBlockTags);
 			Data.Children.Add(Handler.rectangleInfo);
 			Data.Children.Add(Handler.rectangleEdit);
 
 			Handler.UpdateBackgroundRectangleColors(isEven);
 
-			Data.DataContext = asset;
+			Data.DataContext = Handler.Asset;
 		}
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
@@ -33,15 +33,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 
 	public class ModelBindingAssetRowControlHandler : AbstractAssetRowControlHandler<ModelBindingAsset, ModelBindingAssetRowControl>
 	{
-		public ModelBindingAssetRowControlHandler(ModelBindingAsset asset, ModelBindingAssetRowControl parent, TextBlock textBlockTags, bool isEven)
-			: base(asset, parent, "Model binding files (*.txt)|*.txt", textBlockTags, isEven)
+		public override string OpenDialogFilter => "Model binding files (*.txt)|*.txt";
+
+		public ModelBindingAssetRowControlHandler(ModelBindingAsset asset, bool isEven)
+			: base(asset, isEven)
 		{
 		}
 
 		public override void UpdateGui()
 		{
-			parent.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
-			parent.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
+			AssetRowControl.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
+			AssetRowControl.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : Utils.FileNotFound;
 		}
 	}
 }

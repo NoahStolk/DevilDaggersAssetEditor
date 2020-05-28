@@ -3,21 +3,20 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Code
 {
-	public class AssetRowEntry<TAsset, TAssetRowControl>
+	public class AssetRowEntry<TAsset, TAssetRowControl, TAssetRowControlHandler>
 		where TAsset : AbstractAsset
 		where TAssetRowControl : UserControl
+		where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 	{
-		public TAsset Asset { get; set; }
-		public TAssetRowControl AssetRowControl { get; set; }
+		public TAssetRowControlHandler AssetRowControlHandler { get; set; }
 		public bool IsActive { get; set; }
 
-		public AssetRowEntry(TAsset asset, TAssetRowControl assetRowControl, bool isActive)
+		public AssetRowEntry(TAssetRowControlHandler assetRowControlHandler, bool isActive)
 		{
-			Asset = asset;
-			AssetRowControl = assetRowControl;
+			AssetRowControlHandler = assetRowControlHandler;
 			IsActive = isActive;
 		}
 
-		public override string ToString() => $"{Asset.AssetName} {(IsActive ? "" : "(Inactive)")}";
+		public override string ToString() => $"{AssetRowControlHandler.Asset.AssetName} {(IsActive ? "" : "(Inactive)")}";
 	}
 }

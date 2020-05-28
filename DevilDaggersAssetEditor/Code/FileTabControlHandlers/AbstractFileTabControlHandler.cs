@@ -211,7 +211,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		{
 			for (int i = 0; i < assetTabControlHandler.AssetRowEntries.Count; i++)
 			{
-				TAsset asset = assetTabControlHandler.AssetRowEntries[i].Asset;
+				TAsset asset = assetTabControlHandler.AssetRowEntries[i].AssetRowControlHandler.Asset;
 				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName);
 				if (userAsset != null)
 				{

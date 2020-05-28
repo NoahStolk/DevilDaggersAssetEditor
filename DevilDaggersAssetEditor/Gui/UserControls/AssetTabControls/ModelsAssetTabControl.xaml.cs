@@ -27,10 +27,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public ModelsAssetTabControlHandler Handler { get; private set; }
 
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl> nameSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl> tagsSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl> descriptionSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl> pathSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> nameSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.AssetName);
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> tagsSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => string.Join(", ", a.AssetRowControlHandler.Asset.Tags));
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> descriptionSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.Description);
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> pathSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.EditorPath);
 
 		public ModelsAssetTabControl()
 		{
@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ModelsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ModelAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControl))
+			foreach (ModelAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -73,20 +73,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelAssetRowControl, ModelAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ModelAssetRowControl, TextBlock>(a.AssetRowControlHandler.AssetRowControl, a.AssetRowControlHandler.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (AssetRowEntry<ModelAsset, ModelAssetRowControl> are in Handler.AssetRowEntries)
+			foreach (AssetRowEntry<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> assetRowEntry in Handler.AssetRowEntries)
 			{
-				if (!are.IsActive)
+				if (!assetRowEntry.IsActive)
 				{
-					if (AssetEditor.Items.Contains(are.AssetRowControl))
-						AssetEditor.Items.Remove(are.AssetRowControl);
+					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
+						AssetEditor.Items.Remove(assetRowEntry.AssetRowControlHandler.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(are.AssetRowControl))
-						AssetEditor.Items.Add(are.AssetRowControl);
+					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
+						AssetEditor.Items.Add(assetRowEntry.AssetRowControlHandler.AssetRowControl);
 				}
 			}
 
@@ -95,10 +94,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<AssetRowEntry<ModelAsset, ModelAssetRowControl>> sorted = Handler.ApplySort();
+			List<AssetRowEntry<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				ModelAssetRowControl arc = AssetEditor.Items.OfType<ModelAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				ModelAssetRowControl arc = AssetEditor.Items.OfType<ModelAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].AssetRowControlHandler.Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}
@@ -138,13 +137,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
 		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
 
-		private void SetSorting(AssetRowSorting<ModelAsset, ModelAssetRowControl> sorting)
+		private void SetSorting(AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;
 
 			ApplySort();
 		}
+
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler?.UpdateTagHighlighting();
 	}
 
 	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>
@@ -158,7 +159,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(ModelAsset asset)
 		{
-			ModelAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
+			ModelAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}

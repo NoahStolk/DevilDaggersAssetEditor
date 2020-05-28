@@ -5,7 +5,7 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public static class EditorUtils
 	{
-		public static int TagsMaxLength => 30/*(int)(App.Instance.MainWindow.CurrentTabControlSize.X / 45)*/;
+		public static int TagsMaxLength => (int)(App.Instance.MainWindow.CurrentTabControlSize.X / 40);
 		public static int DescriptionMaxLength => (int)(App.Instance.MainWindow.CurrentTabControlSize.X / 27);
 		public static int EditorPathMaxLength => (int)(App.Instance.MainWindow.CurrentTabControlSize.X / 27); // TODO: Can be larger for assets other than audio (due to loudness TextBox taking space).
 

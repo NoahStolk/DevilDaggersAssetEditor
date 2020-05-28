@@ -27,10 +27,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public ParticlesAssetTabControlHandler Handler { get; private set; }
 
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> nameSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> tagsSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> descriptionSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl> pathSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> nameSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.AssetName);
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> tagsSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => string.Join(", ", a.AssetRowControlHandler.Asset.Tags));
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> descriptionSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.Description);
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> pathSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.AssetRowControlHandler.Asset.EditorPath);
 
 		public ParticlesAssetTabControl()
 		{
@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 			Handler = new ParticlesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
 
-			foreach (ParticleAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControl))
+			foreach (ParticleAssetRowControl arc in Handler.AssetRowEntries.Select(a => a.AssetRowControlHandler.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -73,20 +73,19 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(
 				GetFilterOperation(),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ParticleAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
-				Handler.AssetRowEntries.Select(a => new KeyValuePair<ParticleAssetRowControl, ParticleAssetRowControlHandler>(a.AssetRowControl, a.AssetRowControl.Handler)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+				Handler.AssetRowEntries.Select(a => new KeyValuePair<ParticleAssetRowControl, TextBlock>(a.AssetRowControlHandler.AssetRowControl, a.AssetRowControlHandler.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
-			foreach (AssetRowEntry<ParticleAsset, ParticleAssetRowControl> are in Handler.AssetRowEntries)
+			foreach (AssetRowEntry<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> assetRowEntry in Handler.AssetRowEntries)
 			{
-				if (!are.IsActive)
+				if (!assetRowEntry.IsActive)
 				{
-					if (AssetEditor.Items.Contains(are.AssetRowControl))
-						AssetEditor.Items.Remove(are.AssetRowControl);
+					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
+						AssetEditor.Items.Remove(assetRowEntry.AssetRowControlHandler.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(are.AssetRowControl))
-						AssetEditor.Items.Add(are.AssetRowControl);
+					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControlHandler.AssetRowControl))
+						AssetEditor.Items.Add(assetRowEntry.AssetRowControlHandler.AssetRowControl);
 				}
 			}
 
@@ -95,10 +94,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<AssetRowEntry<ParticleAsset, ParticleAssetRowControl>> sorted = Handler.ApplySort();
+			List<AssetRowEntry<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				ParticleAssetRowControl arc = AssetEditor.Items.OfType<ParticleAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				ParticleAssetRowControl arc = AssetEditor.Items.OfType<ParticleAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].AssetRowControlHandler.Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}
@@ -138,13 +137,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
 		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
 
-		private void SetSorting(AssetRowSorting<ParticleAsset, ParticleAssetRowControl> sorting)
+		private void SetSorting(AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;
 
 			ApplySort();
 		}
+
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler?.UpdateTagHighlighting();
 	}
 
 	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>
@@ -158,7 +159,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 
 		public override void UpdateGui(ParticleAsset asset)
 		{
-			ParticleAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
+			ParticleAssetRowControl arc = AssetRowEntries.FirstOrDefault(a => a.AssetRowControlHandler.Asset == asset).AssetRowControlHandler.AssetRowControl;
 			arc.TextBlockEditorPath.Text = asset.EditorPath;
 			arc.Handler.UpdateGui();
 		}
