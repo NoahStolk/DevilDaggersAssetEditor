@@ -88,12 +88,15 @@ namespace DevilDaggersAssetEditor.Code
 			{
 				string tag = Asset.Tags[i];
 				chars += tag.Length;
-				Run tagRun = new Run(chars > maxLength ? tag.TrimRight(chars - maxLength) : tag);
+				Run tagRun = new Run(chars > maxLength ? tag.TrimRight(tag.Length - (chars - maxLength)) : tag);
 				if (checkedFilters.Contains(tag))
 					tagRun.Background = new SolidColorBrush(filterHighlightColor);
 				TextBlockTags.Inlines.Add(tagRun);
 				if (i != Asset.Tags.Length - 1)
+				{
 					TextBlockTags.Inlines.Add(new Run(", "));
+					chars += 2;
+				}
 
 				if (chars > maxLength)
 					break;
