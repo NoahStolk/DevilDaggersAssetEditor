@@ -1,16 +1,18 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using NetBase.Extensions;
-using SyntaxHighlighter;
-using SyntaxHighlighter.Parsers;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Documents;
+#if DEBUG
+using SyntaxHighlighter;
+using SyntaxHighlighter.Parsers;
+using System.Collections.Generic;
 using System.Windows.Media;
 using ShColor = SyntaxHighlighter.Color;
 using WmColor = System.Windows.Media.Color;
+#endif
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 {
@@ -50,6 +52,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 				PreviewVertexTextBox.Document.PageWidth = MeasureText(vertexCode);
 				PreviewFragmentTextBox.Document.PageWidth = MeasureText(fragmentCode);
 
+#if DEBUG
 				List<Piece> parsedVertexCode = GlslParser.Instance.Parse(vertexCode);
 				foreach (Piece piece in parsedVertexCode)
 				{
@@ -69,6 +72,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 					};
 					fragment.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(TranslateColor(GlslParser.Instance.CodeStyle.HighlightColors[piece.Type])));
 				}
+
+				static WmColor TranslateColor(ShColor color) => WmColor.FromArgb(255, color.R, color.G, color.B);
+#else
+				TextRange vertex = new TextRange(PreviewVertexTextBox.Document.ContentEnd, PreviewVertexTextBox.Document.ContentEnd) { Text = vertexCode };
+				TextRange fragment = new TextRange(PreviewFragmentTextBox.Document.ContentEnd, PreviewFragmentTextBox.Document.ContentEnd) { Text = fragmentCode };
+#endif
 			}
 		}
 
@@ -83,7 +92,5 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		}
 
 		private static string SanitizeCode(string code) => code.Replace("\t", new string(' ', 4)).Replace("\r", "").Replace("\n", "\r\n");
-
-		private static WmColor TranslateColor(ShColor color) => WmColor.FromArgb(255, color.R, color.G, color.B);
 	}
 }
