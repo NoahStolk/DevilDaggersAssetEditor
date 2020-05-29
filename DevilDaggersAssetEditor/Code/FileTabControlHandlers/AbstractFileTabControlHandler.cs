@@ -211,15 +211,15 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			where TAssetRowControl : UserControl
 			where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 		{
-			for (int i = 0; i < assetTabControlHandler.RowHandlers.Count; i++)
+			foreach (TAssetRowControlHandler rowHandler in assetTabControlHandler.RowHandlers)
 			{
-				TAsset asset = assetTabControlHandler.RowHandlers[i].Asset;
+				TAsset asset = rowHandler.Asset;
 				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName);
 				if (userAsset != null)
 				{
 					asset.ImportValuesFromUserAsset(userAsset);
 
-					assetTabControlHandler.UpdateGui(asset);
+					rowHandler.UpdateGui();
 				}
 			}
 		}

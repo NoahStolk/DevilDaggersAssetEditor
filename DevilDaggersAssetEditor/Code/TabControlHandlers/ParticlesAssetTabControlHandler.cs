@@ -2,7 +2,6 @@
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetEditor.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
-using System.Linq;
 
 namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
@@ -13,12 +12,6 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public ParticlesAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
-		}
-
-		public override void UpdateGui(ParticleAsset asset)
-		{
-			ParticleAssetRowControl arc = RowHandlers.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
-			arc.Handler.UpdateGui();
 		}
 	}
 }

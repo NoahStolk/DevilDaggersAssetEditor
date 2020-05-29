@@ -22,12 +22,6 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 		}
 
-		public override void UpdateGui(AudioAsset asset)
-		{
-			AudioAssetRowControl arc = RowHandlers.FirstOrDefault(a => a.Asset == asset).AssetRowControl;
-			arc.Handler.UpdateGui();
-		}
-
 		public void ImportLoudness()
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };

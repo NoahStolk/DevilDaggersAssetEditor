@@ -53,17 +53,15 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			FilterHighlightColor = chunkInfo.GetColor() * 0.25f;
 		}
 
-		public abstract void UpdateGui(TAsset asset);
-
 		public void UpdateTagHighlighting()
 		{
-			foreach (TAssetRowControlHandler handler in RowHandlers.Where(a => a.IsActive))
-				handler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
+			foreach (TAssetRowControlHandler rowHandler in RowHandlers.Where(a => a.IsActive))
+				rowHandler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
 		}
 
 		public void SetAssetEditorBackgroundColors(ItemCollection items)
 		{
-			foreach (TAssetRowControlHandler rowHandler in RowHandlers)
+			foreach (TAssetRowControlHandler rowHandler in RowHandlers.Where(a => a.IsActive))
 				rowHandler.UpdateBackgroundRectangleColors(items.IndexOf(rowHandler.AssetRowControl) % 2 == 0);
 		}
 
@@ -84,12 +82,12 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 			foreach (string filePath in Directory.GetFiles(dialog.FileName))
 			{
-				TAsset asset = RowHandlers.Where(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", "").Replace("_vertex", "")).Cast<TAsset>().FirstOrDefault();
-				if (asset != null)
-				{
-					asset.EditorPath = filePath.Replace("_fragment", "").Replace("_vertex", "");
-					UpdateGui(asset);
-				}
+				TAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", "").Replace("_vertex", ""));
+				if (rowHandler == null)
+					continue;
+
+				rowHandler.Asset.EditorPath = filePath.Replace("_fragment", "").Replace("_vertex", "");
+				rowHandler.UpdateGui();
 			}
 		}
 
