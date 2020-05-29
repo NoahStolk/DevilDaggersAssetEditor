@@ -94,6 +94,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 								tabHandler.UpdateAssetTabControls(modFile.Assets);
 					}
 				}
+				timer.Stop();
 			};
 			timer.Start();
 		}
