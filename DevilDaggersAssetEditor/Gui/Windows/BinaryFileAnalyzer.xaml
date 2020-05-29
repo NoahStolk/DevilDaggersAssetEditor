@@ -13,9 +13,9 @@
 			<Label Name="FileName" FontWeight="Bold" FontSize="24" />
 			<Label Name="FileSize" FontWeight="Bold" FontSize="18" />
 			<Label FontSize="18" FontWeight="Bold" Margin="0,16">Data</Label>
-			<StackPanel Name="Data" Width="1260" HorizontalAlignment="Left" />
+			<StackPanel Name="Data" Width="1264" HorizontalAlignment="Left" />
 			<Label FontSize="18" FontWeight="Bold" Margin="0,16">Chunks</Label>
-			<Grid Name="ChunkData" Width="1260" HorizontalAlignment="Left" />
+			<Grid Name="ChunkData" Width="1264" HorizontalAlignment="Left" />
 		</StackPanel>
 	</ScrollViewer>
 </Window>
