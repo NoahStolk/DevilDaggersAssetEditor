@@ -32,11 +32,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 					FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString();
 				}
 
-				// We don't want to dispose this stream so the image stays visible.
-				FileStream stream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
+				using FileStream imageFileStream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
+				MemoryStream imageCopyStream = new MemoryStream();
+				imageFileStream.CopyTo(imageCopyStream);
 				BitmapImage src = new BitmapImage();
 				src.BeginInit();
-				src.StreamSource = stream;
+				src.StreamSource = imageCopyStream;
 				src.EndInit();
 				PreviewImage.Source = src;
 			}
