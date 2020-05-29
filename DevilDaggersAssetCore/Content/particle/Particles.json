@@ -27,7 +27,8 @@
 		"AssetName": "centipededecals",
 		"Description": "?",
 		"Tags": [
-			"Enemy"
+			"Enemy",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -35,7 +36,8 @@
 		"AssetName": "centipededecals2",
 		"Description": "?",
 		"Tags": [
-			"Enemy"
+			"Enemy",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -83,7 +85,8 @@
 		"AssetName": "eggdecals",
 		"Description": "?",
 		"Tags": [
-			"Spider Egg"
+			"Spider Egg",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -621,7 +624,8 @@
 		"AssetName": "skulldecals",
 		"Description": "?",
 		"Tags": [
-			"Skull"
+			"Skull",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -629,7 +633,8 @@
 		"AssetName": "skulldecals2",
 		"Description": "?",
 		"Tags": [
-			"Skull"
+			"Skull",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -645,7 +650,8 @@
 		"AssetName": "skullpop",
 		"Description": "?",
 		"Tags": [
-			"Skull"
+			"Skull",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -653,7 +659,8 @@
 		"AssetName": "spiderdeath",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -661,7 +668,8 @@
 		"AssetName": "spiderdeath2",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -669,7 +677,8 @@
 		"AssetName": "spiderdeath3",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -677,7 +686,8 @@
 		"AssetName": "spiderdeath4",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -685,7 +695,8 @@
 		"AssetName": "spiderdecals",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -693,7 +704,8 @@
 		"AssetName": "spiderdecals2",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -701,7 +713,8 @@
 		"AssetName": "spiderdecals3",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -709,7 +722,8 @@
 		"AssetName": "spiderdecals4",
 		"Description": "?",
 		"Tags": [
-			"Spider"
+			"Spider",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -717,7 +731,8 @@
 		"AssetName": "spiderlingdecals",
 		"Description": "?",
 		"Tags": [
-			"Spiderling"
+			"Spiderling",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -725,7 +740,8 @@
 		"AssetName": "spiderlingdecals2",
 		"Description": "?",
 		"Tags": [
-			"Spiderling"
+			"Spiderling",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -829,7 +845,8 @@
 		"AssetName": "squiddecals",
 		"Description": "?",
 		"Tags": [
-			"Squid"
+			"Squid",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -837,7 +854,8 @@
 		"AssetName": "squiddecals2",
 		"Description": "?",
 		"Tags": [
-			"Squid"
+			"Squid",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -845,7 +863,8 @@
 		"AssetName": "squiddecals3",
 		"Description": "?",
 		"Tags": [
-			"Squid"
+			"Squid",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -853,7 +872,8 @@
 		"AssetName": "squiddecals4",
 		"Description": "?",
 		"Tags": [
-			"Squid"
+			"Squid",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -885,7 +905,8 @@
 		"AssetName": "superskulldecals",
 		"Description": "?",
 		"Tags": [
-			"Skull"
+			"Skull",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -893,7 +914,8 @@
 		"AssetName": "superskulldecals2",
 		"Description": "?",
 		"Tags": [
-			"Skull"
+			"Skull",
+			"Decals"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
@@ -909,7 +931,8 @@
 		"AssetName": "superskullpop",
 		"Description": "?",
 		"Tags": [
-			"Skull"
+			"Skull",
+			"Death"
 		],
 		"ChunkTypeName": "ParticleChunk"
 	},
