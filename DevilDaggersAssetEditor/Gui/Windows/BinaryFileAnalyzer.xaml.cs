@@ -18,6 +18,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 {
 	public partial class BinaryFileAnalyzerWindow : Window
 	{
+		public string fileName;
 		public uint fileByteCount;
 		public uint headerByteCount;
 		public List<AbstractChunk> chunks;
@@ -36,19 +37,22 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult.HasValue && openResult.Value)
 			{
+				ClearGui();
+
 				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
 
-				if (!TryReadResourceFile(sourceFileBytes) && !TryReadParticleFile(sourceFileBytes))
+				if (!TryReadResourceFile(openDialog.FileName, sourceFileBytes) && !TryReadParticleFile(openDialog.FileName, sourceFileBytes))
 					MessageBox.Show("File not recognized. Make sure to open one of the following binary files: audio, core, dd, particle");
 				else
 					UpdateGui();
 			}
 		}
 
-		private bool TryReadResourceFile(byte[] sourceFileBytes)
+		private bool TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
 		{
 			try
 			{
+				fileName = sourceFileName;
 				fileByteCount = (uint)sourceFileBytes.Length;
 
 				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.Audio | BinaryFileType.Core | BinaryFileType.Dd);
@@ -66,10 +70,11 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			}
 		}
 
-		private bool TryReadParticleFile(byte[] sourceFileBytes)
+		private bool TryReadParticleFile(string sourceFileName, byte[] sourceFileBytes)
 		{
 			try
 			{
+				fileName = sourceFileName;
 				fileByteCount = (uint)sourceFileBytes.Length;
 				headerByteCount = ParticleFileHandler.HeaderSize;
 
@@ -109,6 +114,16 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				"Unknown" => Color.FromRgb(127, 127, 255),
 				_ => Color.FromRgb(255, 255, 255)
 			};
+		}
+
+		private void ClearGui()
+		{
+			FileName.Content = string.Empty;
+			FileSize.Content = string.Empty;
+			Canvas.Children.Clear();
+			Data.ColumnDefinitions.Clear();
+			Data.Children.Clear();
+			Separator.Visibility = Visibility.Hidden;
 		}
 
 		private void UpdateGui()
@@ -161,10 +176,9 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			int pos = 0;
 			int col = 0;
 
+			FileName.Content = fileName;
 			FileSize.Content = $"{fileByteCount:N0} bytes";
-			C.Children.Clear();
-			Data.ColumnDefinitions.Clear();
-			Data.Children.Clear();
+			Separator.Visibility = Visibility.Visible;
 			foreach (KeyValuePair<string, (Color color, uint byteCount, uint chunkCount)> chunkInfo in chunkInfos)
 			{
 				float sizePercentage = chunkInfo.Value.byteCount / (float)fileByteCount;
@@ -176,14 +190,14 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 					Fill = new SolidColorBrush(chunkInfo.Value.color)
 				};
 				Canvas.SetLeft(rect, pos);
-				C.Children.Add(rect);
+				Canvas.Children.Add(rect);
 
 				pos += width;
 
 				Data.ColumnDefinitions.Add(new ColumnDefinition());
 				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(GetColor(chunkInfo.Key)) };
 				Grid.SetColumn(stackPanel, col++);
-				stackPanel.Children.Add(new Label { Content = $"{chunkInfo.Key} data ({sizePercentage:0.000%})", FontWeight = FontWeights.Bold });
+				stackPanel.Children.Add(new Label { Content = $"{chunkInfo.Key} data ({sizePercentage:0.000%})", FontWeight = FontWeights.Bold, Height = 40 });
 				stackPanel.Children.Add(new Label { Content = $"{chunkInfo.Value.byteCount:N0} bytes" });
 				if (chunkInfo.Value.chunkCount > 0)
 					stackPanel.Children.Add(new Label { Content = $"{chunkInfo.Value.chunkCount} chunks" });

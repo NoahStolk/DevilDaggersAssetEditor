@@ -4,11 +4,13 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
-        Title="File analyzer" Height="512" Width="1366" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#bbb">
-	<StackPanel>
+        Title="Binary file analyzer" Height="512" Width="1366" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#bbb">
+	<StackPanel Margin="32">
 		<Button Name="ButtonBrowse" Click="ButtonBrowse_Click" Width="128">Browse binary file</Button>
-		<Canvas Name="C" Width="1280" Height="32" />
-		<Label Name="FileSize" HorizontalAlignment="Center" />
+		<Canvas Name="Canvas" Height="32" />
+		<Label Name="FileName" HorizontalAlignment="Center" FontSize="24" />
+		<Label Name="FileSize" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18" />
+		<Separator Name="Separator" Visibility="Hidden" />
 		<Grid Name="Data" />
 	</StackPanel>
 </Window>
