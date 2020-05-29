@@ -11,7 +11,7 @@
 			<MenuItem Header="Settings" Click="Settings_Click" />
 		</MenuItem>
 		<MenuItem Header="Tools">
-			<MenuItem Header="Open binary file analyzer" Click="FileAnalyzerMenuItem_Click" />
+			<MenuItem Header="Analyze binary file" Click="AnalyzeBinaryFileMenuItem_Click" />
 		</MenuItem>
 		<MenuItem Header="Help">
 			<MenuItem Header="About" Click="About_Click" />
