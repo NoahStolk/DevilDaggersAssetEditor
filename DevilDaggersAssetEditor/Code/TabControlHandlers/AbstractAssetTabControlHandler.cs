@@ -61,6 +61,12 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				handler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
 		}
 
+		public void SetAssetEditorBackgroundColors(ItemCollection items)
+		{
+			foreach (TAssetRowControlHandler rowHandler in RowHandlers)
+				rowHandler.UpdateBackgroundRectangleColors(items.IndexOf(rowHandler.AssetRowControl) % 2 == 0);
+		}
+
 		public void SelectAsset(TAsset asset)
 		{
 			SelectedAsset = asset;

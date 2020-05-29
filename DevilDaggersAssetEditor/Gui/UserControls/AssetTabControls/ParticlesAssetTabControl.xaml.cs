@@ -106,7 +106,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				AssetEditor.Items.Insert(i, arc);
 			}
 
-			SetAssetEditorBackgroundColors();
+			Handler.SetAssetEditorBackgroundColors(AssetEditor.Items);
 		}
 
 		private FilterOperation GetFilterOperation()
@@ -116,12 +116,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			if (FilterOperationOr.IsChecked.Value)
 				return FilterOperation.Or;
 			return FilterOperation.None;
-		}
-
-		private void SetAssetEditorBackgroundColors()
-		{
-			foreach (ParticleAssetRowControl row in AssetEditor.Items)
-				row.Handler.UpdateBackgroundRectangleColors(AssetEditor.Items.IndexOf(row) % 2 == 0);
 		}
 
 		private void AssetEditor_SelectionChanged(object sender, SelectionChangedEventArgs e)
