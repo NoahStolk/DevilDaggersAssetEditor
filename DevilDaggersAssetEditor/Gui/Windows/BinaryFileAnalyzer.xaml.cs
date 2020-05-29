@@ -38,10 +38,10 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			{
 				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
 
-				if (!TryReadResourceFile(sourceFileBytes))
-					TryReadParticleFile(sourceFileBytes);
-
-				UpdateGui();
+				if (!TryReadResourceFile(sourceFileBytes) && !TryReadParticleFile(sourceFileBytes))
+					MessageBox.Show("File not recognized. Make sure to open one of the following binary files: audio, core, dd, particle");
+				else
+					UpdateGui();
 			}
 		}
 
@@ -66,22 +66,30 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			}
 		}
 
-		private void TryReadParticleFile(byte[] sourceFileBytes)
+		private bool TryReadParticleFile(byte[] sourceFileBytes)
 		{
-			fileByteCount = (uint)sourceFileBytes.Length;
-			headerByteCount = ParticleFileHandler.HeaderSize;
-
-			ParticleFileHandler fileHandler = new ParticleFileHandler();
-			fileHandler.ValidateFile(sourceFileBytes);
-
-			int i = (int)headerByteCount;
-			chunks = new List<AbstractChunk>();
-			while (i < sourceFileBytes.Length)
+			try
 			{
-				ParticleChunk chunk = fileHandler.ReadParticleChunk(sourceFileBytes, i);
-				i += chunk.Name.Length;
-				i += chunk.Buffer.Length;
-				chunks.Add(chunk);
+				fileByteCount = (uint)sourceFileBytes.Length;
+				headerByteCount = ParticleFileHandler.HeaderSize;
+
+				ParticleFileHandler fileHandler = new ParticleFileHandler();
+				fileHandler.ValidateFile(sourceFileBytes);
+
+				int i = (int)headerByteCount;
+				chunks = new List<AbstractChunk>();
+				while (i < sourceFileBytes.Length)
+				{
+					ParticleChunk chunk = fileHandler.ReadParticleChunk(sourceFileBytes, i);
+					i += chunk.Name.Length;
+					i += chunk.Buffer.Length;
+					chunks.Add(chunk);
+				}
+				return true;
+			}
+			catch
+			{
+				return false;
 			}
 		}
 
