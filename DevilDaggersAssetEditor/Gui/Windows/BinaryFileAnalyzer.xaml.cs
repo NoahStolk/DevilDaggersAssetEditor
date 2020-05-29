@@ -28,7 +28,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			IEnumerable<IGrouping<string, AbstractChunk>> chunksByType = fileResult.chunks.GroupBy(c => ChunkInfo.All.FirstOrDefault(ci => ci.ChunkType == c.GetType()).DataName);
 			foreach (IGrouping<string, AbstractChunk> group in chunksByType.OrderBy(c => c.Key))
 			{
-				IEnumerable<AbstractChunk> validChunks = group.Where(c => c.Size != 0); // Filter empty chunks (garbage in core file TOC buffer).
+				IEnumerable<AbstractChunk> validChunks = group;
 				uint size = 0;
 				uint headerSize = 0;
 				foreach (AbstractChunk chunk in validChunks)
@@ -125,6 +125,41 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 					stackPanel.Children.Add(new Label { Content = $"{kvp.Value.chunks.Length} chunks" });
 
 				Data.Children.Add(stackPanel);
+			}
+
+			int columns = 8;
+			for (int j = 0; j < columns; j++)
+				ChunkData.ColumnDefinitions.Add(new ColumnDefinition());
+
+			int k = 0;
+			foreach (AbstractChunk chunk in fileResult.chunks.OrderByDescending(c => c.Size))
+			{
+				if (k % columns == 0)
+					ChunkData.RowDefinitions.Add(new RowDefinition());
+
+				double chunkSizePercentage = chunk.Size / (double)fileResult.fileByteCount;
+
+				string dataName = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType()).DataName;
+				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(GetColor(dataName) * (float)chunkSizePercentage * 50) };
+				TextBlock textBlockDataName = new TextBlock { Margin = new Thickness(2), Text = dataName, FontWeight = FontWeights.Bold };
+				if (chunkSizePercentage < 0.005f)
+					textBlockDataName.Background = new SolidColorBrush(GetColor(dataName) * 0.25f);
+				stackPanel.Children.Add(textBlockDataName);
+				stackPanel.Children.Add(new Label { Content = chunk.Name, FontWeight = FontWeights.Bold });
+				stackPanel.Children.Add(new Label { Content = $"{chunk.Size:N0} bytes" });
+				stackPanel.Children.Add(new Label { Content = $"{chunkSizePercentage:0.000%} of file" });
+
+				Border border = new Border
+				{
+					BorderThickness = new Thickness(1),
+					BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0))
+				};
+				border.Child = stackPanel;
+				Grid.SetColumn(border, k % columns);
+				Grid.SetRow(border, k / columns);
+
+				ChunkData.Children.Add(border);
+				k++;
 			}
 		}
 

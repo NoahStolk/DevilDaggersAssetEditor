@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore.Chunks;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DevilDaggersAssetCore.BinaryFileAnalyzer
 {
@@ -15,7 +16,7 @@ namespace DevilDaggersAssetCore.BinaryFileAnalyzer
 			this.fileName = fileName;
 			this.fileByteCount = fileByteCount;
 			this.headerByteCount = headerByteCount;
-			this.chunks = chunks;
+			this.chunks = chunks.Where(c => c.Size != 0).ToList(); // Filter empty chunks (garbage in core file TOC buffer).
 		}
 	}
 }

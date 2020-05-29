@@ -5,12 +5,17 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
         Title="Binary file analyzer" Height="1024" Width="1366" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#bbb">
-	<StackPanel Margin="32">
-		<Border BorderBrush="Black" BorderThickness="2" Width="1284">
-			<Canvas Name="Canvas" Height="32" Width="1280" />
-		</Border>
-		<Label Name="FileName" HorizontalAlignment="Center" FontSize="24" />
-		<Label Name="FileSize" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18" />
-		<StackPanel Name="Data" Width="1280" />
-	</StackPanel>
+	<ScrollViewer>
+		<StackPanel Margin="32">
+			<Border BorderBrush="Black" BorderThickness="2" Width="1264">
+				<Canvas Name="Canvas" Height="32" Width="1260" />
+			</Border>
+			<Label Name="FileName" HorizontalAlignment="Center" FontWeight="Bold" FontSize="24" />
+			<Label Name="FileSize" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18" />
+			<Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="16">Data</Label>
+			<StackPanel Name="Data" Width="1260" />
+			<Label HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="16">Chunks</Label>
+			<Grid Name="ChunkData" Width="1260" />
+		</StackPanel>
+	</ScrollViewer>
 </Window>
