@@ -22,7 +22,7 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		public override void Compress(string path)
+		public override void MakeBinary(string path)
 		{
 			using Image image = Image.FromFile(path);
 			int maxDimension = Math.Max(image.Width, image.Height);
@@ -83,7 +83,7 @@ namespace DevilDaggersAssetCore.Chunks
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}
 
-		public override IEnumerable<FileResult> Extract()
+		public override IEnumerable<FileResult> ExtractBinary()
 		{
 			GetBufferSizes(Header, out _, out int[] mipmapBufferSizes);
 

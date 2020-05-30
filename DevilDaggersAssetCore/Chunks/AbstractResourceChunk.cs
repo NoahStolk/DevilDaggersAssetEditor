@@ -19,13 +19,13 @@ namespace DevilDaggersAssetCore.Chunks
 		// Only overridden by AbstractHeaderedChunk to take header into account.
 		public virtual byte[] GetBuffer() => Buffer;
 
-		public virtual void Compress(string path)
+		public virtual void MakeBinary(string path)
 		{
 			Buffer = File.ReadAllBytes(path);
 			Size = (uint)Buffer.Length;
 		}
 
-		public virtual IEnumerable<FileResult> Extract()
+		public virtual IEnumerable<FileResult> ExtractBinary()
 		{
 			yield return new FileResult(Name, Buffer);
 		}

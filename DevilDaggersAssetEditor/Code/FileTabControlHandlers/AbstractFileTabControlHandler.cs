@@ -30,13 +30,13 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			BinaryFileType binaryFileType = FileHandler.BinaryFileType;
 			string fileName = binaryFileType.ToString().ToLower();
 
-			MenuItem extractItem = new MenuItem { Header = $"Extract '{fileName}'" };
-			MenuItem compressItem = new MenuItem { Header = $"Compress '{fileName}'" };
+			MenuItem extractBinaryItem = new MenuItem { Header = $"Extract '{fileName}' binary" };
+			MenuItem makeBinaryItem = new MenuItem { Header = $"Make '{fileName}' binary" };
 			MenuItem openModFileItem = new MenuItem { Header = $"Open .{fileName} mod file" };
 			MenuItem saveModFileItem = new MenuItem { Header = $"Save .{fileName} mod file" };
 
-			extractItem.Click += (sender, e) => Extract_Click();
-			compressItem.Click += (sender, e) => Compress_Click();
+			extractBinaryItem.Click += (sender, e) => ExtractBinary_Click();
+			makeBinaryItem.Click += (sender, e) => MakeBinary_Click();
 			openModFileItem.Click += (sender, e) =>
 			{
 				ModFile modFile = OpenModFile();
@@ -53,8 +53,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 			MenuItem fileTypeMenuItem = new MenuItem { Header = fileName };
 
-			fileTypeMenuItem.Items.Add(extractItem);
-			fileTypeMenuItem.Items.Add(compressItem);
+			fileTypeMenuItem.Items.Add(extractBinaryItem);
+			fileTypeMenuItem.Items.Add(makeBinaryItem);
 			fileTypeMenuItem.Items.Add(new Separator());
 			fileTypeMenuItem.Items.Add(openModFileItem);
 			fileTypeMenuItem.Items.Add(saveModFileItem);
@@ -67,7 +67,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 		public abstract List<AbstractAsset> GetAssets();
 
-		private async void Extract_Click()
+		private async void ExtractBinary_Click()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
 			if (Settings.EnableDevilDaggersRootFolder)
@@ -87,7 +87,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				progressWindow.Show();
 				await Task.Run(() =>
 				{
-					FileHandler.Extract(
+					FileHandler.ExtractBinary(
 						openDialog.FileName,
 						folderDialog.FileName,
 						FileHandler.BinaryFileType,
@@ -98,7 +98,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			}
 		}
 
-		private async void Compress_Click()
+		private async void MakeBinary_Click()
 		{
 			if (!IsComplete())
 			{
@@ -115,13 +115,13 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!result.HasValue || !result.Value)
 				return;
 
-			ProgressWindow progressWindow = new ProgressWindow($"Compressing '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
+			ProgressWindow progressWindow = new ProgressWindow($"Turning '{FileHandler.BinaryFileType.ToString().ToLower()}' into binary data...");
 			progressWindow.Show();
 			await Task.Run(() =>
 			{
 				try
 				{
-					FileHandler.Compress(
+					FileHandler.MakeBinary(
 						allAssets: GetAssets(),
 						outputPath: dialog.FileName,
 						progress: new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
@@ -133,7 +133,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Compression failed", $"Compressing assets failed during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
+						App.Instance.ShowError("Making binary failed", $"Making binary failed during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
 						progressWindow.Error();
 					});
 				}

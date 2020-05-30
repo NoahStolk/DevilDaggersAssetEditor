@@ -25,7 +25,7 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		public override void Compress(string path)
+		public override void MakeBinary(string path)
 		{
 			string text = File.ReadAllText(path);
 			string[] lines = text.Split('\n');
@@ -58,7 +58,7 @@ namespace DevilDaggersAssetCore.Chunks
 						// f 1/2/3 4/5/6 7/8/9
 						// f 1/2/3 4/5/6 7/8/9 10/11/12
 						if (values.Length > 5)
-							throw new NotImplementedException("Compressing NGons has not been implemented.");
+							throw new NotImplementedException("Turning models consisting of NGons into binary data has not been implemented.");
 
 						for (int j = 0; j < 3; j++)
 						{
@@ -155,7 +155,7 @@ namespace DevilDaggersAssetCore.Chunks
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}
 
-		public override IEnumerable<FileResult> Extract()
+		public override IEnumerable<FileResult> ExtractBinary()
 		{
 			Vertex[] vertices = new Vertex[Header.VertexCount];
 			uint[] indices = new uint[Header.IndexCount];

@@ -22,7 +22,7 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
-		public override void Compress(string path)
+		public override void MakeBinary(string path)
 		{
 			string vertexPath = path.Replace(".glsl", "_vertex.glsl");
 			string fragmentPath = path.Replace(".glsl", "_fragment.glsl");
@@ -50,7 +50,7 @@ namespace DevilDaggersAssetCore.Chunks
 			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}
 
-		public override IEnumerable<FileResult> Extract()
+		public override IEnumerable<FileResult> ExtractBinary()
 		{
 			byte[] vertexBuffer = new byte[Header.VertexSize];
 			Buf.BlockCopy(Buffer, (int)Header.NameLength, vertexBuffer, 0, (int)Header.VertexSize);

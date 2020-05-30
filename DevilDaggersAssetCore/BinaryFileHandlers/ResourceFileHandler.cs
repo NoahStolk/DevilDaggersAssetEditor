@@ -37,11 +37,11 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		}
 
 		/// <summary>
-		/// Compresses multiple asset files into one binary file that can be read by Devil Daggers.
+		/// Inserts multiple asset files into one binary file that can be read by Devil Daggers.
 		/// </summary>
 		/// <param name="allAssets">The list of asset objects.</param>
-		/// <param name="outputPath">The path where the compressed binary file will be placed.</param>
-		public override void Compress(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription)
+		/// <param name="outputPath">The path where the binary file will be placed.</param>
+		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription)
 		{
 			((IProgress<string>)progressDescription).Report($"Initializing '{BinaryFileType.ToString().ToLower()}' file creation.");
 
@@ -143,7 +143,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				// Create chunk.
 				Type type = Utils.GetAssemblyByName("DevilDaggersAssetCore").GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);
 				AbstractResourceChunk chunk = (AbstractResourceChunk)Activator.CreateInstance(type, asset.AssetName, 0U/*Don't know start offset yet.*/, 0U/*Don't know size yet.*/, 0U);
-				chunk.Compress(asset.EditorPath);
+				chunk.MakeBinary(asset.EditorPath);
 
 				chunks.Add(chunk);
 			}
@@ -169,7 +169,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		}
 
 		/// <summary>
-		/// Extracts a compressed binary file into multiple asset files.
+		/// Extracts a binary file into multiple asset files.
 		/// </summary>
 		/// <param name="inputPath">The binary file path.</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
@@ -177,7 +177,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 		/// <param name="createModFile">Whether to create mod file or not.</param>
 		/// <param name="progress">The progress as percentage.</param>
 		/// <param name="progressDescription">The progress description displayed in the progress window.</param>
-		public override void Extract(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
+		public override void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
 		{
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
@@ -264,7 +264,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 				chunk.SetBuffer(buf);
 
-				foreach (FileResult fileResult in chunk.Extract())
+				foreach (FileResult fileResult in chunk.ExtractBinary())
 					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{(fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)}"), fileResult.Buffer);
 			}
 		}

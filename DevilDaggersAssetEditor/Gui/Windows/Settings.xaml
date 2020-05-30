@@ -33,13 +33,13 @@
 			</StackPanel>
 		</StackPanel>
 
-		<Label FontWeight="Bold" FontSize="14">Extraction</Label>
+		<Label FontWeight="Bold" FontSize="14">Extracting binaries</Label>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
-			<CheckBox Name="CheckBoxCreateModFileWhenExtracting" Margin="4">Automatically create mod file when extracting assets</CheckBox>
-			<CheckBox Name="CheckBoxOpenModFolderAfterExtracting" Margin="4">Automatically open folder after extracting assets</CheckBox>
+			<CheckBox Name="CheckBoxCreateModFileWhenExtracting" Margin="4">Automatically create mod file when extracting binaries</CheckBox>
+			<CheckBox Name="CheckBoxOpenModFolderAfterExtracting" Margin="4">Automatically open folder after extracting binaries</CheckBox>
 		</StackPanel>
 
-		<Label FontWeight="Bold" FontSize="14">Compression</Label>
+		<Label FontWeight="Bold" FontSize="14">Making binaries</Label>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
 			<TextBlock Style="{StaticResource PaddingTextBlock}">Texture dimension limit in pixels</TextBlock>
 			<TextBox Name="TextBoxTextureSizeLimit" MaxLength="4" Width="64" HorizontalAlignment="Left" />
