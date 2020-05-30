@@ -20,7 +20,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			InitializeComponent();
 
-			Dictionary<string, AnalyzerChunkResult> chunkInfos = new Dictionary<string, AnalyzerChunkResult>
+			Dictionary<string, AnalyzerChunkGroup> chunkInfos = new Dictionary<string, AnalyzerChunkGroup>
 			{
 				{ "File header", ChunkResult(GetColor("File header"), fileResult.headerByteCount, Array.Empty<AbstractChunk>()) }
 			};
@@ -70,7 +70,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			FileSize.Content = $"{fileResult.fileByteCount:N0} bytes";
 			float maxPercentage = chunkInfos.Max(c => c.Value.byteCount / (float)fileResult.fileByteCount);
 			int i = 0;
-			foreach (KeyValuePair<string, AnalyzerChunkResult> kvp in chunkInfos.OrderBy(c => c.Value.chunks.Length != 0).ThenByDescending(c => c.Value.byteCount).Where(c => c.Value.byteCount > 0))
+			foreach (KeyValuePair<string, AnalyzerChunkGroup> kvp in chunkInfos.OrderBy(c => c.Value.chunks.Length != 0).ThenByDescending(c => c.Value.byteCount).Where(c => c.Value.byteCount > 0))
 			{
 				Color color = ChunkResultColor(kvp.Value);
 
@@ -163,9 +163,9 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			}
 		}
 
-		private AnalyzerChunkResult ChunkResult(Color color, uint byteCount, AbstractChunk[] chunks) => new AnalyzerChunkResult(color.R, color.G, color.B, byteCount, chunks);
+		private AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, AbstractChunk[] chunks) => new AnalyzerChunkGroup(color.R, color.G, color.B, byteCount, chunks);
 
-		private Color ChunkResultColor(AnalyzerChunkResult chunkResult) => Color.FromRgb(chunkResult.r, chunkResult.g, chunkResult.b);
+		private Color ChunkResultColor(AnalyzerChunkGroup chunkResult) => Color.FromRgb(chunkResult.r, chunkResult.g, chunkResult.b);
 
 		public static AnalyzerFileResult TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
 		{
