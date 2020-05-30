@@ -1,5 +1,5 @@
 # DevilDaggersAssetEditor ([Download](https://devildaggers.info/Api/GetTool?toolName=DevilDaggersAssetEditor))
-DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as compressing them back to create mods. It is a .NET WPF application built using Visual Studio 2019.
+Devil Daggers Asset Editor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods. It is a .NET WPF application built using Visual Studio 2019.
 
 ## Frameworks
 - .NET Standard 2.0 (Core library)
