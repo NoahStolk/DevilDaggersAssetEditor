@@ -12,12 +12,15 @@ namespace DevilDaggersAssetCore.Assets
 		public Point DefaultDimensions { get; }
 		[JsonProperty]
 		public string ModelBinding { get; set; }
+		[JsonProperty]
+		public bool IsModelTexture { get; set; }
 
-		public TextureAsset(string assetName, string description, string[] tags, string chunkTypeName, Point defaultDimensions, string modelBinding)
+		public TextureAsset(string assetName, string description, string[] tags, string chunkTypeName, Point defaultDimensions, string modelBinding, bool isModelTexture)
 			: base(assetName, description, tags, chunkTypeName)
 		{
 			DefaultDimensions = defaultDimensions;
 			ModelBinding = modelBinding;
+			IsModelTexture = isModelTexture;
 		}
 
 		public override AbstractUserAsset ToUserAsset() => new TextureUserAsset(AssetName, EditorPath);

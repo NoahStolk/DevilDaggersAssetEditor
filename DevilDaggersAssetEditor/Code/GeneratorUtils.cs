@@ -50,7 +50,7 @@ namespace DevilDaggersAssetEditor.Code
 						break;
 					case ".png":
 						Image image = Image.FromFile(path);
-						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(TextureChunk), new Point(image.Width, image.Height), ""));
+						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(TextureChunk), new Point(image.Width, image.Height), "", false /*We don't know this here.*/));
 						break;
 				}
 			}
