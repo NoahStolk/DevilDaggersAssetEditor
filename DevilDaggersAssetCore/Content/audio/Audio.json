@@ -97,6 +97,16 @@
 		"ChunkTypeName": "AudioChunk"
 	},
 	{
+		"Loudness": 10,
+		"AssetName": "chatterminisquid",
+		"Description": "Unused",
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		],
+		"ChunkTypeName": "AudioChunk"
+	},
+	{
 		"Loudness": 2.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull",
