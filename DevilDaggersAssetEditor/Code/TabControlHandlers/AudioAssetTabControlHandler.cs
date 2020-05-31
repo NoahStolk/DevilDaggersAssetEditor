@@ -53,9 +53,9 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			foreach (KeyValuePair<string, float> kvp in values)
 			{
 				AudioAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
-				AudioAsset audioAsset = rowHandler.Asset;
-				if (audioAsset != null)
+				if (rowHandler != null)
 				{
+					AudioAsset audioAsset = rowHandler.Asset;
 					if (audioAsset.Loudness == kvp.Value)
 					{
 						unchangedCount++;
