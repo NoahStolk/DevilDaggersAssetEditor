@@ -1,963 +1,963 @@
 [
 	{
 		"AssetName": "blood",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Blood"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "centipedeburrow",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "centipedeburst",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "centipededecals",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Enemy",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Enemy"
+		]
 	},
 	{
 		"AssetName": "centipededecals2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Enemy",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Enemy"
+		]
 	},
 	{
 		"AssetName": "centipedeemerge",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "centipedefrags",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "daggerfireflight",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "default",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "eggburst",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spider Egg"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "eggdecals",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider Egg",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Spider Egg"
+		]
 	},
 	{
 		"AssetName": "egghit",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spider Egg"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "eggspores",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spider Egg"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "fire",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "fire1",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "fire2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "fire3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "fire4",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "fire5",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "gibs",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Gore"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "gibtrail",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Gore"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "hit1",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "hitbone",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "hominghit",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Homing dagger"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "levdeath",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
+			"Death",
 			"Enemy",
-			"Leviathan",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Leviathan"
+		]
 	},
 	{
 		"AssetName": "levelup",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Upgrade"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "levfire",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "levfountain",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "leviathansuck",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "levideath",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
+			"Death",
 			"Enemy",
-			"Leviathan",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Leviathan"
+		]
 	},
 	{
 		"AssetName": "levidust",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "levidust2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "magentabomb",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Level 4",
-			"Homing dagger"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
 		"AssetName": "magic",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Level 3",
-			"Homing dagger"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Homing dagger",
+			"Level 3"
+		]
 	},
 	{
 		"AssetName": "medal1bronze",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Bronze"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "medal2silver",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Silver"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "medal3gold",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Golden"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "medal4devil",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Devil"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid1",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid1ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid2ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid3alt",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid3altember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid3ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid4",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid4alt",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid4altember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rapid4ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Spray"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "ricochet1",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger",
 			"Ricochet"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "ricochet2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger",
 			"Ricochet"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "ricochet3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger",
 			"Ricochet"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "ricochet4",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger",
 			"Ricochet"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "ricochet5",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger",
 			"Ricochet"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "ricochet6",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger",
 			"Ricochet"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "ricochetdecal",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Dagger",
 			"Ricochet"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rockethit",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "rockethit2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot1",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot1ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot2ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot3alt",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot3altember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot3ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 3",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot4",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot4alt",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot4altember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "shot4ember",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Level 4",
 			"Shot"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "skulldecals",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Skull",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Skull"
+		]
 	},
 	{
 		"AssetName": "skulldecals2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Skull",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Skull"
+		]
 	},
 	{
 		"AssetName": "skullfrags",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Skull"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "skullpop",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Skull",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Death",
+			"Skull"
+		]
 	},
 	{
 		"AssetName": "spiderdeath",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Death",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderdeath2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Death",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderdeath3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Death",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderdeath4",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Death",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderdecals",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderdecals2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderdecals3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderdecals4",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spider",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Spider"
+		]
 	},
 	{
 		"AssetName": "spiderlingdecals",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spiderling",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Spiderling"
+		]
 	},
 	{
 		"AssetName": "spiderlingdecals2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Spiderling",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Spiderling"
+		]
 	},
 	{
 		"AssetName": "spiderlingfrags",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spiderling"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "spiderlinghit1",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spiderling"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "spiderlingpop",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spiderling"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "spiderspit",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spider"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "spiderspit2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spider"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "spiderstring",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Spider"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squidbubbles",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squidburst",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squidburst2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squidburst3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squidburstgibs",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squidburstgibs2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squiddecals",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Squid",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Squid"
+		]
 	},
 	{
 		"AssetName": "squiddecals2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Squid",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Squid"
+		]
 	},
 	{
 		"AssetName": "squiddecals3",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Squid",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Squid"
+		]
 	},
 	{
 		"AssetName": "squiddecals4",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Squid",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Squid"
+		]
 	},
 	{
 		"AssetName": "squiddrill",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squiddrill2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "squidweak",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Squid"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "superskulldecals",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Skull",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Skull"
+		]
 	},
 	{
 		"AssetName": "superskulldecals2",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Skull",
-			"Decals"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Decals",
+			"Skull"
+		]
 	},
 	{
 		"AssetName": "superskullfrags",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Skull"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "superskullpop",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
-			"Skull",
-			"Death"
-		],
-		"ChunkTypeName": "ParticleChunk"
+			"Death",
+			"Skull"
+		]
 	},
 	{
 		"AssetName": "thornemerge",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Thorn"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "thornfrag",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"Thorn"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	},
 	{
 		"AssetName": "weakhit1",
+		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
 		"Tags": [
 			"?"
-		],
-		"ChunkTypeName": "ParticleChunk"
+		]
 	}
 ]
