@@ -1,2186 +1,3099 @@
 [
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "andrasimpact",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Enemy", "Andras", "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Andras",
+			"Enemy",
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "andrasrise",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Enemy", "Andras", "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "burrowcentipede",
-		"Description": "Centipede burrow",
-		"Tags": [ "Enemy", "Centipede", "Underground" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterandras",
-		"Description": "Unused",
-		"Tags": [ "Enemy", "Andras", "Chatter", "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chattercentipede",
-		"Description": "Centipede chatter",
-		"Tags": [ "Enemy", "Centipede", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chattercentipede2",
-		"Description": "Gigapede chatter",
-		"Tags": [ "Enemy", "Gigapede", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 20.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chattergigaspider",
-		"Description": "Spider II chatter",
-		"Tags": [ "Enemy", "Spider II", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 50.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterleviathan",
-		"Description": "Leviathan chatter",
-		"Tags": [ "Enemy", "Leviathan", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterminisquid",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 2.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskull",
-		"Description": "Skull I chatter",
-		"Tags": [ "Enemy", "Skull I", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskull2",
-		"Description": "Skull II chatter",
-		"Tags": [ "Enemy", "Skull II", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskull2black",
-		"Description": "Transmuted Skull II chatter",
-		"Tags": [ "Enemy", "Transmuted Skull II", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskull3",
-		"Description": "Skull III chatter",
-		"Tags": [ "Enemy", "Skull III", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 20.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskull3black",
-		"Description": "Transmuted Skull III chatter",
-		"Tags": [ "Enemy", "Transmuted Skull III", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskull4",
-		"Description": "Skull IV chatter",
-		"Tags": [ "Enemy", "Skull IV", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 30.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskull4black",
-		"Description": "Transmuted Skull IV chatter",
-		"Tags": [ "Enemy", "Transmuted Skull IV", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterskullblack",
-		"Description": "Transmuted Skull I chatter",
-		"Tags": [ "Enemy", "Transmuted Skull I", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterspider",
-		"Description": "Spider I chatter",
-		"Tags": [ "Enemy", "Spider I", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 4.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chatterspiderling",
-		"Description": "Spiderling chatter",
-		"Tags": [ "Enemy", "Spiderling", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "chattersquid",
-		"Description": "Squid II chatter",
-		"Tags": [ "Enemy", "Squid II", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Andras",
+			"Enemy",
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "burrowcentipede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede burrow",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Enemy",
+			"Underground"
+		]
+	},
+	{
+		"AssetName": "chatterandras",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Andras",
+			"Chatter",
+			"Enemy",
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "chattercentipede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede chatter",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Chatter",
+			"Enemy"
+		]
+	},
+	{
+		"AssetName": "chattercentipede2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gigapede chatter",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Gigapede"
+		]
+	},
+	{
+		"AssetName": "chattergigaspider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider II chatter",
+		"Loudness": 20,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "chatterleviathan",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Leviathan chatter",
+		"Loudness": 50,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Leviathan"
+		]
+	},
+	{
+		"AssetName": "chatterminisquid",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "chatterskull",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull I chatter",
+		"Loudness": 2,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Skull I"
+		]
+	},
+	{
+		"AssetName": "chatterskull2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull II chatter",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Skull II"
+		]
+	},
+	{
+		"AssetName": "chatterskull2black",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Transmuted Skull II chatter",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Transmuted Skull II"
+		]
+	},
+	{
+		"AssetName": "chatterskull3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull III chatter",
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Skull III"
+		]
+	},
+	{
+		"AssetName": "chatterskull3black",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Transmuted Skull III chatter",
+		"Loudness": 20,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Transmuted Skull III"
+		]
+	},
+	{
+		"AssetName": "chatterskull4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull IV chatter",
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Skull IV"
+		]
+	},
+	{
+		"AssetName": "chatterskull4black",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Transmuted Skull IV chatter",
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Transmuted Skull IV"
+		]
+	},
+	{
+		"AssetName": "chatterskullblack",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Transmuted Skull I chatter",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Transmuted Skull I"
+		]
+	},
+	{
+		"AssetName": "chatterspider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I chatter",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Spider I"
+		]
+	},
+	{
+		"AssetName": "chatterspiderling",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spiderling chatter",
+		"Loudness": 4,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Spiderling"
+		]
+	},
+	{
+		"AssetName": "chattersquid",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid II chatter",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Squid II"
+		]
+	},
+	{
 		"AssetName": "chattersquidsmall",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid I chatter",
-		"Tags": [ "Enemy", "Squid I", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Squid I"
+		]
 	},
 	{
-		"Loudness": 15.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "chattersquidultra",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III chatter",
-		"Tags": [ "Enemy", "Squid III", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 15,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Squid III"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterthorn",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Thorn chatter",
-		"Tags": [ "Enemy", "Thorn", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Thorn"
+		]
 	},
 	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterultrapede",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede chatter",
-		"Tags": [ "Enemy", "Ghostpede", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Ghostpede"
+		]
 	},
 	{
-		"Loudness": 1.0,
+		"AssetName": "collectgib1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused?",
+		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "collectgib2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "collectgib3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "collectgibbase1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "collectgibbase2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "collectgibbase3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
 		"AssetName": "daggercall",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Pleb Dagger in lobby",
-		"Tags": [ "Pleb", "Dagger", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger",
+			"Lobby",
+			"Pleb"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall1bronze",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Bronze Dagger in lobby",
-		"Tags": [ "Bronze", "Dagger", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Bronze",
+			"Dagger",
+			"Lobby"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall2silver",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Silver Dagger in lobby",
-		"Tags": [ "Silver", "Dagger", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger",
+			"Lobby",
+			"Silver"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall3gold",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Golden Dagger in lobby",
-		"Tags": [ "Golden", "Dagger", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "daggercall4devil",
-		"Description": "Devil Dagger in lobby",
-		"Tags": [ "Devil", "Dagger", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Dagger",
+			"Golden",
+			"Lobby"
+		]
 	},
 	{
+		"AssetName": "daggercall4devil",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Devil Dagger in lobby",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger",
+			"Devil",
+			"Lobby"
+		]
+	},
+	{
+		"AssetName": "daggercollect",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Dagger lobby grab",
 		"Loudness": 0.2,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "daggercollect",
-		"Description": "Dagger lobby grab",
-		"Tags": [ "Dagger", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Dagger",
+			"Lobby"
+		]
 	},
 	{
-		"Loudness": 1000.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect1bronze",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Bronze Dagger unlock",
-		"Tags": [ "Bronze", "Dagger", "Unlock" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1000,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Bronze",
+			"Dagger",
+			"Unlock"
+		]
 	},
 	{
-		"Loudness": 1000.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect2silver",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Silver Dagger unlock",
-		"Tags": [ "Silver", "Dagger", "Unlock" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1000,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger",
+			"Silver",
+			"Unlock"
+		]
 	},
 	{
-		"Loudness": 1000.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect3gold",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Golden Dagger unlock",
-		"Tags": [ "Golden", "Dagger", "Unlock" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1000,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger",
+			"Golden",
+			"Unlock"
+		]
 	},
 	{
-		"Loudness": 1000.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect4devil",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Devil Dagger unlock",
-		"Tags": [ "Devil", "Dagger", "Unlock" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 3.0,
+		"Loudness": 1000,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "daggerdrone",
-		"Description": "Level 3 homing dagger noise",
-		"Tags": [ "Level 3", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Dagger",
+			"Devil",
+			"Unlock"
+		]
 	},
 	{
+		"AssetName": "daggerdivert",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused (Andras?)",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "daggerdrone",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 homing dagger noise",
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 3"
+		]
+	},
+	{
+		"AssetName": "daggerhit1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Default dagger hit",
 		"Loudness": 1.4,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "daggerhit1",
-		"Description": "Default dagger hit",
-		"Tags": [ "Normal dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Normal dagger"
+		]
 	},
 	{
-		"Loudness": 4.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "daggerseek",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger fire",
-		"Tags": [ "Level 4", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
+		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "damagecentipede",
-		"Description": "Centipede gem is damaged",
-		"Tags": [ "Enemy", "Centipede", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagecentipede2",
-		"Description": "Gigapede gem is damaged",
-		"Tags": [ "Enemy", "Gigapede", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagegigaspider",
-		"Description": "Spider II damage",
-		"Tags": [ "Enemy", "Spider II", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 66.6,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damageleviathan",
-		"Description": "Leviathan gem comes off",
-		"Tags": [ "Enemy", "Leviathan", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagespider",
-		"Description": "Spider I damage",
-		"Tags": [ "Enemy", "Spider I", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagesquid",
-		"Description": "Squid I / II / III / Leviathan gem damage",
-		"Tags": [ "Enemy", "Squid I", "Squid II", "Squid III", "Leviathan", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagesquid2",
-		"Description": "Squid II gem comes off",
-		"Tags": [ "Enemy", "Squid II", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 30.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagesquid3",
-		"Description": "Squid III gem comes off",
-		"Tags": [ "Enemy", "Squid III", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagethorn",
-		"Description": "Thorn damage",
-		"Tags": [ "Enemy", "Thorn", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 50.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damageultrapede",
-		"Description": "Ghostpede gem comes off",
-		"Tags": [ "Enemy", "Ghostpede", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 99.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "death",
-		"Description": "Player death from enemy",
-		"Tags": [ "Player", "Death" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 30.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eggbounce",
-		"Description": "Spider Egg I / Spider Egg II bounce on floor",
-		"Tags": [ "Enemy", "Spider Egg I", "Spider Egg II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 50.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eggburst",
-		"Description": "Spider Egg I / Spider Egg II burst (hatch or death)",
-		"Tags": [ "Enemy", "Spider Egg I", "Spider Egg II", "Death" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eggdrone",
-		"Description": "Spider Egg I chatter",
-		"Tags": [ "Enemy", "Spider Egg I", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 2.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eggdrone2",
-		"Description": "Spider Egg II chatter",
-		"Tags": [ "Enemy", "Spider Egg II", "Chatter" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 40.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eyearouse",
-		"Description": "The Orb is locating Player",
-		"Tags": [ "Enemy", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 98.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eyearousedrone",
-		"Description": "The Orb sees Player",
-		"Tags": [ "Enemy", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eyehit",
-		"Description": "The Orb damage",
-		"Tags": [ "Enemy", "The Orb", "Damage" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 100.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "fall",
-		"Description": "Player death from falling",
-		"Tags": [ "Player", "Death" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "gibcollect",
-		"Description": "Gem collect during Level 1 / 2 / 4",
-		"Tags": [ "Gem" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "gibcollectmagic",
-		"Description": "Gem collect during Level 3",
-		"Tags": [ "Gem" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gibdrone1",
-		"Description": "Gem idle?",
-		"Tags": [ "Gem" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gibdrone2",
-		"Description": "Gem idle?",
-		"Tags": [ "Gem" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gibdrone3",
-		"Description": "Gem idle?",
-		"Tags": [ "Gem" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gigaricochet1",
-		"Description": "Level 3 / 4 normal dagger ricochet",
-		"Tags": [ "Level 3", "Level 4", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gigaricochet2",
-		"Description": "Level 3 / 4 normal dagger ricochet",
-		"Tags": [ "Level 3", "Level 4", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gigaricochet3",
-		"Description": "Level 3 / 4 normal dagger ricochet",
-		"Tags": [ "Level 3", "Level 4", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gigaricochet4",
-		"Description": "Level 3 / 4 normal dagger ricochet",
-		"Tags": [ "Level 3", "Level 4", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "gigaricochet5",
-		"Description": "Level 3 / 4 normal dagger ricochet",
-		"Tags": [ "Level 3", "Level 4", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 2.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "highscore1",
-		"Description": "Plays when beating your highscore.",
-		"Tags": [ "Highscore" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 2.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "highscore2",
-		"Description": "Plays 10 seconds before beating next person on friends leaderboard.",
-		"Tags": [ "Highscore" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "jump1",
-		"Description": "Player jump",
-		"Tags": [ "Player" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "jump2",
-		"Description": "Player bunnyhop",
-		"Tags": [ "Player" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "jump3",
-		"Description": "Player precise bunnyhop",
-		"Tags": [ "Player" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "killandras",
+		"AssetName": "daggersteal1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Enemy", "Andras", "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 30.0,
+		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "killcentipede",
-		"Description": "Centipede death",
-		"Tags": [ "Enemy", "Centipede", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 40.0,
+		"AssetName": "daggersteal2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "killcentipede2",
-		"Description": "Gigapede death",
-		"Tags": [ "Enemy", "Gigapede", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 40.0,
+		"AssetName": "daggersteal3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "killeye",
-		"Description": "The Orb death",
-		"Tags": [ "Enemy", "The Orb", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 75.0,
+		"AssetName": "daggersteal4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "killgigaspider",
-		"Description": "Spider II death",
-		"Tags": [ "Enemy", "Spider II", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
+		"AssetName": "daggersteal5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 8,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "damageandras",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "damagecentipede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede gem is damaged",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Damage",
+			"Enemy"
+		]
+	},
+	{
+		"AssetName": "damagecentipede2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gigapede gem is damaged",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Gigapede"
+		]
+	},
+	{
+		"AssetName": "damagegigaspider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider II damage",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "damageleviathan",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Leviathan gem comes off",
 		"Loudness": 66.6,
 		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Leviathan"
+		]
+	},
+	{
+		"AssetName": "damagespider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I damage",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Spider I"
+		]
+	},
+	{
+		"AssetName": "damagesquid",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid I / II / III / Leviathan gem damage",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Leviathan",
+			"Squid I",
+			"Squid II",
+			"Squid III"
+		]
+	},
+	{
+		"AssetName": "damagesquid2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid II gem comes off",
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Squid II"
+		]
+	},
+	{
+		"AssetName": "damagesquid3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid III gem comes off",
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Squid III"
+		]
+	},
+	{
+		"AssetName": "damagesquid4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 35,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "damagethorn",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Thorn damage",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Thorn"
+		]
+	},
+	{
+		"AssetName": "damageultrapede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Ghostpede gem comes off",
+		"Loudness": 50,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"Ghostpede"
+		]
+	},
+	{
+		"AssetName": "death",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Player death from enemy",
+		"Loudness": 99,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Player"
+		]
+	},
+	{
+		"AssetName": "eggbounce",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider Egg I / Spider Egg II bounce on floor",
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider Egg I",
+			"Spider Egg II"
+		]
+	},
+	{
+		"AssetName": "eggburst",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider Egg I / Spider Egg II burst (hatch or death)",
+		"Loudness": 50,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spider Egg I",
+			"Spider Egg II"
+		]
+	},
+	{
+		"AssetName": "eggburst2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "eggdrone",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider Egg I chatter",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Spider Egg I"
+		]
+	},
+	{
+		"AssetName": "eggdrone2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider Egg II chatter",
+		"Loudness": 2,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Chatter",
+			"Enemy",
+			"Spider Egg II"
+		]
+	},
+	{
+		"AssetName": "eyearouse",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "The Orb is locating Player",
+		"Loudness": 40,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"The Orb"
+		]
+	},
+	{
+		"AssetName": "eyearousedrone",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "The Orb sees Player",
+		"Loudness": 98,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"The Orb"
+		]
+	},
+	{
+		"AssetName": "eyehit",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "The Orb damage",
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Damage",
+			"Enemy",
+			"The Orb"
+		]
+	},
+	{
+		"AssetName": "eyepacifydrone",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 2,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "fall",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Player death from falling",
+		"Loudness": 100,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Player"
+		]
+	},
+	{
+		"AssetName": "gibcollect",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gem collect during Level 1 / 2 / 4",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gem"
+		]
+	},
+	{
+		"AssetName": "gibcollectmagic",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gem collect during Level 3",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gem"
+		]
+	},
+	{
+		"AssetName": "gibdrone1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gem idle?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Gem"
+		]
+	},
+	{
+		"AssetName": "gibdrone2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gem idle?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Gem"
+		]
+	},
+	{
+		"AssetName": "gibdrone3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gem idle?",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Gem"
+		]
+	},
+	{
+		"AssetName": "gigaricochet1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 / 4 normal dagger ricochet",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
+		]
+	},
+	{
+		"AssetName": "gigaricochet2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 / 4 normal dagger ricochet",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
+		]
+	},
+	{
+		"AssetName": "gigaricochet3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 / 4 normal dagger ricochet",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
+		]
+	},
+	{
+		"AssetName": "gigaricochet4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 / 4 normal dagger ricochet",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
+		]
+	},
+	{
+		"AssetName": "gigaricochet5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 / 4 normal dagger ricochet",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Level 4",
+			"Normal dagger",
+			"Ricochet"
+		]
+	},
+	{
+		"AssetName": "highscore1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Plays when beating your highscore.",
+		"Loudness": 2,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Highscore"
+		]
+	},
+	{
+		"AssetName": "highscore2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Plays 10 seconds before beating next person on friends leaderboard.",
+		"Loudness": 2,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Highscore"
+		]
+	},
+	{
+		"AssetName": "jump1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Player jump",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player"
+		]
+	},
+	{
+		"AssetName": "jump2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Player bunnyhop",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player"
+		]
+	},
+	{
+		"AssetName": "jump3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Player precise bunnyhop",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player"
+		]
+	},
+	{
+		"AssetName": "killandras",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Andras",
+			"Enemy",
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "killcentipede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede death",
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Death",
+			"Enemy"
+		]
+	},
+	{
+		"AssetName": "killcentipede2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gigapede death",
+		"Loudness": 40,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Gigapede"
+		]
+	},
+	{
+		"AssetName": "killeye",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "The Orb death",
+		"Loudness": 40,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"The Orb"
+		]
+	},
+	{
+		"AssetName": "killgigaspider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider II death",
+		"Loudness": 75,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spider II"
+		]
+	},
+	{
 		"AssetName": "killleviathan",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan death",
-		"Tags": [ "Enemy", "Leviathan", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 66.6,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Leviathan"
+		]
 	},
 	{
-		"Loudness": 50.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killminisquid",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid I death",
-		"Tags": [ "Enemy", "Squid I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 50,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Squid I"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
-		"Tags": [ "Enemy", "Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull I"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
-		"Tags": [ "Enemy", "Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull I"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
-		"Tags": [ "Enemy", "Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull I"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
-		"Tags": [ "Enemy", "Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull I"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
-		"Tags": [ "Enemy", "Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull I"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "killskullblack1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
-		"Tags": [ "Enemy", "Transmuted Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Transmuted Skull I"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "killskullblack2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
-		"Tags": [ "Enemy", "Transmuted Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Transmuted Skull I"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "killskullblack3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
-		"Tags": [ "Enemy", "Transmuted Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Transmuted Skull I"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "killskullblack4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
-		"Tags": [ "Enemy", "Transmuted Skull I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Transmuted Skull I"
+		]
 	},
 	{
-		"Loudness": 55.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killspider",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I death",
-		"Tags": [ "Enemy", "Spider I", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 55,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spider I"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
-		"Tags": [ "Enemy", "Spiderling", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spiderling"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
-		"Tags": [ "Enemy", "Spiderling", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spiderling"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
-		"Tags": [ "Enemy", "Spiderling", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spiderling"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
-		"Tags": [ "Enemy", "Spiderling", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spiderling"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
-		"Tags": [ "Enemy", "Spiderling", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Spiderling"
+		]
 	},
 	{
-		"Loudness": 50.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killsquid",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid II death",
-		"Tags": [ "Enemy", "Squid II", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 50,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Squid II"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull II death",
-		"Tags": [ "Enemy", "Skull II", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull II"
+		]
 	},
 	{
-		"Loudness": 6.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull III death",
-		"Tags": [ "Enemy", "Skull III", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 6,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull III"
+		]
 	},
 	{
-		"Loudness": 6.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull2black",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull III death",
-		"Tags": [ "Enemy", "Transmuted Skull III", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 6,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Transmuted Skull III"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull IV death / Transmuted Skull IV death",
-		"Tags": [ "Enemy", "Skull IV", "Transmuted Skull IV", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Skull IV",
+			"Transmuted Skull IV"
+		]
 	},
 	{
-		"Loudness": 6.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskullblack",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull II death",
-		"Tags": [ "Enemy", "Transmuted Skull II", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 6,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Transmuted Skull II"
+		]
 	},
 	{
-		"Loudness": 30.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "killthorn",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Thorn death",
-		"Tags": [ "Enemy", "Thorn", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Thorn"
+		]
 	},
 	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
+		"AssetName": "killultraskull",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
 		"AssetName": "killultrasquid",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III death",
-		"Tags": [ "Enemy", "Squid III", "Death" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death",
+			"Enemy",
+			"Squid III"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "land",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Land sound for Player",
-		"Tags": [ "Player" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player"
+		]
 	},
 	{
-		"Loudness": 2.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "land2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Land sound for Player",
-		"Tags": [ "Player" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 2,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "legends",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Easter egg music for skull thrones",
-		"Tags": [ "Music", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Lobby",
+			"Music"
+		]
 	},
 	{
-		"Loudness": 10.0,
+		"AssetName": "leveldown",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 97,
 		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
 		"AssetName": "levelup2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 upgrade",
-		"Tags": [ "Player", "Upgrade" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player",
+			"Upgrade"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "levelup3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 upgrade",
-		"Tags": [ "Player", "Upgrade" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player",
+			"Upgrade"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "levelup4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 upgrade",
-		"Tags": [ "Player", "Upgrade" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player",
+			"Upgrade"
+		]
 	},
 	{
-		"Loudness": 200.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "leviathanbeckon",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan / The Orb beckon",
-		"Tags": [ "Enemy", "Leviathan", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 200,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Leviathan",
+			"The Orb"
+		]
 	},
 	{
-		"Loudness": 20.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "leviathanbeckon2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays when a skull touches Leviathan's or The Orb's beckon ring.",
-		"Tags": [ "Enemy", "Leviathan", "The Orb", "Skull I", "Skull II", "Skull III", "Skull IV" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 20,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Leviathan",
+			"Skull I",
+			"Skull II",
+			"Skull III",
+			"Skull IV",
+			"The Orb"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "leviathantransmute",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays when a skull is transmuted by Leviathan (and The Orb?).",
-		"Tags": [ "Enemy", "Leviathan", "The Orb", "Transmuted Skull I", "Transmuted Skull II", "Transmuted Skull III", "Transmuted Skull IV" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Enemy",
+			"Leviathan",
+			"The Orb",
+			"Transmuted Skull I",
+			"Transmuted Skull II",
+			"Transmuted Skull III",
+			"Transmuted Skull IV"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
-		"Tags": [ "Level 4", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
-		"Tags": [ "Level 4", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
-		"Tags": [ "Level 4", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
-		"Tags": [ "Level 4", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
-		"Tags": [ "Level 4", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 30.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadrone",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger noise",
-		"Tags": [ "Level 4", "Homing dagger" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magentashot",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger shotgun",
-		"Tags": [ "Level 4", "Homing dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4",
+			"Shot"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "magentastuckenemy1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
-		"Tags": [ "Level 4", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "magentastuckenemy2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
-		"Tags": [ "Level 4", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "magentastuckenemy3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
-		"Tags": [ "Level 4", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "magentastuckenemy4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
-		"Tags": [ "Level 4", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "magentastuckenemy5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
-		"Tags": [ "Level 4", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 4"
+		]
 	},
 	{
-		"Loudness": 9.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
-		"Tags": [ "Level 3", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 9,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 3"
+		]
 	},
 	{
-		"Loudness": 9.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
-		"Tags": [ "Level 3", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 9,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 3"
+		]
 	},
 	{
-		"Loudness": 9.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
-		"Tags": [ "Level 3", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 9,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 3"
+		]
 	},
 	{
-		"Loudness": 9.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
-		"Tags": [ "Level 3", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 9,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 3"
+		]
 	},
 	{
-		"Loudness": 9.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
-		"Tags": [ "Level 3", "Homing dagger", "Dagger pierce" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 9,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger pierce",
+			"Homing dagger",
+			"Level 3"
+		]
 	},
 	{
-		"Loudness": 1.0,
+		"AssetName": "magicpulse",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
 		"AssetName": "meat1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat10",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat11",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat12",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat13",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat6",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat7",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat8",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meat9",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatbig1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatbig2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatbig3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatbig4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatbig5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatbig6",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatmed1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatmed2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatmed3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatmed4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatmed5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "meatmed6",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
-		"Tags": [ "Gore" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Gore"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "menuatmos",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Main menu music",
-		"Tags": [ "Music" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Music"
+		]
+	},
+	{
 		"AssetName": "menutheme",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Devil Daggers splash screen music",
-		"Tags": [ "Music" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Music"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "polarity1e",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Arena east",
-		"Tags": [ "Arena" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Arena"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "polarity2w",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Arena west",
-		"Tags": [ "Arena" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Arena"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "polarity3n",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Arena north",
-		"Tags": [ "Arena" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
+		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "polarity4s",
-		"Description": "Arena south",
-		"Tags": [ "Arena" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Arena"
+		]
 	},
 	{
+		"AssetName": "polarity4s",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Arena south",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Arena"
+		]
+	},
+	{
+		"AssetName": "rapid1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 1 normal dagger spray",
 		"Loudness": 0.2,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "rapid1",
-		"Description": "Level 1 normal dagger spray",
-		"Tags": [ "Level 1", "Normal dagger", "Spray" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Level 1",
+			"Normal dagger",
+			"Spray"
+		]
 	},
 	{
+		"AssetName": "rapid2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 2 normal dagger spray",
 		"Loudness": 0.3,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "rapid2",
-		"Description": "Level 2 normal dagger spray",
-		"Tags": [ "Level 2", "Normal dagger", "Spray" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Level 2",
+			"Normal dagger",
+			"Spray"
+		]
 	},
 	{
+		"AssetName": "rapid3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 normal dagger spray",
 		"Loudness": 0.5,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "rapid3",
-		"Description": "Level 3 normal dagger spray",
-		"Tags": [ "Level 3", "Normal dagger", "Spray" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Level 3",
+			"Normal dagger",
+			"Spray"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "rapid4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 normal dagger spray",
-		"Tags": [ "Level 4", "Normal dagger", "Spray" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 4",
+			"Normal dagger",
+			"Spray"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
-		"Tags": [ "Level 1", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
-		"Tags": [ "Level 1", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
-		"Tags": [ "Level 1", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
-		"Tags": [ "Level 1", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
-		"Tags": [ "Level 1", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 1",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
-		"Tags": [ "Level 4", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
-		"Tags": [ "Level 4", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
-		"Tags": [ "Level 4", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
-		"Tags": [ "Level 4", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
-		"Tags": [ "Level 4", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 4",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
-		"Tags": [ "Level 3", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 3",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
-		"Tags": [ "Level 3", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 3",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
-		"Tags": [ "Level 3", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 3",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
-		"Tags": [ "Level 3", "Homing dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Homing dagger",
+			"Level 3",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
-		"Tags": [ "Level 2", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
-		"Tags": [ "Level 2", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
-		"Tags": [ "Level 2", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
-		"Tags": [ "Level 2", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
-		"Tags": [ "Level 2", "Normal dagger", "Ricochet" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 2",
+			"Normal dagger",
+			"Ricochet"
+		]
 	},
 	{
-		"Loudness": 1.0,
+		"AssetName": "secretsnake",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
 		"AssetName": "secretsnake2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays when discovering an easter egg in the lobby.",
-		"Tags": [ "Easter Egg", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Easter Egg",
+			"Lobby"
+		]
 	},
 	{
-		"Loudness": 4.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "shard1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
-		"Tags": [ "Enemy", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 4,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"The Orb"
+		]
 	},
 	{
-		"Loudness": 4.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "shard2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
-		"Tags": [ "Enemy", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 4,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"The Orb"
+		]
 	},
 	{
-		"Loudness": 4.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "shard3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
-		"Tags": [ "Enemy", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 4,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"The Orb"
+		]
 	},
 	{
-		"Loudness": 4.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "shard4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
-		"Tags": [ "Enemy", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 4,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"The Orb"
+		]
 	},
 	{
-		"Loudness": 4.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "shard5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
-		"Tags": [ "Enemy", "The Orb" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
+		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "shot1",
-		"Description": "Level 1 normal dagger shotgun",
-		"Tags": [ "Level 1", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Enemy",
+			"The Orb"
+		]
 	},
 	{
+		"AssetName": "shot1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 1 normal dagger shotgun",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 1",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 2 normal dagger shotgun",
 		"Loudness": 1.5,
 		"PresentInDefaultLoudness": true,
-		"AssetName": "shot2",
-		"Description": "Level 2 normal dagger shotgun",
-		"Tags": [ "Level 2", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
+		"Tags": [
+			"Level 2",
+			"Normal dagger",
+			"Shot"
+		]
 	},
 	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot3alt1",
-		"Description": "Level 3 normal dagger shotgun",
-		"Tags": [ "Level 3", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot3alt2",
-		"Description": "Level 3 normal dagger shotgun",
-		"Tags": [ "Level 3", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot3alt3",
-		"Description": "Level 3 normal dagger shotgun",
-		"Tags": [ "Level 3", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot3alt4",
-		"Description": "Level 3 normal dagger shotgun",
-		"Tags": [ "Level 3", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot4alt1",
-		"Description": "Level 4 normal dagger shotgun",
-		"Tags": [ "Level 4", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot4alt2",
-		"Description": "Level 4 normal dagger shotgun",
-		"Tags": [ "Level 4", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot4alt3",
-		"Description": "Level 4 normal dagger shotgun",
-		"Tags": [ "Level 4", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot4alt4",
-		"Description": "Level 4 normal dagger shotgun",
-		"Tags": [ "Level 4", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 5.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "shot4alt5",
-		"Description": "Level 4 normal dagger shotgun",
-		"Tags": [ "Level 4", "Normal dagger", "Shot" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "skullclop1",
-		"Description": "Skull bounce on floor or with other skull",
-		"Tags": [ "Enemy", "Skull I", "Skull III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "skullclop2",
-		"Description": "Skull bounce on floor or with other skull",
-		"Tags": [ "Enemy", "Skull I", "Skull III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "skullclop3",
-		"Description": "Skull bounce on floor or with other skull",
-		"Tags": [ "Enemy", "Skull I", "Skull III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "skullclop4",
-		"Description": "Skull bounce on floor or with other skull",
-		"Tags": [ "Enemy", "Skull I", "Skull III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "skullclop5",
-		"Description": "Skull bounce on floor or with other skull",
-		"Tags": [ "Enemy", "Skull I", "Skull III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "skullclop6",
-		"Description": "Skull bounce on floor or with other skull",
-		"Tags": [ "Enemy", "Skull I", "Skull III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "sorathlogo",
-		"Description": "Sorath splash screen sound",
-		"Tags": [ "Splash screen" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "sorathstone",
-		"Description": "Sorath stone easter egg music",
-		"Tags": [ "Music", "Lobby" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 45.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnandras",
-		"Description": "Unused",
-		"Tags": [ "Enemy", "Andras", "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 35.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawncentipede",
-		"Description": "Centipede spawn",
-		"Tags": [ "Enemy", "Centipede" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 35.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawncentipede2",
-		"Description": "Gigapede spawn",
-		"Tags": [ "Enemy", "Gigapede" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 30.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnegg",
-		"Description": "Spider I / Spider II shoot egg",
-		"Tags": [ "Enemy", "Spider I", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 70.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawngigaspider",
-		"Description": "Spider II spawn",
-		"Tags": [ "Enemy", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 666.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnleviathan",
-		"Description": "Leviathan spawn",
-		"Tags": [ "Enemy", "Leviathan" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnminisquid",
-		"Description": "Squid I spawn",
-		"Tags": [ "Enemy", "Squid I" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 100.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnplayer",
-		"Description": "Player spawn",
-		"Tags": [ "Player" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnskulls",
-		"Description": "Squid II gush (yes, really)",
-		"Tags": [ "Enemy", "Squid II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnskulls2",
-		"Description": "Squid I gush (yes, really)",
-		"Tags": [ "Enemy", "Squid I" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 25.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnskulls3",
-		"Description": "Squid III gush",
-		"Tags": [ "Enemy", "Squid III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnspider",
-		"Description": "Spider I spawn",
-		"Tags": [ "Enemy", "Spider I" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnsquid",
-		"Description": "Squid II spawn",
-		"Tags": [ "Enemy", "Squid II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 120.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnultrapede",
-		"Description": "Ghostpede spawn",
-		"Tags": [ "Enemy", "Ghostpede" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 70.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spawnultrasquid",
-		"Description": "Squid III spawn",
-		"Tags": [ "Enemy", "Squid III" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spidereat1",
-		"Description": "Spider I / Spider II eat gem",
-		"Tags": [ "Enemy", "Spider I", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spidereat2",
-		"Description": "Spider I / Spider II eat gem",
-		"Tags": [ "Enemy", "Spider I", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spidereat3",
-		"Description": "Spider I / Spider II eat gem",
-		"Tags": [ "Enemy", "Spider I", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spidereat4",
-		"Description": "Spider I / Spider II eat gem",
-		"Tags": [ "Enemy", "Spider I", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spidereat5",
-		"Description": "Spider I / Spider II eat gem",
-		"Tags": [ "Enemy", "Spider I", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 60.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "spidereat6",
-		"Description": "Spider I / Spider II eat gem",
-		"Tags": [ "Enemy", "Spider I", "Spider II" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 35.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "splashgiga",
-		"Description": "Squid II death splash",
-		"Tags": [ "Enemy", "Squid II", "Death splash" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 35.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "splashgiga2",
-		"Description": "Centipede / Gigapede death splash",
-		"Tags": [ "Enemy", "Centipede", "Gigapede", "Death splash" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 35.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "splashgiga3",
-		"Description": "Spider I death splash",
-		"Tags": [ "Enemy", "Spider I", "Death splash" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 40.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "splashgiga4",
-		"Description": "Squid III death splash",
-		"Tags": [ "Enemy", "Squid III", "Death splash" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 45.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "splashgiga5",
-		"Description": "Spider II death splash",
-		"Tags": [ "Enemy", "Spider II", "Death splash" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 45.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "splashgiga6",
-		"Description": "Ghostpede death splash",
-		"Tags": [ "Enemy", "Ghostpede", "Death splash" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "stealgib",
-		"Description": "Gem attracted by Spider I",
-		"Tags": [ "Gem" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "stealgib2",
-		"Description": "Gem attracted by Spider II",
-		"Tags": [ "Gem" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 20.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "subchattercentipede",
-		"Description": "Centipede / Gigapede / Ghostpede underground",
-		"Tags": [ "Enemy", "Centipede", "Gigapede", "Ghostpede", "Underground" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "thornemerge",
-		"Description": "Thorn spawn",
-		"Tags": [ "Enemy", "Thorn", "Underground" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "uiclick",
-		"Description": "User interface click",
-		"Tags": [ "UI" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "uihover",
-		"Description": "User interface hover",
-		"Tags": [ "UI" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "uislider",
-		"Description": "User interface slider",
-		"Tags": [ "UI" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 30.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "ultrapedecrash",
-		"Description": "Ghostpede collide with floor",
-		"Tags": [ "Enemy", "Ghostpede" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 40.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "ultrapedeeat",
-		"Description": "Ghostpede eat homing dagger",
-		"Tags": [ "Enemy", "Ghostpede" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 40.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "ultrapedefall",
-		"Description": "Ghostpede death",
-		"Tags": [ "Enemy", "Ghostpede" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "unburrowcentipede",
-		"Description": "Centipede emerge",
-		"Tags": [ "Enemy", "Centipede", "Underground" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "collectgib1",
-		"Description": "Unused?",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "collectgib2",
-		"Description": "Unused?",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "collectgib3",
-		"Description": "Unused?",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "collectgibbase1",
-		"Description": "Unused?",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "collectgibbase2",
-		"Description": "Unused?",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "collectgibbase3",
-		"Description": "Unused?",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "daggerdivert",
-		"Description": "Unused (Andras?)",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 8.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "daggersteal1",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 8.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "daggersteal2",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 8.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "daggersteal3",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 8.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "daggersteal4",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 8.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "daggersteal5",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 10.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damageandras",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 35.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "damagesquid4",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "eggburst2",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 2.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "eyepacifydrone",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "killultraskull",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 97.0,
-		"PresentInDefaultLoudness": true,
-		"AssetName": "leveldown",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "magicpulse",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
-		"AssetName": "secretsnake",
-		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 3.0,
-		"PresentInDefaultLoudness": true,
 		"AssetName": "shot3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
-	},
-	{
-		"Loudness": 30.0,
+		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "shot3alt1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 normal dagger shotgun",
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot3alt2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 normal dagger shotgun",
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot3alt3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 normal dagger shotgun",
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot3alt4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 3 normal dagger shotgun",
+		"Loudness": 3,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 3",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot4alt1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 4 normal dagger shotgun",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 4",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot4alt2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 4 normal dagger shotgun",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 4",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot4alt3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 4 normal dagger shotgun",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 4",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot4alt4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 4 normal dagger shotgun",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 4",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
+		"AssetName": "shot4alt5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Level 4 normal dagger shotgun",
+		"Loudness": 5,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Level 4",
+			"Normal dagger",
+			"Shot"
+		]
+	},
+	{
 		"AssetName": "skullaggro",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
+		"AssetName": "skullclop1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull bounce on floor or with other skull",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Skull I",
+			"Skull III"
+		]
+	},
+	{
+		"AssetName": "skullclop2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull bounce on floor or with other skull",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Skull I",
+			"Skull III"
+		]
+	},
+	{
+		"AssetName": "skullclop3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull bounce on floor or with other skull",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Skull I",
+			"Skull III"
+		]
+	},
+	{
+		"AssetName": "skullclop4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull bounce on floor or with other skull",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Skull I",
+			"Skull III"
+		]
+	},
+	{
+		"AssetName": "skullclop5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull bounce on floor or with other skull",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Skull I",
+			"Skull III"
+		]
+	},
+	{
+		"AssetName": "skullclop6",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Skull bounce on floor or with other skull",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Skull I",
+			"Skull III"
+		]
+	},
+	{
+		"AssetName": "sorathlogo",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Sorath splash screen sound",
+		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Splash screen"
+		]
+	},
+	{
 		"AssetName": "sorathlogo2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
+		"AssetName": "sorathstone",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Sorath stone easter egg music",
+		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Lobby",
+			"Music"
+		]
+	},
+	{
+		"AssetName": "spawnandras",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Unused",
+		"Loudness": 45,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Andras",
+			"Enemy",
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "spawncentipede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede spawn",
+		"Loudness": 35,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Enemy"
+		]
+	},
+	{
+		"AssetName": "spawncentipede2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gigapede spawn",
+		"Loudness": 35,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Gigapede"
+		]
+	},
+	{
+		"AssetName": "spawnegg",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I / Spider II shoot egg",
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "spawngigaspider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider II spawn",
+		"Loudness": 70,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "spawnleviathan",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Leviathan spawn",
+		"Loudness": 666,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Leviathan"
+		]
+	},
+	{
+		"AssetName": "spawnminisquid",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid I spawn",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Squid I"
+		]
+	},
+	{
+		"AssetName": "spawnplayer",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Player spawn",
+		"Loudness": 100,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Player"
+		]
+	},
+	{
+		"AssetName": "spawnskulls",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid II gush (yes, really)",
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Squid II"
+		]
+	},
+	{
+		"AssetName": "spawnskulls2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid I gush (yes, really)",
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Squid I"
+		]
+	},
+	{
+		"AssetName": "spawnskulls3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid III gush",
+		"Loudness": 25,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Squid III"
+		]
+	},
+	{
+		"AssetName": "spawnspider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I spawn",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I"
+		]
+	},
+	{
+		"AssetName": "spawnsquid",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid II spawn",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Squid II"
+		]
+	},
+	{
+		"AssetName": "spawnultrapede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Ghostpede spawn",
+		"Loudness": 120,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Ghostpede"
+		]
+	},
+	{
+		"AssetName": "spawnultrasquid",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid III spawn",
+		"Loudness": 70,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Squid III"
+		]
+	},
+	{
+		"AssetName": "spidereat1",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I / Spider II eat gem",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "spidereat2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I / Spider II eat gem",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "spidereat3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I / Spider II eat gem",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "spidereat4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I / Spider II eat gem",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "spidereat5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I / Spider II eat gem",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "spidereat6",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I / Spider II eat gem",
+		"Loudness": 60,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Spider I",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "splashgiga",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid II death splash",
+		"Loudness": 35,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death splash",
+			"Enemy",
+			"Squid II"
+		]
+	},
+	{
+		"AssetName": "splashgiga2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede / Gigapede death splash",
+		"Loudness": 35,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Death splash",
+			"Enemy",
+			"Gigapede"
+		]
+	},
+	{
+		"AssetName": "splashgiga3",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider I death splash",
+		"Loudness": 35,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death splash",
+			"Enemy",
+			"Spider I"
+		]
+	},
+	{
+		"AssetName": "splashgiga4",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Squid III death splash",
+		"Loudness": 40,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death splash",
+			"Enemy",
+			"Squid III"
+		]
+	},
+	{
+		"AssetName": "splashgiga5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Spider II death splash",
+		"Loudness": 45,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death splash",
+			"Enemy",
+			"Spider II"
+		]
+	},
+	{
+		"AssetName": "splashgiga6",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Ghostpede death splash",
+		"Loudness": 45,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Death splash",
+			"Enemy",
+			"Ghostpede"
+		]
+	},
+	{
+		"AssetName": "stealgib",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gem attracted by Spider I",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Gem"
+		]
+	},
+	{
+		"AssetName": "stealgib2",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Gem attracted by Spider II",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Gem"
+		]
+	},
+	{
+		"AssetName": "subchattercentipede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede / Gigapede / Ghostpede underground",
+		"Loudness": 20,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Enemy",
+			"Ghostpede",
+			"Gigapede",
+			"Underground"
+		]
+	},
+	{
+		"AssetName": "thornemerge",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Thorn spawn",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Thorn",
+			"Underground"
+		]
+	},
+	{
 		"AssetName": "thorngib1",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "thorngib2",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "thorngib3",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "thorngib4",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "thorngib5",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
 	},
 	{
-		"Loudness": 1.0,
-		"PresentInDefaultLoudness": false,
 		"AssetName": "thorngib6",
+		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
-		"Tags": [ "Unused" ],
-		"ChunkTypeName": "AudioChunk"
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"Unused"
+		]
+	},
+	{
+		"AssetName": "uiclick",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "User interface click",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"UI"
+		]
+	},
+	{
+		"AssetName": "uihover",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "User interface hover",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"UI"
+		]
+	},
+	{
+		"AssetName": "uislider",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "User interface slider",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": false,
+		"Tags": [
+			"UI"
+		]
+	},
+	{
+		"AssetName": "ultrapedecrash",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Ghostpede collide with floor",
+		"Loudness": 30,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Ghostpede"
+		]
+	},
+	{
+		"AssetName": "ultrapedeeat",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Ghostpede eat homing dagger",
+		"Loudness": 40,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Ghostpede"
+		]
+	},
+	{
+		"AssetName": "ultrapedefall",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Ghostpede death",
+		"Loudness": 40,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Enemy",
+			"Ghostpede"
+		]
+	},
+	{
+		"AssetName": "unburrowcentipede",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Centipede emerge",
+		"Loudness": 10,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Centipede",
+			"Enemy",
+			"Underground"
+		]
 	}
 ]
