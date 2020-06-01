@@ -12,6 +12,21 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public static class GeneratorUtils
 	{
+		public static void FixAudioJsonFiles()
+		{
+			List<AudioAsset> audioNow = JsonConvert.DeserializeObject<List<AudioAsset>>(File.ReadAllText(@"C:\Users\NOAH\source\repos\DevilDaggersAssetEditor\DevilDaggersAssetCore\Content\audio\Audio.json"));
+			List<AudioAsset> audioThen = JsonConvert.DeserializeObject<List<AudioAsset>>(File.ReadAllText(@"C:\Users\NOAH\Desktop\lostaudio.txt"));
+
+			foreach (AudioAsset assetThen in audioThen)
+			{
+				AudioAsset assetNow = audioNow.FirstOrDefault(a => a.AssetName == assetThen.AssetName);
+				if (assetNow == null)
+					audioNow.Add(new AudioAsset(assetThen.AssetName, assetThen.Description, new[] { "Unused" }, "AudioChunk", assetThen.Loudness, assetThen.PresentInDefaultLoudness));
+			}
+
+			File.WriteAllText(@"C:\Users\NOAH\Desktop\recovaudio.txt", JsonConvert.SerializeObject(audioNow));
+		}
+
 		public static void GenerateDdJsonFiles()
 		{
 			List<ModelBindingAsset> modelBindings = new List<ModelBindingAsset>();
