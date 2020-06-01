@@ -2,11 +2,11 @@
 {
 	public static class LoudnessUtils
 	{
-		public static bool ReadLoudnessLine(string line, out string assetName, out float loudness)
+		public static bool TryReadLoudnessLine(string line, out string assetName, out float loudness)
 		{
 			try
 			{
-				assetName = line.Substring(0, line.IndexOf('='));
+				assetName = line.Substring(0, line.IndexOf('=')).Trim();
 				loudness = float.Parse(line.Substring(line.IndexOf('=') + 1, line.Length - assetName.Length - 1));
 				return true;
 			}

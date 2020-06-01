@@ -45,22 +45,24 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 		private List<AbstractUserAsset> GetAudioAssets(string outputPath)
 		{
-			string loudnessFilePath = Directory.GetFiles(outputPath, "*.ini").FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == "loudness");
+			string loudnessFilePath = Directory.GetFiles(outputPath, "*.ini", SearchOption.AllDirectories).FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == "loudness");
 			if (loudnessFilePath == null)
 				throw new Exception("Loudness file not found when attempting to create a mod based on newly extracted assets.");
 
 			Dictionary<string, float> loudnessValues = new Dictionary<string, float>();
 			foreach (string line in File.ReadAllLines(loudnessFilePath))
 			{
-				LoudnessUtils.ReadLoudnessLine(line, out string assetName, out float loudness);
-				loudnessValues.Add(assetName, loudness);
+				if (LoudnessUtils.TryReadLoudnessLine(line, out string assetName, out float loudness))
+					loudnessValues.Add(assetName, loudness);
 			}
 
 			List<AbstractUserAsset> assets = new List<AbstractUserAsset>();
 			foreach (string path in Directory.GetFiles(outputPath, "*.*", SearchOption.AllDirectories))
 			{
 				string name = Path.GetFileNameWithoutExtension(path);
-				float loudness = loudnessValues[name];
+				float loudness = 1;
+				if (loudnessValues.ContainsKey(name))
+					loudness = loudnessValues[name];
 				assets.Add(new AudioUserAsset(name, path, loudness));
 			}
 			return assets.Cast<AbstractUserAsset>().ToList();
