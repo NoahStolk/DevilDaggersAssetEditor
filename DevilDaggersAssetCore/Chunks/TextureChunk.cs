@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Buf = System.Buffer;
 
@@ -28,11 +29,14 @@ namespace DevilDaggersAssetCore.Chunks
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
-			while (maxDimension > UserHandler.Instance.settings.TextureSizeLimit)
+			if (AssetHandler.Instance.DdTexturesAssets.FirstOrDefault(t => t.AssetName == Name).IsModelTexture)
 			{
-				newWidth /= 2;
-				newHeight /= 2;
-				maxDimension /= 2;
+				while (maxDimension > UserHandler.Instance.settings.TextureSizeLimit)
+				{
+					newWidth /= 2;
+					newHeight /= 2;
+					maxDimension /= 2;
+				}
 			}
 
 			using Bitmap resizedImage = ResizeImage(image, Math.Max(1, newWidth), Math.Max(1, newHeight));
