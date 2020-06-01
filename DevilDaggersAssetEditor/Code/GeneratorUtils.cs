@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
+﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
 using JsonUtils;
 using Newtonsoft.Json;
@@ -95,9 +94,7 @@ namespace DevilDaggersAssetEditor.Code
 
 		public static void ReadTextureDataFromTextFile()
 		{
-			List<TextureAsset> textures;
-			using (StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.dd.Textures.json")))
-				textures = JsonConvert.DeserializeObject<List<TextureAsset>>(sr.ReadToEnd());
+			List<TextureAsset> textures = AssetHandler.Instance.DdTexturesAssets;
 
 			foreach (string line in File.ReadAllLines(@"C:\Users\NOAH\Desktop\textures.txt"))
 			{

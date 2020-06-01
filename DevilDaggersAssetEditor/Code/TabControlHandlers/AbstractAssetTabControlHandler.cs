@@ -4,7 +4,6 @@ using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code.RowControlHandlers;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,8 +36,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
-			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.{binaryFileType.ToString().ToLower()}.{AssetTypeJsonFileName}.json"));
-			List<TAsset> assets = JsonConvert.DeserializeObject<List<TAsset>>(sr.ReadToEnd());
+			List<TAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, AssetTypeJsonFileName).Cast<TAsset>().ToList();
 
 			int i = 0;
 			foreach (TAsset asset in assets)
