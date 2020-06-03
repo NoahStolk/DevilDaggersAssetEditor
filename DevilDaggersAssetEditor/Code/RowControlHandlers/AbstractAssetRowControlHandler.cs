@@ -5,6 +5,7 @@ using DevilDaggersAssetCore.User;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -117,7 +118,7 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 		public virtual void BrowsePath()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { Filter = OpenDialogFilter };
-			if (Settings.EnableAssetsRootFolder)
+			if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
 				openDialog.InitialDirectory = Settings.AssetsRootFolder;
 
 			bool? openResult = openDialog.ShowDialog();

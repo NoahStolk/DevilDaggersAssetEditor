@@ -70,8 +70,9 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		private async void ExtractBinary_Click()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			if (Settings.EnableDevilDaggersRootFolder)
-				openDialog.InitialDirectory = Path.Combine(Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			string initDir = Path.Combine(Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			if (Settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
+				openDialog.InitialDirectory = initDir;
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
@@ -108,8 +109,9 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			}
 
 			SaveFileDialog dialog = new SaveFileDialog();
-			if (Settings.EnableDevilDaggersRootFolder)
-				dialog.InitialDirectory = Path.Combine(Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			string initDir = Path.Combine(Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			if (Settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
+				dialog.InitialDirectory = initDir;
 
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
@@ -145,7 +147,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			SaveFileDialog dialog = new SaveFileDialog { Filter = modFileFilter };
-			if (Settings.EnableModsRootFolder)
+			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
 				dialog.InitialDirectory = Settings.ModsRootFolder;
 
 			bool? result = dialog.ShowDialog();
@@ -193,7 +195,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
 			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			OpenFileDialog dialog = new OpenFileDialog { Filter = modFileFilter };
-			if (Settings.EnableModsRootFolder)
+			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
 				dialog.InitialDirectory = Settings.ModsRootFolder;
 
 			bool? openResult = dialog.ShowDialog();
