@@ -4,6 +4,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -96,7 +97,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			Process process = ProcessUtils.GetDevilDaggersProcess();
 			if (process != null)
-				LabelDevilDaggersRootFolder.Content = process.MainModule.FileName;
+				LabelDevilDaggersRootFolder.Content = Path.GetDirectoryName(process.MainModule.FileName);
 			else
 				App.Instance.ShowMessage("Devil Daggers process not found", "Please make sure Devil Daggers is running and try again.");
 		}
