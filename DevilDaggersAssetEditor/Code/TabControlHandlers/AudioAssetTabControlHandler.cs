@@ -25,8 +25,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public void ImportLoudness()
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
-			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
-				dialog.InitialDirectory = Settings.ModsRootFolder;
+			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
+				dialog.InitialDirectory = Settings.AssetsRootFolder;
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
@@ -77,8 +77,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public void ExportLoudness()
 		{
 			SaveFileDialog dialog = new SaveFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
-			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
-				dialog.InitialDirectory = Settings.ModsRootFolder;
+			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
+				dialog.InitialDirectory = Settings.AssetsRootFolder;
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;
