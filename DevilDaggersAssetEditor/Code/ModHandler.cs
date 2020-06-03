@@ -28,7 +28,7 @@ namespace DevilDaggersAssetEditor.Code
 			{
 				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
 				using CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true };
-				if (Settings.EnableAssetsRootFolder)
+				if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
 					basePathDialog.InitialDirectory = Settings.AssetsRootFolder;
 
 				CommonFileDialogResult result = basePathDialog.ShowDialog();

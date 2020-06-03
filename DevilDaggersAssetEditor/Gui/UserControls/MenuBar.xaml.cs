@@ -19,6 +19,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
+		private UserSettings settings => UserHandler.Instance.settings;
+
 		public readonly List<AbstractFileTabControlHandler> tabHandlers;
 
 		public MenuBarUserControl()
@@ -49,8 +51,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		private void AnalyzeBinaryFileMenuItem_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder)
-				openDialog.InitialDirectory = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder);
+			if (settings.EnableDevilDaggersRootFolder && Directory.Exists(settings.DevilDaggersRootFolder))
+				openDialog.InitialDirectory = settings.DevilDaggersRootFolder;
 
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult.HasValue && openResult.Value)

@@ -79,7 +79,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				return;
 
 			using CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true };
-			if (Settings.EnableModsRootFolder)
+			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
 				folderDialog.InitialDirectory = Settings.ModsRootFolder;
 
 			if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)

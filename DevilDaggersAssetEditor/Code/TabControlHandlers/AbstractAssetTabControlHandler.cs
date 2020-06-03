@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public void ImportFolder()
 		{
 			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
-			if (Settings.EnableAssetsRootFolder)
+			if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
 				dialog.InitialDirectory = Settings.AssetsRootFolder;
 
 			CommonFileDialogResult result = dialog.ShowDialog();

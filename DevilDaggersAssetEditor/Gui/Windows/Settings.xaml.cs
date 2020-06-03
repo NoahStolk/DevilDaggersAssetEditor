@@ -62,9 +62,12 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void BrowseDevilDaggersRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = LabelDevilDaggersRootFolder.Content.ToString() };
-			CommonFileDialogResult result = dialog.ShowDialog();
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+			string initDir = LabelDevilDaggersRootFolder.Content.ToString();
+			if (Directory.Exists(initDir))
+				dialog.InitialDirectory = initDir;
 
+			CommonFileDialogResult result = dialog.ShowDialog();
 			if (result == CommonFileDialogResult.Ok)
 				LabelDevilDaggersRootFolder.Content = dialog.FileName;
 
@@ -73,9 +76,12 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void BrowseModsRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = LabelModsRootFolder.Content.ToString() };
-			CommonFileDialogResult result = dialog.ShowDialog();
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+			string initDir = LabelModsRootFolder.Content.ToString();
+			if (Directory.Exists(initDir))
+				dialog.InitialDirectory = initDir;
 
+			CommonFileDialogResult result = dialog.ShowDialog();
 			if (result == CommonFileDialogResult.Ok)
 				LabelModsRootFolder.Content = dialog.FileName;
 
@@ -84,9 +90,12 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void BrowseAssetsRootFolderButton_Click(object sender, RoutedEventArgs e)
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true, InitialDirectory = LabelAssetsRootFolder.Content.ToString() };
-			CommonFileDialogResult result = dialog.ShowDialog();
+			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+			string initDir = LabelAssetsRootFolder.Content.ToString();
+			if (Directory.Exists(initDir))
+				dialog.InitialDirectory = initDir;
 
+			CommonFileDialogResult result = dialog.ShowDialog();
 			if (result == CommonFileDialogResult.Ok)
 				LabelAssetsRootFolder.Content = dialog.FileName;
 
