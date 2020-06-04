@@ -101,6 +101,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 			}
 		}
 
+		private void Guide_Click(object sender, RoutedEventArgs e) => Process.Start($"{UrlUtils.BaseUrl}/Wiki/Guides/AssetEditor");
+
 		private void SourceCode_Click(object sender, RoutedEventArgs e) => Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
 
 		private void Update_Click(object sender, RoutedEventArgs e)
