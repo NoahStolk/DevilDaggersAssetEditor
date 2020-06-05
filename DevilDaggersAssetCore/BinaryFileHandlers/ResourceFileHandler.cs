@@ -272,7 +272,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 			foreach (AbstractResourceChunk chunk in chunks)
 			{
-				if (chunk.Size == 0) // Filter empty chunks (garbage in core file TOC buffer).
+				if (chunk.Size == 0) // Filter empty chunks (garbage in TOC buffers).
 					continue;
 
 				ChunkInfo info = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType());
