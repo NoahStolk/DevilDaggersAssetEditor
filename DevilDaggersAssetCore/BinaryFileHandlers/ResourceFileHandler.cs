@@ -117,9 +117,9 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			foreach (AbstractResourceChunk chunk in chunks)
 			{
 				Type chunkType = chunk.GetType();
-				ushort type = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunkType).BinaryTypes[0]; // TODO: Shaders have multiple types.
+				byte type = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunkType).BinaryType;
 
-				// Write asset type.
+				// Write binary type.
 				tocStream.Write(BitConverter.GetBytes(type), 0, sizeof(byte));
 				tocStream.Position++;
 
@@ -245,7 +245,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			int i = 0;
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
-				ushort type = BitConverter.ToUInt16(tocBuffer, i);
+				byte type = tocBuffer[i];
 				string name = Utils.ReadNullTerminatedString(tocBuffer, i + 2);
 
 				i += name.Length + 1; // + 1 to include null terminator.
@@ -254,7 +254,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
-				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryTypes.Contains(type));
+				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryType == type);
 				if (chunkInfo != null)
 					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size, unknown) as AbstractResourceChunk);
 			}

@@ -14,7 +14,7 @@ namespace DevilDaggersAssetCore.Info
 			headerInfo: new HeaderInfo(typeof(ModelHeader), 10),
 			assetType: typeof(ModelAsset),
 			userAssetType: typeof(ModelUserAsset),
-			binaryTypes: new ushort[] { 0x01 },
+			binaryType: 0x01,
 			fileExtension: ".obj",
 			folderName: "Models",
 			dataName: "Model",
@@ -28,7 +28,7 @@ namespace DevilDaggersAssetCore.Info
 			headerInfo: new HeaderInfo(typeof(TextureHeader), 11),
 			assetType: typeof(TextureAsset),
 			userAssetType: typeof(TextureUserAsset),
-			binaryTypes: new ushort[] { 0x02 },
+			binaryType: 0x02,
 			fileExtension: ".png",
 			folderName: "Textures",
 			dataName: "Texture",
@@ -42,7 +42,7 @@ namespace DevilDaggersAssetCore.Info
 			headerInfo: new HeaderInfo(typeof(ShaderHeader), 12),
 			assetType: typeof(ShaderAsset),
 			userAssetType: typeof(ShaderUserAsset),
-			binaryTypes: new ushort[] { 0x10, 0x11 },
+			binaryType: 0x10,
 			fileExtension: ".glsl",
 			folderName: "Shaders",
 			dataName: "Shader",
@@ -56,7 +56,7 @@ namespace DevilDaggersAssetCore.Info
 			headerInfo: null,
 			assetType: typeof(AudioAsset),
 			userAssetType: typeof(AudioUserAsset),
-			binaryTypes: new ushort[] { 0x20 },
+			binaryType: 0x20,
 			fileExtension: ".wav",
 			folderName: "Audio",
 			dataName: "Audio",
@@ -70,7 +70,7 @@ namespace DevilDaggersAssetCore.Info
 			headerInfo: null,
 			assetType: typeof(ModelBindingAsset),
 			userAssetType: typeof(ModelBindingUserAsset),
-			binaryTypes: new ushort[] { 0x80 },
+			binaryType: 0x80,
 			fileExtension: ".txt",
 			folderName: "Model Bindings",
 			dataName: "Model binding",
@@ -84,7 +84,7 @@ namespace DevilDaggersAssetCore.Info
 			headerInfo: new HeaderInfo(typeof(ParticleHeader), null),
 			assetType: typeof(ParticleAsset),
 			userAssetType: typeof(ParticleUserAsset),
-			binaryTypes: null,
+			binaryType: 0x00,
 			fileExtension: ".bin",
 			folderName: "Particles",
 			dataName: "Particle",
@@ -99,7 +99,7 @@ namespace DevilDaggersAssetCore.Info
 		public HeaderInfo HeaderInfo { get; }
 		public Type AssetType { get; }
 		public Type UserAssetType { get; }
-		public ushort[] BinaryTypes { get; }
+		public byte BinaryType { get; }
 		public string FileExtension { get; }
 		public string FolderName { get; }
 		public string DataName { get; }
@@ -107,14 +107,14 @@ namespace DevilDaggersAssetCore.Info
 		public byte ColorG { get; }
 		public byte ColorB { get; }
 
-		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, HeaderInfo headerInfo, Type assetType, Type userAssetType, ushort[] binaryTypes, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
+		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, HeaderInfo headerInfo, Type assetType, Type userAssetType, byte binaryType, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
 		{
 			BinaryFileType = binaryFileType;
 			ChunkType = chunkType;
 			HeaderInfo = headerInfo;
 			AssetType = assetType;
 			UserAssetType = userAssetType;
-			BinaryTypes = binaryTypes;
+			BinaryType = binaryType;
 			FileExtension = fileExtension;
 			FolderName = folderName;
 			DataName = dataName;
