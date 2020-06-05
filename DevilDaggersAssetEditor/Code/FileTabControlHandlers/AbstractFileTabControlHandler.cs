@@ -117,7 +117,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			if (!result.HasValue || !result.Value)
 				return;
 
-			ProgressWindow progressWindow = new ProgressWindow($"Turning '{FileHandler.BinaryFileType.ToString().ToLower()}' into binary data...");
+			ProgressWindow progressWindow = new ProgressWindow($"Turning files into '{FileHandler.BinaryFileType.ToString().ToLower()}' binary...");
 			progressWindow.Show();
 			await Task.Run(() =>
 			{
