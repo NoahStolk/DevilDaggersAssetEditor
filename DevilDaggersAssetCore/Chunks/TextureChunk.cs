@@ -26,6 +26,11 @@ namespace DevilDaggersAssetCore.Chunks
 		public override void MakeBinary(string path)
 		{
 			using Image image = Image.FromFile(path);
+			MakeBinary(image);
+		}
+
+		public void MakeBinary(Image image)
+		{
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
@@ -117,7 +122,8 @@ namespace DevilDaggersAssetCore.Chunks
 			}
 		}
 
-		private static byte GetMipmapCountFromImage(Image image) => TextureAsset.GetMipmapCount(image.Width, image.Height);
+		// TODO: Move to utils class.
+		public static byte GetMipmapCountFromImage(Image image) => TextureAsset.GetMipmapCount(image.Width, image.Height);
 
 		private static void GetBufferSizes(TextureHeader header, out int totalBufferLength, out int[] mipmapBufferSizes)
 		{
