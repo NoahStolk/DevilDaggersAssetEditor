@@ -59,14 +59,22 @@ namespace DevilDaggersAssetEditor
 		}
 
 		/// <summary>
-		/// Shows the error using the <see cref="ErrorWindow" /> and logs the error message (and <see cref="Exception" /> if there is one).
+		/// Logs the error message (and <see cref="Exception" /> if there is one).
 		/// </summary>
-		public void ShowError(string title, string message, Exception ex = null)
+		public void LogError(string message, Exception ex)
 		{
 			if (ex != null)
 				Log.Error(message, ex);
 			else
 				Log.Error(message);
+		}
+
+		/// <summary>
+		/// Shows the error using the <see cref="ErrorWindow" /> and then calls <see cref="LogError(string, Exception)" /> to log the error message (and <see cref="Exception" /> if there is one).
+		/// </summary>
+		public void ShowError(string title, string message, Exception ex = null)
+		{
+			LogError(message, ex);
 
 			Dispatcher.Invoke(() =>
 			{
