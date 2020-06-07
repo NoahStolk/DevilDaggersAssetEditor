@@ -13,7 +13,7 @@
 		<MenuItem Header="Tools">
 			<MenuItem Header="Analyze binary file" Click="AnalyzeBinaryFileMenuItem_Click" />
 		</MenuItem>
-		<MenuItem Header="Help">
+		<MenuItem Header="Help" Name="HelpItem">
 			<MenuItem Header="Help" Click="Help_Click" />
 			<MenuItem Header="About" Click="About_Click" />
 			<MenuItem Header="Changelog" Click="Changelog_Click" />
