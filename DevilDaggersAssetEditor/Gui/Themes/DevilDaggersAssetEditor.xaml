@@ -10,6 +10,7 @@
 	<Style TargetType="{x:Type windows:ChangelogWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:CheckingForUpdatesWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:ErrorWindow}" BasedOn="{StaticResource {x:Type Window}}" />
+	<Style TargetType="{x:Type windows:HelpWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:MainWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:MessageWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:ProgressWindow}" BasedOn="{StaticResource {x:Type Window}}" />
