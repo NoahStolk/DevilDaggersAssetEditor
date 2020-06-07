@@ -36,6 +36,8 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				throw new Exception($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
 		}
 
+		#region Make binary
+
 		/// <summary>
 		/// Inserts multiple asset files into one binary file that can be read by Devil Daggers.
 		/// </summary>
@@ -49,85 +51,25 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath.Replace(".glsl", "_vertex.glsl"))).ToList();
 
 			((IProgress<string>)progressDescription).Report("Generating chunks based on asset list.");
-			List<AbstractResourceChunk> chunks = CreateChunks(allAssets, progress, progressDescription);
+			List<AbstractResourceChunk> chunks = CreateChunksFromAssets(allAssets, progress, progressDescription);
 
 			// Create TOC stream.
 			((IProgress<string>)progressDescription).Report("Generating TOC stream.");
-			byte[] tocBuffer;
-			Dictionary<AbstractResourceChunk, long> startOffsetBytePositions = new Dictionary<AbstractResourceChunk, long>();
-			using (MemoryStream tocStream = new MemoryStream())
-			{
-				foreach (AbstractResourceChunk chunk in chunks)
-				{
-					Type chunkType = chunk.GetType();
-					ushort type = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunkType).BinaryTypes[0]; // TODO: Shaders have multiple types.
-
-					// Write asset type.
-					tocStream.Write(BitConverter.GetBytes(type), 0, sizeof(byte));
-					tocStream.Position++;
-
-					// Write name.
-					tocStream.Write(Encoding.Default.GetBytes(chunk.Name), 0, chunk.Name.Length);
-					tocStream.Position++;
-
-					// Write start offsets when TOC buffer size is defined.
-					startOffsetBytePositions[chunk] = tocStream.Position;
-					tocStream.Position += sizeof(uint);
-
-					// Write size.
-					tocStream.Write(BitConverter.GetBytes(chunk.Size), 0, sizeof(uint));
-
-					// TODO: Figure out unknown value and write...
-					// No reason to write anything for now.
-					tocStream.Position += sizeof(uint);
-				}
-				tocStream.Write(BitConverter.GetBytes(0), 0, 2); // Empty value between TOC and assets.
-				tocBuffer = tocStream.ToArray();
-			}
+			CreateTocStream(chunks, out byte[] tocBuffer, out Dictionary<AbstractResourceChunk, long> startOffsetBytePositions);
 
 			// Create asset stream.
 			((IProgress<string>)progressDescription).Report("Generating asset stream.");
-			byte[] assetBuffer;
-			using (MemoryStream assetStream = new MemoryStream())
-			{
-				int i = 0;
-				foreach (AbstractResourceChunk chunk in chunks)
-				{
-					((IProgress<float>)progress).Report(0.5f + i++ / (float)chunks.Count / 2);
-					((IProgress<string>)progressDescription).Report($"Writing file contents of \"{chunk.Name}\" to '{binaryFileTypeName}' file.");
-
-					uint startOffset = (uint)(HeaderSize + tocBuffer.Length + assetStream.Position);
-					chunk.StartOffset = startOffset;
-
-					// Write start offset to TOC stream.
-					Buffer.BlockCopy(BitConverter.GetBytes(startOffset), 0, tocBuffer, (int)startOffsetBytePositions[chunk], sizeof(uint));
-
-					// Write asset data to asset stream.
-					byte[] bytes = chunk.GetBuffer();
-					assetStream.Write(bytes, 0, bytes.Length);
-				}
-				assetBuffer = assetStream.ToArray();
-			}
+			byte[] assetBuffer = CreateAssetStream(binaryFileTypeName, chunks, tocBuffer, startOffsetBytePositions, progress, progressDescription);
 
 			// Create file.
+			((IProgress<string>)progressDescription).Report($"Writing buffers to '{binaryFileTypeName}' file.");
+			byte[] binaryBytes = CreateBinary(tocBuffer, assetBuffer);
+
 			using FileStream fs = File.Create(outputPath);
-
-			// Write file header.
-			((IProgress<string>)progressDescription).Report($"Writing header buffer to '{binaryFileTypeName}' file.");
-			fs.Write(BitConverter.GetBytes((uint)Magic1), 0, sizeof(uint));
-			fs.Write(BitConverter.GetBytes((uint)Magic2), 0, sizeof(uint));
-			fs.Write(BitConverter.GetBytes((uint)tocBuffer.Length), 0, sizeof(uint));
-
-			// Write TOC buffer.
-			((IProgress<string>)progressDescription).Report($"Writing TOC buffer to '{binaryFileTypeName}' file.");
-			fs.Write(tocBuffer, 0, tocBuffer.Length);
-
-			// Write asset buffer.
-			((IProgress<string>)progressDescription).Report($"Writing asset buffer to '{binaryFileTypeName}' file.");
-			fs.Write(assetBuffer, 0, assetBuffer.Length);
+			fs.Write(binaryBytes, 0, binaryBytes.Length);
 		}
 
-		private List<AbstractResourceChunk> CreateChunks(List<AbstractAsset> allAssets, Progress<float> progress, Progress<string> progressDescription)
+		private List<AbstractResourceChunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, Progress<float> progress, Progress<string> progressDescription)
 		{
 			StringBuilder loudness = new StringBuilder();
 
@@ -168,13 +110,92 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			return chunks;
 		}
 
+		public void CreateTocStream(List<AbstractResourceChunk> chunks, out byte[] tocBuffer, out Dictionary<AbstractResourceChunk, long> startOffsetBytePositions)
+		{
+			startOffsetBytePositions = new Dictionary<AbstractResourceChunk, long>();
+			using MemoryStream tocStream = new MemoryStream();
+			foreach (AbstractResourceChunk chunk in chunks)
+			{
+				Type chunkType = chunk.GetType();
+				byte type = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunkType).BinaryType;
+
+				// Write binary type.
+				tocStream.Write(BitConverter.GetBytes(type), 0, sizeof(byte));
+				tocStream.Position++;
+
+				// Write name.
+				tocStream.Write(Encoding.Default.GetBytes(chunk.Name), 0, chunk.Name.Length);
+				tocStream.Position++;
+
+				// Write start offsets when TOC buffer size is defined.
+				startOffsetBytePositions[chunk] = tocStream.Position;
+				tocStream.Position += sizeof(uint);
+
+				// Write size.
+				tocStream.Write(BitConverter.GetBytes(chunk.Size), 0, sizeof(uint));
+
+				// TODO: Figure out unknown value and write...
+				// No reason to write anything for now.
+				tocStream.Position += sizeof(uint);
+			}
+			tocStream.Write(BitConverter.GetBytes(0), 0, 2); // Empty value between TOC and assets.
+			tocBuffer = tocStream.ToArray();
+		}
+
+		public byte[] CreateAssetStream(string binaryFileTypeName, List<AbstractResourceChunk> chunks, byte[] tocBuffer, Dictionary<AbstractResourceChunk, long> startOffsetBytePositions, Progress<float> progress = null, Progress<string> progressDescription = null)
+		{
+			byte[] assetBuffer;
+			using MemoryStream assetStream = new MemoryStream();
+			int i = 0;
+			foreach (AbstractResourceChunk chunk in chunks)
+			{
+				if (progress != null)
+					((IProgress<float>)progress).Report(0.5f + i++ / (float)chunks.Count / 2);
+				if (progressDescription != null)
+					((IProgress<string>)progressDescription).Report($"Writing file contents of \"{chunk.Name}\" to '{binaryFileTypeName}' file.");
+
+				uint startOffset = (uint)(HeaderSize + tocBuffer.Length + assetStream.Position);
+				chunk.StartOffset = startOffset;
+
+				// Write start offset to TOC stream.
+				Buffer.BlockCopy(BitConverter.GetBytes(startOffset), 0, tocBuffer, (int)startOffsetBytePositions[chunk], sizeof(uint));
+
+				// Write asset data to asset stream.
+				byte[] bytes = chunk.GetBuffer();
+				assetStream.Write(bytes, 0, bytes.Length);
+			}
+			assetBuffer = assetStream.ToArray();
+
+			return assetBuffer;
+		}
+
+		public byte[] CreateBinary(byte[] tocBuffer, byte[] assetBuffer)
+		{
+			using MemoryStream ms = new MemoryStream();
+
+			// Write file header.
+			ms.Write(BitConverter.GetBytes((uint)Magic1), 0, sizeof(uint));
+			ms.Write(BitConverter.GetBytes((uint)Magic2), 0, sizeof(uint));
+			ms.Write(BitConverter.GetBytes((uint)tocBuffer.Length), 0, sizeof(uint));
+
+			// Write TOC buffer.
+			ms.Write(tocBuffer, 0, tocBuffer.Length);
+
+			// Write asset buffer.
+			ms.Write(assetBuffer, 0, assetBuffer.Length);
+			return ms.ToArray();
+		}
+
+		#endregion Make binary
+
+		#region Extract binary
+
 		/// <summary>
 		/// Extracts a binary file into multiple asset files.
 		/// </summary>
 		/// <param name="inputPath">The binary file path.</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
 		/// <param name="binaryFileType">The binary file type of the file that's being extracted. This is only used for saving the mod file.</param>
-		/// <param name="createModFile">Whether to create mod file or not.</param>
 		/// <param name="progress">The progress as percentage.</param>
 		/// <param name="progressDescription">The progress description displayed in the progress window.</param>
 		public override void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
@@ -224,7 +245,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			int i = 0;
 			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			{
-				ushort type = BitConverter.ToUInt16(tocBuffer, i);
+				byte type = tocBuffer[i];
 				string name = Utils.ReadNullTerminatedString(tocBuffer, i + 2);
 
 				i += name.Length + 1; // + 1 to include null terminator.
@@ -233,7 +254,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
-				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryTypes.Contains(type));
+				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryType == type);
 				if (chunkInfo != null)
 					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size, unknown) as AbstractResourceChunk);
 			}
@@ -251,7 +272,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 
 			foreach (AbstractResourceChunk chunk in chunks)
 			{
-				if (chunk.Size == 0) // Filter empty chunks (garbage in core file TOC buffer).
+				if (chunk.Size == 0) // Filter empty chunks (garbage in TOC buffers).
 					continue;
 
 				ChunkInfo info = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType());
@@ -268,5 +289,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{(fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)}"), fileResult.Buffer);
 			}
 		}
+
+		#endregion Extract binary
 	}
 }

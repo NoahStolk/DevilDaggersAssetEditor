@@ -90,7 +90,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 				{
 					if (type == typeof(ShaderUserAsset))
 					{
-						if (name.EndsWith("_vertex")) // Skip _fragment to avoid getting duplicate assets.
+						if (path.EndsWith("_vertex")) // Skip _fragment to avoid getting duplicate assets.
 							assets.Add(Activator.CreateInstance(type, name.TrimEnd("_vertex"), path.TrimEnd("_vertex")) as AbstractUserAsset);
 					}
 					else
