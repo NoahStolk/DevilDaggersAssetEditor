@@ -109,7 +109,7 @@ namespace DevilDaggersAssetCore.Chunks
 					for (int y = 0; y < bitmap.Height; y++)
 					{
 						Color pixel = bitmap.GetPixel(x, y);
-						bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse rgb).
+						bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse RGBA).
 					}
 				}
 				mipmapOffset += mipmapBufferSizes[i];
