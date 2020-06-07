@@ -105,9 +105,9 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 			string name = Utils.ReadNullTerminatedString(fileBuffer, i);
 
 			byte[] chunkBuffer = new byte[ParticleBufferLength];
-			Buffer.BlockCopy(fileBuffer, i, chunkBuffer, 0, chunkBuffer.Length);
+			Buffer.BlockCopy(fileBuffer, i + name.Length, chunkBuffer, 0, chunkBuffer.Length);
 
-			return new ParticleChunk(name, (uint)i, (uint)chunkBuffer.Length) { Buffer = chunkBuffer, Header = new ParticleHeader(Encoding.Default.GetBytes(name)) };
+			return new ParticleChunk(name, (uint)(i + name.Length), (uint)chunkBuffer.Length) { Buffer = chunkBuffer, Header = new ParticleHeader(Encoding.Default.GetBytes(name)) };
 		}
 	}
 }
