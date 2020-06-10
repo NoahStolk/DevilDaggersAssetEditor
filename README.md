@@ -49,7 +49,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 - [Discord server](https://discord.gg/NF32j8S)
 
 ## Credits
-This program's core functionality is heavily based on [Devil Daggers Extractor by pmcc](https://github.com/pmcc/devil-daggers-extractor), and inspired by [Sojk](https://github.com/sojk)'s asset editor created with QT.
+The program's asset extraction core functionality is based on [Devil Daggers Extractor by pmcc](https://github.com/pmcc/devil-daggers-extractor) written in C++.
 
 ## License
 MIT License
