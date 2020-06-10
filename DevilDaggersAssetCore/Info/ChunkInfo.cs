@@ -84,7 +84,7 @@ namespace DevilDaggersAssetCore.Info
 			headerInfo: new HeaderInfo(typeof(ParticleHeader), null),
 			assetType: typeof(ParticleAsset),
 			userAssetType: typeof(ParticleUserAsset),
-			binaryType: 0x00,
+			binaryType: 0x00, // Doesn't actually have a binary type.
 			fileExtension: ".bin",
 			folderName: "Particles",
 			dataName: "Particle",
