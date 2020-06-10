@@ -40,6 +40,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 ## Running from source
 - Make sure all the projects listed under "Dependencies" are properly referenced. The sources for the projects need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
+- Make sure to set the project platform to x64 before building the project.
 
 ## Links
 - [DevilDaggers.info website](https://devildaggers.info)
