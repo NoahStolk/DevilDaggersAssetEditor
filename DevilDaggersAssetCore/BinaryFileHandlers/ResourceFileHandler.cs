@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
 using DevilDaggersAssetCore.Info;
+using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

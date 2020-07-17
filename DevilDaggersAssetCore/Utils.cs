@@ -31,9 +31,5 @@ namespace DevilDaggersAssetCore
 			}
 			throw new Exception($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
 		}
-
-		public static bool HasFlagBothWays<TEnum>(this TEnum a, TEnum b)
-			where TEnum : Enum
-			=> a.HasFlag(b) || b.HasFlag(a);
 	}
 }
