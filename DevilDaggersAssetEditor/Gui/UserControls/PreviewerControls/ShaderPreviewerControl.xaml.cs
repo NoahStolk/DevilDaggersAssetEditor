@@ -1,18 +1,10 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
-using NetBase.Extensions;
+using DevilDaggersCore.Extensions;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Documents;
-#if DEBUG
-using SyntaxHighlighter;
-using SyntaxHighlighter.Parsers;
-using System.Collections.Generic;
-using System.Windows.Media;
-using ShColor = SyntaxHighlighter.Color;
-using WmColor = System.Windows.Media.Color;
-#endif
 
 namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 {
@@ -52,32 +44,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 				PreviewVertexTextBox.Document.PageWidth = MeasureText(vertexCode);
 				PreviewFragmentTextBox.Document.PageWidth = MeasureText(fragmentCode);
 
-#if DEBUG
-				List<Piece> parsedVertexCode = GlslParser.Instance.Parse(vertexCode);
-				foreach (Piece piece in parsedVertexCode)
-				{
-					TextRange vertex = new TextRange(PreviewVertexTextBox.Document.ContentEnd, PreviewVertexTextBox.Document.ContentEnd)
-					{
-						Text = piece.Code
-					};
-					vertex.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(TranslateColor(GlslParser.Instance.CodeStyle.HighlightColors[piece.Type])));
-				}
-
-				List<Piece> parsedFragmentCode = GlslParser.Instance.Parse(fragmentCode);
-				foreach (Piece piece in parsedFragmentCode)
-				{
-					TextRange fragment = new TextRange(PreviewFragmentTextBox.Document.ContentEnd, PreviewFragmentTextBox.Document.ContentEnd)
-					{
-						Text = piece.Code
-					};
-					fragment.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(TranslateColor(GlslParser.Instance.CodeStyle.HighlightColors[piece.Type])));
-				}
-
-				static WmColor TranslateColor(ShColor color) => WmColor.FromArgb(255, color.R, color.G, color.B);
-#else
-				TextRange vertex = new TextRange(PreviewVertexTextBox.Document.ContentEnd, PreviewVertexTextBox.Document.ContentEnd) { Text = vertexCode };
-				TextRange fragment = new TextRange(PreviewFragmentTextBox.Document.ContentEnd, PreviewFragmentTextBox.Document.ContentEnd) { Text = fragmentCode };
-#endif
+				new TextRange(PreviewVertexTextBox.Document.ContentEnd, PreviewVertexTextBox.Document.ContentEnd) { Text = vertexCode };
+				new TextRange(PreviewFragmentTextBox.Document.ContentEnd, PreviewFragmentTextBox.Document.ContentEnd) { Text = fragmentCode };
 			}
 		}
 

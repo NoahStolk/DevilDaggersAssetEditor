@@ -1,8 +1,8 @@
 ﻿using DevilDaggersAssetCore.Assets;
+using DevilDaggersAssetCore.Json;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
-using JsonUtils;
-using NetBase.Extensions;
+using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetCore;
+using DevilDaggersAssetCore.Json;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
-using JsonUtils;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.IO;

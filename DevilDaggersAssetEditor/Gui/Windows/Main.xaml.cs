@@ -4,7 +4,7 @@ using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersCore.Tools;
-using NetBase.Utils;
+using DevilDaggersCore.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -55,10 +55,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\JsonUtils\JsonUtils\JsonUtils.csproj">
-      <Project>{5ced0e44-2b47-4107-8a84-92102f7cce5d}</Project>
-      <Name>JsonUtils</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\DevilDaggersAssetCore\DevilDaggersAssetCore.csproj">
       <Project>{281857fb-02af-4425-b3c6-c0e00381d8d2}</Project>
       <Name>DevilDaggersAssetCore</Name>

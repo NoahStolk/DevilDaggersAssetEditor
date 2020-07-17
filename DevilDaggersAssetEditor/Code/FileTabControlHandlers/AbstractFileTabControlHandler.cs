@@ -1,12 +1,12 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.BinaryFileHandlers;
+using DevilDaggersAssetCore.Json;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using DevilDaggersAssetEditor.Gui.Windows;
-using JsonUtils;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;

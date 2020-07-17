@@ -1,6 +1,6 @@
 ﻿using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Chunks;
-using JsonUtils;
+using DevilDaggersAssetCore.Json;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Drawing;

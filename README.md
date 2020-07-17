@@ -9,10 +9,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 - C# 8.0
 
 ## Dependencies
-- [NetBase](https://github.com/NoahStolk/NetBase)
-- [JsonUtils](https://github.com/NoahStolk/JsonUtils)
 - [DevilDaggersCore](https://github.com/NoahStolk/DevilDaggersCore)
-- [SyntaxHighlighter](https://github.com/NoahStolk/SyntaxHighlighter)
 
 ## Main features
 - Extracting and compressing asset types
