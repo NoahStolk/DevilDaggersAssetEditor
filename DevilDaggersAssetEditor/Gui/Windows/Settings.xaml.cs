@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetCore.User;
-using DevilDaggersCore.Processes;
+using DevilDaggersCore.Utils;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.ComponentModel;
@@ -19,8 +19,10 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		private const int GWL_STYLE = -16;
 		private const int WS_SYSMENU = 0x80000;
 #pragma warning restore IDE1006
+
 		[DllImport("user32.dll", SetLastError = true)]
 		private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
 		[DllImport("user32.dll")]
 		private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 

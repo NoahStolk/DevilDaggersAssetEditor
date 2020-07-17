@@ -3,6 +3,7 @@ using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersAssetEditor.Gui.Windows;
 using DevilDaggersCore.Tools;
+using DevilDaggersCore.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -120,7 +121,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 			helpWindow.ShowDialog();
 		}
 
-		private void SourceCode_Click(object sender, RoutedEventArgs e) => Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
+		private void SourceCode_Click(object sender, RoutedEventArgs e)
+			=> Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
 
 		private void Update_Click(object sender, RoutedEventArgs e)
 		{
