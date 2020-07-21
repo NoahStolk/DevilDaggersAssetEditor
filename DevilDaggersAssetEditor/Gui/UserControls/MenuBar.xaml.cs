@@ -122,7 +122,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		}
 
 		private void SourceCode_Click(object sender, RoutedEventArgs e)
-			=> Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName));
+			=> Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName).ToString());
 
 		private void Update_Click(object sender, RoutedEventArgs e)
 		{
