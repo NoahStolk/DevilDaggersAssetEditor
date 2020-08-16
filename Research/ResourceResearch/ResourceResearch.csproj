@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DevilDaggersAssetCore\DevilDaggersAssetCore.csproj" />
+    <ProjectReference Include="..\..\DevilDaggersAssetEditor\DevilDaggersAssetEditor.csproj" />
   </ItemGroup>
 
 </Project>

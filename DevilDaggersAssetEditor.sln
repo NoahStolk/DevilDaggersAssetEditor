@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Research", "Research", "{88
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleResearch", "Research\ParticleResearch\ParticleResearch.csproj", "{C2582AA8-80E2-41BB-8E1C-CD3F79B50A73}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceResearch", "ResourceResearch\ResourceResearch.csproj", "{78E13B78-A0B5-43EB-ADF7-DBB76C89C035}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceResearch", "Research\ResourceResearch\ResourceResearch.csproj", "{78E13B78-A0B5-43EB-ADF7-DBB76C89C035}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
