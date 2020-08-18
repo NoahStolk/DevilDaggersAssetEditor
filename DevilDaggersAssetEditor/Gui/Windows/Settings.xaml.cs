@@ -1,11 +1,12 @@
 ﻿using DevilDaggersAssetCore.User;
+using DevilDaggersAssetEditor.Code;
 using DevilDaggersCore.Utils;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
@@ -16,17 +17,11 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 	public partial class SettingsWindow : Window
 	{
 #pragma warning disable IDE1006
+#pragma warning disable SA1310 // Field names should not contain underscore
 		private const int GWL_STYLE = -16;
 		private const int WS_SYSMENU = 0x80000;
 #pragma warning restore IDE1006
-
-		[DllImport("user32.dll", SetLastError = true)]
-		private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-
-		[DllImport("user32.dll")]
-		private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
-		private UserSettings Settings => UserHandler.Instance.settings;
+#pragma warning restore SA1310 // Field names should not contain underscore
 
 		public SettingsWindow()
 		{
@@ -34,25 +29,25 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			TextBoxTextureSizeLimit.TextChanged += TextBoxTextureSizeLimit_TextChanged;
 
-			LabelAssetsRootFolder.Content = Settings.AssetsRootFolder;
-			LabelDevilDaggersRootFolder.Content = Settings.DevilDaggersRootFolder;
-			LabelModsRootFolder.Content = Settings.ModsRootFolder;
+			LabelAssetsRootFolder.Content = UserHandler.Instance.settings.AssetsRootFolder;
+			LabelDevilDaggersRootFolder.Content = UserHandler.Instance.settings.DevilDaggersRootFolder;
+			LabelModsRootFolder.Content = UserHandler.Instance.settings.ModsRootFolder;
 
-			CheckBoxAssetsRootFolder.IsChecked = Settings.EnableAssetsRootFolder;
-			CheckBoxDevilDaggersRootFolder.IsChecked = Settings.EnableDevilDaggersRootFolder;
-			CheckBoxModsRootFolder.IsChecked = Settings.EnableModsRootFolder;
+			CheckBoxAssetsRootFolder.IsChecked = UserHandler.Instance.settings.EnableAssetsRootFolder;
+			CheckBoxDevilDaggersRootFolder.IsChecked = UserHandler.Instance.settings.EnableDevilDaggersRootFolder;
+			CheckBoxModsRootFolder.IsChecked = UserHandler.Instance.settings.EnableModsRootFolder;
 
-			CheckBoxCreateModFileWhenExtracting.IsChecked = Settings.CreateModFileWhenExtracting;
-			CheckBoxOpenModFolderAfterExtracting.IsChecked = Settings.OpenModFolderAfterExtracting;
+			CheckBoxCreateModFileWhenExtracting.IsChecked = UserHandler.Instance.settings.CreateModFileWhenExtracting;
+			CheckBoxOpenModFolderAfterExtracting.IsChecked = UserHandler.Instance.settings.OpenModFolderAfterExtracting;
 
-			TextBoxTextureSizeLimit.Text = Settings.TextureSizeLimit.ToString();
+			TextBoxTextureSizeLimit.Text = UserHandler.Instance.settings.TextureSizeLimit.ToString(CultureInfo.InvariantCulture);
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			// Removes Exit button.
 			IntPtr hwnd = new WindowInteropHelper(this).Handle;
-			SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+			NativeMethods.SetWindowLong(hwnd, GWL_STYLE, NativeMethods.GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)
@@ -62,51 +57,31 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				e.Cancel = true;
 		}
 
-		private void BrowseDevilDaggersRootFolderButton_Click(object sender, RoutedEventArgs e)
+		private void Browse(Label label)
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
-			string initDir = LabelDevilDaggersRootFolder.Content.ToString();
-			if (Directory.Exists(initDir))
-				dialog.InitialDirectory = initDir;
+			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
+			string? initDir = label.Content.ToString();
+			if (!string.IsNullOrEmpty(initDir) && Directory.Exists(initDir))
+				dialog.SelectedPath = initDir;
 
-			CommonFileDialogResult result = dialog.ShowDialog();
-			if (result == CommonFileDialogResult.Ok)
-				LabelDevilDaggersRootFolder.Content = dialog.FileName;
+			if (dialog.ShowDialog() == true)
+				label.Content = dialog.SelectedPath;
 
 			Focus();
 		}
+
+		private void BrowseDevilDaggersRootFolderButton_Click(object sender, RoutedEventArgs e)
+			=> Browse(LabelDevilDaggersRootFolder);
 
 		private void BrowseModsRootFolderButton_Click(object sender, RoutedEventArgs e)
-		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
-			string initDir = LabelModsRootFolder.Content.ToString();
-			if (Directory.Exists(initDir))
-				dialog.InitialDirectory = initDir;
-
-			CommonFileDialogResult result = dialog.ShowDialog();
-			if (result == CommonFileDialogResult.Ok)
-				LabelModsRootFolder.Content = dialog.FileName;
-
-			Focus();
-		}
+			=> Browse(LabelModsRootFolder);
 
 		private void BrowseAssetsRootFolderButton_Click(object sender, RoutedEventArgs e)
-		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
-			string initDir = LabelAssetsRootFolder.Content.ToString();
-			if (Directory.Exists(initDir))
-				dialog.InitialDirectory = initDir;
-
-			CommonFileDialogResult result = dialog.ShowDialog();
-			if (result == CommonFileDialogResult.Ok)
-				LabelAssetsRootFolder.Content = dialog.FileName;
-
-			Focus();
-		}
+			=> Browse(LabelAssetsRootFolder);
 
 		private void AutoDetectButton_Click(object sender, RoutedEventArgs e)
 		{
-			Process process = ProcessUtils.GetDevilDaggersProcess();
+			Process? process = ProcessUtils.GetDevilDaggersProcess();
 			if (process != null)
 				LabelDevilDaggersRootFolder.Content = Path.GetDirectoryName(process.MainModule.FileName);
 			else
@@ -120,19 +95,19 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void OkButton_Click(object sender, RoutedEventArgs e)
 		{
-			Settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString();
-			Settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString();
-			Settings.ModsRootFolder = LabelModsRootFolder.Content.ToString();
+			UserHandler.Instance.settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString() ?? UserSettings.PathDefault;
+			UserHandler.Instance.settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString() ?? UserSettings.PathDefault;
+			UserHandler.Instance.settings.ModsRootFolder = LabelModsRootFolder.Content.ToString() ?? UserSettings.PathDefault;
 
-			Settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
-			Settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
-			Settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
+			UserHandler.Instance.settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
+			UserHandler.Instance.settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
+			UserHandler.Instance.settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
 
-			Settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
-			Settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
+			UserHandler.Instance.settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
+			UserHandler.Instance.settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
 
 			if (uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0)
-				Settings.TextureSizeLimit = res;
+				UserHandler.Instance.settings.TextureSizeLimit = res;
 
 			DialogResult = true;
 		}

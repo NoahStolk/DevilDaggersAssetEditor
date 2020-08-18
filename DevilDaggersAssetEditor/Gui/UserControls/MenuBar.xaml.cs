@@ -1,8 +1,8 @@
 ﻿using DevilDaggersAssetCore.BinaryFileAnalyzer;
 using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
+using DevilDaggersAssetEditor.Code.Network;
 using DevilDaggersAssetEditor.Gui.Windows;
-using DevilDaggersCore.Tools;
 using DevilDaggersCore.Utils;
 using Microsoft.Win32;
 using System;
@@ -20,35 +20,34 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
-		private UserSettings settings => UserHandler.Instance.settings;
-
-		public readonly List<AbstractFileTabControlHandler> tabHandlers;
-
 		public MenuBarUserControl()
 		{
 			InitializeComponent();
 
-			// TODO: Enable when loading screen is implemented.
-			//if (VersionHandler.Instance.VersionResult.IsUpToDate.HasValue && !VersionHandler.Instance.VersionResult.IsUpToDate.Value)
-			//{
-			//	HelpItem.Header += " (Update available)";
-			//	HelpItem.FontWeight = FontWeights.Bold;
+			if (NetworkHandler.Instance.Tool != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
+			{
+				HelpItem.Header += " (Update available)";
+				HelpItem.FontWeight = FontWeights.Bold;
 
-			//	foreach (MenuItem menuItem in HelpItem.Items)
-			//		menuItem.FontWeight = FontWeights.Normal;
+				foreach (MenuItem? menuItem in HelpItem.Items)
+				{
+					if (menuItem == null)
+						continue;
+					menuItem.FontWeight = FontWeights.Normal;
+				}
 
-			//	UpdateItem.Header = "Update available";
-			//	UpdateItem.FontWeight = FontWeights.Bold;
-			//}
+				UpdateItem.Header = "Update available";
+				UpdateItem.FontWeight = FontWeights.Bold;
+			}
 
-			tabHandlers = App.Instance.Assembly
+			TabHandlers = App.Assembly
 				.GetTypes()
 				.Where(t => t.BaseType == typeof(AbstractFileTabControlHandler) && !t.IsAbstract)
 				.OrderBy(t => t.Name)
 				.Select(t => (AbstractFileTabControlHandler)Activator.CreateInstance(t))
 				.ToList();
 
-			foreach (AbstractFileTabControlHandler tabHandler in tabHandlers)
+			foreach (AbstractFileTabControlHandler tabHandler in TabHandlers)
 				FileMenuItem.Items.Add(tabHandler.CreateFileTypeMenuItem());
 
 #if DEBUG
@@ -62,11 +61,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 #endif
 		}
 
+		public List<AbstractFileTabControlHandler> TabHandlers { get; }
+
 		private void AnalyzeBinaryFileMenuItem_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			if (settings.EnableDevilDaggersRootFolder && Directory.Exists(settings.DevilDaggersRootFolder))
-				openDialog.InitialDirectory = settings.DevilDaggersRootFolder;
+			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder && Directory.Exists(UserHandler.Instance.settings.DevilDaggersRootFolder))
+				openDialog.InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder;
 
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult.HasValue && openResult.Value)
@@ -104,7 +105,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 
 		private void Changelog_Click(object sender, RoutedEventArgs e)
 		{
-			if (VersionHandler.Instance.VersionResult.Tool.Changelog != null)
+			if (NetworkHandler.Instance.Tool != null)
 			{
 				ChangelogWindow changelogWindow = new ChangelogWindow();
 				changelogWindow.ShowDialog();
@@ -122,17 +123,16 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		}
 
 		private void SourceCode_Click(object sender, RoutedEventArgs e)
-			=> Process.Start(UrlUtils.SourceCodeUrl(App.ApplicationName).ToString());
+			=> ProcessUtils.OpenUrl(UrlUtils.SourceCodeUrl(App.ApplicationName).ToString());
 
 		private void Update_Click(object sender, RoutedEventArgs e)
 		{
 			CheckingForUpdatesWindow window = new CheckingForUpdatesWindow();
 			window.ShowDialog();
 
-			VersionResult versionResult = VersionHandler.Instance.VersionResult;
-			if (versionResult.IsUpToDate.HasValue)
+			if (NetworkHandler.Instance.Tool != null)
 			{
-				if (!versionResult.IsUpToDate.Value)
+				if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 				{
 					UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow();
 					updateRecommendedWindow.ShowDialog();
@@ -144,7 +144,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 			}
 			else
 			{
-				App.Instance.ShowError($"Error retrieving version number for '{App.ApplicationName}'", versionResult.Exception.Message, versionResult.Exception.InnerException);
+				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
 			}
 		}
 

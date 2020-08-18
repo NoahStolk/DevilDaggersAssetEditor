@@ -3,6 +3,7 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code;
 using IrrKlang;
+using System.Globalization;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,11 +15,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 	{
 		private readonly ISoundEngine engine = new ISoundEngine();
 
-		public ISound Song { get; private set; }
-		public ISoundSource SongData { get; private set; }
-
-		public bool Dragging { get; private set; }
-
 		public AudioPreviewerControl()
 		{
 			InitializeComponent();
@@ -28,6 +24,11 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
 			ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
 		}
+
+		public ISound? Song { get; private set; }
+		public ISoundSource SongData { get; private set; }
+
+		public bool IsDragging { get; private set; }
 
 		private void Toggle_Click(object sender, RoutedEventArgs e)
 		{
@@ -62,12 +63,12 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 
 		private void Seek_DragStarted(object sender, DragStartedEventArgs e)
 		{
-			Dragging = true;
+			IsDragging = true;
 		}
 
 		private void Seek_DragCompleted(object sender, DragCompletedEventArgs e)
 		{
-			Dragging = false;
+			IsDragging = false;
 
 			if (Song != null)
 				Song.PlayPosition = (uint)Seek.Value;
@@ -76,10 +77,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		public void Initialize(AudioAsset asset)
 		{
 			AudioName.Text = asset.AssetName;
-			DefaultLoudness.Text = asset.PresentInDefaultLoudness ? asset.DefaultLoudness.ToString() : "N/A (Defaults to 1)";
+			DefaultLoudness.Text = asset.PresentInDefaultLoudness ? asset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
 
 			FileName.Text = File.Exists(asset.EditorPath) ? Path.GetFileName(asset.EditorPath) : Utils.FileNotFound;
-			FileLoudness.Text = asset.Loudness.ToString();
+			FileLoudness.Text = asset.Loudness.ToString(CultureInfo.InvariantCulture);
 
 			bool startPaused = !Autoplay.IsChecked ?? true;
 
@@ -112,6 +113,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			}
 		}
 
-		private void Autoplay_ChangeState(object sender, RoutedEventArgs e) => UserHandler.Instance.cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked ?? false;
+		private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
+			=> UserHandler.Instance.cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked ?? false;
 	}
 }

@@ -2,7 +2,7 @@
 using DevilDaggersAssetCore.Json;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.IO;
 
@@ -10,14 +10,13 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public sealed class ModHandler
 	{
-		private UserSettings Settings => UserHandler.Instance.settings;
-
 		private static readonly Lazy<ModHandler> lazy = new Lazy<ModHandler>(() => new ModHandler());
-		public static ModHandler Instance => lazy.Value;
 
 		private ModHandler()
 		{
 		}
+
+		public static ModHandler Instance => lazy.Value;
 
 		public ModFile GetModFileFromPath(string path, BinaryFileType binaryFileType)
 		{
@@ -27,14 +26,15 @@ namespace DevilDaggersAssetEditor.Code
 			if (modFile.HasRelativePaths)
 			{
 				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
-				using CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true };
-				if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
-					basePathDialog.InitialDirectory = Settings.AssetsRootFolder;
+				VistaFolderBrowserDialog basePathDialog = new VistaFolderBrowserDialog();
+				if (UserHandler.Instance.settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.settings.AssetsRootFolder))
+					basePathDialog.SelectedPath = UserHandler.Instance.settings.AssetsRootFolder;
 
-				CommonFileDialogResult result = basePathDialog.ShowDialog();
-				if (result == CommonFileDialogResult.Ok)
+				if (basePathDialog.ShowDialog() == true)
+				{
 					foreach (AbstractUserAsset asset in modFile.Assets)
-						asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
+						asset.EditorPath = Path.Combine(basePathDialog.SelectedPath, asset.EditorPath);
+				}
 			}
 
 			switch (binaryFileType)

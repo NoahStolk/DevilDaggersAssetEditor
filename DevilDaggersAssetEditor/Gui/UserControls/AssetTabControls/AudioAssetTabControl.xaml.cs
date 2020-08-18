@@ -15,20 +15,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 {
 	public partial class AudioAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
-		(
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(
 			nameof(BinaryFileType),
 			typeof(string),
-			typeof(AudioAssetTabControl)
-		);
-
-		public string BinaryFileType
-		{
-			get => (string)GetValue(BinaryFileTypeProperty);
-			set => SetValue(BinaryFileTypeProperty, value);
-		}
-
-		public AudioAssetTabControlHandler Handler { get; private set; }
+			typeof(AudioAssetTabControl));
 
 		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> nameSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.AssetName);
 		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> tagsSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
@@ -46,13 +36,21 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 				if (Previewer.Song == null || Previewer.Song.Paused)
 					return;
 
-				if (!Previewer.Dragging)
+				if (!Previewer.IsDragging)
 					Previewer.Seek.Value = Previewer.Song.PlayPosition / (float)Previewer.Song.PlayLength * Previewer.Seek.Maximum;
 
 				Previewer.SeekText.Text = $"{EditorUtils.ToTimeString((int)Previewer.Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Previewer.Song.PlayLength)}";
 			};
 			timer.Start();
 		}
+
+		public string BinaryFileType
+		{
+			get => (string)GetValue(BinaryFileTypeProperty);
+			set => SetValue(BinaryFileTypeProperty, value);
+		}
+
+		public AudioAssetTabControlHandler Handler { get; private set; }
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -145,9 +143,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 
 		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
+
 		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
+
 		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
+
 		private void LoudnessSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(loudnessSort);
+
 		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
 
 		private void SetSorting(AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> sorting)
