@@ -2,8 +2,7 @@
 Devil Daggers Asset Editor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods. It is a .NET WPF application built using Visual Studio 2019.
 
 ## Frameworks
-- .NET Standard 2.0 (Core library)
-- .NET Framework 4.6.1 (GUI)
+- .NET Core 3.1
 
 ## Language
 - C# 8.0
@@ -28,7 +27,6 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 ## System requirements
 - Microsoft Windows (64-bit)
-- .NET Framework 4.6.1
 
 ## Installation
 1. Download the zip file.
