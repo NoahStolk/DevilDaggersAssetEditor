@@ -150,10 +150,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 
 		private void ShowLog_Click(object sender, RoutedEventArgs e)
 		{
-			if (File.Exists("DDAE.log"))
-				Process.Start("DDAE.log");
-			else
-				App.Instance.ShowMessage("No log file", "Log file does not exist.");
+			try
+			{
+				if (File.Exists("DDAE.log"))
+					Process.Start("DDAE.log");
+				else
+					App.Instance.ShowMessage("No log file", "Log file does not exist.");
+			}
+			catch (Exception ex)
+			{
+				App.Instance.ShowMessage("Could not open log file", ex.Message);
+			}
 		}
 	}
 }
