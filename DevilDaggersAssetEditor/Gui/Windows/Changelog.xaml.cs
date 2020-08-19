@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Clients;
+﻿using DevilDaggersAssetEditor.Code.Clients;
 using DevilDaggersAssetEditor.Code.Network;
 using System;
 using System.Collections.Generic;

@@ -54,7 +54,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "DevilDaggersAssetEditor.Clients",
+      "namespace": "DevilDaggersAssetEditor.Code.Clients",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -90,7 +90,7 @@
       "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": null,
+      "output": "DevilDaggersInfoApiClient.cs",
       "newLineBehavior": "Auto"
     }
   }

@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Clients;
+﻿using DevilDaggersAssetEditor.Code.Clients;
 using System;
 using System.Linq;
 using System.Net.Http;
