@@ -23,28 +23,10 @@ namespace DevilDaggersAssetCore.User
 			sw.Write(JsonConvert.SerializeObject(cache, Formatting.Indented));
 		}
 
-		public void LoadCache()
-		{
-			if (File.Exists(UserCache.FileName))
-			{
-				using StreamReader sr = new StreamReader(File.OpenRead(UserCache.FileName));
-				cache = JsonConvert.DeserializeObject<UserCache>(sr.ReadToEnd());
-			}
-		}
-
 		public void SaveSettings()
 		{
 			using StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName));
 			sw.Write(JsonConvert.SerializeObject(settings, Formatting.Indented));
-		}
-
-		public void LoadSettings()
-		{
-			if (File.Exists(UserSettings.FileName))
-			{
-				using StreamReader sr = new StreamReader(File.OpenRead(UserSettings.FileName));
-				settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
-			}
 		}
 	}
 }

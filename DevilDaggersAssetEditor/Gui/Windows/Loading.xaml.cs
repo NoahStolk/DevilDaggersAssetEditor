@@ -34,7 +34,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void RunThreads(object? sender, EventArgs e)
 		{
-			BackgroundWorker checkVersionThread = new BackgroundWorker();
+			using BackgroundWorker checkVersionThread = new BackgroundWorker();
 			checkVersionThread.DoWork += (object sender, DoWorkEventArgs e) =>
 			{
 				Task toolTask = NetworkHandler.Instance.GetOnlineTool();
@@ -84,7 +84,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			bool readUserSettingsSuccess = false;
 			bool userSettingsFileExists = File.Exists(UserSettings.FileName);
-			BackgroundWorker readUserSettingsThread = new BackgroundWorker();
+			using BackgroundWorker readUserSettingsThread = new BackgroundWorker();
 			readUserSettingsThread.DoWork += (object sender, DoWorkEventArgs e) =>
 			{
 				try
@@ -117,7 +117,42 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				ThreadComplete();
 			};
 
-			BackgroundWorker mainInitThread = new BackgroundWorker();
+			bool readUserCacheSuccess = false;
+			bool userCacheFileExists = File.Exists(UserCache.FileName);
+			using BackgroundWorker readUserCacheThread = new BackgroundWorker();
+			readUserCacheThread.DoWork += (object sender, DoWorkEventArgs e) =>
+			{
+				try
+				{
+					if (userCacheFileExists)
+					{
+						using StreamReader sr = new StreamReader(File.OpenRead(UserCache.FileName));
+						UserHandler.Instance.cache = JsonConvert.DeserializeObject<UserCache>(sr.ReadToEnd());
+					}
+
+					readUserCacheSuccess = true;
+				}
+				catch (Exception ex)
+				{
+					App.Instance.ShowError("Error", "Error while trying to read user cache.", ex);
+				}
+			};
+			readUserCacheThread.RunWorkerCompleted += (object sender, RunWorkerCompletedEventArgs e) =>
+			{
+				Dispatcher.Invoke(() =>
+				{
+					TaskResultsStackPanel.Children.Add(new Label
+					{
+						Content = readUserCacheSuccess ? userCacheFileExists ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
+						Foreground = new SolidColorBrush(readUserCacheSuccess ? Color.FromRgb(0, 127, 0) : Color.FromRgb(255, 0, 0)),
+						FontWeight = FontWeights.Bold,
+					});
+				});
+
+				ThreadComplete();
+			};
+
+			using BackgroundWorker mainInitThread = new BackgroundWorker();
 			mainInitThread.DoWork += (object sender, DoWorkEventArgs e) =>
 			{
 				Dispatcher.Invoke(() =>
@@ -130,10 +165,12 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			threads.Add(checkVersionThread);
 			threads.Add(readUserSettingsThread);
+			threads.Add(readUserCacheThread);
 			threads.Add(mainInitThread);
 
 			threadMessages.Add("Checking for updates...");
 			threadMessages.Add("Reading user settings...");
+			threadMessages.Add("Reading user cache...");
 			threadMessages.Add("Initializing application...");
 
 			RunThread(threads[0]);

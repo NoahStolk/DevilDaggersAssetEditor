@@ -30,9 +30,6 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		public MainWindow()
 		{
-			UserHandler.Instance.LoadSettings();
-			UserHandler.Instance.LoadCache();
-
 			InitializeComponent();
 
 			TabControl.SelectedIndex = MathUtils.Clamp(UserHandler.Instance.cache.ActiveTabIndex, 0, 6);
