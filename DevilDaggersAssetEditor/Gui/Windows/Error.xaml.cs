@@ -5,10 +5,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 {
 	public partial class ErrorWindow : Window
 	{
-		public string ErrorMessage { get; set; }
-		public Exception Exception { get; set; }
-
-		public ErrorWindow(string errorTitle, string errorMessage, Exception exception)
+		public ErrorWindow(string errorTitle, string errorMessage, Exception? exception)
 		{
 			InitializeComponent();
 
@@ -25,6 +22,10 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			Error.DataContext = this;
 		}
 
-		private void OkButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
+		public string ErrorMessage { get; set; }
+		public Exception? Exception { get; set; }
+
+		private void OkButton_Click(object sender, RoutedEventArgs e)
+			=> DialogResult = true;
 	}
 }

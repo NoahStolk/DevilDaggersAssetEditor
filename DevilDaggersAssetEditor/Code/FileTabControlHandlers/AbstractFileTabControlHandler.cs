@@ -8,9 +8,10 @@ using DevilDaggersAssetEditor.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Code.TabControlHandlers;
 using DevilDaggersAssetEditor.Gui.Windows;
 using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,12 +24,10 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 	{
 		public abstract AbstractBinaryFileHandler FileHandler { get; }
 
-		private UserSettings Settings => UserHandler.Instance.settings;
-
 		public virtual MenuItem CreateFileTypeMenuItem()
 		{
 			BinaryFileType binaryFileType = FileHandler.BinaryFileType;
-			string fileName = binaryFileType.ToString().ToLower();
+			string fileName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 
 			MenuItem extractBinaryItem = new MenuItem { Header = $"Extract '{fileName}' binary" };
 			MenuItem makeBinaryItem = new MenuItem { Header = $"Make '{fileName}' binary" };
@@ -39,7 +38,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			makeBinaryItem.Click += (sender, e) => MakeBinary_Click();
 			openModFileItem.Click += (sender, e) =>
 			{
-				ModFile modFile = OpenModFile();
+				ModFile? modFile = OpenModFile();
 				if (modFile == null)
 					return;
 				UpdateAssetTabControls(modFile.Assets);
@@ -70,21 +69,21 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		private async void ExtractBinary_Click()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			string initDir = Path.Combine(Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
-			if (Settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
+			string initDir = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
 				openDialog.InitialDirectory = initDir;
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			using CommonOpenFileDialog folderDialog = new CommonOpenFileDialog { IsFolderPicker = true };
-			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
-				folderDialog.InitialDirectory = Settings.ModsRootFolder;
+			VistaFolderBrowserDialog folderDialog = new VistaFolderBrowserDialog();
+			if (UserHandler.Instance.settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.settings.ModsRootFolder))
+				folderDialog.SelectedPath = UserHandler.Instance.settings.ModsRootFolder;
 
-			if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
+			if (folderDialog.ShowDialog() == true)
 			{
-				ProgressWindow progressWindow = new ProgressWindow($"Extracting '{FileHandler.BinaryFileType.ToString().ToLower()}'...");
+				ProgressWindow progressWindow = new ProgressWindow($"Extracting '{FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}'...");
 				progressWindow.Show();
 				await Task.Run(() =>
 				{
@@ -92,7 +91,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 					{
 						FileHandler.ExtractBinary(
 							openDialog.FileName,
-							folderDialog.FileName,
+							folderDialog.SelectedPath,
 							FileHandler.BinaryFileType,
 							new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
 							new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
@@ -120,15 +119,15 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			}
 
 			SaveFileDialog dialog = new SaveFileDialog();
-			string initDir = Path.Combine(Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
-			if (Settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
+			string initDir = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
 				dialog.InitialDirectory = initDir;
 
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;
 
-			ProgressWindow progressWindow = new ProgressWindow($"Turning files into '{FileHandler.BinaryFileType.ToString().ToLower()}' binary...");
+			ProgressWindow progressWindow = new ProgressWindow($"Turning files into '{FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary...");
 			progressWindow.Show();
 			await Task.Run(() =>
 			{
@@ -155,11 +154,11 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 		private void SaveModFile(List<AbstractUserAsset> assets)
 		{
-			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
+			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			SaveFileDialog dialog = new SaveFileDialog { Filter = modFileFilter };
-			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
-				dialog.InitialDirectory = Settings.ModsRootFolder;
+			if (UserHandler.Instance.settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.settings.ModsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.settings.ModsRootFolder;
 
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
@@ -171,9 +170,12 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				MessageBoxResult relativePathsResult = MessageBox.Show("Specify whether you want this mod file to use relative paths (easier to share between computers or using zipped files containing assets).", "Use relative paths?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
 				if (relativePathsResult == MessageBoxResult.Yes)
+				{
 					foreach (AbstractUserAsset asset in assets)
 						asset.EditorPath = Path.GetFileName(asset.EditorPath);
+				}
 			}
+
 			ModFile modFile = new ModFile(App.LocalVersion, relativePaths, assets);
 
 			JsonFileUtils.SerializeToFile(dialog.FileName, modFile, true);
@@ -193,7 +195,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			}
 		}
 
-		private List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
+		private static List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
 		{
 			List<AbstractUserAsset> userAssets = new List<AbstractUserAsset>();
 			foreach (AbstractAsset asset in assets)
@@ -201,13 +203,13 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			return userAssets;
 		}
 
-		private ModFile OpenModFile()
+		private ModFile? OpenModFile()
 		{
-			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower();
+			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			OpenFileDialog dialog = new OpenFileDialog { Filter = modFileFilter };
-			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.ModsRootFolder))
-				dialog.InitialDirectory = Settings.ModsRootFolder;
+			if (UserHandler.Instance.settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.settings.ModsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.settings.ModsRootFolder;
 
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
@@ -218,7 +220,7 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 
 		public abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		protected void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl, TAssetRowControlHandler>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler> assetTabControlHandler)
+		protected static void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl, TAssetRowControlHandler>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler> assetTabControlHandler)
 			where TUserAsset : AbstractUserAsset
 			where TAsset : AbstractAsset
 			where TAssetRowControl : UserControl

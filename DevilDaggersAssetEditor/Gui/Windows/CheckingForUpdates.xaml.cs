@@ -1,5 +1,4 @@
-﻿using DevilDaggersCore.Tools;
-using System;
+﻿using DevilDaggersAssetEditor.Code.Network;
 using System.ComponentModel;
 using System.Windows;
 
@@ -11,17 +10,14 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			InitializeComponent();
 
-			BackgroundWorker thread = new BackgroundWorker();
-			thread.DoWork += (sender, e) => VersionHandler.Instance.GetOnlineVersion(App.ApplicationName, App.LocalVersion);
+			using BackgroundWorker thread = new BackgroundWorker();
+			thread.DoWork += async (sender, e) => await NetworkHandler.Instance.GetOnlineTool();
 			thread.RunWorkerCompleted += (sender, e) => Close();
 
 			thread.RunWorkerAsync();
 		}
 
 		private void CancelButton_Click(object sender, RoutedEventArgs e)
-		{
-			VersionHandler.Instance.VersionResult.Exception = new Exception("Canceled by user");
-			Close();
-		}
+			=> Close();
 	}
 }

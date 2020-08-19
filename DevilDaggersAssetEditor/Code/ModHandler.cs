@@ -2,7 +2,9 @@
 using DevilDaggersAssetCore.Json;
 using DevilDaggersAssetCore.ModFiles;
 using DevilDaggersAssetCore.User;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.IO;
 
@@ -10,31 +12,45 @@ namespace DevilDaggersAssetEditor.Code
 {
 	public sealed class ModHandler
 	{
-		private UserSettings Settings => UserHandler.Instance.settings;
-
 		private static readonly Lazy<ModHandler> lazy = new Lazy<ModHandler>(() => new ModHandler());
-		public static ModHandler Instance => lazy.Value;
 
 		private ModHandler()
 		{
 		}
 
-		public ModFile GetModFileFromPath(string path, BinaryFileType binaryFileType)
+		public static ModHandler Instance => lazy.Value;
+
+		public ModFile? GetModFileFromPath(string path, BinaryFileType binaryFileType)
 		{
-			if (!JsonFileUtils.TryDeserializeFromFile(path, true, out ModFile modFile))
+			// When DdaeVersion is not a string, it means it was created using an older version of DDAE that still used .NET Framework.
+			// We need to remove this property because it will cause deserialization errors in .NET Core. This appears to be a breaking change between .NET Framework and .NET Core.
+			// We do not care about having the mod file version here, so simply removing the property when importing a mod file is enough.
+			string modJson = File.ReadAllText(path);
+			JObject? modJsonObject = JsonConvert.DeserializeObject<JObject>(modJson);
+			modJsonObject?.Property("DdaeVersion", StringComparison.InvariantCulture)?.Remove();
+			File.WriteAllText(path, JsonConvert.SerializeObject(modJsonObject));
+
+			ModFile? modFile = JsonFileUtils.DeserializeFromFile<ModFile>(path, true);
+
+			if (modFile == null)
+			{
 				App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
+				return null;
+			}
 
 			if (modFile.HasRelativePaths)
 			{
 				App.Instance.ShowMessage("Specify base path", "This mod file uses relative paths. Please specify a base path.");
-				using CommonOpenFileDialog basePathDialog = new CommonOpenFileDialog { IsFolderPicker = true };
-				if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
-					basePathDialog.InitialDirectory = Settings.AssetsRootFolder;
+				VistaFolderBrowserDialog basePathDialog = new VistaFolderBrowserDialog();
 
-				CommonFileDialogResult result = basePathDialog.ShowDialog();
-				if (result == CommonFileDialogResult.Ok)
+				if (UserHandler.Instance.settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.settings.AssetsRootFolder))
+					basePathDialog.SelectedPath = UserHandler.Instance.settings.AssetsRootFolder;
+
+				if (basePathDialog.ShowDialog() == true)
+				{
 					foreach (AbstractUserAsset asset in modFile.Assets)
-						asset.EditorPath = Path.Combine(basePathDialog.FileName, asset.EditorPath);
+						asset.EditorPath = Path.Combine(basePathDialog.SelectedPath, asset.EditorPath);
+				}
 			}
 
 			switch (binaryFileType)

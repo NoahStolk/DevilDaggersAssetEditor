@@ -3,7 +3,7 @@ using DevilDaggersAssetCore.Assets;
 using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code.RowControlHandlers;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -70,15 +70,14 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 
 		public void ImportFolder()
 		{
-			using CommonOpenFileDialog dialog = new CommonOpenFileDialog { IsFolderPicker = true };
+			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
 			if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
-				dialog.InitialDirectory = Settings.AssetsRootFolder;
+				dialog.SelectedPath = Settings.AssetsRootFolder;
 
-			CommonFileDialogResult result = dialog.ShowDialog();
-			if (result != CommonFileDialogResult.Ok)
+			if (dialog.ShowDialog() == true)
 				return;
 
-			foreach (string filePath in Directory.GetFiles(dialog.FileName))
+			foreach (string filePath in Directory.GetFiles(dialog.SelectedPath))
 			{
 				TAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", "").Replace("_vertex", ""));
 				if (rowHandler == null)
@@ -92,8 +91,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public bool IsComplete()
 		{
 			foreach (TAsset asset in RowHandlers.Select(a => a.Asset))
+			{
 				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl")))
 					return false;
+			}
+
 			return true;
 		}
 
@@ -116,7 +118,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			{
 				TextBlock textBlockTags = textBlocks.FirstOrDefault(kvp => kvp.Key == rowHandler.AssetRowControl).Value;
 
-				if (CheckedFilters.Count() == 0)
+				if (!CheckedFilters.Any())
 				{
 					rowHandler.IsActive = true;
 				}
