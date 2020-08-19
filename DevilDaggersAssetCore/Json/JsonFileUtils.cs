@@ -5,19 +5,6 @@ namespace DevilDaggersAssetCore.Json
 {
 	public static class JsonFileUtils
 	{
-		public static bool TrySerializeToFile(string path, object obj, bool includeType)
-		{
-			try
-			{
-				SerializeToFile(path, obj, includeType);
-				return true;
-			}
-			catch
-			{
-				return false;
-			}
-		}
-
 		public static void SerializeToFile(string path, object obj, bool includeType)
 		{
 			using StreamWriter sw = new StreamWriter(File.Create(path));
@@ -28,21 +15,8 @@ namespace DevilDaggersAssetCore.Json
 				JsonSerializers.DefaultSerializer.Serialize(jtw, obj);
 		}
 
-		public static bool TryDeserializeFromFile<T>(string path, bool includeType, out T result)
-		{
-			try
-			{
-				result = DeserializeFromFile<T>(path, includeType);
-				return true;
-			}
-			catch
-			{
-				result = default;
-				return false;
-			}
-		}
-
-		public static T DeserializeFromFile<T>(string path, bool includeType)
+		public static T? DeserializeFromFile<T>(string path, bool includeType)
+			where T : class
 		{
 			using StreamReader sr = new StreamReader(File.OpenRead(path));
 			if (includeType)
