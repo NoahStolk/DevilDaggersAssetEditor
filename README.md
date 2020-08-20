@@ -27,7 +27,7 @@ Devil Daggers Asset Editor is a tool that can be used to extract assets from the
 
 ## System requirements
 - Microsoft Windows (64-bit)
-- .NET Core 3.1 Runtime
+- .NET Core 3.1 Desktop Runtime
 
 ## Installation
 1. Download the zip file.
