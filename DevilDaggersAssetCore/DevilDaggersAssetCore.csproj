@@ -3,6 +3,7 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<Platforms>x64</Platforms>
 		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="Content\audio\Audio.json" />
