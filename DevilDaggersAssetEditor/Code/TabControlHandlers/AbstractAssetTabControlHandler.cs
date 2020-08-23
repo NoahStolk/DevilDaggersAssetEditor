@@ -74,7 +74,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
 				dialog.SelectedPath = Settings.AssetsRootFolder;
 
-			if (dialog.ShowDialog() == true)
+			if (dialog.ShowDialog() != true)
 				return;
 
 			foreach (string filePath in Directory.GetFiles(dialog.SelectedPath))
