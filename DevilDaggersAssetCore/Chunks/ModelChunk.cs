@@ -4,6 +4,7 @@ using DevilDaggersAssetCore.Info;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using Buf = System.Buffer;
@@ -25,6 +26,9 @@ namespace DevilDaggersAssetCore.Chunks
 		{
 		}
 
+		private float ParseVertexValue(string value)
+			=> (float)double.Parse(value, NumberStyles.Float, CultureInfo.InvariantCulture);
+
 		public override void MakeBinary(string path)
 		{
 			string text = File.ReadAllText(path);
@@ -44,13 +48,13 @@ namespace DevilDaggersAssetCore.Chunks
 				switch (identifier)
 				{
 					case "v":
-						positions.Add(new Vector3(float.Parse(values[1]), float.Parse(values[2]), float.Parse(values[3])));
+						positions.Add(new Vector3(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
 						break;
 					case "vt":
-						texCoords.Add(new Vector2(float.Parse(values[1]), float.Parse(values[2])));
+						texCoords.Add(new Vector2(ParseVertexValue(values[1]), ParseVertexValue(values[2])));
 						break;
 					case "vn":
-						normals.Add(new Vector3(float.Parse(values[1]), float.Parse(values[2]), float.Parse(values[3])));
+						normals.Add(new Vector3(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
 						break;
 					case "f":
 						// Compatible with:
