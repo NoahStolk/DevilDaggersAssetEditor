@@ -72,7 +72,14 @@ namespace DevilDaggersAssetCore.Chunks
 							{
 								string[] references = value.Split('/');
 
-								vertices.Add(new VertexReference(uint.Parse(references[0]), uint.Parse(references[1]), uint.Parse(references[2])));
+								if (!uint.TryParse(references[0], out uint positionReference))
+									throw new Exception($"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}: Position value '{references[0]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+								if (!uint.TryParse(references[1], out uint texCoordReference))
+									throw new Exception($"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}: Tex coord value '{references[1]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+								if (!uint.TryParse(references[2], out uint normalReference))
+									throw new Exception($"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}: Normal value '{references[2]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+
+								vertices.Add(new VertexReference(positionReference, texCoordReference, normalReference));
 							}
 							else // f 1 2 3
 							{
