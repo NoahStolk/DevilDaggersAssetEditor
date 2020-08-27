@@ -7,12 +7,12 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 {
 	public class ModelAssetRowControlHandler : AbstractAssetRowControlHandler<ModelAsset, ModelAssetRowControl>
 	{
-		public override string OpenDialogFilter => "Model files (*.obj)|*.obj";
-
 		public ModelAssetRowControlHandler(ModelAsset asset, bool isEven)
 			: base(asset, isEven)
 		{
 		}
+
+		public override string OpenDialogFilter => "Model files (*.obj)|*.obj";
 
 		public override void UpdateGui()
 		{

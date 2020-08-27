@@ -18,22 +18,6 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		where TAssetRowControl : UserControl
 		where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 	{
-		protected abstract string AssetTypeJsonFileName { get; }
-
-		public List<TAssetRowControlHandler> RowHandlers { get; private set; } = new List<TAssetRowControlHandler>();
-		public TAsset SelectedAsset { get; set; }
-
-		public readonly List<CheckBox> filterCheckBoxes = new List<CheckBox>();
-		public Color FilterHighlightColor { get; private set; }
-
-		public IEnumerable<string> CheckedFilters => filterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
-		public IEnumerable<string> AllFilters { get; }
-		public int FiltersCount { get; }
-
-		public AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler>((a) => a.Asset.AssetName);
-
-		private UserSettings Settings => UserHandler.Instance.settings;
-
 		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
 		{
 			List<TAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, AssetTypeJsonFileName).Cast<TAsset>().ToList();
@@ -44,12 +28,27 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				TAssetRowControlHandler rowHandler = (TAssetRowControlHandler)Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0);
 				RowHandlers.Add(rowHandler);
 			}
-			AllFilters = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? (new string[] { })).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
+
+			AllFilters = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? Array.Empty<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			FiltersCount = AllFilters.Count();
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == typeof(TAsset));
 			FilterHighlightColor = chunkInfo.GetColor() * 0.25f;
 		}
+
+		protected abstract string AssetTypeJsonFileName { get; }
+
+		public List<TAssetRowControlHandler> RowHandlers { get; private set; } = new List<TAssetRowControlHandler>();
+		public TAsset SelectedAsset { get; set; }
+
+		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
+		public Color FilterHighlightColor { get; private set; }
+
+		public IEnumerable<string> CheckedFilters => FilterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
+		public IEnumerable<string> AllFilters { get; }
+		public int FiltersCount { get; }
+
+		public AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler>((a) => a.Asset.AssetName);
 
 		public void UpdateTagHighlighting()
 		{
@@ -71,19 +70,19 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public void ImportFolder()
 		{
 			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
-			if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
-				dialog.SelectedPath = Settings.AssetsRootFolder;
+			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
+				dialog.SelectedPath = UserHandler.Instance.Settings.AssetsRootFolder;
 
 			if (dialog.ShowDialog() != true)
 				return;
 
 			foreach (string filePath in Directory.GetFiles(dialog.SelectedPath))
 			{
-				TAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", "").Replace("_vertex", ""));
+				TAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
 				if (rowHandler == null)
 					continue;
 
-				rowHandler.Asset.EditorPath = filePath.Replace("_fragment", "").Replace("_vertex", "");
+				rowHandler.Asset.EditorPath = filePath.Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture);
 				rowHandler.UpdateGui();
 			}
 		}
@@ -92,7 +91,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		{
 			foreach (TAsset asset in RowHandlers.Select(a => a.Asset))
 			{
-				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl")))
+				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture)))
 					return false;
 			}
 
@@ -107,7 +106,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 				CheckBox checkBox = new CheckBox { Content = tag };
 				Grid.SetColumn(checkBox, i / rows);
 				Grid.SetRow(checkBox, i % rows);
-				filterCheckBoxes.Add(checkBox);
+				FilterCheckBoxes.Add(checkBox);
 				i++;
 			}
 		}

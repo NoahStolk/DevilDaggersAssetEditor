@@ -14,12 +14,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 {
 	public partial class ShadersAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
-		(
-			nameof(BinaryFileType),
-			typeof(string),
-			typeof(ShadersAssetTabControl)
-		);
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ShadersAssetTabControl));
+
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> _nameSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> _tagsSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> _pathSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.EditorPath);
+
+		public ShadersAssetTabControl()
+		{
+			InitializeComponent();
+		}
 
 		public string BinaryFileType
 		{
@@ -28,16 +33,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 
 		public ShadersAssetTabControlHandler Handler { get; private set; }
-
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> nameSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> tagsSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> descriptionSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> pathSort = new AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>((a) => a.Asset.EditorPath);
-
-		public ShadersAssetTabControl()
-		{
-			InitializeComponent();
-		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -65,7 +60,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			for (int i = 0; i < rows; i++)
 				Filters.RowDefinitions.Add(new RowDefinition());
 
-			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			foreach (CheckBox checkBox in Handler.FilterCheckBoxes)
 			{
 				checkBox.Checked += ApplyFilter;
 				checkBox.Unchecked += ApplyFilter;
@@ -129,10 +124,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			Previewer.Initialize(arc.Handler.Asset);
 		}
 
-		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
-		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
-		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
-		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_nameSort);
+
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_tagsSort);
+
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_descriptionSort);
+
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_pathSort);
 
 		private void SetSorting(AssetRowSorting<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler> sorting)
 		{

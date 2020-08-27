@@ -7,11 +7,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
 	public class ParticlesAssetTabControlHandler : AbstractAssetTabControlHandler<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>
 	{
-		protected override string AssetTypeJsonFileName => "Particles";
-
 		public ParticlesAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
+
+		protected override string AssetTypeJsonFileName => "Particles";
 	}
 }

@@ -2,6 +2,7 @@
 using DevilDaggersAssetCore.Chunks;
 using DevilDaggersAssetCore.Json;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -64,7 +65,7 @@ namespace DevilDaggersAssetEditor.Code
 						break;
 					case ".png":
 						Image image = Image.FromFile(path);
-						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(TextureChunk), new Point(image.Width, image.Height), "", false /*We don't know this here.*/));
+						textures.Add(new TextureAsset(Path.GetFileNameWithoutExtension(path), "?", new[] { "?" }, nameof(TextureChunk), new Point(image.Width, image.Height), string.Empty, false /*We don't know this here.*/));
 						break;
 				}
 			}
@@ -99,12 +100,12 @@ namespace DevilDaggersAssetEditor.Code
 			foreach (string line in File.ReadAllLines(@"C:\Users\NOAH\Desktop\textures.txt"))
 			{
 				string[] split = line.Split('\t');
-				string name = split[0].Replace(".png", "");
+				string name = split[0].Replace(".png", string.Empty, StringComparison.InvariantCulture);
 
 				TextureAsset t = textures.FirstOrDefault(a => a.AssetName == name);
 
-				//t.EntityName = split[1];
-				//t.Description = split[2];
+				// t.EntityName = split[1];
+				// t.Description = split[2];
 				t.ModelBinding = split[3];
 			}
 

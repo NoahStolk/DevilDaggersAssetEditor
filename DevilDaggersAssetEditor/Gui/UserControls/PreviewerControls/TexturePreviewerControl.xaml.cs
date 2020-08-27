@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using System.Globalization;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -18,7 +19,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		{
 			TextureName.Text = asset.AssetName;
 			DefaultDimensions.Text = $"{asset.DefaultDimensions.X}x{asset.DefaultDimensions.Y}";
-			DefaultMipmaps.Text = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString();
+			DefaultMipmaps.Text = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString(CultureInfo.InvariantCulture);
 
 			bool isPathValid = File.Exists(asset.EditorPath);
 
@@ -29,7 +30,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 				using (SdImage image = SdImage.FromFile(asset.EditorPath))
 				{
 					FileDimensions.Text = $"{image.Width}x{image.Height}";
-					FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString();
+					FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString(CultureInfo.InvariantCulture);
 				}
 
 				using FileStream imageFileStream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);

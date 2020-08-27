@@ -78,7 +78,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			for (int i = 0; i < rows; i++)
 				Filters.RowDefinitions.Add(new RowDefinition());
 
-			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			foreach (CheckBox checkBox in Handler.FilterCheckBoxes)
 			{
 				checkBox.Checked += ApplyFilter;
 				checkBox.Unchecked += ApplyFilter;

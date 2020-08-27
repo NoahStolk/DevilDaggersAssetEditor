@@ -10,12 +10,12 @@ namespace DevilDaggersAssetEditor.Code
 		where TAssetRowControl : UserControl
 		where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 	{
-		public Func<TAssetRowControlHandler, object> SortingFunction { get; set; }
-		public bool IsAscending { get; set; } = true;
-
 		public AssetRowSorting(Func<TAssetRowControlHandler, object> sortingFunction)
 		{
 			SortingFunction = sortingFunction;
 		}
+
+		public Func<TAssetRowControlHandler, object> SortingFunction { get; set; }
+		public bool IsAscending { get; set; } = true;
 	}
 }

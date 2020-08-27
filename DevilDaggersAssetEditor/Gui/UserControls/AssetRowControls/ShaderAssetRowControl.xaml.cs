@@ -6,8 +6,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 {
 	public partial class ShaderAssetRowControl : UserControl
 	{
-		public ShaderAssetRowControlHandler Handler { get; }
-
 		public ShaderAssetRowControl(ShaderAssetRowControlHandler handler)
 		{
 			Handler = handler;
@@ -15,8 +13,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			InitializeComponent();
 
 			Data.Children.Add(Handler.TextBlockTags);
-			Data.Children.Add(Handler.rectangleInfo);
-			Data.Children.Add(Handler.rectangleEdit);
+			Data.Children.Add(Handler.RectangleInfo);
+			Data.Children.Add(Handler.RectangleEdit);
 
 			Data.DataContext = Handler.Asset;
 
@@ -24,8 +22,15 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
 			TextBlockFragmentName.Text = $"{Handler.Asset.AssetName}_fragment";
 		}
 
-		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e) => Handler.RemovePath();
-		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e) => Handler.BrowsePath();
-		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler.UpdateGui();
+		public ShaderAssetRowControlHandler Handler { get; }
+
+		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)
+			=> Handler.RemovePath();
+
+		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e)
+			=> Handler.BrowsePath();
+
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+			=> Handler.UpdateGui();
 	}
 }

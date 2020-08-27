@@ -14,12 +14,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 {
 	public partial class TexturesAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
-		(
-			nameof(BinaryFileType),
-			typeof(string),
-			typeof(TexturesAssetTabControl)
-		);
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(TexturesAssetTabControl));
+
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _nameSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _tagsSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _descriptionSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _pathSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.EditorPath);
+
+		public TexturesAssetTabControl()
+		{
+			InitializeComponent();
+		}
 
 		public string BinaryFileType
 		{
@@ -28,16 +33,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 
 		public TexturesAssetTabControlHandler Handler { get; private set; }
-
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> nameSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> tagsSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> descriptionSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> pathSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.EditorPath);
-
-		public TexturesAssetTabControl()
-		{
-			InitializeComponent();
-		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -65,7 +60,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			for (int i = 0; i < rows; i++)
 				Filters.RowDefinitions.Add(new RowDefinition());
 
-			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			foreach (CheckBox checkBox in Handler.FilterCheckBoxes)
 			{
 				checkBox.Checked += ApplyFilter;
 				checkBox.Unchecked += ApplyFilter;
@@ -129,10 +124,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			Previewer.Initialize(arc.Handler.Asset);
 		}
 
-		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
-		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
-		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
-		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_nameSort);
+
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_tagsSort);
+
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_descriptionSort);
+
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_pathSort);
 
 		private void SetSorting(AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> sorting)
 		{

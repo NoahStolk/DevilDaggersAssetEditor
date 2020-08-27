@@ -4,7 +4,6 @@ using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersAssetEditor.Code.Network;
-using DevilDaggersCore.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,12 +31,12 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			InitializeComponent();
 
-			TabControl.SelectedIndex = MathUtils.Clamp(UserHandler.Instance.cache.ActiveTabIndex, 0, 6);
-			if (UserHandler.Instance.cache.WindowWidth > 128)
-				Width = UserHandler.Instance.cache.WindowWidth;
-			if (UserHandler.Instance.cache.WindowHeight > 128)
-				Height = UserHandler.Instance.cache.WindowHeight;
-			if (UserHandler.Instance.cache.WindowIsFullScreen)
+			TabControl.SelectedIndex = Math.Clamp(UserHandler.Instance.Cache.ActiveTabIndex, 0, 6);
+			if (UserHandler.Instance.Cache.WindowWidth > 128)
+				Width = UserHandler.Instance.Cache.WindowWidth;
+			if (UserHandler.Instance.Cache.WindowHeight > 128)
+				Height = UserHandler.Instance.Cache.WindowHeight;
+			if (UserHandler.Instance.Cache.WindowIsFullScreen)
 				WindowState = WindowState.Maximized;
 
 			App.Instance.MainWindow = this;
@@ -59,10 +58,10 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
-				AutoLoadMod(UserHandler.Instance.cache.OpenedAudioModFilePath, BinaryFileType.Audio);
-				AutoLoadMod(UserHandler.Instance.cache.OpenedCoreModFilePath, BinaryFileType.Core);
-				AutoLoadMod(UserHandler.Instance.cache.OpenedDdModFilePath, BinaryFileType.Dd);
-				AutoLoadMod(UserHandler.Instance.cache.OpenedParticleModFilePath, BinaryFileType.Particle);
+				AutoLoadMod(UserHandler.Instance.Cache.OpenedAudioModFilePath, BinaryFileType.Audio);
+				AutoLoadMod(UserHandler.Instance.Cache.OpenedCoreModFilePath, BinaryFileType.Core);
+				AutoLoadMod(UserHandler.Instance.Cache.OpenedDdModFilePath, BinaryFileType.Dd);
+				AutoLoadMod(UserHandler.Instance.Cache.OpenedParticleModFilePath, BinaryFileType.Particle);
 
 				void AutoLoadMod(string path, BinaryFileType binaryFileType)
 				{

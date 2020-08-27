@@ -12,7 +12,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 {
 	public abstract class AbstractBinaryFileHandler
 	{
-		protected UserSettings settings => UserHandler.Instance.settings;
+		protected UserSettings settings => UserHandler.Instance.Settings;
 
 		public BinaryFileType BinaryFileType { get; }
 

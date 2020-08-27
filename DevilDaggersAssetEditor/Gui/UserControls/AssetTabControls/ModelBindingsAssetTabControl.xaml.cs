@@ -14,12 +14,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 {
 	public partial class ModelBindingsAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
-		(
-			nameof(BinaryFileType),
-			typeof(string),
-			typeof(ModelBindingsAssetTabControl)
-		);
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ModelBindingsAssetTabControl));
+
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> _nameSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> _tagsSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> _pathSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.Asset.EditorPath);
+
+		public ModelBindingsAssetTabControl()
+		{
+			InitializeComponent();
+		}
 
 		public string BinaryFileType
 		{
@@ -28,16 +33,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 
 		public ModelBindingsAssetTabControlHandler Handler { get; private set; }
-
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> nameSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> tagsSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> descriptionSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> pathSort = new AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>((a) => a.Asset.EditorPath);
-
-		public ModelBindingsAssetTabControl()
-		{
-			InitializeComponent();
-		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -65,7 +60,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			for (int i = 0; i < rows; i++)
 				Filters.RowDefinitions.Add(new RowDefinition());
 
-			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			foreach (CheckBox checkBox in Handler.FilterCheckBoxes)
 			{
 				checkBox.Checked += ApplyFilter;
 				checkBox.Unchecked += ApplyFilter;
@@ -129,10 +124,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			Previewer.Initialize(arc.Handler.Asset);
 		}
 
-		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
-		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
-		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
-		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_nameSort);
+
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_tagsSort);
+
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_descriptionSort);
+
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_pathSort);
 
 		private void SetSorting(AssetRowSorting<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler> sorting)
 		{

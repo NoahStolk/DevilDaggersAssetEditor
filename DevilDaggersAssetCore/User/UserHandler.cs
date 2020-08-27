@@ -6,27 +6,27 @@ namespace DevilDaggersAssetCore.User
 {
 	public sealed class UserHandler
 	{
-		// Must be fields since properties can't be used as out parameters.
-		public UserSettings settings = new UserSettings();
-		public UserCache cache = new UserCache();
-
-		private static readonly Lazy<UserHandler> lazy = new Lazy<UserHandler>(() => new UserHandler());
-		public static UserHandler Instance => lazy.Value;
+		private static readonly Lazy<UserHandler> _lazy = new Lazy<UserHandler>(() => new UserHandler());
 
 		private UserHandler()
 		{
 		}
 
+		public static UserHandler Instance => _lazy.Value;
+
+		public UserSettings Settings { get; set; } = new UserSettings();
+		public UserCache Cache { get; set; } = new UserCache();
+
 		public void SaveCache()
 		{
 			using StreamWriter sw = new StreamWriter(File.Create(UserCache.FileName));
-			sw.Write(JsonConvert.SerializeObject(cache, Formatting.Indented));
+			sw.Write(JsonConvert.SerializeObject(Cache, Formatting.Indented));
 		}
 
 		public void SaveSettings()
 		{
 			using StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName));
-			sw.Write(JsonConvert.SerializeObject(settings, Formatting.Indented));
+			sw.Write(JsonConvert.SerializeObject(Settings, Formatting.Indented));
 		}
 	}
 }

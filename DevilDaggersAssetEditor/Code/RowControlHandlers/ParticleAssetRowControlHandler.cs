@@ -7,12 +7,12 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 {
 	public class ParticleAssetRowControlHandler : AbstractAssetRowControlHandler<ParticleAsset, ParticleAssetRowControl>
 	{
-		public override string OpenDialogFilter => "Particle files (*.bin)|*.bin";
-
 		public ParticleAssetRowControlHandler(ParticleAsset asset, bool isEven)
 			: base(asset, isEven)
 		{
 		}
+
+		public override string OpenDialogFilter => "Particle files (*.bin)|*.bin";
 
 		public override void UpdateGui()
 		{

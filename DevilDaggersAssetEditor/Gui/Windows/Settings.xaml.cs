@@ -29,18 +29,18 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			TextBoxTextureSizeLimit.TextChanged += TextBoxTextureSizeLimit_TextChanged;
 
-			LabelAssetsRootFolder.Content = UserHandler.Instance.settings.AssetsRootFolder;
-			LabelDevilDaggersRootFolder.Content = UserHandler.Instance.settings.DevilDaggersRootFolder;
-			LabelModsRootFolder.Content = UserHandler.Instance.settings.ModsRootFolder;
+			LabelAssetsRootFolder.Content = UserHandler.Instance.Settings.AssetsRootFolder;
+			LabelDevilDaggersRootFolder.Content = UserHandler.Instance.Settings.DevilDaggersRootFolder;
+			LabelModsRootFolder.Content = UserHandler.Instance.Settings.ModsRootFolder;
 
-			CheckBoxAssetsRootFolder.IsChecked = UserHandler.Instance.settings.EnableAssetsRootFolder;
-			CheckBoxDevilDaggersRootFolder.IsChecked = UserHandler.Instance.settings.EnableDevilDaggersRootFolder;
-			CheckBoxModsRootFolder.IsChecked = UserHandler.Instance.settings.EnableModsRootFolder;
+			CheckBoxAssetsRootFolder.IsChecked = UserHandler.Instance.Settings.EnableAssetsRootFolder;
+			CheckBoxDevilDaggersRootFolder.IsChecked = UserHandler.Instance.Settings.EnableDevilDaggersRootFolder;
+			CheckBoxModsRootFolder.IsChecked = UserHandler.Instance.Settings.EnableModsRootFolder;
 
-			CheckBoxCreateModFileWhenExtracting.IsChecked = UserHandler.Instance.settings.CreateModFileWhenExtracting;
-			CheckBoxOpenModFolderAfterExtracting.IsChecked = UserHandler.Instance.settings.OpenModFolderAfterExtracting;
+			CheckBoxCreateModFileWhenExtracting.IsChecked = UserHandler.Instance.Settings.CreateModFileWhenExtracting;
+			CheckBoxOpenModFolderAfterExtracting.IsChecked = UserHandler.Instance.Settings.OpenModFolderAfterExtracting;
 
-			TextBoxTextureSizeLimit.Text = UserHandler.Instance.settings.TextureSizeLimit.ToString(CultureInfo.InvariantCulture);
+			TextBoxTextureSizeLimit.Text = UserHandler.Instance.Settings.TextureSizeLimit.ToString(CultureInfo.InvariantCulture);
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -95,19 +95,19 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void OkButton_Click(object sender, RoutedEventArgs e)
 		{
-			UserHandler.Instance.settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString() ?? UserSettings.PathDefault;
-			UserHandler.Instance.settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString() ?? UserSettings.PathDefault;
-			UserHandler.Instance.settings.ModsRootFolder = LabelModsRootFolder.Content.ToString() ?? UserSettings.PathDefault;
+			UserHandler.Instance.Settings.AssetsRootFolder = LabelAssetsRootFolder.Content.ToString() ?? UserSettings.PathDefault;
+			UserHandler.Instance.Settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString() ?? UserSettings.PathDefault;
+			UserHandler.Instance.Settings.ModsRootFolder = LabelModsRootFolder.Content.ToString() ?? UserSettings.PathDefault;
 
-			UserHandler.Instance.settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
-			UserHandler.Instance.settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
-			UserHandler.Instance.settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
+			UserHandler.Instance.Settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
+			UserHandler.Instance.Settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
+			UserHandler.Instance.Settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
 
-			UserHandler.Instance.settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
-			UserHandler.Instance.settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
+			UserHandler.Instance.Settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
+			UserHandler.Instance.Settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
 
 			if (uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0)
-				UserHandler.Instance.settings.TextureSizeLimit = res;
+				UserHandler.Instance.Settings.TextureSizeLimit = res;
 
 			DialogResult = true;
 		}

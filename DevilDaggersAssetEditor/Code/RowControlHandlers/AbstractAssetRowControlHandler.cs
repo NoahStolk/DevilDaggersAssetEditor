@@ -19,6 +19,52 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 		where TAsset : AbstractAsset
 		where TAssetRowControl : UserControl
 	{
+		private readonly Color _colorInfoEven;
+		private readonly Color _colorInfoOdd;
+		private readonly Color _colorEditEven;
+		private readonly Color _colorEditOdd;
+		private readonly SolidColorBrush _brushInfoEven;
+		private readonly SolidColorBrush _brushInfoOdd;
+		private readonly SolidColorBrush _brushEditEven;
+		private readonly SolidColorBrush _brushEditOdd;
+
+		protected AbstractAssetRowControlHandler(TAsset asset, bool isEven)
+		{
+			Asset = asset;
+			TextBlockTags = new TextBlock
+			{
+				Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength),
+				Margin = new Thickness(2),
+			};
+			Grid.SetColumn(TextBlockTags, 1);
+
+			AssetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), this);
+
+			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
+			_colorEditEven = chunkInfo.GetColor() * 0.25f;
+			_colorEditOdd = _colorEditEven * 0.5f;
+			_colorInfoEven = _colorEditOdd;
+			_colorInfoOdd = _colorEditOdd * 0.5f;
+			_brushInfoEven = new SolidColorBrush(_colorInfoEven);
+			_brushInfoOdd = new SolidColorBrush(_colorInfoOdd);
+			_brushEditEven = new SolidColorBrush(_colorEditEven);
+			_brushEditOdd = new SolidColorBrush(_colorEditOdd);
+
+			UpdateGui();
+
+			Panel.SetZIndex(RectangleInfo, -1);
+			Grid.SetColumnSpan(RectangleInfo, 3);
+
+			Panel.SetZIndex(RectangleEdit, -1);
+			Grid.SetColumn(RectangleEdit, 3);
+			Grid.SetColumnSpan(RectangleEdit, 4);
+
+			UpdateBackgroundRectangleColors(isEven);
+		}
+
+		public Rectangle RectangleInfo { get; } = new Rectangle();
+		public Rectangle RectangleEdit { get; } = new Rectangle();
+
 		public TAsset Asset { get; }
 		public TAssetRowControl AssetRowControl { get; }
 
@@ -28,65 +74,17 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 
 		public TextBlock TextBlockTags { get; }
 
-		private readonly Color colorInfoEven;
-		private readonly Color colorInfoOdd;
-		private readonly Color colorEditEven;
-		private readonly Color colorEditOdd;
-		private readonly SolidColorBrush brushInfoEven;
-		private readonly SolidColorBrush brushInfoOdd;
-		private readonly SolidColorBrush brushEditEven;
-		private readonly SolidColorBrush brushEditOdd;
-
-		public Rectangle rectangleInfo = new Rectangle();
-		public Rectangle rectangleEdit = new Rectangle();
-
-		private UserSettings Settings => UserHandler.Instance.settings;
-
-		protected AbstractAssetRowControlHandler(TAsset asset, bool isEven)
-		{
-			Asset = asset;
-			TextBlockTags = new TextBlock
-			{
-				Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength),
-				Margin = new Thickness(2)
-			};
-			Grid.SetColumn(TextBlockTags, 1);
-
-			AssetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), this);
-
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
-			colorEditEven = chunkInfo.GetColor() * 0.25f;
-			colorEditOdd = colorEditEven * 0.5f;
-			colorInfoEven = colorEditOdd;
-			colorInfoOdd = colorEditOdd * 0.5f;
-			brushInfoEven = new SolidColorBrush(colorInfoEven);
-			brushInfoOdd = new SolidColorBrush(colorInfoOdd);
-			brushEditEven = new SolidColorBrush(colorEditEven);
-			brushEditOdd = new SolidColorBrush(colorEditOdd);
-
-			UpdateGui();
-
-			Panel.SetZIndex(rectangleInfo, -1);
-			Grid.SetColumnSpan(rectangleInfo, 3);
-
-			Panel.SetZIndex(rectangleEdit, -1);
-			Grid.SetColumn(rectangleEdit, 3);
-			Grid.SetColumnSpan(rectangleEdit, 4);
-
-			UpdateBackgroundRectangleColors(isEven);
-		}
-
 		public void UpdateBackgroundRectangleColors(bool isEven)
 		{
-			rectangleInfo.Fill = isEven ? brushInfoEven : brushInfoOdd;
-			rectangleEdit.Fill = isEven ? brushEditEven : brushEditOdd;
+			RectangleInfo.Fill = isEven ? _brushInfoEven : _brushInfoOdd;
+			RectangleEdit.Fill = isEven ? _brushEditEven : _brushEditOdd;
 		}
 
 		public abstract void UpdateGui();
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
 		{
-			if (checkedFilters.Count() == 0)
+			if (!checkedFilters.Any())
 			{
 				TextBlockTags.Text = string.Join(", ", Asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
 				return;
@@ -118,14 +116,14 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 		public virtual void BrowsePath()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { Filter = OpenDialogFilter };
-			if (Settings.EnableAssetsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
-				openDialog.InitialDirectory = Settings.AssetsRootFolder;
+			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
+				openDialog.InitialDirectory = UserHandler.Instance.Settings.AssetsRootFolder;
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			Asset.EditorPath = openDialog.FileName.Replace("_fragment", "").Replace("_vertex", "");
+			Asset.EditorPath = openDialog.FileName.Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture);
 
 			UpdateGui();
 		}

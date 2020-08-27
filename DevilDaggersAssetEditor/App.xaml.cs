@@ -93,10 +93,10 @@ namespace DevilDaggersAssetEditor
 
 		private void Application_Exit(object sender, ExitEventArgs e)
 		{
-			UserHandler.Instance.cache.ActiveTabIndex = MainWindow.TabControl.SelectedIndex;
-			UserHandler.Instance.cache.WindowWidth = (int)MainWindow.Width;
-			UserHandler.Instance.cache.WindowHeight = (int)MainWindow.Height;
-			UserHandler.Instance.cache.WindowIsFullScreen = MainWindow.WindowState == WindowState.Maximized;
+			UserHandler.Instance.Cache.ActiveTabIndex = MainWindow.TabControl.SelectedIndex;
+			UserHandler.Instance.Cache.WindowWidth = (int)MainWindow.Width;
+			UserHandler.Instance.Cache.WindowHeight = (int)MainWindow.Height;
+			UserHandler.Instance.Cache.WindowIsFullScreen = MainWindow.WindowState == WindowState.Maximized;
 			UserHandler.Instance.SaveCache();
 		}
 	}

@@ -4,6 +4,7 @@ using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,20 +14,18 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
 	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>
 	{
-		protected override string AssetTypeJsonFileName => "Audio";
-
-		private UserSettings Settings => UserHandler.Instance.settings;
-
 		public AudioAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
 
+		protected override string AssetTypeJsonFileName => "Audio";
+
 		public void ImportLoudness()
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
-			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
-				dialog.InitialDirectory = Settings.AssetsRootFolder;
+			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.Settings.AssetsRootFolder;
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
@@ -37,7 +36,7 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 			{
 				lineNumber++;
 				string lineClean = line
-					.Replace(" ", "") // Remove spaces to make things easier.
+					.Replace(" ", string.Empty, StringComparison.InvariantCulture) // Remove spaces to make things easier.
 					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
 				if (!LoudnessUtils.TryReadLoudnessLine(lineClean, out string assetName, out float loudness))
 				{
@@ -77,8 +76,8 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 		public void ExportLoudness()
 		{
 			SaveFileDialog dialog = new SaveFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
-			if (Settings.EnableModsRootFolder && Directory.Exists(Settings.AssetsRootFolder))
-				dialog.InitialDirectory = Settings.AssetsRootFolder;
+			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.Settings.AssetsRootFolder;
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;

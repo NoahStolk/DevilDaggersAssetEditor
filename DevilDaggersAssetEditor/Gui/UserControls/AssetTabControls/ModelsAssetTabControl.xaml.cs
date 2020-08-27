@@ -14,12 +14,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 {
 	public partial class ModelsAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
-		(
-			nameof(BinaryFileType),
-			typeof(string),
-			typeof(ModelsAssetTabControl)
-		);
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ModelsAssetTabControl));
+
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _nameSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _tagsSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _pathSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.EditorPath);
+
+		public ModelsAssetTabControl()
+		{
+			InitializeComponent();
+		}
 
 		public string BinaryFileType
 		{
@@ -28,16 +33,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 
 		public ModelsAssetTabControlHandler Handler { get; private set; }
-
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> nameSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> tagsSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> descriptionSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> pathSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.EditorPath);
-
-		public ModelsAssetTabControl()
-		{
-			InitializeComponent();
-		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -65,7 +60,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			for (int i = 0; i < rows; i++)
 				Filters.RowDefinitions.Add(new RowDefinition());
 
-			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			foreach (CheckBox checkBox in Handler.FilterCheckBoxes)
 			{
 				checkBox.Checked += ApplyFilter;
 				checkBox.Unchecked += ApplyFilter;
@@ -129,10 +124,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			Previewer.Initialize(arc.Handler.Asset);
 		}
 
-		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
-		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
-		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
-		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_nameSort);
+
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_tagsSort);
+
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_descriptionSort);
+
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_pathSort);
 
 		private void SetSorting(AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> sorting)
 		{

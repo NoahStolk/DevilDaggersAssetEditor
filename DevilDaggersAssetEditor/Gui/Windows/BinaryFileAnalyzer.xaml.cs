@@ -6,6 +6,7 @@ using DevilDaggersAssetCore.Info;
 using DevilDaggersAssetEditor.Code;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +23,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 			Dictionary<string, AnalyzerChunkGroup> chunkInfos = new Dictionary<string, AnalyzerChunkGroup>
 			{
-				{ "File header", ChunkResult(GetColor("File header"), fileResult.headerByteCount, Array.Empty<AbstractChunk>()) }
+				{ "File header", ChunkResult(GetColor("File header"), fileResult.headerByteCount, Array.Empty<AbstractChunk>()) },
 			};
 
 			IEnumerable<IGrouping<string, AbstractChunk>> chunksByType = fileResult.chunks.GroupBy(c => ChunkInfo.All.FirstOrDefault(ci => ci.ChunkType == c.GetType()).DataName);
@@ -80,7 +81,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				{
 					Width = width,
 					Height = totalHeight,
-					Fill = new SolidColorBrush(color)
+					Fill = new SolidColorBrush(color),
 				};
 				Canvas.SetLeft(rect, pos);
 				Canvas.Children.Add(rect);
@@ -97,7 +98,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				rectBackground.StrokeThickness = 1;
 				rectBackground.StrokeDashArray = new DoubleCollection(new List<double> { 1, 2 });
 				rectBackground.SnapsToDevicePixels = true;
-				Label labelPercentage = new Label { Content = sizePercentage.ToString("0.000%") };
+				Label labelPercentage = new Label { Content = sizePercentage.ToString("0.000%", CultureInfo.InvariantCulture) };
 
 				Grid.SetColumn(rectColor, 0);
 				Grid.SetColumn(rectBackground, 1);
@@ -152,7 +153,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				Border border = new Border
 				{
 					BorderThickness = new Thickness(1),
-					BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0))
+					BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
 				};
 				border.Child = stackPanel;
 				Grid.SetColumn(border, k % columns);
@@ -163,11 +164,13 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			}
 		}
 
-		private AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, AbstractChunk[] chunks) => new AnalyzerChunkGroup(color.R, color.G, color.B, byteCount, chunks);
+		private static AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, AbstractChunk[] chunks)
+			=> new AnalyzerChunkGroup(color.R, color.G, color.B, byteCount, chunks);
 
-		private Color ChunkResultColor(AnalyzerChunkGroup chunkResult) => Color.FromRgb(chunkResult.r, chunkResult.g, chunkResult.b);
+		private static Color ChunkResultColor(AnalyzerChunkGroup chunkResult)
+			=> Color.FromRgb(chunkResult.r, chunkResult.g, chunkResult.b);
 
-		public static AnalyzerFileResult TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
+		public static AnalyzerFileResult? TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
 		{
 			try
 			{
@@ -184,7 +187,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			}
 		}
 
-		public static AnalyzerFileResult TryReadParticleFile(string sourceFileName, byte[] sourceFileBytes)
+		public static AnalyzerFileResult? TryReadParticleFile(string sourceFileName, byte[] sourceFileBytes)
 		{
 			try
 			{
@@ -200,6 +203,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 					i += chunk.Buffer.Length;
 					chunks.Add(chunk);
 				}
+
 				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, ParticleFileHandler.HeaderSize, chunks);
 			}
 			catch
@@ -222,7 +226,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			{
 				"File header" => Color.FromRgb(255, 127, 127),
 				"Unknown" => Color.FromRgb(127, 127, 255),
-				_ => Color.FromRgb(255, 255, 255)
+				_ => Color.FromRgb(255, 255, 255),
 			};
 		}
 	}

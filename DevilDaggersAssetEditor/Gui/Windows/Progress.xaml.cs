@@ -1,5 +1,5 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using DevilDaggersAssetEditor.Code;
+using System;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -8,13 +8,11 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 	public partial class ProgressWindow : Window
 	{
 #pragma warning disable IDE1006
+#pragma warning disable SA1310 // Field names should not contain underscore
 		private const int GWL_STYLE = -16;
 		private const int WS_SYSMENU = 0x80000;
 #pragma warning restore IDE1006
-		[DllImport("user32.dll", SetLastError = true)]
-		private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-		[DllImport("user32.dll")]
-		private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+#pragma warning restore SA1310 // Field names should not contain underscore
 
 		public ProgressWindow(string title)
 		{
@@ -27,7 +25,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			// Removes Exit button.
 			IntPtr hwnd = new WindowInteropHelper(this).Handle;
-			SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+			NativeMethods.SetWindowLong(hwnd, GWL_STYLE, NativeMethods.GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 		}
 
 		private void OkButton_Click(object sender, RoutedEventArgs e) => Close();

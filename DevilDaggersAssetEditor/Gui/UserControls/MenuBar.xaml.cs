@@ -66,8 +66,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls
 		private void AnalyzeBinaryFileMenuItem_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder && Directory.Exists(UserHandler.Instance.settings.DevilDaggersRootFolder))
-				openDialog.InitialDirectory = UserHandler.Instance.settings.DevilDaggersRootFolder;
+			if (UserHandler.Instance.Settings.EnableDevilDaggersRootFolder && Directory.Exists(UserHandler.Instance.Settings.DevilDaggersRootFolder))
+				openDialog.InitialDirectory = UserHandler.Instance.Settings.DevilDaggersRootFolder;
 
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult.HasValue && openResult.Value)

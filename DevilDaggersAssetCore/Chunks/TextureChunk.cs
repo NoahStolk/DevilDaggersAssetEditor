@@ -36,7 +36,7 @@ namespace DevilDaggersAssetCore.Chunks
 			int newHeight = image.Height;
 			if (AssetHandler.Instance.DdTexturesAssets.FirstOrDefault(t => t.AssetName == Name).IsModelTexture)
 			{
-				while (maxDimension > UserHandler.Instance.settings.TextureSizeLimit)
+				while (maxDimension > UserHandler.Instance.Settings.TextureSizeLimit)
 				{
 					newWidth /= 2;
 					newHeight /= 2;

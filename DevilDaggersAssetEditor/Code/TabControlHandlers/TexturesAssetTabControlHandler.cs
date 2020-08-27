@@ -7,11 +7,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
 	public class TexturesAssetTabControlHandler : AbstractAssetTabControlHandler<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>
 	{
-		protected override string AssetTypeJsonFileName => "Textures";
-
 		public TexturesAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
+
+		protected override string AssetTypeJsonFileName => "Textures";
 	}
 }

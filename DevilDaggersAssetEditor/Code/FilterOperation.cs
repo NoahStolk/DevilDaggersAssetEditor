@@ -4,6 +4,6 @@
 	{
 		None,
 		And,
-		Or
+		Or,
 	}
 }

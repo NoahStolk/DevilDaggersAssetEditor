@@ -5,8 +5,6 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 {
 	public partial class MessageWindow : Window
 	{
-		public string Message { get; set; }
-
 		public MessageWindow(string title, string message)
 		{
 			InitializeComponent();
@@ -17,6 +15,9 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 			StackPanel.DataContext = this;
 		}
 
-		private void OkButton_Click(object sender, RoutedEventArgs e) => DialogResult = true;
+		public string Message { get; set; }
+
+		private void OkButton_Click(object sender, RoutedEventArgs e)
+			=> DialogResult = true;
 	}
 }

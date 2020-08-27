@@ -69,8 +69,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 		private async void ExtractBinary_Click()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			string initDir = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
-			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
+			string initDir = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			if (UserHandler.Instance.Settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
 				openDialog.InitialDirectory = initDir;
 
 			bool? openResult = openDialog.ShowDialog();
@@ -78,8 +78,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 				return;
 
 			VistaFolderBrowserDialog folderDialog = new VistaFolderBrowserDialog();
-			if (UserHandler.Instance.settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.settings.ModsRootFolder))
-				folderDialog.SelectedPath = UserHandler.Instance.settings.ModsRootFolder;
+			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
+				folderDialog.SelectedPath = UserHandler.Instance.Settings.ModsRootFolder;
 
 			if (folderDialog.ShowDialog() == true)
 			{
@@ -119,8 +119,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			}
 
 			SaveFileDialog dialog = new SaveFileDialog();
-			string initDir = Path.Combine(UserHandler.Instance.settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
-			if (UserHandler.Instance.settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
+			string initDir = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
+			if (UserHandler.Instance.Settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
 				dialog.InitialDirectory = initDir;
 
 			bool? result = dialog.ShowDialog();
@@ -157,8 +157,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			SaveFileDialog dialog = new SaveFileDialog { Filter = modFileFilter };
-			if (UserHandler.Instance.settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.settings.ModsRootFolder))
-				dialog.InitialDirectory = UserHandler.Instance.settings.ModsRootFolder;
+			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.Settings.ModsRootFolder;
 
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
@@ -208,8 +208,8 @@ namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
 			OpenFileDialog dialog = new OpenFileDialog { Filter = modFileFilter };
-			if (UserHandler.Instance.settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.settings.ModsRootFolder))
-				dialog.InitialDirectory = UserHandler.Instance.settings.ModsRootFolder;
+			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.Settings.ModsRootFolder;
 
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)

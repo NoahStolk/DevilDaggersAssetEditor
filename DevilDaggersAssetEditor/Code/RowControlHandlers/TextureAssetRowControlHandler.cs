@@ -7,12 +7,12 @@ namespace DevilDaggersAssetEditor.Code.RowControlHandlers
 {
 	public class TextureAssetRowControlHandler : AbstractAssetRowControlHandler<TextureAsset, TextureAssetRowControl>
 	{
-		public override string OpenDialogFilter => "Texture files (*.png)|*.png";
-
 		public TextureAssetRowControlHandler(TextureAsset asset, bool isEven)
 			: base(asset, isEven)
 		{
 		}
+
+		public override string OpenDialogFilter => "Texture files (*.png)|*.png";
 
 		public override void UpdateGui()
 		{

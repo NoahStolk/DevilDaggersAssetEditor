@@ -7,11 +7,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
 	public class ModelBindingsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelBindingAsset, ModelBindingAssetRowControl, ModelBindingAssetRowControlHandler>
 	{
-		protected override string AssetTypeJsonFileName => "Model Bindings";
-
 		public ModelBindingsAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
+
+		protected override string AssetTypeJsonFileName => "Model Bindings";
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.Assets;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
@@ -16,8 +17,8 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		public void Initialize(ModelAsset asset)
 		{
 			TextureName.Text = asset.AssetName;
-			DefaultVertexCount.Text = asset.DefaultVertexCount.ToString();
-			DefaultIndexCount.Text = asset.DefaultIndexCount.ToString();
+			DefaultVertexCount.Text = asset.DefaultVertexCount.ToString(CultureInfo.InvariantCulture);
+			DefaultIndexCount.Text = asset.DefaultIndexCount.ToString(CultureInfo.InvariantCulture);
 
 			bool isPathValid = File.Exists(asset.EditorPath);
 
@@ -40,8 +41,9 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 						case "f": f++; break;
 					}
 				}
-				FileVertexCount.Text = new[] { v, vt, vn }.Max().ToString();
-				FileIndexCount.Text = f.ToString();
+
+				FileVertexCount.Text = new[] { v, vt, vn }.Max().ToString(CultureInfo.InvariantCulture);
+				FileIndexCount.Text = f.ToString(CultureInfo.InvariantCulture);
 
 				// TODO: Open in OBJ Viewer
 			}

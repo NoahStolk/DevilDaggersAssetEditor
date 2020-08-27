@@ -14,12 +14,17 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 {
 	public partial class ParticlesAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register
-		(
-			nameof(BinaryFileType),
-			typeof(string),
-			typeof(ParticlesAssetTabControl)
-		);
+		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ParticlesAssetTabControl));
+
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> _nameSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> _tagsSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> _pathSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.Asset.EditorPath);
+
+		public ParticlesAssetTabControl()
+		{
+			InitializeComponent();
+		}
 
 		public string BinaryFileType
 		{
@@ -28,16 +33,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 		}
 
 		public ParticlesAssetTabControlHandler Handler { get; private set; }
-
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> nameSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> tagsSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> descriptionSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> pathSort = new AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler>((a) => a.Asset.EditorPath);
-
-		public ParticlesAssetTabControl()
-		{
-			InitializeComponent();
-		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -65,7 +60,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			for (int i = 0; i < rows; i++)
 				Filters.RowDefinitions.Add(new RowDefinition());
 
-			foreach (CheckBox checkBox in Handler.filterCheckBoxes)
+			foreach (CheckBox checkBox in Handler.FilterCheckBoxes)
 			{
 				checkBox.Checked += ApplyFilter;
 				checkBox.Unchecked += ApplyFilter;
@@ -129,10 +124,13 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
 			Previewer.Initialize(arc.Handler.Asset);
 		}
 
-		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
-		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
-		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
-		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_nameSort);
+
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_tagsSort);
+
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_descriptionSort);
+
+		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_pathSort);
 
 		private void SetSorting(AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> sorting)
 		{

@@ -19,7 +19,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		{
 			InitializeComponent();
 
-			Autoplay.IsChecked = UserHandler.Instance.cache.AudioPlayerIsAutoplayEnabled;
+			Autoplay.IsChecked = UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled;
 
 			ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
 			ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
@@ -114,6 +114,6 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 		}
 
 		private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
-			=> UserHandler.Instance.cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked ?? false;
+			=> UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked ?? false;
 	}
 }

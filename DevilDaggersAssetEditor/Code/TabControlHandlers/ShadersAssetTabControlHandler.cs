@@ -7,11 +7,11 @@ namespace DevilDaggersAssetEditor.Code.TabControlHandlers
 {
 	public class ShadersAssetTabControlHandler : AbstractAssetTabControlHandler<ShaderAsset, ShaderAssetRowControl, ShaderAssetRowControlHandler>
 	{
-		protected override string AssetTypeJsonFileName => "Shaders";
-
 		public ShadersAssetTabControlHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
 		{
 		}
+
+		protected override string AssetTypeJsonFileName => "Shaders";
 	}
 }

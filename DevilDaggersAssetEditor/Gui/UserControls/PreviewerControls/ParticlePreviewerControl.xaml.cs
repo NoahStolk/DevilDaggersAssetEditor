@@ -25,7 +25,7 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 			if (isPathValid)
 			{
 				byte[] bytes = File.ReadAllBytes(asset.EditorPath);
-				string hex = BitConverter.ToString(bytes).Replace("-", string.Empty);
+				string hex = BitConverter.ToString(bytes).Replace("-", string.Empty, StringComparison.InvariantCulture);
 				StringBuilder sb = new StringBuilder();
 				for (int i = 0; i < hex.Length; i++)
 				{
@@ -36,8 +36,10 @@ namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
 						else if (i % 8 == 0)
 							sb.Append(' ');
 					}
+
 					sb.Append(hex[i]);
 				}
+
 				PreviewTextBox.Text = sb.ToString();
 			}
 			else
