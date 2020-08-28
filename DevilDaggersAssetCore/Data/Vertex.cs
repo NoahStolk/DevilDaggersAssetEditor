@@ -5,7 +5,7 @@ namespace DevilDaggersAssetCore.Data
 {
 	public struct Vertex
 	{
-		public static readonly int ByteCount = 32;
+		public const int ByteCount = 32;
 
 		public Vector3 Position { get; set; }
 		public Vector2 TexCoord { get; set; }

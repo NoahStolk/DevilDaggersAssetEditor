@@ -9,6 +9,7 @@
 		<ApplicationIcon>Icon24.ico</ApplicationIcon>
 	</PropertyGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\..\DevilDaggersCore\DevilDaggersCore.Wpf\DevilDaggersCore.Wpf.csproj" />
 		<ProjectReference Include="..\DevilDaggersAssetCore\DevilDaggersAssetCore.csproj" />
 	</ItemGroup>
 	<ItemGroup>

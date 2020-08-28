@@ -96,7 +96,7 @@ namespace DevilDaggersAssetCore.Info
 
 		public BinaryFileType BinaryFileType { get; }
 		public Type ChunkType { get; }
-		public HeaderInfo HeaderInfo { get; }
+		public HeaderInfo? HeaderInfo { get; }
 		public Type AssetType { get; }
 		public Type UserAssetType { get; }
 		public byte BinaryType { get; }
@@ -107,7 +107,7 @@ namespace DevilDaggersAssetCore.Info
 		public byte ColorG { get; }
 		public byte ColorB { get; }
 
-		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, HeaderInfo headerInfo, Type assetType, Type userAssetType, byte binaryType, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
+		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, HeaderInfo? headerInfo, Type assetType, Type userAssetType, byte binaryType, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
 		{
 			BinaryFileType = binaryFileType;
 			ChunkType = chunkType;

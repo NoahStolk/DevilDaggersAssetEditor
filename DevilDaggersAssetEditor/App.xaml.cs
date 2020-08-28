@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetCore;
 using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Gui.Windows;
+using DevilDaggersCore.Wpf.Windows;
 using log4net;
 using log4net.Config;
 using log4net.Repository;

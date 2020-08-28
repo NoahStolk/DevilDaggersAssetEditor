@@ -4,6 +4,7 @@ using DevilDaggersAssetCore.User;
 using DevilDaggersAssetEditor.Code;
 using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
 using DevilDaggersAssetEditor.Code.Network;
+using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +16,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 {
 	public partial class MainWindow : Window
 	{
-		private readonly List<Point> tabControlSizes = new List<Point>
+		private readonly List<Point> _tabControlSizes = new List<Point>
 		{
 			new Point(3840, 2160),
 			new Point(2560, 1440),
@@ -49,7 +50,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 		{
 			if (NetworkHandler.Instance.Tool != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 			{
-				UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow();
+				UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
 				updateRecommendedWindow.ShowDialog();
 			}
 
@@ -67,7 +68,7 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 				{
 					if (File.Exists(path))
 					{
-						ModFile modFile = ModHandler.Instance.GetModFileFromPath(path, binaryFileType);
+						ModFile? modFile = ModHandler.Instance.GetModFileFromPath(path, binaryFileType);
 						if (modFile != null)
 						{
 							foreach (AbstractFileTabControlHandler tabHandler in MenuBar.TabHandlers.Where(t => t.FileHandler.BinaryFileType == binaryFileType))
@@ -83,10 +84,10 @@ namespace DevilDaggersAssetEditor.Gui.Windows
 
 		private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
 		{
-			for (int i = 0; i < tabControlSizes.Count; i++)
+			for (int i = 0; i < _tabControlSizes.Count; i++)
 			{
-				Point size = tabControlSizes[i];
-				if (i == tabControlSizes.Count - 1 || ActualWidth >= size.X && ActualHeight >= size.Y - 24)
+				Point size = _tabControlSizes[i];
+				if (i == _tabControlSizes.Count - 1 || ActualWidth >= size.X && ActualHeight >= size.Y - 24)
 				{
 					CurrentTabControlSize = size;
 					TabControl.Width = size.X - 17;
