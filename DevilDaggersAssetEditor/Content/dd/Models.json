@@ -124,9 +124,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 694,
 		"DefaultVertexCount": 375,
-		"Description": "?",
+		"Description": "Skull I",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull I"
 		]
 	},
 	{
@@ -134,9 +135,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
-		"Description": "?",
+		"Description": "Skull II",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull II"
 		]
 	},
 	{
@@ -144,9 +146,11 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 490,
 		"DefaultVertexCount": 281,
-		"Description": "?",
+		"Description": "Skull II horns",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull II",
+			"Horns"
 		]
 	},
 	{
@@ -154,9 +158,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
-		"Description": "?",
+		"Description": "Skull III",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull III"
 		]
 	},
 	{
@@ -164,9 +169,11 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 620,
 		"DefaultVertexCount": 364,
-		"Description": "?",
+		"Description": "Skull III horns",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull III",
+			"Horns"
 		]
 	},
 	{
@@ -174,9 +181,11 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 322,
 		"DefaultVertexCount": 185,
-		"Description": "?",
+		"Description": "Skull III jaw",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull III",
+			"Jaw"
 		]
 	},
 	{
@@ -184,9 +193,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2299,
 		"DefaultVertexCount": 3229,
-		"Description": "?",
+		"Description": "Skull IV",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull IV"
 		]
 	},
 	{
@@ -194,9 +204,11 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 414,
 		"DefaultVertexCount": 781,
-		"Description": "?",
+		"Description": "Skull IV jaw",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Skull IV",
+			"Jaw"
 		]
 	},
 	{
@@ -214,9 +226,9 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 60,
 		"DefaultVertexCount": 164,
-		"Description": "?",
+		"Description": "Dagger",
 		"Tags": [
-			"?"
+			"Dagger"
 		]
 	},
 	{
@@ -354,9 +366,9 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
-		"Description": "?",
+		"Description": "Gem",
 		"Tags": [
-			"?"
+			"Gem"
 		]
 	},
 	{
@@ -394,9 +406,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 980,
 		"DefaultVertexCount": 595,
-		"Description": "?",
+		"Description": "Spider Egg II",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Spider Egg II"
 		]
 	},
 	{
@@ -484,9 +497,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 185,
-		"Description": "?",
+		"Description": "Level 1 player hand (right)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 1"
 		]
 	},
 	{
@@ -494,9 +508,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 238,
-		"Description": "?",
+		"Description": "Level 2 player hand (right)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 2"
 		]
 	},
 	{
@@ -504,9 +519,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 414,
-		"Description": "?",
+		"Description": "Level 2 player hand (left)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 2"
 		]
 	},
 	{
@@ -514,9 +530,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
-		"Description": "?",
+		"Description": "Level 3 player hand (right)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 3"
 		]
 	},
 	{
@@ -524,9 +541,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 397,
-		"Description": "?",
+		"Description": "Level 3 player hand (left)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 3"
 		]
 	},
 	{
@@ -534,9 +552,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
-		"Description": "?",
+		"Description": "Level 4 player hand (right)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 4"
 		]
 	},
 	{
@@ -544,9 +563,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
-		"Description": "?",
+		"Description": "Level 4 player hand (left)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 4"
 		]
 	},
 	{
@@ -554,9 +574,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 386,
-		"Description": "?",
+		"Description": "Level 1 player hand (left)",
 		"Tags": [
-			"?"
+			"Player",
+			"Level 1"
 		]
 	},
 	{
@@ -1154,9 +1175,10 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 704,
 		"DefaultVertexCount": 1210,
-		"Description": "?",
+		"Description": "Spider Egg I",
 		"Tags": [
-			"?"
+			"Enemy",
+			"Spider Egg I"
 		]
 	},
 	{
@@ -1164,9 +1186,9 @@
 		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
-		"Description": "?",
+		"Description": "Unused? (Same as 'gib')",
 		"Tags": [
-			"?"
+			"Unused"
 		]
 	},
 	{
