@@ -8,7 +8,7 @@ namespace DevilDaggersAssetEditor.Wpf.Code.Network
 {
 	public sealed class NetworkHandler
 	{
-#if DEBUG
+#if TESTING
 		public static readonly string BaseUrl = "http://localhost:2963";
 #else
 		public static readonly string BaseUrl = "https://devildaggers.info";
