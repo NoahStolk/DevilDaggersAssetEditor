@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Code;
 using DevilDaggersCore.Utils;
+using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.ComponentModel;
@@ -99,12 +100,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			UserHandler.Instance.Settings.DevilDaggersRootFolder = LabelDevilDaggersRootFolder.Content.ToString() ?? UserSettings.PathDefault;
 			UserHandler.Instance.Settings.ModsRootFolder = LabelModsRootFolder.Content.ToString() ?? UserSettings.PathDefault;
 
-			UserHandler.Instance.Settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked.Value;
-			UserHandler.Instance.Settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked.Value;
-			UserHandler.Instance.Settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked.Value;
+			UserHandler.Instance.Settings.EnableAssetsRootFolder = CheckBoxAssetsRootFolder.IsChecked();
+			UserHandler.Instance.Settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked();
+			UserHandler.Instance.Settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked();
 
-			UserHandler.Instance.Settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked.Value;
-			UserHandler.Instance.Settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked.Value;
+			UserHandler.Instance.Settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked();
+			UserHandler.Instance.Settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked();
 
 			if (uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0)
 				UserHandler.Instance.Settings.TextureSizeLimit = res;

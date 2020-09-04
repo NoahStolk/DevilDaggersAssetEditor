@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
+using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers
 			int i = 0;
 			foreach (TAsset asset in assets)
 			{
-				TAssetRowControlHandler rowHandler = (TAssetRowControlHandler)Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0);
+				TAssetRowControlHandler rowHandler = (TAssetRowControlHandler)(Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0) ?? throw new Exception($"Failed to create an instance of {nameof(TAssetRowControlHandler)}."));
 				RowHandlers.Add(rowHandler);
 			}
 
@@ -38,12 +39,12 @@ namespace DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers
 		protected abstract string AssetTypeJsonFileName { get; }
 
 		public List<TAssetRowControlHandler> RowHandlers { get; private set; } = new List<TAssetRowControlHandler>();
-		public TAsset SelectedAsset { get; set; }
+		public TAsset? SelectedAsset { get; set; }
 
 		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
 		public Color FilterHighlightColor { get; private set; }
 
-		public IEnumerable<string> CheckedFilters => FilterCheckBoxes.Where(c => c.IsChecked.Value).Select(s => s.Content.ToString());
+		public IEnumerable<string> CheckedFilters => FilterCheckBoxes.Where(c => c.IsChecked()).Select(s => s.Content.ToString() ?? string.Empty);
 		public IEnumerable<string> AllFilters { get; }
 		public int FiltersCount { get; }
 
@@ -110,12 +111,10 @@ namespace DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers
 			}
 		}
 
-		public void ApplyFilter(FilterOperation filterOperation, Dictionary<TAssetRowControl, TextBlock> textBlocks)
+		public void ApplyFilter(FilterOperation filterOperation)
 		{
 			foreach (TAssetRowControlHandler rowHandler in RowHandlers)
 			{
-				TextBlock textBlockTags = textBlocks.FirstOrDefault(kvp => kvp.Key == rowHandler.AssetRowControl).Value;
-
 				if (!CheckedFilters.Any())
 				{
 					rowHandler.IsActive = true;

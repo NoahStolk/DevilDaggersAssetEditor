@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Wpf.Code;
 using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
+using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,9 +70,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 		private void ApplyFilter(object sender, RoutedEventArgs e)
 		{
-			Handler.ApplyFilter(
-				GetFilterOperation(),
-				Handler.RowHandlers.Select(a => new KeyValuePair<ParticleAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+			Handler.ApplyFilter(GetFilterOperation());
 
 			foreach (ParticleAssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
@@ -105,9 +104,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 		private FilterOperation GetFilterOperation()
 		{
-			if (FilterOperationAnd.IsChecked.Value)
+			if (FilterOperationAnd.IsChecked())
 				return FilterOperation.And;
-			if (FilterOperationOr.IsChecked.Value)
+			if (FilterOperationOr.IsChecked())
 				return FilterOperation.Or;
 			return FilterOperation.None;
 		}
@@ -123,13 +122,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			Previewer.Initialize(arc.Handler.Asset);
 		}
 
-		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_nameSort);
+		private void NameSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_nameSort);
 
-		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_tagsSort);
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_tagsSort);
 
-		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_descriptionSort);
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_descriptionSort);
 
-		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(_pathSort);
+		private void PathSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_pathSort);
 
 		private void SetSorting(AssetRowSorting<ParticleAsset, ParticleAssetRowControl, ParticleAssetRowControlHandler> sorting)
 		{
@@ -139,6 +142,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			ApplySort();
 		}
 
-		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler?.UpdateTagHighlighting();
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+			=> Handler?.UpdateTagHighlighting();
 	}
 }

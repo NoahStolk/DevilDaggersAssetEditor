@@ -1,10 +1,10 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
-using DevilDaggersAssetEditor.User;
 using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -12,14 +12,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
 	public abstract class AbstractBinaryFileHandler
 	{
-		protected UserSettings settings => UserHandler.Instance.Settings;
-
-		public BinaryFileType BinaryFileType { get; }
-
 		protected AbstractBinaryFileHandler(BinaryFileType binaryFileType)
 		{
 			BinaryFileType = binaryFileType;
 		}
+
+		public BinaryFileType BinaryFileType { get; }
 
 		public abstract void MakeBinary(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription);
 
@@ -40,10 +38,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			ModFile modFile = new ModFile(Utils.GuiVersion, false, assets);
 
 			string folderName = new DirectoryInfo(outputPath).Name;
-			JsonFileUtils.SerializeToFile(Path.Combine(outputPath, $"{folderName}.{binaryFileType.ToString().ToLower()}"), modFile, true);
+			JsonFileUtils.SerializeToFile(Path.Combine(outputPath, $"{folderName}.{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}"), modFile, true);
 		}
 
-		private List<AbstractUserAsset> GetAudioAssets(string outputPath)
+		private static List<AbstractUserAsset> GetAudioAssets(string outputPath)
 		{
 			string loudnessFilePath = Directory.GetFiles(outputPath, "*.ini", SearchOption.AllDirectories).FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == "loudness");
 			if (loudnessFilePath == null)
@@ -65,10 +63,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					loudness = loudnessValues[name];
 				assets.Add(new AudioUserAsset(name, path, loudness));
 			}
-			return assets.Cast<AbstractUserAsset>().ToList();
+
+			return assets.ToList();
 		}
 
-		private List<AbstractUserAsset> GetNonAudioAssets(string outputPath)
+		private static List<AbstractUserAsset> GetNonAudioAssets(string outputPath)
 		{
 			Dictionary<string, Type> typeConversions = new Dictionary<string, Type>
 			{
@@ -76,7 +75,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				{ "Models", typeof(ModelUserAsset) },
 				{ "Shaders", typeof(ShaderUserAsset) },
 				{ "Textures", typeof(TextureUserAsset) },
-				{ "Particles", typeof(ParticleUserAsset) }
+				{ "Particles", typeof(ParticleUserAsset) },
 			};
 
 			List<AbstractUserAsset> assets = new List<AbstractUserAsset>();
@@ -86,11 +85,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				string name = Path.GetFileNameWithoutExtension(path);
 
 				string folderName = new DirectoryInfo(Path.GetDirectoryName(path)).Name;
-				if (typeConversions.TryGetValue(folderName, out Type type))
+				if (typeConversions.TryGetValue(folderName, out Type? type) && type != null)
 				{
 					if (type == typeof(ShaderUserAsset))
 					{
-						if (path.EndsWith("_vertex")) // Skip _fragment to avoid getting duplicate assets.
+						if (path.EndsWith("_vertex", StringComparison.InvariantCulture)) // Skip _fragment to avoid getting duplicate assets.
 							assets.Add(Activator.CreateInstance(type, name.TrimEnd("_vertex"), path.TrimEnd("_vertex")) as AbstractUserAsset);
 					}
 					else
@@ -99,6 +98,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					}
 				}
 			}
+
 			return assets;
 		}
 	}

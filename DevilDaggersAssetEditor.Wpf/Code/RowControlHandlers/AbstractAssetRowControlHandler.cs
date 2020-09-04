@@ -18,10 +18,6 @@ namespace DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers
 		where TAsset : AbstractAsset
 		where TAssetRowControl : UserControl
 	{
-		private readonly Color _colorInfoEven;
-		private readonly Color _colorInfoOdd;
-		private readonly Color _colorEditEven;
-		private readonly Color _colorEditOdd;
 		private readonly SolidColorBrush _brushInfoEven;
 		private readonly SolidColorBrush _brushInfoOdd;
 		private readonly SolidColorBrush _brushEditEven;
@@ -40,14 +36,14 @@ namespace DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers
 			AssetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), this);
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
-			_colorEditEven = chunkInfo.GetColor() * 0.25f;
-			_colorEditOdd = _colorEditEven * 0.5f;
-			_colorInfoEven = _colorEditOdd;
-			_colorInfoOdd = _colorEditOdd * 0.5f;
-			_brushInfoEven = new SolidColorBrush(_colorInfoEven);
-			_brushInfoOdd = new SolidColorBrush(_colorInfoOdd);
-			_brushEditEven = new SolidColorBrush(_colorEditEven);
-			_brushEditOdd = new SolidColorBrush(_colorEditOdd);
+			Color colorEditEven = chunkInfo.GetColor() * 0.25f;
+			Color colorEditOdd = colorEditEven * 0.5f;
+			Color colorInfoEven = colorEditOdd;
+			Color colorInfoOdd = colorEditOdd * 0.5f;
+			_brushInfoEven = new SolidColorBrush(colorInfoEven);
+			_brushInfoOdd = new SolidColorBrush(colorInfoOdd);
+			_brushEditEven = new SolidColorBrush(colorEditEven);
+			_brushEditOdd = new SolidColorBrush(colorEditOdd);
 
 			UpdateGui();
 

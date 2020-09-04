@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Wpf.Code;
 using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
+using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			typeof(string),
 			typeof(AudioAssetTabControl));
 
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> nameSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> tagsSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> descriptionSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> loudnessSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.Loudness);
-		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> pathSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> _nameSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> _tagsSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> _descriptionSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> _loudnessSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.Loudness);
+		private readonly AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> _pathSort = new AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>((a) => a.Asset.EditorPath);
 
 		public AudioAssetTabControl()
 		{
@@ -87,9 +88,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 		private void ApplyFilter(object sender, RoutedEventArgs e)
 		{
-			Handler.ApplyFilter(
-				GetFilterOperation(),
-				Handler.RowHandlers.Select(a => new KeyValuePair<AudioAssetRowControl, TextBlock>(a.AssetRowControl, a.AssetRowControl.Handler.TextBlockTags)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+			Handler.ApplyFilter(GetFilterOperation());
 
 			foreach (AudioAssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
@@ -123,9 +122,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 		private FilterOperation GetFilterOperation()
 		{
-			if (FilterOperationAnd.IsChecked.Value)
+			if (FilterOperationAnd.IsChecked())
 				return FilterOperation.And;
-			if (FilterOperationOr.IsChecked.Value)
+			if (FilterOperationOr.IsChecked())
 				return FilterOperation.Or;
 			return FilterOperation.None;
 		}
@@ -141,15 +140,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			Previewer.Initialize(arc.Handler.Asset);
 		}
 
-		private void NameSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(nameSort);
+		private void NameSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_nameSort);
 
-		private void TagsSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(tagsSort);
+		private void TagsSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_tagsSort);
 
-		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(descriptionSort);
+		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_descriptionSort);
 
-		private void LoudnessSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(loudnessSort);
+		private void LoudnessSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_loudnessSort);
 
-		private void PathSortButton_Click(object sender, RoutedEventArgs e) => SetSorting(pathSort);
+		private void PathSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_pathSort);
 
 		private void SetSorting(AssetRowSorting<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler> sorting)
 		{
@@ -159,6 +163,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			ApplySort();
 		}
 
-		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e) => Handler?.UpdateTagHighlighting();
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+			=> Handler?.UpdateTagHighlighting();
 	}
 }

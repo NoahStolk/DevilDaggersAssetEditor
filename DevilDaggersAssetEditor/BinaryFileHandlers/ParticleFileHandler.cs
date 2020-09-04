@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Headers;
+using DevilDaggersAssetEditor.User;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +14,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 	public class ParticleFileHandler : AbstractBinaryFileHandler
 	{
 		/// <summary>
-		/// uint magic, uint particle amount = 8 bytes
+		/// uint magic, uint particle amount = 8 bytes.
 		/// </summary>
 		public const int HeaderSize = 8;
 		public const int ParticleBufferLength = 188;
@@ -85,11 +86,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			}
 
 			// Create mod file.
-			if (settings.CreateModFileWhenExtracting)
+			if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
 				CreateModFile(outputPath, binaryFileType);
 
 			// Open the output path.
-			if (settings.OpenModFolderAfterExtracting)
+			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
 				Process.Start(outputPath);
 		}
 

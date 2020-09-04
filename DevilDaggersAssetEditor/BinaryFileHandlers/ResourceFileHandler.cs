@@ -1,10 +1,12 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.User;
 using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,20 +16,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 	public class ResourceFileHandler : AbstractBinaryFileHandler
 	{
 		/// <summary>
-		/// uint magic1, uint magic2, uint tocBufferSize = 12 bytes
+		/// uint magic1, uint magic2, uint tocBufferSize = 12 bytes.
 		/// </summary>
 		public const int HeaderSize = 12;
 
-		public static readonly ulong Magic1;
-		public static readonly ulong Magic2;
-
-		static ResourceFileHandler()
-		{
-			Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
-			Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
-
-			static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
-		}
+		public static readonly ulong Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
+		public static readonly ulong Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
 
 		public ResourceFileHandler(BinaryFileType binaryFileType)
 			: base(binaryFileType)
@@ -35,6 +29,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			if (binaryFileType == BinaryFileType.Particle)
 				throw new Exception($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
 		}
+
+		private static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
 
 		#region Make binary
 
@@ -45,10 +41,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// <param name="outputPath">The path where the binary file will be placed.</param>
 		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription)
 		{
-			((IProgress<string>)progressDescription).Report($"Initializing '{BinaryFileType.ToString().ToLower()}' file creation.");
+			((IProgress<string>)progressDescription).Report($"Initializing '{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' file creation.");
 
-			string binaryFileTypeName = BinaryFileType.ToString().ToLower();
-			allAssets = allAssets.Where(a => File.Exists(a.EditorPath.Replace(".glsl", "_vertex.glsl"))).ToList();
+			string binaryFileTypeName = BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
+			allAssets = allAssets.Where(a => File.Exists(a.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture))).ToList();
 
 			((IProgress<string>)progressDescription).Report("Generating chunks based on asset list.");
 			List<AbstractResourceChunk> chunks = CreateChunksFromAssets(allAssets, progress, progressDescription);
@@ -77,7 +73,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			foreach (AbstractAsset asset in allAssets)
 			{
 				((IProgress<float>)progress).Report(chunks.Count / (float)allAssets.Count / 2);
-				((IProgress<string>)progressDescription).Report($"Generating {asset.ChunkTypeName.Replace("Chunk", "")} chunk \"{asset.AssetName}\".");
+				((IProgress<string>)progressDescription).Report($"Generating {asset.ChunkTypeName.Replace("Chunk", string.Empty, StringComparison.InvariantCulture)} chunk \"{asset.AssetName}\".");
 
 				if (asset is AudioAsset audioAsset)
 					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
@@ -138,11 +134,18 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				// No reason to write anything for now.
 				tocStream.Position += sizeof(uint);
 			}
+
 			tocStream.Write(BitConverter.GetBytes(0), 0, 2); // Empty value between TOC and assets.
 			tocBuffer = tocStream.ToArray();
 		}
 
-		public byte[] CreateAssetStream(string binaryFileTypeName, List<AbstractResourceChunk> chunks, byte[] tocBuffer, Dictionary<AbstractResourceChunk, long> startOffsetBytePositions, Progress<float> progress = null, Progress<string> progressDescription = null)
+		public static byte[] CreateAssetStream(
+			string binaryFileTypeName,
+			List<AbstractResourceChunk> chunks,
+			byte[] tocBuffer,
+			Dictionary<AbstractResourceChunk, long> startOffsetBytePositions,
+			Progress<float>? progress = null,
+			Progress<string>? progressDescription = null)
 		{
 			byte[] assetBuffer;
 			using MemoryStream assetStream = new MemoryStream();
@@ -164,12 +167,13 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				byte[] bytes = chunk.GetBuffer();
 				assetStream.Write(bytes, 0, bytes.Length);
 			}
+
 			assetBuffer = assetStream.ToArray();
 
 			return assetBuffer;
 		}
 
-		public byte[] CreateBinary(byte[] tocBuffer, byte[] assetBuffer)
+		public static byte[] CreateBinary(byte[] tocBuffer, byte[] assetBuffer)
 		{
 			using MemoryStream ms = new MemoryStream();
 
@@ -214,10 +218,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			((IProgress<string>)progressDescription).Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress, progressDescription);
 
-			if (settings.CreateModFileWhenExtracting)
+			if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
 				CreateModFile(outputPath, binaryFileType);
 
-			if (settings.OpenModFolderAfterExtracting)
+			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
 				Process.Start(outputPath);
 		}
 
@@ -230,7 +234,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}\nHeader value 2: {magic2FromFile} should be {Magic2}");
 		}
 
-		public byte[] ReadTocBuffer(byte[] sourceFileBytes)
+		public static byte[] ReadTocBuffer(byte[] sourceFileBytes)
 		{
 			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
 			byte[] tocBuffer = new byte[tocSize];
@@ -238,12 +242,14 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return tocBuffer;
 		}
 
-		public List<AbstractChunk> ReadChunks(byte[] tocBuffer)
+		public static List<AbstractChunk> ReadChunks(byte[] tocBuffer)
 		{
 			List<AbstractChunk> chunks = new List<AbstractChunk>();
 
 			int i = 0;
-			while (i < tocBuffer.Length - 14) // TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
+
+			// TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
+			while (i < tocBuffer.Length - 14)
 			{
 				byte type = tocBuffer[i];
 				string name = Utils.ReadNullTerminatedString(tocBuffer, i + 2);
@@ -278,7 +284,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				ChunkInfo info = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType());
 
 				((IProgress<float>)progress).Report(chunksDone++ / (float)totalChunks);
-				((IProgress<string>)progressDescription).Report($"Creating {info.ChunkType.Name.Replace("Chunk", "")} file{(info.ChunkType == typeof(ShaderChunk) ? "s" : "")} for chunk \"{chunk.Name}\".");
+				((IProgress<string>)progressDescription).Report($"Creating {info.ChunkType.Name.Replace("Chunk", string.Empty, StringComparison.InvariantCulture)} file{(info.ChunkType == typeof(ShaderChunk) ? "s" : string.Empty)} for chunk \"{chunk.Name}\".");
 
 				byte[] buf = new byte[chunk.Size];
 				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);

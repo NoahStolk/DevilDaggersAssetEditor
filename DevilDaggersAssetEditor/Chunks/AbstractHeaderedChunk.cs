@@ -7,12 +7,12 @@ namespace DevilDaggersAssetEditor.Chunks
 	public abstract class AbstractHeaderedChunk<THeader> : AbstractResourceChunk
 		where THeader : AbstractHeader
 	{
-		public THeader Header { get; set; }
-
 		protected AbstractHeaderedChunk(string name, uint startOffset, uint size, uint unknown)
 			: base(name, startOffset, size, unknown)
 		{
 		}
+
+		public THeader Header { get; set; }
 
 		public override void SetBuffer(byte[] buffer)
 		{

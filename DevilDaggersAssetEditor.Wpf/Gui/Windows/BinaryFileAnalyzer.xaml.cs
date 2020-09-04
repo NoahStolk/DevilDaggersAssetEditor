@@ -176,9 +176,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.Audio | BinaryFileType.Core | BinaryFileType.Dd);
 				fileHandler.ValidateFile(sourceFileBytes);
 
-				byte[] tocBuffer = fileHandler.ReadTocBuffer(sourceFileBytes);
+				byte[] tocBuffer = ResourceFileHandler.ReadTocBuffer(sourceFileBytes);
 
-				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, fileHandler.ReadChunks(tocBuffer));
+				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer));
 			}
 			catch
 			{
