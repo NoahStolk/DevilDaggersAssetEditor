@@ -14,12 +14,12 @@ namespace DevilDaggersAssetEditor.Chunks
 {
 	public class ModelChunk : AbstractHeaderedChunk<ModelHeader>
 	{
-		private static readonly Dictionary<string, byte[]> closures;
+		private static readonly Dictionary<string, byte[]> _closures;
 
 		static ModelChunk()
 		{
-			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.ModelClosures.json"));
-			closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
+			using StreamReader sr = new StreamReader(Utils.GetContentStream("ModelClosures.json"));
+			_closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
 		public ModelChunk(string name, uint startOffset, uint size, uint unknown)
@@ -27,7 +27,7 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 		}
 
-		private float ParseVertexValue(string value)
+		private static float ParseVertexValue(string value)
 			=> (float)double.Parse(value, NumberStyles.Float, CultureInfo.InvariantCulture);
 
 		public override void MakeBinary(string path)
@@ -69,8 +69,9 @@ namespace DevilDaggersAssetEditor.Chunks
 						{
 							string value = values[j + 1];
 
-							if (value.Contains("/")) // f 1/2/3 4/5/6 7/8/9
+							if (value.Contains("/", StringComparison.InvariantCulture))
 							{
+								// f 1/2/3 4/5/6 7/8/9
 								string[] references = value.Split('/');
 
 								if (!uint.TryParse(references[0], out uint positionReference))
@@ -82,9 +83,10 @@ namespace DevilDaggersAssetEditor.Chunks
 
 								vertices.Add(new VertexReference(positionReference, texCoordReference, normalReference));
 							}
-							else // f 1 2 3
+							else
 							{
-								vertices.Add(new VertexReference(uint.Parse(value)));
+								// f 1 2 3
+								vertices.Add(new VertexReference(uint.Parse(value, CultureInfo.InvariantCulture)));
 							}
 						}
 
@@ -97,11 +99,12 @@ namespace DevilDaggersAssetEditor.Chunks
 								if (j > 3)
 									k -= 4;
 								string value = values[k + 1];
-								if (value.Contains("/")) // f 1/2/3 4/5/6 7/8/9
+								if (value.Contains("/", StringComparison.InvariantCulture))
 								{
+									// f 1/2/3 4/5/6 7/8/9
 									string[] references = value.Split('/');
 
-									vertices.Add(new VertexReference(uint.Parse(references[0]), uint.Parse(references[1]), uint.Parse(references[2])));
+									vertices.Add(new VertexReference(uint.Parse(references[0], CultureInfo.InvariantCulture), uint.Parse(references[1], CultureInfo.InvariantCulture), uint.Parse(references[2], CultureInfo.InvariantCulture)));
 								}
 							}
 						}
@@ -151,7 +154,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
 			Header = new ModelHeader(headerBuffer);
 
-			byte[] closure = closures[Name];
+			byte[] closure = _closures[Name];
 			Buffer = new byte[vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
 			for (int i = 0; i < vertexCount; i++)
 			{

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
 using System.Reflection;
 using System.Text;
 
@@ -11,7 +11,10 @@ namespace DevilDaggersAssetEditor
 
 		public static readonly string FileNotFound = "<File not found>";
 
-		public static Assembly GetAssemblyByName(string name) => AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(assembly => assembly.GetName().Name == name);
+		public static Assembly CurrentAssembly { get; } = Assembly.GetExecutingAssembly();
+
+		public static Stream GetContentStream(string relativeContentName)
+			=> CurrentAssembly.GetManifestResourceStream($"DevilDaggersAssetEditor.Content.{relativeContentName}") ?? throw new Exception($"Could not retrieve content stream '{relativeContentName}'.");
 
 		/// <summary>
 		/// Reads a null terminated string from a buffer and returns it as a string object (excluding the null terminator itself).
@@ -29,6 +32,7 @@ namespace DevilDaggersAssetEditor
 					return sb.ToString();
 				sb.Append(c);
 			}
+
 			throw new Exception($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
 		}
 	}
