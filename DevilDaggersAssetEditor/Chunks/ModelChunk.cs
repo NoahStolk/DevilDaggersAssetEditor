@@ -32,6 +32,34 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		public override void MakeBinary(string path)
 		{
+			ReadObj(path, out List<Vector3> outPositions, out List<Vector2> outTexCoords, out List<Vector3> outNormals, out List<VertexReference> outVertices);
+
+			int vertexCount = outPositions.Count;
+
+			byte[] headerBuffer = new byte[ChunkInfo.Model.HeaderInfo.FixedSize.Value];
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
+			Header = new ModelHeader(headerBuffer);
+
+			byte[] closure = _closures[Name];
+			Buffer = new byte[vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
+			for (int i = 0; i < vertexCount; i++)
+			{
+				Vertex vertex = new Vertex(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
+				byte[] vertexBytes = vertex.ToByteArray();
+				Buf.BlockCopy(vertexBytes, 0, Buffer, i * Vertex.ByteCount, Vertex.ByteCount);
+			}
+
+			for (int i = 0; i < vertexCount; i++)
+				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
+			Buf.BlockCopy(closure, 0, Buffer, vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
+
+			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
+		}
+
+		public static void ReadObj(string path, out List<Vector3> outPositions, out List<Vector2> outTexCoords, out List<Vector3> outNormals, out List<VertexReference> outVertices)
+		{
 			string text = File.ReadAllText(path);
 			string[] lines = text.Split('\n');
 
@@ -108,14 +136,15 @@ namespace DevilDaggersAssetEditor.Chunks
 								}
 							}
 						}
+
 						break;
 				}
 			}
 
-			List<Vector3> outPositions = new List<Vector3>();
-			List<Vector2> outTexCoords = new List<Vector2>();
-			List<Vector3> outNormals = new List<Vector3>();
-			List<VertexReference> outVertices = new List<VertexReference>();
+			outPositions = new List<Vector3>();
+			outTexCoords = new List<Vector2>();
+			outNormals = new List<Vector3>();
+			outVertices = new List<VertexReference>();
 
 			// Duplicate vertices as needed.
 			for (uint i = 0; i < vertices.Count; i += 3)
@@ -145,29 +174,6 @@ namespace DevilDaggersAssetEditor.Chunks
 				outVertices.Add(outVertex2);
 				outVertices.Add(outVertex3);
 			}
-
-			int vertexCount = outPositions.Count;
-
-			byte[] headerBuffer = new byte[ChunkInfo.Model.HeaderInfo.FixedSize.Value];
-			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
-			Header = new ModelHeader(headerBuffer);
-
-			byte[] closure = _closures[Name];
-			Buffer = new byte[vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
-			for (int i = 0; i < vertexCount; i++)
-			{
-				Vertex vertex = new Vertex(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
-				byte[] vertexBytes = vertex.ToByteArray();
-				Buf.BlockCopy(vertexBytes, 0, Buffer, i * Vertex.ByteCount, Vertex.ByteCount);
-			}
-
-			for (int i = 0; i < vertexCount; i++)
-				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
-			Buf.BlockCopy(closure, 0, Buffer, vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
-
-			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
 		}
 
 		public override IEnumerable<FileResult> ExtractBinary()
@@ -195,9 +201,9 @@ namespace DevilDaggersAssetEditor.Chunks
 				vn.AppendLine($"vn {vertices[i].Normal.X} {vertices[i].Normal.Y} {vertices[i].Normal.Z}");
 			}
 
-			sb.Append(v.ToString());
-			sb.Append(vt.ToString());
-			sb.Append(vn.ToString());
+			sb.Append(v);
+			sb.Append(vt);
+			sb.Append(vn);
 
 			sb.AppendLine("\n# Triangles");
 			for (uint i = 0; i < Header.IndexCount / 3; ++i)
