@@ -3,7 +3,7 @@ using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Headers;
 using DevilDaggersAssetEditor.ModFiles;
 using System;
-using System.Collections.Immutable;
+using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Info
 {
@@ -109,7 +109,7 @@ namespace DevilDaggersAssetEditor.Info
 			colorG: 255,
 			colorB: 0);
 
-		public static ImmutableArray<ChunkInfo> All { get; } = new ImmutableArray<ChunkInfo> { Model, Texture, Shader, Audio, ModelBinding, Particle };
+		public static IReadOnlyList<ChunkInfo> All { get; } = new List<ChunkInfo> { Model, Texture, Shader, Audio, ModelBinding, Particle };
 
 		public BinaryFileType BinaryFileType { get; }
 		public Type ChunkType { get; }
