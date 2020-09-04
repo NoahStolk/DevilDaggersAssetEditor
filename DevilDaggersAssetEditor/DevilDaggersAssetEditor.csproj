@@ -1,23 +1,28 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <Version>0.16.3.0</Version>
+    <Platforms>x64</Platforms>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <ApplicationIcon>Icon24.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DevilDaggersCore\DevilDaggersCore.Wpf\DevilDaggersCore.Wpf.csproj" />
-    <ProjectReference Include="..\DevilDaggersAssetCore\DevilDaggersAssetCore.csproj" />
+    <EmbeddedResource Include="Content\audio\Audio.json" />
+    <EmbeddedResource Include="Content\core\Shaders.json" />
+    <EmbeddedResource Include="Content\dd\Model Bindings.json" />
+    <EmbeddedResource Include="Content\dd\Models.json" />
+    <EmbeddedResource Include="Content\dd\Shaders.json" />
+    <EmbeddedResource Include="Content\dd\Textures.json" />
+    <EmbeddedResource Include="Content\ModelClosures.json" />
+    <EmbeddedResource Include="Content\particle\Particles.json" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DevilDaggersCore" Version="1.0.0" />
+    <PackageReference Include="log4net" Version="2.0.9" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ookii.Dialogs.Wpf.NETCore" Version="2.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.12.0.21095">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,23 +31,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="irrKlang.NET4">
-      <HintPath>irrKlang.NET4.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Content\Images\AssetEditor\Sort.png" />
-    <Resource Include="Content\Images\AudioPlayer\Pause.png" />
-    <Resource Include="Content\Images\AudioPlayer\Play.png" />
-    <Resource Include="Content\Images\AudioPlayer\ResetPitch.png" />
-    <Resource Include="Content\Images\Icon\Icon24.png" />
-    <Resource Include="Content\Images\Icon\Icon32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
   </ItemGroup>
 </Project>

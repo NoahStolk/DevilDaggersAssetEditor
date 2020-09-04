@@ -21,25 +21,25 @@ namespace DevilDaggersAssetCore.Assets
 
 		private AssetHandler()
 		{
-			using StreamReader srAudioAudio = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.audio.Audio.json"));
+			using StreamReader srAudioAudio = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.audio.Audio.json"));
 			AudioAudioAssets = JsonConvert.DeserializeObject<List<AudioAsset>>(srAudioAudio.ReadToEnd());
 
-			using StreamReader srCoreShaders = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.core.Shaders.json"));
+			using StreamReader srCoreShaders = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.core.Shaders.json"));
 			CoreShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srCoreShaders.ReadToEnd());
 
-			using StreamReader srDdModelBindings = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.dd.Model Bindings.json"));
+			using StreamReader srDdModelBindings = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.dd.Model Bindings.json"));
 			DdModelBindingsAssets = JsonConvert.DeserializeObject<List<ModelBindingAsset>>(srDdModelBindings.ReadToEnd());
 
-			using StreamReader srDdModels = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.dd.Models.json"));
+			using StreamReader srDdModels = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.dd.Models.json"));
 			DdModelsAssets = JsonConvert.DeserializeObject<List<ModelAsset>>(srDdModels.ReadToEnd());
 
-			using StreamReader srDdShaders = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.dd.Shaders.json"));
+			using StreamReader srDdShaders = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.dd.Shaders.json"));
 			DdShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srDdShaders.ReadToEnd());
 
-			using StreamReader srDdTextures = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.dd.Textures.json"));
+			using StreamReader srDdTextures = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.dd.Textures.json"));
 			DdTexturesAssets = JsonConvert.DeserializeObject<List<TextureAsset>>(srDdTextures.ReadToEnd());
 
-			using StreamReader srParticleParticles = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream($"DevilDaggersAssetCore.Content.particle.Particles.json"));
+			using StreamReader srParticleParticles = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.particle.Particles.json"));
 			ParticleParticlesAssets = JsonConvert.DeserializeObject<List<ParticleAsset>>(srParticleParticles.ReadToEnd());
 		}
 
