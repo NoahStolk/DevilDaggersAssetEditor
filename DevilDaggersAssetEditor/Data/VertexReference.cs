@@ -20,6 +20,7 @@
 			NormalReference = unifiedReference;
 		}
 
-		public override string ToString() => $"{PositionReference}/{TexCoordReference}/{NormalReference}";
+		public override string ToString()
+			=> $"{PositionReference}/{TexCoordReference}/{NormalReference}";
 	}
 }

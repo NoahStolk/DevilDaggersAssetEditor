@@ -11,13 +11,13 @@ namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	public sealed class ModHandler
 	{
-		private static readonly Lazy<ModHandler> lazy = new Lazy<ModHandler>(() => new ModHandler());
+		private static readonly Lazy<ModHandler> _lazy = new Lazy<ModHandler>(() => new ModHandler());
 
 		private ModHandler()
 		{
 		}
 
-		public static ModHandler Instance => lazy.Value;
+		public static ModHandler Instance => _lazy.Value;
 
 		public ModFile? GetModFileFromPath(string path, BinaryFileType binaryFileType)
 		{
@@ -25,6 +25,11 @@ namespace DevilDaggersAssetEditor.Wpf.Code
 			// We need to remove this property because it will cause deserialization errors in .NET Core. This appears to be a breaking change between .NET Framework and .NET Core.
 			// We do not care about having the mod file version here, so simply removing the property when importing a mod file is enough.
 			string modJson = File.ReadAllText(path);
+
+			// Remove any obsolete namespaces.
+			modJson = modJson.Replace("DevilDaggersAssetCore", "DevilDaggersAssetEditor", StringComparison.InvariantCulture);
+
+			// Fix DdaeVersion.
 			JObject? modJsonObject = JsonConvert.DeserializeObject<JObject>(modJson);
 			modJsonObject?.Property("DdaeVersion", StringComparison.InvariantCulture)?.Remove();
 			File.WriteAllText(path, JsonConvert.SerializeObject(modJsonObject));
