@@ -6,6 +6,7 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
+using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using System;
@@ -14,7 +15,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers
@@ -112,8 +112,9 @@ namespace DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers
 		{
 			if (!IsComplete())
 			{
-				MessageBoxResult promptResult = MessageBox.Show("Not all file paths have been specified. In most cases this will cause Devil Daggers to crash on start up (or sometimes randomly at runtime). Are you sure you wish to continue?", "Incomplete asset list", MessageBoxButton.YesNo, MessageBoxImage.Question);
-				if (promptResult == MessageBoxResult.No)
+				ConfirmWindow confirmWindow = new ConfirmWindow("Incomplete asset list", "Not all file paths have been specified. This will cause Devil Daggers to crash when it attempts to load the unspecified asset. Are you sure you wish to continue?", false);
+				confirmWindow.ShowDialog();
+				if (!confirmWindow.IsConfirmed)
 					return;
 			}
 
@@ -166,9 +167,9 @@ namespace DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers
 			bool relativePaths = false;
 			if (AssetsHaveSameBasePaths())
 			{
-				MessageBoxResult relativePathsResult = MessageBox.Show("Specify whether you want this mod file to use relative paths (easier to share between computers or using zipped files containing assets).", "Use relative paths?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-				if (relativePathsResult == MessageBoxResult.Yes)
+				ConfirmWindow relativePathsWindow = new ConfirmWindow("Relative paths", "Relative paths can be used to make it easier to share raw assets (folders or zipped files) between computers. Use relative paths?", false);
+				relativePathsWindow.ShowDialog();
+				if (relativePathsWindow.IsConfirmed)
 				{
 					foreach (AbstractUserAsset asset in assets)
 						asset.EditorPath = Path.GetFileName(asset.EditorPath);
