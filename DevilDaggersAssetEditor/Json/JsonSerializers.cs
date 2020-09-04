@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace DevilDaggersAssetCore.Json
+namespace DevilDaggersAssetEditor.Json
 {
 	public static class JsonSerializers
 	{

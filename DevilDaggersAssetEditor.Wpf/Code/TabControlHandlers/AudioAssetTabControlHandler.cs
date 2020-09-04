@@ -1,8 +1,7 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code.RowControlHandlers;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers
 {
 	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>
 	{

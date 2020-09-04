@@ -1,8 +1,8 @@
-﻿using DevilDaggersAssetEditor.Code.RowControlHandlers;
+﻿using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 {
 	public partial class ModelAssetRowControl : UserControl
 	{

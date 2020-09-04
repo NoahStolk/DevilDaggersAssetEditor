@@ -1,9 +1,8 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.BinaryFileAnalyzer;
-using DevilDaggersAssetCore.BinaryFileHandlers;
-using DevilDaggersAssetCore.Chunks;
-using DevilDaggersAssetCore.Info;
-using DevilDaggersAssetEditor.Code;
+﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.Wpf.Code;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,7 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace DevilDaggersAssetEditor.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class BinaryFileAnalyzerWindow : Window
 	{

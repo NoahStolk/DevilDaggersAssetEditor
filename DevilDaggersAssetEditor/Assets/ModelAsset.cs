@@ -1,7 +1,7 @@
-﻿using DevilDaggersAssetCore.ModFiles;
+﻿using DevilDaggersAssetEditor.ModFiles;
 using Newtonsoft.Json;
 
-namespace DevilDaggersAssetCore.Assets
+namespace DevilDaggersAssetEditor.Assets
 {
 	public class ModelAsset : AbstractAsset
 	{

@@ -1,11 +1,11 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.BinaryFileHandlers;
-using DevilDaggersAssetCore.ModFiles;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.ModFiles;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers
 {
 	public class ParticleFileTabControlHandler : AbstractFileTabControlHandler
 	{

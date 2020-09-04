@@ -1,8 +1,7 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Info;
-using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code.RowControlHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers
 {
 	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler>
 		where TAsset : AbstractAsset

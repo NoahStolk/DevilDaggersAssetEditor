@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	internal static class NativeMethods
 	{

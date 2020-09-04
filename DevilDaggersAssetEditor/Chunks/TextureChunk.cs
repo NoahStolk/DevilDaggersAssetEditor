@@ -1,7 +1,7 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Headers;
-using DevilDaggersAssetCore.Info;
-using DevilDaggersAssetCore.User;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Headers;
+using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.User;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetCore.Chunks
+namespace DevilDaggersAssetEditor.Chunks
 {
 	public class TextureChunk : AbstractHeaderedChunk<TextureHeader>
 	{

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 
-namespace DevilDaggersAssetCore.Json
+namespace DevilDaggersAssetEditor.Json
 {
 	public static class JsonFileUtils
 	{

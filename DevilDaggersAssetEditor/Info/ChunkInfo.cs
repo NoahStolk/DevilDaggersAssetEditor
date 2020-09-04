@@ -1,10 +1,10 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Chunks;
-using DevilDaggersAssetCore.Headers;
-using DevilDaggersAssetCore.ModFiles;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Headers;
+using DevilDaggersAssetEditor.ModFiles;
 using System;
 
-namespace DevilDaggersAssetCore.Info
+namespace DevilDaggersAssetEditor.Info
 {
 	public class ChunkInfo
 	{

@@ -1,6 +1,5 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Gui.Windows;
+﻿using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersCore.Wpf.Windows;
 using log4net;
 using log4net.Config;
@@ -14,7 +13,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace DevilDaggersAssetEditor
+namespace DevilDaggersAssetEditor.Wpf
 {
 	public partial class App : Application
 	{

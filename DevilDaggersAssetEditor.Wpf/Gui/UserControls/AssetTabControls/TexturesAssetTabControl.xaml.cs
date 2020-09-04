@@ -1,16 +1,15 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.Code.RowControlHandlers;
-using DevilDaggersAssetEditor.Code.TabControlHandlers;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Wpf.Code;
+using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Gui.UserControls.AssetTabControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 {
 	public partial class TexturesAssetTabControl : UserControl
 	{

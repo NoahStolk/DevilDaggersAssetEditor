@@ -1,9 +1,8 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.ModFiles;
-using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code;
-using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
-using DevilDaggersAssetEditor.Code.Network;
+﻿using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code;
+using DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Code.Network;
 using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace DevilDaggersAssetEditor.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MainWindow : Window
 	{

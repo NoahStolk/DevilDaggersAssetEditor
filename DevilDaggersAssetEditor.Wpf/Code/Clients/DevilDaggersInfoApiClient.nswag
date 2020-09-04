@@ -54,7 +54,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "DevilDaggersAssetEditor.Code.Clients",
+      "namespace": "DevilDaggersAssetEditor.Wpf.Code.Clients",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,

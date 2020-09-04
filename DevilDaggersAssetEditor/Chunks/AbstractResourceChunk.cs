@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace DevilDaggersAssetCore.Chunks
+namespace DevilDaggersAssetEditor.Chunks
 {
 	public abstract class AbstractResourceChunk : AbstractChunk
 	{

@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Data;
-using DevilDaggersAssetCore.Headers;
-using DevilDaggersAssetCore.Info;
+﻿using DevilDaggersAssetEditor.Data;
+using DevilDaggersAssetEditor.Headers;
+using DevilDaggersAssetEditor.Info;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.IO;
 using System.Text;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetCore.Chunks
+namespace DevilDaggersAssetEditor.Chunks
 {
 	public class ModelChunk : AbstractHeaderedChunk<ModelHeader>
 	{
@@ -17,7 +17,7 @@ namespace DevilDaggersAssetCore.Chunks
 
 		static ModelChunk()
 		{
-			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetCore").GetManifestResourceStream("DevilDaggersAssetCore.Content.ModelClosures.json"));
+			using StreamReader sr = new StreamReader(Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetManifestResourceStream("DevilDaggersAssetEditor.Content.ModelClosures.json"));
 			closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 

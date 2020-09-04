@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Navigation;
 
-namespace DevilDaggersAssetEditor.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class AboutWindow : Window
 	{

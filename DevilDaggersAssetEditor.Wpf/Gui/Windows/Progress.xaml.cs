@@ -1,9 +1,9 @@
-﻿using DevilDaggersAssetEditor.Code;
+﻿using DevilDaggersAssetEditor.Wpf.Code;
 using System;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace DevilDaggersAssetEditor.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class ProgressWindow : Window
 	{

@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetEditor.Code
+﻿namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	public enum FilterOperation
 	{

@@ -1,11 +1,10 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
+﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersCore.Extensions;
 using System;
 using System.IO;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
 	public partial class ShaderPreviewerControl : UserControl
 	{

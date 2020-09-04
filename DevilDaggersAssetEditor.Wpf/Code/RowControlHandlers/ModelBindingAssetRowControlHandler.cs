@@ -1,9 +1,8 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using System.IO;
 
-namespace DevilDaggersAssetEditor.Code.RowControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers
 {
 	public class ModelBindingAssetRowControlHandler : AbstractAssetRowControlHandler<ModelBindingAsset, ModelBindingAssetRowControl>
 	{

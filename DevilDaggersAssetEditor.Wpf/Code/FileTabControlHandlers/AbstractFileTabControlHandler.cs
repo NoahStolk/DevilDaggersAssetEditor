@@ -1,12 +1,11 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.BinaryFileHandlers;
-using DevilDaggersAssetCore.Json;
-using DevilDaggersAssetCore.ModFiles;
-using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code.RowControlHandlers;
-using DevilDaggersAssetEditor.Code.TabControlHandlers;
-using DevilDaggersAssetEditor.Gui.Windows;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Json;
+using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using System;
@@ -18,7 +17,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code.FileTabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers
 {
 	public abstract class AbstractFileTabControlHandler
 	{

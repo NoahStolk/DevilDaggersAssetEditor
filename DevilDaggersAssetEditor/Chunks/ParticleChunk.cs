@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Headers;
+﻿using DevilDaggersAssetEditor.Headers;
 
-namespace DevilDaggersAssetCore.Chunks
+namespace DevilDaggersAssetEditor.Chunks
 {
 	public class ParticleChunk : AbstractHeaderedChunk<ParticleHeader>
 	{

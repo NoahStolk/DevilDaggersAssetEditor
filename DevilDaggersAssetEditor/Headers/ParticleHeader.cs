@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetCore.Headers
+﻿namespace DevilDaggersAssetEditor.Headers
 {
 	public class ParticleHeader : AbstractHeader
 	{

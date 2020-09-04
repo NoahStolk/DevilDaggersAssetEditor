@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace DevilDaggersAssetCore
+namespace DevilDaggersAssetEditor
 {
 	public static class Utils
 	{

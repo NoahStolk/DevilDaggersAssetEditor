@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetCore.Data
+﻿namespace DevilDaggersAssetEditor.Data
 {
 	public struct Vector3
 	{

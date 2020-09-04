@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevilDaggersAssetCore.Info
+namespace DevilDaggersAssetEditor.Info
 {
 	public class HeaderInfo
 	{

@@ -1,7 +1,7 @@
 ﻿using log4net;
 using System.Reflection;
 
-namespace DevilDaggersAssetCore
+namespace DevilDaggersAssetEditor
 {
 	public static class Logging
 	{

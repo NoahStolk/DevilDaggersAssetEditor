@@ -1,10 +1,10 @@
-﻿using DevilDaggersAssetEditor.Code.Clients;
+﻿using DevilDaggersAssetEditor.Wpf.Code.Clients;
 using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace DevilDaggersAssetEditor.Code.Network
+namespace DevilDaggersAssetEditor.Wpf.Code.Network
 {
 	public sealed class NetworkHandler
 	{

@@ -1,9 +1,9 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.RowControlHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using System;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	public class AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler>
 		where TAsset : AbstractAsset

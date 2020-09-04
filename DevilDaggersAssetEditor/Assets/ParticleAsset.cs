@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.ModFiles;
+﻿using DevilDaggersAssetEditor.ModFiles;
 
-namespace DevilDaggersAssetCore.Assets
+namespace DevilDaggersAssetEditor.Assets
 {
 	public class ParticleAsset : AbstractAsset
 	{

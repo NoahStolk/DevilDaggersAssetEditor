@@ -1,14 +1,14 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Json;
-using DevilDaggersAssetCore.ModFiles;
-using DevilDaggersAssetCore.User;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Json;
+using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.User;
 using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace DevilDaggersAssetCore.BinaryFileHandlers
+namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
 	public abstract class AbstractBinaryFileHandler
 	{

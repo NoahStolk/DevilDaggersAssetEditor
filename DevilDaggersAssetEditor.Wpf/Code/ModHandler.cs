@@ -1,14 +1,13 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Json;
-using DevilDaggersAssetCore.ModFiles;
-using DevilDaggersAssetCore.User;
+﻿using DevilDaggersAssetEditor.Json;
+using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.User;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.IO;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	public sealed class ModHandler
 	{

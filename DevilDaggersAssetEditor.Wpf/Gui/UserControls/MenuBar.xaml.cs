@@ -1,8 +1,8 @@
-﻿using DevilDaggersAssetCore.BinaryFileAnalyzer;
-using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code.FileTabControlHandlers;
-using DevilDaggersAssetEditor.Code.Network;
-using DevilDaggersAssetEditor.Gui.Windows;
+﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
+using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Code.Network;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Models;
 using DevilDaggersCore.Wpf.Windows;
@@ -18,7 +18,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 #endif
 
-namespace DevilDaggersAssetEditor.Gui.UserControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls.ShaderPreviewerControl"
+﻿<UserControl x:Class="DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls.ShaderPreviewerControl"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

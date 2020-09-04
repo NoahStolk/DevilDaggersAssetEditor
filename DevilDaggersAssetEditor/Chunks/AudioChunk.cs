@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetCore.Chunks
+﻿namespace DevilDaggersAssetEditor.Chunks
 {
 	public class AudioChunk : AbstractResourceChunk
 	{

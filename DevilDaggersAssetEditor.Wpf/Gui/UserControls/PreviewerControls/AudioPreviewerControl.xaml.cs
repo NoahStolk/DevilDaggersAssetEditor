@@ -1,7 +1,6 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code;
 using IrrKlang;
 using System.Globalization;
 using System.IO;
@@ -9,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
-namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
 	public partial class AudioPreviewerControl : UserControl
 	{

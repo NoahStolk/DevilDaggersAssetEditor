@@ -1,5 +1,5 @@
-﻿using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code.Network;
+﻿using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code.Network;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class LoadingWindow : Window
 	{

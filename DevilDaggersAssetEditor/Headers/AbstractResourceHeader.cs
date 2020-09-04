@@ -1,6 +1,6 @@
 ﻿using Buf = System.Buffer;
 
-namespace DevilDaggersAssetCore.Headers
+namespace DevilDaggersAssetEditor.Headers
 {
 	public abstract class AbstractResourceHeader : AbstractHeader
 	{

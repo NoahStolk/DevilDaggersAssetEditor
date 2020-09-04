@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevilDaggersAssetCore
+namespace DevilDaggersAssetEditor
 {
 	[Flags]
 	public enum BinaryFileType

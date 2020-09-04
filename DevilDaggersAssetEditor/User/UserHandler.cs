@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace DevilDaggersAssetCore.User
+namespace DevilDaggersAssetEditor.User
 {
 	public sealed class UserHandler
 	{

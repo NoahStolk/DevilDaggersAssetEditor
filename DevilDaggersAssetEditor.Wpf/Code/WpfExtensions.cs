@@ -1,7 +1,7 @@
-﻿using DevilDaggersAssetCore.Info;
+﻿using DevilDaggersAssetEditor.Info;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	public static class WpfExtensions
 	{

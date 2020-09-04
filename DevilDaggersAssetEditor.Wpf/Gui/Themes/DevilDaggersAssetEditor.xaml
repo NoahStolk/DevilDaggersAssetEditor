@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-					xmlns:windows="clr-namespace:DevilDaggersAssetEditor.Gui.Windows">
+					xmlns:windows="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.Windows">
 	<Style TargetType="Window">
 		<Style.Setters>
 			<Setter Property="Background" Value="#bbb" />

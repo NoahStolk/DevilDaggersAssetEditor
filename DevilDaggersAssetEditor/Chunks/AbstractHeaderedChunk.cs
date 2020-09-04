@@ -1,8 +1,8 @@
-﻿using DevilDaggersAssetCore.Headers;
+﻿using DevilDaggersAssetEditor.Headers;
 using System;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetCore.Chunks
+namespace DevilDaggersAssetEditor.Chunks
 {
 	public abstract class AbstractHeaderedChunk<THeader> : AbstractResourceChunk
 		where THeader : AbstractHeader

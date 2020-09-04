@@ -1,5 +1,5 @@
-﻿using DevilDaggersAssetCore.User;
-using DevilDaggersAssetEditor.Code;
+﻿using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Code;
 using DevilDaggersCore.Utils;
 using Ookii.Dialogs.Wpf;
 using System;
@@ -12,7 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class SettingsWindow : Window
 	{

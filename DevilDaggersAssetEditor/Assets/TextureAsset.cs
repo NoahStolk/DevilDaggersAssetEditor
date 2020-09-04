@@ -1,9 +1,9 @@
-﻿using DevilDaggersAssetCore.ModFiles;
+﻿using DevilDaggersAssetEditor.ModFiles;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
 
-namespace DevilDaggersAssetCore.Assets
+namespace DevilDaggersAssetEditor.Assets
 {
 	[JsonObject(MemberSerialization.OptIn)]
 	public class TextureAsset : AbstractAsset

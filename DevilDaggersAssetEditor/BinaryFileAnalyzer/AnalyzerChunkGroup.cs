@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Chunks;
+﻿using DevilDaggersAssetEditor.Chunks;
 
-namespace DevilDaggersAssetCore.BinaryFileAnalyzer
+namespace DevilDaggersAssetEditor.BinaryFileAnalyzer
 {
 	public class AnalyzerChunkGroup
 	{

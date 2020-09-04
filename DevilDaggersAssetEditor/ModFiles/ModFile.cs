@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DevilDaggersAssetCore.ModFiles
+namespace DevilDaggersAssetEditor.ModFiles
 {
 	public class ModFile
 	{

@@ -1,9 +1,8 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetEditor.Code.RowControlHandlers;
-using DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 
-namespace DevilDaggersAssetEditor.Code.TabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers
 {
 	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>
 	{

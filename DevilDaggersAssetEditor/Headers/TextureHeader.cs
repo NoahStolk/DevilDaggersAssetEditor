@@ -1,7 +1,7 @@
-﻿using DevilDaggersAssetCore.Info;
+﻿using DevilDaggersAssetEditor.Info;
 using System;
 
-namespace DevilDaggersAssetCore.Headers
+namespace DevilDaggersAssetEditor.Headers
 {
 	public class TextureHeader : AbstractResourceHeader
 	{

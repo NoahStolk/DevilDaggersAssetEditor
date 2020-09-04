@@ -1,10 +1,10 @@
-﻿using DevilDaggersAssetEditor.Code.RowControlHandlers;
+﻿using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Gui.UserControls.AssetRowControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 {
 	public partial class AudioAssetRowControl : UserControl
 	{

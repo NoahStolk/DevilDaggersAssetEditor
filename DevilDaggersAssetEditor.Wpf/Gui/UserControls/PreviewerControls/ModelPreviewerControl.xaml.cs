@@ -1,11 +1,10 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
+﻿using DevilDaggersAssetEditor.Assets;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Gui.UserControls.PreviewerControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
 	public partial class ModelPreviewerControl : UserControl
 	{

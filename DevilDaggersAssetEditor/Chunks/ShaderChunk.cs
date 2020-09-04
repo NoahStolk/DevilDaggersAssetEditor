@@ -1,12 +1,12 @@
-﻿using DevilDaggersAssetCore.Headers;
-using DevilDaggersAssetCore.Info;
+﻿using DevilDaggersAssetEditor.Headers;
+using DevilDaggersAssetEditor.Info;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetCore.Chunks
+namespace DevilDaggersAssetEditor.Chunks
 {
 	/// <summary>
 	/// Internal structure of a shader chunk:

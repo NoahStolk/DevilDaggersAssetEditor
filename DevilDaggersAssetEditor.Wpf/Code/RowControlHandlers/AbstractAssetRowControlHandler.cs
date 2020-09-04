@@ -1,7 +1,6 @@
-﻿using DevilDaggersAssetCore;
-using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Info;
-using DevilDaggersAssetCore.User;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.User;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace DevilDaggersAssetEditor.Code.RowControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers
 {
 	public abstract class AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
 		where TAsset : AbstractAsset

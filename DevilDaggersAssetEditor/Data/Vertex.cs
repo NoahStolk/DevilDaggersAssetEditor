@@ -1,7 +1,7 @@
 ﻿using System;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetCore.Data
+namespace DevilDaggersAssetEditor.Data
 {
 	public struct Vertex
 	{

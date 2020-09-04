@@ -1,8 +1,8 @@
-﻿using DevilDaggersAssetCore.Chunks;
+﻿using DevilDaggersAssetEditor.Chunks;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DevilDaggersAssetCore.BinaryFileAnalyzer
+namespace DevilDaggersAssetEditor.BinaryFileAnalyzer
 {
 	public class AnalyzerFileResult
 	{

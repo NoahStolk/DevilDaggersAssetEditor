@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Chunks;
-using DevilDaggersAssetCore.Json;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	public static class GeneratorUtils
 	{

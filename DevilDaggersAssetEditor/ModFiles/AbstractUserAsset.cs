@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetCore.ModFiles
+﻿namespace DevilDaggersAssetEditor.ModFiles
 {
 	public abstract class AbstractUserAsset
 	{

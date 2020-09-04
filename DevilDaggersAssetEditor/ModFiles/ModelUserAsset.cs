@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Chunks;
+﻿using DevilDaggersAssetEditor.Chunks;
 
-namespace DevilDaggersAssetCore.ModFiles
+namespace DevilDaggersAssetEditor.ModFiles
 {
 	public class ModelUserAsset : AbstractUserAsset
 	{

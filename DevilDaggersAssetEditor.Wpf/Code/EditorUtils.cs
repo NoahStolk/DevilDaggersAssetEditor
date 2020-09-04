@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace DevilDaggersAssetEditor.Code
+namespace DevilDaggersAssetEditor.Wpf.Code
 {
 	public static class EditorUtils
 	{

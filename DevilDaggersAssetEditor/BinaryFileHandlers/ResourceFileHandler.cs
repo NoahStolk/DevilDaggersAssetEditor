@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Chunks;
-using DevilDaggersAssetCore.Info;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Info;
 using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace DevilDaggersAssetCore.BinaryFileHandlers
+namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
 	public class ResourceFileHandler : AbstractBinaryFileHandler
 	{
@@ -83,7 +83,7 @@ namespace DevilDaggersAssetCore.BinaryFileHandlers
 					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
 
 				// Create chunk.
-				Type type = Utils.GetAssemblyByName("DevilDaggersAssetCore").GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);
+				Type type = Utils.GetAssemblyByName("DevilDaggersAssetEditor").GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);
 				AbstractResourceChunk chunk = (AbstractResourceChunk)Activator.CreateInstance(type, asset.AssetName, 0U/*Don't know start offset yet.*/, 0U/*Don't know size yet.*/, 0U);
 				chunk.MakeBinary(asset.EditorPath);
 

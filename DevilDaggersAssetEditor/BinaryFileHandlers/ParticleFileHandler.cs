@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetCore.Assets;
-using DevilDaggersAssetCore.Chunks;
-using DevilDaggersAssetCore.Headers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Headers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace DevilDaggersAssetCore.BinaryFileHandlers
+namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
 	public class ParticleFileHandler : AbstractBinaryFileHandler
 	{
