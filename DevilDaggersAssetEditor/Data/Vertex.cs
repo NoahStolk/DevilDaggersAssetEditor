@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Data
