@@ -36,7 +36,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				BinaryFileType.Particle => GetNonAudioAssets(outputPath),
 				_ => throw new NotImplementedException($"{nameof(BinaryFileType)} '{binaryFileType}' has not been implemented in the {nameof(CreateModFile)} method.")
 			};
-			ModFile modFile = new ModFile(GuiUtils.GuiVersion ?? new Version("Version not specified by the GUI."), false, assets);
+			ModFile modFile = new ModFile(AssemblyUtils.LocalVersion, false, assets);
 
 			string folderName = new DirectoryInfo(outputPath).Name;
 			JsonFileUtils.SerializeToFile(Path.Combine(outputPath, $"{folderName}.{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}"), modFile, true);

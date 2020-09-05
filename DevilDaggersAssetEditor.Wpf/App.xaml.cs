@@ -1,5 +1,4 @@
 ﻿using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersCore.Wpf.Windows;
 using log4net;
@@ -24,8 +23,6 @@ namespace DevilDaggersAssetEditor.Wpf
 		{
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 			Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
-
-			GuiUtils.GuiVersion = LocalVersion;
 
 			Dispatcher.UnhandledException += OnDispatcherUnhandledException;
 
