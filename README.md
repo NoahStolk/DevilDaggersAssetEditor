@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/NoahStolk/DevilDaggersAssetEditor.svg?branch=master)](https://travis-ci.org/NoahStolk/DevilDaggersAssetEditor)
+[![Scc Count Badge](https://sloc.xyz/github/NoahStolk/DevilDaggersAssetEditor/)](https://github.com/NoahStolk/DevilDaggersAssetEditor/)
 
 # DevilDaggersAssetEditor ([Download](https://devildaggers.info/api/tools/DevilDaggersAssetEditor/file))
 DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods. It is a .NET WPF application built using Visual Studio 2019.
