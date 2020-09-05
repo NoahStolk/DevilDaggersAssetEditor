@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Extensions;
 using System;
 using System.IO;
@@ -23,7 +24,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			string vertexPath = asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture);
 			bool isPathValid = File.Exists(vertexPath);
 
-			string basePath = isPathValid ? Path.GetFileName(vertexPath).TrimEnd("_vertex") : Utils.FileNotFound;
+			string basePath = isPathValid ? Path.GetFileName(vertexPath).TrimEnd("_vertex") : GuiUtils.FileNotFound;
 
 			VertexFileName.Text = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture) : basePath;
 			FragmentFileName.Text = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl", StringComparison.InvariantCulture) : basePath;

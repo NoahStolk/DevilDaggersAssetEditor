@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;

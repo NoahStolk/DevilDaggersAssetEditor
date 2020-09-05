@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Headers;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -103,7 +104,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public ParticleChunk ReadParticleChunk(byte[] fileBuffer, int i)
 		{
-			string name = Utils.ReadNullTerminatedString(fileBuffer, i);
+			string name = BinaryUtils.ReadNullTerminatedString(fileBuffer, i);
 
 			byte[] chunkBuffer = new byte[ParticleBufferLength];
 			Buffer.BlockCopy(fileBuffer, i + name.Length, chunkBuffer, 0, chunkBuffer.Length);

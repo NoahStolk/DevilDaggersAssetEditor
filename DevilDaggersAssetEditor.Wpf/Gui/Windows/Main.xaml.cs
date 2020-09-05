@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.ModFiles;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Code;
 using DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers;

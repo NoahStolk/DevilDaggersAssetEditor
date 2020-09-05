@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -125,7 +126,7 @@ namespace DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers
 
 		public void RemovePath()
 		{
-			Asset.EditorPath = Utils.FileNotFound;
+			Asset.EditorPath = GuiUtils.FileNotFound;
 
 			UpdateGui();
 		}

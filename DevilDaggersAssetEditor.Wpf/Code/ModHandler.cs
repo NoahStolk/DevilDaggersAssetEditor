@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.Json;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using Newtonsoft.Json;

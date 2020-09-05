@@ -1,21 +1,10 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
 using System.Text;
 
-namespace DevilDaggersAssetEditor
+namespace DevilDaggersAssetEditor.Utils
 {
-	public static class Utils
+	public static class BinaryUtils
 	{
-		public static Version GuiVersion;
-
-		public static readonly string FileNotFound = "<File not found>";
-
-		public static Assembly CurrentAssembly { get; } = Assembly.GetExecutingAssembly();
-
-		public static Stream GetContentStream(string relativeContentName)
-			=> CurrentAssembly.GetManifestResourceStream($"DevilDaggersAssetEditor.Content.{relativeContentName}") ?? throw new Exception($"Could not retrieve content stream '{relativeContentName}'.");
-
 		/// <summary>
 		/// Reads a null terminated string from a buffer and returns it as a string object (excluding the null terminator itself).
 		/// </summary>

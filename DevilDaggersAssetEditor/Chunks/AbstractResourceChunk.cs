@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using System.Collections.Generic;
 using System.IO;
 
 namespace DevilDaggersAssetEditor.Chunks

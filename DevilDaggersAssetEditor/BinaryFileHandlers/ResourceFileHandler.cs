@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
@@ -79,7 +80,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
 
 				// Create chunk.
-				Type type = Utils.CurrentAssembly.GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);
+				Type type = AssemblyUtils.CurrentAssembly.GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);
 				AbstractResourceChunk chunk = (AbstractResourceChunk)Activator.CreateInstance(type, asset.AssetName, 0U/*Don't know start offset yet.*/, 0U/*Don't know size yet.*/, 0U);
 				chunk.MakeBinary(asset.EditorPath);
 
@@ -252,7 +253,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			while (i < tocBuffer.Length - 14)
 			{
 				byte type = tocBuffer[i];
-				string name = Utils.ReadNullTerminatedString(tocBuffer, i + 2);
+				string name = BinaryUtils.ReadNullTerminatedString(tocBuffer, i + 2);
 
 				i += name.Length + 1; // + 1 to include null terminator.
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);

@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Headers;
 using DevilDaggersAssetEditor.ModFiles;

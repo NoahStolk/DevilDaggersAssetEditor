@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using System;
 
-namespace DevilDaggersAssetEditor
+namespace DevilDaggersAssetEditor.Extensions
 {
-	public static class Extensions
+	public static class EnumExtensions
 	{
 		public static string GetSubfolderName(this BinaryFileType binaryFileType)
 		{

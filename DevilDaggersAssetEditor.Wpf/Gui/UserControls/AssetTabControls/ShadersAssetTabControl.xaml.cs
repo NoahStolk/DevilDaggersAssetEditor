@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Wpf.Code;
 using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Code.TabControlHandlers;

@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Utils;
 using System.Globalization;
 using System.IO;
 using System.Windows.Controls;
@@ -22,7 +23,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 			bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : Utils.FileNotFound;
+			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{

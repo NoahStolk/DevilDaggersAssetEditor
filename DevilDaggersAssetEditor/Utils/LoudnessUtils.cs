@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetEditor
+﻿namespace DevilDaggersAssetEditor.Utils
 {
 	public static class LoudnessUtils
 	{

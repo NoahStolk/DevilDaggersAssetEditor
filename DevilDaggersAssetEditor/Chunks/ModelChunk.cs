@@ -1,6 +1,8 @@
-﻿using DevilDaggersAssetEditor.Data;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Data;
 using DevilDaggersAssetEditor.Headers;
 using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,7 +20,7 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		static ModelChunk()
 		{
-			using StreamReader sr = new StreamReader(Utils.GetContentStream("ModelClosures.json"));
+			using StreamReader sr = new StreamReader(AssemblyUtils.GetContentStream("ModelClosures.json"));
 			_closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 

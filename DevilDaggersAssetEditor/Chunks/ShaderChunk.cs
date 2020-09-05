@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.Headers;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Headers;
 using DevilDaggersAssetEditor.Info;
 using System;
 using System.Collections.Generic;

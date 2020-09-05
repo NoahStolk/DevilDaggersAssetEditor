@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.Utils;
 using Newtonsoft.Json;
 
 namespace DevilDaggersAssetEditor.Assets
@@ -6,6 +7,14 @@ namespace DevilDaggersAssetEditor.Assets
 	[JsonObject(MemberSerialization.OptIn)]
 	public abstract class AbstractAsset
 	{
+		protected AbstractAsset(string assetName, string description, string[] tags, string chunkTypeName)
+		{
+			AssetName = assetName;
+			Description = description;
+			Tags = tags;
+			ChunkTypeName = chunkTypeName;
+		}
+
 		[JsonProperty]
 		public string AssetName { get; }
 		[JsonProperty]
@@ -15,15 +24,7 @@ namespace DevilDaggersAssetEditor.Assets
 		[JsonProperty]
 		public string ChunkTypeName { get; }
 
-		public string EditorPath { get; set; } = Utils.FileNotFound;
-
-		protected AbstractAsset(string assetName, string description, string[] tags, string chunkTypeName)
-		{
-			AssetName = assetName;
-			Description = description;
-			Tags = tags;
-			ChunkTypeName = chunkTypeName;
-		}
+		public string EditorPath { get; set; } = GuiUtils.FileNotFound;
 
 		public abstract AbstractUserAsset ToUserAsset();
 
