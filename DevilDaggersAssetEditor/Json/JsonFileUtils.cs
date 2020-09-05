@@ -15,13 +15,20 @@ namespace DevilDaggersAssetEditor.Json
 				JsonSerializers.DefaultSerializer.Serialize(jtw, obj);
 		}
 
-		public static T? DeserializeFromFile<T>(string path, bool includeType)
+		public static T? TryDeserializeFromFile<T>(string path, bool includeType)
 			where T : class
 		{
-			using StreamReader sr = new StreamReader(File.OpenRead(path));
-			if (includeType)
-				return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), JsonSerializers.TypeNameSerializationSettings);
-			return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), JsonSerializers.DefaultSerializationSettings);
+			try
+			{
+				using StreamReader sr = new StreamReader(File.OpenRead(path));
+				if (includeType)
+					return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), JsonSerializers.TypeNameSerializationSettings);
+				return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), JsonSerializers.DefaultSerializationSettings);
+			}
+			catch
+			{
+				return null;
+			}
 		}
 	}
 }

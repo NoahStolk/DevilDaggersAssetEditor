@@ -21,24 +21,12 @@ namespace DevilDaggersAssetEditor.Wpf.Code
 
 		public ModFile? GetModFileFromPath(string path, BinaryFileType binaryFileType)
 		{
-			// When DdaeVersion is not a string, it means it was created using an older version of DDAE that still used .NET Framework.
-			// We need to remove this property because it will cause deserialization errors in .NET Core. This appears to be a breaking change between .NET Framework and .NET Core.
-			// We do not care about having the mod file version here, so simply removing the property when importing a mod file is enough.
-			string modJson = File.ReadAllText(path);
+			TryFixModFileIfNecessary(path);
 
-			// Remove any obsolete namespaces.
-			modJson = modJson.Replace("DevilDaggersAssetCore", "DevilDaggersAssetEditor", StringComparison.InvariantCulture);
-
-			// Fix DdaeVersion.
-			JObject? modJsonObject = JsonConvert.DeserializeObject<JObject>(modJson);
-			modJsonObject?.Property("DdaeVersion", StringComparison.InvariantCulture)?.Remove();
-			File.WriteAllText(path, JsonConvert.SerializeObject(modJsonObject));
-
-			ModFile? modFile = JsonFileUtils.DeserializeFromFile<ModFile>(path, true);
-
+			ModFile? modFile = JsonFileUtils.TryDeserializeFromFile<ModFile>(path, true);
 			if (modFile == null)
 			{
-				App.Instance.ShowMessage("Mod not loaded", "Could not parse mod file.");
+				App.Instance.ShowMessage("Mod not loaded", $"Could not parse mod file {path}.");
 				return null;
 			}
 
@@ -67,6 +55,29 @@ namespace DevilDaggersAssetEditor.Wpf.Code
 			}
 
 			return modFile;
+		}
+
+		private static void TryFixModFileIfNecessary(string path)
+		{
+			try
+			{
+				// When DdaeVersion is not a string, it means it was created using an older version of DDAE that still used .NET Framework.
+				// We need to remove this property because it will cause deserialization errors in .NET Core. This appears to be a breaking change between .NET Framework and .NET Core.
+				// We do not care about having the mod file version here, so simply removing the property when importing a mod file is enough.
+				string modJson = File.ReadAllText(path);
+
+				// Remove any obsolete namespaces.
+				modJson = modJson.Replace("DevilDaggersAssetCore", "DevilDaggersAssetEditor", StringComparison.InvariantCulture);
+
+				// Fix DdaeVersion.
+				JObject? modJsonObject = JsonConvert.DeserializeObject<JObject>(modJson);
+				modJsonObject?.Property("DdaeVersion", StringComparison.InvariantCulture)?.Remove();
+				File.WriteAllText(path, JsonConvert.SerializeObject(modJsonObject));
+			}
+			catch (Exception ex)
+			{
+				App.LogError("Could not fix mod file.", ex);
+			}
 		}
 	}
 }
