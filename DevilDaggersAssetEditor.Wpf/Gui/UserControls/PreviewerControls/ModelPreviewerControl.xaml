@@ -3,14 +3,12 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
 			 mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="1200">
+             d:DesignHeight="450" d:DesignWidth="800">
 	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="256" />
 			<ColumnDefinition Width="320" />
-			<ColumnDefinition Width="352" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<StackPanel Grid.Column="0">
@@ -55,39 +53,7 @@
 
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
-			<sharpGL:OpenGLControl OpenGLDraw="OpenGLControl_OpenGLDraw" OpenGLInitialized="OpenGLControl_OpenGLInitialized" RenderContextType="FBO" Width="352" Height="352" HorizontalAlignment="Left" />
+			<!--OBJ Viewer-->
 		</StackPanel>
-
-		<ScrollViewer Grid.Column="3">
-			<StackPanel>
-				<Label>Global ambient</Label>
-				<Slider Name="GlobalAmbientR" Minimum="0" Maximum="1" Value="1" Width="128" Background="Red" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="GlobalAmbientG" Minimum="0" Maximum="1" Value="1" Width="128" Background="Green" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="GlobalAmbientB" Minimum="0" Maximum="1" Value="1" Width="128" Background="Blue" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Label>Light position</Label>
-				<Slider Name="LightPositionX" Minimum="-25" Maximum="25" Value="0" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightPositionY" Minimum="-25" Maximum="25" Value="4" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightPositionZ" Minimum="-25" Maximum="25" Value="8" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightPositionW" Minimum="-25" Maximum="25" Value="1" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Label>Light ambient</Label>
-				<Slider Name="LightAmbientR" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Red" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightAmbientG" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Green" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightAmbientB" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Blue" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Label>Light diffuse</Label>
-				<Slider Name="LightDiffuseR" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Red" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightDiffuseG" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Green" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightDiffuseB" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Blue" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Label>Light specular</Label>
-				<Slider Name="LightSpecularR" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Red" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightSpecularG" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Green" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="LightSpecularB" Minimum="0" Maximum="1" Value="0.7" Width="128" Background="Blue" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Label>Rotation</Label>
-				<Slider Name="RotationX" Minimum="-180" Maximum="180" Value="0" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="RotationY" Minimum="-180" Maximum="180" Value="0" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Slider Name="RotationZ" Minimum="-180" Maximum="180" Value="0" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-				<Label>Zoom</Label>
-				<Slider Name="Zoom" Minimum="0.1" Maximum="25" Value="6" Width="128" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="2" HorizontalAlignment="Left" />
-			</StackPanel>
-		</ScrollViewer>
 	</Grid>
 </UserControl>
