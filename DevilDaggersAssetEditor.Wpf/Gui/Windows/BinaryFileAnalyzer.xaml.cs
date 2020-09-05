@@ -2,7 +2,7 @@
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Info;
-using DevilDaggersAssetEditor.Wpf.Code;
+using DevilDaggersAssetEditor.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.Code.Network;
+using DevilDaggersAssetEditor.Wpf.Network;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -1,8 +1,8 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers;
-using DevilDaggersAssetEditor.Wpf.Code.Network;
+using DevilDaggersAssetEditor.Wpf.FileTabControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
+using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Models;
 using DevilDaggersCore.Wpf.Windows;
@@ -118,9 +118,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				App.Instance.ShowError("Changelog not retrieved", "The changelog has not been retrieved from DevilDaggers.info.");
 			}
 
-			static IEnumerable<Change>? MapToSharedModel(List<Code.Clients.Change>? changes)
+			static IEnumerable<Change>? MapToSharedModel(List<Clients.Change>? changes)
 			{
-				foreach (Code.Clients.Change change in changes ?? new List<Code.Clients.Change>())
+				foreach (Clients.Change change in changes ?? new List<Clients.Change>())
 					yield return new Change(change.Description, MapToSharedModel(change.SubChanges)?.ToList() ?? null);
 			}
 		}

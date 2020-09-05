@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersAssetEditor.Wpf.Code;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using IrrKlang;
 using System.Globalization;
 using System.IO;

@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Wpf.Code.RowControlHandlers;
+﻿using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using System.Windows;
 using System.Windows.Controls;
 

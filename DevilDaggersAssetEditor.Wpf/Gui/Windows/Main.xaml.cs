@@ -1,9 +1,9 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.Code;
-using DevilDaggersAssetEditor.Wpf.Code.FileTabControlHandlers;
-using DevilDaggersAssetEditor.Wpf.Code.Network;
+using DevilDaggersAssetEditor.Wpf.FileTabControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Mods;
+using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
