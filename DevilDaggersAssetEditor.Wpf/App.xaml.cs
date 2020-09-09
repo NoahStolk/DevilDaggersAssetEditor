@@ -37,7 +37,7 @@ namespace DevilDaggersAssetEditor.Wpf
 		public static Version LocalVersion { get; } = Version.Parse(FileVersionInfo.GetVersionInfo(Assembly.Location).FileVersion);
 
 		public static App Instance => (App)Current;
-		public new MainWindow MainWindow { get; set; }
+		public new MainWindow? MainWindow { get; set; }
 
 		private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
 		{
@@ -51,7 +51,7 @@ namespace DevilDaggersAssetEditor.Wpf
 		{
 			Dispatcher.Invoke(() =>
 			{
-				MainWindow.Title = $"{ApplicationDisplayName} {LocalVersion}";
+				MainWindow!.Title = $"{ApplicationDisplayName} {LocalVersion}";
 			});
 		}
 
@@ -91,10 +91,10 @@ namespace DevilDaggersAssetEditor.Wpf
 
 		private void Application_Exit(object sender, ExitEventArgs e)
 		{
-			UserHandler.Instance.Cache.ActiveTabIndex = MainWindow.TabControl.SelectedIndex;
-			UserHandler.Instance.Cache.WindowWidth = (int)MainWindow.Width;
-			UserHandler.Instance.Cache.WindowHeight = (int)MainWindow.Height;
-			UserHandler.Instance.Cache.WindowIsFullScreen = MainWindow.WindowState == WindowState.Maximized;
+			UserHandler.Instance.Cache.ActiveTabIndex = MainWindow!.TabControl.SelectedIndex;
+			UserHandler.Instance.Cache.WindowWidth = (int)MainWindow!.Width;
+			UserHandler.Instance.Cache.WindowHeight = (int)MainWindow!.Height;
+			UserHandler.Instance.Cache.WindowIsFullScreen = MainWindow!.WindowState == WindowState.Maximized;
 			UserHandler.Instance.SaveCache();
 		}
 	}

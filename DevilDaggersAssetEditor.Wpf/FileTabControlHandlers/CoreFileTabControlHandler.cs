@@ -17,17 +17,17 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 
 			MenuItem shaderImport = new MenuItem { Header = $"Import Shader paths from folder" };
 
-			shaderImport.Click += (sender, e) => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.ImportFolder();
+			shaderImport.Click += (sender, e) => App.Instance.MainWindow!.CoreShadersAssetTabControl.Handler.ImportFolder();
 
 			fileTypeMenuItem.Items.Add(shaderImport);
 
 			return fileTypeMenuItem;
 		}
 
-		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
+		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow!.CoreShadersAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
 
-		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.OfType<ShaderUserAsset>().ToList(), App.Instance.MainWindow.CoreShadersAssetTabControl.Handler);
+		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.OfType<ShaderUserAsset>().ToList(), App.Instance.MainWindow!.CoreShadersAssetTabControl.Handler);
 
-		protected override bool IsComplete() => App.Instance.MainWindow.CoreShadersAssetTabControl.Handler.IsComplete();
+		protected override bool IsComplete() => App.Instance.MainWindow!.CoreShadersAssetTabControl.Handler.IsComplete();
 	}
 }
