@@ -9,7 +9,6 @@ using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -154,21 +153,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			else
 			{
 				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
-			}
-		}
-
-		private void ShowLog_Click(object sender, RoutedEventArgs e)
-		{
-			try
-			{
-				if (File.Exists("DDAE.log"))
-					Process.Start("DDAE.log");
-				else
-					App.Instance.ShowMessage("No log file", "Log file does not exist.");
-			}
-			catch (Exception ex)
-			{
-				App.Instance.ShowMessage("Could not open log file", ex.Message);
 			}
 		}
 	}
