@@ -35,8 +35,8 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			MenuItem openModFileItem = new MenuItem { Header = $"Open .{fileName} mod file" };
 			MenuItem saveModFileItem = new MenuItem { Header = $"Save .{fileName} mod file" };
 
-			extractBinaryItem.Click += (sender, e) => ExtractBinary_Click();
-			makeBinaryItem.Click += (sender, e) => MakeBinary_Click();
+			extractBinaryItem.Click += async (sender, e) => await ExtractBinary_Click();
+			makeBinaryItem.Click += async (sender, e) => await MakeBinary_Click();
 			openModFileItem.Click += (sender, e) =>
 			{
 				ModFile? modFile = OpenModFile();
@@ -67,7 +67,7 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 
 		public abstract List<AbstractAsset> GetAssets();
 
-		private async void ExtractBinary_Click()
+		private async Task ExtractBinary_Click()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
 			string initDir = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, FileHandler.BinaryFileType.GetSubfolderName());
@@ -110,7 +110,7 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			}
 		}
 
-		private async void MakeBinary_Click()
+		private async Task MakeBinary_Click()
 		{
 			if (!IsComplete())
 			{
