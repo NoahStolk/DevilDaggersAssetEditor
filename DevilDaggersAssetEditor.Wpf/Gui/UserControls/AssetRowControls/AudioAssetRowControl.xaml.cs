@@ -25,7 +25,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 
 		private static bool ValidateTextBoxLoudness(TextBox textBox)
 		{
-			bool isValid = float.TryParse(textBox.Text, out float res) && res >= 0;
+			bool isValid = float.TryParse(textBox.Text, out float parsed) && parsed >= 0;
 
 			textBox.Background = isValid ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 127, 127));
 

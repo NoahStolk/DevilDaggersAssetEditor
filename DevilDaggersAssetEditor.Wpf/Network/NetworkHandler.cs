@@ -1,8 +1,8 @@
 ﻿using DevilDaggersAssetEditor.Wpf.Clients;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace DevilDaggersAssetEditor.Wpf.Network
 {
@@ -31,11 +31,13 @@ namespace DevilDaggersAssetEditor.Wpf.Network
 
 		public Tool? Tool { get; private set; }
 
-		public async Task<bool> GetOnlineTool()
+		public bool GetOnlineTool()
 		{
 			try
 			{
-				Tool = (await ApiClient.Tools_GetToolsAsync(App.ApplicationName)).First();
+				List<Tool> tools = ApiClient.Tools_GetToolsAsync(App.ApplicationName).Result;
+				Tool = tools.First();
+
 				return true;
 			}
 			catch (Exception ex)

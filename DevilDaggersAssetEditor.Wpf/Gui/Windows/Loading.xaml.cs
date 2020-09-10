@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -37,8 +36,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			using BackgroundWorker checkVersionThread = new BackgroundWorker();
 			checkVersionThread.DoWork += (object sender, DoWorkEventArgs e) =>
 			{
-				Task toolTask = NetworkHandler.Instance.GetOnlineTool();
-				toolTask.Wait();
+				NetworkHandler.Instance.GetOnlineTool();
 			};
 			checkVersionThread.RunWorkerCompleted += (object sender, RunWorkerCompletedEventArgs e) =>
 			{

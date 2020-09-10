@@ -65,9 +65,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 		}
 
 		public void SelectAsset(TAsset asset)
-		{
-			SelectedAsset = asset;
-		}
+			=> SelectedAsset = asset;
 
 		public void ImportFolder()
 		{
