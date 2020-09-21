@@ -1410,7 +1410,8 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player",
-			"Upgrade"
+			"Upgrade",
+			"Level 2"
 		]
 	},
 	{
@@ -1421,7 +1422,8 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player",
-			"Upgrade"
+			"Upgrade",
+			"Level 3"
 		]
 	},
 	{
@@ -1432,7 +1434,8 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player",
-			"Upgrade"
+			"Upgrade",
+			"Level 4"
 		]
 	},
 	{
