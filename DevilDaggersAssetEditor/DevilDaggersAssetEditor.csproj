@@ -17,14 +17,14 @@
     <EmbeddedResource Include="Content\particle\Particles.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevilDaggersCore" Version="1.0.0" />
-    <PackageReference Include="log4net" Version="2.0.9" />
+    <PackageReference Include="DevilDaggersCore" Version="1.0.1" />
+    <PackageReference Include="log4net" Version="2.0.11" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.12.0.21095">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.13.1.21947">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
