@@ -219,9 +219,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			((IProgress<string>)progressDescription).Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress, progressDescription);
 
+			((IProgress<string>)progressDescription).Report("Creating mod file.");
 			if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
 				CreateModFile(outputPath, binaryFileType);
 
+			((IProgress<string>)progressDescription).Report("Opening mod folder.");
 			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
 				Process.Start(outputPath);
 		}

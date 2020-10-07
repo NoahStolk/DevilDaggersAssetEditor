@@ -102,7 +102,7 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 					{
 						App.Instance.Dispatcher.Invoke(() =>
 						{
-							App.Instance.ShowError("Extracting binary failed", $"Extracting binary failed during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
+							App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
 							progressWindow.Error();
 						});
 					}
@@ -147,7 +147,7 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Making binary failed", $"Making binary failed during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
+						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
 						progressWindow.Error();
 					});
 				}

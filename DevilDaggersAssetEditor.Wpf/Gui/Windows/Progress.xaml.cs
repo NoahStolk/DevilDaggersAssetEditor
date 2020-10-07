@@ -41,7 +41,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		public void Error()
 		{
-			ProgressDescription.Text = "Execution failed.";
+			ProgressDescription.Text = "Execution did not complete successfully.";
 			OkButton.Visibility = Visibility.Visible;
 		}
 	}
