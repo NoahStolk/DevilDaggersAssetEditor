@@ -24,10 +24,13 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
+		public override List<AbstractAsset> GetAssets()
+			=> App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
 
-		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.OfType<ParticleUserAsset>().ToList(), App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler);
+		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
+			=> UpdateAssetTabControl(assets.OfType<ParticleUserAsset>().ToList(), App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler);
 
-		protected override bool IsComplete() => App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler.IsComplete();
+		protected override bool IsComplete()
+			=> App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler.IsComplete();
 	}
 }

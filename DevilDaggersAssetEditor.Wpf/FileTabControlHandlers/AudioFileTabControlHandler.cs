@@ -31,10 +31,13 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			return fileTypeMenuItem;
 		}
 
-		public override List<AbstractAsset> GetAssets() => App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
+		public override List<AbstractAsset> GetAssets()
+			=> App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
 
-		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets) => UpdateAssetTabControl(assets.OfType<AudioUserAsset>().ToList(), App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler);
+		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
+			=> UpdateAssetTabControl(assets.OfType<AudioUserAsset>().ToList(), App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler);
 
-		protected override bool IsComplete() => App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.IsComplete();
+		protected override bool IsComplete()
+			=> App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.IsComplete();
 	}
 }

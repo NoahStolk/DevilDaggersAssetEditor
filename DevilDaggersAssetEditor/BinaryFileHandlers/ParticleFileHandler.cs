@@ -22,8 +22,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static readonly uint Magic1 = 4; // Maybe represents format version? Similar to survival file.
 
-		private const string folderName = "Particles";
-		private const string fileExtension = ".bin";
+		private const string _folderName = "Particles";
+		private const string _fileExtension = ".bin";
 
 		public ParticleFileHandler()
 			: base(BinaryFileType.Particle)
@@ -50,6 +50,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					stream.Write(Encoding.Default.GetBytes(kvp.Key), 0, kvp.Key.Length);
 					stream.Write(kvp.Value, 0, kvp.Value.Length);
 				}
+
 				fileBuffer = stream.ToArray();
 			}
 
@@ -57,7 +58,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			File.WriteAllBytes(outputPath, fileBuffer);
 		}
 
-		private Dictionary<string, byte[]> GetChunks(List<AbstractAsset> assets)
+		private static Dictionary<string, byte[]> GetChunks(List<AbstractAsset> assets)
 		{
 			Dictionary<string, byte[]> dict = new Dictionary<string, byte[]>();
 
@@ -71,7 +72,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 
-			Directory.CreateDirectory(Path.Combine(outputPath, folderName));
+			Directory.CreateDirectory(Path.Combine(outputPath, _folderName));
 
 			int i = HeaderSize;
 			while (i < fileBuffer.Length)
@@ -83,7 +84,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				((IProgress<float>)progress).Report(i / (float)fileBuffer.Length);
 				((IProgress<string>)progressDescription).Report($"Creating Particle file for chunk \"{chunk.Name}\".");
 
-				File.WriteAllBytes(Path.Combine(outputPath, folderName, $"{chunk.Name}{fileExtension}"), chunk.Buffer);
+				File.WriteAllBytes(Path.Combine(outputPath, _folderName, $"{chunk.Name}{_fileExtension}"), chunk.Buffer);
 			}
 
 			// Create mod file.
@@ -102,7 +103,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				throw new Exception($"Invalid file format. The magic number value is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}");
 		}
 
-		public ParticleChunk ReadParticleChunk(byte[] fileBuffer, int i)
+		public static ParticleChunk ReadParticleChunk(byte[] fileBuffer, int i)
 		{
 			string name = BinaryUtils.ReadNullTerminatedString(fileBuffer, i);
 
