@@ -93,7 +93,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			// Open the output path.
 			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
-				Process.Start(outputPath);
+				Process.Start($@"{Environment.GetEnvironmentVariable("WINDIR")}\explorer.exe", outputPath);
 		}
 
 		public override void ValidateFile(byte[] sourceFileBytes)

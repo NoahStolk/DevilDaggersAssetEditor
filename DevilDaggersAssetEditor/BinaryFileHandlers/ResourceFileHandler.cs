@@ -225,7 +225,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			((IProgress<string>)progressDescription).Report("Opening mod folder.");
 			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
-				Process.Start(outputPath);
+				Process.Start($@"{Environment.GetEnvironmentVariable("WINDIR")}\explorer.exe", outputPath);
 		}
 
 		public override void ValidateFile(byte[] sourceFileBytes)
