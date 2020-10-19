@@ -6,6 +6,7 @@
 	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/DevilDaggersCore.Wpf;component/Themes/Dark.xaml" />
 				<ResourceDictionary Source="Gui/Themes/DevilDaggersAssetEditor.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>

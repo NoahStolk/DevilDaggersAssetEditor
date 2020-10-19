@@ -11,11 +11,11 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="96" />
-			<RowDefinition Height="160" />
+			<RowDefinition Height="192" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<previewerControls:ModelPreviewerControl Grid.Row="0" x:Name="Previewer" />
-		<Grid Grid.Row="1" Background="DarkGray">
+		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="22" />
 				<RowDefinition />
@@ -30,14 +30,14 @@
 				<ColumnDefinition Width="18" />
 			</Grid.ColumnDefinitions>
 
-			<StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" Background="#bbb">
+			<StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" Background="{StaticResource Gray3}">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tag filters</TextBlock>
 				<RadioButton Margin="4" Name="FilterOperationAnd">And</RadioButton>
 				<RadioButton Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
 			</StackPanel>
-			<Grid Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="#ccc" Name="Filters" />
+			<Grid Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="{StaticResource Gray4}" Name="Filters" />
 
-			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="#bbb" />
+			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="{StaticResource Gray3}" />
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Model name</TextBlock>
 				<Button Name="NameSortButton" Click="NameSortButton_Click">
@@ -63,6 +63,6 @@
 				</Button>
 			</StackPanel>
 		</Grid>
-		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" />
+		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}"/>
 	</Grid>
 </UserControl>

@@ -46,7 +46,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 			float pitch = (float)e.NewValue;
 
-			PitchText.Text = $"x {pitch:0.00}";
+			PitchText.Content = $"x {pitch:0.00}";
 
 			if (Song != null)
 				Song.PlaybackSpeed = pitch;
@@ -54,7 +54,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		private void ResetPitch_Click(object sender, RoutedEventArgs e)
 		{
-			PitchText.Text = "x 1.00";
+			PitchText.Content = "x 1.00";
 			Pitch.Value = 1;
 
 			if (Song != null)
@@ -76,11 +76,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(AudioAsset asset)
 		{
-			AudioName.Text = asset.AssetName;
-			DefaultLoudness.Text = asset.PresentInDefaultLoudness ? asset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
+			AudioName.Content = asset.AssetName;
+			DefaultLoudness.Content = asset.PresentInDefaultLoudness ? asset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
 
-			FileName.Text = File.Exists(asset.EditorPath) ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
-			FileLoudness.Text = asset.Loudness.ToString(CultureInfo.InvariantCulture);
+			FileName.Content = File.Exists(asset.EditorPath) ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			FileLoudness.Content = asset.Loudness.ToString(CultureInfo.InvariantCulture);
 
 			bool startPaused = !Autoplay.IsChecked ?? true;
 
@@ -94,8 +94,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			Seek.Maximum = Song.PlayLength;
 			Seek.Value = 0;
 
-			SeekText.Text = $"{EditorUtils.ToTimeString((int)Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Song.PlayLength)}";
-			PitchText.Text = $"x {Song.PlaybackSpeed:0.00}";
+			SeekText.Content = $"{EditorUtils.ToTimeString((int)Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Song.PlayLength)}";
+			PitchText.Content = $"x {Song.PlaybackSpeed:0.00}";
 		}
 
 		private void SongSet(string filePath, float pitch, bool startPaused)

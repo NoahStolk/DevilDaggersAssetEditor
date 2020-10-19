@@ -17,20 +17,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(TextureAsset asset)
 		{
-			TextureName.Text = asset.AssetName;
-			DefaultDimensions.Text = $"{asset.DefaultDimensions.X}x{asset.DefaultDimensions.Y}";
-			DefaultMipmaps.Text = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString(CultureInfo.InvariantCulture);
+			TextureName.Content = asset.AssetName;
+			DefaultDimensions.Content = $"{asset.DefaultDimensions.X}x{asset.DefaultDimensions.Y}";
+			DefaultMipmaps.Content = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString(CultureInfo.InvariantCulture);
 
 			bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Content = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{
 				using (SdImage image = SdImage.FromFile(asset.EditorPath))
 				{
-					FileDimensions.Text = $"{image.Width}x{image.Height}";
-					FileMipmaps.Text = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString(CultureInfo.InvariantCulture);
+					FileDimensions.Content = $"{image.Width}x{image.Height}";
+					FileMipmaps.Content = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString(CultureInfo.InvariantCulture);
 				}
 
 				using FileStream imageFileStream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
@@ -45,8 +45,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			else
 			{
 				PreviewImage.Source = null;
-				FileDimensions.Text = "N/A";
-				FileMipmaps.Text = "N/A";
+				FileDimensions.Content = "N/A";
+				FileMipmaps.Content = "N/A";
 			}
 		}
 	}

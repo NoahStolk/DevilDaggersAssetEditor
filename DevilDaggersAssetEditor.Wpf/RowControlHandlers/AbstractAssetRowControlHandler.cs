@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace DevilDaggersAssetEditor.Wpf.RowControlHandlers
 			{
 				Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength),
 				Margin = new Thickness(2),
+				Foreground = ColorUtils.ThemeColors["Text"],
 			};
 			Grid.SetColumn(TextBlockTags, 1);
 

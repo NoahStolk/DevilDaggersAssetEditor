@@ -1,8 +1,8 @@
 ﻿using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
+using DevilDaggersCore.Wpf.Utils;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 {
@@ -27,7 +27,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 		{
 			bool isValid = float.TryParse(textBox.Text, out float parsed) && parsed >= 0;
 
-			textBox.Background = isValid ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 127, 127));
+			textBox.Background = isValid ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["ErrorBackground"];
 
 			return isValid;
 		}
