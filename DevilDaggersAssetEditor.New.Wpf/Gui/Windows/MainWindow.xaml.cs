@@ -7,6 +7,9 @@ namespace DevilDaggersAssetEditor.New.Wpf.Gui.Windows
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			App.Instance.MainWindow = this;
+			App.Instance.UpdateMainWindowTitle();
 		}
 	}
 }
