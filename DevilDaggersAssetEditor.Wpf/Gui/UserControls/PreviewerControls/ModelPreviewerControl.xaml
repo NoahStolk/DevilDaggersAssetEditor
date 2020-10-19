@@ -19,14 +19,14 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Model name</TextBlock>
-					<TextBlock FontWeight="Bold">Default vertex count</TextBlock>
-					<TextBlock FontWeight="Bold">Default index count</TextBlock>
+					<Label FontWeight="Bold">Model name</Label>
+					<Label FontWeight="Bold">Default vertex count</Label>
+					<Label FontWeight="Bold">Default index count</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="TextureName">N/A</TextBlock>
-					<TextBlock Name="DefaultVertexCount">N/A</TextBlock>
-					<TextBlock Name="DefaultIndexCount">N/A</TextBlock>
+					<Label Name="TextureName">N/A</Label>
+					<Label Name="DefaultVertexCount">N/A</Label>
+					<Label Name="DefaultIndexCount">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
@@ -39,14 +39,14 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">File name</TextBlock>
-					<TextBlock FontWeight="Bold">Vertex count</TextBlock>
-					<TextBlock FontWeight="Bold">Index count</TextBlock>
+					<Label FontWeight="Bold">File name</Label>
+					<Label FontWeight="Bold">Vertex count</Label>
+					<Label FontWeight="Bold">Index count</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="FileName">N/A</TextBlock>
-					<TextBlock Name="FileVertexCount">N/A</TextBlock>
-					<TextBlock Name="FileIndexCount">N/A</TextBlock>
+					<Label Name="FileName">N/A</Label>
+					<Label Name="FileVertexCount">N/A</Label>
+					<Label Name="FileIndexCount">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>

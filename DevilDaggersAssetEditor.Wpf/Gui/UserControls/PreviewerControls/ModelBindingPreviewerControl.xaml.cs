@@ -14,11 +14,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(ModelBindingAsset asset)
 		{
-			ModelBindingName.Text = asset.AssetName;
+			ModelBindingName.Content = asset.AssetName;
 
 			bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Content = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 				PreviewTextBox.Text = File.ReadAllText(asset.EditorPath);

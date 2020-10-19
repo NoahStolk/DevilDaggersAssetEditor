@@ -41,6 +41,7 @@
 			<Setter Property="Padding" Value="0" />
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="{StaticResource Text}" />
 		</Style.Setters>
 	</Style>
 

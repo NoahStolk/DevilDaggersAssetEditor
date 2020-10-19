@@ -19,15 +19,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(ShaderAsset asset)
 		{
-			ShaderName.Text = asset.AssetName;
+			ShaderName.Content = asset.AssetName;
 
 			string vertexPath = asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture);
 			bool isPathValid = File.Exists(vertexPath);
 
 			string basePath = isPathValid ? Path.GetFileName(vertexPath).TrimEnd("_vertex") : GuiUtils.FileNotFound;
 
-			VertexFileName.Text = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture) : basePath;
-			FragmentFileName.Text = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl", StringComparison.InvariantCulture) : basePath;
+			VertexFileName.Content = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture) : basePath;
+			FragmentFileName.Content = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl", StringComparison.InvariantCulture) : basePath;
 
 			PreviewVertexTextBox.Clear();
 			PreviewFragmentTextBox.Clear();

@@ -16,13 +16,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(ModelAsset asset)
 		{
-			TextureName.Text = asset.AssetName;
-			DefaultVertexCount.Text = asset.DefaultVertexCount.ToString(CultureInfo.InvariantCulture);
-			DefaultIndexCount.Text = asset.DefaultIndexCount.ToString(CultureInfo.InvariantCulture);
+			TextureName.Content = asset.AssetName;
+			DefaultVertexCount.Content = asset.DefaultVertexCount.ToString(CultureInfo.InvariantCulture);
+			DefaultIndexCount.Content = asset.DefaultIndexCount.ToString(CultureInfo.InvariantCulture);
 
 			bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Content = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{
@@ -42,15 +42,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 					}
 				}
 
-				FileVertexCount.Text = new[] { v, vt, vn }.Max().ToString(CultureInfo.InvariantCulture);
-				FileIndexCount.Text = f.ToString(CultureInfo.InvariantCulture);
+				FileVertexCount.Content = new[] { v, vt, vn }.Max().ToString(CultureInfo.InvariantCulture);
+				FileIndexCount.Content = f.ToString(CultureInfo.InvariantCulture);
 
 				// TODO: Open in OBJ Viewer
 			}
 			else
 			{
-				FileVertexCount.Text = "N/A";
-				FileIndexCount.Text = "N/A";
+				FileVertexCount.Content = "N/A";
+				FileIndexCount.Content = "N/A";
 			}
 		}
 	}
