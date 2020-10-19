@@ -80,7 +80,7 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 
 			VistaFolderBrowserDialog folderDialog = new VistaFolderBrowserDialog();
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
-				folderDialog.SelectedPath = UserHandler.Instance.Settings.ModsRootFolder;
+				folderDialog.SelectedPath = $"{UserHandler.Instance.Settings.ModsRootFolder}\\";
 
 			if (folderDialog.ShowDialog() == true)
 			{
