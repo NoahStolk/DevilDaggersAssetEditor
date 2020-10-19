@@ -2,7 +2,6 @@
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -90,8 +89,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				{
 					if (type == typeof(ShaderUserAsset))
 					{
-						if (path.EndsWith("_vertex", StringComparison.InvariantCulture)) // Skip _fragment to avoid getting duplicate assets.
-							assets.Add(Activator.CreateInstance(type, name.TrimEnd("_vertex"), path.TrimEnd("_vertex")) as AbstractUserAsset);
+						if (path.EndsWith("_vertex.glsl", StringComparison.InvariantCulture)) // Skip _fragment to avoid getting duplicate assets.
+							assets.Add(Activator.CreateInstance(type, name.Replace("_vertex", string.Empty), path.Replace("_vertex", string.Empty)) as AbstractUserAsset);
 					}
 					else
 					{
