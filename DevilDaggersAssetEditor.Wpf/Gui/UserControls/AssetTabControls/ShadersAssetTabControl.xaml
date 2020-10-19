@@ -11,7 +11,7 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="416" />
-			<RowDefinition Height="160" />
+			<RowDefinition Height="192" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<previewerControls:ShaderPreviewerControl Grid.Row="0" x:Name="Previewer" />
