@@ -15,7 +15,7 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<previewerControls:AudioPreviewerControl Grid.Row="0" x:Name="Previewer" />
-		<Grid Grid.Row="1" Background="DarkGray">
+		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="22" />
 				<RowDefinition />
