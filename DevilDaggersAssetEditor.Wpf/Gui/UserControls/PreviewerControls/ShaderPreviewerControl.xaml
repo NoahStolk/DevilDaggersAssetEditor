@@ -48,12 +48,16 @@
 
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">Vertex shader preview</Label>
-			<TextBox Height="384" Name="PreviewVertexTextBox" Style="{StaticResource CodeTextBox}" />
+			<ScrollViewer Height="384">
+				<TextBlock Name="PreviewVertexTextBox" Style="{StaticResource CodeTextBlock}" />
+			</ScrollViewer>
 		</StackPanel>
 
 		<StackPanel Grid.Column="3">
 			<Label Style="{StaticResource PreviewTitleLabel}">Fragment shader preview</Label>
-			<TextBox Height="384" Name="PreviewFragmentTextBox" Style="{StaticResource CodeTextBox}" />
+			<ScrollViewer Height="384">
+				<TextBlock Name="PreviewFragmentTextBox" Style="{StaticResource CodeTextBlock}" />
+			</ScrollViewer>
 		</StackPanel>
 	</Grid>
 </UserControl>

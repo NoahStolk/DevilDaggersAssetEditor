@@ -9,6 +9,7 @@
     <ApplicationIcon>Icon24.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SyntaxHighlighter\SyntaxHighlighter\SyntaxHighlighter.csproj" />
     <ProjectReference Include="..\DevilDaggersAssetEditor\DevilDaggersAssetEditor.csproj" />
   </ItemGroup>
   <ItemGroup>
