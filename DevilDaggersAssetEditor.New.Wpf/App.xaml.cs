@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.Gui.Windows;
+﻿using DevilDaggersAssetEditor.New.Wpf.Gui.Windows;
 using DevilDaggersCore.Wpf.Windows;
 using log4net;
 using log4net.Config;
@@ -11,9 +10,8 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
-using System.Windows.Threading;
 
-namespace DevilDaggersAssetEditor.Wpf
+namespace DevilDaggersAssetEditor.New.Wpf
 {
 	public partial class App : Application
 	{
@@ -24,7 +22,13 @@ namespace DevilDaggersAssetEditor.Wpf
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 			Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
 
-			Dispatcher.UnhandledException += OnDispatcherUnhandledException;
+			Dispatcher.UnhandledException += (sender, e) =>
+			{
+				ShowError("Fatal error", "An unhandled exception occurred in the main thread.", e.Exception);
+				e.Handled = true;
+
+				Current.Shutdown();
+			};
 
 			ILoggerRepository? logRepository = LogManager.GetRepository(Assembly.GetExecutingAssembly());
 			XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
@@ -34,18 +38,10 @@ namespace DevilDaggersAssetEditor.Wpf
 		public static string ApplicationDisplayName => "Devil Daggers Asset Editor";
 
 		public static Assembly Assembly { get; } = Assembly.GetExecutingAssembly();
-		public static Version LocalVersion { get; } = Version.Parse(FileVersionInfo.GetVersionInfo(Assembly.Location).FileVersion);
+		public static Version LocalVersion { get; } = Version.Parse(FileVersionInfo.GetVersionInfo(Assembly.Location).FileVersion ?? throw new($"Could not retrieve {nameof(FileVersionInfo)} from current assembly."));
 
 		public static App Instance => (App)Current;
 		public new MainWindow? MainWindow { get; set; }
-
-		private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-		{
-			ShowError("Fatal error", "An unhandled exception occurred in the main thread.", e.Exception);
-			e.Handled = true;
-
-			Current.Shutdown();
-		}
 
 		public void UpdateMainWindowTitle()
 			=> Dispatcher.Invoke(() => MainWindow!.Title = $"{ApplicationDisplayName} {LocalVersion}");
@@ -86,11 +82,13 @@ namespace DevilDaggersAssetEditor.Wpf
 
 		private void Application_Exit(object sender, ExitEventArgs e)
 		{
+#if false
 			UserHandler.Instance.Cache.ActiveTabIndex = MainWindow!.TabControl.SelectedIndex;
 			UserHandler.Instance.Cache.WindowWidth = (int)MainWindow!.Width;
 			UserHandler.Instance.Cache.WindowHeight = (int)MainWindow!.Height;
 			UserHandler.Instance.Cache.WindowIsFullScreen = MainWindow!.WindowState == WindowState.Maximized;
 			UserHandler.Instance.SaveCache();
+#endif
 		}
 	}
 }

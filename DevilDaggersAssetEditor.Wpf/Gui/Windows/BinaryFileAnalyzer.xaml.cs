@@ -197,7 +197,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				List<AbstractChunk> chunks = new List<AbstractChunk>();
 				while (i < sourceFileBytes.Length)
 				{
-					ParticleChunk chunk = fileHandler.ReadParticleChunk(sourceFileBytes, i);
+					ParticleChunk chunk = ParticleFileHandler.ReadParticleChunk(sourceFileBytes, i);
 					i += chunk.Name.Length;
 					i += chunk.Buffer.Length;
 					chunks.Add(chunk);

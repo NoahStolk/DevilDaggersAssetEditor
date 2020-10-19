@@ -113,6 +113,7 @@ namespace DevilDaggersAssetEditor.Chunks
 						bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse RGBA).
 					}
 				}
+
 				mipmapOffset += mipmapBufferSizes[i];
 
 				using MemoryStream memoryStream = new MemoryStream();

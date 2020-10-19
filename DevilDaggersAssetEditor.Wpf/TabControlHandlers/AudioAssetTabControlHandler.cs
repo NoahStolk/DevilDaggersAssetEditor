@@ -5,7 +5,6 @@ using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,16 +35,13 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 			foreach (string line in File.ReadAllLines(dialog.FileName))
 			{
 				lineNumber++;
-				string lineClean = line
-					.Replace(" ", string.Empty, StringComparison.InvariantCulture) // Remove spaces to make things easier.
-					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
-				if (!LoudnessUtils.TryReadLoudnessLine(lineClean, out string assetName, out float loudness))
+				if (!LoudnessUtils.TryReadLoudnessLine(line, out string? assetName, out float loudness))
 				{
 					App.Instance.ShowMessage($"Syntax error on line {lineNumber}", "Could not parse loudness file.");
 					return;
 				}
 
-				values[assetName] = loudness;
+				values[assetName!] = loudness;
 			}
 
 			int successCount = 0;

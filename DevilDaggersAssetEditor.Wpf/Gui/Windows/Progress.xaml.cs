@@ -25,7 +25,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			// Removes Exit button.
 			IntPtr hwnd = new WindowInteropHelper(this).Handle;
+#pragma warning disable CA1806 // Do not ignore method results
 			NativeMethods.SetWindowLong(hwnd, GWL_STYLE, NativeMethods.GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+#pragma warning restore CA1806 // Do not ignore method results
 		}
 
 		private void OkButton_Click(object sender, RoutedEventArgs e) => Close();
@@ -39,7 +41,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		public void Error()
 		{
-			ProgressDescription.Text = "Execution failed.";
+			ProgressDescription.Text = "Execution did not complete successfully.";
 			OkButton.Visibility = Visibility.Visible;
 		}
 	}

@@ -51,8 +51,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			Dictionary<string, float> loudnessValues = new Dictionary<string, float>();
 			foreach (string line in File.ReadAllLines(loudnessFilePath))
 			{
-				if (LoudnessUtils.TryReadLoudnessLine(line, out string assetName, out float loudness))
-					loudnessValues.Add(assetName, loudness);
+				if (LoudnessUtils.TryReadLoudnessLine(line, out string? assetName, out float loudness))
+					loudnessValues.Add(assetName!, loudness);
 			}
 
 			List<AbstractUserAsset> assets = new List<AbstractUserAsset>();
