@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 		{
 			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
 			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
-				dialog.SelectedPath = UserHandler.Instance.Settings.AssetsRootFolder;
+				dialog.SelectedPath = $"{UserHandler.Instance.Settings.AssetsRootFolder}\\";
 
 			if (dialog.ShowDialog() != true)
 				return;

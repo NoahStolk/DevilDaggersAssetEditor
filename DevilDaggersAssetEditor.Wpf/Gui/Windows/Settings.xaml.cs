@@ -63,7 +63,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
 			string? initDir = label.Content.ToString();
 			if (!string.IsNullOrEmpty(initDir) && Directory.Exists(initDir))
-				dialog.SelectedPath = initDir;
+				dialog.SelectedPath = $"{initDir}\\";
 
 			if (dialog.ShowDialog() == true)
 				label.Content = dialog.SelectedPath;
