@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersCore.Wpf.Utils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -92,7 +93,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				rectColor.StrokeThickness = 1;
 				rectColor.SnapsToDevicePixels = true;
 
-				Rectangle rectBackground = new Rectangle { Fill = new SolidColorBrush(Color.FromRgb(223, 223, 223)) };
+				SolidColorBrush bgColor = ColorUtils.ThemeColors[i++ % 2 == 0 ? "Gray4" : "Gray5"];
+
+				Rectangle rectBackground = new Rectangle { Fill = bgColor };
 				rectBackground.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 				rectBackground.StrokeThickness = 1;
 				rectBackground.StrokeDashArray = new DoubleCollection(new List<double> { 1, 2 });
@@ -116,8 +119,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				grid.Children.Add(rectBackground);
 				grid.Children.Add(labelPercentage);
 
-				byte bgVal = (byte)(i++ % 2 == 0 ? 159 : 175);
-				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(Color.FromRgb(bgVal, bgVal, bgVal)) };
+				StackPanel stackPanel = new StackPanel { Background = bgColor };
 				stackPanel.Children.Add(new Label { Content = $"{kvp.Key} data", FontWeight = FontWeights.Bold });
 				stackPanel.Children.Add(grid);
 				stackPanel.Children.Add(new Label { Content = $"{kvp.Value.byteCount:N0} bytes" });
@@ -145,7 +147,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				if (chunkSizePercentage < 0.005f)
 					textBlockDataName.Background = new SolidColorBrush(GetColor(dataName) * 0.25f);
 				stackPanel.Children.Add(textBlockDataName);
-				stackPanel.Children.Add(new Label { Content = chunk.Name, FontWeight = FontWeights.Bold });
+				stackPanel.Children.Add(new Label
+				{
+					Content = chunk.Name,
+					FontWeight = FontWeights.Bold,
+				});
 				stackPanel.Children.Add(new Label { Content = $"{chunk.Size:N0} bytes" });
 				stackPanel.Children.Add(new Label { Content = $"{chunkSizePercentage:0.000%} of file" });
 

@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.Wpf.Native;
 using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Extensions;
+using DevilDaggersCore.Wpf.Utils;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.ComponentModel;
@@ -11,7 +12,6 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
-using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
@@ -91,7 +91,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void TextBoxTextureSizeLimit_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			TextBoxTextureSizeLimit.Background = uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0 ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(255, 127, 127));
+			TextBoxTextureSizeLimit.Background = uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0 ? ColorUtils.ThemeColors["Gray2"] : ColorUtils.ThemeColors["ErrorText"];
 		}
 
 		private void OkButton_Click(object sender, RoutedEventArgs e)
