@@ -9,7 +9,6 @@
     <ApplicationIcon>Icon24.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SyntaxHighlighter\SyntaxHighlighter\SyntaxHighlighter.csproj" />
     <ProjectReference Include="..\DevilDaggersAssetEditor\DevilDaggersAssetEditor.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -18,6 +17,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NoahStolk.SyntaxHighlighter" Version="1.0.0" />
     <PackageReference Include="Ookii.Dialogs.Wpf.NETCore" Version="2.1.0" />
     <PackageReference Include="Roslynator.Analyzers" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>

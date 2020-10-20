@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersAssetEditor.New
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersAssetEditor.New.Wpf", "DevilDaggersAssetEditor.New.Wpf\DevilDaggersAssetEditor.New.Wpf.csproj", "{23C94AE0-7B6A-4474-AE2C-232C96AB7205}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyntaxHighlighter", "..\SyntaxHighlighter\SyntaxHighlighter\SyntaxHighlighter.csproj", "{F8216075-257A-48D0-84A1-D27502327D4C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,18 +69,6 @@ Global
 		{23C94AE0-7B6A-4474-AE2C-232C96AB7205}.Release|x64.Build.0 = Release|Any CPU
 		{23C94AE0-7B6A-4474-AE2C-232C96AB7205}.Release|x86.ActiveCfg = Release|Any CPU
 		{23C94AE0-7B6A-4474-AE2C-232C96AB7205}.Release|x86.Build.0 = Release|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Debug|x64.Build.0 = Debug|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Debug|x86.Build.0 = Debug|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Release|x64.ActiveCfg = Release|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Release|x64.Build.0 = Release|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Release|x86.ActiveCfg = Release|Any CPU
-		{F8216075-257A-48D0-84A1-D27502327D4C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
