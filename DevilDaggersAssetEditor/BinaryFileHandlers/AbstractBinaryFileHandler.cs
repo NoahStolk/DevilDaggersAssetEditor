@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		private static List<AbstractUserAsset> GetAudioAssets(string outputPath)
 		{
-			string loudnessFilePath = Directory.GetFiles(outputPath, "*.ini", SearchOption.AllDirectories).FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == "loudness");
+			string? loudnessFilePath = Array.Find(Directory.GetFiles(outputPath, "*.ini", SearchOption.AllDirectories), p => Path.GetFileNameWithoutExtension(p) == "loudness");
 			if (loudnessFilePath == null)
 				throw new Exception("Loudness file not found when attempting to create a mod based on newly extracted assets.");
 
