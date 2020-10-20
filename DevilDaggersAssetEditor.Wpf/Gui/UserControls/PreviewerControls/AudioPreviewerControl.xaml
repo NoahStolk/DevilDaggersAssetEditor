@@ -24,12 +24,12 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Audio name</TextBlock>
-					<TextBlock FontWeight="Bold">Default loudness</TextBlock>
+					<Label FontWeight="Bold">Audio name</Label>
+					<Label FontWeight="Bold">Default loudness</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="AudioName">N/A</TextBlock>
-					<TextBlock Name="DefaultLoudness">N/A</TextBlock>
+					<Label Name="AudioName">N/A</Label>
+					<Label Name="DefaultLoudness">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
@@ -42,12 +42,12 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">File name</TextBlock>
-					<TextBlock FontWeight="Bold">Loudness</TextBlock>
+					<Label FontWeight="Bold">File name</Label>
+					<Label FontWeight="Bold">Loudness</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="FileName">N/A</TextBlock>
-					<TextBlock Name="FileLoudness">N/A</TextBlock>
+					<Label Name="FileName">N/A</Label>
+					<Label Name="FileLoudness">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
@@ -74,8 +74,8 @@
 					<Slider Name="Pitch" ValueChanged="Pitch_ValueChanged" Minimum="0.02" Maximum="4" Value="1" ToolTip="Pitch" />
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="SeekText" Text="00:00.000 / ??:??.???" />
-					<TextBlock Name="PitchText" Text="x 1.00" />
+					<Label Name="SeekText" Content="00:00.000 / ??:??.???" />
+					<Label Name="PitchText" Content="x 1.00" />
 				</StackPanel>
 			</Grid>
 		</StackPanel>

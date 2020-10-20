@@ -65,15 +65,13 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 		}
 
 		public void SelectAsset(TAsset asset)
-		{
-			SelectedAsset = asset;
-		}
+			=> SelectedAsset = asset;
 
 		public void ImportFolder()
 		{
 			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
 			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
-				dialog.SelectedPath = UserHandler.Instance.Settings.AssetsRootFolder;
+				dialog.SelectedPath = $"{UserHandler.Instance.Settings.AssetsRootFolder}\\";
 
 			if (dialog.ShowDialog() != true)
 				return;

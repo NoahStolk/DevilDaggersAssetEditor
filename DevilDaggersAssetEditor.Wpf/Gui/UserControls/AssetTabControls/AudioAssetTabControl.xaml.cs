@@ -40,7 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 				if (!Previewer.IsDragging)
 					Previewer.Seek.Value = Previewer.Song.PlayPosition / (float)Previewer.Song.PlayLength * Previewer.Seek.Maximum;
 
-				Previewer.SeekText.Text = $"{EditorUtils.ToTimeString((int)Previewer.Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Previewer.Song.PlayLength)}";
+				Previewer.SeekText.Content = $"{EditorUtils.ToTimeString((int)Previewer.Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Previewer.Song.PlayLength)}";
 			};
 			timer.Start();
 		}

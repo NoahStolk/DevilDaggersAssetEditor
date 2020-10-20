@@ -20,10 +20,10 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Shader name</TextBlock>
+					<Label FontWeight="Bold">Shader name</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="ShaderName">N/A</TextBlock>
+					<Label Name="ShaderName">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
@@ -36,24 +36,28 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Vertex file name</TextBlock>
-					<TextBlock FontWeight="Bold">Fragment file name</TextBlock>
+					<Label FontWeight="Bold">Vertex file name</Label>
+					<Label FontWeight="Bold">Fragment file name</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="VertexFileName">N/A</TextBlock>
-					<TextBlock Name="FragmentFileName">N/A</TextBlock>
+					<Label Name="VertexFileName">N/A</Label>
+					<Label Name="FragmentFileName">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
 
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">Vertex shader preview</Label>
-			<TextBox Height="384" Name="PreviewVertexTextBox" Style="{StaticResource CodeTextBox}" />
+			<ScrollViewer Height="384">
+				<TextBlock Name="PreviewVertexTextBox" Style="{StaticResource CodeTextBlock}" />
+			</ScrollViewer>
 		</StackPanel>
 
 		<StackPanel Grid.Column="3">
 			<Label Style="{StaticResource PreviewTitleLabel}">Fragment shader preview</Label>
-			<TextBox Height="384" Name="PreviewFragmentTextBox" Style="{StaticResource CodeTextBox}" />
+			<ScrollViewer Height="384">
+				<TextBlock Name="PreviewFragmentTextBox" Style="{StaticResource CodeTextBlock}" />
+			</ScrollViewer>
 		</StackPanel>
 	</Grid>
 </UserControl>

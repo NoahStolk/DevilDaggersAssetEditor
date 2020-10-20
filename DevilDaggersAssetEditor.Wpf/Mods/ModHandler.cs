@@ -37,7 +37,7 @@ namespace DevilDaggersAssetEditor.Wpf.Mods
 				VistaFolderBrowserDialog basePathDialog = new VistaFolderBrowserDialog();
 
 				if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
-					basePathDialog.SelectedPath = UserHandler.Instance.Settings.AssetsRootFolder;
+					basePathDialog.SelectedPath = $"{UserHandler.Instance.Settings.AssetsRootFolder}\\";
 
 				if (basePathDialog.ShowDialog() == true)
 				{

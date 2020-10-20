@@ -1,11 +1,11 @@
 ﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Network;
+using DevilDaggersCore.Wpf.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -25,7 +25,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			VersionLabel.Content = $"Version {App.LocalVersion}";
 
 #if DEBUG
-			VersionLabel.Background = new SolidColorBrush(Color.FromRgb(0, 255, 63));
+			VersionLabel.Background = ColorUtils.ThemeColors["SuccessText"];
 			VersionLabel.Content += " DEBUG";
 #endif
 
@@ -35,46 +35,42 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void RunThreads(object? sender, EventArgs e)
 		{
 			using BackgroundWorker checkVersionThread = new BackgroundWorker();
-			checkVersionThread.DoWork += (object sender, DoWorkEventArgs e) =>
-			{
-				Task toolTask = NetworkHandler.Instance.GetOnlineTool();
-				toolTask.Wait();
-			};
+			checkVersionThread.DoWork += (object sender, DoWorkEventArgs e) => NetworkHandler.Instance.GetOnlineTool();
 			checkVersionThread.RunWorkerCompleted += (object sender, RunWorkerCompletedEventArgs e) =>
 			{
 				Dispatcher.Invoke(() =>
 				{
 					string message = string.Empty;
-					Color color;
+					SolidColorBrush color;
 
 					if (NetworkHandler.Instance.Tool == null)
 					{
 						message = "Error";
-						color = Color.FromRgb(255, 0, 0);
+						color = ColorUtils.ThemeColors["ErrorText"];
 					}
 					else
 					{
 						if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumberRequired))
 						{
 							message = "Warning (update required)";
-							color = Color.FromRgb(255, 63, 0);
+							color = ColorUtils.ThemeColors["WarningText"];
 						}
 						else if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 						{
 							message = "Warning (update recommended)";
-							color = Color.FromRgb(191, 191, 0);
+							color = ColorUtils.ThemeColors["SuggestionText"];
 						}
 						else
 						{
 							message = "OK (up to date)";
-							color = Color.FromRgb(0, 127, 0);
+							color = ColorUtils.ThemeColors["SuccessText"];
 						}
 					}
 
 					TaskResultsStackPanel.Children.Add(new Label
 					{
 						Content = message,
-						Foreground = new SolidColorBrush(color),
+						Foreground = color,
 						FontWeight = FontWeights.Bold,
 					});
 				});
@@ -109,7 +105,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					TaskResultsStackPanel.Children.Add(new Label
 					{
 						Content = readUserSettingsSuccess ? userSettingsFileExists ? "OK (found user settings)" : "OK (created new user settings)" : "Error",
-						Foreground = new SolidColorBrush(readUserSettingsSuccess ? Color.FromRgb(0, 127, 0) : Color.FromRgb(255, 0, 0)),
+						Foreground = readUserSettingsSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});
 				});
@@ -144,7 +140,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					TaskResultsStackPanel.Children.Add(new Label
 					{
 						Content = readUserCacheSuccess ? userCacheFileExists ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
-						Foreground = new SolidColorBrush(readUserCacheSuccess ? Color.FromRgb(0, 127, 0) : Color.FromRgb(255, 0, 0)),
+						Foreground = readUserCacheSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});
 				});

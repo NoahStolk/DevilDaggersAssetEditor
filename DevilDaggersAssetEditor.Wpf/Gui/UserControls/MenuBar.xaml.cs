@@ -9,14 +9,10 @@ using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-#if DEBUG
-using System.Windows.Media;
-#endif
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
@@ -53,13 +49,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				FileMenuItem.Items.Add(tabHandler.CreateFileTypeMenuItem());
 
 #if DEBUG
-			MenuItem testException = new MenuItem { Header = "Test Exception", Background = new SolidColorBrush(Color.FromRgb(0, 255, 63)) };
-			testException.Click += (sender, e) => throw new Exception("Test Exception");
+			MenuItem debugItem = new MenuItem { Header = "Open debug window" };
+			debugItem.Click += (sender, e) =>
+			{
+				DebugWindow debugWindow = new DebugWindow();
+				debugWindow.ShowDialog();
+			};
 
-			MenuItem debug = new MenuItem { Header = "Debug", Background = new SolidColorBrush(Color.FromRgb(0, 255, 63)) };
-			debug.Items.Add(testException);
+			MenuItem debugHeader = new MenuItem { Header = "Debug" };
+			debugHeader.Items.Add(debugItem);
 
-			MenuPanel.Items.Add(debug);
+			MenuPanel.Items.Add(debugHeader);
 #endif
 		}
 
@@ -154,21 +154,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			else
 			{
 				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
-			}
-		}
-
-		private void ShowLog_Click(object sender, RoutedEventArgs e)
-		{
-			try
-			{
-				if (File.Exists("DDAE.log"))
-					Process.Start("DDAE.log");
-				else
-					App.Instance.ShowMessage("No log file", "Log file does not exist.");
-			}
-			catch (Exception ex)
-			{
-				App.Instance.ShowMessage("Could not open log file", ex.Message);
 			}
 		}
 	}

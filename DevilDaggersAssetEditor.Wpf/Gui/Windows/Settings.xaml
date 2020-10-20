@@ -9,7 +9,7 @@
 		<Label FontWeight="Bold" FontSize="14">Standard folders</Label>
 		<Label>When enabled, these folders will be used as the initial directory for certain browse actions (selecting files or folders).</Label>
 
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
+		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>Devil Daggers root folder</Label>
 			<Label Name="LabelDevilDaggersRootFolder" />
 			<StackPanel Orientation="Horizontal">
@@ -34,14 +34,14 @@
 		</StackPanel>
 
 		<Label FontWeight="Bold" FontSize="14">Extracting binaries</Label>
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
+		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<CheckBox Name="CheckBoxCreateModFileWhenExtracting" Margin="4">Automatically create mod file when extracting binaries</CheckBox>
 			<CheckBox Name="CheckBoxOpenModFolderAfterExtracting" Margin="4">Automatically open folder after extracting binaries</CheckBox>
 		</StackPanel>
 
 		<Label FontWeight="Bold" FontSize="14">Making binaries</Label>
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="#eee">
-			<TextBlock Style="{StaticResource PaddingTextBlock}">Texture dimension limit in pixels</TextBlock>
+		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
+			<Label>Texture dimension limit in pixels</Label>
 			<TextBox Name="TextBoxTextureSizeLimit" MaxLength="4" Width="64" HorizontalAlignment="Left" />
 		</StackPanel>
 

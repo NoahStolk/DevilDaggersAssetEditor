@@ -19,10 +19,10 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Model Binding name</TextBlock>
+					<Label FontWeight="Bold">Model Binding name</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="ModelBindingName">N/A</TextBlock>
+					<Label Name="ModelBindingName">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
@@ -35,10 +35,10 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">File name</TextBlock>
+					<Label FontWeight="Bold">File name</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="FileName">N/A</TextBlock>
+					<Label Name="FileName">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>

@@ -19,14 +19,14 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">Texture name</TextBlock>
-					<TextBlock FontWeight="Bold">Default dimensions</TextBlock>
-					<TextBlock FontWeight="Bold">Default mipmaps</TextBlock>
+					<Label FontWeight="Bold">Texture name</Label>
+					<Label FontWeight="Bold">Default dimensions</Label>
+					<Label FontWeight="Bold">Default mipmaps</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="TextureName">N/A</TextBlock>
-					<TextBlock Name="DefaultDimensions">N/A</TextBlock>
-					<TextBlock Name="DefaultMipmaps">N/A</TextBlock>
+					<Label Name="TextureName">N/A</Label>
+					<Label Name="DefaultDimensions">N/A</Label>
+					<Label Name="DefaultMipmaps">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
@@ -39,14 +39,14 @@
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0">
-					<TextBlock FontWeight="Bold">File name</TextBlock>
-					<TextBlock FontWeight="Bold">Dimensions</TextBlock>
-					<TextBlock FontWeight="Bold">Mipmaps</TextBlock>
+					<Label FontWeight="Bold">File name</Label>
+					<Label FontWeight="Bold">Dimensions</Label>
+					<Label FontWeight="Bold">Mipmaps</Label>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
-					<TextBlock Name="FileName">N/A</TextBlock>
-					<TextBlock Name="FileDimensions">N/A</TextBlock>
-					<TextBlock Name="FileMipmaps">N/A</TextBlock>
+					<Label Name="FileName">N/A</Label>
+					<Label Name="FileDimensions">N/A</Label>
+					<Label Name="FileMipmaps">N/A</Label>
 				</StackPanel>
 			</Grid>
 		</StackPanel>

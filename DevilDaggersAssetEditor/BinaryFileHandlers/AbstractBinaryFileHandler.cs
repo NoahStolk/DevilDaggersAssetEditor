@@ -2,7 +2,6 @@
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -44,15 +43,15 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		private static List<AbstractUserAsset> GetAudioAssets(string outputPath)
 		{
-			string loudnessFilePath = Directory.GetFiles(outputPath, "*.ini", SearchOption.AllDirectories).FirstOrDefault(p => Path.GetFileNameWithoutExtension(p) == "loudness");
+			string? loudnessFilePath = Array.Find(Directory.GetFiles(outputPath, "*.ini", SearchOption.AllDirectories), p => Path.GetFileNameWithoutExtension(p) == "loudness");
 			if (loudnessFilePath == null)
 				throw new Exception("Loudness file not found when attempting to create a mod based on newly extracted assets.");
 
 			Dictionary<string, float> loudnessValues = new Dictionary<string, float>();
 			foreach (string line in File.ReadAllLines(loudnessFilePath))
 			{
-				if (LoudnessUtils.TryReadLoudnessLine(line, out string assetName, out float loudness))
-					loudnessValues.Add(assetName, loudness);
+				if (LoudnessUtils.TryReadLoudnessLine(line, out string? assetName, out float loudness))
+					loudnessValues.Add(assetName!, loudness);
 			}
 
 			List<AbstractUserAsset> assets = new List<AbstractUserAsset>();
@@ -90,8 +89,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				{
 					if (type == typeof(ShaderUserAsset))
 					{
-						if (path.EndsWith("_vertex", StringComparison.InvariantCulture)) // Skip _fragment to avoid getting duplicate assets.
-							assets.Add(Activator.CreateInstance(type, name.TrimEnd("_vertex"), path.TrimEnd("_vertex")) as AbstractUserAsset);
+						if (path.EndsWith("_vertex.glsl", StringComparison.InvariantCulture)) // Skip _fragment to avoid getting duplicate assets.
+							assets.Add(Activator.CreateInstance(type, name.Replace("_vertex", string.Empty, StringComparison.InvariantCulture), path.Replace("_vertex", string.Empty, StringComparison.InvariantCulture)) as AbstractUserAsset);
 					}
 					else
 					{

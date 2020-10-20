@@ -2,16 +2,13 @@
 [![Scc Count Badge](https://sloc.xyz/github/NoahStolk/DevilDaggersAssetEditor/)](https://github.com/NoahStolk/DevilDaggersAssetEditor/)
 
 # DevilDaggersAssetEditor ([Download](https://devildaggers.info/api/tools/DevilDaggersAssetEditor/file))
-DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods. It is a .NET WPF application built using Visual Studio 2019.
+DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods.
 
 ## Framework
 - .NET Core 3.1
 
 ## Language
 - C# 8.0
-
-## Dependencies
-- [DevilDaggersCore](https://github.com/NoahStolk/DevilDaggersCore)
 
 ## Main features
 - Extracting and compressing asset types
@@ -38,7 +35,6 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 3. Run DevilDaggersAssetEditor.exe inside the folder.
 
 ## Running from source
-- Make sure all the projects listed under "Dependencies" are properly referenced. The sources for the projects need to be within the same root folder as the source for DevilDaggersAssetEditor itself.
 - Make sure to set the project platform to x64 before building the project.
 
 ## Links
@@ -49,7 +45,7 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 - [Discord server](https://discord.gg/NF32j8S)
 
 ## Credits
-The program's asset extraction core functionality is based on [Devil Daggers Extractor by pmcc](https://github.com/pmcc/devil-daggers-extractor) written in C++.
+The program's asset extraction functionality is based on [Devil Daggers Extractor by pmcc](https://github.com/pmcc/devil-daggers-extractor) written in C++.
 
 ## License
 MIT License

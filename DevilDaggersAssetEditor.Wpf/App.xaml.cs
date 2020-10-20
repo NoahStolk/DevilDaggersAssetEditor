@@ -37,7 +37,7 @@ namespace DevilDaggersAssetEditor.Wpf
 		public static Version LocalVersion { get; } = Version.Parse(FileVersionInfo.GetVersionInfo(Assembly.Location).FileVersion);
 
 		public static App Instance => (App)Current;
-		public new MainWindow MainWindow { get; set; }
+		public new MainWindow? MainWindow { get; set; }
 
 		private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
 		{
@@ -48,12 +48,7 @@ namespace DevilDaggersAssetEditor.Wpf
 		}
 
 		public void UpdateMainWindowTitle()
-		{
-			Dispatcher.Invoke(() =>
-			{
-				MainWindow.Title = $"{ApplicationDisplayName} {LocalVersion}";
-			});
-		}
+			=> Dispatcher.Invoke(() => MainWindow!.Title = $"{ApplicationDisplayName} {LocalVersion}");
 
 		/// <summary>
 		/// Logs the error message (and <see cref="Exception" /> if there is one).
@@ -67,7 +62,7 @@ namespace DevilDaggersAssetEditor.Wpf
 		}
 
 		/// <summary>
-		/// Shows the error using the <see cref="ErrorWindow" /> and then calls <see cref="LogError(string, Exception)" /> to log the error message (and <see cref="Exception" /> if there is one).
+		/// Shows the error using the <see cref="ErrorWindow" /> and calls <see cref="LogError(string, Exception)" /> to log the error message (and <see cref="Exception" /> if there is one).
 		/// </summary>
 		public void ShowError(string title, string message, Exception? ex = null)
 		{
@@ -91,10 +86,10 @@ namespace DevilDaggersAssetEditor.Wpf
 
 		private void Application_Exit(object sender, ExitEventArgs e)
 		{
-			UserHandler.Instance.Cache.ActiveTabIndex = MainWindow.TabControl.SelectedIndex;
-			UserHandler.Instance.Cache.WindowWidth = (int)MainWindow.Width;
-			UserHandler.Instance.Cache.WindowHeight = (int)MainWindow.Height;
-			UserHandler.Instance.Cache.WindowIsFullScreen = MainWindow.WindowState == WindowState.Maximized;
+			UserHandler.Instance.Cache.ActiveTabIndex = MainWindow!.TabControl.SelectedIndex;
+			UserHandler.Instance.Cache.WindowWidth = (int)MainWindow!.Width;
+			UserHandler.Instance.Cache.WindowHeight = (int)MainWindow!.Height;
+			UserHandler.Instance.Cache.WindowIsFullScreen = MainWindow!.WindowState == WindowState.Maximized;
 			UserHandler.Instance.SaveCache();
 		}
 	}
