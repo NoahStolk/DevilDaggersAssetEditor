@@ -90,7 +90,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					if (type == typeof(ShaderUserAsset))
 					{
 						if (path.EndsWith("_vertex.glsl", StringComparison.InvariantCulture)) // Skip _fragment to avoid getting duplicate assets.
-							assets.Add(Activator.CreateInstance(type, name.Replace("_vertex", string.Empty), path.Replace("_vertex", string.Empty)) as AbstractUserAsset);
+							assets.Add(Activator.CreateInstance(type, name.Replace("_vertex", string.Empty, StringComparison.InvariantCulture), path.Replace("_vertex", string.Empty, StringComparison.InvariantCulture)) as AbstractUserAsset);
 					}
 					else
 					{
