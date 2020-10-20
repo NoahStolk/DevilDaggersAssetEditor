@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersAssetEditor", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersAssetEditor.Wpf", "DevilDaggersAssetEditor.Wpf\DevilDaggersAssetEditor.Wpf.csproj", "{7E321BCF-6600-4783-AE11-05355E84B966}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevilDaggersAssetEditor.New", "DevilDaggersAssetEditor.New\DevilDaggersAssetEditor.New.csproj", "{83D010A3-BD09-4DE0-B00C-566C0565BD65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersAssetEditor.New", "DevilDaggersAssetEditor.New\DevilDaggersAssetEditor.New.csproj", "{83D010A3-BD09-4DE0-B00C-566C0565BD65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevilDaggersAssetEditor.New.Wpf", "DevilDaggersAssetEditor.New.Wpf\DevilDaggersAssetEditor.New.Wpf.csproj", "{23C94AE0-7B6A-4474-AE2C-232C96AB7205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevilDaggersAssetEditor.New.Wpf", "DevilDaggersAssetEditor.New.Wpf\DevilDaggersAssetEditor.New.Wpf.csproj", "{23C94AE0-7B6A-4474-AE2C-232C96AB7205}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -86,6 +86,14 @@
 		</Style.Setters>
 	</Style>
 
+	<Style TargetType="TextBlock" x:Key="CodeTextBlock">
+		<Style.Setters>
+			<Setter Property="FontFamily" Value="Consolas" />
+			<Setter Property="Background" Value="{StaticResource Gray1}" />
+			<Setter Property="Foreground" Value="{StaticResource Text}" />
+		</Style.Setters>
+	</Style>
+
 	<Style TargetType="TextBox" x:Key="CodeTextBox">
 		<Style.Setters>
 			<Setter Property="FontFamily" Value="Consolas" />
