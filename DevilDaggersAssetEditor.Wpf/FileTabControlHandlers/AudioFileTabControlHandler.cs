@@ -20,9 +20,9 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			MenuItem loudnessImport = new MenuItem { Header = $"Import Loudness from file" };
 			MenuItem loudnessExport = new MenuItem { Header = $"Export Loudness to file" };
 
-			audioImport.Click += (sender, e) => App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.ImportFolder();
-			loudnessImport.Click += (sender, e) => LoudnessImportExport.ImportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.RowHandlers);
-			loudnessExport.Click += (sender, e) => LoudnessImportExport.ExportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.RowHandlers);
+			audioImport.Click += (sender, e) => App.Instance.MainWindow!.AudioAudioAssetTabControl.ImportFolder();
+			loudnessImport.Click += (sender, e) => LoudnessImportExport.ImportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.RowHandlers);
+			loudnessExport.Click += (sender, e) => LoudnessImportExport.ExportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.RowHandlers);
 
 			fileTypeMenuItem.Items.Add(audioImport);
 			fileTypeMenuItem.Items.Add(new Separator());
@@ -33,12 +33,12 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 		}
 
 		public override List<AbstractAsset> GetAssets()
-			=> App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).ToList();
+			=> App.Instance.MainWindow!.AudioAudioAssetTabControl.RowHandlers.Select(a => a.Asset).ToList();
 
 		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
-			=> UpdateAssetTabControl(assets.OfType<AudioUserAsset>().ToList(), App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler);
+			=> UpdateAssetTabControl(assets.OfType<AudioUserAsset>().ToList(), App.Instance.MainWindow!.AudioAudioAssetTabControl);
 
 		protected override bool IsComplete()
-			=> App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.IsComplete();
+			=> App.Instance.MainWindow!.AudioAudioAssetTabControl.IsComplete();
 	}
 }

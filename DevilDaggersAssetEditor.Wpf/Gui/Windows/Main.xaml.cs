@@ -3,7 +3,7 @@ using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.FileTabControlHandlers;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.Mods;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;

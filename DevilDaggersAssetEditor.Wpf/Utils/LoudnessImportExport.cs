@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +12,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 {
 	public static class LoudnessImportExport
 	{
-		public static void ImportLoudness(List<AssetRowControlHandler> rowHandlers)
+		public static void ImportLoudness(List<AssetRowControl> rowHandlers)
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
@@ -39,7 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 			int unchangedCount = 0;
 			foreach (KeyValuePair<string, float> kvp in values)
 			{
-				AssetRowControlHandler rowHandler = rowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
+				AssetRowControl rowHandler = rowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
 				if (rowHandler != null)
 				{
 					AudioAsset audioAsset = (AudioAsset)rowHandler.Asset;
@@ -53,15 +53,15 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 						successCount++;
 					}
 
-					AssetRowControl arc = rowHandler.AssetRowControl;
-					arc.Handler.UpdateGui();
+					AssetRowControl arc = rowHandler;
+					arc.UpdateGui();
 				}
 			}
 
 			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {rowHandlers.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
 		}
 
-		public static void ExportLoudness(List<AssetRowControlHandler> rowHandlers)
+		public static void ExportLoudness(List<AssetRowControl> rowHandlers)
 		{
 			SaveFileDialog dialog = new SaveFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))

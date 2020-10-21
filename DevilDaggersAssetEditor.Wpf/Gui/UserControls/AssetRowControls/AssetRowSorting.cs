@@ -4,12 +4,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 {
 	public class AssetRowSorting
 	{
-		public AssetRowSorting(Func<AssetRowControlHandler, object> sortingFunction)
+		public AssetRowSorting(Func<AssetRowControl, object> sortingFunction)
 		{
 			SortingFunction = sortingFunction;
 		}
 
-		public Func<AssetRowControlHandler, object> SortingFunction { get; set; }
+		public Func<AssetRowControl, object> SortingFunction { get; set; }
 		public bool IsAscending { get; set; } = true;
 	}
 }

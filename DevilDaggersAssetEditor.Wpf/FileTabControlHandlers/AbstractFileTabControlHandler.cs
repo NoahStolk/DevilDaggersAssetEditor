@@ -4,8 +4,7 @@ using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Mods;
 using DevilDaggersCore.Wpf.Windows;
@@ -222,10 +221,10 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 
 		public abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		protected static void UpdateAssetTabControl<TUserAsset>(List<TUserAsset> userAssets, AssetTabControlHandler assetTabControlHandler)
+		protected static void UpdateAssetTabControl<TUserAsset>(List<TUserAsset> userAssets, AssetTabControl assetTabControl)
 			where TUserAsset : AbstractUserAsset
 		{
-			foreach (AssetRowControlHandler rowHandler in assetTabControlHandler.RowHandlers)
+			foreach (AssetRowControl rowHandler in assetTabControl.RowHandlers)
 			{
 				AbstractAsset asset = rowHandler.Asset;
 				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName);

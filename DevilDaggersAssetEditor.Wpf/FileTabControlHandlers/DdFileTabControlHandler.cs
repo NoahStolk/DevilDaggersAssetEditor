@@ -20,10 +20,10 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			MenuItem shaderImport = new MenuItem { Header = "Import Shader paths from folder" };
 			MenuItem textureImport = new MenuItem { Header = "Import Texture paths from folder" };
 
-			modelBindingImport.Click += (sender, e) => App.Instance.MainWindow!.DdModelBindingsAssetTabControl.Handler.ImportFolder();
-			modelImport.Click += (sender, e) => App.Instance.MainWindow!.DdModelsAssetTabControl.Handler.ImportFolder();
-			shaderImport.Click += (sender, e) => App.Instance.MainWindow!.DdShadersAssetTabControl.Handler.ImportFolder();
-			textureImport.Click += (sender, e) => App.Instance.MainWindow!.DdTexturesAssetTabControl.Handler.ImportFolder();
+			modelBindingImport.Click += (sender, e) => App.Instance.MainWindow!.DdModelBindingsAssetTabControl.ImportFolder();
+			modelImport.Click += (sender, e) => App.Instance.MainWindow!.DdModelsAssetTabControl.ImportFolder();
+			shaderImport.Click += (sender, e) => App.Instance.MainWindow!.DdShadersAssetTabControl.ImportFolder();
+			textureImport.Click += (sender, e) => App.Instance.MainWindow!.DdTexturesAssetTabControl.ImportFolder();
 
 			fileTypeMenuItem.Items.Add(modelBindingImport);
 			fileTypeMenuItem.Items.Add(modelImport);
@@ -34,24 +34,24 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 		}
 
 		public override List<AbstractAsset> GetAssets()
-			=> App.Instance.MainWindow!.DdModelBindingsAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>()
-				.Concat(App.Instance.MainWindow!.DdModelsAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>())
-				.Concat(App.Instance.MainWindow!.DdShadersAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>())
-				.Concat(App.Instance.MainWindow!.DdTexturesAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>())
+			=> App.Instance.MainWindow!.DdModelBindingsAssetTabControl.RowHandlers.Select(a => a.Asset)
+				.Concat(App.Instance.MainWindow!.DdModelsAssetTabControl.RowHandlers.Select(a => a.Asset))
+				.Concat(App.Instance.MainWindow!.DdShadersAssetTabControl.RowHandlers.Select(a => a.Asset))
+				.Concat(App.Instance.MainWindow!.DdTexturesAssetTabControl.RowHandlers.Select(a => a.Asset))
 				.ToList();
 
 		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
 		{
-			UpdateAssetTabControl(assets.OfType<ModelBindingUserAsset>().ToList(), App.Instance.MainWindow!.DdModelBindingsAssetTabControl.Handler);
-			UpdateAssetTabControl(assets.OfType<ModelUserAsset>().ToList(), App.Instance.MainWindow!.DdModelsAssetTabControl.Handler);
-			UpdateAssetTabControl(assets.OfType<ShaderUserAsset>().ToList(), App.Instance.MainWindow!.DdShadersAssetTabControl.Handler);
-			UpdateAssetTabControl(assets.OfType<TextureUserAsset>().ToList(), App.Instance.MainWindow!.DdTexturesAssetTabControl.Handler);
+			UpdateAssetTabControl(assets.OfType<ModelBindingUserAsset>().ToList(), App.Instance.MainWindow!.DdModelBindingsAssetTabControl);
+			UpdateAssetTabControl(assets.OfType<ModelUserAsset>().ToList(), App.Instance.MainWindow!.DdModelsAssetTabControl);
+			UpdateAssetTabControl(assets.OfType<ShaderUserAsset>().ToList(), App.Instance.MainWindow!.DdShadersAssetTabControl);
+			UpdateAssetTabControl(assets.OfType<TextureUserAsset>().ToList(), App.Instance.MainWindow!.DdTexturesAssetTabControl);
 		}
 
 		protected override bool IsComplete()
-			=> App.Instance.MainWindow!.DdModelBindingsAssetTabControl.Handler.IsComplete()
-			&& App.Instance.MainWindow!.DdModelsAssetTabControl.Handler.IsComplete()
-			&& App.Instance.MainWindow!.DdShadersAssetTabControl.Handler.IsComplete()
-			&& App.Instance.MainWindow!.DdTexturesAssetTabControl.Handler.IsComplete();
+			=> App.Instance.MainWindow!.DdModelBindingsAssetTabControl.IsComplete()
+			&& App.Instance.MainWindow!.DdModelsAssetTabControl.IsComplete()
+			&& App.Instance.MainWindow!.DdShadersAssetTabControl.IsComplete()
+			&& App.Instance.MainWindow!.DdTexturesAssetTabControl.IsComplete();
 	}
 }

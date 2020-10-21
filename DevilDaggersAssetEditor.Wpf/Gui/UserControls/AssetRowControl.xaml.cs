@@ -16,17 +16,19 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
-	public class AssetRowControlHandler
+	public partial class AssetRowControl : UserControl
 	{
 		private readonly SolidColorBrush _brushInfoEven;
 		private readonly SolidColorBrush _brushInfoOdd;
 		private readonly SolidColorBrush _brushEditEven;
 		private readonly SolidColorBrush _brushEditOdd;
 
-		public AssetRowControlHandler(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
+		public AssetRowControl(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
 		{
+			InitializeComponent();
+
 			OpenDialogFilter = openDialogFilter;
 
 			Asset = asset;
@@ -37,8 +39,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 				Foreground = ColorUtils.ThemeColors["Text"],
 			};
 			Grid.SetColumn(TextBlockTags, 1);
-
-			AssetRowControl = (AssetRowControl)Activator.CreateInstance(typeof(AssetRowControl), this);
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == assetType);
 			Color colorEditEven = chunkInfo.GetColor() * 0.25f;
@@ -60,13 +60,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 			Grid.SetColumnSpan(RectangleEdit, 4);
 
 			UpdateBackgroundRectangleColors(isEven);
+
+			Data.Children.Add(TextBlockTags);
+			Data.Children.Add(RectangleInfo);
+			Data.Children.Add(RectangleEdit);
+
+			Data.DataContext = Asset;
 		}
 
 		public Rectangle RectangleInfo { get; } = new Rectangle();
 		public Rectangle RectangleEdit { get; } = new Rectangle();
 
 		public AbstractAsset Asset { get; }
-		public AssetRowControl AssetRowControl { get; }
 
 		public bool IsActive { get; set; } = true;
 
@@ -74,16 +79,25 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 
 		public TextBlock TextBlockTags { get; }
 
+		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)
+			=> RemovePath();
+
+		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e)
+			=> BrowsePath();
+
+		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+			=> UpdateGui();
+
 		public void UpdateBackgroundRectangleColors(bool isEven)
 		{
 			RectangleInfo.Fill = isEven ? _brushInfoEven : _brushInfoOdd;
 			RectangleEdit.Fill = isEven ? _brushEditEven : _brushEditOdd;
 		}
 
-		public virtual void UpdateGui()
+		public void UpdateGui()
 		{
-			AssetRowControl.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
-			AssetRowControl.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
+			TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
+			TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
 		}
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)

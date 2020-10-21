@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 
 			MenuItem particleBindingImport = new MenuItem { Header = $"Import Particle paths from folder" };
 
-			particleBindingImport.Click += (sender, e) => App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler.ImportFolder();
+			particleBindingImport.Click += (sender, e) => App.Instance.MainWindow!.ParticleParticlesAssetTabControl.ImportFolder();
 
 			fileTypeMenuItem.Items.Add(particleBindingImport);
 
@@ -25,12 +25,12 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 		}
 
 		public override List<AbstractAsset> GetAssets()
-			=> App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler.RowHandlers.Select(a => a.Asset).Cast<AbstractAsset>().ToList();
+			=> App.Instance.MainWindow!.ParticleParticlesAssetTabControl.RowHandlers.Select(a => a.Asset).ToList();
 
 		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
-			=> UpdateAssetTabControl(assets.OfType<ParticleUserAsset>().ToList(), App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler);
+			=> UpdateAssetTabControl(assets.OfType<ParticleUserAsset>().ToList(), App.Instance.MainWindow!.ParticleParticlesAssetTabControl);
 
 		protected override bool IsComplete()
-			=> App.Instance.MainWindow!.ParticleParticlesAssetTabControl.Handler.IsComplete();
+			=> App.Instance.MainWindow!.ParticleParticlesAssetTabControl.IsComplete();
 	}
 }
