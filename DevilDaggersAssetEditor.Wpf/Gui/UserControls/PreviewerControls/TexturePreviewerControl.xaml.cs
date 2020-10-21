@@ -8,7 +8,7 @@ using SdImage = System.Drawing.Image;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class TexturePreviewerControl : UserControl
+	public partial class TexturePreviewerControl : UserControl, IPreviewerControl
 	{
 		public TexturePreviewerControl()
 		{

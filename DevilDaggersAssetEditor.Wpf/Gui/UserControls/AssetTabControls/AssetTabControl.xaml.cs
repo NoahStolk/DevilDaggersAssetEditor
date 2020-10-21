@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
@@ -10,33 +11,40 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 {
-	public partial class TexturesAssetTabControl : UserControl
+	public partial class AssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(TexturesAssetTabControl));
-
 		private readonly AssetRowSorting _nameSort = new AssetRowSorting((a) => a.Asset.AssetName);
 		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
 		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
 		private readonly AssetRowSorting _pathSort = new AssetRowSorting((a) => a.Asset.EditorPath);
 
-		public TexturesAssetTabControl()
+		public AssetTabControl(BinaryFileType binaryFileType, AssetType assetType, string openFileDialog, string assetTypeJsonFileName)
 		{
 			InitializeComponent();
+
+			Handler = new AssetTabControlHandler(binaryFileType, assetType, openFileDialog, assetTypeJsonFileName);
+
+			Previewer = assetType switch
+			{
+				AssetType.Audio => new AudioPreviewerControl(),
+				AssetType.Model => new ModelPreviewerControl(),
+				AssetType.ModelBinding => new ModelBindingPreviewerControl(),
+				AssetType.Particle => new ParticlePreviewerControl(),
+				AssetType.Shader => new ShaderPreviewerControl(),
+				AssetType.Texture => new TexturePreviewerControl(),
+				_ => throw new NotSupportedException($"Previewer control for type {assetType} is not supported."),
+			};
+
+			MainGrid.Children.Add(Previewer);
 		}
 
-		public string BinaryFileType
-		{
-			get => (string)GetValue(BinaryFileTypeProperty);
-			set => SetValue(BinaryFileTypeProperty, value);
-		}
+		public UserControl Previewer { get; }
 
 		public AssetTabControlHandler Handler { get; private set; }
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
 			Loaded -= UserControl_Loaded;
-
-			Handler = new AssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true), AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
 
 			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
@@ -70,17 +78,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(GetFilterOperation());
 
-			foreach (AssetRowControlHandler rowHandler in Handler.RowHandlers)
+			foreach (AssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
-				if (!rowHandler.IsActive)
+				if (!assetRowEntry.IsActive)
 				{
-					if (AssetEditor.Items.Contains(rowHandler.AssetRowControl))
-						AssetEditor.Items.Remove(rowHandler.AssetRowControl);
+					if (AssetEditor.Items.Contains(assetRowEntry.AssetRowControl))
+						AssetEditor.Items.Remove(assetRowEntry.AssetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(rowHandler.AssetRowControl))
-						AssetEditor.Items.Add(rowHandler.AssetRowControl);
+					if (!AssetEditor.Items.Contains(assetRowEntry.AssetRowControl))
+						AssetEditor.Items.Add(assetRowEntry.AssetRowControl);
 				}
 			}
 
@@ -117,7 +125,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			AssetRowControl arc = e.AddedItems[0] as AssetRowControl;
 
 			Handler.SelectAsset(arc.Handler.Asset);
-			Previewer.Initialize(arc.Handler.Asset);
+			(Previewer as IPreviewerControl).Initialize(arc.Handler.Asset);
 		}
 
 		private void NameSortButton_Click(object sender, RoutedEventArgs e)

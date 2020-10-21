@@ -11,22 +11,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 {
 	public partial class ShadersAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ShadersAssetTabControl));
-
 		private readonly AssetRowSorting _nameSort = new AssetRowSorting((a) => a.Asset.AssetName);
 		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
 		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
 		private readonly AssetRowSorting _pathSort = new AssetRowSorting((a) => a.Asset.EditorPath);
 
-		public ShadersAssetTabControl()
+		public ShadersAssetTabControl(BinaryFileType binaryFileType)
 		{
 			InitializeComponent();
-		}
 
-		public string BinaryFileType
-		{
-			get => (string)GetValue(BinaryFileTypeProperty);
-			set => SetValue(BinaryFileTypeProperty, value);
+			Handler = new AssetTabControlHandler(binaryFileType, Assets.AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
 		}
 
 		public AssetTabControlHandler Handler { get; private set; }
@@ -34,8 +28,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
 			Loaded -= UserControl_Loaded;
-
-			Handler = new AssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true), Assets.AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
 
 			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);

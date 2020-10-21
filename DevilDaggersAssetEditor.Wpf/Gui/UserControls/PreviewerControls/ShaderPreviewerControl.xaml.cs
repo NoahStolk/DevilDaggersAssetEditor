@@ -13,7 +13,7 @@ using WmColor = System.Windows.Media.Color;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class ShaderPreviewerControl : UserControl
+	public partial class ShaderPreviewerControl : UserControl, IPreviewerControl
 	{
 		public ShaderPreviewerControl()
 		{

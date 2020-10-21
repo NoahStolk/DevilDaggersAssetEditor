@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class ModelPreviewerControl : UserControl
+	public partial class ModelPreviewerControl : UserControl, IPreviewerControl
 	{
 		public ModelPreviewerControl()
 		{

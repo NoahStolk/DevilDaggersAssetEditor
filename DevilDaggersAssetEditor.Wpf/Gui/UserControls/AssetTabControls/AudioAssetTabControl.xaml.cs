@@ -14,11 +14,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 {
 	public partial class AudioAssetTabControl : UserControl
 	{
-		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(
-			nameof(BinaryFileType),
-			typeof(string),
-			typeof(AudioAssetTabControl));
-
 		private readonly AssetRowSorting _nameSort = new AssetRowSorting((a) => a.Asset.AssetName);
 		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
 		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
@@ -28,6 +23,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		public AudioAssetTabControl()
 		{
 			InitializeComponent();
+
+			Handler = new AssetTabControlHandler(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
 
 			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
@@ -48,19 +45,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			timer.Start();
 		}
 
-		public string BinaryFileType
-		{
-			get => (string)GetValue(BinaryFileTypeProperty);
-			set => SetValue(BinaryFileTypeProperty, value);
-		}
-
 		public AssetTabControlHandler Handler { get; private set; }
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
 			Loaded -= UserControl_Loaded;
-
-			Handler = new AssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType), AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
 
 			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);

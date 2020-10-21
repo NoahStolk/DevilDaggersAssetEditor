@@ -11,9 +11,9 @@ using System.Windows.Controls.Primitives;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class AudioPreviewerControl : UserControl
+	public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	{
-		private readonly ISoundEngine engine = new ISoundEngine();
+		private readonly ISoundEngine _engine = new ISoundEngine();
 
 		public AudioPreviewerControl()
 		{
@@ -105,8 +105,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			if (Song != null)
 				Song.Stop();
 
-			SongData = engine.GetSoundSource(filePath);
-			Song = engine.Play2D(SongData, true, startPaused, true);
+			SongData = _engine.GetSoundSource(filePath);
+			Song = _engine.Play2D(SongData, true, startPaused, true);
 
 			if (Song != null)
 			{
