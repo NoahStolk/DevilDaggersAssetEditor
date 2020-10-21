@@ -74,8 +74,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 				Song.PlayPosition = (uint)Seek.Value;
 		}
 
-		public void Initialize(AudioAsset asset)
+		public void Initialize(AbstractAsset a)
 		{
+			AudioAsset asset = a as AudioAsset;
+
 			AudioName.Content = asset.AssetName;
 			DefaultLoudness.Content = asset.PresentInDefaultLoudness ? asset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
 

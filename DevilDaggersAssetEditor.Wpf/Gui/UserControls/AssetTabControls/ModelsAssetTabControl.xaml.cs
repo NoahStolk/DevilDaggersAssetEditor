@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using DevilDaggersAssetEditor.Wpf.TabControlHandlers;
@@ -16,10 +15,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ModelsAssetTabControl));
 
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _nameSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _tagsSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> _pathSort = new AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting<ModelAssetRowControlHandler> _nameSort = new AssetRowSorting<ModelAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<ModelAssetRowControlHandler> _tagsSort = new AssetRowSorting<ModelAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<ModelAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ModelAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<ModelAssetRowControlHandler> _pathSort = new AssetRowSorting<ModelAssetRowControlHandler>((a) => a.Asset.EditorPath);
 
 		public ModelsAssetTabControl()
 		{
@@ -40,7 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 			Handler = new ModelsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (ModelAssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
+			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -94,7 +93,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			List<ModelAssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				ModelAssetRowControl arc = AssetEditor.Items.OfType<ModelAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				AssetRowControl arc = AssetEditor.Items.OfType<AssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}
@@ -116,7 +115,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			if (e.AddedItems.Count == 0)
 				return;
 
-			ModelAssetRowControl arc = e.AddedItems[0] as ModelAssetRowControl;
+			AssetRowControl arc = e.AddedItems[0] as AssetRowControl;
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
@@ -134,7 +133,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		private void PathSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_pathSort);
 
-		private void SetSorting(AssetRowSorting<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler> sorting)
+		private void SetSorting(AssetRowSorting<ModelAssetRowControlHandler> sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;

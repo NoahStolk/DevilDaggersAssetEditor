@@ -4,9 +4,9 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 {
-	public partial class TextureAssetRowControl : UserControl
+	public partial class AssetRowControl : UserControl
 	{
-		public TextureAssetRowControl(TextureAssetRowControlHandler handler)
+		public AssetRowControl(AssetRowControlHandler handler)
 		{
 			Handler = handler;
 
@@ -19,7 +19,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 			Data.DataContext = Handler.Asset;
 		}
 
-		public TextureAssetRowControlHandler Handler { get; }
+		public AssetRowControlHandler Handler { get; }
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)
 			=> Handler.RemovePath();

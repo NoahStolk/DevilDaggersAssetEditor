@@ -12,7 +12,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			InitializeComponent();
 		}
 
-		public void Initialize(ModelBindingAsset asset)
+		public void Initialize(AbstractAsset asset)
 		{
 			ModelBindingName.Content = asset.AssetName;
 

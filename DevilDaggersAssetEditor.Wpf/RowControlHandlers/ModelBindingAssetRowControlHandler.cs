@@ -1,25 +1,12 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Utils;
-using DevilDaggersAssetEditor.Wpf.Extensions;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
-using DevilDaggersAssetEditor.Wpf.Utils;
-using System.IO;
 
 namespace DevilDaggersAssetEditor.Wpf.RowControlHandlers
 {
-	public class ModelBindingAssetRowControlHandler : AbstractAssetRowControlHandler<ModelBindingAsset, ModelBindingAssetRowControl>
+	public class ModelBindingAssetRowControlHandler : AssetRowControlHandler
 	{
-		public ModelBindingAssetRowControlHandler(ModelBindingAsset asset, bool isEven)
-			: base(asset, isEven)
+		public ModelBindingAssetRowControlHandler(AbstractAsset asset, bool isEven)
+			: base(asset, AssetType.ModelBinding, isEven, "Model binding files (*.txt)|*.txt")
 		{
-		}
-
-		public override string OpenDialogFilter => "Model binding files (*.txt)|*.txt";
-
-		public override void UpdateGui()
-		{
-			AssetRowControl.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
-			AssetRowControl.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
 		}
 	}
 }

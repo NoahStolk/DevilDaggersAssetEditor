@@ -222,15 +222,13 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 
 		public abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
 
-		protected static void UpdateAssetTabControl<TUserAsset, TAsset, TAssetRowControl, TAssetRowControlHandler>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler> assetTabControlHandler)
+		protected static void UpdateAssetTabControl<TUserAsset, TAssetRowControlHandler>(List<TUserAsset> userAssets, AbstractAssetTabControlHandler<TAssetRowControlHandler> assetTabControlHandler)
 			where TUserAsset : AbstractUserAsset
-			where TAsset : AbstractAsset
-			where TAssetRowControl : UserControl
-			where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
+			where TAssetRowControlHandler : AssetRowControlHandler
 		{
 			foreach (TAssetRowControlHandler rowHandler in assetTabControlHandler.RowHandlers)
 			{
-				TAsset asset = rowHandler.Asset;
+				AbstractAsset asset = rowHandler.Asset;
 				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName);
 				if (userAsset != null)
 				{

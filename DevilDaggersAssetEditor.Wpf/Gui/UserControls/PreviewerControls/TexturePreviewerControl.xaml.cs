@@ -15,8 +15,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			InitializeComponent();
 		}
 
-		public void Initialize(TextureAsset asset)
+		public void Initialize(AbstractAsset a)
 		{
+			TextureAsset asset = a as TextureAsset;
+
 			TextureName.Content = asset.AssetName;
 			DefaultDimensions.Content = $"{asset.DefaultDimensions.X}x{asset.DefaultDimensions.Y}";
 			DefaultMipmaps.Content = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString(CultureInfo.InvariantCulture);

@@ -14,8 +14,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			InitializeComponent();
 		}
 
-		public void Initialize(ParticleAsset asset)
+		public void Initialize(AbstractAsset a)
 		{
+			ParticleAsset asset = a as ParticleAsset;
+
 			ParticleName.Content = asset.AssetName;
 
 			bool isPathValid = File.Exists(asset.EditorPath);

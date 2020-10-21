@@ -20,8 +20,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			InitializeComponent();
 		}
 
-		public void Initialize(ShaderAsset asset)
+		public void Initialize(AbstractAsset a)
 		{
+			ShaderAsset asset = a as ShaderAsset;
+
 			ShaderName.Content = asset.AssetName;
 
 			string vertexPath = asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture);

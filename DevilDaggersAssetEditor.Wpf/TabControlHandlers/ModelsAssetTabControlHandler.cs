@@ -1,14 +1,13 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 
 namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 {
-	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAsset, ModelAssetRowControl, ModelAssetRowControlHandler>
+	public class ModelsAssetTabControlHandler : AbstractAssetTabControlHandler<ModelAssetRowControlHandler>
 	{
 		public ModelsAssetTabControlHandler(BinaryFileType binaryFileType)
-			: base(binaryFileType)
+			: base(binaryFileType, AssetType.Model)
 		{
 		}
 

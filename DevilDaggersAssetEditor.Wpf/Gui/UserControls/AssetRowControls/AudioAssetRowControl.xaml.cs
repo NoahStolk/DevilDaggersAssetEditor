@@ -1,6 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using DevilDaggersCore.Wpf.Utils;
-using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -34,8 +33,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 
 		private void TextBoxLoudness_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			if (ValidateTextBoxLoudness(TextBoxLoudness))
-				Handler.Asset.Loudness = float.Parse(TextBoxLoudness.Text, CultureInfo.InvariantCulture);
+			//if (ValidateTextBoxLoudness(TextBoxLoudness))
+			//	Handler.Asset.Loudness = float.Parse(TextBoxLoudness.Text, CultureInfo.InvariantCulture);
 		}
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)

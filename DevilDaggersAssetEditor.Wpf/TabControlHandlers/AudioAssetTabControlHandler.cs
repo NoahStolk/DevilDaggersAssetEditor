@@ -12,10 +12,10 @@ using System.Text;
 
 namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 {
-	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAsset, AudioAssetRowControl, AudioAssetRowControlHandler>
+	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAssetRowControlHandler>
 	{
 		public AudioAssetTabControlHandler(BinaryFileType binaryFileType)
-			: base(binaryFileType)
+			: base(binaryFileType, AssetType.Audio)
 		{
 		}
 
@@ -51,7 +51,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 				AudioAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
 				if (rowHandler != null)
 				{
-					AudioAsset audioAsset = rowHandler.Asset;
+					AudioAsset audioAsset = (AudioAsset)rowHandler.Asset;
 					if (audioAsset.Loudness == kvp.Value)
 					{
 						unchangedCount++;
@@ -62,7 +62,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 						successCount++;
 					}
 
-					AudioAssetRowControl arc = rowHandler.AssetRowControl;
+					AssetRowControl arc = rowHandler.AssetRowControl;
 					arc.Handler.UpdateGui();
 				}
 			}

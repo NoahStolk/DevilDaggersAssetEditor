@@ -14,8 +14,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			InitializeComponent();
 		}
 
-		public void Initialize(ModelAsset asset)
+		public void Initialize(AbstractAsset a)
 		{
+			ModelAsset asset = a as ModelAsset;
+
 			TextureName.Content = asset.AssetName;
 			DefaultVertexCount.Content = asset.DefaultVertexCount.ToString(CultureInfo.InvariantCulture);
 			DefaultIndexCount.Content = asset.DefaultIndexCount.ToString(CultureInfo.InvariantCulture);

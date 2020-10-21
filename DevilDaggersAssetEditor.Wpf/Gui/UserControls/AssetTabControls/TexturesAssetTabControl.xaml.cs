@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using DevilDaggersAssetEditor.Wpf.TabControlHandlers;
@@ -16,10 +15,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(TexturesAssetTabControl));
 
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _nameSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _tagsSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _descriptionSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> _pathSort = new AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting<TextureAssetRowControlHandler> _nameSort = new AssetRowSorting<TextureAssetRowControlHandler>((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting<TextureAssetRowControlHandler> _tagsSort = new AssetRowSorting<TextureAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting<TextureAssetRowControlHandler> _descriptionSort = new AssetRowSorting<TextureAssetRowControlHandler>((a) => a.Asset.Description);
+		private readonly AssetRowSorting<TextureAssetRowControlHandler> _pathSort = new AssetRowSorting<TextureAssetRowControlHandler>((a) => a.Asset.EditorPath);
 
 		public TexturesAssetTabControl()
 		{
@@ -40,7 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 			Handler = new TexturesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
 
-			foreach (TextureAssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
+			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -94,7 +93,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			List<TextureAssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				TextureAssetRowControl arc = AssetEditor.Items.OfType<TextureAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
+				AssetRowControl arc = AssetEditor.Items.OfType<AssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}
@@ -116,7 +115,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			if (e.AddedItems.Count == 0)
 				return;
 
-			TextureAssetRowControl arc = e.AddedItems[0] as TextureAssetRowControl;
+			AssetRowControl arc = e.AddedItems[0] as AssetRowControl;
 
 			Handler.SelectAsset(arc.Handler.Asset);
 			Previewer.Initialize(arc.Handler.Asset);
@@ -134,7 +133,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		private void PathSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_pathSort);
 
-		private void SetSorting(AssetRowSorting<TextureAsset, TextureAssetRowControl, TextureAssetRowControlHandler> sorting)
+		private void SetSorting(AssetRowSorting<TextureAssetRowControlHandler> sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;

@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
@@ -18,17 +19,17 @@ using System.Windows.Shapes;
 
 namespace DevilDaggersAssetEditor.Wpf.RowControlHandlers
 {
-	public abstract class AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
-		where TAsset : AbstractAsset
-		where TAssetRowControl : UserControl
+	public class AssetRowControlHandler
 	{
 		private readonly SolidColorBrush _brushInfoEven;
 		private readonly SolidColorBrush _brushInfoOdd;
 		private readonly SolidColorBrush _brushEditEven;
 		private readonly SolidColorBrush _brushEditOdd;
 
-		protected AbstractAssetRowControlHandler(TAsset asset, bool isEven)
+		protected AssetRowControlHandler(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
 		{
+			OpenDialogFilter = openDialogFilter;
+
 			Asset = asset;
 			TextBlockTags = new TextBlock
 			{
@@ -38,9 +39,9 @@ namespace DevilDaggersAssetEditor.Wpf.RowControlHandlers
 			};
 			Grid.SetColumn(TextBlockTags, 1);
 
-			AssetRowControl = (TAssetRowControl)Activator.CreateInstance(typeof(TAssetRowControl), this);
+			AssetRowControl = (AssetRowControl)Activator.CreateInstance(typeof(AssetRowControl), this);
 
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == Asset.GetType());
+			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == assetType);
 			Color colorEditEven = chunkInfo.GetColor() * 0.25f;
 			Color colorEditOdd = colorEditEven * 0.5f;
 			Color colorInfoEven = colorEditOdd;
@@ -65,12 +66,12 @@ namespace DevilDaggersAssetEditor.Wpf.RowControlHandlers
 		public Rectangle RectangleInfo { get; } = new Rectangle();
 		public Rectangle RectangleEdit { get; } = new Rectangle();
 
-		public TAsset Asset { get; }
-		public TAssetRowControl AssetRowControl { get; }
+		public AbstractAsset Asset { get; }
+		public AssetRowControl AssetRowControl { get; }
 
 		public bool IsActive { get; set; } = true;
 
-		public abstract string OpenDialogFilter { get; }
+		public string OpenDialogFilter { get; }
 
 		public TextBlock TextBlockTags { get; }
 
@@ -80,7 +81,11 @@ namespace DevilDaggersAssetEditor.Wpf.RowControlHandlers
 			RectangleEdit.Fill = isEven ? _brushEditEven : _brushEditOdd;
 		}
 
-		public abstract void UpdateGui();
+		public virtual void UpdateGui()
+		{
+			AssetRowControl.TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
+			AssetRowControl.TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
+		}
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
 		{

@@ -15,17 +15,15 @@ using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 {
-	public abstract class AbstractAssetTabControlHandler<TAsset, TAssetRowControl, TAssetRowControlHandler>
-		where TAsset : AbstractAsset
-		where TAssetRowControl : UserControl
-		where TAssetRowControlHandler : AbstractAssetRowControlHandler<TAsset, TAssetRowControl>
+	public abstract class AbstractAssetTabControlHandler<TAssetRowControlHandler>
+		where TAssetRowControlHandler : AssetRowControlHandler
 	{
-		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType)
+		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType, AssetType assetType)
 		{
-			List<TAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, AssetTypeJsonFileName).Cast<TAsset>().ToList();
+			List<AbstractAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, AssetTypeJsonFileName).ToList();
 
 			int i = 0;
-			foreach (TAsset asset in assets)
+			foreach (AbstractAsset asset in assets)
 			{
 				TAssetRowControlHandler rowHandler = (TAssetRowControlHandler)(Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0) ?? throw new Exception($"Failed to create an instance of {nameof(TAssetRowControlHandler)}."));
 				RowHandlers.Add(rowHandler);
@@ -34,14 +32,14 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 			AllFilters = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? Array.Empty<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			FiltersCount = AllFilters.Count();
 
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == typeof(TAsset));
+			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == assetType);
 			FilterHighlightColor = chunkInfo.GetColor() * 0.25f;
 		}
 
 		protected abstract string AssetTypeJsonFileName { get; }
 
-		public List<TAssetRowControlHandler> RowHandlers { get; private set; } = new List<TAssetRowControlHandler>();
-		public TAsset? SelectedAsset { get; set; }
+		public List<TAssetRowControlHandler> RowHandlers { get; } = new List<TAssetRowControlHandler>();
+		public AbstractAsset? SelectedAsset { get; set; }
 
 		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
 		public Color FilterHighlightColor { get; private set; }
@@ -50,7 +48,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 		public IEnumerable<string> AllFilters { get; }
 		public int FiltersCount { get; }
 
-		public AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAsset, TAssetRowControl, TAssetRowControlHandler>((a) => a.Asset.AssetName);
+		public AssetRowSorting<TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAssetRowControlHandler>((a) => a.Asset.AssetName);
 
 		public void UpdateTagHighlighting()
 		{
@@ -64,7 +62,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 				rowHandler.UpdateBackgroundRectangleColors(items.IndexOf(rowHandler.AssetRowControl) % 2 == 0);
 		}
 
-		public void SelectAsset(TAsset asset)
+		public void SelectAsset(AbstractAsset asset)
 			=> SelectedAsset = asset;
 
 		public void ImportFolder()
@@ -89,7 +87,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 
 		public bool IsComplete()
 		{
-			foreach (TAsset asset in RowHandlers.Select(a => a.Asset))
+			foreach (AbstractAsset asset in RowHandlers.Select(a => a.Asset))
 			{
 				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture)))
 					return false;
