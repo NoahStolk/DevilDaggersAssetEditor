@@ -27,7 +27,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 		{
 			bool isValid = float.TryParse(textBox.Text, out float parsed) && parsed >= 0;
 
-			textBox.Background = isValid ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["ErrorBackground"];
+			textBox.Background = isValid ? ColorUtils.ThemeColors["Gray2"] : ColorUtils.ThemeColors["ErrorBackground"];
 
 			return isValid;
 		}
