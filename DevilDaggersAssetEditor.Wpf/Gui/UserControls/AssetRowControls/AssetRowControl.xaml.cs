@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls

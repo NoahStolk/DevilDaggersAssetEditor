@@ -2,7 +2,6 @@
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
-using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.IO;

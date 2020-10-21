@@ -1,7 +1,6 @@
-﻿using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
-using System;
+﻿using System;
 
-namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 {
 	public class AssetRowSorting
 	{

@@ -3,7 +3,7 @@ using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
-using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
 using System;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 {
 	public class AssetTabControlHandler
 	{

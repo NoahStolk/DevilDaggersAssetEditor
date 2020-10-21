@@ -1,7 +1,5 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
-using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
-using DevilDaggersAssetEditor.Wpf.TabControlHandlers;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
