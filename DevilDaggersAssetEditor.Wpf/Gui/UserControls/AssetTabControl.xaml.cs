@@ -3,7 +3,6 @@ using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
@@ -23,6 +22,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
 		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
 		private readonly AssetRowSorting _pathSort = new AssetRowSorting((a) => a.Asset.EditorPath);
+
+		private AssetRowSorting _activeSorting = new AssetRowSorting((a) => a.Asset.AssetName);
 
 		public AssetTabControl(BinaryFileType binaryFileType, AssetType assetType, string openDialogFilter, string assetTypeJsonFileName)
 		{
@@ -57,7 +58,24 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			MainGrid.Children.Add(Previewer);
 		}
 
+		private enum FilterOperation
+		{
+			None,
+			And,
+			Or,
+		}
+
 		public UserControl Previewer { get; }
+
+		public List<AssetRowControl> RowHandlers { get; } = new List<AssetRowControl>();
+		public AbstractAsset? SelectedAsset { get; set; }
+
+		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
+		public Color FilterHighlightColor { get; private set; }
+
+		public IEnumerable<string> CheckedFilters => FilterCheckBoxes.Where(c => c.IsChecked()).Select(s => s.Content.ToString() ?? string.Empty);
+		public IEnumerable<string> AllFilters { get; }
+		public int FiltersCount { get; }
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
@@ -74,7 +92,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			FilterOperationAnd.Checked += ApplyFilter;
 			FilterOperationOr.Checked += ApplyFilter;
 
-			int columns = 9;
+			const int columns = 9;
 			int rows = (int)Math.Ceiling(FiltersCount / (double)columns);
 			CreateFiltersGui(rows);
 
@@ -89,27 +107,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				checkBox.Unchecked += ApplyFilter;
 				Filters.Children.Add(checkBox);
 			}
-		}
-
-		private void ApplyFilter(object sender, RoutedEventArgs e)
-		{
-			ApplyFilter(GetFilterOperation());
-
-			foreach (AssetRowControl assetRowEntry in RowHandlers)
-			{
-				if (!assetRowEntry.IsActive)
-				{
-					if (AssetEditor.Items.Contains(assetRowEntry))
-						AssetEditor.Items.Remove(assetRowEntry);
-				}
-				else
-				{
-					if (!AssetEditor.Items.Contains(assetRowEntry))
-						AssetEditor.Items.Add(assetRowEntry);
-				}
-			}
-
-			ApplySort();
 		}
 
 		private void ApplySort()
@@ -128,7 +125,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public List<AssetRowControl> SortRowControlHandlers()
 		{
 			IEnumerable<AssetRowControl> query = RowHandlers.Where(a => a.IsActive);
-			query = ActiveSorting.IsAscending ? query.OrderBy(ActiveSorting.SortingFunction) : query.OrderByDescending(ActiveSorting.SortingFunction);
+			query = _activeSorting.IsAscending ? query.OrderBy(_activeSorting.SortingFunction) : query.OrderByDescending(_activeSorting.SortingFunction);
 			return query.ToList();
 		}
 
@@ -167,25 +164,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private void SetSorting(AssetRowSorting sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
-			ActiveSorting = sorting;
+			_activeSorting = sorting;
 
 			ApplySort();
 		}
 
 		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
 			=> UpdateTagHighlighting();
-
-		public List<AssetRowControl> RowHandlers { get; } = new List<AssetRowControl>();
-		public AbstractAsset? SelectedAsset { get; set; }
-
-		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
-		public Color FilterHighlightColor { get; private set; }
-
-		public IEnumerable<string> CheckedFilters => FilterCheckBoxes.Where(c => c.IsChecked()).Select(s => s.Content.ToString() ?? string.Empty);
-		public IEnumerable<string> AllFilters { get; }
-		public int FiltersCount { get; }
-
-		public AssetRowSorting ActiveSorting { get; set; } = new AssetRowSorting((a) => a.Asset.AssetName);
 
 		public void UpdateTagHighlighting()
 		{
@@ -246,7 +231,28 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		public void ApplyFilter(FilterOperation filterOperation)
+		private void ApplyFilter(object sender, RoutedEventArgs e)
+		{
+			ApplyFilter(GetFilterOperation());
+
+			foreach (AssetRowControl assetRowEntry in RowHandlers)
+			{
+				if (!assetRowEntry.IsActive)
+				{
+					if (AssetEditor.Items.Contains(assetRowEntry))
+						AssetEditor.Items.Remove(assetRowEntry);
+				}
+				else
+				{
+					if (!AssetEditor.Items.Contains(assetRowEntry))
+						AssetEditor.Items.Add(assetRowEntry);
+				}
+			}
+
+			ApplySort();
+		}
+
+		private void ApplyFilter(FilterOperation filterOperation)
 		{
 			foreach (AssetRowControl rowHandler in RowHandlers)
 			{
@@ -260,12 +266,23 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					{
 						FilterOperation.And => CheckedFilters.All(t => rowHandler.Asset.Tags.Contains(t)),
 						FilterOperation.Or => rowHandler.Asset.Tags.Any(t => CheckedFilters.Contains(t)),
-						_ => throw new NotImplementedException($"{nameof(FilterOperation)} {filterOperation} not implemented in {nameof(ApplyFilter)} method.")
+						_ => throw new NotSupportedException($"{nameof(FilterOperation)} {filterOperation} not supported in {nameof(ApplyFilter)} method.")
 					};
 				}
 			}
 
 			UpdateTagHighlighting();
+		}
+
+		private class AssetRowSorting
+		{
+			public AssetRowSorting(Func<AssetRowControl, object> sortingFunction)
+			{
+				SortingFunction = sortingFunction;
+			}
+
+			public Func<AssetRowControl, object> SortingFunction { get; set; }
+			public bool IsAscending { get; set; } = true;
 		}
 	}
 }
