@@ -1,5 +1,4 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
@@ -10,18 +9,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
+namespace DevilDaggersAssetEditor.Wpf.Utils
 {
-	public class AudioAssetTabControlHandler : AbstractAssetTabControlHandler<AudioAssetRowControlHandler>
+	public static class LoudnessImportExport
 	{
-		public AudioAssetTabControlHandler(BinaryFileType binaryFileType)
-			: base(binaryFileType, AssetType.Audio)
-		{
-		}
-
-		protected override string AssetTypeJsonFileName => "Audio";
-
-		public void ImportLoudness()
+		public static void ImportLoudness(List<AssetRowControlHandler> rowHandlers)
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
@@ -48,7 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 			int unchangedCount = 0;
 			foreach (KeyValuePair<string, float> kvp in values)
 			{
-				AudioAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
+				AssetRowControlHandler rowHandler = rowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
 				if (rowHandler != null)
 				{
 					AudioAsset audioAsset = (AudioAsset)rowHandler.Asset;
@@ -67,10 +59,10 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 				}
 			}
 
-			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {RowHandlers.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
+			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {rowHandlers.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
 		}
 
-		public void ExportLoudness()
+		public static void ExportLoudness(List<AssetRowControlHandler> rowHandlers)
 		{
 			SaveFileDialog dialog = new SaveFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
@@ -80,7 +72,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 				return;
 
 			StringBuilder sb = new StringBuilder();
-			foreach (AudioAsset audioAsset in RowHandlers.Select(a => a.Asset))
+			foreach (AudioAsset audioAsset in rowHandlers.Select(a => a.Asset))
 				sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
 			File.WriteAllText(dialog.FileName, sb.ToString());
 		}

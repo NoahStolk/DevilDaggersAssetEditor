@@ -3,15 +3,14 @@ using System;
 
 namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 {
-	public class AssetRowSorting<TAssetRowControlHandler>
-		where TAssetRowControlHandler : AssetRowControlHandler
+	public class AssetRowSorting
 	{
-		public AssetRowSorting(Func<TAssetRowControlHandler, object> sortingFunction)
+		public AssetRowSorting(Func<AssetRowControlHandler, object> sortingFunction)
 		{
 			SortingFunction = sortingFunction;
 		}
 
-		public Func<TAssetRowControlHandler, object> SortingFunction { get; set; }
+		public Func<AssetRowControlHandler, object> SortingFunction { get; set; }
 		public bool IsAscending { get; set; } = true;
 	}
 }

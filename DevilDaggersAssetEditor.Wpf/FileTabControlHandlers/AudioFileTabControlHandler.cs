@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -20,8 +21,8 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			MenuItem loudnessExport = new MenuItem { Header = $"Export Loudness to file" };
 
 			audioImport.Click += (sender, e) => App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.ImportFolder();
-			loudnessImport.Click += (sender, e) => App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.ImportLoudness();
-			loudnessExport.Click += (sender, e) => App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.ExportLoudness();
+			loudnessImport.Click += (sender, e) => LoudnessImportExport.ImportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.RowHandlers);
+			loudnessExport.Click += (sender, e) => LoudnessImportExport.ExportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.Handler.RowHandlers);
 
 			fileTypeMenuItem.Items.Add(audioImport);
 			fileTypeMenuItem.Items.Add(new Separator());

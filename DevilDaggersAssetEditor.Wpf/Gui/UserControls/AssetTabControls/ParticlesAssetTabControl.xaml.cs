@@ -15,10 +15,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ParticlesAssetTabControl));
 
-		private readonly AssetRowSorting<ParticleAssetRowControlHandler> _nameSort = new AssetRowSorting<ParticleAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ParticleAssetRowControlHandler> _tagsSort = new AssetRowSorting<ParticleAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ParticleAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ParticleAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ParticleAssetRowControlHandler> _pathSort = new AssetRowSorting<ParticleAssetRowControlHandler>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting _nameSort = new AssetRowSorting((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
+		private readonly AssetRowSorting _pathSort = new AssetRowSorting((a) => a.Asset.EditorPath);
 
 		public ParticlesAssetTabControl()
 		{
@@ -31,13 +31,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ParticlesAssetTabControlHandler Handler { get; private set; }
+		public AssetTabControlHandler Handler { get; private set; }
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new ParticlesAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType));
+			Handler = new AssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType), Assets.AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
 
 			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(GetFilterOperation());
 
-			foreach (ParticleAssetRowControlHandler assetRowEntry in Handler.RowHandlers)
+			foreach (AssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
 				if (!assetRowEntry.IsActive)
 				{
@@ -90,7 +90,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<ParticleAssetRowControlHandler> sorted = Handler.ApplySort();
+			List<AssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
 				AssetRowControl arc = AssetEditor.Items.OfType<AssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
@@ -133,7 +133,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		private void PathSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_pathSort);
 
-		private void SetSorting(AssetRowSorting<ParticleAssetRowControlHandler> sorting)
+		private void SetSorting(AssetRowSorting sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;

@@ -26,7 +26,7 @@ namespace DevilDaggersAssetEditor.Wpf.RowControlHandlers
 		private readonly SolidColorBrush _brushEditEven;
 		private readonly SolidColorBrush _brushEditOdd;
 
-		protected AssetRowControlHandler(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
+		public AssetRowControlHandler(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
 		{
 			OpenDialogFilter = openDialogFilter;
 

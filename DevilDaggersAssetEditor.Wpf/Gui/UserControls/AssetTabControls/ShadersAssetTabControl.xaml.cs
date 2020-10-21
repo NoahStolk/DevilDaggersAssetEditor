@@ -15,10 +15,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ShadersAssetTabControl));
 
-		private readonly AssetRowSorting<ShaderAssetRowControlHandler> _nameSort = new AssetRowSorting<ShaderAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ShaderAssetRowControlHandler> _tagsSort = new AssetRowSorting<ShaderAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ShaderAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ShaderAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ShaderAssetRowControlHandler> _pathSort = new AssetRowSorting<ShaderAssetRowControlHandler>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting _nameSort = new AssetRowSorting((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
+		private readonly AssetRowSorting _pathSort = new AssetRowSorting((a) => a.Asset.EditorPath);
 
 		public ShadersAssetTabControl()
 		{
@@ -31,13 +31,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ShadersAssetTabControlHandler Handler { get; private set; }
+		public AssetTabControlHandler Handler { get; private set; }
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new ShadersAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
+			Handler = new AssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true), Assets.AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
 
 			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(GetFilterOperation());
 
-			foreach (ShaderAssetRowControlHandler assetRowEntry in Handler.RowHandlers)
+			foreach (AssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
 				if (!assetRowEntry.IsActive)
 				{
@@ -90,7 +90,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<ShaderAssetRowControlHandler> sorted = Handler.ApplySort();
+			List<AssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
 				ShaderAssetRowControl arc = AssetEditor.Items.OfType<ShaderAssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
@@ -133,7 +133,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		private void PathSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_pathSort);
 
-		private void SetSorting(AssetRowSorting<ShaderAssetRowControlHandler> sorting)
+		private void SetSorting(AssetRowSorting sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;

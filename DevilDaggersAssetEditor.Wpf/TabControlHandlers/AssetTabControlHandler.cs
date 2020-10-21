@@ -15,17 +15,16 @@ using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 {
-	public abstract class AbstractAssetTabControlHandler<TAssetRowControlHandler>
-		where TAssetRowControlHandler : AssetRowControlHandler
+	public class AssetTabControlHandler
 	{
-		protected AbstractAssetTabControlHandler(BinaryFileType binaryFileType, AssetType assetType)
+		public AssetTabControlHandler(BinaryFileType binaryFileType, AssetType assetType, string openDialogFilter, string assetTypeJsonFileName)
 		{
-			List<AbstractAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, AssetTypeJsonFileName).ToList();
+			List<AbstractAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, assetTypeJsonFileName).ToList();
 
 			int i = 0;
 			foreach (AbstractAsset asset in assets)
 			{
-				TAssetRowControlHandler rowHandler = (TAssetRowControlHandler)(Activator.CreateInstance(typeof(TAssetRowControlHandler), asset, i++ % 2 == 0) ?? throw new Exception($"Failed to create an instance of {nameof(TAssetRowControlHandler)}."));
+				AssetRowControlHandler rowHandler = new AssetRowControlHandler(asset, assetType, i++ % 2 == 0, openDialogFilter);
 				RowHandlers.Add(rowHandler);
 			}
 
@@ -36,9 +35,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 			FilterHighlightColor = chunkInfo.GetColor() * 0.25f;
 		}
 
-		protected abstract string AssetTypeJsonFileName { get; }
-
-		public List<TAssetRowControlHandler> RowHandlers { get; } = new List<TAssetRowControlHandler>();
+		public List<AssetRowControlHandler> RowHandlers { get; } = new List<AssetRowControlHandler>();
 		public AbstractAsset? SelectedAsset { get; set; }
 
 		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
@@ -48,17 +45,17 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 		public IEnumerable<string> AllFilters { get; }
 		public int FiltersCount { get; }
 
-		public AssetRowSorting<TAssetRowControlHandler> ActiveSorting { get; set; } = new AssetRowSorting<TAssetRowControlHandler>((a) => a.Asset.AssetName);
+		public AssetRowSorting ActiveSorting { get; set; } = new AssetRowSorting((a) => a.Asset.AssetName);
 
 		public void UpdateTagHighlighting()
 		{
-			foreach (TAssetRowControlHandler rowHandler in RowHandlers.Where(a => a.IsActive))
+			foreach (AssetRowControlHandler rowHandler in RowHandlers.Where(a => a.IsActive))
 				rowHandler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
 		}
 
 		public void SetAssetEditorBackgroundColors(ItemCollection items)
 		{
-			foreach (TAssetRowControlHandler rowHandler in RowHandlers.Where(a => a.IsActive))
+			foreach (AssetRowControlHandler rowHandler in RowHandlers.Where(a => a.IsActive))
 				rowHandler.UpdateBackgroundRectangleColors(items.IndexOf(rowHandler.AssetRowControl) % 2 == 0);
 		}
 
@@ -76,7 +73,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 
 			foreach (string filePath in Directory.GetFiles(dialog.SelectedPath))
 			{
-				TAssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
+				AssetRowControlHandler rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
 				if (rowHandler == null)
 					continue;
 
@@ -111,7 +108,7 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 
 		public void ApplyFilter(FilterOperation filterOperation)
 		{
-			foreach (TAssetRowControlHandler rowHandler in RowHandlers)
+			foreach (AssetRowControlHandler rowHandler in RowHandlers)
 			{
 				if (!CheckedFilters.Any())
 				{
@@ -131,9 +128,9 @@ namespace DevilDaggersAssetEditor.Wpf.TabControlHandlers
 			UpdateTagHighlighting();
 		}
 
-		public List<TAssetRowControlHandler> ApplySort()
+		public List<AssetRowControlHandler> ApplySort()
 		{
-			IEnumerable<TAssetRowControlHandler> query = RowHandlers.Where(a => a.IsActive);
+			IEnumerable<AssetRowControlHandler> query = RowHandlers.Where(a => a.IsActive);
 			query = ActiveSorting.IsAscending ? query.OrderBy(ActiveSorting.SortingFunction) : query.OrderByDescending(ActiveSorting.SortingFunction);
 			return query.ToList();
 		}

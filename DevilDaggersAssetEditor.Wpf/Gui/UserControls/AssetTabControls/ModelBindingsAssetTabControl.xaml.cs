@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls;
 using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using DevilDaggersAssetEditor.Wpf.TabControlHandlers;
@@ -15,10 +16,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 	{
 		public static readonly DependencyProperty BinaryFileTypeProperty = DependencyProperty.Register(nameof(BinaryFileType), typeof(string), typeof(ModelBindingsAssetTabControl));
 
-		private readonly AssetRowSorting<ModelBindingAssetRowControlHandler> _nameSort = new AssetRowSorting<ModelBindingAssetRowControlHandler>((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting<ModelBindingAssetRowControlHandler> _tagsSort = new AssetRowSorting<ModelBindingAssetRowControlHandler>((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting<ModelBindingAssetRowControlHandler> _descriptionSort = new AssetRowSorting<ModelBindingAssetRowControlHandler>((a) => a.Asset.Description);
-		private readonly AssetRowSorting<ModelBindingAssetRowControlHandler> _pathSort = new AssetRowSorting<ModelBindingAssetRowControlHandler>((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting _nameSort = new AssetRowSorting((a) => a.Asset.AssetName);
+		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
+		private readonly AssetRowSorting _pathSort = new AssetRowSorting((a) => a.Asset.EditorPath);
 
 		public ModelBindingsAssetTabControl()
 		{
@@ -31,13 +32,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 			set => SetValue(BinaryFileTypeProperty, value);
 		}
 
-		public ModelBindingsAssetTabControlHandler Handler { get; private set; }
+		public AssetTabControlHandler Handler { get; private set; }
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e)
 		{
 			Loaded -= UserControl_Loaded;
 
-			Handler = new ModelBindingsAssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true));
+			Handler = new AssetTabControlHandler((BinaryFileType)Enum.Parse(typeof(BinaryFileType), BinaryFileType, true), AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
 
 			foreach (AssetRowControl arc in Handler.RowHandlers.Select(a => a.AssetRowControl))
 				AssetEditor.Items.Add(arc);
@@ -90,7 +91,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 
 		private void ApplySort()
 		{
-			List<ModelBindingAssetRowControlHandler> sorted = Handler.ApplySort();
+			List<AssetRowControlHandler> sorted = Handler.ApplySort();
 			for (int i = 0; i < sorted.Count; i++)
 			{
 				AssetRowControl arc = AssetEditor.Items.OfType<AssetRowControl>().FirstOrDefault(arc => arc.Handler.Asset == sorted[i].Asset);
@@ -133,7 +134,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		private void PathSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_pathSort);
 
-		private void SetSorting(AssetRowSorting<ModelBindingAssetRowControlHandler> sorting)
+		private void SetSorting(AssetRowSorting sorting)
 		{
 			sorting.IsAscending = !sorting.IsAscending;
 			Handler.ActiveSorting = sorting;
