@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(GetFilterOperation());
 
-			foreach (ModelAssetRowControlHandler assetRowEntry in Handler.RowHandlers)
+			foreach (AssetRowControlHandler assetRowEntry in Handler.RowHandlers)
 			{
 				if (!assetRowEntry.IsActive)
 				{

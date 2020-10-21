@@ -72,7 +72,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetTabControls
 		{
 			Handler.ApplyFilter(GetFilterOperation());
 
-			foreach (TextureAssetRowControlHandler rowHandler in Handler.RowHandlers)
+			foreach (AssetRowControlHandler rowHandler in Handler.RowHandlers)
 			{
 				if (!rowHandler.IsActive)
 				{

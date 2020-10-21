@@ -1,5 +1,7 @@
-﻿using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Wpf.RowControlHandlers;
 using DevilDaggersCore.Wpf.Utils;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,7 +9,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 {
 	public partial class AudioAssetRowControl : UserControl
 	{
-		public AudioAssetRowControl(AudioAssetRowControlHandler handler)
+		public AudioAssetRowControl(AssetRowControlHandler handler)
 		{
 			Handler = handler;
 
@@ -18,9 +20,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.AssetRowControls
 			Data.Children.Add(Handler.RectangleEdit);
 
 			Data.DataContext = Handler.Asset;
+
+			// Update GUI from row control handlers
+			TextBoxLoudness.Text = (Handler.Asset as AudioAsset).Loudness.ToString(CultureInfo.InvariantCulture);
 		}
 
-		public AudioAssetRowControlHandler Handler { get; }
+		public AssetRowControlHandler Handler { get; }
 
 		private static bool ValidateTextBoxLoudness(TextBox textBox)
 		{
