@@ -1,10 +1,9 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Chunks;
 using System;
 using System.Collections.Generic;
 
-namespace DevilDaggersAssetEditor.Info
+namespace DevilDaggersAssetEditor.Chunks
 {
 	public class ChunkInfo
 	{

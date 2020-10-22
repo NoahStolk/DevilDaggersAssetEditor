@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;

@@ -1,6 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
-using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Extensions;

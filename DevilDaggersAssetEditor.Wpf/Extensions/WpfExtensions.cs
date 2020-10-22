@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Info;
+﻿using DevilDaggersAssetEditor.Chunks;
 using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.Extensions
