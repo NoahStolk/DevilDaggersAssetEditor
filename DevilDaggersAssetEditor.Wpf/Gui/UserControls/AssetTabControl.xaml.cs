@@ -143,10 +143,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (e.AddedItems.Count == 0)
 				return;
 
-			AssetRowControl arc = e.AddedItems[0] as AssetRowControl;
-
-			SelectAsset(arc.Asset);
-			(Previewer as IPreviewerControl).Initialize(arc.Asset);
+			if (e.AddedItems[0] is AssetRowControl arc)
+			{
+				SelectAsset(arc.Asset);
+				if (Previewer is IPreviewerControl previewerControl)
+					previewerControl.Initialize(arc.Asset);
+			}
 		}
 
 		private void NameSortButton_Click(object sender, RoutedEventArgs e)
@@ -198,12 +200,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			foreach (string filePath in Directory.GetFiles(dialog.SelectedPath))
 			{
-				AssetRowControl rowHandler = RowHandlers.FirstOrDefault(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
-				if (rowHandler == null)
+				AssetRowControl? rowControl = RowHandlers.Find(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
+				if (rowControl == null)
 					continue;
 
-				rowHandler.Asset.EditorPath = filePath.Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture);
-				rowHandler.UpdateGui();
+				rowControl.Asset.EditorPath = filePath.Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture);
+				rowControl.UpdateGui();
 			}
 		}
 
