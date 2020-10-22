@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
@@ -35,10 +36,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			foreach (AbstractAsset asset in assets)
 			{
 				AssetRowControl rowHandler = new AssetRowControl(asset, assetType, i++ % 2 == 0, openDialogFilter);
-				RowHandlers.Add(rowHandler);
+				RowControls.Add(rowHandler);
 			}
 
-			AllFilters = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? new List<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
+			AllFilters = RowControls.Select(a => a.Asset).SelectMany(a => a.Tags ?? new List<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			FiltersCount = AllFilters.Count();
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == assetType);
@@ -67,7 +68,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public UserControl Previewer { get; }
 
-		public List<AssetRowControl> RowHandlers { get; } = new List<AssetRowControl>();
+		public List<AssetRowControl> RowControls { get; } = new List<AssetRowControl>();
 		public AbstractAsset? SelectedAsset { get; set; }
 
 		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
@@ -81,7 +82,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			Loaded -= UserControl_Loaded;
 
-			foreach (AssetRowControl arc in RowHandlers)
+			foreach (AssetRowControl arc in RowControls)
 				AssetEditor.Items.Add(arc);
 
 			CreateFiltersGui();
@@ -124,7 +125,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public List<AssetRowControl> SortRowControlHandlers()
 		{
-			IEnumerable<AssetRowControl> query = RowHandlers.Where(a => a.IsActive);
+			IEnumerable<AssetRowControl> query = RowControls.Where(a => a.IsActive);
 			query = _activeSorting.IsAscending ? query.OrderBy(_activeSorting.SortingFunction) : query.OrderByDescending(_activeSorting.SortingFunction);
 			return query.ToList();
 		}
@@ -176,13 +177,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void UpdateTagHighlighting()
 		{
-			foreach (AssetRowControl rowHandler in RowHandlers.Where(a => a.IsActive))
+			foreach (AssetRowControl rowHandler in RowControls.Where(a => a.IsActive))
 				rowHandler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
 		}
 
 		public void SetAssetEditorBackgroundColors(ItemCollection items)
 		{
-			foreach (AssetRowControl rowHandler in RowHandlers.Where(a => a.IsActive))
+			foreach (AssetRowControl rowHandler in RowControls.Where(a => a.IsActive))
 				rowHandler.UpdateBackgroundRectangleColors(items.IndexOf(rowHandler) % 2 == 0);
 		}
 
@@ -200,7 +201,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			foreach (string filePath in Directory.GetFiles(dialog.SelectedPath))
 			{
-				AssetRowControl? rowControl = RowHandlers.Find(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
+				AssetRowControl? rowControl = RowControls.Find(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
 				if (rowControl == null)
 					continue;
 
@@ -211,7 +212,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public bool IsComplete()
 		{
-			foreach (AbstractAsset asset in RowHandlers.Select(a => a.Asset))
+			foreach (AbstractAsset asset in RowControls.Select(a => a.Asset))
 			{
 				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture)))
 					return false;
@@ -237,7 +238,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			ApplyFilter(GetFilterOperation());
 
-			foreach (AssetRowControl assetRowEntry in RowHandlers)
+			foreach (AssetRowControl assetRowEntry in RowControls)
 			{
 				if (!assetRowEntry.IsActive)
 				{
@@ -256,7 +257,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void ApplyFilter(FilterOperation filterOperation)
 		{
-			foreach (AssetRowControl rowHandler in RowHandlers)
+			foreach (AssetRowControl rowHandler in RowControls)
 			{
 				if (!CheckedFilters.Any())
 				{
@@ -274,6 +275,24 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 
 			UpdateTagHighlighting();
+		}
+
+		public List<AbstractAsset> GetAssets()
+			=> RowControls.Select(a => a.Asset).ToList();
+
+		public void UpdateAssetTabControls(List<UserAsset> userAssets)
+		{
+			foreach (AssetRowControl rowControl in RowControls)
+			{
+				AbstractAsset asset = rowControl.Asset;
+				UserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
+				if (userAsset != null)
+				{
+					asset.ImportValuesFromUserAsset(userAsset);
+
+					rowControl.UpdateGui();
+				}
+			}
 		}
 
 		private class AssetRowSorting

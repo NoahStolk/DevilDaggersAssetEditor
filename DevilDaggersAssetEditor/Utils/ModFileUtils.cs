@@ -1,8 +1,9 @@
 ﻿using DevilDaggersAssetEditor.Json;
+using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using System.Collections.Generic;
 
-namespace DevilDaggersAssetEditor.ModFiles
+namespace DevilDaggersAssetEditor.Utils
 {
 	public static class ModFileUtils
 	{

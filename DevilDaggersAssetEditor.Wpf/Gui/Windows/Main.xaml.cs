@@ -2,7 +2,7 @@
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.FileTabControlHandlers;
+using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;
@@ -53,6 +53,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public AssetTabControl DdTexturesAssetTabControl { get; private set; } = null!;
 		public AssetTabControl ParticleParticlesAssetTabControl { get; private set; } = null!;
 
+		public List<AssetTabControl> AssetTabControls { get; private set; } = null!;
+
 		public Point CurrentTabControlSize { get; private set; }
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -64,6 +66,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			DdShadersAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
 			DdTexturesAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
 			ParticleParticlesAssetTabControl = new AssetTabControl(BinaryFileType.Particle, AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
+
+			AssetTabControls = new List<AssetTabControl> { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
 
 			TabControl.Items.Add(new TabItem { Header = "audio/Audio", Content = AudioAudioAssetTabControl });
 			TabControl.Items.Add(new TabItem { Header = "core/Shaders", Content = CoreShadersAssetTabControl });
@@ -89,7 +93,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					List<UserAsset> assets = ModFileUtils.GetAssetsFromModFilePath(UserHandler.Instance.Cache.OpenedModFilePath);
 					if (assets.Count > 0)
 					{
-						foreach (AbstractFileTabControlHandler tabHandler in MenuBar.TabHandlers)
+						foreach (AssetTabControl tabHandler in AssetTabControls)
 							tabHandler.UpdateAssetTabControls(assets);
 					}
 				}

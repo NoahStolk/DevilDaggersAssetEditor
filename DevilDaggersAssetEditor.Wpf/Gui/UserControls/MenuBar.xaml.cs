@@ -1,6 +1,9 @@
-﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileAnalyzer;
+using DevilDaggersAssetEditor.Json;
+using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.FileTabControlHandlers;
+using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Utils;
@@ -18,6 +21,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
+		private static string _modFileFilter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae";
+
 		public MenuBarUserControl()
 		{
 			InitializeComponent();
@@ -38,16 +43,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				UpdateItem.FontWeight = FontWeights.Bold;
 			}
 
-			TabHandlers = App.Assembly
-				.GetTypes()
-				.Where(t => t.BaseType == typeof(AbstractFileTabControlHandler) && !t.IsAbstract)
-				.OrderBy(t => t.Name)
-				.Select(t => (AbstractFileTabControlHandler)Activator.CreateInstance(t))
-				.ToList();
-
-			foreach (AbstractFileTabControlHandler tabHandler in TabHandlers)
-				FileMenuItem.Items.Add(tabHandler.CreateFileTypeMenuItem());
-
 #if DEBUG
 			MenuItem debugItem = new MenuItem { Header = "Open debug window" };
 			debugItem.Click += (sender, e) =>
@@ -63,10 +58,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 #endif
 		}
 
-		public List<AbstractFileTabControlHandler> TabHandlers { get; }
-
 		private void AnalyzeBinaryFileMenuItem_Click(object sender, RoutedEventArgs e)
 		{
+			// TODO: Move this code to the BinaryFileAnalyzerWindow itself.
 			OpenFileDialog openDialog = new OpenFileDialog();
 			if (UserHandler.Instance.Settings.EnableDevilDaggersRootFolder && Directory.Exists(UserHandler.Instance.Settings.DevilDaggersRootFolder))
 				openDialog.InitialDirectory = UserHandler.Instance.Settings.DevilDaggersRootFolder;
@@ -155,6 +149,82 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			{
 				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
 			}
+		}
+
+		private void ExtractBinaries_Click(object sender, RoutedEventArgs e)
+		{
+			ExtractBinariesWindow window = new ExtractBinariesWindow();
+			window.ShowDialog();
+		}
+
+		private void MakeBinaries_Click(object sender, RoutedEventArgs e)
+		{
+			MakeBinariesWindow window = new MakeBinariesWindow();
+			window.ShowDialog();
+		}
+
+		private void OpenMod_Click(object sender, RoutedEventArgs e)
+		{
+			OpenFileDialog dialog = new OpenFileDialog { Filter = _modFileFilter };
+			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.Settings.ModsRootFolder;
+
+			bool? openResult = dialog.ShowDialog();
+			if (!openResult.HasValue || !openResult.Value)
+				return;
+
+			List<UserAsset> userAssets = ModFileUtils.GetAssetsFromModFilePath(dialog.FileName);
+			if (userAssets.Count == 0)
+				return;
+
+			foreach (AssetTabControl assetTabControl in App.Instance.MainWindow!.AssetTabControls)
+			{
+				foreach (AssetRowControl rowHandler in assetTabControl.RowControls)
+				{
+					AbstractAsset asset = rowHandler.Asset;
+					UserAsset? userAsset = userAssets.Find(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
+					if (userAsset != null)
+					{
+						asset.ImportValuesFromUserAsset(userAsset);
+
+						rowHandler.UpdateGui();
+					}
+				}
+			}
+		}
+
+		private void SaveMod_Click(object sender, RoutedEventArgs e)
+		{
+			List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
+
+			List<UserAsset> userAssets = new List<UserAsset>();
+			foreach (AbstractAsset asset in assets)
+				userAssets.Add(asset.ToUserAsset());
+
+			SaveFileDialog dialog = new SaveFileDialog { Filter = _modFileFilter };
+			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
+				dialog.InitialDirectory = UserHandler.Instance.Settings.ModsRootFolder;
+
+			bool? result = dialog.ShowDialog();
+			if (!result.HasValue || !result.Value)
+				return;
+
+			JsonFileUtils.SerializeToFile(dialog.FileName, userAssets, true);
+		}
+
+		private void ImportAssets_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void ImportLoudness_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void ExportLoudness_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }
