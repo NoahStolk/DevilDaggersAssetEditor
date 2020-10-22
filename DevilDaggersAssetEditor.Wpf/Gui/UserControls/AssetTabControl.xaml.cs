@@ -285,7 +285,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			foreach (AssetRowControl rowControl in RowControls)
 			{
 				AbstractAsset asset = rowControl.Asset;
-				UserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
+				UserAsset? userAsset = userAssets.Find(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
 				if (userAsset != null)
 				{
 					asset.ImportValuesFromUserAsset(userAsset);
