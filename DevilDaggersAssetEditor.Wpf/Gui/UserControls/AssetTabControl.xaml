@@ -9,7 +9,7 @@
 			 SizeChanged="UserControl_SizeChanged">
 	<Grid Name="MainGrid">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="96" />
+			<RowDefinition Height="192" />
 			<RowDefinition Height="192" />
 			<RowDefinition />
 		</Grid.RowDefinitions>

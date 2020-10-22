@@ -14,19 +14,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			InitializeComponent();
 		}
 
-		public void Initialize(AbstractAsset a)
+		public void Initialize(AbstractAsset asset)
 		{
-			ParticleAsset asset = a as ParticleAsset;
+			if (!(asset is ParticleAsset particleAsset))
+				return;
 
-			ParticleName.Content = asset.AssetName;
+			ParticleName.Content = particleAsset.AssetName;
 
-			bool isPathValid = File.Exists(asset.EditorPath);
+			bool isPathValid = File.Exists(particleAsset.EditorPath);
 
-			FileName.Content = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Content = isPathValid ? Path.GetFileName(particleAsset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{
-				byte[] bytes = File.ReadAllBytes(asset.EditorPath);
+				byte[] bytes = File.ReadAllBytes(particleAsset.EditorPath);
 				string hex = BitConverter.ToString(bytes).Replace("-", string.Empty, StringComparison.InvariantCulture);
 				StringBuilder sb = new StringBuilder();
 				for (int i = 0; i < hex.Length; i++)

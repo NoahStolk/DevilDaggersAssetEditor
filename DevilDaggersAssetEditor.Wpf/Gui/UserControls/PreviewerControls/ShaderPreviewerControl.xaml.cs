@@ -20,13 +20,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			InitializeComponent();
 		}
 
-		public void Initialize(AbstractAsset a)
+		public void Initialize(AbstractAsset asset)
 		{
-			ShaderAsset asset = a as ShaderAsset;
+			if (!(asset is ShaderAsset shaderAsset))
+				return;
 
-			ShaderName.Content = asset.AssetName;
+			ShaderName.Content = shaderAsset.AssetName;
 
-			string vertexPath = asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture);
+			string vertexPath = shaderAsset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture);
 			bool isPathValid = File.Exists(vertexPath);
 
 			string basePath = isPathValid ? Path.GetFileName(vertexPath).TrimEnd("_vertex") : GuiUtils.FileNotFound;
@@ -36,8 +37,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 			if (isPathValid)
 			{
-				string vertexCode = SanitizeCode(File.ReadAllText(asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture)));
-				string fragmentCode = SanitizeCode(File.ReadAllText(asset.EditorPath.Replace(".glsl", "_fragment.glsl", StringComparison.InvariantCulture)));
+				string vertexCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture)));
+				string fragmentCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPath.Replace(".glsl", "_fragment.glsl", StringComparison.InvariantCulture)));
 
 				PreviewVertexTextBox.Inlines.Clear();
 				foreach (Piece piece in GlslParser.Instance.Parse(vertexCode))
