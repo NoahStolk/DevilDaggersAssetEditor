@@ -9,6 +9,7 @@ namespace DevilDaggersAssetEditor.Assets
 		{
 		}
 
-		public override AbstractUserAsset ToUserAsset() => new ParticleUserAsset(AssetName, EditorPath);
+		public override AbstractUserAsset ToUserAsset()
+			=> new ParticleUserAsset(AssetName, EditorPath);
 	}
 }

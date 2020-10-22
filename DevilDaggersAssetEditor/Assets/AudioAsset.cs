@@ -3,16 +3,8 @@ using Newtonsoft.Json;
 
 namespace DevilDaggersAssetEditor.Assets
 {
-	[JsonObject(MemberSerialization.OptIn)]
 	public class AudioAsset : AbstractAsset
 	{
-		[JsonProperty]
-		public float Loudness { get; set; }
-		[JsonProperty]
-		public bool PresentInDefaultLoudness { get; }
-
-		public float DefaultLoudness { get; }
-
 		public AudioAsset(string assetName, string description, string[] tags, string chunkTypeName, float loudness, bool presentInDefaultLoudness)
 			: base(assetName, description, tags, chunkTypeName)
 		{
@@ -22,7 +14,14 @@ namespace DevilDaggersAssetEditor.Assets
 			DefaultLoudness = loudness;
 		}
 
-		public override AbstractUserAsset ToUserAsset() => new AudioUserAsset(AssetName, EditorPath, Loudness);
+		public float Loudness { get; set; }
+		public bool PresentInDefaultLoudness { get; }
+
+		[JsonIgnore]
+		public float DefaultLoudness { get; }
+
+		public override AbstractUserAsset ToUserAsset()
+			=> new AudioUserAsset(AssetName, EditorPath, Loudness);
 
 		public override void ImportValuesFromUserAsset(AbstractUserAsset userAsset)
 		{

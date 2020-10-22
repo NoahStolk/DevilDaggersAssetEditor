@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 
 namespace DevilDaggersAssetEditor.Assets
 {
-	[JsonObject(MemberSerialization.OptIn)]
 	public abstract class AbstractAsset
 	{
 		protected AbstractAsset(string assetName, string description, string[] tags, string chunkTypeName)
@@ -15,15 +14,12 @@ namespace DevilDaggersAssetEditor.Assets
 			ChunkTypeName = chunkTypeName;
 		}
 
-		[JsonProperty]
 		public string AssetName { get; }
-		[JsonProperty]
 		public string Description { get; }
-		[JsonProperty]
 		public string[] Tags { get; }
-		[JsonProperty]
 		public string ChunkTypeName { get; }
 
+		[JsonIgnore]
 		public string EditorPath { get; set; } = GuiUtils.FileNotFound;
 
 		public abstract AbstractUserAsset ToUserAsset();

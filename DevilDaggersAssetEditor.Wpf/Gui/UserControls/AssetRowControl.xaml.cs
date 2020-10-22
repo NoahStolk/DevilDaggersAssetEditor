@@ -131,7 +131,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		public virtual void BrowsePath()
+		public void BrowsePath()
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { Filter = OpenDialogFilter };
 			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
