@@ -11,12 +11,6 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 		}
 
-		// Only overridden by AbstractHeaderedChunk to take header into account.
-		public virtual void SetBuffer(byte[] buffer) => Buffer = buffer;
-
-		// Only overridden by AbstractHeaderedChunk to take header into account.
-		public virtual byte[] GetBuffer() => Buffer;
-
 		public virtual void MakeBinary(string path)
 		{
 			Buffer = File.ReadAllBytes(path);

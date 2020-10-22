@@ -106,8 +106,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					fileBuffer = ms.ToArray();
 				}
 
-				AbstractResourceChunk loudnessChunk = (AbstractResourceChunk)Activator.CreateInstance(typeof(AudioChunk), "loudness", 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length, 0U);
-				loudnessChunk.SetBuffer(fileBuffer);
+				AbstractResourceChunk loudnessChunk = (AbstractResourceChunk)Activator.CreateInstance(typeof(AudioChunk), "loudness", 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length);
+				loudnessChunk.Buffer = fileBuffer;
 				chunks.Add(loudnessChunk);
 			}
 
@@ -172,7 +172,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				Buffer.BlockCopy(BitConverter.GetBytes(startOffset), 0, tocBuffer, (int)startOffsetBytePositions[chunk], sizeof(uint));
 
 				// Write asset data to asset stream.
-				byte[] bytes = chunk.GetBuffer();
+				byte[] bytes = chunk.Buffer;
 				assetStream.Write(bytes, 0, bytes.Length);
 			}
 
@@ -299,7 +299,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				byte[] buf = new byte[chunk.Size];
 				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);
 
-				chunk.SetBuffer(buf);
+				chunk.Buffer = buf;
 
 				foreach (FileResult fileResult in chunk.ExtractBinary())
 					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{(fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)}"), fileResult.Buffer);
