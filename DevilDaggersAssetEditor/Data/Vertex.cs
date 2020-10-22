@@ -34,19 +34,19 @@ namespace DevilDaggersAssetEditor.Data
 			return bytes;
 		}
 
-		public static Vertex CreateFromBuffer(byte[] buffer, int vertexIndex)
+		public static Vertex CreateFromBuffer(byte[] buffer, int offset, int vertexIndex)
 		{
 			Vector3 position = new Vector3(
-				x: BitConverter.ToSingle(buffer, vertexIndex * ByteCount),
-				y: BitConverter.ToSingle(buffer, vertexIndex * ByteCount + 4),
-				z: BitConverter.ToSingle(buffer, vertexIndex * ByteCount + 8));
+				x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount),
+				y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 4),
+				z: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 8));
 			Vector2 texCoord = new Vector2(
-				x: BitConverter.ToSingle(buffer, vertexIndex * ByteCount + 24),
-				y: BitConverter.ToSingle(buffer, vertexIndex * ByteCount + 28));
+				x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 24),
+				y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 28));
 			Vector3 normal = new Vector3(
-				x: BitConverter.ToSingle(buffer, vertexIndex * ByteCount + 12),
-				y: BitConverter.ToSingle(buffer, vertexIndex * ByteCount + 16),
-				z: BitConverter.ToSingle(buffer, vertexIndex * ByteCount + 20));
+				x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 12),
+				y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 16),
+				z: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 20));
 			return new Vertex(position, texCoord, normal);
 		}
 	}

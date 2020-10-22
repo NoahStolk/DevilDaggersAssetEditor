@@ -1,6 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
-using DevilDaggersAssetEditor.Headers;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using System;
@@ -107,10 +106,14 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		{
 			string name = BinaryUtils.ReadNullTerminatedString(fileBuffer, i);
 
-			byte[] chunkBuffer = new byte[ParticleBufferLength];
-			Buffer.BlockCopy(fileBuffer, i + name.Length, chunkBuffer, 0, chunkBuffer.Length);
+			byte[] buffer = new byte[ParticleBufferLength + name.Length];
+			Buffer.BlockCopy(Encoding.Default.GetBytes(name), 0, buffer, 0, name.Length);
+			Buffer.BlockCopy(fileBuffer, i + name.Length, buffer, name.Length, buffer.Length);
 
-			return new ParticleChunk(name, (uint)(i + name.Length), (uint)chunkBuffer.Length) { Buffer = chunkBuffer, Header = new ParticleHeader(Encoding.Default.GetBytes(name)) };
+			return new ParticleChunk(name, (uint)i, (uint)buffer.Length)
+			{
+				Buffer = buffer,
+			};
 		}
 	}
 }

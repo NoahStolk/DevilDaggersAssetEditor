@@ -1,6 +1,4 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Headers;
-using DevilDaggersAssetEditor.Info;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,14 +7,7 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	/// <summary>
-	/// Internal structure of a shader chunk:
-	/// - <see cref="ShaderHeader">Header</see> (to specify chunk name length, vertex buffer size, fragment buffer size).
-	/// - Chunk name.
-	/// - Vertex buffer.
-	/// - Fragment buffer.
-	/// </summary>
-	public class ShaderChunk : AbstractHeaderedChunk<ShaderHeader>
+	public class ShaderChunk : AbstractResourceChunk
 	{
 		public ShaderChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)
@@ -42,23 +33,26 @@ namespace DevilDaggersAssetEditor.Chunks
 			uint vertexSize = (uint)vertexBuffer.Length;
 			uint fragmentSize = (uint)fragmentBuffer.Length;
 
-			byte[] headerBuffer = new byte[ChunkInfo.Shader.HeaderInfo.FixedSize.Value];
+			byte[] headerBuffer = new byte[12];
 			Buf.BlockCopy(BitConverter.GetBytes(nameLength), 0, headerBuffer, 0, sizeof(uint));
 			Buf.BlockCopy(BitConverter.GetBytes(vertexSize), 0, headerBuffer, 4, sizeof(uint));
 			Buf.BlockCopy(BitConverter.GetBytes(fragmentSize), 0, headerBuffer, 8, sizeof(uint));
-			Header = new ShaderHeader(headerBuffer);
 
-			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
+			Size = (uint)Buffer.Length + (uint)headerBuffer.Length;
 		}
 
 		public override IEnumerable<FileResult> ExtractBinary()
 		{
-			byte[] vertexBuffer = new byte[Header.VertexSize];
-			Buf.BlockCopy(Buffer, (int)Header.NameLength, vertexBuffer, 0, (int)Header.VertexSize);
+			uint nameLength = BitConverter.ToUInt32(Buffer, 0);
+			uint vertexSize = BitConverter.ToUInt32(Buffer, 4);
+			uint fragmentSize = BitConverter.ToUInt32(Buffer, 8);
+
+			byte[] vertexBuffer = new byte[vertexSize];
+			Buf.BlockCopy(Buffer, (int)nameLength + 12, vertexBuffer, 0, (int)vertexSize);
 			yield return new FileResult($"{Name}_vertex", vertexBuffer);
 
-			byte[] fragmentBuffer = new byte[Header.FragmentSize];
-			Buf.BlockCopy(Buffer, (int)Header.NameLength + (int)Header.VertexSize, fragmentBuffer, 0, (int)Header.FragmentSize);
+			byte[] fragmentBuffer = new byte[fragmentSize];
+			Buf.BlockCopy(Buffer, (int)nameLength + 12 + (int)vertexSize, fragmentBuffer, 0, (int)fragmentSize);
 			yield return new FileResult($"{Name}_fragment", fragmentBuffer);
 		}
 	}

@@ -34,12 +34,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				uint headerSize = 0;
 				foreach (AbstractChunk chunk in validChunks)
 				{
-					if (chunk is ModelChunk || chunk is ShaderChunk || chunk is TextureChunk)
+					if (chunk is ModelChunk)
 					{
-						uint headerChunkSize = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType()).HeaderInfo.FixedSize.Value;
-
-						size += chunk.Size - headerChunkSize;
-						headerSize += headerChunkSize;
+						size += chunk.Size - 10;
+						headerSize += 10;
+					}
+					else if (chunk is ShaderChunk)
+					{
+						size += chunk.Size - 12;
+						headerSize += 12;
+					}
+					else if (chunk is TextureChunk)
+					{
+						size += chunk.Size - 11;
+						headerSize += 11;
 					}
 					else if (chunk is ParticleChunk particleChunk)
 					{

@@ -1,7 +1,6 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
-using DevilDaggersAssetEditor.Headers;
 using System;
 using System.Collections.Generic;
 
@@ -9,11 +8,10 @@ namespace DevilDaggersAssetEditor.Info
 {
 	public class ChunkInfo
 	{
-		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, HeaderInfo? headerInfo, AssetType assetType, byte binaryType, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
+		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, AssetType assetType, byte binaryType, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
 		{
 			BinaryFileType = binaryFileType;
 			ChunkType = chunkType;
-			HeaderInfo = headerInfo;
 			AssetType = assetType;
 			BinaryType = binaryType;
 			FileExtension = fileExtension;
@@ -27,7 +25,6 @@ namespace DevilDaggersAssetEditor.Info
 		public static ChunkInfo Model { get; } = new ChunkInfo(
 			binaryFileType: BinaryFileType.Dd,
 			chunkType: typeof(ModelChunk),
-			headerInfo: new HeaderInfo(typeof(ModelHeader), 10),
 			assetType: AssetType.Model,
 			binaryType: 0x01,
 			fileExtension: ".obj",
@@ -40,7 +37,6 @@ namespace DevilDaggersAssetEditor.Info
 		public static ChunkInfo Texture { get; } = new ChunkInfo(
 			binaryFileType: BinaryFileType.Dd,
 			chunkType: typeof(TextureChunk),
-			headerInfo: new HeaderInfo(typeof(TextureHeader), 11),
 			assetType: AssetType.Texture,
 			binaryType: 0x02,
 			fileExtension: ".png",
@@ -53,7 +49,6 @@ namespace DevilDaggersAssetEditor.Info
 		public static ChunkInfo Shader { get; } = new ChunkInfo(
 			binaryFileType: BinaryFileType.Dd | BinaryFileType.Core,
 			chunkType: typeof(ShaderChunk),
-			headerInfo: new HeaderInfo(typeof(ShaderHeader), 12),
 			assetType: AssetType.Shader,
 			binaryType: 0x10,
 			fileExtension: ".glsl",
@@ -66,7 +61,6 @@ namespace DevilDaggersAssetEditor.Info
 		public static ChunkInfo Audio { get; } = new ChunkInfo(
 			binaryFileType: BinaryFileType.Audio,
 			chunkType: typeof(AudioChunk),
-			headerInfo: null,
 			assetType: AssetType.Audio,
 			binaryType: 0x20,
 			fileExtension: ".wav",
@@ -79,7 +73,6 @@ namespace DevilDaggersAssetEditor.Info
 		public static ChunkInfo ModelBinding { get; } = new ChunkInfo(
 			binaryFileType: BinaryFileType.Dd,
 			chunkType: typeof(ModelBindingChunk),
-			headerInfo: null,
 			assetType: AssetType.ModelBinding,
 			binaryType: 0x80,
 			fileExtension: ".txt",
@@ -92,7 +85,6 @@ namespace DevilDaggersAssetEditor.Info
 		public static ChunkInfo Particle { get; } = new ChunkInfo(
 			binaryFileType: BinaryFileType.Particle,
 			chunkType: typeof(ParticleChunk),
-			headerInfo: new HeaderInfo(typeof(ParticleHeader), null),
 			assetType: AssetType.Particle,
 			binaryType: 0x00, // Doesn't actually have a binary type.
 			fileExtension: ".bin",
@@ -106,7 +98,6 @@ namespace DevilDaggersAssetEditor.Info
 
 		public BinaryFileType BinaryFileType { get; }
 		public Type ChunkType { get; }
-		public HeaderInfo? HeaderInfo { get; }
 		public AssetType AssetType { get; }
 		public byte BinaryType { get; }
 		public string FileExtension { get; }
