@@ -45,13 +45,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			App.Instance.UpdateMainWindowTitle();
 		}
 
-		public AssetTabControl AudioAudioAssetTabControl { get; private set; }
-		public AssetTabControl CoreShadersAssetTabControl { get; private set; }
-		public AssetTabControl DdModelBindingsAssetTabControl { get; private set; }
-		public AssetTabControl DdModelsAssetTabControl { get; private set; }
-		public AssetTabControl DdShadersAssetTabControl { get; private set; }
-		public AssetTabControl DdTexturesAssetTabControl { get; private set; }
-		public AssetTabControl ParticleParticlesAssetTabControl { get; private set; }
+		public AssetTabControl AudioAudioAssetTabControl { get; private set; } = null!;
+		public AssetTabControl CoreShadersAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdModelBindingsAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdModelsAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdShadersAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdTexturesAssetTabControl { get; private set; } = null!;
+		public AssetTabControl ParticleParticlesAssetTabControl { get; private set; } = null!;
 
 		public Point CurrentTabControlSize { get; private set; }
 
