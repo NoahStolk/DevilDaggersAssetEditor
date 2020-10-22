@@ -16,17 +16,17 @@ namespace DevilDaggersAssetEditor.Chunks
 {
 	public class ModelChunk : AbstractHeaderedChunk<ModelHeader>
 	{
-		private static readonly Dictionary<string, byte[]> _closures;
-
-		static ModelChunk()
-		{
-			using StreamReader sr = new StreamReader(AssemblyUtils.GetContentStream("ModelClosures.json"));
-			_closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
-		}
+		private static readonly Dictionary<string, byte[]> _closures = GetClosures();
 
 		public ModelChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)
 		{
+		}
+
+		private static Dictionary<string, byte[]> GetClosures()
+		{
+			using StreamReader sr = new StreamReader(AssemblyUtils.GetContentStream("ModelClosures.json"));
+			return JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
 		private static float ParseVertexValue(string value)
@@ -74,9 +74,8 @@ namespace DevilDaggersAssetEditor.Chunks
 			{
 				string line = lines[i];
 				string[] values = line.Split(' ');
-				string identifier = values[0];
 
-				switch (identifier)
+				switch (values[0])
 				{
 					case "v":
 						positions.Add(new Vector3(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
@@ -93,7 +92,7 @@ namespace DevilDaggersAssetEditor.Chunks
 						// f 1/2/3 4/5/6 7/8/9
 						// f 1/2/3 4/5/6 7/8/9 10/11/12
 						if (values.Length > 5)
-							throw new NotImplementedException("Turning models consisting of NGons into binary data has not been implemented.");
+							throw new NotSupportedException("Turning models consisting of NGons into binary data is not supported.");
 
 						for (int j = 0; j < 3; j++)
 						{
