@@ -24,8 +24,8 @@ namespace DevilDaggersAssetEditor.Chunks
 			_closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
-		public ModelChunk(string name, uint startOffset, uint size, uint unknown)
-			: base(name, startOffset, size, unknown)
+		public ModelChunk(string name, uint startOffset, uint size)
+			: base(name, startOffset, size)
 		{
 		}
 

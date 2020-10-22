@@ -6,12 +6,9 @@ namespace DevilDaggersAssetEditor.Chunks
 {
 	public abstract class AbstractResourceChunk : AbstractChunk
 	{
-		public uint Unknown { get; set; }
-
-		protected AbstractResourceChunk(string name, uint startOffset, uint size, uint unknown)
+		protected AbstractResourceChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)
 		{
-			Unknown = unknown;
 		}
 
 		// Only overridden by AbstractHeaderedChunk to take header into account.

@@ -112,7 +112,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			int maxLength = EditorUtils.TagsMaxLength;
 			int chars = 0;
-			for (int i = 0; i < Asset.Tags.Length; i++)
+			for (int i = 0; i < Asset.Tags.Count; i++)
 			{
 				string tag = Asset.Tags[i];
 				chars += tag.Length;
@@ -120,7 +120,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				if (checkedFilters.Contains(tag))
 					tagRun.Background = new SolidColorBrush(filterHighlightColor);
 				TextBlockTags.Inlines.Add(tagRun);
-				if (i != Asset.Tags.Length - 1)
+				if (i != Asset.Tags.Count - 1)
 				{
 					TextBlockTags.Inlines.Add(new Run(", "));
 					chars += 2;

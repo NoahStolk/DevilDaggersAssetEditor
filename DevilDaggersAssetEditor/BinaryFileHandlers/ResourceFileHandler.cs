@@ -74,14 +74,21 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			foreach (AbstractAsset asset in allAssets)
 			{
 				((IProgress<float>)progress).Report(chunks.Count / (float)allAssets.Count / 2);
-				((IProgress<string>)progressDescription).Report($"Generating {asset.ChunkTypeName.Replace("Chunk", string.Empty, StringComparison.InvariantCulture)} chunk \"{asset.AssetName}\".");
+				((IProgress<string>)progressDescription).Report($"Generating {asset.AssetType} chunk \"{asset.AssetName}\".");
 
 				if (asset is AudioAsset audioAsset)
 					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
 
 				// Create chunk.
-				Type type = AssemblyUtils.CurrentAssembly.GetTypes().FirstOrDefault(t => t.Name == asset.ChunkTypeName);
-				AbstractResourceChunk chunk = (AbstractResourceChunk)Activator.CreateInstance(type, asset.AssetName, 0U/*Don't know start offset yet.*/, 0U/*Don't know size yet.*/, 0U);
+				AbstractResourceChunk chunk = asset.AssetType switch
+				{
+					AssetType.Audio => new AudioChunk(asset.AssetName, 0, 0),
+					AssetType.Model => new ModelChunk(asset.AssetName, 0, 0),
+					AssetType.ModelBinding => new ModelBindingChunk(asset.AssetName, 0, 0),
+					AssetType.Shader => new ShaderChunk(asset.AssetName, 0, 0),
+					AssetType.Texture => new TextureChunk(asset.AssetName, 0, 0),
+					_ => throw new Exception(),
+				};
 				chunk.MakeBinary(asset.EditorPath);
 
 				chunks.Add(chunk);
@@ -221,7 +228,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			((IProgress<string>)progressDescription).Report("Creating mod file.");
 			if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
-				CreateModFile(outputPath, binaryFileType);
+				CreateModFile(outputPath);
 
 			((IProgress<string>)progressDescription).Report("Opening mod folder.");
 			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)

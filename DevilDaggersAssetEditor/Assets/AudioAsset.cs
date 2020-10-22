@@ -1,29 +1,28 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
-using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class AudioAsset : AbstractAsset
 	{
-		public AudioAsset(string assetName, string description, string[] tags, string chunkTypeName, float loudness, bool presentInDefaultLoudness)
-			: base(assetName, description, tags, chunkTypeName)
+		public AudioAsset(string assetName, string description, List<string> tags, float loudness, bool presentInDefaultLoudness)
+			: base(assetName, AssetType.Audio, description, tags)
 		{
-			Loudness = loudness;
 			PresentInDefaultLoudness = presentInDefaultLoudness;
-
 			DefaultLoudness = loudness;
+
+			Loudness = loudness;
 		}
 
-		public float Loudness { get; set; }
 		public bool PresentInDefaultLoudness { get; }
-
-		[JsonIgnore]
 		public float DefaultLoudness { get; }
 
-		public override AbstractUserAsset ToUserAsset()
+		public float Loudness { get; set; }
+
+		public override UserAsset ToUserAsset()
 			=> new AudioUserAsset(AssetName, EditorPath, Loudness);
 
-		public override void ImportValuesFromUserAsset(AbstractUserAsset userAsset)
+		public override void ImportValuesFromUserAsset(UserAsset userAsset)
 		{
 			base.ImportValuesFromUserAsset(userAsset);
 

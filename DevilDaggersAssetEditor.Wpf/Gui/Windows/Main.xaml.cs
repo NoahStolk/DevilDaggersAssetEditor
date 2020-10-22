@@ -4,13 +4,11 @@ using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.FileTabControlHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
-using DevilDaggersAssetEditor.Wpf.Mods;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -86,21 +84,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedAudioModFilePath, BinaryFileType.Audio);
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedCoreModFilePath, BinaryFileType.Core);
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedDdModFilePath, BinaryFileType.Dd);
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedParticleModFilePath, BinaryFileType.Particle);
-
-				void AutoLoadMod(string path, BinaryFileType binaryFileType)
+				if (File.Exists(UserHandler.Instance.Cache.OpenedModFilePath))
 				{
-					if (File.Exists(path))
+					List<UserAsset> assets = ModFileUtils.GetAssetsFromModFilePath(UserHandler.Instance.Cache.OpenedModFilePath);
+					if (assets.Count > 0)
 					{
-						ModFile? modFile = ModHandler.Instance.GetModFileFromPath(path, binaryFileType);
-						if (modFile != null)
-						{
-							foreach (AbstractFileTabControlHandler tabHandler in MenuBar.TabHandlers.Where(t => t.FileHandler.BinaryFileType == binaryFileType))
-								tabHandler.UpdateAssetTabControls(modFile.Assets);
-						}
+						foreach (AbstractFileTabControlHandler tabHandler in MenuBar.TabHandlers)
+							tabHandler.UpdateAssetTabControls(assets);
 					}
 				}
 

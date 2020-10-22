@@ -1,20 +1,21 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
+using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class ModelAsset : AbstractAsset
 	{
-		public ModelAsset(string assetName, string description, string[] tags, string chunkTypeName, int defaultVertexCount, int defaultIndexCount)
-			: base(assetName, description, tags, chunkTypeName)
+		public ModelAsset(string assetName, string description, List<string> tags, int defaultVertexCount, int defaultIndexCount)
+			: base(assetName, AssetType.Model, description, tags)
 		{
 			DefaultVertexCount = defaultVertexCount;
 			DefaultIndexCount = defaultIndexCount;
 		}
 
-		public int DefaultVertexCount { get; set; }
-		public int DefaultIndexCount { get; set; }
+		public int DefaultVertexCount { get; }
+		public int DefaultIndexCount { get; }
 
-		public override AbstractUserAsset ToUserAsset()
-			=> new ModelUserAsset(AssetName, EditorPath);
+		public override UserAsset ToUserAsset()
+			=> new UserAsset(AssetType.Model, AssetName, EditorPath);
 	}
 }

@@ -19,8 +19,8 @@ namespace DevilDaggersAssetEditor.Chunks
 	{
 		private static readonly bool extractMipmaps = false;
 
-		public TextureChunk(string name, uint startOffset, uint size, uint unknown)
-			: base(name, startOffset, size, unknown)
+		public TextureChunk(string name, uint startOffset, uint size)
+			: base(name, startOffset, size)
 		{
 		}
 

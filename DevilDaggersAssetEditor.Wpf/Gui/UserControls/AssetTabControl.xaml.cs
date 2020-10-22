@@ -38,7 +38,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				RowHandlers.Add(rowHandler);
 			}
 
-			AllFilters = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? Array.Empty<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
+			AllFilters = RowHandlers.Select(a => a.Asset).SelectMany(a => a.Tags ?? new List<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			FiltersCount = AllFilters.Count();
 
 			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == assetType);

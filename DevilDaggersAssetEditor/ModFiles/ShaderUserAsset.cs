@@ -1,14 +1,15 @@
-﻿using DevilDaggersAssetEditor.Chunks;
+﻿using DevilDaggersAssetEditor.Assets;
 
 namespace DevilDaggersAssetEditor.ModFiles
 {
-	public class ShaderUserAsset : AbstractUserAsset
+	public class ShaderUserAsset : UserAsset
 	{
-		public override string ChunkTypeName => nameof(ShaderChunk);
-
-		public ShaderUserAsset(string assetName, string editorPath)
-			: base(assetName, editorPath)
+		public ShaderUserAsset(string assetName, string vertexEditorPath, string fragmentEditorPath)
+			: base(AssetType.Shader, assetName, vertexEditorPath)
 		{
+			FragmentEditorPath = fragmentEditorPath;
 		}
+
+		public string FragmentEditorPath { get; set; }
 	}
 }

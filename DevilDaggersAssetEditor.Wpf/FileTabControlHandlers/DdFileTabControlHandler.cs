@@ -40,12 +40,12 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 				.Concat(App.Instance.MainWindow!.DdTexturesAssetTabControl.RowHandlers.Select(a => a.Asset))
 				.ToList();
 
-		public override void UpdateAssetTabControls(List<AbstractUserAsset> assets)
+		public override void UpdateAssetTabControls(List<UserAsset> assets)
 		{
-			UpdateAssetTabControl(assets.OfType<ModelBindingUserAsset>().ToList(), App.Instance.MainWindow!.DdModelBindingsAssetTabControl);
-			UpdateAssetTabControl(assets.OfType<ModelUserAsset>().ToList(), App.Instance.MainWindow!.DdModelsAssetTabControl);
-			UpdateAssetTabControl(assets.OfType<ShaderUserAsset>().ToList(), App.Instance.MainWindow!.DdShadersAssetTabControl);
-			UpdateAssetTabControl(assets.OfType<TextureUserAsset>().ToList(), App.Instance.MainWindow!.DdTexturesAssetTabControl);
+			UpdateAssetTabControl(assets.Where(a => a.AssetType == AssetType.ModelBinding).ToList(), App.Instance.MainWindow!.DdModelBindingsAssetTabControl);
+			UpdateAssetTabControl(assets.Where(a => a.AssetType == AssetType.Model).ToList(), App.Instance.MainWindow!.DdModelsAssetTabControl);
+			UpdateAssetTabControl(assets.Where(a => a.AssetType == AssetType.Shader).ToList(), App.Instance.MainWindow!.DdShadersAssetTabControl);
+			UpdateAssetTabControl(assets.Where(a => a.AssetType == AssetType.Texture).ToList(), App.Instance.MainWindow!.DdTexturesAssetTabControl);
 		}
 
 		protected override bool IsComplete()

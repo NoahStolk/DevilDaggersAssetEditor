@@ -2,8 +2,8 @@
 {
 	public class AudioChunk : AbstractResourceChunk
 	{
-		public AudioChunk(string name, uint startOffset, uint size, uint unknown)
-			: base(name, startOffset, size, unknown)
+		public AudioChunk(string name, uint startOffset, uint size)
+			: base(name, startOffset, size)
 		{
 		}
 	}

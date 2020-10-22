@@ -11,15 +11,15 @@ namespace DevilDaggersAssetEditor.Chunks
 {
 	/// <summary>
 	/// Internal structure of a shader chunk:
-	/// - <see cref="ShaderHeader">Header</see> (to specify chunk name length, vertex buffer size, fragment buffer size)
-	/// - Chunk name
-	/// - Vertex buffer
-	/// - Fragment buffer
+	/// - <see cref="ShaderHeader">Header</see> (to specify chunk name length, vertex buffer size, fragment buffer size).
+	/// - Chunk name.
+	/// - Vertex buffer.
+	/// - Fragment buffer.
 	/// </summary>
 	public class ShaderChunk : AbstractHeaderedChunk<ShaderHeader>
 	{
-		public ShaderChunk(string name, uint startOffset, uint size, uint unknown)
-			: base(name, startOffset, size, unknown)
+		public ShaderChunk(string name, uint startOffset, uint size)
+			: base(name, startOffset, size)
 		{
 		}
 

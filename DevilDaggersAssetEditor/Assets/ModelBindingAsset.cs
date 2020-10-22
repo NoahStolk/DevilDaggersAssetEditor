@@ -1,15 +1,16 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
+using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class ModelBindingAsset : AbstractAsset
 	{
-		public ModelBindingAsset(string assetName, string description, string[] tags, string chunkTypeName)
-			: base(assetName, description, tags, chunkTypeName)
+		public ModelBindingAsset(string assetName, string description, List<string> tags)
+			: base(assetName, AssetType.ModelBinding, description, tags)
 		{
 		}
 
-		public override AbstractUserAsset ToUserAsset()
-			=> new ModelBindingUserAsset(AssetName, EditorPath);
+		public override UserAsset ToUserAsset()
+			=> new UserAsset(AssetType.ModelBinding, AssetName, EditorPath);
 	}
 }

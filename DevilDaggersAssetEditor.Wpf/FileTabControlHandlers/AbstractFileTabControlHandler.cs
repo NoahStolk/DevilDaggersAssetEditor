@@ -6,7 +6,6 @@ using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
-using DevilDaggersAssetEditor.Wpf.Mods;
 using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
@@ -38,15 +37,15 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			makeBinaryItem.Click += async (sender, e) => await MakeBinary_Click();
 			openModFileItem.Click += (sender, e) =>
 			{
-				ModFile? modFile = OpenModFile();
-				if (modFile == null)
+				List<UserAsset> assets = OpenModFile();
+				if (assets.Count == 0)
 					return;
-				UpdateAssetTabControls(modFile.Assets);
+				UpdateAssetTabControls(assets);
 			};
 			saveModFileItem.Click += (sender, e) =>
 			{
 				List<AbstractAsset> assets = GetAssets();
-				List<AbstractUserAsset> userAssets = CreateUserAssets(assets);
+				List<UserAsset> userAssets = CreateUserAssets(assets);
 				SaveModFile(userAssets);
 			};
 
@@ -153,7 +152,7 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			});
 		}
 
-		private void SaveModFile(List<AbstractUserAsset> assets)
+		private void SaveModFile(List<UserAsset> assets)
 		{
 			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
@@ -165,69 +164,39 @@ namespace DevilDaggersAssetEditor.Wpf.FileTabControlHandlers
 			if (!result.HasValue || !result.Value)
 				return;
 
-			bool relativePaths = false;
-			if (AssetsHaveSameBasePaths())
-			{
-				ConfirmWindow relativePathsWindow = new ConfirmWindow("Relative paths", "Relative paths can be used to make it easier to share raw assets (folders or zipped files) between computers. Use relative paths?", false);
-				relativePathsWindow.ShowDialog();
-				if (relativePathsWindow.IsConfirmed)
-				{
-					foreach (AbstractUserAsset asset in assets)
-						asset.EditorPath = Path.GetFileName(asset.EditorPath);
-				}
-			}
-
-			ModFile modFile = new ModFile(App.LocalVersion, relativePaths, assets);
-
-			JsonFileUtils.SerializeToFile(dialog.FileName, modFile, true);
-
-			bool AssetsHaveSameBasePaths()
-			{
-				List<AbstractUserAsset> assetList = assets.ToList();
-				for (int i = 0; i < assetList.Count; i++)
-				{
-					string path1 = assetList[i].EditorPath;
-					string path2 = assetList[(i + 1) % assetList.Count].EditorPath;
-					if (!File.Exists(path1) || !File.Exists(path2) || Path.GetDirectoryName(path1) != Path.GetDirectoryName(path2))
-						return false;
-				}
-
-				return true;
-			}
+			JsonFileUtils.SerializeToFile(dialog.FileName, assets, true);
 		}
 
-		private static List<AbstractUserAsset> CreateUserAssets(List<AbstractAsset> assets)
+		private static List<UserAsset> CreateUserAssets(List<AbstractAsset> assets)
 		{
-			List<AbstractUserAsset> userAssets = new List<AbstractUserAsset>();
+			List<UserAsset> userAssets = new List<UserAsset>();
 			foreach (AbstractAsset asset in assets)
 				userAssets.Add(asset.ToUserAsset());
 			return userAssets;
 		}
 
-		private ModFile? OpenModFile()
+		private static List<UserAsset> OpenModFile()
 		{
-			string modFileExtension = FileHandler.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
-			string modFileFilter = $"{FileHandler.BinaryFileType} mod files (*.{modFileExtension})|*.{modFileExtension}";
-			OpenFileDialog dialog = new OpenFileDialog { Filter = modFileFilter };
+			OpenFileDialog dialog = new OpenFileDialog { Filter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
 				dialog.InitialDirectory = UserHandler.Instance.Settings.ModsRootFolder;
 
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
-				return null;
+				return new List<UserAsset>();
 
-			return ModHandler.Instance.GetModFileFromPath(dialog.FileName, FileHandler.BinaryFileType);
+			return ModFileUtils.GetAssetsFromModFilePath(dialog.FileName);
 		}
 
-		public abstract void UpdateAssetTabControls(List<AbstractUserAsset> assets);
+		public abstract void UpdateAssetTabControls(List<UserAsset> assets);
 
 		protected static void UpdateAssetTabControl<TUserAsset>(List<TUserAsset> userAssets, AssetTabControl assetTabControl)
-			where TUserAsset : AbstractUserAsset
+			where TUserAsset : UserAsset
 		{
 			foreach (AssetRowControl rowHandler in assetTabControl.RowHandlers)
 			{
 				AbstractAsset asset = rowHandler.Asset;
-				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.ChunkTypeName == asset.ChunkTypeName);
+				TUserAsset userAsset = userAssets.FirstOrDefault(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
 				if (userAsset != null)
 				{
 					asset.ImportValuesFromUserAsset(userAsset);

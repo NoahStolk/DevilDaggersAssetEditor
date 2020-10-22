@@ -7,8 +7,8 @@ namespace DevilDaggersAssetEditor.Chunks
 	public abstract class AbstractHeaderedChunk<THeader> : AbstractResourceChunk
 		where THeader : AbstractHeader
 	{
-		protected AbstractHeaderedChunk(string name, uint startOffset, uint size, uint unknown)
-			: base(name, startOffset, size, unknown)
+		protected AbstractHeaderedChunk(string name, uint startOffset, uint size)
+			: base(name, startOffset, size)
 		{
 		}
 

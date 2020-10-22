@@ -89,7 +89,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			// Create mod file.
 			if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
-				CreateModFile(outputPath, binaryFileType);
+				CreateModFile(outputPath);
 
 			// Open the output path.
 			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)

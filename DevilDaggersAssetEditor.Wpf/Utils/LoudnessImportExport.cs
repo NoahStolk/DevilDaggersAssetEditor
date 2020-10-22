@@ -39,7 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 			int unchangedCount = 0;
 			foreach (KeyValuePair<string, float> kvp in values)
 			{
-				AssetRowControl rowHandler = rowHandlers.FirstOrDefault(a => a.Asset.AssetName == kvp.Key);
+				AssetRowControl? rowHandler = rowHandlers.Find(a => a.Asset.AssetName == kvp.Key);
 				if (rowHandler != null)
 				{
 					AudioAsset audioAsset = (AudioAsset)rowHandler.Asset;
@@ -71,8 +71,12 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 				return;
 
 			StringBuilder sb = new StringBuilder();
-			foreach (AudioAsset audioAsset in rowHandlers.Select(a => a.Asset))
-				sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
+			foreach (AbstractAsset asset in rowHandlers.Select(a => a.Asset))
+			{
+				if (asset is AudioAsset audioAsset)
+					sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
+			}
+
 			File.WriteAllText(dialog.FileName, sb.ToString());
 		}
 	}

@@ -1,17 +1,15 @@
-﻿using DevilDaggersAssetEditor.Chunks;
+﻿using DevilDaggersAssetEditor.Assets;
 
 namespace DevilDaggersAssetEditor.ModFiles
 {
-	public class AudioUserAsset : AbstractUserAsset
+	public class AudioUserAsset : UserAsset
 	{
-		public override string ChunkTypeName => nameof(AudioChunk);
-
-		public float Loudness { get; }
-
 		public AudioUserAsset(string assetName, string editorPath, float loudness)
-			: base(assetName, editorPath)
+			: base(AssetType.Audio, assetName, editorPath)
 		{
 			Loudness = loudness;
 		}
+
+		public float Loudness { get; }
 	}
 }
