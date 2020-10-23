@@ -110,6 +110,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			App.Instance.MainWindow!.DdShadersAssetTabControl.ImportFolder(_ddShadersPath, AssetType.Shader);
 			App.Instance.MainWindow!.DdTexturesAssetTabControl.ImportFolder(_ddTexturesPath, AssetType.Texture);
 			App.Instance.MainWindow!.ParticleParticlesAssetTabControl.ImportFolder(_particleParticlesPath, AssetType.Particle);
+
+			Close();
 		}
 	}
 }
