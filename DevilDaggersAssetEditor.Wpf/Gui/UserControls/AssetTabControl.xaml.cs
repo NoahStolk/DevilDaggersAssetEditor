@@ -2,11 +2,9 @@
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.ModFiles;
-using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersCore.Wpf.Extensions;
-using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -190,16 +188,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public void SelectAsset(AbstractAsset asset)
 			=> SelectedAsset = asset;
 
-		public void ImportFolder()
+		public void ImportFolder(string? folder)
 		{
-			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
-			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
-				dialog.SelectedPath = $"{UserHandler.Instance.Settings.AssetsRootFolder}\\";
-
-			if (dialog.ShowDialog() != true)
+			if (folder == null || !Directory.Exists(folder))
 				return;
 
-			foreach (string filePath in Directory.GetFiles(dialog.SelectedPath))
+			foreach (string filePath in Directory.GetFiles(folder))
 			{
 				AssetRowControl? rowControl = RowControls.Find(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
 				if (rowControl == null)
