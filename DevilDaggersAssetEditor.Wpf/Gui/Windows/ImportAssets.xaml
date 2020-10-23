@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
         Title="Import assets" Height="768" Width="768" ResizeMode="NoResize">
-	<StackPanel x:Name="Data">
+	<StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'audio/Audio' import directory</Label>
 			<TextBox Name="TextBoxAudioAudio" TextChanged="TextBoxAudioAudio_TextChanged" />

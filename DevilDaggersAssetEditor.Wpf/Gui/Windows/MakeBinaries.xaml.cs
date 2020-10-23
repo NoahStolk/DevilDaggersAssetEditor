@@ -18,8 +18,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public MakeBinariesWindow()
 		{
 			InitializeComponent();
-
-			Data.DataContext = this;
 		}
 
 		public string? AudioPath { get; private set; }
