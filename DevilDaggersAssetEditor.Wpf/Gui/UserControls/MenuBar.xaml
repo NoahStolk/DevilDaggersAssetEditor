@@ -9,9 +9,10 @@
 		<MenuItem Header="File">
 			<MenuItem Header="Extract binaries" Click="ExtractBinaries_Click" />
 			<MenuItem Header="Make binaries" Click="MakeBinaries_Click" />
+			<MenuItem Header="Import assets" Click="ImportAssets_Click" />
+			<Separator />
 			<MenuItem Header="Open mod" Click="OpenMod_Click" />
 			<MenuItem Header="Save mod" Click="SaveMod_Click" />
-			<MenuItem Header="Import assets" Click="ImportAssets_Click" />
 		</MenuItem>
 		<MenuItem Header="Options">
 			<MenuItem Header="Settings" Click="Settings_Click" />

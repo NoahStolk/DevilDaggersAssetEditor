@@ -163,6 +163,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			window.ShowDialog();
 		}
 
+		private void ImportAssets_Click(object sender, RoutedEventArgs e)
+		{
+			ImportAssetsWindow window = new ImportAssetsWindow();
+			window.ShowDialog();
+		}
+
 		private void OpenMod_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = _modFileFilter };
@@ -210,11 +216,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				return;
 
 			JsonFileUtils.SerializeToFile(dialog.FileName, userAssets, true);
-		}
-
-		private void ImportAssets_Click(object sender, RoutedEventArgs e)
-		{
-
 		}
 
 		private void ImportLoudness_Click(object sender, RoutedEventArgs e)

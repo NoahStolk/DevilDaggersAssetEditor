@@ -4,7 +4,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
-        Title="Import assets" Height="640" Width="512">
+        Title="Import assets" Height="640" Width="512" ResizeMode="NoResize">
 	<StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'audio/Audio' import directory</Label>
