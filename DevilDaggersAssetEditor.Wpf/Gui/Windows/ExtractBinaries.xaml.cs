@@ -121,7 +121,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			if (outputPath == null || inputPath == null || !Directory.Exists(outputPath) || !File.Exists(inputPath))
 				return;
 
-			ProgressWindow progressWindow = new ProgressWindow($"Extracting '{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}'...");
+			string binaryFileTypeName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
+			ProgressWindow progressWindow = new ProgressWindow($"Extracting '{binaryFileTypeName}'...");
 			progressWindow.Show();
 			await Task.Run(() =>
 			{
@@ -145,7 +146,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
+						App.Instance.ShowError($"Extracting binary '{binaryFileTypeName}' did not complete successfully", $"An error occurred during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
 						progressWindow.Error();
 					});
 				}

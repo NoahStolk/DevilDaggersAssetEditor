@@ -266,12 +266,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				i += name.Length + 1; // + 1 to include null terminator.
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
 				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
-				uint unknown = BitConverter.ToUInt32(tocBuffer, i + 10);
 				i += 14;
 
 				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryType == type);
 				if (chunkInfo != null)
-					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size, unknown) as AbstractResourceChunk);
+					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size) as AbstractResourceChunk);
 			}
 
 			return chunks;

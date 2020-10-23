@@ -37,6 +37,7 @@ namespace DevilDaggersAssetEditor.Extensions
 			return fileExtension switch
 			{
 				".wav" => AssetType.Audio,
+				".ini" => AssetType.Audio,
 				".txt" => AssetType.ModelBinding,
 				".obj" => AssetType.Model,
 				".glsl" => AssetType.Shader,
