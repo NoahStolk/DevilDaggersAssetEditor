@@ -10,34 +10,65 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MakeBinariesWindow : Window
 	{
+		private string _audioPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.Audio.GetSubfolderName(), BinaryFileType.Audio.ToString().ToLower(CultureInfo.InvariantCulture));
+		private string _corePath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.Core.GetSubfolderName(), BinaryFileType.Core.ToString().ToLower(CultureInfo.InvariantCulture));
+		private string _ddPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.Dd.GetSubfolderName(), BinaryFileType.Dd.ToString().ToLower(CultureInfo.InvariantCulture));
+		private string _particlePath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.Particle.GetSubfolderName(), BinaryFileType.Particle.ToString().ToLower(CultureInfo.InvariantCulture));
+
 		public MakeBinariesWindow()
 		{
 			InitializeComponent();
+			UpdateGui();
 		}
 
-		public string? AudioPath { get; private set; }
-		public string? CorePath { get; private set; }
-		public string? DdPath { get; private set; }
-		public string? ParticlePath { get; private set; }
+		private void UpdateGui()
+		{
+			TextBoxAudio.Text = _audioPath;
+			TextBoxCore.Text = _corePath;
+			TextBoxDd.Text = _ddPath;
+			TextBoxParticle.Text = _particlePath;
+		}
 
 		private void BrowseAudioButton_Click(object sender, RoutedEventArgs e)
-			=> AudioPath = SetPath(BinaryFileType.Audio);
+			=> SetPath(BinaryFileType.Audio, ref _audioPath);
 
 		private void BrowseCoreButton_Click(object sender, RoutedEventArgs e)
-			=> CorePath = SetPath(BinaryFileType.Core);
+			=> SetPath(BinaryFileType.Core, ref _corePath);
 
 		private void BrowseDdButton_Click(object sender, RoutedEventArgs e)
-			=> DdPath = SetPath(BinaryFileType.Dd);
+			=> SetPath(BinaryFileType.Dd, ref _ddPath);
 
 		private void BrowseParticleButton_Click(object sender, RoutedEventArgs e)
-			=> ParticlePath = SetPath(BinaryFileType.Particle);
+			=> SetPath(BinaryFileType.Particle, ref _particlePath);
 
-		private static string? SetPath(BinaryFileType binaryFileType)
+		private void TextBoxAudio_TextChanged(object sender, TextChangedEventArgs e)
+			=> _audioPath = TextBoxAudio.Text;
+
+		private void TextBoxCore_TextChanged(object sender, TextChangedEventArgs e)
+			=> _corePath = TextBoxCore.Text;
+
+		private void TextBoxDd_TextChanged(object sender, TextChangedEventArgs e)
+			=> _ddPath = TextBoxDd.Text;
+
+		private void TextBoxParticle_TextChanged(object sender, TextChangedEventArgs e)
+			=> _particlePath = TextBoxParticle.Text;
+
+		private void SetPath(BinaryFileType binaryFileType, ref string path)
+		{
+			if (TrySetPath(binaryFileType, out string selectedPath))
+			{
+				path = selectedPath;
+				UpdateGui();
+			}
+		}
+
+		private static bool TrySetPath(BinaryFileType binaryFileType, out string selectedPath)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
 			string initDir = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName());
@@ -46,17 +77,26 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
-				return null;
+			{
+				selectedPath = string.Empty;
+				return false;
+			}
 
-			return openDialog.FileName;
+			selectedPath = openDialog.FileName;
+			return true;
 		}
 
 		private async void MakeBinaries_Click(object sender, RoutedEventArgs e)
 		{
-			await MakeBinary(BinaryFileType.Audio, AudioPath);
-			await MakeBinary(BinaryFileType.Core, CorePath);
-			await MakeBinary(BinaryFileType.Dd, DdPath);
-			await MakeBinary(BinaryFileType.Particle, ParticlePath);
+			await Task.WhenAll(new List<Task>
+			{
+				MakeBinary(BinaryFileType.Audio, _audioPath),
+				MakeBinary(BinaryFileType.Core, _corePath),
+				MakeBinary(BinaryFileType.Dd, _ddPath),
+				MakeBinary(BinaryFileType.Particle, _particlePath),
+			});
+
+			Close();
 		}
 
 		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath)

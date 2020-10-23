@@ -8,22 +8,22 @@
 	<StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'audio' binary path</Label>
-			<Label Content="{Binding AudioPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxAudio" TextChanged="TextBoxAudio_TextChanged" />
 			<Button Content="Browse" Click="BrowseAudioButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'core' binary path</Label>
-			<Label Content="{Binding CorePath, Mode=OneWay}" />
+			<TextBox Name="TextBoxCore" TextChanged="TextBoxCore_TextChanged" />
 			<Button Content="Browse" Click="BrowseCoreButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'dd' binary path</Label>
-			<Label Content="{Binding DdPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxDd" TextChanged="TextBoxDd_TextChanged" />
 			<Button Content="Browse" Click="BrowseDdButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'particle' binary path</Label>
-			<Label Content="{Binding ParticlePath, Mode=OneWay}" />
+			<TextBox Name="TextBoxParticle" TextChanged="TextBoxParticle_TextChanged" />
 			<Button Content="Browse" Click="BrowseParticleButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
