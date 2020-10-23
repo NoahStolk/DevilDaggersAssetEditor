@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using System;
 
 namespace DevilDaggersAssetEditor.Extensions
@@ -13,7 +14,35 @@ namespace DevilDaggersAssetEditor.Extensions
 				BinaryFileType.Dd => "res",
 				BinaryFileType.Core => "core",
 				BinaryFileType.Particle => "dd",
-				_ => throw new NotImplementedException($"{nameof(BinaryFileType)} '{binaryFileType}' has not been implemented in the {nameof(GetSubfolderName)} method."),
+				_ => throw new NotSupportedException($"{nameof(BinaryFileType)} '{binaryFileType}' is not supported in the {nameof(GetSubfolderName)} method."),
+			};
+		}
+
+		public static string GetFileExtensionFromAssetType(this AssetType assetType)
+		{
+			return assetType switch
+			{
+				AssetType.Audio => ".wav",
+				AssetType.ModelBinding => ".txt",
+				AssetType.Model => ".obj",
+				AssetType.Shader => ".glsl",
+				AssetType.Texture => ".png",
+				AssetType.Particle => ".bin",
+				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFileExtensionFromAssetType)} method."),
+			};
+		}
+
+		public static AssetType GetAssetTypeFromFileExtension(this string fileExtension)
+		{
+			return fileExtension switch
+			{
+				".wav" => AssetType.Audio,
+				".txt" => AssetType.ModelBinding,
+				".obj" => AssetType.Model,
+				".glsl" => AssetType.Shader,
+				".png" => AssetType.Texture,
+				".bin" => AssetType.Particle,
+				_ => throw new NotSupportedException($"File extension '{fileExtension}' is not supported in the {nameof(GetAssetTypeFromFileExtension)} method."),
 			};
 		}
 	}

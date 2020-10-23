@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
@@ -188,12 +189,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public void SelectAsset(AbstractAsset asset)
 			=> SelectedAsset = asset;
 
-		public void ImportFolder(string? folder)
+		public void ImportFolder(string? folder, AssetType assetType)
 		{
 			if (folder == null || !Directory.Exists(folder))
 				return;
 
-			foreach (string filePath in Directory.GetFiles(folder))
+			foreach (string filePath in Directory.GetFiles(folder, $"*{assetType.GetFileExtensionFromAssetType()}", SearchOption.AllDirectories))
 			{
 				AssetRowControl? rowControl = RowControls.Find(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
 				if (rowControl == null)
@@ -202,17 +203,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				rowControl.Asset.EditorPath = filePath.Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture);
 				rowControl.UpdateGui();
 			}
-		}
-
-		public bool IsComplete()
-		{
-			foreach (AbstractAsset asset in RowControls.Select(a => a.Asset))
-			{
-				if (!File.Exists(asset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture)))
-					return false;
-			}
-
-			return true;
 		}
 
 		public void CreateFiltersGui(int rows)

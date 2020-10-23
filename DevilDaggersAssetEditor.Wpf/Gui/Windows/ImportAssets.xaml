@@ -4,45 +4,45 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
-        Title="Import assets" Height="640" Width="512" ResizeMode="NoResize">
-	<StackPanel>
+        Title="Import assets" Height="768" Width="768" ResizeMode="NoResize">
+	<StackPanel x:Name="Data">
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'audio/Audio' import directory</Label>
-			<Label Content="{Binding AudioAudioPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxAudioAudio" TextChanged="TextBoxAudioAudio_TextChanged" />
 			<Button Content="Browse" Click="BrowseAudioAudioButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'core/Shaders' import directory</Label>
-			<Label Content="{Binding CoreShadersPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxCoreShaders" TextChanged="TextBoxCoreShaders_TextChanged" />
 			<Button Content="Browse" Click="BrowseCoreShadersButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'dd/Model Bindings' import directory</Label>
-			<Label Content="{Binding DdModelBindingsPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxDdModelBindings" TextChanged="TextBoxDdModelBindings_TextChanged" />
 			<Button Content="Browse" Click="BrowseDdModelBindingsButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'dd/Models' import directory</Label>
-			<Label Content="{Binding DdModelsPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxDdModels" TextChanged="TextBoxDdModels_TextChanged" />
 			<Button Content="Browse" Click="BrowseDdModelsButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'dd/Shaders' import directory</Label>
-			<Label Content="{Binding DdShadersPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxDdShaders" TextChanged="TextBoxDdShaders_TextChanged" />
 			<Button Content="Browse" Click="BrowseDdShadersButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'dd/Textures' import directory</Label>
-			<Label Content="{Binding DdTexturesPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxDdTextures" TextChanged="TextBoxDdTextures_TextChanged" />
 			<Button Content="Browse" Click="BrowseDdTexturesButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'particle/Particles' import directory</Label>
-			<Label Content="{Binding ParticleParticlesPath, Mode=OneWay}" />
+			<TextBox Name="TextBoxParticleParticles" TextChanged="TextBoxParticleParticles_TextChanged" />
 			<Button Content="Browse" Click="BrowseParticleParticlesButton_Click" Width="128" HorizontalAlignment="Left" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
-			<Button Content="Import assets" Click="ImportAssetsButton_Click" Width="128" HorizontalAlignment="Left" />
+			<Button Content="Import assets" Click="ImportAssetsButton_Click" Style="{StaticResource OkButtonLarge}" />
 		</StackPanel>
 	</StackPanel>
 </Window>

@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
@@ -51,9 +51,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			foreach (string path in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories))
 			{
 				string name = Path.GetFileNameWithoutExtension(path);
-
-				string? extension = Path.GetExtension(path);
-				AssetType assetType = ChunkInfo.All.FirstOrDefault(e => e.FileExtension == extension)!.AssetType;
+				AssetType assetType = Path.GetExtension(path).GetAssetTypeFromFileExtension();
 
 				if (assetType == AssetType.Shader)
 				{
