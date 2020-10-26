@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
+using DevilDaggersAssetEditor.Wpf.Extensions;
 using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using System;
@@ -71,8 +72,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void BrowseOutputButton_Click(object sender, RoutedEventArgs e)
 		{
 			VistaFolderBrowserDialog folderDialog = new VistaFolderBrowserDialog();
-			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
-				folderDialog.SelectedPath = $"{UserHandler.Instance.Settings.ModsRootFolder}\\";
+			folderDialog.OpenAssetsRootFolder();
 
 			if (folderDialog.ShowDialog() == true)
 			{

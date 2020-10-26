@@ -1,7 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -88,8 +88,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private static bool TrySetPath(out string selectedPath)
 		{
 			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
-			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
-				dialog.SelectedPath = $"{UserHandler.Instance.Settings.AssetsRootFolder}\\";
+			dialog.OpenAssetsRootFolder();
 
 			if (dialog.ShowDialog() != true)
 			{

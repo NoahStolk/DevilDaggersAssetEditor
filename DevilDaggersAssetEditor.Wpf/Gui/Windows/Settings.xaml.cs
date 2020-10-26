@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Native;
 using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Extensions;
@@ -61,9 +62,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void Browse(Label label)
 		{
 			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
-			string? initDir = label.Content.ToString();
-			if (!string.IsNullOrEmpty(initDir) && Directory.Exists(initDir))
-				dialog.SelectedPath = $"{initDir}\\";
+			dialog.OpenDirectory(true, label.Content.ToString());
 
 			if (dialog.ShowDialog() == true)
 				label.Content = dialog.SelectedPath;
