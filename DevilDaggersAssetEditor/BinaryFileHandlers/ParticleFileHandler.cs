@@ -83,7 +83,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				((IProgress<float>)progress).Report(i / (float)fileBuffer.Length);
 				((IProgress<string>)progressDescription).Report($"Creating Particle file for chunk \"{chunk.Name}\".");
 
-				File.WriteAllBytes(Path.Combine(outputPath, _folderName, $"{chunk.Name}{_fileExtension}"), chunk.Buffer);
+				File.WriteAllBytes(Path.Combine(outputPath, _folderName, chunk.Name + _fileExtension), chunk.Buffer.ToArray());
 			}
 
 			// Create mod file.
@@ -108,7 +108,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			byte[] buffer = new byte[ParticleBufferLength + name.Length];
 			Buffer.BlockCopy(Encoding.Default.GetBytes(name), 0, buffer, 0, name.Length);
-			Buffer.BlockCopy(fileBuffer, i + name.Length, buffer, name.Length, buffer.Length);
+			Buffer.BlockCopy(fileBuffer, i + name.Length, buffer, name.Length, ParticleBufferLength);
 
 			return new ParticleChunk(name, (uint)i, (uint)buffer.Length)
 			{

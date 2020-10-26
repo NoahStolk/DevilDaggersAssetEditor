@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,8 +8,10 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class ShaderChunk : AbstractResourceChunk
+	public class ShaderChunk : ResourceChunk, IChunk
 	{
+		public AssetType AssetType => AssetType.Shader;
+
 		public ShaderChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)
 		{

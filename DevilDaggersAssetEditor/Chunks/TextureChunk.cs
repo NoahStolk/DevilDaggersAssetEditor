@@ -13,9 +13,11 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class TextureChunk : AbstractResourceChunk
+	public class TextureChunk : ResourceChunk, IChunk
 	{
 		private static readonly bool _extractMipmaps;
+
+		public AssetType AssetType => AssetType.Texture;
 
 		public TextureChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)

@@ -47,11 +47,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture))).ToList();
 
 			((IProgress<string>)progressDescription).Report("Generating chunks based on asset list.");
-			List<AbstractResourceChunk> chunks = CreateChunksFromAssets(allAssets, progress, progressDescription);
+			List<ResourceChunk> chunks = CreateChunksFromAssets(allAssets, progress, progressDescription);
 
 			// Create TOC stream.
 			((IProgress<string>)progressDescription).Report("Generating TOC stream.");
-			CreateTocStream(chunks, out byte[] tocBuffer, out Dictionary<AbstractResourceChunk, long> startOffsetBytePositions);
+			CreateTocStream(chunks, out byte[] tocBuffer, out Dictionary<ResourceChunk, long> startOffsetBytePositions);
 
 			// Create asset stream.
 			((IProgress<string>)progressDescription).Report("Generating asset stream.");
@@ -65,11 +65,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			fs.Write(binaryBytes, 0, binaryBytes.Length);
 		}
 
-		private static List<AbstractResourceChunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, Progress<float> progress, Progress<string> progressDescription)
+		private static List<ResourceChunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, Progress<float> progress, Progress<string> progressDescription)
 		{
 			StringBuilder loudness = new StringBuilder();
 
-			List<AbstractResourceChunk> chunks = new List<AbstractResourceChunk>();
+			List<ResourceChunk> chunks = new List<ResourceChunk>();
 			foreach (AbstractAsset asset in allAssets)
 			{
 				((IProgress<float>)progress).Report(chunks.Count / (float)allAssets.Count / 2);
@@ -79,7 +79,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
 
 				// Create chunk.
-				AbstractResourceChunk chunk = asset.AssetType switch
+				ResourceChunk chunk = asset.AssetType switch
 				{
 					AssetType.Audio => new AudioChunk(asset.AssetName, 0, 0),
 					AssetType.Model => new ModelChunk(asset.AssetName, 0, 0),
@@ -105,7 +105,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					fileBuffer = ms.ToArray();
 				}
 
-				AbstractResourceChunk loudnessChunk = (AbstractResourceChunk)Activator.CreateInstance(typeof(AudioChunk), "loudness", 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length);
+				ResourceChunk loudnessChunk = (ResourceChunk)Activator.CreateInstance(typeof(AudioChunk), "loudness", 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length);
 				loudnessChunk.Buffer = fileBuffer;
 				chunks.Add(loudnessChunk);
 			}
@@ -113,11 +113,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return chunks;
 		}
 
-		public static void CreateTocStream(List<AbstractResourceChunk> chunks, out byte[] tocBuffer, out Dictionary<AbstractResourceChunk, long> startOffsetBytePositions)
+		public static void CreateTocStream(List<ResourceChunk> chunks, out byte[] tocBuffer, out Dictionary<ResourceChunk, long> startOffsetBytePositions)
 		{
-			startOffsetBytePositions = new Dictionary<AbstractResourceChunk, long>();
+			startOffsetBytePositions = new Dictionary<ResourceChunk, long>();
 			using MemoryStream tocStream = new MemoryStream();
-			foreach (AbstractResourceChunk chunk in chunks)
+			foreach (ResourceChunk chunk in chunks)
 			{
 				Type chunkType = chunk.GetType();
 				byte type = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunkType).BinaryType;
@@ -148,16 +148,16 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static byte[] CreateAssetStream(
 			string binaryFileTypeName,
-			List<AbstractResourceChunk> chunks,
+			List<ResourceChunk> chunks,
 			byte[] tocBuffer,
-			Dictionary<AbstractResourceChunk, long> startOffsetBytePositions,
+			Dictionary<ResourceChunk, long> startOffsetBytePositions,
 			Progress<float>? progress = null,
 			Progress<string>? progressDescription = null)
 		{
 			byte[] assetBuffer;
 			using MemoryStream assetStream = new MemoryStream();
 			int i = 0;
-			foreach (AbstractResourceChunk chunk in chunks)
+			foreach (ResourceChunk chunk in chunks)
 			{
 				if (progress != null)
 					((IProgress<float>)progress).Report(0.5f + i++ / (float)chunks.Count / 2);
@@ -171,7 +171,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				Buffer.BlockCopy(BitConverter.GetBytes(startOffset), 0, tocBuffer, (int)startOffsetBytePositions[chunk], sizeof(uint));
 
 				// Write asset data to asset stream.
-				byte[] bytes = chunk.Buffer;
+				byte[] bytes = chunk.Buffer.ToArray();
 				assetStream.Write(bytes, 0, bytes.Length);
 			}
 
@@ -220,7 +220,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			byte[] tocBuffer = ReadTocBuffer(sourceFileBytes);
 
 			((IProgress<string>)progressDescription).Report("Creating chunks.");
-			List<AbstractChunk> chunks = ReadChunks(tocBuffer);
+			List<ResourceChunk> chunks = ReadChunks(tocBuffer);
 
 			((IProgress<string>)progressDescription).Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress, progressDescription);
@@ -251,9 +251,9 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return tocBuffer;
 		}
 
-		public static List<AbstractChunk> ReadChunks(byte[] tocBuffer)
+		public static List<ResourceChunk> ReadChunks(byte[] tocBuffer)
 		{
-			List<AbstractChunk> chunks = new List<AbstractChunk>();
+			List<ResourceChunk> chunks = new List<ResourceChunk>();
 
 			int i = 0;
 
@@ -270,13 +270,13 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryType == type);
 				if (chunkInfo != null)
-					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size) as AbstractResourceChunk);
+					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size) as ResourceChunk);
 			}
 
 			return chunks;
 		}
 
-		private void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<AbstractChunk> chunks, Progress<float> progress, Progress<string> progressDescription)
+		private void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<ResourceChunk> chunks, Progress<float> progress, Progress<string> progressDescription)
 		{
 			int chunksDone = 0;
 			int totalChunks = chunks.Count();
@@ -284,7 +284,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			foreach (ChunkInfo chunkInfo in ChunkInfo.All.Where(c => BinaryFileType.HasFlagBothWays(c.BinaryFileType)))
 				Directory.CreateDirectory(Path.Combine(outputPath, chunkInfo.FolderName));
 
-			foreach (AbstractResourceChunk chunk in chunks)
+			foreach (ResourceChunk chunk in chunks)
 			{
 				if (chunk.Size == 0) // Filter empty chunks (garbage in TOC buffers).
 					continue;
@@ -300,7 +300,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				chunk.Buffer = buf;
 
 				foreach (FileResult fileResult in chunk.ExtractBinary())
-					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, $"{fileResult.Name}{(fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)}"), fileResult.Buffer);
+					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, fileResult.Name + (fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)), fileResult.Buffer.ToArray());
 			}
 		}
 

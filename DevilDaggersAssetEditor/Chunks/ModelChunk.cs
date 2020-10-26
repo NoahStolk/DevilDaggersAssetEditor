@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Utils;
 using Newtonsoft.Json;
 using System;
@@ -11,9 +12,11 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class ModelChunk : AbstractResourceChunk
+	public class ModelChunk : ResourceChunk, IChunk
 	{
 		private static readonly Dictionary<string, byte[]> _closures = GetClosures();
+
+		public AssetType AssetType => AssetType.Model;
 
 		public ModelChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)
