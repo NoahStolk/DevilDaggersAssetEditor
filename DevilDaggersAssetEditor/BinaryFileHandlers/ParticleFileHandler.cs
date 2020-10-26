@@ -74,7 +74,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			while (i < fileBuffer.Length)
 			{
 				ParticleChunk chunk = ReadParticleChunk(fileBuffer, i);
-				i += chunk.Name.Length;
 				i += chunk.Buffer.Length;
 
 				progress.Report($"Creating Particle file for chunk \"{chunk.Name}\".", i / (float)fileBuffer.Length);
