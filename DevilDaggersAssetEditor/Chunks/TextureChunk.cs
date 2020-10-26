@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using Buf = System.Buffer;
 
@@ -17,12 +16,12 @@ namespace DevilDaggersAssetEditor.Chunks
 	{
 		private static readonly bool _extractMipmaps;
 
-		public AssetType AssetType => AssetType.Texture;
-
 		public TextureChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)
 		{
 		}
+
+		public AssetType AssetType => AssetType.Texture;
 
 		public override void MakeBinary(string path)
 		{
@@ -35,7 +34,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
-			if (AssetHandler.Instance.DdTexturesAssets.FirstOrDefault(t => t.AssetName == Name).IsModelTexture)
+			if (AssetHandler.Instance.DdTexturesAssets.Find(t => t.AssetName == Name)?.IsModelTexture == true)
 			{
 				while (maxDimension > UserHandler.Instance.Settings.TextureSizeLimit)
 				{
@@ -47,16 +46,15 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			using Bitmap resizedImage = ResizeImage(image, Math.Max(1, newWidth), Math.Max(1, newHeight));
 
-			byte[] headerBuffer = new byte[11];
-			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
-			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Width), 0, headerBuffer, 2, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Height), 0, headerBuffer, 6, sizeof(uint));
 			byte mipmapCount = GetMipmapCountFromImage(resizedImage);
-			headerBuffer[10] = mipmapCount;
+			GetBufferSizes(resizedImage.Width, resizedImage.Height, mipmapCount, out int pixelBufferLength, out int[] mipmapBufferSizes);
 
-			GetBufferSizes(resizedImage.Width, resizedImage.Height, mipmapCount, out int totalBufferLength, out int[] mipmapBufferSizes);
+			Buffer = new byte[11 + pixelBufferLength];
+			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, Buffer, 0, sizeof(ushort));
+			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Width), 0, Buffer, 2, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Height), 0, Buffer, 6, sizeof(uint));
+			Buffer[10] = mipmapCount;
 
-			Buffer = new byte[totalBufferLength];
 			int mipmapWidth = resizedImage.Width;
 			int mipmapHeight = resizedImage.Height;
 			int mipmapBufferOffset = 0;
@@ -77,10 +75,10 @@ namespace DevilDaggersAssetEditor.Chunks
 						if (bufferPosition >= mipmapBufferSizes[i])
 							continue;
 
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.R;
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.G;
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.B;
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.A;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.R;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.G;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.B;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.A;
 					}
 				}
 
@@ -89,7 +87,7 @@ namespace DevilDaggersAssetEditor.Chunks
 				mipmapHeight /= 2;
 			}
 
-			Size = (uint)Buffer.Length + (uint)headerBuffer.Length;
+			Size = (uint)Buffer.Length;
 		}
 
 		public override IEnumerable<FileResult> ExtractBinary()
@@ -120,6 +118,7 @@ namespace DevilDaggersAssetEditor.Chunks
 				mipmapOffset += mipmapBufferSizes[i];
 
 				using MemoryStream memoryStream = new MemoryStream();
+
 				// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
 				new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
 

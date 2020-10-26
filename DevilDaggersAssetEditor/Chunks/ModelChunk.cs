@@ -38,28 +38,25 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			int vertexCount = outPositions.Count;
 
-			byte[] headerBuffer = new byte[10];
-			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
-
 			byte[] closure = _closures[Name];
-			Buffer = new byte[headerBuffer.Length + vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
+			Buffer = new byte[10 + vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
 
-			Buf.BlockCopy(headerBuffer, 0, Buffer, 0, headerBuffer.Length);
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 0, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 4, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, Buffer, 8, sizeof(ushort));
 
 			for (int i = 0; i < vertexCount; i++)
 			{
 				Vertex vertex = new Vertex(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
 				byte[] vertexBytes = vertex.ToByteArray();
-				Buf.BlockCopy(vertexBytes, 0, Buffer, headerBuffer.Length + i * Vertex.ByteCount, Vertex.ByteCount);
+				Buf.BlockCopy(vertexBytes, 0, Buffer, 10 + i * Vertex.ByteCount, Vertex.ByteCount);
 			}
 
 			for (int i = 0; i < vertexCount; i++)
-				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, headerBuffer.Length + vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
-			Buf.BlockCopy(closure, 0, Buffer, headerBuffer.Length + vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
+				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, 10 + vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
+			Buf.BlockCopy(closure, 0, Buffer, 10 + vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
 
-			Size = (uint)Buffer.Length + (uint)headerBuffer.Length;
+			Size = (uint)Buffer.Length;
 		}
 
 		public static void ReadObj(string path, out List<Vector3> outPositions, out List<Vector2> outTexCoords, out List<Vector3> outNormals, out List<VertexReference> outVertices)

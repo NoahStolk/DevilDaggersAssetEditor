@@ -24,24 +24,21 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			byte[] vertexBuffer = File.ReadAllBytes(vertexPath);
 			byte[] fragmentBuffer = File.ReadAllBytes(fragmentPath);
-
 			string name = Path.GetFileNameWithoutExtension(path);
+
 			uint nameLength = (uint)name.Length;
-
-			Buffer = new byte[nameLength + vertexBuffer.Length + fragmentBuffer.Length];
-			Buf.BlockCopy(Encoding.Default.GetBytes(name), 0, Buffer, 0, (int)nameLength);
-			Buf.BlockCopy(vertexBuffer, 0, Buffer, (int)nameLength, vertexBuffer.Length);
-			Buf.BlockCopy(fragmentBuffer, 0, Buffer, (int)nameLength + vertexBuffer.Length, fragmentBuffer.Length);
-
 			uint vertexSize = (uint)vertexBuffer.Length;
 			uint fragmentSize = (uint)fragmentBuffer.Length;
 
-			byte[] headerBuffer = new byte[12];
-			Buf.BlockCopy(BitConverter.GetBytes(nameLength), 0, headerBuffer, 0, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes(vertexSize), 0, headerBuffer, 4, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes(fragmentSize), 0, headerBuffer, 8, sizeof(uint));
+			Buffer = new byte[12 + nameLength + vertexBuffer.Length + fragmentBuffer.Length];
+			Buf.BlockCopy(BitConverter.GetBytes(nameLength), 0, Buffer, 0, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes(vertexSize), 0, Buffer, 4, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes(fragmentSize), 0, Buffer, 8, sizeof(uint));
+			Buf.BlockCopy(Encoding.Default.GetBytes(name), 0, Buffer, 12, (int)nameLength);
+			Buf.BlockCopy(vertexBuffer, 0, Buffer, 12 + (int)nameLength, vertexBuffer.Length);
+			Buf.BlockCopy(fragmentBuffer, 0, Buffer, 12 + (int)nameLength + vertexBuffer.Length, fragmentBuffer.Length);
 
-			Size = (uint)Buffer.Length + (uint)headerBuffer.Length;
+			Size = (uint)Buffer.Length;
 		}
 
 		public override IEnumerable<FileResult> ExtractBinary()
