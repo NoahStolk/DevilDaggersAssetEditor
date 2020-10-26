@@ -151,18 +151,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 					fileHandler.MakeBinary(atcs.SelectMany(atc => atc.GetAssets()).ToList(), outputPath, progress);
 
-					App.Instance.Dispatcher.Invoke(() =>
-					{
-						progressBar.Value = 1;
-						progressDescription.Text = "Completed successfully.";
-					});
+					App.Instance.Dispatcher.Invoke(() => progress.Report("Completed successfully.", 1));
 				}
 				catch (Exception ex)
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
 						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred during the execution of \"{progressDescription.Text}\".", ex);
-						progressDescription.Text = "Execution did not complete successfully.";
+						progress.Report("Execution did not complete successfully.");
 					});
 				}
 			});
