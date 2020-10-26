@@ -57,8 +57,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			progress.Report($"Writing buffers to '{binaryFileTypeName}' file.");
 			byte[] binaryBytes = CreateBinary(tocBuffer, assetBuffer);
 
-			using FileStream fs = File.Create(outputPath);
-			fs.Write(binaryBytes, 0, binaryBytes.Length);
+			progress.Report($"Writing '{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' file.");
+			File.WriteAllBytes(outputPath, binaryBytes);
 		}
 
 		private static List<ResourceChunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, ProgressWrapper progress)
