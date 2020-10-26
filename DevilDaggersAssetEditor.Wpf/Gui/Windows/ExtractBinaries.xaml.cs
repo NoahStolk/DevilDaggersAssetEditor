@@ -1,10 +1,12 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Utils;
 using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
@@ -112,6 +114,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				ExtractBinary(BinaryFileType.Dd, _ddPath, _outputPath),
 				ExtractBinary(BinaryFileType.Particle, _particlePath, _outputPath),
 			});
+
+			if (!string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath))
+			{
+				if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
+					ModFileUtils.CreateModFileFromPath(_outputPath);
+
+				if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
+					Process.Start($@"{Environment.GetEnvironmentVariable("WINDIR")}\explorer.exe", _outputPath);
+			}
 
 			Close();
 		}

@@ -1,11 +1,9 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
-using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -224,14 +222,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			((IProgress<string>)progressDescription).Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress, progressDescription);
-
-			((IProgress<string>)progressDescription).Report("Creating mod file.");
-			if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
-				CreateModFile(outputPath);
-
-			((IProgress<string>)progressDescription).Report("Opening mod folder.");
-			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
-				Process.Start($@"{Environment.GetEnvironmentVariable("WINDIR")}\explorer.exe", outputPath);
 		}
 
 		public override void ValidateFile(byte[] sourceFileBytes)
