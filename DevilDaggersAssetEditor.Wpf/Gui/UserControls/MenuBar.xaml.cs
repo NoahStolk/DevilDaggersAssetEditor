@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
+using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Utils;
@@ -62,8 +63,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			// TODO: Move this code to the BinaryFileAnalyzerWindow itself.
 			OpenFileDialog openDialog = new OpenFileDialog();
-			if (UserHandler.Instance.Settings.EnableDevilDaggersRootFolder && Directory.Exists(UserHandler.Instance.Settings.DevilDaggersRootFolder))
-				openDialog.InitialDirectory = UserHandler.Instance.Settings.DevilDaggersRootFolder;
+			openDialog.OpenDevilDaggersRootFolder();
 
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult.HasValue && openResult.Value)
@@ -172,8 +172,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private void OpenMod_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = _modFileFilter };
-			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
-				dialog.InitialDirectory = UserHandler.Instance.Settings.ModsRootFolder;
+			dialog.OpenModsRootFolder();
 
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
@@ -208,8 +207,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				userAssets.Add(asset.ToUserAsset());
 
 			SaveFileDialog dialog = new SaveFileDialog { Filter = _modFileFilter };
-			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.ModsRootFolder))
-				dialog.InitialDirectory = UserHandler.Instance.Settings.ModsRootFolder;
+			dialog.OpenModsRootFolder();
 
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
