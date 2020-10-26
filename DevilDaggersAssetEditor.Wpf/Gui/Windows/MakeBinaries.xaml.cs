@@ -101,7 +101,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath)
 		{
-			if (outputPath == null || !File.Exists(outputPath))
+			if (string.IsNullOrWhiteSpace(outputPath) || !File.Exists(outputPath))
 				return;
 
 			ProgressWindow progressWindow = new ProgressWindow($"Turning files into '{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary...");
@@ -119,9 +119,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					List<AssetTabControl> atcs = new List<AssetTabControl>();
 					switch (binaryFileType)
 					{
-						case BinaryFileType.Particle:
-							atcs.Add(App.Instance.MainWindow!.ParticleParticlesAssetTabControl);
-							break;
 						case BinaryFileType.Audio:
 							atcs.Add(App.Instance.MainWindow!.AudioAudioAssetTabControl);
 							break;
@@ -133,6 +130,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 							atcs.Add(App.Instance.MainWindow!.DdModelsAssetTabControl);
 							atcs.Add(App.Instance.MainWindow!.DdShadersAssetTabControl);
 							atcs.Add(App.Instance.MainWindow!.DdTexturesAssetTabControl);
+							break;
+						case BinaryFileType.Particle:
+							atcs.Add(App.Instance.MainWindow!.ParticleParticlesAssetTabControl);
 							break;
 					}
 

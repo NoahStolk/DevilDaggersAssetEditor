@@ -118,7 +118,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private static async Task ExtractBinary(BinaryFileType binaryFileType, string? inputPath, string? outputPath)
 		{
-			if (outputPath == null || inputPath == null || !Directory.Exists(outputPath) || !File.Exists(inputPath))
+			if (string.IsNullOrWhiteSpace(outputPath) || string.IsNullOrWhiteSpace(inputPath) || !Directory.Exists(outputPath) || !File.Exists(inputPath))
 				return;
 
 			string binaryFileTypeName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
