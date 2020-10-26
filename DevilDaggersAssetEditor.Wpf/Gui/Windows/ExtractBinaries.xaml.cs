@@ -127,10 +127,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			await Task.WhenAll(new List<Task>
 			{
-				ExtractBinary(BinaryFileType.Audio, _audioPath, _outputPath, _audioProgress, ProgressBarAudio, ProgressDescriptionAudio),
-				ExtractBinary(BinaryFileType.Core, _corePath, _outputPath, _coreProgress, ProgressBarCore, ProgressDescriptionCore),
-				ExtractBinary(BinaryFileType.Dd, _ddPath, _outputPath, _ddProgress, ProgressBarDd, ProgressDescriptionDd),
-				ExtractBinary(BinaryFileType.Particle, _particlePath, _outputPath, _particleProgress, ProgressBarParticle, ProgressDescriptionParticle),
+				ExtractBinary(BinaryFileType.Audio, _audioPath, _outputPath, _audioProgress),
+				ExtractBinary(BinaryFileType.Core, _corePath, _outputPath, _coreProgress),
+				ExtractBinary(BinaryFileType.Dd, _ddPath, _outputPath, _ddProgress),
+				ExtractBinary(BinaryFileType.Particle, _particlePath, _outputPath, _particleProgress),
 			});
 
 			if (!string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath))
@@ -143,12 +143,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private static async Task ExtractBinary(BinaryFileType binaryFileType, string? inputPath, string? outputPath, ProgressWrapper progress, ProgressBar progressBar, TextBlock progressDescription)
+		private static async Task ExtractBinary(BinaryFileType binaryFileType, string? inputPath, string? outputPath, ProgressWrapper progress)
 		{
 			if (string.IsNullOrWhiteSpace(outputPath) || string.IsNullOrWhiteSpace(inputPath) || !Directory.Exists(outputPath) || !File.Exists(inputPath))
 				return;
-
-			string binaryFileTypeName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 
 			await Task.Run(() =>
 			{
@@ -167,7 +165,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError($"Extracting binary '{binaryFileTypeName}' did not complete successfully", $"An error occurred during the execution of \"{progressDescription.Text}\".", ex);
+						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred while extracting '{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
 						progress.Report("Execution did not complete successfully.");
 					});
 				}

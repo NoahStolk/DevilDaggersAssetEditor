@@ -107,14 +107,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			await Task.WhenAll(new List<Task>
 			{
-				MakeBinary(BinaryFileType.Audio, _audioPath, _audioProgress, ProgressBarAudio, ProgressDescriptionAudio),
-				MakeBinary(BinaryFileType.Core, _corePath, _coreProgress, ProgressBarCore, ProgressDescriptionCore),
-				MakeBinary(BinaryFileType.Dd, _ddPath, _ddProgress, ProgressBarDd, ProgressDescriptionDd),
-				MakeBinary(BinaryFileType.Particle, _particlePath, _particleProgress, ProgressBarParticle, ProgressDescriptionParticle),
+				MakeBinary(BinaryFileType.Audio, _audioPath, _audioProgress),
+				MakeBinary(BinaryFileType.Core, _corePath, _coreProgress),
+				MakeBinary(BinaryFileType.Dd, _ddPath, _ddProgress),
+				MakeBinary(BinaryFileType.Particle, _particlePath, _particleProgress),
 			});
 		}
 
-		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath, ProgressWrapper progress, ProgressBar progressBar, TextBlock progressDescription)
+		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath, ProgressWrapper progress)
 		{
 			if (string.IsNullOrWhiteSpace(outputPath) || !File.Exists(outputPath))
 				return;
@@ -129,27 +129,27 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 						_ => new ResourceFileHandler(binaryFileType),
 					};
 
-					List<AssetTabControl> atcs = new List<AssetTabControl>();
+					List<AssetTabControl> assetTabControls = new List<AssetTabControl>();
 					switch (binaryFileType)
 					{
 						case BinaryFileType.Audio:
-							atcs.Add(App.Instance.MainWindow!.AudioAudioAssetTabControl);
+							assetTabControls.Add(App.Instance.MainWindow!.AudioAudioAssetTabControl);
 							break;
 						case BinaryFileType.Core:
-							atcs.Add(App.Instance.MainWindow!.CoreShadersAssetTabControl);
+							assetTabControls.Add(App.Instance.MainWindow!.CoreShadersAssetTabControl);
 							break;
 						case BinaryFileType.Dd:
-							atcs.Add(App.Instance.MainWindow!.DdModelBindingsAssetTabControl);
-							atcs.Add(App.Instance.MainWindow!.DdModelsAssetTabControl);
-							atcs.Add(App.Instance.MainWindow!.DdShadersAssetTabControl);
-							atcs.Add(App.Instance.MainWindow!.DdTexturesAssetTabControl);
+							assetTabControls.Add(App.Instance.MainWindow!.DdModelBindingsAssetTabControl);
+							assetTabControls.Add(App.Instance.MainWindow!.DdModelsAssetTabControl);
+							assetTabControls.Add(App.Instance.MainWindow!.DdShadersAssetTabControl);
+							assetTabControls.Add(App.Instance.MainWindow!.DdTexturesAssetTabControl);
 							break;
 						case BinaryFileType.Particle:
-							atcs.Add(App.Instance.MainWindow!.ParticleParticlesAssetTabControl);
+							assetTabControls.Add(App.Instance.MainWindow!.ParticleParticlesAssetTabControl);
 							break;
 					}
 
-					fileHandler.MakeBinary(atcs.SelectMany(atc => atc.GetAssets()).ToList(), outputPath, progress);
+					fileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), outputPath, progress);
 
 					App.Instance.Dispatcher.Invoke(() => progress.Report("Completed successfully.", 1));
 				}
@@ -157,7 +157,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred during the execution of \"{progressDescription.Text}\".", ex);
+						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred while making '{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
 						progress.Report("Execution did not complete successfully.");
 					});
 				}
