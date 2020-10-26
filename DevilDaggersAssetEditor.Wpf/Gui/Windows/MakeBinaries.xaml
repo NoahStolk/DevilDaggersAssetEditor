@@ -36,8 +36,6 @@
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Button Content="Make binaries" Click="MakeBinaries_Click" Width="128" HorizontalAlignment="Left" />
-			<ProgressBar Name="ProgressBar" Height="18" Minimum="0" Maximum="1" />
-			<TextBlock Name="ProgressDescription" />
 		</StackPanel>
 	</StackPanel>
 </Window>
