@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			progress.Report($"Initializing '{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' file creation.");
 
 			string binaryFileTypeName = BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
-			allAssets = allAssets.Where(a => File.Exists(a.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture))).ToList();
+			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList(); // TODO: Also check if FragmentShader file exists.
 
 			progress.Report("Generating chunks based on asset list.");
 			List<ResourceChunk> chunks = CreateChunksFromAssets(allAssets, progress);

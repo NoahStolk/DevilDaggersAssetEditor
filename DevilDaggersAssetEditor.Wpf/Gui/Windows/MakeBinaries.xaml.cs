@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using Microsoft.Win32;
 using System;
@@ -89,9 +90,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private static bool TrySetPath(BinaryFileType binaryFileType, out string selectedPath)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			string initDir = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName());
-			if (UserHandler.Instance.Settings.EnableDevilDaggersRootFolder && Directory.Exists(initDir))
-				openDialog.InitialDirectory = initDir;
+			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName()));
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
