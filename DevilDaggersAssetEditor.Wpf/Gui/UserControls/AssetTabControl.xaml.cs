@@ -5,6 +5,7 @@ using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
+using DevilDaggersCore.Extensions;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
@@ -196,11 +197,22 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			foreach (string filePath in Directory.GetFiles(folder, $"*{assetType.GetFileExtensionFromAssetType()}", SearchOption.AllDirectories))
 			{
-				AssetRowControl? rowControl = RowControls.Find(a => a.Asset.AssetName == Path.GetFileNameWithoutExtension(filePath).Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture));
+				string assetName = Path.GetFileNameWithoutExtension(filePath);
+				bool isFragmentShader = false;
+				if (assetType == AssetType.Shader)
+				{
+					isFragmentShader = assetName.EndsWith("_fragment", StringComparison.InvariantCulture);
+					assetName = assetName.TrimEnd("_fragment").TrimEnd("_vertex");
+				}
+
+				AssetRowControl? rowControl = RowControls.Find(a => a.Asset.AssetName == assetName);
 				if (rowControl == null)
 					continue;
 
-				rowControl.Asset.EditorPath = filePath.Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture);
+				if (isFragmentShader && rowControl.Asset is ShaderAsset shaderAsset)
+					shaderAsset.EditorPathFragmentShader = filePath;
+				else
+					rowControl.Asset.EditorPath = filePath;
 				rowControl.UpdateGui();
 			}
 		}

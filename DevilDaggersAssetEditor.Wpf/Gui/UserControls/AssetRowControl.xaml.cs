@@ -25,6 +25,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private readonly SolidColorBrush _brushEditEven;
 		private readonly SolidColorBrush _brushEditOdd;
 
+		private readonly ShaderAsset? _shaderAsset;
+
 		public AssetRowControl(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
 		{
 			InitializeComponent();
@@ -32,6 +34,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			OpenDialogFilter = openDialogFilter;
 
 			Asset = asset;
+			AssetType = assetType;
 			TextBlockTags = new TextBlock
 			{
 				Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength),
@@ -65,13 +68,22 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			Data.Children.Add(RectangleInfo);
 			Data.Children.Add(RectangleEdit);
 
-			Data.DataContext = Asset;
+			TextBlockAssetName.Text = Asset.AssetName;
+
+			if (Asset is ShaderAsset shaderAsset)
+			{
+				_shaderAsset = shaderAsset;
+				BrowseButtonFragmentShader.Visibility = Visibility.Visible;
+				RemovePathButtonFragmentShader.Visibility = Visibility.Visible;
+				TextBlockEditorPathFragmentShader.Visibility = Visibility.Visible;
+			}
 		}
 
 		public Rectangle RectangleInfo { get; } = new Rectangle();
 		public Rectangle RectangleEdit { get; } = new Rectangle();
 
 		public AbstractAsset Asset { get; }
+		public AssetType AssetType { get; }
 
 		public bool IsActive { get; set; } = true;
 
@@ -80,10 +92,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public TextBlock TextBlockTags { get; }
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)
-			=> RemovePath();
+			=> RemovePath(false);
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e)
-			=> BrowsePath();
+			=> BrowsePath(false);
+
+		private void ButtonRemovePathFragmentShader_Click(object sender, RoutedEventArgs e)
+			=> RemovePath(true);
+
+		private void ButtonBrowsePathFragmentShader_Click(object sender, RoutedEventArgs e)
+			=> BrowsePath(true);
 
 		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
 			=> UpdateGui();
@@ -98,6 +116,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
 			TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
+			if (_shaderAsset != null)
+				TextBlockEditorPathFragmentShader.Text = File.Exists(_shaderAsset.EditorPathFragmentShader) ? _shaderAsset.EditorPathFragmentShader.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
 		}
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
@@ -131,7 +151,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		public void BrowsePath()
+		public void BrowsePath(bool fragmentShader)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog { Filter = OpenDialogFilter };
 			if (UserHandler.Instance.Settings.EnableAssetsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
@@ -141,14 +161,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			Asset.EditorPath = openDialog.FileName.Replace("_fragment", string.Empty, StringComparison.InvariantCulture).Replace("_vertex", string.Empty, StringComparison.InvariantCulture);
+			if (fragmentShader && _shaderAsset != null)
+				_shaderAsset.EditorPathFragmentShader = openDialog.FileName;
+			else
+				Asset.EditorPath = openDialog.FileName;
 
 			UpdateGui();
 		}
 
-		public void RemovePath()
+		public void RemovePath(bool fragmentShader)
 		{
-			Asset.EditorPath = GuiUtils.FileNotFound;
+			if (fragmentShader && _shaderAsset != null)
+				_shaderAsset.EditorPathFragmentShader = GuiUtils.FileNotFound;
+			else
+				Asset.EditorPath = GuiUtils.FileNotFound;
 
 			UpdateGui();
 		}

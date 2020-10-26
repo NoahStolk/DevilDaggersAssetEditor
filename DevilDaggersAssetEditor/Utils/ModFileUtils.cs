@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -58,16 +59,10 @@ namespace DevilDaggersAssetEditor.Utils
 				{
 					if (!assets.Any(a => a.AssetType == AssetType.Shader && a.AssetName == name))
 					{
-						string normalizedName = name
-							.Replace("_vertex", string.Empty, StringComparison.InvariantCulture)
-							.Replace("_fragment", string.Empty, StringComparison.InvariantCulture);
-
-						string normalizedPath = path
-							.Replace("_vertex.glsl", string.Empty, StringComparison.InvariantCulture)
-							.Replace("_fragment.glsl", string.Empty, StringComparison.InvariantCulture);
+						string normalizedPath = path.TrimEnd("_vertex.glsl").TrimEnd("_fragment.glsl");
 
 						assets.Add(new ShaderUserAsset(
-							normalizedName,
+							name.TrimEnd("_vertex").TrimEnd("_fragment"),
 							$"{normalizedPath}_vertex.glsl",
 							$"{normalizedPath}_fragment.glsl"));
 					}

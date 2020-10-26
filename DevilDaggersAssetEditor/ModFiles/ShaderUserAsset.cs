@@ -7,9 +7,9 @@ namespace DevilDaggersAssetEditor.ModFiles
 		public ShaderUserAsset(string assetName, string vertexEditorPath, string fragmentEditorPath)
 			: base(AssetType.Shader, assetName, vertexEditorPath)
 		{
-			FragmentEditorPath = fragmentEditorPath;
+			EditorPathFragmentShader = fragmentEditorPath;
 		}
 
-		public string FragmentEditorPath { get; set; }
+		public string EditorPathFragmentShader { get; set; }
 	}
 }

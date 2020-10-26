@@ -83,7 +83,7 @@
 
 	<Style TargetType="TextBlock" x:Key="AssetTextBlock">
 		<Style.Setters>
-			<Setter Property="Margin" Value="2" />
+			<Setter Property="Margin" Value="3" />
 			<Setter Property="Foreground" Value="{StaticResource Text}" />
 		</Style.Setters>
 	</Style>

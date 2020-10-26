@@ -1,6 +1,4 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Utils;
-using DevilDaggersCore.Extensions;
 using SyntaxHighlighter;
 using SyntaxHighlighter.Parsers;
 using System;
@@ -27,24 +25,22 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 			ShaderName.Content = shaderAsset.AssetName;
 
-			string vertexPath = shaderAsset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture);
-			bool isPathValid = File.Exists(vertexPath);
+			VertexFileName.Content = shaderAsset.EditorPath;
+			FragmentFileName.Content = shaderAsset.EditorPathFragmentShader;
 
-			string basePath = isPathValid ? Path.GetFileName(vertexPath).TrimEnd("_vertex") : GuiUtils.FileNotFound;
+			PreviewVertexTextBox.Inlines.Clear();
+			PreviewFragmentTextBox.Inlines.Clear();
 
-			VertexFileName.Content = isPathValid ? basePath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture) : basePath;
-			FragmentFileName.Content = isPathValid ? basePath.Replace(".glsl", "_fragment.glsl", StringComparison.InvariantCulture) : basePath;
-
-			if (isPathValid)
+			if (File.Exists(shaderAsset.EditorPath))
 			{
-				string vertexCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPath.Replace(".glsl", "_vertex.glsl", StringComparison.InvariantCulture)));
-				string fragmentCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPath.Replace(".glsl", "_fragment.glsl", StringComparison.InvariantCulture)));
-
-				PreviewVertexTextBox.Inlines.Clear();
+				string vertexCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPath));
 				foreach (Piece piece in GlslParser.Instance.Parse(vertexCode))
 					PreviewVertexTextBox.Inlines.Add(new Run(piece.Code) { Foreground = new SolidColorBrush(TranslateColor(GlslParser.Instance.CodeStyle.HighlightColors[piece.Type])) });
+			}
 
-				PreviewFragmentTextBox.Inlines.Clear();
+			if (File.Exists(shaderAsset.EditorPathFragmentShader))
+			{
+				string fragmentCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPathFragmentShader));
 				foreach (Piece piece in GlslParser.Instance.Parse(fragmentCode))
 					PreviewFragmentTextBox.Inlines.Add(new Run(piece.Code) { Foreground = new SolidColorBrush(TranslateColor(GlslParser.Instance.CodeStyle.HighlightColors[piece.Type])) });
 			}
