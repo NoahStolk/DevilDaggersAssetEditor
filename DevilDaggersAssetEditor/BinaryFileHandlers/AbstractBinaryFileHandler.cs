@@ -1,5 +1,4 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using System;
 using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.BinaryFileHandlers
@@ -13,9 +12,9 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public BinaryFileType BinaryFileType { get; }
 
-		public abstract void MakeBinary(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription);
+		public abstract void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress);
 
-		public abstract void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription);
+		public abstract void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress);
 
 		public abstract void ValidateFile(byte[] sourceFileBytes);
 	}

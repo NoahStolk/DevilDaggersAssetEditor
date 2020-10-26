@@ -21,10 +21,28 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private string _ddPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.Dd.GetSubfolderName(), BinaryFileType.Dd.ToString().ToLower(CultureInfo.InvariantCulture));
 		private string _particlePath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.Particle.GetSubfolderName(), BinaryFileType.Particle.ToString().ToLower(CultureInfo.InvariantCulture));
 
+		private readonly ProgressWrapper _audioProgress;
+		private readonly ProgressWrapper _coreProgress;
+		private readonly ProgressWrapper _ddProgress;
+		private readonly ProgressWrapper _particleProgress;
+
 		public MakeBinariesWindow()
 		{
 			InitializeComponent();
 			UpdateGui();
+
+			_audioProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarAudio.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionAudio.Text = value)));
+			_coreProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarCore.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionCore.Text = value)));
+			_ddProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarDd.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionDd.Text = value)));
+			_particleProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarParticle.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionParticle.Text = value)));
 		}
 
 		private void UpdateGui()
@@ -90,22 +108,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			await Task.WhenAll(new List<Task>
 			{
-				MakeBinary(BinaryFileType.Audio, _audioPath),
-				MakeBinary(BinaryFileType.Core, _corePath),
-				MakeBinary(BinaryFileType.Dd, _ddPath),
-				MakeBinary(BinaryFileType.Particle, _particlePath),
+				MakeBinary(BinaryFileType.Audio, _audioPath, _audioProgress, ProgressBarAudio, ProgressDescriptionAudio),
+				MakeBinary(BinaryFileType.Core, _corePath, _coreProgress, ProgressBarCore, ProgressDescriptionCore),
+				MakeBinary(BinaryFileType.Dd, _ddPath, _ddProgress, ProgressBarDd, ProgressDescriptionDd),
+				MakeBinary(BinaryFileType.Particle, _particlePath, _particleProgress, ProgressBarParticle, ProgressDescriptionParticle),
 			});
 
 			Close();
 		}
 
-		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath)
+		private async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath, ProgressWrapper progress, ProgressBar progressBar, TextBlock progressDescription)
 		{
 			if (string.IsNullOrWhiteSpace(outputPath) || !File.Exists(outputPath))
 				return;
 
-			ProgressWindow progressWindow = new ProgressWindow($"Turning files into '{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary...");
-			progressWindow.Show();
 			await Task.Run(() =>
 			{
 				try
@@ -136,20 +152,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 							break;
 					}
 
-					fileHandler.MakeBinary(
-						allAssets: atcs.SelectMany(atc => atc.GetAssets()).ToList(),
-						outputPath: outputPath,
-						progress: new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
-						progressDescription: new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
+					fileHandler.MakeBinary(atcs.SelectMany(atc => atc.GetAssets()).ToList(), outputPath, progress);
 
-					App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
+					App.Instance.Dispatcher.Invoke(() =>
+					{
+						progressBar.Value = 1;
+						progressDescription.Text = "Completed successfully.";
+					});
 				}
 				catch (Exception ex)
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
-						progressWindow.Error();
+						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred during the execution of \"{ProgressDescription.Text}\".", ex);
+						progressDescription.Text = "Execution did not complete successfully.";
 					});
 				}
 			});

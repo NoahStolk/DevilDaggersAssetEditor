@@ -10,21 +10,29 @@
 			<Label>'audio' binary path</Label>
 			<TextBox Name="TextBoxAudio" TextChanged="TextBoxAudio_TextChanged" />
 			<Button Content="Browse" Click="BrowseAudioButton_Click" Width="128" HorizontalAlignment="Left" />
+			<ProgressBar Name="ProgressBarAudio" Height="18" Minimum="0" Maximum="1" />
+			<TextBlock Name="ProgressDescriptionAudio" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'core' binary path</Label>
 			<TextBox Name="TextBoxCore" TextChanged="TextBoxCore_TextChanged" />
 			<Button Content="Browse" Click="BrowseCoreButton_Click" Width="128" HorizontalAlignment="Left" />
+			<ProgressBar Name="ProgressBarCore" Height="18" Minimum="0" Maximum="1" />
+			<TextBlock Name="ProgressDescriptionCore" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'dd' binary path</Label>
 			<TextBox Name="TextBoxDd" TextChanged="TextBoxDd_TextChanged" />
 			<Button Content="Browse" Click="BrowseDdButton_Click" Width="128" HorizontalAlignment="Left" />
+			<ProgressBar Name="ProgressBarDd" Height="18" Minimum="0" Maximum="1" />
+			<TextBlock Name="ProgressDescriptionDd" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>'particle' binary path</Label>
 			<TextBox Name="TextBoxParticle" TextChanged="TextBoxParticle_TextChanged" />
 			<Button Content="Browse" Click="BrowseParticleButton_Click" Width="128" HorizontalAlignment="Left" />
+			<ProgressBar Name="ProgressBarParticle" Height="18" Minimum="0" Maximum="1" />
+			<TextBlock Name="ProgressDescriptionParticle" />
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<Label>Assets output directory</Label>

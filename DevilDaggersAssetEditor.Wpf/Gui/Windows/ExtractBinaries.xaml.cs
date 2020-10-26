@@ -23,10 +23,28 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private string _particlePath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.Particle.GetSubfolderName(), BinaryFileType.Particle.ToString().ToLower(CultureInfo.InvariantCulture));
 		private string? _outputPath;
 
+		private readonly ProgressWrapper _audioProgress;
+		private readonly ProgressWrapper _coreProgress;
+		private readonly ProgressWrapper _ddProgress;
+		private readonly ProgressWrapper _particleProgress;
+
 		public ExtractBinariesWindow()
 		{
 			InitializeComponent();
 			UpdateGui();
+
+			_audioProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarAudio.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionAudio.Text = value)));
+			_coreProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarCore.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionCore.Text = value)));
+			_ddProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarDd.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionDd.Text = value)));
+			_particleProgress = new ProgressWrapper(
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarParticle.Value = value)),
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionParticle.Text = value)));
 		}
 
 		private void UpdateGui()
@@ -109,10 +127,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			await Task.WhenAll(new List<Task>
 			{
-				ExtractBinary(BinaryFileType.Audio, _audioPath, _outputPath),
-				ExtractBinary(BinaryFileType.Core, _corePath, _outputPath),
-				ExtractBinary(BinaryFileType.Dd, _ddPath, _outputPath),
-				ExtractBinary(BinaryFileType.Particle, _particlePath, _outputPath),
+				ExtractBinary(BinaryFileType.Audio, _audioPath, _outputPath, _audioProgress, ProgressBarAudio, ProgressDescriptionAudio),
+				ExtractBinary(BinaryFileType.Core, _corePath, _outputPath, _coreProgress, ProgressBarCore, ProgressDescriptionCore),
+				ExtractBinary(BinaryFileType.Dd, _ddPath, _outputPath, _ddProgress, ProgressBarDd, ProgressDescriptionDd),
+				ExtractBinary(BinaryFileType.Particle, _particlePath, _outputPath, _particleProgress, ProgressBarParticle, ProgressDescriptionParticle),
 			});
 
 			if (!string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath))
@@ -127,14 +145,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			Close();
 		}
 
-		private static async Task ExtractBinary(BinaryFileType binaryFileType, string? inputPath, string? outputPath)
+		private static async Task ExtractBinary(BinaryFileType binaryFileType, string? inputPath, string? outputPath, ProgressWrapper progress, ProgressBar progressBar, TextBlock progressDescription)
 		{
 			if (string.IsNullOrWhiteSpace(outputPath) || string.IsNullOrWhiteSpace(inputPath) || !Directory.Exists(outputPath) || !File.Exists(inputPath))
 				return;
 
 			string binaryFileTypeName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
-			ProgressWindow progressWindow = new ProgressWindow($"Extracting '{binaryFileTypeName}'...");
-			progressWindow.Show();
+
 			await Task.Run(() =>
 			{
 				try
@@ -145,20 +162,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 						_ => new ResourceFileHandler(binaryFileType),
 					};
 
-					fileHandler.ExtractBinary(
-						inputPath,
-						outputPath,
-						binaryFileType,
-						new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressBar.Value = value)),
-						new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => progressWindow.ProgressDescription.Text = value)));
-					App.Instance.Dispatcher.Invoke(() => progressWindow.Finish());
+					fileHandler.ExtractBinary(inputPath, outputPath, binaryFileType, progress);
+					App.Instance.Dispatcher.Invoke(() =>
+					{
+						progressBar.Value = 1;
+						progressDescription.Text = "Completed successfully.";
+					});
 				}
 				catch (Exception ex)
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError($"Extracting binary '{binaryFileTypeName}' did not complete successfully", $"An error occurred during the execution of \"{progressWindow.ProgressDescription.Text}\".", ex);
-						progressWindow.Error();
+						App.Instance.ShowError($"Extracting binary '{binaryFileTypeName}' did not complete successfully", $"An error occurred during the execution of \"{progressDescription.Text}\".", ex);
+						progressDescription.Text = "Execution did not complete successfully.";
 					});
 				}
 			});

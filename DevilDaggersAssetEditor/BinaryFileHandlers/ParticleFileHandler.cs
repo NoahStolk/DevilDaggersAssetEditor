@@ -27,9 +27,9 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		{
 		}
 
-		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription)
+		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
-			((IProgress<string>)progressDescription).Report("Initializing 'particle' file creation.");
+			progress.Report("Initializing 'particle' file creation.");
 
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList();
 
@@ -41,8 +41,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				int i = 0;
 				foreach (KeyValuePair<string, byte[]> kvp in GetChunks(allAssets))
 				{
-					((IProgress<float>)progress).Report(i++ / (float)allAssets.Count);
-					((IProgress<string>)progressDescription).Report($"Writing file contents of \"{kvp.Key}\" to 'particle' file.");
+					progress.Report($"Writing file contents of \"{kvp.Key}\" to 'particle' file.", i++ / (float)allAssets.Count);
 
 					stream.Write(Encoding.Default.GetBytes(kvp.Key), 0, kvp.Key.Length);
 					stream.Write(kvp.Value, 0, kvp.Value.Length);
@@ -51,7 +50,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				fileBuffer = stream.ToArray();
 			}
 
-			((IProgress<string>)progressDescription).Report("Writing 'particle' file.");
+			progress.Report("Writing 'particle' file.");
 			File.WriteAllBytes(outputPath, fileBuffer);
 		}
 
@@ -65,7 +64,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return dict;
 		}
 
-		public override void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
+		public override void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress)
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 
@@ -78,8 +77,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				i += chunk.Name.Length;
 				i += chunk.Buffer.Length;
 
-				((IProgress<float>)progress).Report(i / (float)fileBuffer.Length);
-				((IProgress<string>)progressDescription).Report($"Creating Particle file for chunk \"{chunk.Name}\".");
+				progress.Report($"Creating Particle file for chunk \"{chunk.Name}\".", i / (float)fileBuffer.Length);
 
 				File.WriteAllBytes(Path.Combine(outputPath, _folderName, chunk.Name + _fileExtension), chunk.Buffer.ToArray());
 			}

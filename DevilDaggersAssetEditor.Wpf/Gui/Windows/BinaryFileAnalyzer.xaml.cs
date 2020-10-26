@@ -70,7 +70,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			if (unknownSize > 0)
 				chunkInfos.Add("Unknown", ChunkResult(GetColor("Unknown"), unknownSize, new List<IChunk>()));
 
-			int totalHeight = 32;
+			const int totalHeight = 32;
 			double pos = 0;
 
 			FileName.Content = fileResult.FileName;
@@ -135,7 +135,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				Data.Children.Add(stackPanel);
 			}
 
-			int columns = 8;
+			const int columns = 8;
 			for (int j = 0; j < columns; j++)
 				ChunkData.ColumnDefinitions.Add(new ColumnDefinition());
 

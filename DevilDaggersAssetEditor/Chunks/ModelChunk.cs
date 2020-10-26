@@ -16,12 +16,12 @@ namespace DevilDaggersAssetEditor.Chunks
 	{
 		private static readonly Dictionary<string, byte[]> _closures = GetClosures();
 
-		public AssetType AssetType => AssetType.Model;
-
 		public ModelChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)
 		{
 		}
+
+		public AssetType AssetType => AssetType.Model;
 
 		private static Dictionary<string, byte[]> GetClosures()
 		{
@@ -227,16 +227,16 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 			public const int ByteCount = 32;
 
-			public Vector3 Position { get; set; }
-			public Vector2 TexCoord { get; set; }
-			public Vector3 Normal { get; set; }
-
 			public Vertex(Vector3 position, Vector2 texCoord, Vector3 normal)
 			{
 				Position = position;
 				TexCoord = texCoord;
 				Normal = normal;
 			}
+
+			public Vector3 Position { get; set; }
+			public Vector2 TexCoord { get; set; }
+			public Vector3 Normal { get; set; }
 
 			public byte[] ToByteArray()
 			{
