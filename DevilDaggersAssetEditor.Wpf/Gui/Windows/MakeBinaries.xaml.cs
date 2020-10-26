@@ -32,17 +32,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			UpdateGui();
 
 			_audioProgress = new ProgressWrapper(
-				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarAudio.Value = value)),
-				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionAudio.Text = value)));
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionAudio.Text = value)),
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarAudio.Value = value)));
 			_coreProgress = new ProgressWrapper(
-				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarCore.Value = value)),
-				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionCore.Text = value)));
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionCore.Text = value)),
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarCore.Value = value)));
 			_ddProgress = new ProgressWrapper(
-				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarDd.Value = value)),
-				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionDd.Text = value)));
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionDd.Text = value)),
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarDd.Value = value)));
 			_particleProgress = new ProgressWrapper(
-				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarParticle.Value = value)),
-				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionParticle.Text = value)));
+				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionParticle.Text = value)),
+				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarParticle.Value = value)));
 		}
 
 		private void UpdateGui()

@@ -4,14 +4,14 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
 	public class ProgressWrapper
 	{
-		public ProgressWrapper(Progress<float> progressPercentage, Progress<string> progressDescription)
+		public ProgressWrapper(Progress<string> progressDescription, Progress<float> progressPercentage)
 		{
-			ProgressPercentage = progressPercentage;
 			ProgressDescription = progressDescription;
+			ProgressPercentage = progressPercentage;
 		}
 
-		public Progress<float> ProgressPercentage { get; }
 		public Progress<string> ProgressDescription { get; }
+		public Progress<float> ProgressPercentage { get; }
 
 		public void Report(string description, float? percentage = null)
 		{
