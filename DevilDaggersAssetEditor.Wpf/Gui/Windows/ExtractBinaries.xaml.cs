@@ -141,8 +141,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
 					Process.Start($@"{Environment.GetEnvironmentVariable("WINDIR")}\explorer.exe", _outputPath);
 			}
-
-			Close();
 		}
 
 		private static async Task ExtractBinary(BinaryFileType binaryFileType, string? inputPath, string? outputPath, ProgressWrapper progress, ProgressBar progressBar, TextBlock progressDescription)

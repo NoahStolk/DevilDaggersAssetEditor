@@ -57,7 +57,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		private static Dictionary<string, byte[]> GetChunks(List<AbstractAsset> assets)
 		{
 			Dictionary<string, byte[]> dict = new Dictionary<string, byte[]>();
-
 			foreach (AbstractAsset asset in assets)
 				dict[asset.AssetName] = File.ReadAllBytes(asset.EditorPath);
 

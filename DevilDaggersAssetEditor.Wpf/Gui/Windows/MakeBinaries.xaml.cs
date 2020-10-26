@@ -113,11 +113,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				MakeBinary(BinaryFileType.Dd, _ddPath, _ddProgress, ProgressBarDd, ProgressDescriptionDd),
 				MakeBinary(BinaryFileType.Particle, _particlePath, _particleProgress, ProgressBarParticle, ProgressDescriptionParticle),
 			});
-
-			Close();
 		}
 
-		private async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath, ProgressWrapper progress, ProgressBar progressBar, TextBlock progressDescription)
+		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath, ProgressWrapper progress, ProgressBar progressBar, TextBlock progressDescription)
 		{
 			if (string.IsNullOrWhiteSpace(outputPath) || !File.Exists(outputPath))
 				return;
@@ -164,7 +162,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred during the execution of \"{ProgressDescription.Text}\".", ex);
+						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred during the execution of \"{progressDescription.Text}\".", ex);
 						progressDescription.Text = "Execution did not complete successfully.";
 					});
 				}
