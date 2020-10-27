@@ -39,6 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				Text = string.Join(", ", asset.Tags),
 				Margin = new Thickness(2),
 				Foreground = ColorUtils.ThemeColors["Text"],
+				VerticalAlignment = VerticalAlignment.Center,
 			};
 			Grid.SetColumn(TextBlockTags, 1);
 
@@ -78,6 +79,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				RemovePathButtonFragmentShader.Visibility = Visibility.Visible;
 				TextBlockEditorPathFragmentShader.Visibility = Visibility.Visible;
 				RowDefinitionFragmentShader.Height = new GridLength(38);
+				Grid.SetRowSpan(TextBlockTags, 2);
 			}
 		}
 
