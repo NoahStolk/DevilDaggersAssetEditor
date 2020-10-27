@@ -32,7 +32,7 @@ namespace DevilDaggersAssetEditor.Extensions
 			};
 		}
 
-		public static AssetType GetAssetTypeFromFileExtension(this string fileExtension)
+		public static AssetType? GetAssetTypeFromFileExtension(this string fileExtension)
 		{
 			return fileExtension switch
 			{
@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.Extensions
 				".glsl" => AssetType.Shader,
 				".png" => AssetType.Texture,
 				".bin" => AssetType.Particle,
-				_ => throw new NotSupportedException($"File extension '{fileExtension}' is not supported in the {nameof(GetAssetTypeFromFileExtension)} method."),
+				_ => null,
 			};
 		}
 	}

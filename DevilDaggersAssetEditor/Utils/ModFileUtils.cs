@@ -53,7 +53,9 @@ namespace DevilDaggersAssetEditor.Utils
 			foreach (string path in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories))
 			{
 				string name = Path.GetFileNameWithoutExtension(path);
-				AssetType assetType = Path.GetExtension(path).GetAssetTypeFromFileExtension();
+				AssetType? assetType = Path.GetExtension(path).GetAssetTypeFromFileExtension();
+				if (!assetType.HasValue)
+					continue;
 
 				if (assetType == AssetType.Shader)
 				{
@@ -76,7 +78,7 @@ namespace DevilDaggersAssetEditor.Utils
 				}
 				else
 				{
-					assets.Add(new UserAsset(assetType, name, path));
+					assets.Add(new UserAsset(assetType.Value, name, path));
 				}
 			}
 
