@@ -1,4 +1,6 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
@@ -12,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
@@ -44,6 +47,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			_particleProgress = new ProgressWrapper(
 				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionParticle.Text = value)),
 				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarParticle.Value = value)));
+
+			ProgressBarAudio.Foreground = new SolidColorBrush(ChunkInfo.All.FirstOrDefault(ci => ci.AssetType == AssetType.Audio).GetColor() * 0.5f);
+			ProgressBarCore.Foreground = new SolidColorBrush(ChunkInfo.All.FirstOrDefault(ci => ci.AssetType == AssetType.Shader).GetColor() * 0.5f);
+			ProgressBarDd.Foreground = new SolidColorBrush(ChunkInfo.All.FirstOrDefault(ci => ci.AssetType == AssetType.Texture).GetColor() * 0.5f);
+			ProgressBarParticle.Foreground = new SolidColorBrush(ChunkInfo.All.FirstOrDefault(ci => ci.AssetType == AssetType.Particle).GetColor() * 0.5f);
 		}
 
 		private void UpdateGui()

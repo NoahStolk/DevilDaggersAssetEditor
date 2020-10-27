@@ -114,4 +114,14 @@
 			<Setter Property="IsDefault" Value="True" />
 		</Style.Setters>
 	</Style>
+
+	<Style TargetType="ProgressBar">
+		<Style.Setters>
+			<Setter Property="Background" Value="{StaticResource Gray4}" />
+			<Setter Property="Height" Value="18" />
+			<Setter Property="Minimum" Value="0" />
+			<Setter Property="Maximum" Value="1" />
+			<Setter Property="Margin" Value="2" />
+		</Style.Setters>
+	</Style>
 </ResourceDictionary>
