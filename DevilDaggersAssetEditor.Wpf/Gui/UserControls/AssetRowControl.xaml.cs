@@ -3,7 +3,6 @@ using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
-using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System;
@@ -37,7 +36,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			AssetType = assetType;
 			TextBlockTags = new TextBlock
 			{
-				Text = string.Join(", ", asset.Tags).TrimRight(EditorUtils.TagsMaxLength),
+				Text = string.Join(", ", asset.Tags),
 				Margin = new Thickness(2),
 				Foreground = ColorUtils.ThemeColors["Text"],
 			};
@@ -57,10 +56,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			Panel.SetZIndex(RectangleInfo, -1);
 			Grid.SetColumnSpan(RectangleInfo, 3);
+			Grid.SetRowSpan(RectangleInfo, 2);
 
 			Panel.SetZIndex(RectangleEdit, -1);
 			Grid.SetColumn(RectangleEdit, 3);
 			Grid.SetColumnSpan(RectangleEdit, 4);
+			Grid.SetRowSpan(RectangleEdit, 2);
 
 			UpdateBackgroundRectangleColors(isEven);
 
@@ -76,6 +77,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				BrowseButtonFragmentShader.Visibility = Visibility.Visible;
 				RemovePathButtonFragmentShader.Visibility = Visibility.Visible;
 				TextBlockEditorPathFragmentShader.Visibility = Visibility.Visible;
+				RowDefinitionFragmentShader.Height = new GridLength(38);
 			}
 		}
 
@@ -114,29 +116,28 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void UpdateGui()
 		{
-			TextBlockDescription.Text = Asset.Description.TrimRight(EditorUtils.DescriptionMaxLength);
-			TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
+			TextBlockDescription.Text = Asset.Description;
+			TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath : GuiUtils.FileNotFound;
 			if (_shaderAsset != null)
-				TextBlockEditorPathFragmentShader.Text = File.Exists(_shaderAsset.EditorPathFragmentShader) ? _shaderAsset.EditorPathFragmentShader.TrimLeft(EditorUtils.EditorPathMaxLength) : GuiUtils.FileNotFound;
+				TextBlockEditorPathFragmentShader.Text = File.Exists(_shaderAsset.EditorPathFragmentShader) ? _shaderAsset.EditorPathFragmentShader : GuiUtils.FileNotFound;
 		}
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
 		{
 			if (!checkedFilters.Any())
 			{
-				TextBlockTags.Text = string.Join(", ", Asset.Tags).TrimRight(EditorUtils.TagsMaxLength);
+				TextBlockTags.Text = string.Join(", ", Asset.Tags);
 				return;
 			}
 
 			TextBlockTags.Inlines.Clear();
 
-			int maxLength = EditorUtils.TagsMaxLength;
 			int chars = 0;
 			for (int i = 0; i < Asset.Tags.Count; i++)
 			{
 				string tag = Asset.Tags[i];
 				chars += tag.Length;
-				Run tagRun = new Run(chars > maxLength ? tag.TrimRight(tag.Length - (chars - maxLength)) : tag);
+				Run tagRun = new Run(tag);
 				if (checkedFilters.Contains(tag))
 					tagRun.Background = new SolidColorBrush(filterHighlightColor);
 				TextBlockTags.Inlines.Add(tagRun);
@@ -145,9 +146,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					TextBlockTags.Inlines.Add(new Run(", "));
 					chars += 2;
 				}
-
-				if (chars > maxLength)
-					break;
 			}
 		}
 

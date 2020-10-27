@@ -4,7 +4,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d"
-             d:DesignHeight="24" d:DesignWidth="800"
+             d:DesignHeight="76" d:DesignWidth="800"
 			 SizeChanged="UserControl_SizeChanged">
 	<Grid Name="Data">
 		<Grid.ColumnDefinitions>
@@ -12,27 +12,21 @@
 			<ColumnDefinition Width="3*" />
 			<ColumnDefinition Width="5*" />
 			<ColumnDefinition Width="8*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
-		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="0" Name="TextBlockAssetName" />
-		<TextBlock Style="{StaticResource AssetTextBlock}" Grid.Column="2" Name="TextBlockDescription" />
-		<Grid Grid.Column="3">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="3*" />
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="24" />
-				<RowDefinition />
-			</Grid.RowDefinitions>
-			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockEditorPath" />
-			<TextBlock Grid.Row="1" Style="{StaticResource AssetTextBlock}" Name="TextBlockEditorPathFragmentShader" Visibility="Collapsed" />
+		<Grid.RowDefinitions>
+			<RowDefinition Height="38" />
+			<RowDefinition Height="*" Name="RowDefinitionFragmentShader" />
+		</Grid.RowDefinitions>
+		<TextBlock Grid.RowSpan="2" Style="{StaticResource AssetTextBlock}" Grid.Column="0"  TextWrapping="Wrap" Name="TextBlockAssetName" />
+		<TextBlock Grid.RowSpan="2" Style="{StaticResource AssetTextBlock}" Grid.Column="2"  TextWrapping="Wrap" Name="TextBlockDescription" />
+		<TextBlock Grid.Column="3" Style="{StaticResource AssetTextBlock}" TextWrapping="Wrap" Name="TextBlockEditorPath" />
+		<Button Grid.Column="4" Click="ButtonRemovePath_Click">Reset</Button>
+		<Button Grid.Column="5" Click="ButtonBrowsePath_Click">Browse</Button>
 
-			<Button Grid.Column="1" Click="ButtonRemovePath_Click">Reset</Button>
-			<Button Grid.Column="1" Grid.Row="1" Click="ButtonRemovePathFragmentShader_Click" Name="RemovePathButtonFragmentShader" Visibility="Collapsed">Reset</Button>
-
-			<Button Grid.Column="2" Click="ButtonBrowsePath_Click">Browse</Button>
-			<Button Grid.Column="2" Grid.Row="1" Click="ButtonBrowsePathFragmentShader_Click" Name="BrowseButtonFragmentShader" Visibility="Collapsed">Browse</Button>
-		</Grid>
+		<TextBlock Grid.Column="3" Grid.Row="1" Style="{StaticResource AssetTextBlock}" TextWrapping="Wrap" Name="TextBlockEditorPathFragmentShader" Visibility="Collapsed" />
+		<Button Grid.Column="4" Grid.Row="1" Click="ButtonRemovePathFragmentShader_Click" Name="RemovePathButtonFragmentShader" Visibility="Collapsed">Reset</Button>
+		<Button Grid.Column="5" Grid.Row="1" Click="ButtonBrowsePathFragmentShader_Click" Name="BrowseButtonFragmentShader" Visibility="Collapsed">Browse</Button>
 	</Grid>
 </UserControl>
