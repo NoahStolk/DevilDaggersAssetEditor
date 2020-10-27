@@ -78,7 +78,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				BrowseButtonFragmentShader.Visibility = Visibility.Visible;
 				RemovePathButtonFragmentShader.Visibility = Visibility.Visible;
 				TextBlockEditorPathFragmentShader.Visibility = Visibility.Visible;
-				RowDefinitionFragmentShader.Height = new GridLength(38);
+				RowDefinitionFragmentShader.Height = new GridLength(24);
 				Grid.SetRowSpan(TextBlockTags, 2);
 			}
 		}
