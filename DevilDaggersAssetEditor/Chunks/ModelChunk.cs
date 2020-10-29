@@ -21,7 +21,7 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 		}
 
-		public AssetType AssetType => AssetType.Model;
+		public override AssetType AssetType => AssetType.Model;
 
 		private static Dictionary<string, byte[]> GetClosures()
 		{

@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Extensions;
 using System;
@@ -81,7 +82,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					AssetType.ModelBinding => new ModelBindingChunk(asset.AssetName, 0, 0),
 					AssetType.Shader => new ShaderChunk(asset.AssetName, 0, 0),
 					AssetType.Texture => new TextureChunk(asset.AssetName, 0, 0),
-					_ => throw new Exception(),
+					_ => throw new NotSupportedException($"{nameof(AssetType)} '{asset.AssetType}' is not supported in {nameof(ResourceFileHandler)}."),
 				};
 				chunk.MakeBinary(asset.EditorPath);
 
@@ -100,9 +101,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					fileBuffer = ms.ToArray();
 				}
 
-				ResourceChunk loudnessChunk = (ResourceChunk)Activator.CreateInstance(typeof(AudioChunk), "loudness", 0U/*Don't know start offset yet.*/, (uint)fileBuffer.Length);
-				loudnessChunk.Buffer = fileBuffer;
-				chunks.Add(loudnessChunk);
+				chunks.Add(new AudioChunk("loudness", 0U, (uint)fileBuffer.Length) { Buffer = fileBuffer });
 			}
 
 			return chunks;
@@ -114,11 +113,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			using MemoryStream tocStream = new MemoryStream();
 			foreach (ResourceChunk chunk in chunks)
 			{
-				Type chunkType = chunk.GetType();
-				byte type = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunkType).BinaryType;
-
 				// Write binary type.
-				tocStream.Write(BitConverter.GetBytes(type), 0, sizeof(byte));
+				tocStream.Write(new[] { chunk.AssetType.GetBinaryTypeFromAssetType() }, 0, sizeof(byte));
 				tocStream.Position++;
 
 				// Write name.
@@ -242,9 +238,18 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
 				i += 14;
 
-				ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.BinaryType == type);
-				if (chunkInfo != null)
-					chunks.Add(Activator.CreateInstance(chunkInfo.ChunkType, name, startOffset, size) as ResourceChunk);
+				AssetType? assetType = type.GetAssetTypeFromBinaryType();
+				ResourceChunk? chunk = assetType switch
+				{
+					AssetType.Audio => new AudioChunk(name, startOffset, size),
+					AssetType.ModelBinding => new ModelBindingChunk(name, startOffset, size),
+					AssetType.Model => new ModelChunk(name, startOffset, size),
+					AssetType.Shader => new ShaderChunk(name, startOffset, size),
+					AssetType.Texture => new TextureChunk(name, startOffset, size),
+					_ => null,
+				};
+				if (chunk != null)
+					chunks.Add(chunk);
 			}
 
 			return chunks;

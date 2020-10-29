@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using System.Collections.Generic;
 using System.IO;
 
@@ -16,6 +17,8 @@ namespace DevilDaggersAssetEditor.Chunks
 		public string Name { get; set; }
 		public uint StartOffset { get; set; }
 		public uint Size { get; set; }
+
+		public abstract AssetType AssetType { get; }
 
 		public byte[] Buffer { get; set; }
 

@@ -15,7 +15,7 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 		}
 
-		public AssetType AssetType => AssetType.Shader;
+		public override AssetType AssetType => AssetType.Shader;
 
 		public override void MakeBinary(string path)
 		{

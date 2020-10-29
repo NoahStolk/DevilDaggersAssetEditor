@@ -9,6 +9,6 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 		}
 
-		public AssetType AssetType => AssetType.ModelBinding;
+		public override AssetType AssetType => AssetType.ModelBinding;
 	}
 }

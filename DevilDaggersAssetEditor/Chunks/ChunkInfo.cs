@@ -7,12 +7,11 @@ namespace DevilDaggersAssetEditor.Chunks
 {
 	public class ChunkInfo
 	{
-		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, AssetType assetType, byte binaryType, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
+		public ChunkInfo(BinaryFileType binaryFileType, Type chunkType, AssetType assetType, string fileExtension, string folderName, string dataName, byte colorR, byte colorG, byte colorB)
 		{
 			BinaryFileType = binaryFileType;
 			ChunkType = chunkType;
 			AssetType = assetType;
-			BinaryType = binaryType;
 			FileExtension = fileExtension;
 			FolderName = folderName;
 			DataName = dataName;
@@ -25,7 +24,6 @@ namespace DevilDaggersAssetEditor.Chunks
 			binaryFileType: BinaryFileType.Dd,
 			chunkType: typeof(ModelChunk),
 			assetType: AssetType.Model,
-			binaryType: 0x01,
 			fileExtension: ".obj",
 			folderName: "Models",
 			dataName: "Model",
@@ -37,7 +35,6 @@ namespace DevilDaggersAssetEditor.Chunks
 			binaryFileType: BinaryFileType.Dd,
 			chunkType: typeof(TextureChunk),
 			assetType: AssetType.Texture,
-			binaryType: 0x02,
 			fileExtension: ".png",
 			folderName: "Textures",
 			dataName: "Texture",
@@ -49,7 +46,6 @@ namespace DevilDaggersAssetEditor.Chunks
 			binaryFileType: BinaryFileType.Dd | BinaryFileType.Core,
 			chunkType: typeof(ShaderChunk),
 			assetType: AssetType.Shader,
-			binaryType: 0x10,
 			fileExtension: ".glsl",
 			folderName: "Shaders",
 			dataName: "Shader",
@@ -61,7 +57,6 @@ namespace DevilDaggersAssetEditor.Chunks
 			binaryFileType: BinaryFileType.Audio,
 			chunkType: typeof(AudioChunk),
 			assetType: AssetType.Audio,
-			binaryType: 0x20,
 			fileExtension: ".wav",
 			folderName: "Audio",
 			dataName: "Audio",
@@ -73,7 +68,6 @@ namespace DevilDaggersAssetEditor.Chunks
 			binaryFileType: BinaryFileType.Dd,
 			chunkType: typeof(ModelBindingChunk),
 			assetType: AssetType.ModelBinding,
-			binaryType: 0x80,
 			fileExtension: ".txt",
 			folderName: "Model Bindings",
 			dataName: "Model binding",
@@ -85,7 +79,6 @@ namespace DevilDaggersAssetEditor.Chunks
 			binaryFileType: BinaryFileType.Particle,
 			chunkType: typeof(ParticleChunk),
 			assetType: AssetType.Particle,
-			binaryType: 0x00, // Doesn't actually have a binary type.
 			fileExtension: ".bin",
 			folderName: "Particles",
 			dataName: "Particle",
@@ -98,7 +91,6 @@ namespace DevilDaggersAssetEditor.Chunks
 		public BinaryFileType BinaryFileType { get; }
 		public Type ChunkType { get; }
 		public AssetType AssetType { get; }
-		public byte BinaryType { get; }
 		public string FileExtension { get; }
 		public string FolderName { get; }
 		public string DataName { get; }

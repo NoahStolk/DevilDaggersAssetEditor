@@ -32,6 +32,19 @@ namespace DevilDaggersAssetEditor.Extensions
 			};
 		}
 
+		public static byte GetBinaryTypeFromAssetType(this AssetType assetType)
+		{
+			return assetType switch
+			{
+				AssetType.Model => 0x01,
+				AssetType.Texture => 0x02,
+				AssetType.Shader => 0x10,
+				AssetType.Audio => 0x20,
+				AssetType.ModelBinding => 0x80,
+				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetBinaryTypeFromAssetType)} method."),
+			};
+		}
+
 		public static AssetType? GetAssetTypeFromFileExtension(this string fileExtension)
 		{
 			return fileExtension switch
@@ -43,6 +56,19 @@ namespace DevilDaggersAssetEditor.Extensions
 				".glsl" => AssetType.Shader,
 				".png" => AssetType.Texture,
 				".bin" => AssetType.Particle,
+				_ => null,
+			};
+		}
+
+		public static AssetType? GetAssetTypeFromBinaryType(this byte binaryType)
+		{
+			return binaryType switch
+			{
+				0x01 => AssetType.Model,
+				0x02 => AssetType.Texture,
+				0x10 => AssetType.Shader,
+				0x20 => AssetType.Audio,
+				0x80 => AssetType.ModelBinding,
 				_ => null,
 			};
 		}

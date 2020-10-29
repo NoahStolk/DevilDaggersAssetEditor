@@ -9,6 +9,6 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 		}
 
-		public AssetType AssetType => AssetType.Audio;
+		public override AssetType AssetType => AssetType.Audio;
 	}
 }
