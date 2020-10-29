@@ -202,5 +202,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 
 		}
+
+		private void Exit_Click(object sender, RoutedEventArgs e)
+			=> Application.Current.Shutdown();
 	}
 }

@@ -53,8 +53,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 						successCount++;
 					}
 
-					AssetRowControl arc = rowHandler;
-					arc.UpdateGui();
+					rowHandler.UpdateGui();
 				}
 			}
 

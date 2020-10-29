@@ -13,14 +13,17 @@
 			<Separator />
 			<MenuItem Header="Open mod" Click="OpenMod_Click" />
 			<MenuItem Header="Save mod" Click="SaveMod_Click" />
+			<Separator />
+			<MenuItem Header="Import audio loudness" Click="ImportLoudness_Click" />
+			<MenuItem Header="Export audio loudness" Click="ExportLoudness_Click" />
+			<Separator />
+			<MenuItem Header="Exit" Click="Exit_Click" />
 		</MenuItem>
 		<MenuItem Header="Options">
 			<MenuItem Header="Settings" Click="Settings_Click" />
 		</MenuItem>
 		<MenuItem Header="Tools">
 			<MenuItem Header="Analyze binary file" Click="AnalyzeBinaryFileMenuItem_Click" />
-			<MenuItem Header="Import loudness" Click="ImportLoudness_Click" />
-			<MenuItem Header="Export loudness" Click="ExportLoudness_Click" />
 		</MenuItem>
 		<MenuItem Header="Help" Name="HelpItem">
 			<MenuItem Header="Help" Click="Help_Click" />
