@@ -10,7 +10,7 @@ using System.Text;
 
 namespace DevilDaggersAssetEditor.Wpf.Utils
 {
-	public static class LoudnessImportExport
+	public static class LoudnessWpfUtils
 	{
 		public static void ImportLoudness(List<AssetRowControl> rowControls)
 		{
