@@ -2,10 +2,6 @@
 {
 	public struct VertexReference
 	{
-		public uint PositionReference { get; set; }
-		public uint TexCoordReference { get; set; }
-		public uint NormalReference { get; set; }
-
 		public VertexReference(uint positionReference, uint texCoordReference, uint normalReference)
 		{
 			PositionReference = positionReference;
@@ -19,6 +15,10 @@
 			TexCoordReference = unifiedReference;
 			NormalReference = unifiedReference;
 		}
+
+		public uint PositionReference { get; set; }
+		public uint TexCoordReference { get; set; }
+		public uint NormalReference { get; set; }
 
 		public override string ToString()
 			=> $"{PositionReference}/{TexCoordReference}/{NormalReference}";

@@ -22,7 +22,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
-		private static string _modFileFilter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae";
+		private static readonly string _modFileFilter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae";
 
 		public MenuBarUserControl()
 		{
@@ -66,14 +66,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			openDialog.OpenDevilDaggersRootFolder();
 
 			bool? openResult = openDialog.ShowDialog();
-			if (openResult.HasValue && openResult.Value)
+			if (openResult == true)
 			{
 				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
 
-				AnalyzerFileResult? result = BinaryFileAnalyzerWindow.TryReadResourceFile(openDialog.FileName, sourceFileBytes);
-				if (result == null)
-					result = BinaryFileAnalyzerWindow.TryReadParticleFile(openDialog.FileName, sourceFileBytes);
-
+				AnalyzerFileResult? result = BinaryFileAnalyzerWindow.TryReadResourceFile(openDialog.FileName, sourceFileBytes) ?? BinaryFileAnalyzerWindow.TryReadParticleFile(openDialog.FileName, sourceFileBytes);
 				if (result == null)
 				{
 					App.Instance.ShowMessage("File not recognized", "Make sure to open one of the following binary files: audio, core, dd, particle");

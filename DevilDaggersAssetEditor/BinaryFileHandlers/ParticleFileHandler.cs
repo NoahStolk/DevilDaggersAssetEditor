@@ -56,7 +56,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return dict;
 		}
 
-		public void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress)
+		public void ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress)
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 

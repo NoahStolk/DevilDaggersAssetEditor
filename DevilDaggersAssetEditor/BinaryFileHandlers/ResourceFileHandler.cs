@@ -186,9 +186,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// </summary>
 		/// <param name="inputPath">The binary file path.</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
-		/// <param name="binaryFileType">The binary file type of the file that's being extracted. This is only used for saving the mod file.</param>
 		/// <param name="progress">The progress wrapper to report progress to.</param>
-		public void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress)
+		public void ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress)
 		{
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 

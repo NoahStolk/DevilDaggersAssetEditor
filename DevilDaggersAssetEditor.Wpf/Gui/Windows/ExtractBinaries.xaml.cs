@@ -172,7 +172,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 						_ => new ResourceFileHandler(binaryFileType),
 					};
 
-					fileHandler.ExtractBinary(inputPath, outputPath, binaryFileType, progress);
+					fileHandler.ExtractBinary(inputPath, outputPath, progress);
 					App.Instance.Dispatcher.Invoke(() => progress.Report("Completed successfully.", 1));
 				}
 				catch (Exception ex)

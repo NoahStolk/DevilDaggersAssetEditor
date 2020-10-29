@@ -7,7 +7,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 	{
 		void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress);
 
-		void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress);
+		void ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress);
 
 		void ValidateFile(byte[] sourceFileBytes);
 	}
