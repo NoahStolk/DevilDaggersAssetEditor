@@ -17,11 +17,9 @@ namespace DevilDaggersAssetEditor.Chunks
 		private static readonly bool _extractMipmaps;
 
 		public TextureChunk(string name, uint startOffset, uint size)
-			: base(name, startOffset, size)
+			: base(AssetType.Texture, name, startOffset, size)
 		{
 		}
-
-		public override AssetType AssetType => AssetType.Texture;
 
 		public override void MakeBinary(string path)
 		{

@@ -17,11 +17,9 @@ namespace DevilDaggersAssetEditor.Chunks
 		private static readonly Dictionary<string, byte[]> _closures = GetClosures();
 
 		public ModelChunk(string name, uint startOffset, uint size)
-			: base(name, startOffset, size)
+			: base(AssetType.Model, name, startOffset, size)
 		{
 		}
-
-		public override AssetType AssetType => AssetType.Model;
 
 		private static Dictionary<string, byte[]> GetClosures()
 		{

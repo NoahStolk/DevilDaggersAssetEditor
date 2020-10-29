@@ -11,11 +11,9 @@ namespace DevilDaggersAssetEditor.Chunks
 	public class ShaderChunk : ResourceChunk
 	{
 		public ShaderChunk(string name, uint startOffset, uint size)
-			: base(name, startOffset, size)
+			: base(AssetType.Shader, name, startOffset, size)
 		{
 		}
-
-		public override AssetType AssetType => AssetType.Shader;
 
 		public override void MakeBinary(string path)
 		{

@@ -75,15 +75,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				if (asset is AudioAsset audioAsset)
 					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
 
-				// Create chunk.
 				ResourceChunk chunk = asset.AssetType switch
 				{
-					AssetType.Audio => new AudioChunk(asset.AssetName, 0, 0),
 					AssetType.Model => new ModelChunk(asset.AssetName, 0, 0),
-					AssetType.ModelBinding => new ModelBindingChunk(asset.AssetName, 0, 0),
 					AssetType.Shader => new ShaderChunk(asset.AssetName, 0, 0),
 					AssetType.Texture => new TextureChunk(asset.AssetName, 0, 0),
-					_ => throw new NotSupportedException($"{nameof(AssetType)} '{asset.AssetType}' is not supported in {nameof(ResourceFileHandler)}."),
+					_ => new ResourceChunk(asset.AssetType, asset.AssetName, 0, 0),
 				};
 				chunk.MakeBinary(asset.EditorPath);
 
@@ -92,7 +89,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			if (loudness.Length != 0)
 			{
-				// Create loudness chunk.
 				progress.Report("Generating Loudness chunk.");
 				byte[] fileBuffer;
 				using (MemoryStream ms = new MemoryStream())
@@ -102,7 +98,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					fileBuffer = ms.ToArray();
 				}
 
-				chunks.Add(new AudioChunk("loudness", 0U, (uint)fileBuffer.Length) { Buffer = fileBuffer });
+				chunks.Add(new ResourceChunk(AssetType.Audio, "loudness", 0U, (uint)fileBuffer.Length) { Buffer = fileBuffer });
 			}
 
 			return chunks;
@@ -238,17 +234,17 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				i += 14;
 
 				AssetType? assetType = type.GetAssetType();
-				ResourceChunk? chunk = assetType switch
+				if (assetType.HasValue)
 				{
-					AssetType.Audio => new AudioChunk(name, startOffset, size),
-					AssetType.ModelBinding => new ModelBindingChunk(name, startOffset, size),
-					AssetType.Model => new ModelChunk(name, startOffset, size),
-					AssetType.Shader => new ShaderChunk(name, startOffset, size),
-					AssetType.Texture => new TextureChunk(name, startOffset, size),
-					_ => null,
-				};
-				if (chunk != null)
+					ResourceChunk chunk = assetType switch
+					{
+						AssetType.Model => new ModelChunk(name, startOffset, size),
+						AssetType.Shader => new ShaderChunk(name, startOffset, size),
+						AssetType.Texture => new TextureChunk(name, startOffset, size),
+						_ => new ResourceChunk(assetType.Value, name, startOffset, size),
+					};
 					chunks.Add(chunk);
+				}
 			}
 
 			return chunks;

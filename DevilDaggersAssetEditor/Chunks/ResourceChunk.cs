@@ -5,10 +5,11 @@ using System.IO;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public abstract class ResourceChunk : IChunk
+	public class ResourceChunk : IChunk
 	{
-		protected ResourceChunk(string name, uint startOffset, uint size)
+		public ResourceChunk(AssetType assetType, string name, uint startOffset, uint size)
 		{
+			AssetType = assetType;
 			Name = name;
 			StartOffset = startOffset;
 			Size = size;
@@ -18,7 +19,7 @@ namespace DevilDaggersAssetEditor.Chunks
 		public uint StartOffset { get; set; }
 		public uint Size { get; set; }
 
-		public abstract AssetType AssetType { get; }
+		public AssetType AssetType { get; }
 
 		public byte[] Buffer { get; set; }
 
@@ -34,6 +35,6 @@ namespace DevilDaggersAssetEditor.Chunks
 		}
 
 		public override string ToString()
-			=> $"Type: {GetType().Name} | Name: {Name} | Size: {Size}";
+			=> $"Type: {AssetType} | Name: {Name} | Size: {Size}";
 	}
 }
