@@ -48,10 +48,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescriptionParticle.Text = value)),
 				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBarParticle.Value = value)));
 
-			ProgressBarAudio.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Audio.GetColorFromAssetType()) * 0.5f);
-			ProgressBarCore.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Shader.GetColorFromAssetType()) * 0.5f);
-			ProgressBarDd.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Texture.GetColorFromAssetType()) * 0.5f);
-			ProgressBarParticle.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Particle.GetColorFromAssetType()) * 0.5f);
+			ProgressBarAudio.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Audio.GetColor()) * 0.5f);
+			ProgressBarCore.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Shader.GetColor()) * 0.5f);
+			ProgressBarDd.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Texture.GetColor()) * 0.5f);
+			ProgressBarParticle.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(AssetType.Particle.GetColor()) * 0.5f);
 		}
 
 		private void UpdateGui()

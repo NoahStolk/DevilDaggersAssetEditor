@@ -43,7 +43,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			};
 			Grid.SetColumn(TextBlockTags, 1);
 
-			Color colorEditEven = EditorUtils.FromRgbTuple(assetType.GetColorFromAssetType()) * 0.25f;
+			Color colorEditEven = EditorUtils.FromRgbTuple(assetType.GetColor()) * 0.25f;
 			Color colorEditOdd = colorEditEven * 0.5f;
 			Color colorInfoEven = colorEditOdd;
 			Color colorInfoOdd = colorEditOdd * 0.5f;

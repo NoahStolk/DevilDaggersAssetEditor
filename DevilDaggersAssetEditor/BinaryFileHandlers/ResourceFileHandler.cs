@@ -116,7 +116,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			foreach (ResourceChunk chunk in chunks)
 			{
 				// Write binary type.
-				tocStream.Write(new[] { chunk.AssetType.GetBinaryTypeFromAssetType() }, 0, sizeof(byte));
+				tocStream.Write(new[] { chunk.AssetType.GetBinaryType() }, 0, sizeof(byte));
 				tocStream.Position++;
 
 				// Write name.
@@ -239,7 +239,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				uint size = BitConverter.ToUInt32(tocBuffer, i + 6);
 				i += 14;
 
-				AssetType? assetType = type.GetAssetTypeFromBinaryType();
+				AssetType? assetType = type.GetAssetType();
 				ResourceChunk? chunk = assetType switch
 				{
 					AssetType.Audio => new AudioChunk(name, startOffset, size),
@@ -266,7 +266,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				if (chunk.Size == 0) // Filter empty chunks (garbage in TOC buffers).
 					continue;
 
-				string fileExtension = chunk.AssetType.GetFileExtensionFromAssetType();
+				string fileExtension = chunk.AssetType.GetFileExtension();
 
 				progress.Report(
 					$"Creating {chunk.AssetType} file{(chunk.AssetType == AssetType.Shader ? "s" : string.Empty)} for chunk \"{chunk.Name}\".",
@@ -279,7 +279,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 				foreach (FileResult fileResult in chunk.ExtractBinary())
 				{
-					string assetTypeDirectory = chunk.AssetType.GetFolderNameFromAssetType();
+					string assetTypeDirectory = chunk.AssetType.GetFolderName();
 					if (!Directory.Exists(assetTypeDirectory))
 						Directory.CreateDirectory(Path.Combine(outputPath, assetTypeDirectory));
 					File.WriteAllBytes(Path.Combine(outputPath, assetTypeDirectory, fileResult.Name + (fileResult.Name == "loudness" && fileExtension == ".wav" ? ".ini" : fileExtension)), fileResult.Buffer.ToArray());

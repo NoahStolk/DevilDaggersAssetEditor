@@ -41,7 +41,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			AllFilters = RowControls.Select(a => a.Asset).SelectMany(a => a.Tags ?? new List<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			FiltersCount = AllFilters.Count();
 
-			FilterHighlightColor = EditorUtils.FromRgbTuple(assetType.GetColorFromAssetType()) * 0.25f;
+			FilterHighlightColor = EditorUtils.FromRgbTuple(assetType.GetColor()) * 0.25f;
 
 			Previewer = assetType switch
 			{
@@ -193,7 +193,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
 				return;
 
-			foreach (string filePath in Directory.GetFiles(folder, $"*{assetType.GetFileExtensionFromAssetType()}", SearchOption.AllDirectories))
+			foreach (string filePath in Directory.GetFiles(folder, $"*{assetType.GetFileExtension()}", SearchOption.AllDirectories))
 			{
 				string assetName = Path.GetFileNameWithoutExtension(filePath);
 				bool isFragmentShader = false;

@@ -223,7 +223,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private static Color GetColor(AssetType? assetType, bool isHeader)
 		{
 			if (assetType.HasValue)
-				return EditorUtils.FromRgbTuple(assetType.Value.GetColorFromAssetType()) * (isHeader ? 0.5f : 1);
+				return EditorUtils.FromRgbTuple(assetType.Value.GetColor()) * (isHeader ? 0.5f : 1);
 
 			return Color.FromRgb(255, 255, 255);
 		}

@@ -18,7 +18,7 @@ namespace DevilDaggersAssetEditor.Extensions
 			};
 		}
 
-		public static string GetFileExtensionFromAssetType(this AssetType assetType)
+		public static string GetFileExtension(this AssetType assetType)
 		{
 			return assetType switch
 			{
@@ -28,11 +28,11 @@ namespace DevilDaggersAssetEditor.Extensions
 				AssetType.Shader => ".glsl",
 				AssetType.Texture => ".png",
 				AssetType.Particle => ".bin",
-				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFileExtensionFromAssetType)} method."),
+				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFileExtension)} method."),
 			};
 		}
 
-		public static string GetFolderNameFromAssetType(this AssetType assetType)
+		public static string GetFolderName(this AssetType assetType)
 		{
 			return assetType switch
 			{
@@ -42,11 +42,11 @@ namespace DevilDaggersAssetEditor.Extensions
 				AssetType.Shader => "Shaders",
 				AssetType.Texture => "Textures",
 				AssetType.Particle => "Particles",
-				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderNameFromAssetType)} method."),
+				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderName)} method."),
 			};
 		}
 
-		public static (byte R, byte G, byte B) GetColorFromAssetType(this AssetType assetType)
+		public static (byte R, byte G, byte B) GetColor(this AssetType assetType)
 		{
 			return assetType switch
 			{
@@ -56,11 +56,11 @@ namespace DevilDaggersAssetEditor.Extensions
 				AssetType.Shader => (0, 255, 0),
 				AssetType.Texture => (255, 127, 0),
 				AssetType.Particle => (255, 255, 0),
-				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderNameFromAssetType)} method."),
+				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderName)} method."),
 			};
 		}
 
-		public static byte GetBinaryTypeFromAssetType(this AssetType assetType)
+		public static byte GetBinaryType(this AssetType assetType)
 		{
 			return assetType switch
 			{
@@ -69,11 +69,11 @@ namespace DevilDaggersAssetEditor.Extensions
 				AssetType.Shader => 0x10,
 				AssetType.Audio => 0x20,
 				AssetType.ModelBinding => 0x80,
-				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetBinaryTypeFromAssetType)} method."),
+				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetBinaryType)} method."),
 			};
 		}
 
-		public static AssetType? GetAssetTypeFromFileExtension(this string fileExtension)
+		public static AssetType? GetAssetType(this string fileExtension)
 		{
 			return fileExtension switch
 			{
@@ -88,7 +88,7 @@ namespace DevilDaggersAssetEditor.Extensions
 			};
 		}
 
-		public static AssetType? GetAssetTypeFromBinaryType(this byte binaryType)
+		public static AssetType? GetAssetType(this byte binaryType)
 		{
 			return binaryType switch
 			{

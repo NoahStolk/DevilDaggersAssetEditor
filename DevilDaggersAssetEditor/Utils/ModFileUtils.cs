@@ -53,7 +53,7 @@ namespace DevilDaggersAssetEditor.Utils
 			foreach (string path in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories))
 			{
 				string name = Path.GetFileNameWithoutExtension(path);
-				AssetType? assetType = Path.GetExtension(path).GetAssetTypeFromFileExtension();
+				AssetType? assetType = Path.GetExtension(path).GetAssetType();
 				if (!assetType.HasValue)
 					continue;
 
