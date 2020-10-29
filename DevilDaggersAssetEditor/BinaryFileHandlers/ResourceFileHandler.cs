@@ -255,13 +255,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return chunks;
 		}
 
-		private void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<ResourceChunk> chunks, ProgressWrapper progress)
+		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<ResourceChunk> chunks, ProgressWrapper progress)
 		{
 			int chunksDone = 0;
 			int totalChunks = chunks.Count();
-
-			foreach (ChunkInfo chunkInfo in ChunkInfo.All.Where(c => BinaryFileType.HasFlagBothWays(c.BinaryFileType)))
-				Directory.CreateDirectory(Path.Combine(outputPath, chunkInfo.FolderName));
 
 			foreach (ResourceChunk chunk in chunks)
 			{
@@ -280,7 +277,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				chunk.Buffer = buf;
 
 				foreach (FileResult fileResult in chunk.ExtractBinary())
-					File.WriteAllBytes(Path.Combine(outputPath, chunk.AssetType.GetFolderNameFromAssetType(), fileResult.Name + (fileResult.Name == "loudness" && fileExtension == ".wav" ? ".ini" : fileExtension)), fileResult.Buffer.ToArray());
+				{
+					string assetTypeDirectory = chunk.AssetType.GetFolderNameFromAssetType();
+					if (!Directory.Exists(assetTypeDirectory))
+						Directory.CreateDirectory(Path.Combine(outputPath, assetTypeDirectory));
+					File.WriteAllBytes(Path.Combine(outputPath, assetTypeDirectory, fileResult.Name + (fileResult.Name == "loudness" && fileExtension == ".wav" ? ".ini" : fileExtension)), fileResult.Buffer.ToArray());
+				}
 			}
 		}
 
