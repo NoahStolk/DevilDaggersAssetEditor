@@ -1,5 +1,4 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileAnalyzer;
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
@@ -13,7 +12,6 @@ using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -61,26 +59,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void AnalyzeBinaryFileMenuItem_Click(object sender, RoutedEventArgs e)
 		{
-			// TODO: Move this code to the BinaryFileAnalyzerWindow itself.
-			OpenFileDialog openDialog = new OpenFileDialog();
-			openDialog.OpenDevilDaggersRootFolder();
-
-			bool? openResult = openDialog.ShowDialog();
-			if (openResult == true)
-			{
-				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
-
-				AnalyzerFileResult? result = BinaryFileAnalyzerWindow.TryReadResourceFile(openDialog.FileName, sourceFileBytes) ?? BinaryFileAnalyzerWindow.TryReadParticleFile(openDialog.FileName, sourceFileBytes);
-				if (result == null)
-				{
-					App.Instance.ShowMessage("File not recognized", "Make sure to open one of the following binary files: audio, core, dd, particle");
-				}
-				else
-				{
-					BinaryFileAnalyzerWindow fileAnalyzerWindow = new BinaryFileAnalyzerWindow(result);
-					fileAnalyzerWindow.ShowDialog();
-				}
-			}
+			BinaryFileAnalyzerWindow fileAnalyzerWindow = new BinaryFileAnalyzerWindow();
+			fileAnalyzerWindow.ShowDialog();
 		}
 
 		private void Settings_Click(object sender, RoutedEventArgs e)
