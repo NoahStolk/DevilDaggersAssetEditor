@@ -32,6 +32,20 @@ namespace DevilDaggersAssetEditor.Extensions
 			};
 		}
 
+		public static string GetFolderNameFromAssetType(this AssetType assetType)
+		{
+			return assetType switch
+			{
+				AssetType.Audio => "Audio",
+				AssetType.ModelBinding => "Model Bindings",
+				AssetType.Model => "Models",
+				AssetType.Shader => "Shaders",
+				AssetType.Texture => "Textures",
+				AssetType.Particle => "Particles",
+				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderNameFromAssetType)} method."),
+			};
+		}
+
 		public static byte GetBinaryTypeFromAssetType(this AssetType assetType)
 		{
 			return assetType switch

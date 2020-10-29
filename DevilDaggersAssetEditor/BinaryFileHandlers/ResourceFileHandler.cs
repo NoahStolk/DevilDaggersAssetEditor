@@ -268,10 +268,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				if (chunk.Size == 0) // Filter empty chunks (garbage in TOC buffers).
 					continue;
 
-				ChunkInfo info = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType());
+				string fileExtension = chunk.AssetType.GetFileExtensionFromAssetType();
 
 				progress.Report(
-					$"Creating {info.ChunkType.Name.Replace("Chunk", string.Empty, StringComparison.InvariantCulture)} file{(info.ChunkType == typeof(ShaderChunk) ? "s" : string.Empty)} for chunk \"{chunk.Name}\".",
+					$"Creating {chunk.AssetType} file{(chunk.AssetType == AssetType.Shader ? "s" : string.Empty)} for chunk \"{chunk.Name}\".",
 					chunksDone++ / (float)totalChunks);
 
 				byte[] buf = new byte[chunk.Size];
@@ -280,7 +280,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				chunk.Buffer = buf;
 
 				foreach (FileResult fileResult in chunk.ExtractBinary())
-					File.WriteAllBytes(Path.Combine(outputPath, info.FolderName, fileResult.Name + (fileResult.Name == "loudness" && info.FileExtension == ".wav" ? ".ini" : info.FileExtension)), fileResult.Buffer.ToArray());
+					File.WriteAllBytes(Path.Combine(outputPath, chunk.AssetType.GetFolderNameFromAssetType(), fileResult.Name + (fileResult.Name == "loudness" && fileExtension == ".wav" ? ".ini" : fileExtension)), fileResult.Buffer.ToArray());
 			}
 		}
 
