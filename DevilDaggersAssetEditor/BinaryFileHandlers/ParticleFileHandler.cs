@@ -70,7 +70,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 				progress.Report($"Creating Particle file for chunk \"{chunk.Name}\".", i / (float)fileBuffer.Length);
 
-				File.WriteAllBytes(Path.Combine(outputPath, AssetType.Particle.GetFolderName(), chunk.Name + AssetType.Particle.GetFileExtension()), chunk.Buffer.ToArray());
+				File.WriteAllBytes(Path.Combine(outputPath, AssetType.Particle.GetFolderName(), chunk.Name + AssetType.Particle.GetFileExtension()), chunk.Buffer[chunk.Name.Length..]);
 			}
 		}
 
