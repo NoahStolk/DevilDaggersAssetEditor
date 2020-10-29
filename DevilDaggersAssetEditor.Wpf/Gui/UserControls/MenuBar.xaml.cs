@@ -6,6 +6,7 @@ using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Network;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Models;
 using DevilDaggersCore.Wpf.Windows;
@@ -123,14 +124,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		}
 
 		private void ImportAudioLoudness_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
+			=> LoudnessImportExport.ImportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.RowControls);
 
 		private void ExportAudioLoudness_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
+			=> LoudnessImportExport.ExportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.RowControls);
 
 		private void Exit_Click(object sender, RoutedEventArgs e)
 			=> Application.Current.Shutdown();

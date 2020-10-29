@@ -12,7 +12,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 {
 	public static class LoudnessImportExport
 	{
-		public static void ImportLoudness(List<AssetRowControl> rowHandlers)
+		public static void ImportLoudness(List<AssetRowControl> rowControls)
 		{
 			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
@@ -39,7 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 			int unchangedCount = 0;
 			foreach (KeyValuePair<string, float> kvp in values)
 			{
-				AssetRowControl? rowHandler = rowHandlers.Find(a => a.Asset.AssetName == kvp.Key);
+				AssetRowControl? rowHandler = rowControls.Find(a => a.Asset.AssetName == kvp.Key);
 				if (rowHandler != null)
 				{
 					AudioAsset audioAsset = (AudioAsset)rowHandler.Asset;
@@ -57,10 +57,10 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 				}
 			}
 
-			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {rowHandlers.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
+			App.Instance.ShowMessage("Loudness import results", $"Total audio assets: {rowControls.Count}\nAudio assets found in specified loudness file: {values.Count}\n\nUpdated: {successCount} / {values.Count}\nUnchanged: {unchangedCount} / {values.Count}\nNot found: {values.Count - (successCount + unchangedCount)} / {values.Count}");
 		}
 
-		public static void ExportLoudness(List<AssetRowControl> rowHandlers)
+		public static void ExportLoudness(List<AssetRowControl> rowControls)
 		{
 			SaveFileDialog dialog = new SaveFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
@@ -70,7 +70,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 				return;
 
 			StringBuilder sb = new StringBuilder();
-			foreach (AbstractAsset asset in rowHandlers.Select(a => a.Asset))
+			foreach (AbstractAsset asset in rowControls.Select(a => a.Asset))
 			{
 				if (asset is AudioAsset audioAsset)
 					sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
