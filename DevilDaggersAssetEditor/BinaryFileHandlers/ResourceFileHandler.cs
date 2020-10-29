@@ -2,7 +2,6 @@
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -23,11 +22,14 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		public static readonly ulong Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
 
 		public ResourceFileHandler(BinaryFileType binaryFileType)
-			: base(binaryFileType)
 		{
 			if (binaryFileType == BinaryFileType.Particle)
 				throw new Exception($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
+
+			BinaryFileType = binaryFileType;
 		}
+
+		public BinaryFileType BinaryFileType { get; }
 
 		private static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
 

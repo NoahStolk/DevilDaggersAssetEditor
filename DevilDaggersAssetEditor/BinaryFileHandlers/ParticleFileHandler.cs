@@ -22,11 +22,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		private const string _folderName = "Particles";
 		private const string _fileExtension = ".bin";
 
-		public ParticleFileHandler()
-			: base(BinaryFileType.Particle)
-		{
-		}
-
 		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
 			progress.Report("Initializing 'particle' file creation.");

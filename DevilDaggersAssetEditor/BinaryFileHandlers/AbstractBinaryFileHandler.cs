@@ -5,13 +5,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
 	public abstract class AbstractBinaryFileHandler
 	{
-		protected AbstractBinaryFileHandler(BinaryFileType binaryFileType)
-		{
-			BinaryFileType = binaryFileType;
-		}
-
-		public BinaryFileType BinaryFileType { get; }
-
 		public abstract void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress);
 
 		public abstract void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress);
