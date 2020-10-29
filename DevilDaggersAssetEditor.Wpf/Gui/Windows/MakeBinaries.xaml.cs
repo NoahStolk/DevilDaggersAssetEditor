@@ -131,7 +131,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				try
 				{
-					AbstractBinaryFileHandler fileHandler = binaryFileType switch
+					IBinaryFileHandler fileHandler = binaryFileType switch
 					{
 						BinaryFileType.Particle => new ParticleFileHandler(),
 						_ => new ResourceFileHandler(binaryFileType),

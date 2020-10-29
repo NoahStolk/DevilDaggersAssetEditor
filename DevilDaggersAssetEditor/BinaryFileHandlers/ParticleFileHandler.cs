@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
-	public class ParticleFileHandler : AbstractBinaryFileHandler
+	public class ParticleFileHandler : IBinaryFileHandler
 	{
 		/// <summary>
 		/// uint magic, uint particle amount = 8 bytes.
@@ -22,7 +22,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		private const string _folderName = "Particles";
 		private const string _fileExtension = ".bin";
 
-		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
+		public void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
 			progress.Report("Initializing 'particle' file creation.");
 
@@ -58,7 +58,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return dict;
 		}
 
-		public override void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress)
+		public void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress)
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 
@@ -76,7 +76,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			}
 		}
 
-		public override void ValidateFile(byte[] sourceFileBytes)
+		public void ValidateFile(byte[] sourceFileBytes)
 		{
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			if (magic1FromFile != Magic1)

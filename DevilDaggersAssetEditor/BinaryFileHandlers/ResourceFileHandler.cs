@@ -11,7 +11,7 @@ using System.Text;
 
 namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
-	public class ResourceFileHandler : AbstractBinaryFileHandler
+	public class ResourceFileHandler : IBinaryFileHandler
 	{
 		/// <summary>
 		/// uint magic1, uint magic2, uint tocBufferSize = 12 bytes.
@@ -41,7 +41,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// <param name="allAssets">The list of asset objects.</param>
 		/// <param name="outputPath">The path where the binary file will be placed.</param>
 		/// <param name="progress">The progress wrapper to report progress to.</param>
-		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
+		public void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
 			progress.Report($"Initializing '{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' file creation.");
 
@@ -130,8 +130,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				// Write size.
 				tocStream.Write(BitConverter.GetBytes(chunk.Size), 0, sizeof(uint));
 
-				// TODO: Figure out unknown value and write...
-				// No reason to write anything for now.
+				// No reason to write unknown value.
 				tocStream.Position += sizeof(uint);
 			}
 
@@ -189,7 +188,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
 		/// <param name="binaryFileType">The binary file type of the file that's being extracted. This is only used for saving the mod file.</param>
 		/// <param name="progress">The progress wrapper to report progress to.</param>
-		public override void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress)
+		public void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, ProgressWrapper progress)
 		{
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
@@ -206,7 +205,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress);
 		}
 
-		public override void ValidateFile(byte[] sourceFileBytes)
+		public void ValidateFile(byte[] sourceFileBytes)
 		{
 			// TODO: Show message instead of throwing exception.
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
