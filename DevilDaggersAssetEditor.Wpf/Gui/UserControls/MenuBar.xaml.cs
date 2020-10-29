@@ -57,77 +57,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 #endif
 		}
 
-		private void AnalyzeBinaryFileMenuItem_Click(object sender, RoutedEventArgs e)
-		{
-			BinaryFileAnalyzerWindow fileAnalyzerWindow = new BinaryFileAnalyzerWindow();
-			fileAnalyzerWindow.ShowDialog();
-		}
-
-		private void Settings_Click(object sender, RoutedEventArgs e)
-		{
-			SettingsWindow settingsWindow = new SettingsWindow();
-			if (settingsWindow.ShowDialog() == true)
-				UserHandler.Instance.SaveSettings();
-		}
-
-		private void About_Click(object sender, RoutedEventArgs e)
-		{
-			AboutWindow aboutWindow = new AboutWindow();
-			aboutWindow.ShowDialog();
-		}
-
-		private void Changelog_Click(object sender, RoutedEventArgs e)
-		{
-			if (NetworkHandler.Instance.Tool != null)
-			{
-				List<ChangelogEntry> changes = NetworkHandler.Instance.Tool.Changelog.Select(c => new ChangelogEntry(Version.Parse(c.VersionNumber), c.Date, MapToSharedModel(c.Changes).ToList())).ToList();
-				ChangelogWindow changelogWindow = new ChangelogWindow(changes, App.LocalVersion);
-				changelogWindow.ShowDialog();
-			}
-			else
-			{
-				App.Instance.ShowError("Changelog not retrieved", "The changelog has not been retrieved from DevilDaggers.info.");
-			}
-
-			static IEnumerable<Change>? MapToSharedModel(List<Clients.Change>? changes)
-			{
-				foreach (Clients.Change change in changes ?? new List<Clients.Change>())
-					yield return new Change(change.Description, MapToSharedModel(change.SubChanges)?.ToList() ?? null);
-			}
-		}
-
-		private void Help_Click(object sender, RoutedEventArgs e)
-		{
-			HelpWindow helpWindow = new HelpWindow();
-			helpWindow.ShowDialog();
-		}
-
-		private void SourceCode_Click(object sender, RoutedEventArgs e)
-			=> ProcessUtils.OpenUrl(UrlUtils.SourceCodeUrl(App.ApplicationName).ToString());
-
-		private void Update_Click(object sender, RoutedEventArgs e)
-		{
-			CheckingForUpdatesWindow window = new CheckingForUpdatesWindow(NetworkHandler.Instance.GetOnlineTool);
-			window.ShowDialog();
-
-			if (NetworkHandler.Instance.Tool != null)
-			{
-				if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
-				{
-					UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
-					updateRecommendedWindow.ShowDialog();
-				}
-				else
-				{
-					App.Instance.ShowMessage("Up to date", $"{App.ApplicationDisplayName} {App.LocalVersion} is up to date.");
-				}
-			}
-			else
-			{
-				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
-			}
-		}
-
 		private void ExtractBinaries_Click(object sender, RoutedEventArgs e)
 		{
 			ExtractBinariesWindow window = new ExtractBinariesWindow();
@@ -193,17 +122,88 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			JsonFileUtils.SerializeToFile(dialog.FileName, userAssets, true);
 		}
 
-		private void ImportLoudness_Click(object sender, RoutedEventArgs e)
+		private void ImportAudioLoudness_Click(object sender, RoutedEventArgs e)
 		{
 
 		}
 
-		private void ExportLoudness_Click(object sender, RoutedEventArgs e)
+		private void ExportAudioLoudness_Click(object sender, RoutedEventArgs e)
 		{
 
 		}
 
 		private void Exit_Click(object sender, RoutedEventArgs e)
 			=> Application.Current.Shutdown();
+
+		private void Settings_Click(object sender, RoutedEventArgs e)
+		{
+			SettingsWindow settingsWindow = new SettingsWindow();
+			if (settingsWindow.ShowDialog() == true)
+				UserHandler.Instance.SaveSettings();
+		}
+
+		private void AnalyzeBinaryFile_Click(object sender, RoutedEventArgs e)
+		{
+			BinaryFileAnalyzerWindow fileAnalyzerWindow = new BinaryFileAnalyzerWindow();
+			fileAnalyzerWindow.ShowDialog();
+		}
+
+		private void Help_Click(object sender, RoutedEventArgs e)
+		{
+			HelpWindow helpWindow = new HelpWindow();
+			helpWindow.ShowDialog();
+		}
+
+		private void About_Click(object sender, RoutedEventArgs e)
+		{
+			AboutWindow aboutWindow = new AboutWindow();
+			aboutWindow.ShowDialog();
+		}
+
+		private void Changelog_Click(object sender, RoutedEventArgs e)
+		{
+			if (NetworkHandler.Instance.Tool != null)
+			{
+				List<ChangelogEntry> changes = NetworkHandler.Instance.Tool.Changelog.Select(c => new ChangelogEntry(Version.Parse(c.VersionNumber), c.Date, MapToSharedModel(c.Changes).ToList())).ToList();
+				ChangelogWindow changelogWindow = new ChangelogWindow(changes, App.LocalVersion);
+				changelogWindow.ShowDialog();
+			}
+			else
+			{
+				App.Instance.ShowError("Changelog not retrieved", "The changelog has not been retrieved from DevilDaggers.info.");
+			}
+
+			static IEnumerable<Change>? MapToSharedModel(List<Clients.Change>? changes)
+			{
+				foreach (Clients.Change change in changes ?? new List<Clients.Change>())
+					yield return new Change(change.Description, MapToSharedModel(change.SubChanges)?.ToList() ?? null);
+			}
+		}
+
+		private void ViewSourceCode_Click(object sender, RoutedEventArgs e)
+			=> ProcessUtils.OpenUrl(UrlUtils.SourceCodeUrl(App.ApplicationName).ToString());
+
+		private void CheckForUpdates_Click(object sender, RoutedEventArgs e)
+		{
+			CheckingForUpdatesWindow window = new CheckingForUpdatesWindow(NetworkHandler.Instance.GetOnlineTool);
+			window.ShowDialog();
+
+			if (NetworkHandler.Instance.Tool != null)
+			{
+				if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
+				{
+					UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
+					updateRecommendedWindow.ShowDialog();
+				}
+				else
+				{
+					App.Instance.ShowMessage("Up to date", $"{App.ApplicationDisplayName} {App.LocalVersion} is up to date.");
+				}
+			}
+			else
+			{
+				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
+			}
+		}
 	}
 }
