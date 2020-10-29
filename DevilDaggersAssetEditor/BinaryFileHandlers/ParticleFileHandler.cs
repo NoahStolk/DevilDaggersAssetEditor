@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Utils;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		public const int ParticleBufferLength = 188;
 
 		public static readonly uint Magic1 = 4; // Maybe represents format version? Similar to survival file.
-
-		private const string _folderName = "Particles";
-		private const string _fileExtension = ".bin";
 
 		public void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
@@ -62,7 +60,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 
-			Directory.CreateDirectory(Path.Combine(outputPath, _folderName));
+			Directory.CreateDirectory(Path.Combine(outputPath, AssetType.Particle.GetFolderName()));
 
 			int i = HeaderSize;
 			while (i < fileBuffer.Length)
@@ -72,7 +70,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 				progress.Report($"Creating Particle file for chunk \"{chunk.Name}\".", i / (float)fileBuffer.Length);
 
-				File.WriteAllBytes(Path.Combine(outputPath, _folderName, chunk.Name + _fileExtension), chunk.Buffer.ToArray());
+				File.WriteAllBytes(Path.Combine(outputPath, AssetType.Particle.GetFolderName(), chunk.Name + AssetType.Particle.GetFileExtension()), chunk.Buffer.ToArray());
 			}
 		}
 
@@ -91,10 +89,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			Buffer.BlockCopy(Encoding.Default.GetBytes(name), 0, buffer, 0, name.Length);
 			Buffer.BlockCopy(fileBuffer, i + name.Length, buffer, name.Length, ParticleBufferLength);
 
-			return new ParticleChunk(name, (uint)i, (uint)buffer.Length)
-			{
-				Buffer = buffer,
-			};
+			return new ParticleChunk(name, (uint)i, (uint)buffer.Length) { Buffer = buffer };
 		}
 	}
 }
