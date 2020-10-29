@@ -12,7 +12,7 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class ModelChunk : ResourceChunk, IChunk
+	public class ModelChunk : ResourceChunk
 	{
 		private static readonly Dictionary<string, byte[]> _closures = GetClosures();
 

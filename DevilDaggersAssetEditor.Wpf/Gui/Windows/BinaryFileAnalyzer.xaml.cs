@@ -188,7 +188,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				byte[] tocBuffer = ResourceFileHandler.ReadTocBuffer(sourceFileBytes);
 
-				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer).ConvertAll(rc => rc as IChunk));
+				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer).Cast<IChunk>().ToList());
 			}
 			catch
 			{

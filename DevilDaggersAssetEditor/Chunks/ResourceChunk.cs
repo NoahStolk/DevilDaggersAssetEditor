@@ -5,7 +5,7 @@ using System.IO;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public abstract class ResourceChunk
+	public abstract class ResourceChunk : IChunk
 	{
 		protected ResourceChunk(string name, uint startOffset, uint size)
 		{

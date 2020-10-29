@@ -2,7 +2,7 @@
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class ModelBindingChunk : ResourceChunk, IChunk
+	public class ModelBindingChunk : ResourceChunk
 	{
 		public ModelBindingChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)

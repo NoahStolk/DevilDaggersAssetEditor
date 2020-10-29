@@ -8,7 +8,7 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class ShaderChunk : ResourceChunk, IChunk
+	public class ShaderChunk : ResourceChunk
 	{
 		public ShaderChunk(string name, uint startOffset, uint size)
 			: base(name, startOffset, size)

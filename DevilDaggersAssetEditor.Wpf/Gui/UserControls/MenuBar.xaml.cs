@@ -22,7 +22,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class MenuBarUserControl : UserControl
 	{
-		private static readonly string _modFileFilter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae";
+		private const string _modFileFilter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae";
 
 		public MenuBarUserControl()
 		{
