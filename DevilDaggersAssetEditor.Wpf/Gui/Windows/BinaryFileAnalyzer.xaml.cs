@@ -183,7 +183,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			try
 			{
-				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.Audio | BinaryFileType.Core | BinaryFileType.Dd);
+				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.None); // Since we're only validating the file, we can pass None as BinaryFileType.
 				fileHandler.ValidateFile(sourceFileBytes);
 
 				byte[] tocBuffer = ResourceFileHandler.ReadTocBuffer(sourceFileBytes);

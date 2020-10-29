@@ -26,10 +26,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			if (binaryFileType == BinaryFileType.Particle)
 				throw new Exception($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
 
-			BinaryFileType = binaryFileType;
+			BinaryFileName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 		}
 
-		public BinaryFileType BinaryFileType { get; }
+		public string BinaryFileName { get; }
 
 		private static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
 
@@ -43,9 +43,8 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// <param name="progress">The progress wrapper to report progress to.</param>
 		public void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
-			progress.Report($"Initializing '{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' file creation.");
+			progress.Report($"Initializing '{BinaryFileName}' file creation.");
 
-			string binaryFileTypeName = BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList(); // TODO: Also check if FragmentShader file exists.
 
 			progress.Report("Generating chunks based on asset list.");
@@ -55,12 +54,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			CreateTocStream(chunks, out byte[] tocBuffer, out Dictionary<ResourceChunk, long> startOffsetBytePositions);
 
 			progress.Report("Generating asset stream.");
-			byte[] assetBuffer = CreateAssetStream(binaryFileTypeName, chunks, tocBuffer, startOffsetBytePositions, progress);
+			byte[] assetBuffer = CreateAssetStream(chunks, tocBuffer, startOffsetBytePositions, progress);
 
-			progress.Report($"Writing buffers to '{binaryFileTypeName}' file.");
+			progress.Report($"Writing buffers to '{BinaryFileName}' file.");
 			byte[] binaryBytes = CreateBinary(tocBuffer, assetBuffer);
 
-			progress.Report($"Writing '{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' file.");
+			progress.Report($"Writing '{BinaryFileName}' file.");
 			File.WriteAllBytes(outputPath, binaryBytes);
 		}
 
@@ -138,13 +137,13 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			tocBuffer = tocStream.ToArray();
 		}
 
-		public static byte[] CreateAssetStream(string binaryFileTypeName, List<ResourceChunk> chunks, byte[] tocBuffer, Dictionary<ResourceChunk, long> startOffsetBytePositions, ProgressWrapper progress)
+		private byte[] CreateAssetStream(List<ResourceChunk> chunks, byte[] tocBuffer, Dictionary<ResourceChunk, long> startOffsetBytePositions, ProgressWrapper progress)
 		{
 			using MemoryStream assetStream = new MemoryStream();
 			int i = 0;
 			foreach (ResourceChunk chunk in chunks)
 			{
-				progress.Report($"Writing file contents of \"{chunk.Name}\" to '{binaryFileTypeName}' file.", 0.5f + i++ / (float)chunks.Count / 2);
+				progress.Report($"Writing file contents of \"{chunk.Name}\" to '{BinaryFileName}' file.", 0.5f + i++ / (float)chunks.Count / 2);
 
 				uint startOffset = (uint)(HeaderSize + tocBuffer.Length + assetStream.Position);
 				chunk.StartOffset = startOffset;
