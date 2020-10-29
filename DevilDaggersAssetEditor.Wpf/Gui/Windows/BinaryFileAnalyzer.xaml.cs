@@ -1,7 +1,9 @@
-﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileAnalyzer;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
-using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersAssetEditor.Extensions;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using System.Collections.Generic;
 using System.Globalization;
@@ -19,13 +21,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			InitializeComponent();
 
-			Dictionary<string, AnalyzerChunkGroup> chunkInfos = new Dictionary<string, AnalyzerChunkGroup>
+			Dictionary<string, AnalyzerChunkGroup> chunkGroups = new Dictionary<string, AnalyzerChunkGroup>
 			{
-				{ "File header", ChunkResult(GetColor("File header"), fileResult.HeaderByteCount, new List<IChunk>()) },
+				{ "File header", ChunkResult(Color.FromRgb(255, 127, 127), fileResult.HeaderByteCount, new List<IChunk>()) },
 			};
 
-			IEnumerable<IGrouping<string, IChunk>> chunksByType = fileResult.Chunks.GroupBy(c => ChunkInfo.All.FirstOrDefault(ci => ci.ChunkType == c.GetType()).DataName);
-			foreach (IGrouping<string, IChunk> group in chunksByType.OrderBy(c => c.Key))
+			IEnumerable<IGrouping<AssetType, IChunk>> chunksByType = fileResult.Chunks.GroupBy(c => c.AssetType);
+			foreach (IGrouping<AssetType, IChunk> group in chunksByType.OrderBy(c => c.Key))
 			{
 				IEnumerable<IChunk> validChunks = group;
 				uint size = 0;
@@ -58,26 +60,23 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					}
 				}
 
-				chunkInfos.Add(group.Key, ChunkResult(GetColor(group.Key), size, validChunks.ToList()));
+				chunkGroups.Add(group.Key.ToString(), ChunkResult(GetColor(group.Key, false), size, validChunks.ToList()));
 				if (headerSize > 0)
-				{
-					string headerKey = $"{group.Key} header";
-					chunkInfos.Add(headerKey, ChunkResult(GetColor(headerKey), headerSize, validChunks.ToList()));
-				}
+					chunkGroups.Add($"{group.Key} header", ChunkResult(GetColor(group.Key, true), headerSize, validChunks.ToList()));
 			}
 
-			uint unknownSize = (uint)(fileResult.FileByteCount - chunkInfos.Sum(c => c.Value.ByteCount));
+			uint unknownSize = (uint)(fileResult.FileByteCount - chunkGroups.Sum(c => c.Value.ByteCount));
 			if (unknownSize > 0)
-				chunkInfos.Add("Unknown", ChunkResult(GetColor("Unknown"), unknownSize, new List<IChunk>()));
+				chunkGroups.Add("Unknown", ChunkResult(Color.FromRgb(127, 127, 255), unknownSize, new List<IChunk>()));
 
 			const int totalHeight = 32;
 			double pos = 0;
 
 			FileName.Content = fileResult.FileName;
 			FileSize.Content = $"{fileResult.FileByteCount:N0} bytes";
-			float maxPercentage = chunkInfos.Max(c => c.Value.ByteCount / (float)fileResult.FileByteCount);
+			float maxPercentage = chunkGroups.Max(c => c.Value.ByteCount / (float)fileResult.FileByteCount);
 			int i = 0;
-			foreach (KeyValuePair<string, AnalyzerChunkGroup> kvp in chunkInfos.OrderBy(c => c.Value.Chunks.Count != 0).ThenByDescending(c => c.Value.ByteCount).Where(c => c.Value.ByteCount > 0))
+			foreach (KeyValuePair<string, AnalyzerChunkGroup> kvp in chunkGroups.OrderBy(c => c.Value.Chunks.Count != 0).ThenByDescending(c => c.Value.ByteCount).Where(c => c.Value.ByteCount > 0))
 			{
 				Color color = ChunkResultColor(kvp.Value);
 
@@ -147,11 +146,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				double chunkSizePercentage = chunk.Size / (double)fileResult.FileByteCount;
 
-				string dataName = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType()).DataName;
-				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(GetColor(dataName) * (float)chunkSizePercentage * 50) };
-				TextBlock textBlockDataName = new TextBlock { Margin = new Thickness(2), Text = dataName, FontWeight = FontWeights.Bold };
+				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(GetColor(chunk.AssetType, false) * (float)chunkSizePercentage * 50) };
+				TextBlock textBlockDataName = new TextBlock { Margin = new Thickness(2), Text = chunk.AssetType.ToString(), FontWeight = FontWeights.Bold };
 				if (chunkSizePercentage < 0.005f)
-					textBlockDataName.Background = new SolidColorBrush(GetColor(dataName) * 0.25f);
+					textBlockDataName.Background = new SolidColorBrush(GetColor(chunk.AssetType, false) * 0.25f);
 				stackPanel.Children.Add(textBlockDataName);
 				stackPanel.Children.Add(new Label
 				{
@@ -222,22 +220,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private static Color GetColor(string type)
+		private static Color GetColor(AssetType? assetType, bool isHeader)
 		{
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.DataName == type);
-			if (chunkInfo != null)
-				return chunkInfo.GetColor();
+			if (assetType.HasValue)
+				return EditorUtils.FromRgbTuple(assetType.Value.GetColorFromAssetType()) * (isHeader ? 0.5f : 1);
 
-			chunkInfo = ChunkInfo.All.FirstOrDefault(c => $"{c.DataName} header" == type);
-			if (chunkInfo != null)
-				return chunkInfo.GetColor() * 0.5f;
-
-			return type switch
-			{
-				"File header" => Color.FromRgb(255, 127, 127),
-				"Unknown" => Color.FromRgb(127, 127, 255),
-				_ => Color.FromRgb(255, 255, 255),
-			};
+			return Color.FromRgb(255, 255, 255);
 		}
 	}
 }

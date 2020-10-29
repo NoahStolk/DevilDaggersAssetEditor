@@ -1,10 +1,9 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.ModFiles;
-using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Extensions;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
@@ -42,8 +41,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			AllFilters = RowControls.Select(a => a.Asset).SelectMany(a => a.Tags ?? new List<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			FiltersCount = AllFilters.Count();
 
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == assetType);
-			FilterHighlightColor = chunkInfo.GetColor() * 0.25f;
+			FilterHighlightColor = EditorUtils.FromRgbTuple(assetType.GetColorFromAssetType()) * 0.25f;
 
 			Previewer = assetType switch
 			{

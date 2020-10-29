@@ -1,8 +1,8 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System;
@@ -43,8 +43,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			};
 			Grid.SetColumn(TextBlockTags, 1);
 
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.AssetType == assetType);
-			Color colorEditEven = chunkInfo.GetColor() * 0.25f;
+			Color colorEditEven = EditorUtils.FromRgbTuple(assetType.GetColorFromAssetType()) * 0.25f;
 			Color colorEditOdd = colorEditEven * 0.5f;
 			Color colorInfoEven = colorEditOdd;
 			Color colorInfoOdd = colorEditOdd * 0.5f;

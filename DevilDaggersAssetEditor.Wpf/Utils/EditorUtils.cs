@@ -17,5 +17,8 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 				return $"{timeSpan:hh\\:mm\\:ss\\.fff}";
 			return $"{timeSpan:mm\\:ss\\.fff}";
 		}
+
+		public static System.Windows.Media.Color FromRgbTuple((byte R, byte G, byte B) tuple)
+			=> System.Windows.Media.Color.FromRgb(tuple.R, tuple.G, tuple.B);
 	}
 }
