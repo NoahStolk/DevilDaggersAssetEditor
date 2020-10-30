@@ -9,7 +9,7 @@
 			 SizeChanged="UserControl_SizeChanged">
 	<Grid Name="MainGrid">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="192" />
+			<RowDefinition Height="384" />
 			<RowDefinition Height="192" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
@@ -53,12 +53,24 @@
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3">
-				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Path</TextBlock>
-				<Button Name="PathSortButton" Click="PathSortButton_Click">
-					<Image Style="{StaticResource SortIcon}" />
-				</Button>
-			</StackPanel>
+			<Grid Grid.Row="2" Grid.Column="3">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0" Name="ColumnDefinitionLoudness" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<StackPanel Orientation="Horizontal" Name="StackPanelLoudness" Visibility="Collapsed">
+					<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Loudness</TextBlock>
+					<Button Name="LoudnessSortButton" Click="LoudnessSortButton_Click">
+						<Image Style="{StaticResource SortIcon}" />
+					</Button>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Grid.Column="1">
+					<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Path</TextBlock>
+					<Button Name="PathSortButton" Click="PathSortButton_Click">
+						<Image Style="{StaticResource SortIcon}" />
+					</Button>
+				</StackPanel>
+			</Grid>
 		</Grid>
 		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}" />
 	</Grid>

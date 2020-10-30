@@ -7,6 +7,7 @@ using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -25,6 +26,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private readonly SolidColorBrush _brushEditOdd;
 
 		private readonly ShaderAsset? _shaderAsset;
+		private readonly AudioAsset? _audioAsset;
 
 		public AssetRowControl(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
 		{
@@ -79,6 +81,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				TextBlockEditorPathFragmentShader.Visibility = Visibility.Visible;
 				RowDefinitionFragmentShader.Height = new GridLength(24);
 				Grid.SetRowSpan(TextBlockTags, 2);
+			}
+
+			if (Asset is AudioAsset audioAsset)
+			{
+				_audioAsset = audioAsset;
+				ColumnDefinitionLoudness.Width = new GridLength(96);
+				TextBoxLoudness.Visibility = Visibility.Visible;
+				TextBoxLoudness.Text = audioAsset.Loudness.ToString(CultureInfo.InvariantCulture);
 			}
 		}
 

@@ -18,12 +18,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class AssetTabControl : UserControl
 	{
-		private readonly AssetRowSorting _nameSort = new AssetRowSorting((a) => a.Asset.AssetName);
-		private readonly AssetRowSorting _tagsSort = new AssetRowSorting((a) => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting((a) => a.Asset.Description);
-		private readonly AssetRowSorting _pathSort = new AssetRowSorting((a) => a.Asset.EditorPath);
+		private readonly AssetRowSorting _nameSort = new AssetRowSorting(a => a.Asset.AssetName);
+		private readonly AssetRowSorting _tagsSort = new AssetRowSorting(a => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting(a => a.Asset.Description);
+		private readonly AssetRowSorting _loudnessSort = new AssetRowSorting(a => (a.Asset as AudioAsset)?.Loudness ?? 0);
+		private readonly AssetRowSorting _pathSort = new AssetRowSorting(a => a.Asset.EditorPath);
 
-		private AssetRowSorting _activeSorting = new AssetRowSorting((a) => a.Asset.AssetName);
+		private AssetRowSorting _activeSorting = new AssetRowSorting(a => a.Asset.AssetName);
 
 		public AssetTabControl(BinaryFileType binaryFileType, AssetType assetType, string openDialogFilter, string assetTypeJsonFileName)
 		{
@@ -55,6 +56,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			};
 
 			MainGrid.Children.Add(Previewer);
+
+			if (assetType == AssetType.Audio)
+			{
+				StackPanelLoudness.Visibility = Visibility.Visible;
+				ColumnDefinitionLoudness.Width = new GridLength(96);
+			}
 		}
 
 		private enum FilterOperation
@@ -158,6 +165,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void DescriptionSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_descriptionSort);
+
+		private void LoudnessSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_loudnessSort);
 
 		private void PathSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_pathSort);
