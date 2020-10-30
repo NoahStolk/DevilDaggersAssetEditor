@@ -3102,6 +3102,7 @@
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
+			"Death",
 			"Enemy",
 			"Ghostpede"
 		]
