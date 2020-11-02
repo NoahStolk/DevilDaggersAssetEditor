@@ -6,19 +6,31 @@
 			 mc:Ignorable="d"
              d:DesignHeight="20" d:DesignWidth="800">
 	<Menu DockPanel.Dock="Top" Name="MenuPanel">
-		<MenuItem Header="File" Name="FileMenuItem" />
+		<MenuItem Header="File">
+			<MenuItem Header="Extract binaries" Click="ExtractBinaries_Click" />
+			<MenuItem Header="Make binaries" Click="MakeBinaries_Click" />
+			<MenuItem Header="Import assets" Click="ImportAssets_Click" />
+			<Separator />
+			<MenuItem Header="Open mod" Click="OpenMod_Click" />
+			<MenuItem Header="Save mod" Click="SaveMod_Click" />
+			<Separator />
+			<MenuItem Header="Import audio loudness" Click="ImportAudioLoudness_Click" />
+			<MenuItem Header="Export audio loudness" Click="ExportAudioLoudness_Click" />
+			<Separator />
+			<MenuItem Header="Exit" Click="Exit_Click" />
+		</MenuItem>
 		<MenuItem Header="Options">
 			<MenuItem Header="Settings" Click="Settings_Click" />
 		</MenuItem>
 		<MenuItem Header="Tools">
-			<MenuItem Header="Analyze binary file" Click="AnalyzeBinaryFileMenuItem_Click" />
+			<MenuItem Header="Analyze binary file" Click="AnalyzeBinaryFile_Click" />
 		</MenuItem>
 		<MenuItem Header="Help" Name="HelpItem">
 			<MenuItem Header="Help" Click="Help_Click" />
 			<MenuItem Header="About" Click="About_Click" />
 			<MenuItem Header="Changelog" Click="Changelog_Click" />
-			<MenuItem Header="View source code" Click="SourceCode_Click" />
-			<MenuItem Header="Check for updates" Name="UpdateItem" Click="Update_Click" />
+			<MenuItem Header="View source code" Click="ViewSourceCode_Click" />
+			<MenuItem Header="Check for updates" Name="UpdateItem" Click="CheckForUpdates_Click" />
 		</MenuItem>
 	</Menu>
 </UserControl>

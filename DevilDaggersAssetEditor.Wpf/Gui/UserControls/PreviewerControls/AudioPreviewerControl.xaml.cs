@@ -11,9 +11,9 @@ using System.Windows.Controls.Primitives;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class AudioPreviewerControl : UserControl
+	public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	{
-		private readonly ISoundEngine engine = new ISoundEngine();
+		private readonly ISoundEngine _engine = new ISoundEngine();
 
 		public AudioPreviewerControl()
 		{
@@ -26,7 +26,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 		}
 
 		public ISound? Song { get; private set; }
-		public ISoundSource SongData { get; private set; }
+		public ISoundSource? SongData { get; private set; }
 
 		public bool IsDragging { get; private set; }
 
@@ -74,17 +74,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 				Song.PlayPosition = (uint)Seek.Value;
 		}
 
-		public void Initialize(AudioAsset asset)
+		public void Initialize(AbstractAsset asset)
 		{
-			AudioName.Content = asset.AssetName;
-			DefaultLoudness.Content = asset.PresentInDefaultLoudness ? asset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
+			if (!(asset is AudioAsset audioAsset))
+				return;
 
-			FileName.Content = File.Exists(asset.EditorPath) ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
-			FileLoudness.Content = asset.Loudness.ToString(CultureInfo.InvariantCulture);
+			AudioName.Content = audioAsset.AssetName;
+			DefaultLoudness.Content = audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
+
+			FileName.Content = File.Exists(audioAsset.EditorPath) ? Path.GetFileName(audioAsset.EditorPath) : GuiUtils.FileNotFound;
+			FileLoudness.Content = audioAsset.Loudness.ToString(CultureInfo.InvariantCulture);
 
 			bool startPaused = !Autoplay.IsChecked ?? true;
 
-			SongSet(asset.EditorPath, (float)Pitch.Value, startPaused);
+			SongSet(audioAsset.EditorPath, (float)Pitch.Value, startPaused);
 
 			if (Song == null)
 				return;
@@ -100,11 +103,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		private void SongSet(string filePath, float pitch, bool startPaused)
 		{
-			if (Song != null)
-				Song.Stop();
+			Song?.Stop();
 
-			SongData = engine.GetSoundSource(filePath);
-			Song = engine.Play2D(SongData, true, startPaused, true);
+			SongData = _engine.GetSoundSource(filePath);
+			Song = _engine.Play2D(SongData, true, startPaused, true);
 
 			if (Song != null)
 			{

@@ -8,32 +8,35 @@ using SdImage = System.Drawing.Image;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class TexturePreviewerControl : UserControl
+	public partial class TexturePreviewerControl : UserControl, IPreviewerControl
 	{
 		public TexturePreviewerControl()
 		{
 			InitializeComponent();
 		}
 
-		public void Initialize(TextureAsset asset)
+		public void Initialize(AbstractAsset asset)
 		{
-			TextureName.Content = asset.AssetName;
-			DefaultDimensions.Content = $"{asset.DefaultDimensions.X}x{asset.DefaultDimensions.Y}";
-			DefaultMipmaps.Content = TextureAsset.GetMipmapCount(asset.DefaultDimensions.X, asset.DefaultDimensions.Y).ToString(CultureInfo.InvariantCulture);
+			if (!(asset is TextureAsset textureAsset))
+				return;
 
-			bool isPathValid = File.Exists(asset.EditorPath);
+			TextureName.Content = textureAsset.AssetName;
+			DefaultDimensions.Content = $"{textureAsset.DefaultDimensions.X}x{textureAsset.DefaultDimensions.Y}";
+			DefaultMipmaps.Content = TextureAsset.GetMipmapCount(textureAsset.DefaultDimensions.X, textureAsset.DefaultDimensions.Y).ToString(CultureInfo.InvariantCulture);
 
-			FileName.Content = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			bool isPathValid = File.Exists(textureAsset.EditorPath);
+
+			FileName.Content = isPathValid ? Path.GetFileName(textureAsset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{
-				using (SdImage image = SdImage.FromFile(asset.EditorPath))
+				using (SdImage image = SdImage.FromFile(textureAsset.EditorPath))
 				{
 					FileDimensions.Content = $"{image.Width}x{image.Height}";
 					FileMipmaps.Content = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString(CultureInfo.InvariantCulture);
 				}
 
-				using FileStream imageFileStream = new FileStream(asset.EditorPath, FileMode.Open, FileAccess.Read);
+				using FileStream imageFileStream = new FileStream(textureAsset.EditorPath, FileMode.Open, FileAccess.Read);
 				MemoryStream imageCopyStream = new MemoryStream();
 				imageFileStream.CopyTo(imageCopyStream);
 				BitmapImage src = new BitmapImage();

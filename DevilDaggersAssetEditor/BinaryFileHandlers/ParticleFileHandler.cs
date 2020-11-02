@@ -1,18 +1,16 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
-using DevilDaggersAssetEditor.Headers;
-using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Utils;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
-	public class ParticleFileHandler : AbstractBinaryFileHandler
+	public class ParticleFileHandler : IBinaryFileHandler
 	{
 		/// <summary>
 		/// uint magic, uint particle amount = 8 bytes.
@@ -22,17 +20,9 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static readonly uint Magic1 = 4; // Maybe represents format version? Similar to survival file.
 
-		private const string _folderName = "Particles";
-		private const string _fileExtension = ".bin";
-
-		public ParticleFileHandler()
-			: base(BinaryFileType.Particle)
+		public void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
-		}
-
-		public override void MakeBinary(List<AbstractAsset> allAssets, string outputPath, Progress<float> progress, Progress<string> progressDescription)
-		{
-			((IProgress<string>)progressDescription).Report("Initializing 'particle' file creation.");
+			progress.Report("Initializing 'particle' file creation.");
 
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList();
 
@@ -44,8 +34,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				int i = 0;
 				foreach (KeyValuePair<string, byte[]> kvp in GetChunks(allAssets))
 				{
-					((IProgress<float>)progress).Report(i++ / (float)allAssets.Count);
-					((IProgress<string>)progressDescription).Report($"Writing file contents of \"{kvp.Key}\" to 'particle' file.");
+					progress.Report($"Writing file contents of \"{kvp.Key}\" to 'particle' file.", i++ / (float)allAssets.Count);
 
 					stream.Write(Encoding.Default.GetBytes(kvp.Key), 0, kvp.Key.Length);
 					stream.Write(kvp.Value, 0, kvp.Value.Length);
@@ -54,49 +43,38 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				fileBuffer = stream.ToArray();
 			}
 
-			((IProgress<string>)progressDescription).Report("Writing 'particle' file.");
+			progress.Report("Writing 'particle' file.");
 			File.WriteAllBytes(outputPath, fileBuffer);
 		}
 
 		private static Dictionary<string, byte[]> GetChunks(List<AbstractAsset> assets)
 		{
 			Dictionary<string, byte[]> dict = new Dictionary<string, byte[]>();
-
 			foreach (AbstractAsset asset in assets)
 				dict[asset.AssetName] = File.ReadAllBytes(asset.EditorPath);
 
 			return dict;
 		}
 
-		public override void ExtractBinary(string inputPath, string outputPath, BinaryFileType binaryFileType, Progress<float> progress, Progress<string> progressDescription)
+		public void ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress)
 		{
 			byte[] fileBuffer = File.ReadAllBytes(inputPath);
 
-			Directory.CreateDirectory(Path.Combine(outputPath, _folderName));
+			Directory.CreateDirectory(Path.Combine(outputPath, AssetType.Particle.GetFolderName()));
 
 			int i = HeaderSize;
 			while (i < fileBuffer.Length)
 			{
 				ParticleChunk chunk = ReadParticleChunk(fileBuffer, i);
-				i += chunk.Name.Length;
 				i += chunk.Buffer.Length;
 
-				((IProgress<float>)progress).Report(i / (float)fileBuffer.Length);
-				((IProgress<string>)progressDescription).Report($"Creating Particle file for chunk \"{chunk.Name}\".");
+				progress.Report($"Creating Particle file for chunk \"{chunk.Name}\".", i / (float)fileBuffer.Length);
 
-				File.WriteAllBytes(Path.Combine(outputPath, _folderName, $"{chunk.Name}{_fileExtension}"), chunk.Buffer);
+				File.WriteAllBytes(Path.Combine(outputPath, AssetType.Particle.GetFolderName(), chunk.Name + AssetType.Particle.GetFileExtension()), chunk.Buffer[chunk.Name.Length..]);
 			}
-
-			// Create mod file.
-			if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
-				CreateModFile(outputPath, binaryFileType);
-
-			// Open the output path.
-			if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
-				Process.Start($@"{Environment.GetEnvironmentVariable("WINDIR")}\explorer.exe", outputPath);
 		}
 
-		public override void ValidateFile(byte[] sourceFileBytes)
+		public void ValidateFile(byte[] sourceFileBytes)
 		{
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			if (magic1FromFile != Magic1)
@@ -107,10 +85,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		{
 			string name = BinaryUtils.ReadNullTerminatedString(fileBuffer, i);
 
-			byte[] chunkBuffer = new byte[ParticleBufferLength];
-			Buffer.BlockCopy(fileBuffer, i + name.Length, chunkBuffer, 0, chunkBuffer.Length);
+			byte[] buffer = new byte[ParticleBufferLength + name.Length];
+			Buffer.BlockCopy(Encoding.Default.GetBytes(name), 0, buffer, 0, name.Length);
+			Buffer.BlockCopy(fileBuffer, i + name.Length, buffer, name.Length, ParticleBufferLength);
 
-			return new ParticleChunk(name, (uint)(i + name.Length), (uint)chunkBuffer.Length) { Buffer = chunkBuffer, Header = new ParticleHeader(Encoding.Default.GetBytes(name)) };
+			return new ParticleChunk(name, (uint)i, (uint)buffer.Length) { Buffer = buffer };
 		}
 	}
 }

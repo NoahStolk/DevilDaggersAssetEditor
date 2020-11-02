@@ -1,30 +1,28 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
-using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace DevilDaggersAssetEditor.Assets
 {
-	[JsonObject(MemberSerialization.OptIn)]
 	public class TextureAsset : AbstractAsset
 	{
-		[JsonProperty]
-		public Point DefaultDimensions { get; }
-		[JsonProperty]
-		public string ModelBinding { get; set; }
-		[JsonProperty]
-		public bool IsModelTexture { get; set; }
-
-		public TextureAsset(string assetName, string description, string[] tags, string chunkTypeName, Point defaultDimensions, string modelBinding, bool isModelTexture)
-			: base(assetName, description, tags, chunkTypeName)
+		public TextureAsset(string assetName, string description, List<string> tags, Point defaultDimensions, string modelBinding, bool isModelTexture)
+			: base(assetName, AssetType.Texture, description, tags)
 		{
 			DefaultDimensions = defaultDimensions;
 			ModelBinding = modelBinding;
 			IsModelTexture = isModelTexture;
 		}
 
-		public override AbstractUserAsset ToUserAsset() => new TextureUserAsset(AssetName, EditorPath);
+		public Point DefaultDimensions { get; }
+		public string ModelBinding { get; set; }
+		public bool IsModelTexture { get; set; }
 
-		public static byte GetMipmapCount(int width, int height) => (byte)(Math.Log(Math.Min(width, height), 2) + 1);
+		public override UserAsset ToUserAsset()
+			=> new UserAsset(AssetType.Texture, AssetName, EditorPath);
+
+		public static byte GetMipmapCount(int width, int height)
+			=> (byte)(Math.Log(Math.Min(width, height), 2) + 1);
 	}
 }

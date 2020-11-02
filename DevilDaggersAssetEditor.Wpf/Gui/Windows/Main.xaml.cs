@@ -1,15 +1,16 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Wpf.FileTabControlHandlers;
-using DevilDaggersAssetEditor.Wpf.Mods;
+using DevilDaggersAssetEditor.Utils;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
@@ -44,10 +45,38 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			App.Instance.UpdateMainWindowTitle();
 		}
 
+		public AssetTabControl AudioAudioAssetTabControl { get; private set; } = null!;
+		public AssetTabControl CoreShadersAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdModelBindingsAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdModelsAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdShadersAssetTabControl { get; private set; } = null!;
+		public AssetTabControl DdTexturesAssetTabControl { get; private set; } = null!;
+		public AssetTabControl ParticleParticlesAssetTabControl { get; private set; } = null!;
+
+		public List<AssetTabControl> AssetTabControls { get; private set; } = null!;
+
 		public Point CurrentTabControlSize { get; private set; }
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
+			AudioAudioAssetTabControl = new AssetTabControl(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
+			CoreShadersAssetTabControl = new AssetTabControl(BinaryFileType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+			DdModelBindingsAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
+			DdModelsAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
+			DdShadersAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+			DdTexturesAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
+			ParticleParticlesAssetTabControl = new AssetTabControl(BinaryFileType.Particle, AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
+
+			AssetTabControls = new List<AssetTabControl> { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
+
+			TabControl.Items.Add(new TabItem { Header = "audio/Audio", Content = AudioAudioAssetTabControl });
+			TabControl.Items.Add(new TabItem { Header = "core/Shaders", Content = CoreShadersAssetTabControl });
+			TabControl.Items.Add(new TabItem { Header = "dd/Model Bindings", Content = DdModelBindingsAssetTabControl });
+			TabControl.Items.Add(new TabItem { Header = "dd/Models", Content = DdModelsAssetTabControl });
+			TabControl.Items.Add(new TabItem { Header = "dd/Shaders", Content = DdShadersAssetTabControl });
+			TabControl.Items.Add(new TabItem { Header = "dd/Textures", Content = DdTexturesAssetTabControl });
+			TabControl.Items.Add(new TabItem { Header = "particle/Particles", Content = ParticleParticlesAssetTabControl });
+
 			if (NetworkHandler.Instance.Tool != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 			{
 				UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
@@ -59,21 +88,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedAudioModFilePath, BinaryFileType.Audio);
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedCoreModFilePath, BinaryFileType.Core);
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedDdModFilePath, BinaryFileType.Dd);
-				AutoLoadMod(UserHandler.Instance.Cache.OpenedParticleModFilePath, BinaryFileType.Particle);
-
-				void AutoLoadMod(string path, BinaryFileType binaryFileType)
+				if (File.Exists(UserHandler.Instance.Cache.OpenedModFilePath))
 				{
-					if (File.Exists(path))
+					List<UserAsset> assets = ModFileUtils.GetAssetsFromModFilePath(UserHandler.Instance.Cache.OpenedModFilePath);
+					if (assets.Count > 0)
 					{
-						ModFile? modFile = ModHandler.Instance.GetModFileFromPath(path, binaryFileType);
-						if (modFile != null)
-						{
-							foreach (AbstractFileTabControlHandler tabHandler in MenuBar.TabHandlers.Where(t => t.FileHandler.BinaryFileType == binaryFileType))
-								tabHandler.UpdateAssetTabControls(modFile.Assets);
-						}
+						foreach (AssetTabControl tabHandler in AssetTabControls)
+							tabHandler.UpdateAssetTabControls(assets);
 					}
 				}
 

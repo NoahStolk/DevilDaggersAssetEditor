@@ -7,15 +7,29 @@
         Title="Binary file analyzer" Height="1024" Width="1366" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 	<ScrollViewer>
 		<StackPanel Margin="32">
-			<Border BorderBrush="Black" BorderThickness="2" Width="1264" HorizontalAlignment="Left">
-				<Canvas Name="Canvas" Height="32" Width="1260" />
-			</Border>
-			<Label Name="FileName" FontWeight="Bold" FontSize="24" />
-			<Label Name="FileSize" FontWeight="Bold" FontSize="18" />
-			<Label FontSize="18" FontWeight="Bold" Margin="0,16">Data</Label>
-			<StackPanel Name="Data" Width="1264" HorizontalAlignment="Left" />
-			<Label FontSize="18" FontWeight="Bold" Margin="0,16">Chunks</Label>
-			<Grid Name="ChunkData" Width="1264" HorizontalAlignment="Left" />
+			<Button Name="OpenFile" Click="OpenFile_Click" Style="{StaticResource OkButtonLarge}">Open file</Button>
+			<StackPanel Visibility="Hidden" Name="ContentStackPanel">
+				<Label Name="FileName" FontWeight="Bold" FontSize="24" />
+				<Border BorderBrush="Black" BorderThickness="2" Width="1264" HorizontalAlignment="Left">
+					<Canvas Name="Canvas" Height="32" Width="1260" />
+				</Border>
+				<Label Name="FileSize" FontWeight="Bold" FontSize="18" />
+				<Label FontSize="18" FontWeight="Bold" Margin="0,16">Data</Label>
+				<StackPanel Name="Data" Width="1264" HorizontalAlignment="Left" />
+				<Label FontSize="18" FontWeight="Bold" Margin="0,16">Chunks</Label>
+				<Grid Name="ChunkData" Width="1264" HorizontalAlignment="Left">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+				</Grid>
+			</StackPanel>
 		</StackPanel>
 	</ScrollViewer>
 </Window>

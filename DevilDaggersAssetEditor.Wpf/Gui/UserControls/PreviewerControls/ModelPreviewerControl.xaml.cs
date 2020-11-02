@@ -7,26 +7,29 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class ModelPreviewerControl : UserControl
+	public partial class ModelPreviewerControl : UserControl, IPreviewerControl
 	{
 		public ModelPreviewerControl()
 		{
 			InitializeComponent();
 		}
 
-		public void Initialize(ModelAsset asset)
+		public void Initialize(AbstractAsset asset)
 		{
-			TextureName.Content = asset.AssetName;
-			DefaultVertexCount.Content = asset.DefaultVertexCount.ToString(CultureInfo.InvariantCulture);
-			DefaultIndexCount.Content = asset.DefaultIndexCount.ToString(CultureInfo.InvariantCulture);
+			if (!(asset is ModelAsset modelAsset))
+				return;
 
-			bool isPathValid = File.Exists(asset.EditorPath);
+			TextureName.Content = modelAsset.AssetName;
+			DefaultVertexCount.Content = modelAsset.DefaultVertexCount.ToString(CultureInfo.InvariantCulture);
+			DefaultIndexCount.Content = modelAsset.DefaultIndexCount.ToString(CultureInfo.InvariantCulture);
 
-			FileName.Content = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			bool isPathValid = File.Exists(modelAsset.EditorPath);
+
+			FileName.Content = isPathValid ? Path.GetFileName(modelAsset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{
-				string[] lines = File.ReadAllLines(asset.EditorPath);
+				string[] lines = File.ReadAllLines(modelAsset.EditorPath);
 				int v = 0;
 				int vt = 0;
 				int vn = 0;

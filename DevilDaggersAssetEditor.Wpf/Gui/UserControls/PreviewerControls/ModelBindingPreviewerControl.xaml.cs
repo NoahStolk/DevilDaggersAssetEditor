@@ -5,14 +5,14 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class ModelBindingPreviewerControl : UserControl
+	public partial class ModelBindingPreviewerControl : UserControl, IPreviewerControl
 	{
 		public ModelBindingPreviewerControl()
 		{
 			InitializeComponent();
 		}
 
-		public void Initialize(ModelBindingAsset asset)
+		public void Initialize(AbstractAsset asset)
 		{
 			ModelBindingName.Content = asset.AssetName;
 

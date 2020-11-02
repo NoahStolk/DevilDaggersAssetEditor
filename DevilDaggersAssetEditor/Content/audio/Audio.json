@@ -564,6 +564,9 @@
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
+			"Andras",
+			"Damage",
+			"Enemy",
 			"Unused"
 		]
 	},
@@ -998,6 +1001,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Andras",
+			"Death",
 			"Enemy",
 			"Unused"
 		]
@@ -2616,6 +2620,7 @@
 		"Tags": [
 			"Andras",
 			"Enemy",
+			"Spawn",
 			"Unused"
 		]
 	},
@@ -2627,7 +2632,8 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
-			"Enemy"
+			"Enemy",
+			"Spawn"
 		]
 	},
 	{
@@ -2638,7 +2644,8 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
-			"Gigapede"
+			"Gigapede",
+			"Spawn"
 		]
 	},
 	{
@@ -2649,6 +2656,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Spider I",
 			"Spider II"
 		]
@@ -2661,6 +2669,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Spider II"
 		]
 	},
@@ -2672,7 +2681,8 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
-			"Leviathan"
+			"Leviathan",
+			"Spawn"
 		]
 	},
 	{
@@ -2683,6 +2693,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Squid I"
 		]
 	},
@@ -2693,7 +2704,8 @@
 		"Loudness": 100,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
-			"Player"
+			"Player",
+			"Spawn"
 		]
 	},
 	{
@@ -2704,6 +2716,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Squid II"
 		]
 	},
@@ -2715,6 +2728,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Squid I"
 		]
 	},
@@ -2726,6 +2740,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Squid III"
 		]
 	},
@@ -2737,6 +2752,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Spider I"
 		]
 	},
@@ -2748,6 +2764,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Squid II"
 		]
 	},
@@ -2759,6 +2776,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Ghostpede"
 		]
 	},
@@ -2770,6 +2788,7 @@
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
+			"Spawn",
 			"Squid III"
 		]
 	},
@@ -3083,6 +3102,7 @@
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
+			"Death",
 			"Enemy",
 			"Ghostpede"
 		]

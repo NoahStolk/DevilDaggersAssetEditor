@@ -1,14 +1,16 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
+using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class ParticleAsset : AbstractAsset
 	{
-		public ParticleAsset(string assetName, string description, string[] tags, string chunkTypeName)
-			: base(assetName, description, tags, chunkTypeName)
+		public ParticleAsset(string assetName, string description, List<string> tags)
+			: base(assetName, AssetType.Particle, description, tags)
 		{
 		}
 
-		public override AbstractUserAsset ToUserAsset() => new ParticleUserAsset(AssetName, EditorPath);
+		public override UserAsset ToUserAsset()
+			=> new UserAsset(AssetType.Particle, AssetName, EditorPath);
 	}
 }

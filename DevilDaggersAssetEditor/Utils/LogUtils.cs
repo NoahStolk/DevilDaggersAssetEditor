@@ -5,6 +5,6 @@ namespace DevilDaggersAssetEditor.Utils
 {
 	public static class LogUtils
 	{
-		public static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+		public static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod()!.DeclaringType);
 	}
 }

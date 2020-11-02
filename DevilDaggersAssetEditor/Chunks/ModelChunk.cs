@@ -1,7 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Data;
-using DevilDaggersAssetEditor.Headers;
-using DevilDaggersAssetEditor.Info;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Utils;
 using Newtonsoft.Json;
 using System;
@@ -14,19 +12,19 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class ModelChunk : AbstractHeaderedChunk<ModelHeader>
+	public class ModelChunk : ResourceChunk
 	{
-		private static readonly Dictionary<string, byte[]> _closures;
+		private static readonly Dictionary<string, byte[]> _closures = GetClosures();
 
-		static ModelChunk()
+		public ModelChunk(string name, uint startOffset, uint size)
+			: base(AssetType.Model, name, startOffset, size)
 		{
-			using StreamReader sr = new StreamReader(AssemblyUtils.GetContentStream("ModelClosures.json"));
-			_closures = JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
-		public ModelChunk(string name, uint startOffset, uint size, uint unknown)
-			: base(name, startOffset, size, unknown)
+		private static Dictionary<string, byte[]> GetClosures()
 		{
+			using StreamReader sr = new StreamReader(AssemblyUtils.GetContentStream("ModelClosures.json"));
+			return JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
 		private static float ParseVertexValue(string value)
@@ -38,26 +36,25 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			int vertexCount = outPositions.Count;
 
-			byte[] headerBuffer = new byte[ChunkInfo.Model.HeaderInfo.FixedSize.Value];
-			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 0, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, headerBuffer, 4, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, headerBuffer, 8, sizeof(ushort));
-			Header = new ModelHeader(headerBuffer);
-
 			byte[] closure = _closures[Name];
-			Buffer = new byte[vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
+			Buffer = new byte[10 + vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
+
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 0, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 4, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes((ushort)288), 0, Buffer, 8, sizeof(ushort));
+
 			for (int i = 0; i < vertexCount; i++)
 			{
 				Vertex vertex = new Vertex(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
 				byte[] vertexBytes = vertex.ToByteArray();
-				Buf.BlockCopy(vertexBytes, 0, Buffer, i * Vertex.ByteCount, Vertex.ByteCount);
+				Buf.BlockCopy(vertexBytes, 0, Buffer, 10 + i * Vertex.ByteCount, Vertex.ByteCount);
 			}
 
 			for (int i = 0; i < vertexCount; i++)
-				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
-			Buf.BlockCopy(closure, 0, Buffer, vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
+				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, 10 + vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
+			Buf.BlockCopy(closure, 0, Buffer, 10 + vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
 
-			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
+			Size = (uint)Buffer.Length;
 		}
 
 		public static void ReadObj(string path, out List<Vector3> outPositions, out List<Vector2> outTexCoords, out List<Vector3> outNormals, out List<VertexReference> outVertices)
@@ -74,9 +71,8 @@ namespace DevilDaggersAssetEditor.Chunks
 			{
 				string line = lines[i];
 				string[] values = line.Split(' ');
-				string identifier = values[0];
 
-				switch (identifier)
+				switch (values[0])
 				{
 					case "v":
 						positions.Add(new Vector3(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
@@ -93,7 +89,7 @@ namespace DevilDaggersAssetEditor.Chunks
 						// f 1/2/3 4/5/6 7/8/9
 						// f 1/2/3 4/5/6 7/8/9 10/11/12
 						if (values.Length > 5)
-							throw new NotImplementedException("Turning models consisting of NGons into binary data has not been implemented.");
+							throw new NotSupportedException("Turning models consisting of NGons into binary data is not supported.");
 
 						for (int j = 0; j < 3; j++)
 						{
@@ -180,14 +176,17 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		public override IEnumerable<FileResult> ExtractBinary()
 		{
-			Vertex[] vertices = new Vertex[Header.VertexCount];
-			uint[] indices = new uint[Header.IndexCount];
+			uint indexCount = BitConverter.ToUInt32(Buffer, 0);
+			uint vertexCount = BitConverter.ToUInt32(Buffer, 4);
+
+			Vertex[] vertices = new Vertex[vertexCount];
+			uint[] indices = new uint[indexCount];
 
 			for (int i = 0; i < vertices.Length; i++)
-				vertices[i] = Vertex.CreateFromBuffer(Buffer, i);
+				vertices[i] = Vertex.CreateFromBuffer(Buffer, 10, i);
 
 			for (int i = 0; i < indices.Length; i++)
-				indices[i] = BitConverter.ToUInt32(Buffer, vertices.Length * Vertex.ByteCount + i * sizeof(uint));
+				indices[i] = BitConverter.ToUInt32(Buffer, 10 + vertices.Length * Vertex.ByteCount + i * sizeof(uint));
 
 			StringBuilder sb = new StringBuilder();
 			sb.AppendLine($"# {Name}.obj\n");
@@ -196,7 +195,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			StringBuilder v = new StringBuilder();
 			StringBuilder vt = new StringBuilder();
 			StringBuilder vn = new StringBuilder();
-			for (uint i = 0; i < Header.VertexCount; ++i)
+			for (uint i = 0; i < vertexCount; ++i)
 			{
 				v.AppendLine($"v {vertices[i].Position.X} {vertices[i].Position.Y} {vertices[i].Position.Z}");
 				vt.AppendLine($"vt {vertices[i].TexCoord.X} {vertices[i].TexCoord.Y}");
@@ -208,7 +207,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			sb.Append(vn);
 
 			sb.AppendLine("\n# Triangles");
-			for (uint i = 0; i < Header.IndexCount / 3; ++i)
+			for (uint i = 0; i < indexCount / 3; ++i)
 			{
 				VertexReference vertex1 = new VertexReference(indices[i * 3] + 1);
 				VertexReference vertex2 = new VertexReference(indices[i * 3 + 1] + 1);
@@ -217,6 +216,53 @@ namespace DevilDaggersAssetEditor.Chunks
 			}
 
 			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
+		}
+
+		private struct Vertex
+		{
+			public const int ByteCount = 32;
+
+			public Vertex(Vector3 position, Vector2 texCoord, Vector3 normal)
+			{
+				Position = position;
+				TexCoord = texCoord;
+				Normal = normal;
+			}
+
+			public Vector3 Position { get; set; }
+			public Vector2 TexCoord { get; set; }
+			public Vector3 Normal { get; set; }
+
+			public byte[] ToByteArray()
+			{
+				// TexCoord and Normal are swapped in the byte format for some reason.
+				byte[] bytes = new byte[32];
+				Buf.BlockCopy(BitConverter.GetBytes(Position.X), 0, bytes, 0, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(Position.Y), 0, bytes, 4, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(Position.Z), 0, bytes, 8, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(Normal.X), 0, bytes, 12, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(Normal.Y), 0, bytes, 16, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(Normal.Z), 0, bytes, 20, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(TexCoord.X), 0, bytes, 24, sizeof(float));
+				Buf.BlockCopy(BitConverter.GetBytes(TexCoord.Y), 0, bytes, 28, sizeof(float));
+				return bytes;
+			}
+
+			public static Vertex CreateFromBuffer(byte[] buffer, int offset, int vertexIndex)
+			{
+				Vector3 position = new Vector3(
+					x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount),
+					y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 4),
+					z: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 8));
+				Vector2 texCoord = new Vector2(
+					x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 24),
+					y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 28));
+				Vector3 normal = new Vector3(
+					x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 12),
+					y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 16),
+					z: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 20));
+				return new Vertex(position, texCoord, normal);
+			}
 		}
 	}
 }

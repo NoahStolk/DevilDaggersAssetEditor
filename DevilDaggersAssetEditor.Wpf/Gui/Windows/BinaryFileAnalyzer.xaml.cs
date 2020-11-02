@@ -1,12 +1,15 @@
-﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileAnalyzer;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
-using DevilDaggersAssetEditor.Info;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
-using System;
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,29 +20,68 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class BinaryFileAnalyzerWindow : Window
 	{
-		public BinaryFileAnalyzerWindow(AnalyzerFileResult fileResult)
+		private readonly int _columnCount;
+
+		public BinaryFileAnalyzerWindow()
 		{
 			InitializeComponent();
 
-			Dictionary<string, AnalyzerChunkGroup> chunkInfos = new Dictionary<string, AnalyzerChunkGroup>
+			_columnCount = ChunkData.ColumnDefinitions.Count;
+		}
+
+		private void OpenFile_Click(object sender, RoutedEventArgs e)
+		{
+			OpenFileDialog openDialog = new OpenFileDialog();
+			openDialog.OpenDevilDaggersRootFolder();
+
+			bool? openResult = openDialog.ShowDialog();
+			if (openResult == true)
 			{
-				{ "File header", ChunkResult(GetColor("File header"), fileResult.headerByteCount, Array.Empty<AbstractChunk>()) },
+				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
+
+				AnalyzerFileResult? result = TryReadResourceFile(openDialog.FileName, sourceFileBytes) ?? TryReadParticleFile(openDialog.FileName, sourceFileBytes);
+				if (result == null)
+					App.Instance.ShowMessage("File not recognized", "Make sure to open one of the following binary files: audio, core, dd, particle");
+				else
+					ShowFileResult(result);
+			}
+		}
+
+		private void ShowFileResult(AnalyzerFileResult fileResult)
+		{
+			ContentStackPanel.Visibility = Visibility.Visible;
+
+			Data.Children.Clear();
+			ChunkData.Children.Clear();
+			ChunkData.RowDefinitions.Clear();
+
+			Dictionary<string, AnalyzerChunkGroup> chunkGroups = new Dictionary<string, AnalyzerChunkGroup>
+			{
+				{ "File header", ChunkResult(Color.FromRgb(255, 127, 127), fileResult.HeaderByteCount, new List<IChunk>()) },
 			};
 
-			IEnumerable<IGrouping<string, AbstractChunk>> chunksByType = fileResult.chunks.GroupBy(c => ChunkInfo.All.FirstOrDefault(ci => ci.ChunkType == c.GetType()).DataName);
-			foreach (IGrouping<string, AbstractChunk> group in chunksByType.OrderBy(c => c.Key))
+			IEnumerable<IGrouping<AssetType, IChunk>> chunksByType = fileResult.Chunks.GroupBy(c => c.AssetType);
+			foreach (IGrouping<AssetType, IChunk> group in chunksByType.OrderBy(c => c.Key))
 			{
-				IEnumerable<AbstractChunk> validChunks = group;
+				IEnumerable<IChunk> validChunks = group;
 				uint size = 0;
 				uint headerSize = 0;
-				foreach (AbstractChunk chunk in validChunks)
+				foreach (IChunk chunk in validChunks)
 				{
-					if (chunk is ModelChunk || chunk is ShaderChunk || chunk is TextureChunk)
+					if (chunk is ModelChunk)
 					{
-						uint headerChunkSize = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType()).HeaderInfo.FixedSize.Value;
-
-						size += chunk.Size - headerChunkSize;
-						headerSize += headerChunkSize;
+						size += chunk.Size - 10;
+						headerSize += 10;
+					}
+					else if (chunk is ShaderChunk)
+					{
+						size += chunk.Size - 12;
+						headerSize += 12;
+					}
+					else if (chunk is TextureChunk)
+					{
+						size += chunk.Size - 11;
+						headerSize += 11;
 					}
 					else if (chunk is ParticleChunk particleChunk)
 					{
@@ -52,30 +94,27 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					}
 				}
 
-				chunkInfos.Add(group.Key, ChunkResult(GetColor(group.Key), size, validChunks.ToArray()));
+				chunkGroups.Add(group.Key.ToString(), ChunkResult(GetColor(group.Key, false), size, validChunks.ToList()));
 				if (headerSize > 0)
-				{
-					string headerKey = $"{group.Key} header";
-					chunkInfos.Add(headerKey, ChunkResult(GetColor(headerKey), headerSize, validChunks.ToArray()));
-				}
+					chunkGroups.Add($"{group.Key} header", ChunkResult(GetColor(group.Key, true), headerSize, validChunks.ToList()));
 			}
 
-			uint unknownSize = (uint)(fileResult.fileByteCount - chunkInfos.Sum(c => c.Value.byteCount));
+			uint unknownSize = (uint)(fileResult.FileByteCount - chunkGroups.Sum(c => c.Value.ByteCount));
 			if (unknownSize > 0)
-				chunkInfos.Add("Unknown", ChunkResult(GetColor("Unknown"), unknownSize, Array.Empty<AbstractChunk>()));
+				chunkGroups.Add("Unknown", ChunkResult(Color.FromRgb(127, 127, 255), unknownSize, new List<IChunk>()));
 
-			int totalHeight = 32;
+			const int totalHeight = 32;
 			double pos = 0;
 
-			FileName.Content = fileResult.fileName;
-			FileSize.Content = $"{fileResult.fileByteCount:N0} bytes";
-			float maxPercentage = chunkInfos.Max(c => c.Value.byteCount / (float)fileResult.fileByteCount);
+			FileName.Content = fileResult.FileName;
+			FileSize.Content = $"{fileResult.FileByteCount:N0} bytes";
+			float maxPercentage = chunkGroups.Max(c => c.Value.ByteCount / (float)fileResult.FileByteCount);
 			int i = 0;
-			foreach (KeyValuePair<string, AnalyzerChunkGroup> kvp in chunkInfos.OrderBy(c => c.Value.chunks.Length != 0).ThenByDescending(c => c.Value.byteCount).Where(c => c.Value.byteCount > 0))
+			foreach (KeyValuePair<string, AnalyzerChunkGroup> kvp in chunkGroups.OrderBy(c => c.Value.Chunks.Count != 0).ThenByDescending(c => c.Value.ByteCount).Where(c => c.Value.ByteCount > 0))
 			{
 				Color color = ChunkResultColor(kvp.Value);
 
-				double sizePercentage = kvp.Value.byteCount / (double)fileResult.fileByteCount;
+				double sizePercentage = kvp.Value.ByteCount / (double)fileResult.FileByteCount;
 				double width = sizePercentage * Canvas.Width;
 				Rectangle rect = new Rectangle
 				{
@@ -122,69 +161,63 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				StackPanel stackPanel = new StackPanel { Background = bgColor };
 				stackPanel.Children.Add(new Label { Content = $"{kvp.Key} data", FontWeight = FontWeights.Bold });
 				stackPanel.Children.Add(grid);
-				stackPanel.Children.Add(new Label { Content = $"{kvp.Value.byteCount:N0} bytes" });
-				if (kvp.Value.chunks.Length > 0)
-					stackPanel.Children.Add(new Label { Content = $"{kvp.Value.chunks.Length} chunks" });
+				stackPanel.Children.Add(new Label { Content = $"{kvp.Value.ByteCount:N0} bytes" });
+				if (kvp.Value.Chunks.Count > 0)
+					stackPanel.Children.Add(new Label { Content = $"{kvp.Value.Chunks.Count} chunks" });
 
 				Data.Children.Add(stackPanel);
 			}
 
-			int columns = 8;
-			for (int j = 0; j < columns; j++)
-				ChunkData.ColumnDefinitions.Add(new ColumnDefinition());
-
 			int k = 0;
-			foreach (AbstractChunk chunk in fileResult.chunks.OrderByDescending(c => c.Size))
+			foreach (IChunk chunk in fileResult.Chunks.OrderByDescending(c => c.Size))
 			{
-				if (k % columns == 0)
+				if (k % _columnCount == 0)
 					ChunkData.RowDefinitions.Add(new RowDefinition());
 
-				double chunkSizePercentage = chunk.Size / (double)fileResult.fileByteCount;
+				double chunkSizePercentage = chunk.Size / (double)fileResult.FileByteCount;
 
-				string dataName = ChunkInfo.All.FirstOrDefault(c => c.ChunkType == chunk.GetType()).DataName;
-				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(GetColor(dataName) * (float)chunkSizePercentage * 50) };
-				TextBlock textBlockDataName = new TextBlock { Margin = new Thickness(2), Text = dataName, FontWeight = FontWeights.Bold };
+				Color baseBgColor = GetColor(chunk.AssetType, false);
+				Color bgColor = baseBgColor * (float)chunkSizePercentage * 50;
+				Brush textColor = GetTextColorBasedOnBackgroundColor(bgColor);
+
+				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(bgColor) };
+				TextBlock textBlockDataName = new TextBlock { Margin = new Thickness(2), Text = chunk.AssetType.ToString(), FontWeight = FontWeights.Bold, Foreground = textColor };
 				if (chunkSizePercentage < 0.005f)
-					textBlockDataName.Background = new SolidColorBrush(GetColor(dataName) * 0.25f);
+					textBlockDataName.Background = new SolidColorBrush(baseBgColor * 0.25f);
 				stackPanel.Children.Add(textBlockDataName);
-				stackPanel.Children.Add(new Label
-				{
-					Content = chunk.Name,
-					FontWeight = FontWeights.Bold,
-				});
-				stackPanel.Children.Add(new Label { Content = $"{chunk.Size:N0} bytes" });
-				stackPanel.Children.Add(new Label { Content = $"{chunkSizePercentage:0.000%} of file" });
+				stackPanel.Children.Add(new Label { Content = chunk.Name, FontWeight = FontWeights.Bold, Foreground = textColor });
+				stackPanel.Children.Add(new Label { Content = $"{chunk.Size:N0} bytes", Foreground = textColor });
+				stackPanel.Children.Add(new Label { Content = $"{chunkSizePercentage:0.000%} of file", Foreground = textColor });
 
-				Border border = new Border
-				{
-					BorderThickness = new Thickness(1),
-					BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
-				};
+				Border border = new Border { BorderThickness = new Thickness(1), BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)) };
 				border.Child = stackPanel;
-				Grid.SetColumn(border, k % columns);
-				Grid.SetRow(border, k / columns);
+				Grid.SetColumn(border, k % _columnCount);
+				Grid.SetRow(border, k / _columnCount);
 
 				ChunkData.Children.Add(border);
 				k++;
 			}
 		}
 
-		private static AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, AbstractChunk[] chunks)
+		private static Brush GetTextColorBasedOnBackgroundColor(Color backgroundColor)
+			=> ColorUtils.GetPerceivedBrightness(backgroundColor) < 140 ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["Gray1"];
+
+		private static AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, List<IChunk> chunks)
 			=> new AnalyzerChunkGroup(color.R, color.G, color.B, byteCount, chunks);
 
 		private static Color ChunkResultColor(AnalyzerChunkGroup chunkResult)
-			=> Color.FromRgb(chunkResult.r, chunkResult.g, chunkResult.b);
+			=> Color.FromRgb(chunkResult.R, chunkResult.G, chunkResult.B);
 
-		public static AnalyzerFileResult? TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
+		private static AnalyzerFileResult? TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
 		{
 			try
 			{
-				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.Audio | BinaryFileType.Core | BinaryFileType.Dd);
+				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.None); // Since we're only validating the file, we can pass None as BinaryFileType.
 				fileHandler.ValidateFile(sourceFileBytes);
 
 				byte[] tocBuffer = ResourceFileHandler.ReadTocBuffer(sourceFileBytes);
 
-				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer));
+				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer).Cast<IChunk>().ToList());
 			}
 			catch
 			{
@@ -192,7 +225,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		public static AnalyzerFileResult? TryReadParticleFile(string sourceFileName, byte[] sourceFileBytes)
+		private static AnalyzerFileResult? TryReadParticleFile(string sourceFileName, byte[] sourceFileBytes)
 		{
 			try
 			{
@@ -200,11 +233,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				fileHandler.ValidateFile(sourceFileBytes);
 
 				int i = ParticleFileHandler.HeaderSize;
-				List<AbstractChunk> chunks = new List<AbstractChunk>();
+				List<IChunk> chunks = new List<IChunk>();
 				while (i < sourceFileBytes.Length)
 				{
 					ParticleChunk chunk = ParticleFileHandler.ReadParticleChunk(sourceFileBytes, i);
-					i += chunk.Name.Length;
 					i += chunk.Buffer.Length;
 					chunks.Add(chunk);
 				}
@@ -217,22 +249,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private static Color GetColor(string type)
+		private static Color GetColor(AssetType? assetType, bool isHeader)
 		{
-			ChunkInfo chunkInfo = ChunkInfo.All.FirstOrDefault(c => c.DataName == type);
-			if (chunkInfo != null)
-				return chunkInfo.GetColor();
+			if (assetType.HasValue)
+				return EditorUtils.FromRgbTuple(assetType.Value.GetColor()) * (isHeader ? 0.5f : 1);
 
-			chunkInfo = ChunkInfo.All.FirstOrDefault(c => $"{c.DataName} header" == type);
-			if (chunkInfo != null)
-				return chunkInfo.GetColor() * 0.5f;
-
-			return type switch
-			{
-				"File header" => Color.FromRgb(255, 127, 127),
-				"Unknown" => Color.FromRgb(127, 127, 255),
-				_ => Color.FromRgb(255, 255, 255),
-			};
+			return Color.FromRgb(255, 255, 255);
 		}
 	}
 }

@@ -7,24 +7,27 @@ using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class ParticlePreviewerControl : UserControl
+	public partial class ParticlePreviewerControl : UserControl, IPreviewerControl
 	{
 		public ParticlePreviewerControl()
 		{
 			InitializeComponent();
 		}
 
-		public void Initialize(ParticleAsset asset)
+		public void Initialize(AbstractAsset asset)
 		{
-			ParticleName.Content = asset.AssetName;
+			if (!(asset is ParticleAsset particleAsset))
+				return;
 
-			bool isPathValid = File.Exists(asset.EditorPath);
+			ParticleName.Content = particleAsset.AssetName;
 
-			FileName.Content = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+			bool isPathValid = File.Exists(particleAsset.EditorPath);
+
+			FileName.Content = isPathValid ? Path.GetFileName(particleAsset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{
-				byte[] bytes = File.ReadAllBytes(asset.EditorPath);
+				byte[] bytes = File.ReadAllBytes(particleAsset.EditorPath);
 				string hex = BitConverter.ToString(bytes).Replace("-", string.Empty, StringComparison.InvariantCulture);
 				StringBuilder sb = new StringBuilder();
 				for (int i = 0; i < hex.Length; i++)

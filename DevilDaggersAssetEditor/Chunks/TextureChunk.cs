@@ -1,7 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Headers;
-using DevilDaggersAssetEditor.Info;
 using DevilDaggersAssetEditor.User;
 using System;
 using System.Collections.Generic;
@@ -9,18 +7,17 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class TextureChunk : AbstractHeaderedChunk<TextureHeader>
+	public class TextureChunk : ResourceChunk
 	{
-		private static readonly bool extractMipmaps = false;
+		private static readonly bool _extractMipmaps;
 
-		public TextureChunk(string name, uint startOffset, uint size, uint unknown)
-			: base(name, startOffset, size, unknown)
+		public TextureChunk(string name, uint startOffset, uint size)
+			: base(AssetType.Texture, name, startOffset, size)
 		{
 		}
 
@@ -35,7 +32,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
-			if (AssetHandler.Instance.DdTexturesAssets.FirstOrDefault(t => t.AssetName == Name).IsModelTexture)
+			if (AssetHandler.Instance.DdTexturesAssets.Find(t => t.AssetName == Name)?.IsModelTexture == true)
 			{
 				while (maxDimension > UserHandler.Instance.Settings.TextureSizeLimit)
 				{
@@ -47,25 +44,23 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			using Bitmap resizedImage = ResizeImage(image, Math.Max(1, newWidth), Math.Max(1, newHeight));
 
-			byte[] headerBuffer = new byte[ChunkInfo.Texture.HeaderInfo.FixedSize.Value];
-			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, headerBuffer, 0, sizeof(ushort));
-			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Width), 0, headerBuffer, 2, sizeof(uint));
-			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Height), 0, headerBuffer, 6, sizeof(uint));
-			headerBuffer[10] = GetMipmapCountFromImage(resizedImage);
-			Header = new TextureHeader(headerBuffer);
+			byte mipmapCount = GetMipmapCountFromImage(resizedImage);
+			GetBufferSizes(resizedImage.Width, resizedImage.Height, mipmapCount, out int pixelBufferLength, out int[] mipmapBufferSizes);
 
-			GetBufferSizes(Header, out int totalBufferLength, out int[] mipmapBufferSizes);
+			Buffer = new byte[11 + pixelBufferLength];
+			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, Buffer, 0, sizeof(ushort));
+			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Width), 0, Buffer, 2, sizeof(uint));
+			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Height), 0, Buffer, 6, sizeof(uint));
+			Buffer[10] = mipmapCount;
 
-			Buffer = new byte[totalBufferLength];
 			int mipmapWidth = resizedImage.Width;
 			int mipmapHeight = resizedImage.Height;
 			int mipmapBufferOffset = 0;
-			for (int i = 0; i < Header.MipmapCount; i++)
+			for (int i = 0; i < mipmapCount; i++)
 			{
 				using Bitmap bitmap = ResizeImage(resizedImage, mipmapWidth, mipmapHeight);
 				bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
-				int increment = (int)Math.Pow(2, i);
 				int bufferPosition = 0;
 
 				for (int x = 0; x < bitmap.Width; x++)
@@ -78,10 +73,10 @@ namespace DevilDaggersAssetEditor.Chunks
 						if (bufferPosition >= mipmapBufferSizes[i])
 							continue;
 
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.R;
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.G;
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.B;
-						Buffer[mipmapBufferOffset + bufferPosition++] = pixel.A;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.R;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.G;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.B;
+						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.A;
 					}
 				}
 
@@ -90,19 +85,23 @@ namespace DevilDaggersAssetEditor.Chunks
 				mipmapHeight /= 2;
 			}
 
-			Size = (uint)Buffer.Length + (uint)Header.Buffer.Length;
+			Size = (uint)Buffer.Length;
 		}
 
 		public override IEnumerable<FileResult> ExtractBinary()
 		{
-			GetBufferSizes(Header, out _, out int[] mipmapBufferSizes);
+			uint width = BitConverter.ToUInt32(Buffer, 2);
+			uint height = BitConverter.ToUInt32(Buffer, 6);
+			byte mipmapCount = Buffer[10];
+
+			GetBufferSizes((int)width, (int)height, mipmapCount, out _, out int[] mipmapBufferSizes);
 
 			int mipmapOffset = 0;
-			for (int i = 0; i < (extractMipmaps ? Header.MipmapCount : 1); i++)
+			for (int i = 0; i < (_extractMipmaps ? mipmapCount : 1); i++)
 			{
 				int mipmapSizeDivisor = (int)Math.Pow(2, i);
-				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset);
-				using Bitmap bitmap = new Bitmap((int)Header.Width / mipmapSizeDivisor, (int)Header.Height / mipmapSizeDivisor, (int)Header.Width / mipmapSizeDivisor * 4, PixelFormat.Format32bppArgb, intPtr);
+				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset + 11);
+				using Bitmap bitmap = new Bitmap((int)width / mipmapSizeDivisor, (int)height / mipmapSizeDivisor, (int)width / mipmapSizeDivisor * 4, PixelFormat.Format32bppArgb, intPtr);
 				bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
 				for (int x = 0; x < bitmap.Width; x++)
@@ -117,26 +116,28 @@ namespace DevilDaggersAssetEditor.Chunks
 				mipmapOffset += mipmapBufferSizes[i];
 
 				using MemoryStream memoryStream = new MemoryStream();
+
 				// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
 				new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
 
-				yield return new FileResult($"{Name}{(extractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : "")}", memoryStream.ToArray());
+				yield return new FileResult(Name + (_extractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : string.Empty), memoryStream.ToArray());
 			}
 		}
 
 		// TODO: Move to utils class.
-		public static byte GetMipmapCountFromImage(Image image) => TextureAsset.GetMipmapCount(image.Width, image.Height);
+		public static byte GetMipmapCountFromImage(Image image)
+			=> TextureAsset.GetMipmapCount(image.Width, image.Height);
 
-		private static void GetBufferSizes(TextureHeader header, out int totalBufferLength, out int[] mipmapBufferSizes)
+		private static void GetBufferSizes(int width, int height, byte mipmapCount, out int totalBufferLength, out int[] mipmapBufferSizes)
 		{
-			totalBufferLength = (int)header.Width * (int)header.Height * 4;
-			mipmapBufferSizes = new int[header.MipmapCount];
+			totalBufferLength = width * height * 4;
+			mipmapBufferSizes = new int[mipmapCount];
 			mipmapBufferSizes[0] = totalBufferLength;
 
-			if (header.Width != header.Height)
+			if (width != height)
 			{
 				int lengthMod = totalBufferLength;
-				for (int i = 1; i < header.MipmapCount; i++)
+				for (int i = 1; i < mipmapCount; i++)
 				{
 					lengthMod /= 4;
 
@@ -146,8 +147,8 @@ namespace DevilDaggersAssetEditor.Chunks
 			}
 			else
 			{
-				int lengthMod = (int)header.Width;
-				for (int i = 1; i < header.MipmapCount; i++)
+				int lengthMod = width;
+				for (int i = 1; i < mipmapCount; i++)
 				{
 					lengthMod /= 2;
 
