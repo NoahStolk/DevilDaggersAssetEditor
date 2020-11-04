@@ -24,11 +24,6 @@ namespace DevilDaggersAssetEditor.Chunks
 		public override void MakeBinary(string path)
 		{
 			using Image image = Image.FromFile(path);
-			MakeBinary(image);
-		}
-
-		public void MakeBinary(Image image)
-		{
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
@@ -100,8 +95,9 @@ namespace DevilDaggersAssetEditor.Chunks
 			for (int i = 0; i < (_extractMipmaps ? mipmapCount : 1); i++)
 			{
 				int mipmapSizeDivisor = (int)Math.Pow(2, i);
+				int bitmapWidth = (int)width / mipmapSizeDivisor;
 				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset + 11);
-				using Bitmap bitmap = new Bitmap((int)width / mipmapSizeDivisor, (int)height / mipmapSizeDivisor, (int)width / mipmapSizeDivisor * 4, PixelFormat.Format32bppArgb, intPtr);
+				using Bitmap bitmap = new Bitmap(bitmapWidth, (int)height / mipmapSizeDivisor, bitmapWidth * 4, PixelFormat.Format32bppArgb, intPtr);
 				bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
 				for (int x = 0; x < bitmap.Width; x++)
@@ -124,8 +120,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			}
 		}
 
-		// TODO: Move to utils class.
-		public static byte GetMipmapCountFromImage(Image image)
+		private static byte GetMipmapCountFromImage(Image image)
 			=> TextureAsset.GetMipmapCount(image.Width, image.Height);
 
 		private static void GetBufferSizes(int width, int height, byte mipmapCount, out int totalBufferLength, out int[] mipmapBufferSizes)
