@@ -14,8 +14,6 @@ namespace DevilDaggersAssetEditor.Chunks
 {
 	public class TextureChunk : ResourceChunk
 	{
-		private static readonly bool _extractMipmaps;
-
 		public TextureChunk(string name, uint startOffset, uint size)
 			: base(AssetType.Texture, name, startOffset, size)
 		{
@@ -89,6 +87,36 @@ namespace DevilDaggersAssetEditor.Chunks
 			uint height = BitConverter.ToUInt32(Buffer, 6);
 			byte mipmapCount = Buffer[10];
 
+			GetBufferSizes((int)width, (int)height, mipmapCount, out _, out int[] _);
+
+			IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 11);
+			using Bitmap bitmap = new Bitmap((int)width, (int)height, (int)width * 4, PixelFormat.Format32bppArgb, intPtr);
+			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+			for (int x = 0; x < bitmap.Width; x++)
+			{
+				for (int y = 0; y < bitmap.Height; y++)
+				{
+					Color pixel = bitmap.GetPixel(x, y);
+					bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse RGBA).
+				}
+			}
+
+			using MemoryStream memoryStream = new MemoryStream();
+
+			// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
+			new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
+
+			yield return new FileResult(Name, memoryStream.ToArray());
+		}
+
+#if EXTRACT_MIPMAPS
+		public override IEnumerable<FileResult> ExtractBinary()
+		{
+			uint width = BitConverter.ToUInt32(Buffer, 2);
+			uint height = BitConverter.ToUInt32(Buffer, 6);
+			byte mipmapCount = Buffer[10];
+
 			GetBufferSizes((int)width, (int)height, mipmapCount, out _, out int[] mipmapBufferSizes);
 
 			int mipmapOffset = 0;
@@ -119,6 +147,7 @@ namespace DevilDaggersAssetEditor.Chunks
 				yield return new FileResult(Name + (_extractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : string.Empty), memoryStream.ToArray());
 			}
 		}
+#endif
 
 		private static byte GetMipmapCountFromImage(Image image)
 			=> TextureAsset.GetMipmapCount(image.Width, image.Height);
