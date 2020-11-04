@@ -133,6 +133,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private async void ExtractBinaries_Click(object sender, RoutedEventArgs e)
 		{
+			ButtonExtractBinaries.IsEnabled = false;
+
 			await Task.WhenAll(new List<Task>
 			{
 				ExtractBinary(BinaryFileType.Audio, _audioPath, _outputPath, _audioProgress),
@@ -140,6 +142,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				ExtractBinary(BinaryFileType.Dd, _ddPath, _outputPath, _ddProgress),
 				ExtractBinary(BinaryFileType.Particle, _particlePath, _outputPath, _particleProgress),
 			});
+
+			ButtonExtractBinaries.IsEnabled = true;
 
 			if (!string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath))
 			{

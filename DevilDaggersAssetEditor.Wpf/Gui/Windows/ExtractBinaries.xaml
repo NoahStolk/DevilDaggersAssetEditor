@@ -51,7 +51,7 @@
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Button Content="Extract binaries" Click="ExtractBinaries_Click" Width="128" HorizontalAlignment="Left" />
+				<Button Name="ButtonExtractBinaries" Content="Extract binaries" Click="ExtractBinaries_Click" Width="128" HorizontalAlignment="Left" />
 			</StackPanel>
 		</StackPanel>
 	</StackPanel>

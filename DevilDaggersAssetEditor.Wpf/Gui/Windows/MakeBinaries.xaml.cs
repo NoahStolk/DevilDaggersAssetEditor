@@ -113,6 +113,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private async void MakeBinaries_Click(object sender, RoutedEventArgs e)
 		{
+			ButtonMakeBinaries.IsEnabled = false;
+
 			await Task.WhenAll(new List<Task>
 			{
 				MakeBinary(BinaryFileType.Audio, _audioPath, _audioProgress),
@@ -120,6 +122,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				MakeBinary(BinaryFileType.Dd, _ddPath, _ddProgress),
 				MakeBinary(BinaryFileType.Particle, _particlePath, _particleProgress),
 			});
+
+			ButtonMakeBinaries.IsEnabled = true;
 		}
 
 		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath, ProgressWrapper progress)

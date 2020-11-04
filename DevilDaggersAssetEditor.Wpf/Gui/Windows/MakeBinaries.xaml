@@ -44,7 +44,7 @@
 		</StackPanel>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Button Content="Make binaries" Click="MakeBinaries_Click" Width="128" HorizontalAlignment="Left" />
+				<Button Name="ButtonMakeBinaries" Content="Make binaries" Click="MakeBinaries_Click" Width="128" HorizontalAlignment="Left" />
 			</StackPanel>
 		</StackPanel>
 	</StackPanel>
