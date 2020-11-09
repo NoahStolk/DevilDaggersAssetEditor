@@ -52,6 +52,7 @@
 		<Style.Setters>
 			<Setter Property="Margin" Value="2" />
 			<Setter Property="Foreground" Value="{StaticResource Text}" />
+			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style.Setters>
 	</Style>
 

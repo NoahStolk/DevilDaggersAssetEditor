@@ -40,14 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			Asset = asset;
 			AssetType = assetType;
-			TextBlockTags = new TextBlock
-			{
-				Text = string.Join(_tagSeparator, asset.Tags),
-				Margin = new Thickness(2),
-				Foreground = ColorUtils.ThemeColors["Text"],
-				VerticalAlignment = VerticalAlignment.Center,
-			};
-			Grid.SetColumn(TextBlockTags, 1);
+			TextBlockTags.Text = string.Join(_tagSeparator, asset.Tags);
 
 			Color colorEditEven = EditorUtils.FromRgbTuple(assetType.GetColor()) * 0.25f;
 			Color colorEditOdd = colorEditEven * 0.5f;
@@ -71,7 +64,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			UpdateBackgroundRectangleColors(isEven);
 
-			Data.Children.Add(TextBlockTags);
 			Data.Children.Add(RectangleInfo);
 			Data.Children.Add(RectangleEdit);
 
@@ -104,8 +96,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public bool IsActive { get; set; } = true;
 
 		public string OpenDialogFilter { get; }
-
-		public TextBlock TextBlockTags { get; }
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)
 			=> RemovePath(false);
