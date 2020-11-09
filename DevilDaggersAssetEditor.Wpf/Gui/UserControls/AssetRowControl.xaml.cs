@@ -88,7 +88,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				_audioAsset = audioAsset;
 				ColumnDefinitionLoudness.Width = new GridLength(96);
 				TextBoxLoudness.Visibility = Visibility.Visible;
-				TextBoxLoudness.Text = audioAsset.Loudness.ToString(CultureInfo.InvariantCulture);
 			}
 		}
 
@@ -131,32 +130,32 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath : GuiUtils.FileNotFound;
 			if (_shaderAsset != null)
 				TextBlockEditorPathFragmentShader.Text = File.Exists(_shaderAsset.EditorPathFragmentShader) ? _shaderAsset.EditorPathFragmentShader : GuiUtils.FileNotFound;
+			if (_audioAsset != null)
+				TextBoxLoudness.Text = _audioAsset.Loudness.ToString(CultureInfo.InvariantCulture);
 		}
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
 		{
+			const string separator = ", ";
+
 			if (!checkedFilters.Any())
 			{
-				TextBlockTags.Text = string.Join(", ", Asset.Tags);
+				TextBlockTags.Text = string.Join(separator, Asset.Tags);
 				return;
 			}
 
 			TextBlockTags.Inlines.Clear();
 
-			int chars = 0;
 			for (int i = 0; i < Asset.Tags.Count; i++)
 			{
 				string tag = Asset.Tags[i];
-				chars += tag.Length;
 				Run tagRun = new Run(tag);
 				if (checkedFilters.Contains(tag))
 					tagRun.Background = new SolidColorBrush(filterHighlightColor);
+
 				TextBlockTags.Inlines.Add(tagRun);
 				if (i != Asset.Tags.Count - 1)
-				{
-					TextBlockTags.Inlines.Add(new Run(", "));
-					chars += 2;
-				}
+					TextBlockTags.Inlines.Add(new Run(separator));
 			}
 		}
 
