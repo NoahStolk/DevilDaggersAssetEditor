@@ -53,7 +53,7 @@
 		</StackPanel>
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
-			<Image Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="224" MaxHeight="224" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+			<Image Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="384" MaxHeight="384" RenderOptions.BitmapScalingMode="NearestNeighbor" />
 		</StackPanel>
 	</Grid>
 </UserControl>
