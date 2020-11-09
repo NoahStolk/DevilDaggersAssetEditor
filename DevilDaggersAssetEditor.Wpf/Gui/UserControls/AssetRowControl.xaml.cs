@@ -20,6 +20,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class AssetRowControl : UserControl
 	{
+		private const string _tagSeparator = ", ";
+
 		private readonly SolidColorBrush _brushInfoEven;
 		private readonly SolidColorBrush _brushInfoOdd;
 		private readonly SolidColorBrush _brushEditEven;
@@ -38,7 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			AssetType = assetType;
 			TextBlockTags = new TextBlock
 			{
-				Text = string.Join(", ", asset.Tags),
+				Text = string.Join(_tagSeparator, asset.Tags),
 				Margin = new Thickness(2),
 				Foreground = ColorUtils.ThemeColors["Text"],
 				VerticalAlignment = VerticalAlignment.Center,
@@ -136,11 +138,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
 		{
-			const string separator = ", ";
-
 			if (!checkedFilters.Any())
 			{
-				TextBlockTags.Text = string.Join(separator, Asset.Tags);
+				TextBlockTags.Text = string.Join(_tagSeparator, Asset.Tags);
 				return;
 			}
 
@@ -155,7 +155,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				TextBlockTags.Inlines.Add(tagRun);
 				if (i != Asset.Tags.Count - 1)
-					TextBlockTags.Inlines.Add(new Run(separator));
+					TextBlockTags.Inlines.Add(new Run(_tagSeparator));
 			}
 		}
 
