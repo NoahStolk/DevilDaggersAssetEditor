@@ -5,43 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
         Title="Make binaries" Height="960" Width="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-	<StackPanel>
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
-			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Label>'audio' binary path</Label>
-				<TextBox Name="TextBoxAudio" TextChanged="TextBoxAudio_TextChanged" />
-				<Button Content="Browse" Click="BrowseAudioButton_Click" Width="128" HorizontalAlignment="Left" />
-				<ProgressBar Name="ProgressBarAudio" />
-				<TextBlock Name="ProgressDescriptionAudio" />
-			</StackPanel>
-		</StackPanel>
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
-			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Label>'core' binary path</Label>
-				<TextBox Name="TextBoxCore" TextChanged="TextBoxCore_TextChanged" />
-				<Button Content="Browse" Click="BrowseCoreButton_Click" Width="128" HorizontalAlignment="Left" />
-				<ProgressBar Name="ProgressBarCore" />
-				<TextBlock Name="ProgressDescriptionCore" />
-			</StackPanel>
-		</StackPanel>
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
-			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Label>'dd' binary path</Label>
-				<TextBox Name="TextBoxDd" TextChanged="TextBoxDd_TextChanged" />
-				<Button Content="Browse" Click="BrowseDdButton_Click" Width="128" HorizontalAlignment="Left" />
-				<ProgressBar Name="ProgressBarDd" />
-				<TextBlock Name="ProgressDescriptionDd" />
-			</StackPanel>
-		</StackPanel>
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
-			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Label>'particle' binary path</Label>
-				<TextBox Name="TextBoxParticle" TextChanged="TextBoxParticle_TextChanged" />
-				<Button Content="Browse" Click="BrowseParticleButton_Click" Width="128" HorizontalAlignment="Left" />
-				<ProgressBar Name="ProgressBarParticle" />
-				<TextBlock Name="ProgressDescriptionParticle" />
-			</StackPanel>
-		</StackPanel>
+	<StackPanel Name="Main">
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
 				<Button Name="ButtonMakeBinaries" Content="Make binaries" Click="MakeBinaries_Click" Width="128" HorizontalAlignment="Left" />
