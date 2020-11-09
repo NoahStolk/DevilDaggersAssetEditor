@@ -10,30 +10,29 @@
 		<Image x:Key="PlayImage" Source="/Content/Images/AudioPlayer/Play.png" />
 		<Image x:Key="ResetPitchImage" Source="/Content/Images/AudioPlayer/ResetPitch.png" />
 	</UserControl.Resources>
-	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
+	<Grid HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="256" />
 			<ColumnDefinition Width="320" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<StackPanel Grid.Column="0">
+		<StackPanel>
 			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<StackPanel Grid.Column="0">
-					<Label FontWeight="Bold">Audio name</Label>
-					<Label FontWeight="Bold">Default loudness</Label>
-				</StackPanel>
-				<StackPanel Grid.Column="1">
-					<Label Name="AudioName">N/A</Label>
-					<Label Name="DefaultLoudness">N/A</Label>
-				</StackPanel>
+				<Grid.RowDefinitions>
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+				</Grid.RowDefinitions>
+				<Label FontWeight="Bold">Audio name</Label>
+				<Label Grid.Row="1" FontWeight="Bold">Default loudness</Label>
+				<Label Grid.Column="1" Name="AudioName">N/A</Label>
+				<Label Grid.Column="1" Grid.Row="1" Name="DefaultLoudness">N/A</Label>
 			</Grid>
 		</StackPanel>
-
 		<StackPanel Grid.Column="1">
 			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
 			<Grid>
@@ -41,17 +40,16 @@
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<StackPanel Grid.Column="0">
-					<Label FontWeight="Bold">File name</Label>
-					<Label FontWeight="Bold">Loudness</Label>
-				</StackPanel>
-				<StackPanel Grid.Column="1">
-					<Label Name="FileName">N/A</Label>
-					<Label Name="FileLoudness">N/A</Label>
-				</StackPanel>
+				<Grid.RowDefinitions>
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+				</Grid.RowDefinitions>
+				<Label FontWeight="Bold">File name</Label>
+				<Label Grid.Row="1" FontWeight="Bold">Loudness</Label>
+				<Label Grid.Column="1" Name="FileName">N/A</Label>
+				<Label Grid.Column="1" Grid.Row="1" Name="FileLoudness">N/A</Label>
 			</Grid>
 		</StackPanel>
-
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -63,7 +61,6 @@
 				</Button>
 				<CheckBox Name="Autoplay" Checked="Autoplay_ChangeState" Unchecked="Autoplay_ChangeState" Margin="4,4,4,4">Auto-play</CheckBox>
 			</StackPanel>
-
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />

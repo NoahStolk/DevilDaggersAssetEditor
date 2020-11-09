@@ -5,28 +5,26 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
+	<Grid HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="256" />
 			<ColumnDefinition Width="320" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<StackPanel Grid.Column="0">
+		<StackPanel>
 			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<StackPanel Grid.Column="0">
-					<Label FontWeight="Bold">Model Binding name</Label>
-				</StackPanel>
-				<StackPanel Grid.Column="1">
-					<Label Name="ModelBindingName">N/A</Label>
-				</StackPanel>
+				<Grid.RowDefinitions>
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+				</Grid.RowDefinitions>
+				<Label FontWeight="Bold">Model Binding name</Label>
+				<Label Grid.Column="1" Name="ModelBindingName">N/A</Label>
 			</Grid>
 		</StackPanel>
-
 		<StackPanel Grid.Column="1">
 			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
 			<Grid>
@@ -34,15 +32,13 @@
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<StackPanel Grid.Column="0">
-					<Label FontWeight="Bold">File name</Label>
-				</StackPanel>
-				<StackPanel Grid.Column="1">
-					<Label Name="FileName">N/A</Label>
-				</StackPanel>
+				<Grid.RowDefinitions>
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+				</Grid.RowDefinitions>
+				<Label FontWeight="Bold">File name</Label>
+				<Label Grid.Column="1" Name="FileName">N/A</Label>
 			</Grid>
 		</StackPanel>
-
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
 			<TextBox Name="PreviewTextBox" Style="{StaticResource CodeTextBox}" MinLines="4" MaxLines="4" />

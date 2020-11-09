@@ -91,4 +91,10 @@
 			<Setter Property="Margin" Value="2" />
 		</Style.Setters>
 	</Style>
+
+	<Style TargetType="RowDefinition" x:Key="PreviewerRow">
+		<Style.Setters>
+			<Setter Property="Height" Value="20" />
+		</Style.Setters>
+	</Style>
 </ResourceDictionary>

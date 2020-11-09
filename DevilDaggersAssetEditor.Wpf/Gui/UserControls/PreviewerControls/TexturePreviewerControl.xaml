@@ -5,32 +5,32 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-	<Grid Grid.Row="0" HorizontalAlignment="Stretch">
+	<Grid HorizontalAlignment="Stretch">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="256" />
 			<ColumnDefinition Width="320" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<StackPanel Grid.Column="0">
+		<StackPanel>
 			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<StackPanel Grid.Column="0">
-					<Label FontWeight="Bold">Texture name</Label>
-					<Label FontWeight="Bold">Default dimensions</Label>
-					<Label FontWeight="Bold">Default mipmaps</Label>
-				</StackPanel>
-				<StackPanel Grid.Column="1">
-					<Label Name="TextureName">N/A</Label>
-					<Label Name="DefaultDimensions">N/A</Label>
-					<Label Name="DefaultMipmaps">N/A</Label>
-				</StackPanel>
+				<Grid.RowDefinitions>
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+				</Grid.RowDefinitions>
+				<Label FontWeight="Bold">Texture name</Label>
+				<Label Grid.Row="1" FontWeight="Bold">Default dimensions</Label>
+				<Label Grid.Row="2" FontWeight="Bold">Default mipmaps</Label>
+				<Label Grid.Column="1" Name="TextureName">N/A</Label>
+				<Label Grid.Column="1" Grid.Row="1" Name="DefaultDimensions">N/A</Label>
+				<Label Grid.Column="1" Grid.Row="2" Name="DefaultMipmaps">N/A</Label>
 			</Grid>
 		</StackPanel>
-
 		<StackPanel Grid.Column="1">
 			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
 			<Grid>
@@ -38,19 +38,19 @@
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<StackPanel Grid.Column="0">
-					<Label FontWeight="Bold">File name</Label>
-					<Label FontWeight="Bold">Dimensions</Label>
-					<Label FontWeight="Bold">Mipmaps</Label>
-				</StackPanel>
-				<StackPanel Grid.Column="1">
-					<Label Name="FileName">N/A</Label>
-					<Label Name="FileDimensions">N/A</Label>
-					<Label Name="FileMipmaps">N/A</Label>
-				</StackPanel>
+				<Grid.RowDefinitions>
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+					<RowDefinition Style="{StaticResource PreviewerRow}" />
+				</Grid.RowDefinitions>
+				<Label FontWeight="Bold">File name</Label>
+				<Label Grid.Row="1" FontWeight="Bold">Dimensions</Label>
+				<Label Grid.Row="2" FontWeight="Bold">Mipmaps</Label>
+				<Label Grid.Column="1" Name="FileName">N/A</Label>
+				<Label Grid.Column="1" Grid.Row="1" Name="FileDimensions">N/A</Label>
+				<Label Grid.Column="1" Grid.Row="2" Name="FileMipmaps">N/A</Label>
 			</Grid>
 		</StackPanel>
-
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
 			<Image Name="PreviewImage" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="224" MaxHeight="224" RenderOptions.BitmapScalingMode="NearestNeighbor" />
