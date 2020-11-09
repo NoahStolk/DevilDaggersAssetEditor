@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Utils;
 using SyntaxHighlighter;
 using SyntaxHighlighter.Parsers;
 using System;
@@ -25,20 +26,23 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 			ShaderName.Content = shaderAsset.AssetName;
 
-			VertexFileName.Content = shaderAsset.EditorPath;
-			FragmentFileName.Content = shaderAsset.EditorPathFragmentShader;
+			bool isVertexPathValid = File.Exists(shaderAsset.EditorPath);
+			bool isFragmentPathValid = File.Exists(shaderAsset.EditorPathFragmentShader);
+
+			VertexFileName.Content = isVertexPathValid ? Path.GetFileName(shaderAsset.EditorPath) : GuiUtils.FileNotFound;
+			FragmentFileName.Content = isFragmentPathValid ? Path.GetFileName(shaderAsset.EditorPathFragmentShader) : GuiUtils.FileNotFound;
 
 			PreviewVertexTextBox.Inlines.Clear();
 			PreviewFragmentTextBox.Inlines.Clear();
 
-			if (File.Exists(shaderAsset.EditorPath))
+			if (isVertexPathValid)
 			{
 				string vertexCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPath));
 				foreach (Piece piece in GlslParser.Instance.Parse(vertexCode))
 					PreviewVertexTextBox.Inlines.Add(new Run(piece.Code) { Foreground = new SolidColorBrush(TranslateColor(GlslParser.Instance.CodeStyle.HighlightColors[piece.Type])) });
 			}
 
-			if (File.Exists(shaderAsset.EditorPathFragmentShader))
+			if (isFragmentPathValid)
 			{
 				string fragmentCode = SanitizeCode(File.ReadAllText(shaderAsset.EditorPathFragmentShader));
 				foreach (Piece piece in GlslParser.Instance.Parse(fragmentCode))
