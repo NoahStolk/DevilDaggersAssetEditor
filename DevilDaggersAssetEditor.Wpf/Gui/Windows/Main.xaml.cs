@@ -17,6 +17,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MainWindow : Window
 	{
+		private int _tabControlSizeIndex;
+
 		private readonly List<Point> _tabControlSizes = new List<Point>
 		{
 			new Point(3840, 2160),
@@ -57,6 +59,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		public Point CurrentTabControlSize { get; private set; }
 
+		public double PathSize { get; private set; }
+		public double DescriptionSize { get; private set; }
+		public double TagsSize { get; private set; }
+
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			AudioAudioAssetTabControl = new AssetTabControl(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
@@ -68,6 +74,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			ParticleParticlesAssetTabControl = new AssetTabControl(BinaryFileType.Particle, AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
 
 			AssetTabControls = new List<AssetTabControl> { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
+
+			UpdateTextBoxSizes();
 
 			TabControl.Items.Add(new TabItem { Header = "audio/Audio", Content = AudioAudioAssetTabControl });
 			TabControl.Items.Add(new TabItem { Header = "core/Shaders", Content = CoreShadersAssetTabControl });
@@ -110,10 +118,34 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				Point size = _tabControlSizes[i];
 				if (i == _tabControlSizes.Count - 1 || ActualWidth >= size.X && ActualHeight >= size.Y - 24)
 				{
+					if (_tabControlSizeIndex == i)
+						return;
+
 					CurrentTabControlSize = size;
 					TabControl.Width = size.X - 17;
 					TabControl.Height = size.Y - 81;
-					break;
+
+					UpdateTextBoxSizes();
+
+					_tabControlSizeIndex = i;
+					return;
+				}
+			}
+		}
+
+		private void UpdateTextBoxSizes()
+		{
+			if (AssetTabControls == null)
+				return;
+
+			foreach (AssetTabControl tab in AssetTabControls)
+			{
+				foreach (AssetRowControl row in tab.RowControls)
+				{
+					row.Tags.MaxWidth = TabControl.Width / 9;
+					row.Path1.MaxWidth = TabControl.Width / 3.5f;
+					row.Path2.MaxWidth = TabControl.Width / 3.5f;
+					row.Description.MaxWidth = TabControl.Width / 6;
 				}
 			}
 		}
