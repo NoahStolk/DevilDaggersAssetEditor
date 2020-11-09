@@ -30,6 +30,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			InitializeComponent();
 
+			AssetType = assetType;
+
 			List<AbstractAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, assetTypeJsonFileName).ToList();
 
 			int i = 0;
@@ -70,6 +72,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			And,
 			Or,
 		}
+
+		public AssetType AssetType { get; }
 
 		public UserControl Previewer { get; }
 
