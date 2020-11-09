@@ -50,8 +50,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			}
 		}
 
+		// TODO: Improve performance.
 		private static string SanitizeCode(string code)
-			=> code.Replace("\t", new string(' ', 4), StringComparison.InvariantCulture).Replace("\r", string.Empty, StringComparison.InvariantCulture).Replace("\n", "\r\n", StringComparison.InvariantCulture);
+		{
+			return code
+				.Replace("\r", string.Empty, StringComparison.InvariantCulture)
+				.Replace("\n", "\r\n", StringComparison.InvariantCulture)
+				.Replace("\t", "    ", StringComparison.InvariantCulture);
+		}
 
 		private static WmColor TranslateColor(ShColor color)
 			=> WmColor.FromArgb(255, color.R, color.G, color.B);
