@@ -95,24 +95,38 @@ namespace DevilDaggersAssetEditor.Chunks
 						{
 							string value = values[j + 1];
 
+							string baseErrorMessage = $"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}:";
+
 							if (value.Contains("/", StringComparison.InvariantCulture))
 							{
 								// f 1/2/3 4/5/6 7/8/9
 								string[] references = value.Split('/');
 
+								if (string.IsNullOrWhiteSpace(references[0]))
+									throw new Exception($"{baseErrorMessage} Empty position value found. This probably means your model file is corrupted.");
+								if (string.IsNullOrWhiteSpace(references[1]))
+									throw new Exception($"{baseErrorMessage} Empty texture coordinate value found. Make sure to export your texture (UV) coordinates.");
+								if (string.IsNullOrWhiteSpace(references[2]))
+									throw new Exception($"{baseErrorMessage} Empty normal value found. Make sure to export your normals.");
+
 								if (!uint.TryParse(references[0], out uint positionReference))
-									throw new Exception($"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}: Position value '{references[0]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+									throw new Exception($"{baseErrorMessage} Position value '{references[0]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 								if (!uint.TryParse(references[1], out uint texCoordReference))
-									throw new Exception($"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}: Tex coord value '{references[1]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+									throw new Exception($"{baseErrorMessage} Texture coordinate value '{references[1]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 								if (!uint.TryParse(references[2], out uint normalReference))
-									throw new Exception($"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}: Normal value '{references[2]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+									throw new Exception($"{baseErrorMessage} Normal value '{references[2]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 
 								vertices.Add(new VertexReference(positionReference, texCoordReference, normalReference));
 							}
 							else
 							{
 								// f 1 2 3
-								vertices.Add(new VertexReference(uint.Parse(value, CultureInfo.InvariantCulture)));
+								if (string.IsNullOrWhiteSpace(value))
+									throw new Exception($"{baseErrorMessage} No vertex value found. This probably means your model file is corrupted.");
+								if (!uint.TryParse(value, out uint unifiedValue))
+									throw new Exception($"{baseErrorMessage} Value '{value}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+
+								vertices.Add(new VertexReference(unifiedValue));
 							}
 						}
 
