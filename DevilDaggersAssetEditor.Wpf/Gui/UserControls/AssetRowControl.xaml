@@ -27,7 +27,7 @@
 				<ColumnDefinition Width="0" Name="ColumnDefinitionLoudness" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
-			<TextBox Name="TextBoxLoudness" Visibility="Collapsed"></TextBox>
+			<TextBox Name="TextBoxLoudness" Visibility="Collapsed" TextChanged="TextBoxLoudness_TextChanged"></TextBox>
 			<TextBlock Grid.Column="1" Style="{StaticResource AssetTextBlock}" TextWrapping="Wrap" Name="TextBlockEditorPath" VerticalAlignment="Center" />
 		</Grid>
 		<Button Grid.Column="4" Click="ButtonRemovePath_Click">Reset</Button>
