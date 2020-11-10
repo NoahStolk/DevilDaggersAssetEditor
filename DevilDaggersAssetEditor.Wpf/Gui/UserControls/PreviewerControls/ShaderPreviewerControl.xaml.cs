@@ -21,7 +21,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(AbstractAsset asset)
 		{
-			if (!(asset is ShaderAsset shaderAsset))
+			if (asset is not ShaderAsset shaderAsset)
 				return;
 
 			ShaderName.Content = shaderAsset.AssetName;

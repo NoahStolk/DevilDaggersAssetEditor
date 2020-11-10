@@ -16,7 +16,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(AbstractAsset asset)
 		{
-			if (!(asset is ParticleAsset particleAsset))
+			if (asset is not ParticleAsset particleAsset)
 				return;
 
 			ParticleName.Content = particleAsset.AssetName;
