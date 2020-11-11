@@ -1,5 +1,8 @@
-﻿using DevilDaggersAssetEditor.User;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersCore.Wpf.Extensions;
+using DevilDaggersCore.Wpf.Utils;
 using Ookii.Dialogs.Wpf;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,15 +13,21 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 	{
 		private string _directory = UserHandler.Instance.Settings.AssetsRootFolder;
 
-		public ImportDirectoryControl(string header)
+		public ImportDirectoryControl(string header, AssetType assetType, AssetTabControl assetTabControl)
 		{
 			InitializeComponent();
 			UpdateGui();
+
+			AssetType = assetType;
+			AssetTabControl = assetTabControl;
 
 			Header.Content = header;
 		}
 
 		public string Directory => _directory;
+
+		public AssetType AssetType { get; }
+		public AssetTabControl AssetTabControl { get; }
 
 		private void BrowseButton_Click(object sender, RoutedEventArgs e)
 			=> SetPath(ref _directory);
@@ -51,6 +60,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			selectedPath = dialog.SelectedPath;
 			return true;
+		}
+
+		private void CheckBoxEnable_Changed(object sender, RoutedEventArgs e)
+		{
+			bool isChecked = CheckBoxEnable.IsChecked();
+
+			if (TextBox != null)
+				TextBox.IsEnabled = isChecked;
+			if (ButtonBrowse != null)
+				ButtonBrowse.IsEnabled = isChecked;
+
+			Main.Background = ColorUtils.ThemeColors[isChecked ? "Gray3" : "Gray2"];
 		}
 	}
 }
