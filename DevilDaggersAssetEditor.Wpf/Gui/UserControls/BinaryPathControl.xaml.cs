@@ -32,7 +32,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
 				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
 
-			ProgressBar.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(assetTypeForColor.GetColor()) * 0.5f);
+			ProgressBar.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(assetTypeForColor.GetColor()) * 0.25f);
 
 			_binaryPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName(), binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture));
 			UpdateGui();
@@ -44,14 +44,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public string BinaryPath => _binaryPath;
 
-		private void TextBox_TextChanged(object sender, RoutedEventArgs e)
-			=> _binaryPath = TextBox.Text;
+		private void TextBoxPath_TextChanged(object sender, RoutedEventArgs e)
+			=> _binaryPath = TextBoxPath.Text;
 
 		private void BrowseButton_Click(object sender, RoutedEventArgs e)
 			=> SetPath(ref _binaryPath);
 
 		private void UpdateGui()
-			=> TextBox.Text = _binaryPath;
+			=> TextBoxPath.Text = _binaryPath;
 
 		private void SetPath(ref string path)
 		{
@@ -82,8 +82,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			bool isChecked = CheckBoxEnable.IsChecked();
 
-			if (TextBox != null)
-				TextBox.IsEnabled = isChecked;
+			if (TextBoxPath != null)
+				TextBoxPath.IsEnabled = isChecked;
 			if (ButtonBrowse != null)
 				ButtonBrowse.IsEnabled = isChecked;
 

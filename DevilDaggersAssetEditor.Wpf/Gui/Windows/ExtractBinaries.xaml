@@ -4,18 +4,18 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
-        Title="Extract binaries" Height="960" Width="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Extract binaries" Height="768" Width="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 	<StackPanel Name="Main">
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
+		<StackPanel Margin="6" Background="{StaticResource Gray3}">
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
 				<Label>Assets output directory</Label>
 				<TextBox Name="TextBoxOutput" TextChanged="TextBoxOutput_TextChanged" />
 				<Button Content="Browse" Click="BrowseOutputButton_Click" Width="128" HorizontalAlignment="Left" />
 			</StackPanel>
 		</StackPanel>
-		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
+		<StackPanel Margin="6" Background="{StaticResource Gray3}">
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Button Name="ButtonExtractBinaries" Content="Extract binaries" Click="ExtractBinaries_Click" Width="128" HorizontalAlignment="Left" />
+				<Button Name="ButtonExtractBinaries" Content="Extract binaries" Click="ExtractBinaries_Click" Style="{StaticResource OkButtonLarge}" />
 			</StackPanel>
 		</StackPanel>
 	</StackPanel>
