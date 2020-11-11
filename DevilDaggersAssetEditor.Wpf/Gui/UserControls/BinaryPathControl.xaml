@@ -5,11 +5,12 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" 
              d:DesignHeight="128" d:DesignWidth="800">
-	<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
+	<StackPanel Name="Main" Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
 		<StackPanel Style="{StaticResource PaddingStackPanel}">
+			<CheckBox Name="CheckBoxEnable" Checked="CheckBoxEnable_Changed" Unchecked="CheckBoxEnable_Changed" IsChecked="True">Enable</CheckBox>
 			<Label Name="Header" />
 			<TextBox Name="TextBox" TextChanged="TextBox_TextChanged" />
-			<Button Content="Browse" Click="BrowseButton_Click" Width="128" HorizontalAlignment="Left" />
+			<Button Name="ButtonBrowse" Content="Browse" Click="BrowseButton_Click" Width="128" HorizontalAlignment="Left" />
 			<ProgressBar Name="ProgressBar" />
 			<TextBlock Name="ProgressDescription" />
 		</StackPanel>

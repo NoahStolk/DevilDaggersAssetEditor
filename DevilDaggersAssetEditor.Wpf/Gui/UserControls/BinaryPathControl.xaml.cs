@@ -4,6 +4,8 @@ using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Wpf.Extensions;
+using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System;
 using System.Globalization;
@@ -16,15 +18,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class BinaryPathControl : UserControl
 	{
-		private readonly BinaryFileType _binaryFileType;
-
 		private string _binaryPath;
 
 		public BinaryPathControl(string header, BinaryFileType binaryFileType, AssetType assetTypeForColor)
 		{
 			InitializeComponent();
 
-			_binaryFileType = binaryFileType;
+			BinaryFileType = binaryFileType;
 
 			Header.Content = header;
 
@@ -37,6 +37,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			_binaryPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName(), binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture));
 			UpdateGui();
 		}
+
+		public BinaryFileType BinaryFileType { get; }
 
 		public ProgressWrapper Progress { get; }
 
@@ -63,7 +65,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private bool TrySetPath(out string selectedPath)
 		{
 			OpenFileDialog openDialog = new OpenFileDialog();
-			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, _binaryFileType.GetSubfolderName()));
+			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.GetSubfolderName()));
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
@@ -74,6 +76,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			selectedPath = openDialog.FileName;
 			return true;
+		}
+
+		private void CheckBoxEnable_Changed(object sender, RoutedEventArgs e)
+		{
+			bool isChecked = CheckBoxEnable.IsChecked();
+
+			if (TextBox != null)
+				TextBox.IsEnabled = isChecked;
+			if (ButtonBrowse != null)
+				ButtonBrowse.IsEnabled = isChecked;
+
+			Main.Background = ColorUtils.ThemeColors[isChecked ? "Gray3" : "Gray2"];
 		}
 	}
 }
