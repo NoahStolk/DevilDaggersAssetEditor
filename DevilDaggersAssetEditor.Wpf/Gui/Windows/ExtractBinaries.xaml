@@ -9,8 +9,14 @@
 		<StackPanel Margin="6" Background="{StaticResource Gray3}">
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
 				<Label>Assets output directory</Label>
-				<TextBox Name="TextBoxOutput" TextChanged="TextBoxOutput_TextChanged" />
-				<Button Content="Browse" Click="BrowseOutputButton_Click" Width="128" HorizontalAlignment="Left" />
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="5*" />
+					</Grid.ColumnDefinitions>
+					<Button Content="Browse" Click="BrowseOutputButton_Click" HorizontalAlignment="Stretch" />
+					<TextBox Grid.Column="1" Name="TextBoxOutput" TextChanged="TextBoxOutput_TextChanged" />
+				</Grid>
 			</StackPanel>
 		</StackPanel>
 		<StackPanel Margin="6" Background="{StaticResource Gray3}">
