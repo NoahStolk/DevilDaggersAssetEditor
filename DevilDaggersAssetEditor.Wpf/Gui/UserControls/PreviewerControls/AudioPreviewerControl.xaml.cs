@@ -14,9 +14,11 @@ using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class AudioPreviewerControl : UserControl, IPreviewerControl
+	public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 	{
+#pragma warning disable CA2213 // Disposable fields should be disposed
 		private readonly ISoundEngine _engine = new ISoundEngine();
+#pragma warning restore CA2213 // Disposable fields should be disposed
 
 		public AudioPreviewerControl()
 		{
@@ -50,6 +52,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 		public ISoundSource? SongData { get; private set; }
 
 		public bool IsDragging { get; private set; }
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (disposing)
+				_engine.Dispose();
+		}
+
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
 
 		private void Toggle_Click(object sender, RoutedEventArgs e)
 		{
