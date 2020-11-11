@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Wpf.Extensions;
 using IrrKlang;
 using System.Globalization;
 using System.IO;
@@ -116,6 +117,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 		}
 
 		private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
-			=> UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked ?? false;
+			=> UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked();
 	}
 }
