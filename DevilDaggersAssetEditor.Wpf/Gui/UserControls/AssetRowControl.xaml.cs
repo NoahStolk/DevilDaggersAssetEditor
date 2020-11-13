@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
@@ -166,6 +167,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				Asset.EditorPath = openDialog.FileName;
 
 			UpdateGui();
+
+			if (_audioAsset != null && App.Instance.MainWindow!.AudioAudioAssetTabControl.SelectedAsset == Asset && App.Instance.MainWindow!.AudioAudioAssetTabControl.Previewer is IPreviewerControl audioPreviewer)
+				audioPreviewer.Initialize(Asset);
 		}
 
 		public void RemovePath(bool fragmentShader)
