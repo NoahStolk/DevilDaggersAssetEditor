@@ -173,7 +173,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			static IEnumerable<Change>? MapToSharedModel(List<Clients.Change>? changes)
 			{
 				foreach (Clients.Change change in changes ?? new List<Clients.Change>())
-					yield return new Change(change.Description, MapToSharedModel(change.SubChanges)?.ToList() ?? null);
+					yield return new Change(change.Description, MapToSharedModel(change.SubChanges)?.ToList());
 			}
 		}
 
