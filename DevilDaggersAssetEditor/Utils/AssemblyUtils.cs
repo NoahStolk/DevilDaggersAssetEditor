@@ -9,9 +9,9 @@ namespace DevilDaggersAssetEditor.Utils
 	{
 		public static Assembly CurrentAssembly => Assembly.GetExecutingAssembly();
 
-		internal static Version LocalVersion => Version.Parse(FileVersionInfo.GetVersionInfo(CurrentAssembly.Location).FileVersion);
+		internal static Version LocalVersion => Version.Parse(FileVersionInfo.GetVersionInfo(CurrentAssembly.Location).FileVersion ?? throw new("Could not get file version from current assembly."));
 
 		public static Stream GetContentStream(string relativeContentName)
-			=> CurrentAssembly.GetManifestResourceStream($"DevilDaggersAssetEditor.Content.{relativeContentName}") ?? throw new Exception($"Could not retrieve content stream '{relativeContentName}'.");
+			=> CurrentAssembly.GetManifestResourceStream($"DevilDaggersAssetEditor.Content.{relativeContentName}") ?? throw new($"Could not retrieve content stream '{relativeContentName}'.");
 	}
 }
