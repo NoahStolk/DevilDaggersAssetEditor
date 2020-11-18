@@ -5,10 +5,10 @@
 DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods.
 
 ## Framework
-- .NET Core 3.1
+- .NET 5.0
 
 ## Language
-- C# 8.0
+- C# 9.0
 
 ## Main features
 - Extracting and compressing asset types

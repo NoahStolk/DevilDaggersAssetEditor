@@ -35,8 +35,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void RunThreads(object? sender, EventArgs e)
 		{
 			using BackgroundWorker checkVersionThread = new BackgroundWorker();
-			checkVersionThread.DoWork += (object sender, DoWorkEventArgs e) => NetworkHandler.Instance.GetOnlineTool();
-			checkVersionThread.RunWorkerCompleted += (object sender, RunWorkerCompletedEventArgs e) =>
+			checkVersionThread.DoWork += (object? sender, DoWorkEventArgs e) => NetworkHandler.Instance.GetOnlineTool();
+			checkVersionThread.RunWorkerCompleted += (object? sender, RunWorkerCompletedEventArgs e) =>
 			{
 				Dispatcher.Invoke(() =>
 				{
@@ -81,7 +81,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			bool readUserSettingsSuccess = false;
 			bool userSettingsFileExists = File.Exists(UserSettings.FileName);
 			using BackgroundWorker readUserSettingsThread = new BackgroundWorker();
-			readUserSettingsThread.DoWork += (object sender, DoWorkEventArgs e) =>
+			readUserSettingsThread.DoWork += (object? sender, DoWorkEventArgs e) =>
 			{
 				try
 				{
@@ -98,7 +98,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					App.Instance.ShowError("Error", "Error while trying to read user settings.", ex);
 				}
 			};
-			readUserSettingsThread.RunWorkerCompleted += (object sender, RunWorkerCompletedEventArgs e) =>
+			readUserSettingsThread.RunWorkerCompleted += (object? sender, RunWorkerCompletedEventArgs e) =>
 			{
 				Dispatcher.Invoke(() =>
 				{
@@ -116,7 +116,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			bool readUserCacheSuccess = false;
 			bool userCacheFileExists = File.Exists(UserCache.FileName);
 			using BackgroundWorker readUserCacheThread = new BackgroundWorker();
-			readUserCacheThread.DoWork += (object sender, DoWorkEventArgs e) =>
+			readUserCacheThread.DoWork += (object? sender, DoWorkEventArgs e) =>
 			{
 				try
 				{
@@ -133,7 +133,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					App.Instance.ShowError("Error", "Error while trying to read user cache.", ex);
 				}
 			};
-			readUserCacheThread.RunWorkerCompleted += (object sender, RunWorkerCompletedEventArgs e) =>
+			readUserCacheThread.RunWorkerCompleted += (object? sender, RunWorkerCompletedEventArgs e) =>
 			{
 				Dispatcher.Invoke(() =>
 				{
@@ -149,7 +149,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			};
 
 			using BackgroundWorker mainInitThread = new BackgroundWorker();
-			mainInitThread.DoWork += (object sender, DoWorkEventArgs e) =>
+			mainInitThread.DoWork += (object? sender, DoWorkEventArgs e) =>
 			{
 				Dispatcher.Invoke(() =>
 				{

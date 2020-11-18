@@ -16,7 +16,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 		public void Initialize(AbstractAsset asset)
 		{
-			if (!(asset is ModelAsset modelAsset))
+			if (asset is not ModelAsset modelAsset)
 				return;
 
 			TextureName.Content = modelAsset.AssetName;
