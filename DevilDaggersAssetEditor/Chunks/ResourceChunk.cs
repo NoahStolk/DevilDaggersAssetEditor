@@ -15,7 +15,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			Size = size;
 		}
 
-		public string Name { get; set; }
+		public string Name { get; }
 		public uint StartOffset { get; set; }
 		public uint Size { get; set; }
 

@@ -17,7 +17,7 @@ namespace DevilDaggersAssetEditor.Wpf
 {
 	public partial class App : Application
 	{
-		public static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod()?.DeclaringType ?? throw new Exception("Could not get declaring type of current method."));
+		public static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod()?.DeclaringType ?? throw new("Could not get declaring type of current method."));
 
 		public App()
 		{
@@ -34,7 +34,7 @@ namespace DevilDaggersAssetEditor.Wpf
 		public static string ApplicationDisplayName => "Devil Daggers Asset Editor";
 
 		public static Assembly Assembly { get; } = Assembly.GetExecutingAssembly();
-		public static Version LocalVersion { get; } = Version.Parse(FileVersionInfo.GetVersionInfo(Assembly.Location).FileVersion);
+		public static Version LocalVersion { get; } = Version.Parse(FileVersionInfo.GetVersionInfo(Assembly.Location).FileVersion ?? throw new("Could not get file version from current assembly."));
 
 		public static App Instance => (App)Current;
 		public new MainWindow? MainWindow { get; set; }

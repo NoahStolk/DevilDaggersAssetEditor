@@ -103,18 +103,18 @@ namespace DevilDaggersAssetEditor.Chunks
 								string[] references = value.Split('/');
 
 								if (string.IsNullOrWhiteSpace(references[0]))
-									throw new Exception($"{baseErrorMessage} Empty position value found. This probably means your model file is corrupted.");
+									throw new($"{baseErrorMessage} Empty position value found. This probably means your model file is corrupted.");
 								if (string.IsNullOrWhiteSpace(references[1]))
-									throw new Exception($"{baseErrorMessage} Empty texture coordinate value found. Make sure to export your texture (UV) coordinates.");
+									throw new($"{baseErrorMessage} Empty texture coordinate value found. Make sure to export your texture (UV) coordinates.");
 								if (string.IsNullOrWhiteSpace(references[2]))
-									throw new Exception($"{baseErrorMessage} Empty normal value found. Make sure to export your normals.");
+									throw new($"{baseErrorMessage} Empty normal value found. Make sure to export your normals.");
 
 								if (!uint.TryParse(references[0], out uint positionReference))
-									throw new Exception($"{baseErrorMessage} Position value '{references[0]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+									throw new($"{baseErrorMessage} Position value '{references[0]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 								if (!uint.TryParse(references[1], out uint texCoordReference))
-									throw new Exception($"{baseErrorMessage} Texture coordinate value '{references[1]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+									throw new($"{baseErrorMessage} Texture coordinate value '{references[1]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 								if (!uint.TryParse(references[2], out uint normalReference))
-									throw new Exception($"{baseErrorMessage} Normal value '{references[2]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+									throw new($"{baseErrorMessage} Normal value '{references[2]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 
 								vertices.Add(new VertexReference(positionReference, texCoordReference, normalReference));
 							}
@@ -122,9 +122,9 @@ namespace DevilDaggersAssetEditor.Chunks
 							{
 								// f 1 2 3
 								if (string.IsNullOrWhiteSpace(value))
-									throw new Exception($"{baseErrorMessage} No vertex value found. This probably means your model file is corrupted.");
+									throw new($"{baseErrorMessage} No vertex value found. This probably means your model file is corrupted.");
 								if (!uint.TryParse(value, out uint unifiedValue))
-									throw new Exception($"{baseErrorMessage} Value '{value}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
+									throw new($"{baseErrorMessage} Value '{value}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 
 								vertices.Add(new VertexReference(unifiedValue));
 							}

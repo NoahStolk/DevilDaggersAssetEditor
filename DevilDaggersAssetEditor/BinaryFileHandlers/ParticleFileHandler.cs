@@ -78,7 +78,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		{
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			if (magic1FromFile != Magic1)
-				throw new Exception($"Invalid file format. The magic number value is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}");
+				throw new($"Invalid file format. The magic number value is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}");
 		}
 
 		public static ParticleChunk ReadParticleChunk(byte[] fileBuffer, int i)
@@ -89,7 +89,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			Buffer.BlockCopy(Encoding.Default.GetBytes(name), 0, buffer, 0, name.Length);
 			Buffer.BlockCopy(fileBuffer, i + name.Length, buffer, name.Length, ParticleBufferLength);
 
-			return new ParticleChunk(name, (uint)i, (uint)buffer.Length) { Buffer = buffer };
+			return new ParticleChunk(name, (uint)i, (uint)buffer.Length, buffer);
 		}
 	}
 }

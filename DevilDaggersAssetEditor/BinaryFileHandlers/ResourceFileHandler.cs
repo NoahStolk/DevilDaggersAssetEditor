@@ -24,7 +24,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		public ResourceFileHandler(BinaryFileType binaryFileType)
 		{
 			if (binaryFileType == BinaryFileType.Particle)
-				throw new Exception($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
+				throw new NotSupportedException($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
 
 			BinaryFileName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
 		}
@@ -205,7 +205,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
 			if (magic1FromFile != Magic1 && magic2FromFile != Magic2)
-				throw new Exception($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}\nHeader value 2: {magic2FromFile} should be {Magic2}");
+				throw new($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}\nHeader value 2: {magic2FromFile} should be {Magic2}");
 		}
 
 		public static byte[] ReadTocBuffer(byte[] sourceFileBytes)
@@ -266,10 +266,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					$"Creating {chunk.AssetType} file{(chunk.AssetType == AssetType.Shader ? "s" : string.Empty)} for chunk \"{chunk.Name}\".",
 					chunksDone++ / (float)totalChunks);
 
-				byte[] buf = new byte[chunk.Size];
-				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buf, 0, (int)chunk.Size);
+				byte[] buffer = new byte[chunk.Size];
+				Buffer.BlockCopy(sourceFileBytes, (int)chunk.StartOffset, buffer, 0, (int)chunk.Size);
 
-				chunk.Buffer = buf;
+				chunk.Buffer = buffer;
 
 				foreach (FileResult fileResult in chunk.ExtractBinary())
 				{

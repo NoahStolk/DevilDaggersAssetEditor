@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 namespace DevilDaggersAssetEditor.Utils
 {
@@ -22,7 +21,7 @@ namespace DevilDaggersAssetEditor.Utils
 				sb.Append(c);
 			}
 
-			throw new Exception($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
+			throw new($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
 		}
 	}
 }
