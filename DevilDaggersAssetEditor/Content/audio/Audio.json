@@ -99,11 +99,13 @@
 	{
 		"AssetName": "chatterminisquid",
 		"ChunkTypeName": "AudioChunk",
-		"Description": "Unused",
+		"Description": "Squid I chatter",
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
-			"Unused"
+			"Chatter",
+			"Enemy",
+			"Squid I"
 		]
 	},
 	{
@@ -241,13 +243,11 @@
 	{
 		"AssetName": "chattersquidsmall",
 		"ChunkTypeName": "AudioChunk",
-		"Description": "Squid I chatter",
+		"Description": "Unused",
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
-			"Chatter",
-			"Enemy",
-			"Squid I"
+			"Unused"
 		]
 	},
 	{

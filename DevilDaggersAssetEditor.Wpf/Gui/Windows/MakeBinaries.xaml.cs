@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,48 +19,47 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private readonly BinaryPathControl _ddControl = new BinaryPathControl("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
 		private readonly BinaryPathControl _particleControl = new BinaryPathControl("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
 
+		private readonly List<BinaryPathControl> _controls = new List<BinaryPathControl>();
+
 		public MakeBinariesWindow()
 		{
 			InitializeComponent();
 
-			Main.Children.Insert(0, _audioControl);
-			Main.Children.Insert(1, _coreControl);
-			Main.Children.Insert(2, _ddControl);
-			Main.Children.Insert(3, _particleControl);
+			_controls.Add(_audioControl);
+			_controls.Add(_coreControl);
+			_controls.Add(_ddControl);
+			_controls.Add(_particleControl);
+
+			for (int i = 0; i < _controls.Count; i++)
+				Main.Children.Insert(i, _controls[i]);
 		}
 
 		private async void MakeBinaries_Click(object sender, RoutedEventArgs e)
 		{
 			ButtonMakeBinaries.IsEnabled = false;
 
-			await Task.WhenAll(new List<Task>
-			{
-				MakeBinary(BinaryFileType.Audio, _audioControl.BinaryPath, _audioControl.Progress),
-				MakeBinary(BinaryFileType.Core, _coreControl.BinaryPath, _coreControl.Progress),
-				MakeBinary(BinaryFileType.Dd, _ddControl.BinaryPath, _ddControl.Progress),
-				MakeBinary(BinaryFileType.Particle, _particleControl.BinaryPath, _particleControl.Progress),
-			});
+			await Task.WhenAll(_controls.Where(c => c.CheckBoxEnable.IsChecked()).Select(c => MakeBinary(c)));
 
 			ButtonMakeBinaries.IsEnabled = true;
 		}
 
-		private static async Task MakeBinary(BinaryFileType binaryFileType, string? outputPath, ProgressWrapper progress)
+		private static async Task MakeBinary(BinaryPathControl control)
 		{
-			if (string.IsNullOrWhiteSpace(outputPath) || !File.Exists(outputPath))
+			if (string.IsNullOrWhiteSpace(control.BinaryPath) || !File.Exists(control.BinaryPath))
 				return;
 
 			await Task.Run(() =>
 			{
 				try
 				{
-					IBinaryFileHandler fileHandler = binaryFileType switch
+					IBinaryFileHandler fileHandler = control.BinaryFileType switch
 					{
 						BinaryFileType.Particle => new ParticleFileHandler(),
-						_ => new ResourceFileHandler(binaryFileType),
+						_ => new ResourceFileHandler(control.BinaryFileType),
 					};
 
 					List<AssetTabControl> assetTabControls = new List<AssetTabControl>();
-					switch (binaryFileType)
+					switch (control.BinaryFileType)
 					{
 						case BinaryFileType.Audio:
 							assetTabControls.Add(App.Instance.MainWindow!.AudioAudioAssetTabControl);
@@ -78,16 +78,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 							break;
 					}
 
-					fileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), outputPath, progress);
+					fileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.BinaryPath, control.Progress);
 
-					App.Instance.Dispatcher.Invoke(() => progress.Report("Completed successfully.", 1));
+					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 				}
 				catch (Exception ex)
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred while making '{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
-						progress.Report("Execution did not complete successfully.");
+						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred while making '{control.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
+						control.Progress.Report("Execution did not complete successfully.");
 					});
 				}
 			});

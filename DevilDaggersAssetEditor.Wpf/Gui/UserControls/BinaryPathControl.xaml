@@ -5,13 +5,30 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" 
              d:DesignHeight="128" d:DesignWidth="800">
-	<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
-		<StackPanel Style="{StaticResource PaddingStackPanel}">
+	<Grid Name="Main" Margin="6" Background="{StaticResource Gray3}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<CheckBox Name="CheckBoxEnable" Checked="CheckBoxEnable_Changed" Unchecked="CheckBoxEnable_Changed" IsChecked="True" Style="{StaticResource CheckBoxLarge}">
+			<CheckBox.LayoutTransform>
+				<ScaleTransform ScaleX="2" ScaleY="2" />
+			</CheckBox.LayoutTransform>
+		</CheckBox>
+		<StackPanel Margin="0,12,12,12" Grid.Column="1">
 			<Label Name="Header" />
-			<TextBox Name="TextBox" TextChanged="TextBox_TextChanged" />
-			<Button Content="Browse" Click="BrowseButton_Click" Width="128" HorizontalAlignment="Left" />
-			<ProgressBar Name="ProgressBar" />
-			<TextBlock Name="ProgressDescription" />
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="5*"/>
+				</Grid.ColumnDefinitions>
+				<Button Name="ButtonBrowse" Content="Browse" Click="BrowseButton_Click" HorizontalAlignment="Stretch" />
+				<TextBox Grid.Column="1" Name="TextBoxPath" TextChanged="TextBoxPath_TextChanged" />
+			</Grid>
+			<Grid>
+				<ProgressBar Name="ProgressBar" />
+				<TextBlock Name="ProgressDescription" Style="{StaticResource ProgressBarTextBlock}" />
+			</Grid>
 		</StackPanel>
-	</StackPanel>
+	</Grid>
 </UserControl>

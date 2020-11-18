@@ -2,18 +2,23 @@
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Wpf.Extensions;
 using IrrKlang;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
-	public partial class AudioPreviewerControl : UserControl, IPreviewerControl
+	public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 	{
+#pragma warning disable CA2213 // Disposable fields should be disposed
 		private readonly ISoundEngine _engine = new ISoundEngine();
+#pragma warning restore CA2213 // Disposable fields should be disposed
 
 		public AudioPreviewerControl()
 		{
@@ -23,12 +28,42 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 
 			ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
 			ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
+
+			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
+			timer.Tick += (sender, e) =>
+			{
+				if (Song?.Paused != false)
+					return;
+
+				if (!IsDragging)
+				{
+					float length = Song.PlayLength;
+					if (length == 0)
+						length = 1;
+					Seek.Value = Song.PlayPosition / length * Seek.Maximum;
+				}
+
+				SeekText.Content = $"{EditorUtils.ToTimeString((int)Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Song.PlayLength)}";
+			};
+			timer.Start();
 		}
 
 		public ISound? Song { get; private set; }
 		public ISoundSource? SongData { get; private set; }
 
 		public bool IsDragging { get; private set; }
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (disposing)
+				_engine.Dispose();
+		}
+
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
 
 		private void Toggle_Click(object sender, RoutedEventArgs e)
 		{
@@ -116,6 +151,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 		}
 
 		private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
-			=> UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked ?? false;
+			=> UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked();
 	}
 }

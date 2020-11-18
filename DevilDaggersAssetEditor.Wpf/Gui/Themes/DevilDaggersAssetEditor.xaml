@@ -56,6 +56,14 @@
 		</Style.Setters>
 	</Style>
 
+	<Style TargetType="TextBlock" x:Key="ProgressBarTextBlock">
+		<Style.Setters>
+			<Setter Property="Margin" Value="5,2,2,2" />
+			<Setter Property="Foreground" Value="{StaticResource Text}" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style.Setters>
+	</Style>
+
 	<Style TargetType="TextBlock" x:Key="CodeTextBlock">
 		<Style.Setters>
 			<Setter Property="FontFamily" Value="Consolas" />
@@ -96,6 +104,13 @@
 	<Style TargetType="RowDefinition" x:Key="PreviewerRow">
 		<Style.Setters>
 			<Setter Property="Height" Value="20" />
+		</Style.Setters>
+	</Style>
+
+	<Style TargetType="CheckBox" x:Key="CheckBoxLarge">
+		<Style.Setters>
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style.Setters>
 	</Style>
 </ResourceDictionary>

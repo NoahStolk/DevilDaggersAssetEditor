@@ -18,12 +18,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class SettingsWindow : Window
 	{
-#pragma warning disable IDE1006
-#pragma warning disable SA1310 // Field names should not contain underscore
+#pragma warning disable IDE1006, SA1310 // Field names should not contain underscore
 		private const int GWL_STYLE = -16;
 		private const int WS_SYSMENU = 0x80000;
-#pragma warning restore IDE1006
-#pragma warning restore SA1310 // Field names should not contain underscore
+#pragma warning restore IDE1006, SA1310 // Field names should not contain underscore
 
 		public SettingsWindow()
 		{
@@ -49,7 +47,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			// Removes Exit button.
 			IntPtr hwnd = new WindowInteropHelper(this).Handle;
-			NativeMethods.SetWindowLong(hwnd, GWL_STYLE, NativeMethods.GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
+			_ = NativeMethods.SetWindowLong(hwnd, GWL_STYLE, NativeMethods.GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)
@@ -82,7 +80,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void AutoDetectButton_Click(object sender, RoutedEventArgs e)
 		{
 			Process? process = ProcessUtils.GetDevilDaggersProcess();
-			if (process != null)
+			if (!string.IsNullOrWhiteSpace(process?.MainModule?.FileName))
 				LabelDevilDaggersRootFolder.Content = Path.GetDirectoryName(process.MainModule.FileName);
 			else
 				App.Instance.ShowMessage("Devil Daggers process not found", "Please make sure Devil Daggers is running and try again.");

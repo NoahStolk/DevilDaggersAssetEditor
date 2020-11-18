@@ -4,12 +4,14 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,16 +25,21 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private readonly BinaryPathControl _ddControl = new BinaryPathControl("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
 		private readonly BinaryPathControl _particleControl = new BinaryPathControl("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
 
+		private readonly List<BinaryPathControl> _controls = new List<BinaryPathControl>();
+
 		private string? _outputPath;
 
 		public ExtractBinariesWindow()
 		{
 			InitializeComponent();
 
-			Main.Children.Insert(0, _audioControl);
-			Main.Children.Insert(1, _coreControl);
-			Main.Children.Insert(2, _ddControl);
-			Main.Children.Insert(3, _particleControl);
+			_controls.Add(_audioControl);
+			_controls.Add(_coreControl);
+			_controls.Add(_ddControl);
+			_controls.Add(_particleControl);
+
+			for (int i = 0; i < _controls.Count; i++)
+				Main.Children.Insert(i, _controls[i]);
 		}
 
 		private void BrowseOutputButton_Click(object sender, RoutedEventArgs e)
@@ -54,13 +61,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			ButtonExtractBinaries.IsEnabled = false;
 
-			await Task.WhenAll(new List<Task>
-			{
-				ExtractBinary(BinaryFileType.Audio, _audioControl.BinaryPath, _outputPath, _audioControl.Progress),
-				ExtractBinary(BinaryFileType.Core, _coreControl.BinaryPath, _outputPath, _coreControl.Progress),
-				ExtractBinary(BinaryFileType.Dd, _ddControl.BinaryPath, _outputPath, _ddControl.Progress),
-				ExtractBinary(BinaryFileType.Particle, _particleControl.BinaryPath, _outputPath, _particleControl.Progress),
-			});
+			await Task.WhenAll(_controls.Where(c => c.CheckBoxEnable.IsChecked()).Select(c => ExtractBinary(c, _outputPath)));
 
 			ButtonExtractBinaries.IsEnabled = true;
 
@@ -80,30 +81,30 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private static async Task ExtractBinary(BinaryFileType binaryFileType, string? inputPath, string? outputPath, ProgressWrapper progress)
+		private static async Task ExtractBinary(BinaryPathControl control, string? outputPath)
 		{
-			if (string.IsNullOrWhiteSpace(outputPath) || string.IsNullOrWhiteSpace(inputPath) || !Directory.Exists(outputPath) || !File.Exists(inputPath))
+			if (string.IsNullOrWhiteSpace(outputPath) || string.IsNullOrWhiteSpace(control.BinaryPath) || !Directory.Exists(outputPath) || !File.Exists(control.BinaryPath))
 				return;
 
 			await Task.Run(() =>
 			{
 				try
 				{
-					IBinaryFileHandler fileHandler = binaryFileType switch
+					IBinaryFileHandler fileHandler = control.BinaryFileType switch
 					{
 						BinaryFileType.Particle => new ParticleFileHandler(),
-						_ => new ResourceFileHandler(binaryFileType),
+						_ => new ResourceFileHandler(control.BinaryFileType),
 					};
 
-					fileHandler.ExtractBinary(inputPath, outputPath, progress);
-					App.Instance.Dispatcher.Invoke(() => progress.Report("Completed successfully.", 1));
+					fileHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
+					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 				}
 				catch (Exception ex)
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred while extracting '{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
-						progress.Report("Execution did not complete successfully.");
+						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred while extracting '{control.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
+						control.Progress.Report("Execution did not complete successfully.");
 					});
 				}
 			});
