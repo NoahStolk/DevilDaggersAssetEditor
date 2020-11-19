@@ -124,7 +124,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			List<AssetRowControl> sorted = SortRowControlHandlers();
 			for (int i = 0; i < sorted.Count; i++)
 			{
-				AssetRowControl arc = AssetEditor.Items.OfType<AssetRowControl>().FirstOrDefault(arc => arc.Asset == sorted[i].Asset);
+				AssetRowControl arc = AssetEditor.Items.OfType<AssetRowControl>().First(arc => arc.Asset == sorted[i].Asset);
 				AssetEditor.Items.Remove(arc);
 				AssetEditor.Items.Insert(i, arc);
 			}

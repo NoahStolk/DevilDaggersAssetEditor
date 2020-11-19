@@ -16,9 +16,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
 	public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 	{
-#pragma warning disable CA2213 // Disposable fields should be disposed
 		private readonly ISoundEngine _engine = new ISoundEngine();
-#pragma warning restore CA2213 // Disposable fields should be disposed
 
 		public AudioPreviewerControl()
 		{
