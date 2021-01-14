@@ -2,21 +2,17 @@ root = true
 
 # All files
 [*]
-indent_style = tab
+indent_style         = tab
+insert_final_newline = true
 
 # Csproj files
 [*.csproj]
 indent_style = space
 indent_size  = 2
 
-# Files with newline at end of file
-[*.{editorconfig,gitattributes,gitignore,md,csproj}]
-insert_final_newline = true
-
 # Code files for C#
 [*.{cs}]
 charset                                                                  = utf-8-bom
-insert_final_newline                                                     = false
 indent_size                                                              = 4
 trim_trailing_whitespace                                                 = true
 
