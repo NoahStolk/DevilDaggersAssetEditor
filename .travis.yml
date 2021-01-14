@@ -3,6 +3,6 @@ language: csharp
 mono: none
 
 script:
-- choco install dotnetcore-sdk
+- choco install dotnet-sdk --version=5.0.100
 - dotnet --version
 - dotnet restore
