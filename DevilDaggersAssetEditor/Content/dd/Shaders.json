@@ -8,7 +8,23 @@
 		]
 	},
 	{
+		"AssetName": "boid_batch",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
 		"AssetName": "boid_pop",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "boid_pop_batch",
 		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
 		"Tags": [
@@ -64,7 +80,23 @@
 		]
 	},
 	{
+		"AssetName": "hand_batch",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
 		"AssetName": "light",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "light_batch",
 		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
 		"Tags": [
@@ -152,6 +184,14 @@
 		]
 	},
 	{
+		"AssetName": "shadow_batch",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
 		"AssetName": "sorath",
 		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
@@ -209,6 +249,14 @@
 	},
 	{
 		"AssetName": "tile2",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "tile_batch",
 		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
 		"Tags": [
