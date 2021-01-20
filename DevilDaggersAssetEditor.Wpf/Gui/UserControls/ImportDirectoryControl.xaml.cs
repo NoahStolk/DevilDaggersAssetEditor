@@ -70,6 +70,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				TextBox.IsEnabled = isChecked;
 			if (ButtonBrowse != null)
 				ButtonBrowse.IsEnabled = isChecked;
+			if (CheckBoxAllDirectories != null)
+				CheckBoxAllDirectories.IsEnabled = isChecked;
 
 			Main.Background = ColorUtils.ThemeColors[isChecked ? "Gray3" : "Gray2"];
 		}

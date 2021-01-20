@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersCore.Wpf.Extensions;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
@@ -39,7 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			foreach (ImportDirectoryControl control in _controls)
 			{
 				if (control.CheckBoxEnable.IsChecked())
-					control.AssetTabControl.ImportFolder(control.Directory, control.AssetType);
+					control.AssetTabControl.ImportFolder(control.Directory, control.AssetType, control.CheckBoxAllDirectories.IsChecked() ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
 			}
 
 			Close();

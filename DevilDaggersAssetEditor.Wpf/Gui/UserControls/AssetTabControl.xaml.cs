@@ -202,12 +202,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public void SelectAsset(AbstractAsset asset)
 			=> SelectedAsset = asset;
 
-		public void ImportFolder(string folder, AssetType assetType)
+		public void ImportFolder(string folder, AssetType assetType, SearchOption searchOption)
 		{
 			if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
 				return;
 
-			foreach (string filePath in Directory.GetFiles(folder, $"*{assetType.GetFileExtension()}", SearchOption.AllDirectories))
+			foreach (string filePath in Directory.GetFiles(folder, $"*{assetType.GetFileExtension()}", searchOption))
 			{
 				string assetName = Path.GetFileNameWithoutExtension(filePath);
 				bool isFragmentShader = false;
