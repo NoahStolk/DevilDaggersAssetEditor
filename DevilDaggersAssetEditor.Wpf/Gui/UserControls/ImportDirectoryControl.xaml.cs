@@ -49,7 +49,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private static bool TrySetPath(out string selectedPath)
 		{
-			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
+			VistaFolderBrowserDialog dialog = new();
 			dialog.OpenAssetsRootFolder();
 
 			if (dialog.ShowDialog() != true)
