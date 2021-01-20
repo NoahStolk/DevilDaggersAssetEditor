@@ -1,19 +1,21 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.User;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Runtime.InteropServices;
 using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
 	public class TextureChunk : ResourceChunk
 	{
+		private readonly PngEncoder _pngEncoder = new();
+
 		public TextureChunk(string name, uint startOffset, uint size)
 			: base(AssetType.Texture, name, startOffset, size)
 		{
@@ -21,7 +23,7 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		public override void MakeBinary(string path)
 		{
-			using Image image = Image.FromFile(path);
+			using Image<Rgba32> image = Image.Load<Rgba32>(path);
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
@@ -35,7 +37,7 @@ namespace DevilDaggersAssetEditor.Chunks
 				}
 			}
 
-			using Bitmap resizedImage = ResizeImage(image, Math.Max(1, newWidth), Math.Max(1, newHeight));
+			using Image<Rgba32> resizedImage = ResizeImage(image, Math.Max(1, newWidth), Math.Max(1, newHeight));
 
 			byte mipmapCount = GetMipmapCountFromImage(resizedImage);
 			GetBufferSizes(resizedImage.Width, resizedImage.Height, mipmapCount, out int pixelBufferLength, out int[] mipmapBufferSizes);
@@ -51,31 +53,36 @@ namespace DevilDaggersAssetEditor.Chunks
 			int mipmapBufferOffset = 0;
 			for (int i = 0; i < mipmapCount; i++)
 			{
-				using Bitmap bitmap = ResizeImage(resizedImage, mipmapWidth, mipmapHeight);
-				bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
+				using Image<Rgba32> bitmap = ResizeImage(resizedImage, mipmapWidth, mipmapHeight);
 
-				int bufferPosition = 0;
-
-				for (int x = 0; x < bitmap.Width; x++)
+				if (image.TryGetSinglePixelSpan(out Span<Rgba32> colors))
 				{
-					for (int y = 0; y < bitmap.Height; y++)
+					int bufferPosition = 0;
+
+					for (int x = 0; x < bitmap.Width; x++)
 					{
-						Color pixel = bitmap.GetPixel(x, y);
+						for (int y = 0; y < bitmap.Height; y++)
+						{
+							// To prevent 240x240 textures from going out of bounds.
+							if (bufferPosition >= mipmapBufferSizes[i])
+								continue;
 
-						// To prevent 240x240 textures from going out of bounds.
-						if (bufferPosition >= mipmapBufferSizes[i])
-							continue;
-
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.R;
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.G;
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.B;
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.A;
+							Rgba32 pixel = colors[x * bitmap.Height + y];
+							Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.R;
+							Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.G;
+							Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.B;
+							Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.A;
+						}
 					}
-				}
 
-				mipmapBufferOffset += mipmapBufferSizes[i];
-				mipmapWidth /= 2;
-				mipmapHeight /= 2;
+					mipmapBufferOffset += mipmapBufferSizes[i];
+					mipmapWidth /= 2;
+					mipmapHeight /= 2;
+				}
+				else
+				{
+					throw new("Image is corrupt.");
+				}
 			}
 
 			Size = (uint)Buffer.Length;
@@ -89,65 +96,21 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			GetBufferSizes((int)width, (int)height, mipmapCount, out _, out int[] _);
 
-			IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 11);
-			using Bitmap bitmap = new Bitmap((int)width, (int)height, (int)width * 4, PixelFormat.Format32bppArgb, intPtr);
-			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
-
-			for (int x = 0; x < bitmap.Width; x++)
+			using Image<Rgba32> image = new((int)width, (int)height);
+			for (int y = 0; y < image.Height; y++)
 			{
-				for (int y = 0; y < bitmap.Height; y++)
+				Span<Rgba32> pixelRowSpan = image.GetPixelRowSpan(y);
+				for (int x = 0; x < image.Width; x++)
 				{
-					Color pixel = bitmap.GetPixel(x, y);
-					bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse RGBA).
+					int index = 11 + (x * image.Height + y) * 4;
+					pixelRowSpan[x] = new(Buffer[index], Buffer[index + 1], Buffer[index + 2], Buffer[index + 3]);
 				}
 			}
 
-			using MemoryStream memoryStream = new MemoryStream();
-
-			// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
-			new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
-
+			using MemoryStream memoryStream = new();
+			image.Save(memoryStream, _pngEncoder);
 			yield return new FileResult(Name, memoryStream.ToArray());
 		}
-
-#if EXTRACT_MIPMAPS
-		public override IEnumerable<FileResult> ExtractBinary()
-		{
-			uint width = BitConverter.ToUInt32(Buffer, 2);
-			uint height = BitConverter.ToUInt32(Buffer, 6);
-			byte mipmapCount = Buffer[10];
-
-			GetBufferSizes((int)width, (int)height, mipmapCount, out _, out int[] mipmapBufferSizes);
-
-			int mipmapOffset = 0;
-			for (int i = 0; i < (_extractMipmaps ? mipmapCount : 1); i++)
-			{
-				int mipmapSizeDivisor = (int)Math.Pow(2, i);
-				int bitmapWidth = (int)width / mipmapSizeDivisor;
-				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset + 11);
-				using Bitmap bitmap = new Bitmap(bitmapWidth, (int)height / mipmapSizeDivisor, bitmapWidth * 4, PixelFormat.Format32bppArgb, intPtr);
-				bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
-
-				for (int x = 0; x < bitmap.Width; x++)
-				{
-					for (int y = 0; y < bitmap.Height; y++)
-					{
-						Color pixel = bitmap.GetPixel(x, y);
-						bitmap.SetPixel(x, y, Color.FromArgb(pixel.A, pixel.B, pixel.G, pixel.R)); // Switch Blue and Red channels (reverse RGBA).
-					}
-				}
-
-				mipmapOffset += mipmapBufferSizes[i];
-
-				using MemoryStream memoryStream = new MemoryStream();
-
-				// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
-				new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
-
-				yield return new FileResult(Name + (_extractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : string.Empty), memoryStream.ToArray());
-			}
-		}
-#endif
 
 		private static byte GetMipmapCountFromImage(Image image)
 			=> TextureAsset.GetMipmapCount(image.Width, image.Height);
@@ -190,27 +153,7 @@ namespace DevilDaggersAssetEditor.Chunks
 		/// <param name="width">The width to resize to.</param>
 		/// <param name="height">The height to resize to.</param>
 		/// <returns>The resized image.</returns>
-		private static Bitmap ResizeImage(Image image, int width, int height)
-		{
-			Rectangle destRect = new Rectangle(0, 0, width, height);
-			Bitmap destImage = new Bitmap(width, height);
-
-			destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-
-			using (Graphics graphics = Graphics.FromImage(destImage))
-			{
-				graphics.CompositingMode = CompositingMode.SourceCopy;
-				graphics.CompositingQuality = CompositingQuality.HighQuality;
-				graphics.InterpolationMode = InterpolationMode.HighQualityBilinear;
-				graphics.SmoothingMode = SmoothingMode.HighQuality;
-				graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-				using ImageAttributes wrapMode = new ImageAttributes();
-				wrapMode.SetWrapMode(WrapMode.TileFlipXY);
-				graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
-			}
-
-			return destImage;
-		}
+		private static Image<Rgba32> ResizeImage(Image<Rgba32> image, int width, int height)
+			=> image.Clone(x => x.Resize(width, height, KnownResamplers.Lanczos3));
 	}
 }
