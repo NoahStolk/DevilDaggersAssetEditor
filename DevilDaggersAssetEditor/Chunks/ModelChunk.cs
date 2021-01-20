@@ -23,7 +23,7 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		private static Dictionary<string, byte[]> GetClosures()
 		{
-			using StreamReader sr = new StreamReader(AssemblyUtils.GetContentStream("ModelClosures.json"));
+			using StreamReader sr = new(AssemblyUtils.GetContentStream("ModelClosures.json"));
 			return JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
 		}
 
@@ -45,7 +45,7 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			for (int i = 0; i < vertexCount; i++)
 			{
-				Vertex vertex = new Vertex(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
+				Vertex vertex = new(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
 				byte[] vertexBytes = vertex.ToByteArray();
 				Buf.BlockCopy(vertexBytes, 0, Buffer, 10 + i * Vertex.ByteCount, Vertex.ByteCount);
 			}
@@ -62,10 +62,10 @@ namespace DevilDaggersAssetEditor.Chunks
 			string text = File.ReadAllText(path);
 			string[] lines = text.Split('\n');
 
-			List<Vector3> positions = new List<Vector3>();
-			List<Vector2> texCoords = new List<Vector2>();
-			List<Vector3> normals = new List<Vector3>();
-			List<VertexReference> vertices = new List<VertexReference>();
+			List<Vector3> positions = new();
+			List<Vector2> texCoords = new();
+			List<Vector3> normals = new();
+			List<VertexReference> vertices = new();
 
 			for (int i = 0; i < lines.Length; i++)
 			{
@@ -75,13 +75,13 @@ namespace DevilDaggersAssetEditor.Chunks
 				switch (values[0])
 				{
 					case "v":
-						positions.Add(new Vector3(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
+						positions.Add(new(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
 						break;
 					case "vt":
-						texCoords.Add(new Vector2(ParseVertexValue(values[1]), ParseVertexValue(values[2])));
+						texCoords.Add(new(ParseVertexValue(values[1]), ParseVertexValue(values[2])));
 						break;
 					case "vn":
-						normals.Add(new Vector3(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
+						normals.Add(new(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
 						break;
 					case "f":
 						// Compatible with:
@@ -116,7 +116,7 @@ namespace DevilDaggersAssetEditor.Chunks
 								if (!uint.TryParse(references[2], out uint normalReference))
 									throw new($"{baseErrorMessage} Normal value '{references[2]}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 
-								vertices.Add(new VertexReference(positionReference, texCoordReference, normalReference));
+								vertices.Add(new(positionReference, texCoordReference, normalReference));
 							}
 							else
 							{
@@ -126,7 +126,7 @@ namespace DevilDaggersAssetEditor.Chunks
 								if (!uint.TryParse(value, out uint unifiedValue))
 									throw new($"{baseErrorMessage} Value '{value}' could not be parsed to a positive integral value ({typeof(uint).Name}).");
 
-								vertices.Add(new VertexReference(unifiedValue));
+								vertices.Add(new(unifiedValue));
 							}
 						}
 
@@ -144,7 +144,7 @@ namespace DevilDaggersAssetEditor.Chunks
 									// f 1/2/3 4/5/6 7/8/9
 									string[] references = value.Split('/');
 
-									vertices.Add(new VertexReference(uint.Parse(references[0], CultureInfo.InvariantCulture), uint.Parse(references[1], CultureInfo.InvariantCulture), uint.Parse(references[2], CultureInfo.InvariantCulture)));
+									vertices.Add(new(uint.Parse(references[0], CultureInfo.InvariantCulture), uint.Parse(references[1], CultureInfo.InvariantCulture), uint.Parse(references[2], CultureInfo.InvariantCulture)));
 								}
 							}
 						}
@@ -153,10 +153,10 @@ namespace DevilDaggersAssetEditor.Chunks
 				}
 			}
 
-			outPositions = new List<Vector3>();
-			outTexCoords = new List<Vector2>();
-			outNormals = new List<Vector3>();
-			outVertices = new List<VertexReference>();
+			outPositions = new();
+			outTexCoords = new();
+			outNormals = new();
+			outVertices = new();
 
 			// Duplicate vertices as needed.
 			for (uint i = 0; i < vertices.Count; i += 3)
@@ -178,9 +178,9 @@ namespace DevilDaggersAssetEditor.Chunks
 				outNormals.Add(normals[(int)vertex2.NormalReference - 1]);
 				outNormals.Add(normals[(int)vertex3.NormalReference - 1]);
 
-				VertexReference outVertex1 = new VertexReference(i + 1);
-				VertexReference outVertex2 = new VertexReference(i + 2);
-				VertexReference outVertex3 = new VertexReference(i + 3);
+				VertexReference outVertex1 = new(i + 1);
+				VertexReference outVertex2 = new(i + 2);
+				VertexReference outVertex3 = new(i + 3);
 
 				outVertices.Add(outVertex1);
 				outVertices.Add(outVertex2);
@@ -202,18 +202,18 @@ namespace DevilDaggersAssetEditor.Chunks
 			for (int i = 0; i < indices.Length; i++)
 				indices[i] = BitConverter.ToUInt32(Buffer, 10 + vertices.Length * Vertex.ByteCount + i * sizeof(uint));
 
-			StringBuilder sb = new StringBuilder();
-			sb.AppendLine($"# {Name}.obj\n");
+			StringBuilder sb = new();
+			sb.Append("# ").Append(Name).AppendLine(".obj\n");
 
 			sb.AppendLine("# Vertex Attributes");
-			StringBuilder v = new StringBuilder();
-			StringBuilder vt = new StringBuilder();
-			StringBuilder vn = new StringBuilder();
+			StringBuilder v = new();
+			StringBuilder vt = new();
+			StringBuilder vn = new();
 			for (uint i = 0; i < vertexCount; ++i)
 			{
-				v.AppendLine($"v {vertices[i].Position.X} {vertices[i].Position.Y} {vertices[i].Position.Z}");
-				vt.AppendLine($"vt {vertices[i].TexCoord.X} {vertices[i].TexCoord.Y}");
-				vn.AppendLine($"vn {vertices[i].Normal.X} {vertices[i].Normal.Y} {vertices[i].Normal.Z}");
+				v.Append("v ").Append(vertices[i].Position.X).Append(' ').Append(vertices[i].Position.Y).Append(' ').Append(vertices[i].Position.Z).AppendLine();
+				vt.Append("vt ").Append(vertices[i].TexCoord.X).Append(' ').Append(vertices[i].TexCoord.Y).AppendLine();
+				vn.Append("vn ").Append(vertices[i].Normal.X).Append(' ').Append(vertices[i].Normal.Y).Append(' ').Append(vertices[i].Normal.Z).AppendLine();
 			}
 
 			sb.Append(v);
@@ -223,13 +223,13 @@ namespace DevilDaggersAssetEditor.Chunks
 			sb.AppendLine("\n# Triangles");
 			for (uint i = 0; i < indexCount / 3; ++i)
 			{
-				VertexReference vertex1 = new VertexReference(indices[i * 3] + 1);
-				VertexReference vertex2 = new VertexReference(indices[i * 3 + 1] + 1);
-				VertexReference vertex3 = new VertexReference(indices[i * 3 + 2] + 1);
-				sb.AppendLine($"f {vertex1} {vertex2} {vertex3}");
+				VertexReference vertex1 = new(indices[i * 3] + 1);
+				VertexReference vertex2 = new(indices[i * 3 + 1] + 1);
+				VertexReference vertex3 = new(indices[i * 3 + 2] + 1);
+				sb.Append("f ").Append(vertex1).Append(' ').Append(vertex2).Append(' ').Append(vertex3).AppendLine();
 			}
 
-			yield return new FileResult(Name, Encoding.Default.GetBytes(sb.ToString()));
+			yield return new(Name, Encoding.Default.GetBytes(sb.ToString()));
 		}
 
 		private struct Vertex
@@ -264,18 +264,18 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			public static Vertex CreateFromBuffer(byte[] buffer, int offset, int vertexIndex)
 			{
-				Vector3 position = new Vector3(
+				Vector3 position = new(
 					x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount),
 					y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 4),
 					z: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 8));
-				Vector2 texCoord = new Vector2(
+				Vector2 texCoord = new(
 					x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 24),
 					y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 28));
-				Vector3 normal = new Vector3(
+				Vector3 normal = new(
 					x: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 12),
 					y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 16),
 					z: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 20));
-				return new Vertex(position, texCoord, normal);
+				return new(position, texCoord, normal);
 			}
 		}
 	}
