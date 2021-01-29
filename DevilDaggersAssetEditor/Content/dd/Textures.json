@@ -2175,11 +2175,11 @@
 		"AssetName": "post_lut_leveldown",
 		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
-		"Description": "Unused post filter",
+		"Description": "Death fade out/flash post filter",
 		"ModelBinding": "",
 		"Tags": [
-			"Post-processing",
-			"Unused"
+			"Death",
+			"Post-processing"
 		]
 	},
 	{
