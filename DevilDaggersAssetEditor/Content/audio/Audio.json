@@ -407,6 +407,18 @@
 		]
 	},
 	{
+		"AssetName": "daggercall5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Leviathan Dagger in lobby",
+		"Loudness": 1,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger",
+			"Leviathan",
+			"Lobby"
+		]
+	},
+	{
 		"AssetName": "daggercollect",
 		"ChunkTypeName": "AudioChunk",
 		"Description": "Dagger lobby grab",
@@ -462,6 +474,18 @@
 		"Tags": [
 			"Dagger",
 			"Devil",
+			"Unlock"
+		]
+	},
+	{
+		"AssetName": "daggercollect5",
+		"ChunkTypeName": "AudioChunk",
+		"Description": "Devil Dagger unlock",
+		"Loudness": 1000,
+		"PresentInDefaultLoudness": true,
+		"Tags": [
+			"Dagger",
+			"Leviathan",
 			"Unlock"
 		]
 	},
