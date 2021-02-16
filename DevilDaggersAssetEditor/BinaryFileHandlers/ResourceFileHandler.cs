@@ -65,7 +65,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		private static List<ResourceChunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, ProgressWrapper progress)
 		{
-			StringBuilder loudness = new();
+			Dictionary<string, float> loudnessValues = new();
 
 			List<ResourceChunk> chunks = new();
 			foreach (AbstractAsset asset in allAssets)
@@ -73,7 +73,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				progress.Report($"Generating {asset.AssetType} chunk \"{asset.AssetName}\".", chunks.Count / (float)allAssets.Count / 2);
 
 				if (asset is AudioAsset audioAsset)
-					loudness.Append(audioAsset.AssetName).Append(" = ").AppendFormat("{0:0.0}", audioAsset.Loudness).AppendLine();
+					loudnessValues.Add(audioAsset.AssetName, audioAsset.Loudness);
 
 				ResourceChunk chunk = asset.AssetType switch
 				{
@@ -87,8 +87,20 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				chunks.Add(chunk);
 			}
 
-			if (loudness.Length != 0)
+			// If any audio asset is included in this list, we need to create a loudness chunk as well.
+			if (loudnessValues.Count > 0)
 			{
+				// Any missing audio will need to have its default loudness included or Devil Daggers will play those with loudness 1.0.
+				foreach (AudioAsset audioAsset in AssetHandler.Instance.AudioAudioAssets)
+				{
+					if (!loudnessValues.ContainsKey(audioAsset.AssetName))
+						loudnessValues.Add(audioAsset.AssetName, audioAsset.DefaultLoudness);
+				}
+
+				StringBuilder loudness = new();
+				foreach (KeyValuePair<string, float> kvp in loudnessValues)
+					loudness.Append(kvp.Key).Append(" = ").AppendFormat("{0:0.0}", kvp.Value).AppendLine();
+
 				progress.Report("Generating Loudness chunk.");
 				byte[] fileBuffer;
 				using (MemoryStream ms = new())

@@ -88,7 +88,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			DdTexturesAssetTabControl = new(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
 			ParticleParticlesAssetTabControl = new(BinaryFileType.Particle, AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
 
-			AssetTabControls = new List<AssetTabControl> { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
+			AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
 
 			UpdateTextBoxSizes();
 
