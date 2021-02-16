@@ -1217,6 +1217,16 @@
 		]
 	},
 	{
+		"AssetName": "icondd",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Application Icon",
+		"ModelBinding": "",
+		"Tags": [
+			"Icon"
+		]
+	},
+	{
 		"AssetName": "iconeye",
 		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 16",
@@ -1244,6 +1254,72 @@
 		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Gems Collected Icon",
+		"ModelBinding": "",
+		"Tags": [
+			"Icon",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "iconmaskdagger",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Enemies Killed Timeline Icon",
+		"ModelBinding": "",
+		"Tags": [
+			"Icon",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "iconmaskcrosshair",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Accuracy Timeline Collected Icon",
+		"ModelBinding": "",
+		"Tags": [
+			"Icon",
+			"UI"
+		]
+	},	
+	{
+		"AssetName": "iconmaskgem",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Gems Collected Timeline Icon",
+		"ModelBinding": "",
+		"Tags": [
+			"Icon",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "iconmaskhoming",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Homing Daggers Timeline Icon",
+		"ModelBinding": "",
+		"Tags": [
+			"Icon",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "iconmaskskull",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Enemies Alive Timeline Icon",
+		"ModelBinding": "",
+		"Tags": [
+			"Icon",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "iconmaskstopwatch",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Scrubber Time Mark Icon",
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
