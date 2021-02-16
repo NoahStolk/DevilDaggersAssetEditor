@@ -13,7 +13,7 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<StackPanel>
-			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -23,11 +23,11 @@
 					<RowDefinition Style="{StaticResource PreviewerRow}" />
 				</Grid.RowDefinitions>
 				<Label FontWeight="Bold">Shader name</Label>
-				<Label Grid.Column="1" Name="ShaderName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="ShaderName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="1">
-			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">File properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -39,18 +39,18 @@
 				</Grid.RowDefinitions>
 				<Label FontWeight="Bold">Vertex file name</Label>
 				<Label Grid.Row="1" FontWeight="Bold">Fragment file name</Label>
-				<Label Grid.Column="1" Name="VertexFileName">N/A</Label>
-				<Label Grid.Column="1" Grid.Row="1" Name="FragmentFileName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="VertexFileName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
+				<TextBlock Grid.Column="1" Grid.Row="1" Name="FragmentFileName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="2">
-			<Label Style="{StaticResource PreviewTitleLabel}">Vertex shader preview</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">Vertex shader preview</Label>
 			<ScrollViewer Height="384">
 				<TextBlock Name="PreviewVertexTextBox" Style="{StaticResource CodeTextBlock}" />
 			</ScrollViewer>
 		</StackPanel>
 		<StackPanel Grid.Column="3">
-			<Label Style="{StaticResource PreviewTitleLabel}">Fragment shader preview</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">Fragment shader preview</Label>
 			<ScrollViewer Height="384">
 				<TextBlock Name="PreviewFragmentTextBox" Style="{StaticResource CodeTextBlock}" />
 			</ScrollViewer>

@@ -19,11 +19,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			if (asset is not ParticleAsset particleAsset)
 				return;
 
-			ParticleName.Content = particleAsset.AssetName;
+			ParticleName.Text = particleAsset.AssetName;
 
 			bool isPathValid = File.Exists(particleAsset.EditorPath);
 
-			FileName.Content = isPathValid ? Path.GetFileName(particleAsset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Text = isPathValid ? Path.GetFileName(particleAsset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{

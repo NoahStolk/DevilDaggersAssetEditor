@@ -12,7 +12,7 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<StackPanel>
-			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -22,11 +22,11 @@
 					<RowDefinition Style="{StaticResource PreviewerRow}" />
 				</Grid.RowDefinitions>
 				<Label FontWeight="Bold">Particle name</Label>
-				<Label Grid.Column="1" Name="ParticleName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="ParticleName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="1">
-			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">File properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -36,11 +36,11 @@
 					<RowDefinition Style="{StaticResource PreviewerRow}" />
 				</Grid.RowDefinitions>
 				<Label FontWeight="Bold">File name</Label>
-				<Label Grid.Column="1" Name="FileName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="FileName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="2">
-			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">File preview</Label>
 			<TextBox Name="PreviewTextBox" Style="{StaticResource CodeTextBox}" MinLines="4" MaxLines="4" />
 		</StackPanel>
 	</Grid>

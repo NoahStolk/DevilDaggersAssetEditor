@@ -17,7 +17,7 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<StackPanel>
-			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -29,12 +29,12 @@
 				</Grid.RowDefinitions>
 				<Label FontWeight="Bold">Audio name</Label>
 				<Label Grid.Row="1" FontWeight="Bold">Default loudness</Label>
-				<Label Grid.Column="1" Name="AudioName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="AudioName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 				<Label Grid.Column="1" Grid.Row="1" Name="DefaultLoudness">N/A</Label>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="1">
-			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">File properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -46,12 +46,12 @@
 				</Grid.RowDefinitions>
 				<Label FontWeight="Bold">File name</Label>
 				<Label Grid.Row="1" FontWeight="Bold">Loudness</Label>
-				<Label Grid.Column="1" Name="FileName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="FileName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 				<Label Grid.Column="1" Grid.Row="1" Name="FileLoudness">N/A</Label>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="2">
-			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">File preview</Label>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 				<Button Name="Toggle" Click="Toggle_Click" Width="20">
 					<Image Name="ToggleImage" ToolTip="Play / Pause" />

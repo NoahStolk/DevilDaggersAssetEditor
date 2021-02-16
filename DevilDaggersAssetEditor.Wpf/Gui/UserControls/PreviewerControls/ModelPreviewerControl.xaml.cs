@@ -19,13 +19,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			if (asset is not ModelAsset modelAsset)
 				return;
 
-			TextureName.Content = modelAsset.AssetName;
+			TextureName.Text = modelAsset.AssetName;
 			DefaultVertexCount.Content = modelAsset.DefaultVertexCount.ToString(CultureInfo.InvariantCulture);
 			DefaultIndexCount.Content = modelAsset.DefaultIndexCount.ToString(CultureInfo.InvariantCulture);
 
 			bool isPathValid = File.Exists(modelAsset.EditorPath);
 
-			FileName.Content = isPathValid ? Path.GetFileName(modelAsset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Text = isPathValid ? Path.GetFileName(modelAsset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{

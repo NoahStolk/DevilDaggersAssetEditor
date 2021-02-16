@@ -12,7 +12,7 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<StackPanel>
-			<Label Style="{StaticResource PreviewTitleLabel}">Asset properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">Asset properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -26,13 +26,13 @@
 				<Label FontWeight="Bold">Model name</Label>
 				<Label Grid.Row="1" FontWeight="Bold">Default vertex count</Label>
 				<Label Grid.Row="2" FontWeight="Bold">Default index count</Label>
-				<Label Grid.Column="1" Name="TextureName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="TextureName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 				<Label Grid.Column="1" Grid.Row="1" Name="DefaultVertexCount">N/A</Label>
 				<Label Grid.Column="1" Grid.Row="2" Name="DefaultIndexCount">N/A</Label>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="1">
-			<Label Style="{StaticResource PreviewTitleLabel}">File properties</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">File properties</Label>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -46,13 +46,13 @@
 				<Label FontWeight="Bold">File name</Label>
 				<Label Grid.Row="1" FontWeight="Bold">Vertex count</Label>
 				<Label Grid.Row="2" FontWeight="Bold">Index count</Label>
-				<Label Grid.Column="1" Name="FileName">N/A</Label>
+				<TextBlock Grid.Column="1" Name="FileName" Style="{StaticResource PreviewerTextBlock}">N/A</TextBlock>
 				<Label Grid.Column="1" Grid.Row="1" Name="FileVertexCount">N/A</Label>
 				<Label Grid.Column="1" Grid.Row="2" Name="FileIndexCount">N/A</Label>
 			</Grid>
 		</StackPanel>
 		<StackPanel Grid.Column="2">
-			<Label Style="{StaticResource PreviewTitleLabel}">File preview</Label>
+			<Label Style="{StaticResource PreviewerTitleLabel}">File preview</Label>
 			<!--OBJ Viewer-->
 		</StackPanel>
 	</Grid>

@@ -20,13 +20,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			if (asset is not TextureAsset textureAsset)
 				return;
 
-			TextureName.Content = textureAsset.AssetName;
+			TextureName.Text = textureAsset.AssetName;
 			DefaultDimensions.Content = $"{textureAsset.DefaultDimensions.X}x{textureAsset.DefaultDimensions.Y}";
 			DefaultMipmaps.Content = TextureAsset.GetMipmapCount(textureAsset.DefaultDimensions.X, textureAsset.DefaultDimensions.Y).ToString(CultureInfo.InvariantCulture);
 
 			bool isPathValid = File.Exists(textureAsset.EditorPath);
 
-			FileName.Content = isPathValid ? Path.GetFileName(textureAsset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Text = isPathValid ? Path.GetFileName(textureAsset.EditorPath) : GuiUtils.FileNotFound;
 
 			if (isPathValid)
 			{

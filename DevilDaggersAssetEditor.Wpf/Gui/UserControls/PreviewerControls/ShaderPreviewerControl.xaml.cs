@@ -24,13 +24,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			if (asset is not ShaderAsset shaderAsset)
 				return;
 
-			ShaderName.Content = shaderAsset.AssetName;
+			ShaderName.Text = shaderAsset.AssetName;
 
 			bool isVertexPathValid = File.Exists(shaderAsset.EditorPath);
 			bool isFragmentPathValid = File.Exists(shaderAsset.EditorPathFragmentShader);
 
-			VertexFileName.Content = isVertexPathValid ? Path.GetFileName(shaderAsset.EditorPath) : GuiUtils.FileNotFound;
-			FragmentFileName.Content = isFragmentPathValid ? Path.GetFileName(shaderAsset.EditorPathFragmentShader) : GuiUtils.FileNotFound;
+			VertexFileName.Text = isVertexPathValid ? Path.GetFileName(shaderAsset.EditorPath) : GuiUtils.FileNotFound;
+			FragmentFileName.Text = isFragmentPathValid ? Path.GetFileName(shaderAsset.EditorPathFragmentShader) : GuiUtils.FileNotFound;
 
 			PreviewVertexTextBox.Inlines.Clear();
 			PreviewFragmentTextBox.Inlines.Clear();

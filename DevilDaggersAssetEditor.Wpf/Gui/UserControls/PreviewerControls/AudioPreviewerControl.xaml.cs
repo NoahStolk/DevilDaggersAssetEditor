@@ -112,10 +112,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			if (asset is not AudioAsset audioAsset)
 				return;
 
-			AudioName.Content = audioAsset.AssetName;
+			AudioName.Text = audioAsset.AssetName;
 			DefaultLoudness.Content = audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
 
-			FileName.Content = File.Exists(audioAsset.EditorPath) ? Path.GetFileName(audioAsset.EditorPath) : GuiUtils.FileNotFound;
+			FileName.Text = File.Exists(audioAsset.EditorPath) ? Path.GetFileName(audioAsset.EditorPath) : GuiUtils.FileNotFound;
 			FileLoudness.Content = audioAsset.Loudness.ToString(CultureInfo.InvariantCulture);
 
 			bool startPaused = !Autoplay.IsChecked ?? true;
