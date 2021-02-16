@@ -7,12 +7,13 @@
              d:DesignHeight="20" d:DesignWidth="800">
 	<Menu DockPanel.Dock="Top" Name="MenuPanel">
 		<MenuItem Header="File">
+			<MenuItem Header="New mod" Click="NewMod_Click" />
+			<MenuItem Header="Open mod" Click="OpenMod_Click" />
+			<MenuItem Header="Save mod" Click="SaveMod_Click" />
+			<Separator />
 			<MenuItem Header="Extract binaries" Click="ExtractBinaries_Click" />
 			<MenuItem Header="Make binaries" Click="MakeBinaries_Click" />
 			<MenuItem Header="Import assets" Click="ImportAssets_Click" />
-			<Separator />
-			<MenuItem Header="Open mod" Click="OpenMod_Click" />
-			<MenuItem Header="Save mod" Click="SaveMod_Click" />
 			<Separator />
 			<MenuItem Header="Import audio loudness" Click="ImportAudioLoudness_Click" />
 			<MenuItem Header="Export audio loudness" Click="ExportAudioLoudness_Click" />

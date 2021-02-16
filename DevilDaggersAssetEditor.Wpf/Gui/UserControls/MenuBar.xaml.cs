@@ -58,22 +58,21 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 #endif
 		}
 
-		private void ExtractBinaries_Click(object sender, RoutedEventArgs e)
+		private void NewMod_Click(object sender, RoutedEventArgs e)
 		{
-			ExtractBinariesWindow window = new ExtractBinariesWindow();
-			window.ShowDialog();
-		}
+			foreach (AssetTabControl assetTabControl in App.Instance.MainWindow!.AssetTabControls)
+			{
+				foreach (AssetRowControl rowHandler in assetTabControl.RowControls)
+				{
+					AbstractAsset asset = rowHandler.Asset;
 
-		private void MakeBinaries_Click(object sender, RoutedEventArgs e)
-		{
-			MakeBinariesWindow window = new MakeBinariesWindow();
-			window.ShowDialog();
-		}
+					asset.EditorPath = GuiUtils.FileNotFound;
+					if (asset is ShaderAsset shaderAsset)
+						shaderAsset.EditorPathFragmentShader = GuiUtils.FileNotFound;
 
-		private void ImportAssets_Click(object sender, RoutedEventArgs e)
-		{
-			ImportAssetsWindow window = new ImportAssetsWindow();
-			window.ShowDialog();
+					rowHandler.UpdateGui();
+				}
+			}
 		}
 
 		private void OpenMod_Click(object sender, RoutedEventArgs e)
@@ -121,6 +120,24 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				return;
 
 			JsonFileUtils.SerializeToFile(dialog.FileName, userAssets, true);
+		}
+
+		private void ExtractBinaries_Click(object sender, RoutedEventArgs e)
+		{
+			ExtractBinariesWindow window = new ExtractBinariesWindow();
+			window.ShowDialog();
+		}
+
+		private void MakeBinaries_Click(object sender, RoutedEventArgs e)
+		{
+			MakeBinariesWindow window = new MakeBinariesWindow();
+			window.ShowDialog();
+		}
+
+		private void ImportAssets_Click(object sender, RoutedEventArgs e)
+		{
+			ImportAssetsWindow window = new ImportAssetsWindow();
+			window.ShowDialog();
 		}
 
 		private void ImportAudioLoudness_Click(object sender, RoutedEventArgs e)
