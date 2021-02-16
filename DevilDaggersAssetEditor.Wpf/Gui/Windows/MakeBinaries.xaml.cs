@@ -14,12 +14,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MakeBinariesWindow : Window
 	{
-		private readonly BinaryPathControl _audioControl = new BinaryPathControl("'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
-		private readonly BinaryPathControl _coreControl = new BinaryPathControl("'core' binary path", BinaryFileType.Core, AssetType.Shader);
-		private readonly BinaryPathControl _ddControl = new BinaryPathControl("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
-		private readonly BinaryPathControl _particleControl = new BinaryPathControl("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
+		private readonly BinaryPathControl _audioControl = new("'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
+		private readonly BinaryPathControl _coreControl = new("'core' binary path", BinaryFileType.Core, AssetType.Shader);
+		private readonly BinaryPathControl _ddControl = new("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
+		private readonly BinaryPathControl _particleControl = new("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
 
-		private readonly List<BinaryPathControl> _controls = new List<BinaryPathControl>();
+		private readonly List<BinaryPathControl> _controls = new();
 
 		public MakeBinariesWindow()
 		{
@@ -58,7 +58,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 						_ => new ResourceFileHandler(control.BinaryFileType),
 					};
 
-					List<AssetTabControl> assetTabControls = new List<AssetTabControl>();
+					List<AssetTabControl> assetTabControls = new();
 					switch (control.BinaryFileType)
 					{
 						case BinaryFileType.Audio:

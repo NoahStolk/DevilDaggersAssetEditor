@@ -20,12 +20,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class ExtractBinariesWindow : Window
 	{
-		private readonly BinaryPathControl _audioControl = new BinaryPathControl("'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
-		private readonly BinaryPathControl _coreControl = new BinaryPathControl("'core' binary path", BinaryFileType.Core, AssetType.Shader);
-		private readonly BinaryPathControl _ddControl = new BinaryPathControl("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
-		private readonly BinaryPathControl _particleControl = new BinaryPathControl("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
+		private readonly BinaryPathControl _audioControl = new("'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
+		private readonly BinaryPathControl _coreControl = new("'core' binary path", BinaryFileType.Core, AssetType.Shader);
+		private readonly BinaryPathControl _ddControl = new("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
+		private readonly BinaryPathControl _particleControl = new("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
 
-		private readonly List<BinaryPathControl> _controls = new List<BinaryPathControl>();
+		private readonly List<BinaryPathControl> _controls = new();
 
 		private string? _outputPath;
 
@@ -44,7 +44,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void BrowseOutputButton_Click(object sender, RoutedEventArgs e)
 		{
-			VistaFolderBrowserDialog folderDialog = new VistaFolderBrowserDialog();
+			VistaFolderBrowserDialog folderDialog = new();
 			folderDialog.OpenAssetsRootFolder();
 
 			if (folderDialog.ShowDialog() == true)

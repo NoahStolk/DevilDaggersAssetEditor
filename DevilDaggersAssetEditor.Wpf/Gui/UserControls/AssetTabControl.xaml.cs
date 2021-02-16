@@ -277,7 +277,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					{
 						FilterOperation.And => CheckedFilters.All(t => rowHandler.Asset.Tags.Contains(t)),
 						FilterOperation.Or => rowHandler.Asset.Tags.Any(t => CheckedFilters.Contains(t)),
-						_ => throw new NotSupportedException($"{nameof(FilterOperation)} {filterOperation} not supported in {nameof(ApplyFilter)} method.")
+						_ => throw new NotSupportedException($"{nameof(FilterOperation)} {filterOperation} not supported in {nameof(ApplyFilter)} method."),
 					};
 				}
 			}

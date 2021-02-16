@@ -65,15 +65,15 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		private static List<ResourceChunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, ProgressWrapper progress)
 		{
-			StringBuilder loudness = new StringBuilder();
+			StringBuilder loudness = new();
 
-			List<ResourceChunk> chunks = new List<ResourceChunk>();
+			List<ResourceChunk> chunks = new();
 			foreach (AbstractAsset asset in allAssets)
 			{
 				progress.Report($"Generating {asset.AssetType} chunk \"{asset.AssetName}\".", chunks.Count / (float)allAssets.Count / 2);
 
 				if (asset is AudioAsset audioAsset)
-					loudness.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness:0.0}");
+					loudness.Append(audioAsset.AssetName).Append(" = ").AppendFormat("{0:0.0}", audioAsset.Loudness).AppendLine();
 
 				ResourceChunk chunk = asset.AssetType switch
 				{
@@ -91,7 +91,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			{
 				progress.Report("Generating Loudness chunk.");
 				byte[] fileBuffer;
-				using (MemoryStream ms = new MemoryStream())
+				using (MemoryStream ms = new())
 				{
 					byte[] fileContents = Encoding.Default.GetBytes(loudness.ToString());
 					ms.Write(fileContents, 0, fileContents.Length);
@@ -107,7 +107,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		public static void CreateTocStream(List<ResourceChunk> chunks, out byte[] tocBuffer, out Dictionary<ResourceChunk, long> startOffsetBytePositions)
 		{
 			startOffsetBytePositions = new Dictionary<ResourceChunk, long>();
-			using MemoryStream tocStream = new MemoryStream();
+			using MemoryStream tocStream = new();
 			foreach (ResourceChunk chunk in chunks)
 			{
 				// Write binary type.
@@ -135,7 +135,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		private byte[] CreateAssetStream(List<ResourceChunk> chunks, byte[] tocBuffer, Dictionary<ResourceChunk, long> startOffsetBytePositions, ProgressWrapper progress)
 		{
-			using MemoryStream assetStream = new MemoryStream();
+			using MemoryStream assetStream = new();
 			int i = 0;
 			foreach (ResourceChunk chunk in chunks)
 			{
@@ -157,7 +157,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static byte[] CreateBinary(byte[] tocBuffer, byte[] assetBuffer)
 		{
-			using MemoryStream ms = new MemoryStream();
+			using MemoryStream ms = new();
 
 			// Write file header.
 			ms.Write(BitConverter.GetBytes((uint)Magic1), 0, sizeof(uint));
@@ -218,7 +218,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static List<ResourceChunk> ReadChunks(byte[] tocBuffer)
 		{
-			List<ResourceChunk> chunks = new List<ResourceChunk>();
+			List<ResourceChunk> chunks = new();
 
 			int i = 0;
 
