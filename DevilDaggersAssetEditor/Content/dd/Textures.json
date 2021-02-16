@@ -706,7 +706,7 @@
 		"AssetName": "fontlevibg",
 		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
-		"Description": "Leviathan font scrolling effect?",
+		"Description": "Leviathan font background",
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
