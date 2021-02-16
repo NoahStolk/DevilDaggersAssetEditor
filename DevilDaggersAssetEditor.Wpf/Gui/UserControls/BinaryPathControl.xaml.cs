@@ -7,7 +7,6 @@ using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
-using System;
 using System.Globalization;
 using System.IO;
 using System.Windows;
@@ -28,9 +27,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			Header.Content = header;
 
-			Progress = new ProgressWrapper(
-				new Progress<string>(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
-				new Progress<float>(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
+			Progress = new(
+				new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
+				new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
 
 			ProgressBar.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(assetTypeForColor.GetColor()) * 0.25f);
 
@@ -64,7 +63,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private bool TrySetPath(out string selectedPath)
 		{
-			OpenFileDialog openDialog = new OpenFileDialog();
+			OpenFileDialog openDialog = new();
 			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.GetSubfolderName()));
 
 			bool? openResult = openDialog.ShowDialog();
