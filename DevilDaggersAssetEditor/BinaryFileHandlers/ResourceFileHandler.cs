@@ -110,7 +110,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 					fileBuffer = ms.ToArray();
 				}
 
-				chunks.Add(new ResourceChunk(AssetType.Audio, "loudness", 0U, (uint)fileBuffer.Length) { Buffer = fileBuffer });
+				chunks.Add(new(AssetType.Audio, "loudness", 0U, (uint)fileBuffer.Length) { Buffer = fileBuffer });
 			}
 
 			return chunks;
@@ -118,7 +118,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static void CreateTocStream(List<ResourceChunk> chunks, out byte[] tocBuffer, out Dictionary<ResourceChunk, long> startOffsetBytePositions)
 		{
-			startOffsetBytePositions = new Dictionary<ResourceChunk, long>();
+			startOffsetBytePositions = new();
 			using MemoryStream tocStream = new();
 			foreach (ResourceChunk chunk in chunks)
 			{
