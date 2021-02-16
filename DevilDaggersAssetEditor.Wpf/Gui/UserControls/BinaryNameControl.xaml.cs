@@ -24,6 +24,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			BinaryFileType = binaryFileType;
 
+			LabelModFileName.Content = $"'{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' mod file name";
+
 			Progress = new(
 				new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
 				new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));

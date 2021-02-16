@@ -19,15 +19,15 @@
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
-					<ColumnDefinition Width="5*" />
+					<ColumnDefinition Width="4*" />
 				</Grid.ColumnDefinitions>
-				<Label>Mod file name</Label>
+				<Label Name="LabelModFileName" />
 				<TextBox Grid.Column="1" Name="TextBoxName" TextChanged="TextBoxName_TextChanged" />
 			</Grid>
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
-					<ColumnDefinition Width="5*" />
+					<ColumnDefinition Width="4*" />
 				</Grid.ColumnDefinitions>
 				<Label>Output path</Label>
 				<TextBlock Grid.Column="1" Name="TextBlockOutputPath" HorizontalAlignment="Stretch" Margin="2" />
