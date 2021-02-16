@@ -1275,7 +1275,7 @@
 		"AssetName": "iconmaskcrosshair",
 		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
-		"Description": "Accuracy Timeline Collected Icon",
+		"Description": "Accuracy Timeline Icon",
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
