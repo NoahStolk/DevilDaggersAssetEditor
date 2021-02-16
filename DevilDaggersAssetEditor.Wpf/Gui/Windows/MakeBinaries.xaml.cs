@@ -5,7 +5,6 @@ using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,12 +13,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MakeBinariesWindow : Window
 	{
-		private readonly BinaryPathControl _audioControl = new("'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
-		private readonly BinaryPathControl _coreControl = new("'core' binary path", BinaryFileType.Core, AssetType.Shader);
-		private readonly BinaryPathControl _ddControl = new("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
-		private readonly BinaryPathControl _particleControl = new("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
+		private readonly BinaryNameControl _audioControl = new(BinaryFileType.Audio, AssetType.Audio);
+		private readonly BinaryNameControl _coreControl = new(BinaryFileType.Core, AssetType.Shader);
+		private readonly BinaryNameControl _ddControl = new(BinaryFileType.Dd, AssetType.Texture);
+		private readonly BinaryNameControl _particleControl = new(BinaryFileType.Particle, AssetType.Particle);
 
-		private readonly List<BinaryPathControl> _controls = new();
+		private readonly List<BinaryNameControl> _controls = new();
 
 		public MakeBinariesWindow()
 		{
@@ -43,9 +42,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			ButtonMakeBinaries.IsEnabled = true;
 		}
 
-		private static async Task MakeBinary(BinaryPathControl control)
+		private static async Task MakeBinary(BinaryNameControl control)
 		{
-			if (string.IsNullOrWhiteSpace(control.BinaryPath) || !File.Exists(control.BinaryPath))
+			if (string.IsNullOrWhiteSpace(control.BinaryName) || string.IsNullOrWhiteSpace(control.OutputPath))
 				return;
 
 			await Task.Run(() =>
@@ -78,7 +77,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 							break;
 					}
 
-					fileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.BinaryPath, control.Progress);
+					fileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.OutputPath, control.Progress);
 
 					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 				}
