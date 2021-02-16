@@ -6,7 +6,7 @@ namespace DevilDaggersAssetEditor.User
 {
 	public sealed class UserHandler
 	{
-		private static readonly Lazy<UserHandler> _lazy = new Lazy<UserHandler>(() => new UserHandler());
+		private static readonly Lazy<UserHandler> _lazy = new(() => new());
 
 		private UserHandler()
 		{
@@ -14,18 +14,18 @@ namespace DevilDaggersAssetEditor.User
 
 		public static UserHandler Instance => _lazy.Value;
 
-		public UserSettings Settings { get; set; } = new UserSettings();
-		public UserCache Cache { get; set; } = new UserCache();
+		public UserSettings Settings { get; set; } = new();
+		public UserCache Cache { get; set; } = new();
 
 		public void SaveCache()
 		{
-			using StreamWriter sw = new StreamWriter(File.Create(UserCache.FileName));
+			using StreamWriter sw = new(File.Create(UserCache.FileName));
 			sw.Write(JsonConvert.SerializeObject(Cache, Formatting.Indented));
 		}
 
 		public void SaveSettings()
 		{
-			using StreamWriter sw = new StreamWriter(File.Create(UserSettings.FileName));
+			using StreamWriter sw = new(File.Create(UserSettings.FileName));
 			sw.Write(JsonConvert.SerializeObject(Settings, Formatting.Indented));
 		}
 	}

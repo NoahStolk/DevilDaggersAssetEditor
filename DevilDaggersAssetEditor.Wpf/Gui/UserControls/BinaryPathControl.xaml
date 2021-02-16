@@ -20,7 +20,7 @@
 			<Grid>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
-					<ColumnDefinition Width="5*"/>
+					<ColumnDefinition Width="5*" />
 				</Grid.ColumnDefinitions>
 				<Button Name="ButtonBrowse" Content="Browse" Click="BrowseButton_Click" HorizontalAlignment="Stretch" />
 				<TextBox Grid.Column="1" Name="TextBoxPath" TextChanged="TextBoxPath_TextChanged" />
