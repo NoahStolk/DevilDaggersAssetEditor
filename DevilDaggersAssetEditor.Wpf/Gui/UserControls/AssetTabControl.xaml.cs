@@ -18,13 +18,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class AssetTabControl : UserControl
 	{
-		private readonly AssetRowSorting _nameSort = new AssetRowSorting(a => a.Asset.AssetName);
-		private readonly AssetRowSorting _tagsSort = new AssetRowSorting(a => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting _descriptionSort = new AssetRowSorting(a => a.Asset.Description);
-		private readonly AssetRowSorting _loudnessSort = new AssetRowSorting(a => (a.Asset as AudioAsset)?.Loudness ?? 0);
-		private readonly AssetRowSorting _pathSort = new AssetRowSorting(a => a.Asset.EditorPath);
+		private readonly AssetRowSorting _nameSort = new(a => a.Asset.AssetName);
+		private readonly AssetRowSorting _tagsSort = new(a => string.Join(", ", a.Asset.Tags));
+		private readonly AssetRowSorting _descriptionSort = new(a => a.Asset.Description);
+		private readonly AssetRowSorting _loudnessSort = new(a => (a.Asset as AudioAsset)?.Loudness ?? 0);
+		private readonly AssetRowSorting _pathSort = new(a => a.Asset.EditorPath);
 
-		private AssetRowSorting _activeSorting = new AssetRowSorting(a => a.Asset.AssetName);
+		private AssetRowSorting _activeSorting = new(a => a.Asset.AssetName);
 
 		public AssetTabControl(BinaryFileType binaryFileType, AssetType assetType, string openDialogFilter, string assetTypeJsonFileName)
 		{
@@ -37,11 +37,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			int i = 0;
 			foreach (AbstractAsset asset in assets)
 			{
-				AssetRowControl rowHandler = new AssetRowControl(asset, assetType, i++ % 2 == 0, openDialogFilter);
+				AssetRowControl rowHandler = new(asset, assetType, i++ % 2 == 0, openDialogFilter);
 				RowControls.Add(rowHandler);
 			}
 
-			AllFilters = RowControls.Select(a => a.Asset).SelectMany(a => a.Tags ?? new List<string>()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
+			AllFilters = RowControls.Select(a => a.Asset).SelectMany(a => a.Tags ?? new()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
 			FiltersCount = AllFilters.Count();
 
 			FilterHighlightColor = EditorUtils.FromRgbTuple(assetType.GetColor()) * 0.25f;
@@ -77,10 +77,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public UserControl Previewer { get; }
 
-		public List<AssetRowControl> RowControls { get; } = new List<AssetRowControl>();
+		public List<AssetRowControl> RowControls { get; } = new();
 		public AbstractAsset? SelectedAsset { get; set; }
 
-		public List<CheckBox> FilterCheckBoxes { get; } = new List<CheckBox>();
+		public List<CheckBox> FilterCheckBoxes { get; } = new();
 		public Color FilterHighlightColor { get; private set; }
 
 		public IEnumerable<string> CheckedFilters => FilterCheckBoxes.Where(c => c.IsChecked()).Select(s => s.Content.ToString() ?? string.Empty);
@@ -107,9 +107,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			CreateFiltersGui(rows);
 
 			for (int i = 0; i < columns; i++)
-				Filters.ColumnDefinitions.Add(new ColumnDefinition());
+				Filters.ColumnDefinitions.Add(new());
 			for (int i = 0; i < rows; i++)
-				Filters.RowDefinitions.Add(new RowDefinition());
+				Filters.RowDefinitions.Add(new());
 
 			foreach (CheckBox checkBox in FilterCheckBoxes)
 			{
@@ -234,7 +234,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			int i = 0;
 			foreach (string tag in AllFilters)
 			{
-				CheckBox checkBox = new CheckBox { Content = tag };
+				CheckBox checkBox = new() { Content = tag };
 				Grid.SetColumn(checkBox, i / rows);
 				Grid.SetRow(checkBox, i % rows);
 				FilterCheckBoxes.Add(checkBox);

@@ -47,10 +47,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			Color colorEditOdd = colorEditEven * 0.5f;
 			Color colorInfoEven = colorEditOdd;
 			Color colorInfoOdd = colorEditOdd * 0.5f;
-			_brushInfoEven = new SolidColorBrush(colorInfoEven);
-			_brushInfoOdd = new SolidColorBrush(colorInfoOdd);
-			_brushEditEven = new SolidColorBrush(colorEditEven);
-			_brushEditOdd = new SolidColorBrush(colorEditOdd);
+			_brushInfoEven = new(colorInfoEven);
+			_brushInfoOdd = new(colorInfoOdd);
+			_brushEditEven = new(colorEditEven);
+			_brushEditOdd = new(colorEditOdd);
 
 			UpdateGui();
 
@@ -88,8 +88,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		public Rectangle RectangleInfo { get; } = new Rectangle();
-		public Rectangle RectangleEdit { get; } = new Rectangle();
+		public Rectangle RectangleInfo { get; } = new();
+		public Rectangle RectangleEdit { get; } = new();
 
 		public AbstractAsset Asset { get; }
 		public AssetType AssetType { get; }

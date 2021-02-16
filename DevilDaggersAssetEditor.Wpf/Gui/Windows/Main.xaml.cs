@@ -64,13 +64,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			AudioAudioAssetTabControl = new AssetTabControl(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
-			CoreShadersAssetTabControl = new AssetTabControl(BinaryFileType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
-			DdModelBindingsAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
-			DdModelsAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
-			DdShadersAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
-			DdTexturesAssetTabControl = new AssetTabControl(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
-			ParticleParticlesAssetTabControl = new AssetTabControl(BinaryFileType.Particle, AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
+			AudioAudioAssetTabControl = new(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
+			CoreShadersAssetTabControl = new(BinaryFileType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+			DdModelBindingsAssetTabControl = new(BinaryFileType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
+			DdModelsAssetTabControl = new(BinaryFileType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
+			DdShadersAssetTabControl = new(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+			DdTexturesAssetTabControl = new(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
+			ParticleParticlesAssetTabControl = new(BinaryFileType.Particle, AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
 
 			AssetTabControls = new List<AssetTabControl> { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
 
@@ -94,7 +94,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			// After the window has loaded, some user controls still need to finish loading, so set a timer to make sure everything has loaded.
 			// TODO: Find a better way to do this.
-			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
+			DispatcherTimer timer = new() { Interval = new(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
 				if (File.Exists(UserHandler.Instance.Cache.OpenedModFilePath))
