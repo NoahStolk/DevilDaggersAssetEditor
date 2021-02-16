@@ -7,6 +7,7 @@ using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -44,7 +45,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			_binaryName = TextBoxName.Text;
 
-			bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Contains('\\') || _binaryName.Contains('/'); // TODO: Check if it is a valid file name (e.g. no : * ? " etc characters).
+			char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
+			bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Any(c => invalidFileNameChars.Contains(c));
 			OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", $"{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}_{BinaryName}");
 			TextBlockOutputPath.Text = OutputPath;
 		}
