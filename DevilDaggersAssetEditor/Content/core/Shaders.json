@@ -17,6 +17,15 @@
 		]
 	},
 	{
+		"AssetName": "guifontlev",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"Font",
+			"UI"
+		]
+	},
+	{
 		"AssetName": "test",
 		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",

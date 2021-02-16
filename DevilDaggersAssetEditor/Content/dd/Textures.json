@@ -692,6 +692,41 @@
 		]
 	},
 	{
+		"AssetName": "fontlevi",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Leviathan font",
+		"ModelBinding": "",
+		"Tags": [
+			"Font",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "fontlevibg",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Leviathan font background",
+		"ModelBinding": "",
+		"Tags": [
+			"Font",
+			"Hover",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "fontleviover",
+		"ChunkTypeName": "TextureChunk",
+		"DefaultDimensions": "16, 16",
+		"Description": "Leviathan font over",
+		"ModelBinding": "",
+		"Tags": [
+			"Font",
+			"Hover",
+			"UI"
+		]
+	},
+	{
 		"AssetName": "fontpleb",
 		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
