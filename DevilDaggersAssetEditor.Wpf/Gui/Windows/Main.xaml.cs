@@ -9,6 +9,7 @@ using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -61,6 +62,21 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public double PathSize { get; private set; }
 		public double DescriptionSize { get; private set; }
 		public double TagsSize { get; private set; }
+
+		public bool HasAnyAudioFiles()
+			=> AudioAudioAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
+
+		public bool HasAnyCoreFiles()
+			=> CoreShadersAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
+
+		public bool HasAnyDdFiles()
+			=> DdModelBindingsAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound)
+			|| DdModelsAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound)
+			|| DdShadersAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound)
+			|| DdTexturesAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
+
+		public bool HasAnyParticleFiles()
+			=> ParticleParticlesAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{

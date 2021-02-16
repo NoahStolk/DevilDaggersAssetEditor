@@ -18,7 +18,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 	{
 		private string _binaryName = string.Empty;
 
-		public BinaryNameControl(BinaryFileType binaryFileType, AssetType assetTypeForColor)
+		public BinaryNameControl(BinaryFileType binaryFileType, AssetType assetTypeForColor, bool checkBoxIsChecked)
 		{
 			InitializeComponent();
 
@@ -29,6 +29,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
 
 			ProgressBar.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(assetTypeForColor.GetColor()) * 0.25f);
+
+			CheckBoxEnable.IsChecked = checkBoxIsChecked;
 
 			UpdateGui();
 		}

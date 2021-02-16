@@ -13,10 +13,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MakeBinariesWindow : Window
 	{
-		private readonly BinaryNameControl _audioControl = new(BinaryFileType.Audio, AssetType.Audio);
-		private readonly BinaryNameControl _coreControl = new(BinaryFileType.Core, AssetType.Shader);
-		private readonly BinaryNameControl _ddControl = new(BinaryFileType.Dd, AssetType.Texture);
-		private readonly BinaryNameControl _particleControl = new(BinaryFileType.Particle, AssetType.Particle);
+		private readonly BinaryNameControl _audioControl = new(BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles());
+		private readonly BinaryNameControl _coreControl = new(BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles());
+		private readonly BinaryNameControl _ddControl = new(BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles());
+		private readonly BinaryNameControl _particleControl = new(BinaryFileType.Particle, AssetType.Particle, App.Instance.MainWindow!.HasAnyParticleFiles());
 
 		private readonly List<BinaryNameControl> _controls = new();
 
