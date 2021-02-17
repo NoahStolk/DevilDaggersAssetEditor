@@ -12,7 +12,7 @@ namespace DevilDaggersAssetEditor.Utils
 		/// <returns>The null terminated string.</returns>
 		public static string ReadNullTerminatedString(byte[] buffer, int offset)
 		{
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new();
 			for (int i = offset; i < buffer.Length; i++)
 			{
 				char c = (char)buffer[i];

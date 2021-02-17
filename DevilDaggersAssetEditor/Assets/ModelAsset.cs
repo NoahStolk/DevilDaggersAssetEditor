@@ -16,6 +16,6 @@ namespace DevilDaggersAssetEditor.Assets
 		public int DefaultIndexCount { get; }
 
 		public override UserAsset ToUserAsset()
-			=> new UserAsset(AssetType.Model, AssetName, EditorPath);
+			=> new(AssetType.Model, AssetName, EditorPath);
 	}
 }

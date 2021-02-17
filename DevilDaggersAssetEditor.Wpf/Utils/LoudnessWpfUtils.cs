@@ -14,14 +14,14 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 	{
 		public static void ImportLoudness(List<AssetRowControl> rowControls)
 		{
-			OpenFileDialog dialog = new OpenFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
+			OpenFileDialog dialog = new() { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
 				dialog.InitialDirectory = UserHandler.Instance.Settings.AssetsRootFolder;
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			Dictionary<string, float> values = new Dictionary<string, float>();
+			Dictionary<string, float> values = new();
 			int lineNumber = 0;
 			foreach (string line in File.ReadAllLines(dialog.FileName))
 			{
@@ -62,18 +62,18 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 
 		public static void ExportLoudness(List<AssetRowControl> rowControls)
 		{
-			SaveFileDialog dialog = new SaveFileDialog { Filter = "Initialization files (*.ini)|*.ini" };
+			SaveFileDialog dialog = new() { Filter = "Initialization files (*.ini)|*.ini" };
 			if (UserHandler.Instance.Settings.EnableModsRootFolder && Directory.Exists(UserHandler.Instance.Settings.AssetsRootFolder))
 				dialog.InitialDirectory = UserHandler.Instance.Settings.AssetsRootFolder;
 			bool? result = dialog.ShowDialog();
 			if (!result.HasValue || !result.Value)
 				return;
 
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new();
 			foreach (AbstractAsset asset in rowControls.Select(a => a.Asset))
 			{
 				if (asset is AudioAsset audioAsset)
-					sb.AppendLine($"{audioAsset.AssetName} = {audioAsset.Loudness}");
+					sb.Append(audioAsset.AssetName).Append(" = ").Append(audioAsset.Loudness).AppendLine();
 			}
 
 			File.WriteAllText(dialog.FileName, sb.ToString());

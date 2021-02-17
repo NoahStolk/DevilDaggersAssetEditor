@@ -10,7 +10,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 
 		public static string ToTimeString(int milliseconds)
 		{
-			TimeSpan timeSpan = new TimeSpan(0, 0, 0, 0, milliseconds);
+			TimeSpan timeSpan = new(0, 0, 0, 0, milliseconds);
 			if (timeSpan.Days > 0)
 				return $"{timeSpan:dd\\:hh\\:mm\\:ss\\.fff}";
 			if (timeSpan.Hours > 0)

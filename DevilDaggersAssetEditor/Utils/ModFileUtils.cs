@@ -37,7 +37,7 @@ namespace DevilDaggersAssetEditor.Utils
 
 		private static List<UserAsset> GetAssets(string directory)
 		{
-			Dictionary<string, float> loudnessValues = new Dictionary<string, float>();
+			Dictionary<string, float> loudnessValues = new();
 			string? loudnessFilePath = Array.Find(Directory.GetFiles(directory, "*.ini", SearchOption.AllDirectories), p => Path.GetFileNameWithoutExtension(p) == "loudness");
 			if (loudnessFilePath != null)
 			{
@@ -48,7 +48,7 @@ namespace DevilDaggersAssetEditor.Utils
 				}
 			}
 
-			List<UserAsset> assets = new List<UserAsset>();
+			List<UserAsset> assets = new();
 
 			foreach (string path in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories))
 			{

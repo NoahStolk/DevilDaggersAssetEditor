@@ -27,7 +27,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList();
 
 			byte[] fileBuffer;
-			using (MemoryStream stream = new MemoryStream())
+			using (MemoryStream stream = new())
 			{
 				stream.Write(BitConverter.GetBytes(4), 0, sizeof(int));
 				stream.Write(BitConverter.GetBytes(allAssets.Count), 0, sizeof(int));
@@ -49,7 +49,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		private static Dictionary<string, byte[]> GetChunks(List<AbstractAsset> assets)
 		{
-			Dictionary<string, byte[]> dict = new Dictionary<string, byte[]>();
+			Dictionary<string, byte[]> dict = new();
 			foreach (AbstractAsset asset in assets)
 				dict[asset.AssetName] = File.ReadAllBytes(asset.EditorPath);
 
@@ -89,7 +89,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			Buffer.BlockCopy(Encoding.Default.GetBytes(name), 0, buffer, 0, name.Length);
 			Buffer.BlockCopy(fileBuffer, i + name.Length, buffer, name.Length, ParticleBufferLength);
 
-			return new ParticleChunk(name, (uint)i, (uint)buffer.Length, buffer);
+			return new(name, (uint)i, (uint)buffer.Length, buffer);
 		}
 	}
 }

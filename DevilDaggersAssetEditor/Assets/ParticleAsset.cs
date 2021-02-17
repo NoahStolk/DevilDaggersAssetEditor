@@ -11,6 +11,6 @@ namespace DevilDaggersAssetEditor.Assets
 		}
 
 		public override UserAsset ToUserAsset()
-			=> new UserAsset(AssetType.Particle, AssetName, EditorPath);
+			=> new(AssetType.Particle, AssetName, EditorPath);
 	}
 }

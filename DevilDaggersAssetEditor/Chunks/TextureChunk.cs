@@ -90,7 +90,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			GetBufferSizes((int)width, (int)height, mipmapCount, out _, out int[] _);
 
 			IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 11);
-			using Bitmap bitmap = new Bitmap((int)width, (int)height, (int)width * 4, PixelFormat.Format32bppArgb, intPtr);
+			using Bitmap bitmap = new((int)width, (int)height, (int)width * 4, PixelFormat.Format32bppArgb, intPtr);
 			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
 			for (int x = 0; x < bitmap.Width; x++)
@@ -102,12 +102,12 @@ namespace DevilDaggersAssetEditor.Chunks
 				}
 			}
 
-			using MemoryStream memoryStream = new MemoryStream();
+			using MemoryStream memoryStream = new();
 
 			// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
 			new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
 
-			yield return new FileResult(Name, memoryStream.ToArray());
+			yield return new(Name, memoryStream.ToArray());
 		}
 
 #if EXTRACT_MIPMAPS
@@ -144,7 +144,7 @@ namespace DevilDaggersAssetEditor.Chunks
 				// Create a new BitMap object to prevent "a generic GDI+ error" from being thrown.
 				new Bitmap(bitmap).Save(memoryStream, ImageFormat.Png);
 
-				yield return new FileResult(Name + (_extractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : string.Empty), memoryStream.ToArray());
+				yield return new(Name + (_extractMipmaps ? $"_{bitmap.Width}x{bitmap.Height}" : string.Empty), memoryStream.ToArray());
 			}
 		}
 #endif
@@ -192,8 +192,8 @@ namespace DevilDaggersAssetEditor.Chunks
 		/// <returns>The resized image.</returns>
 		private static Bitmap ResizeImage(Image image, int width, int height)
 		{
-			Rectangle destRect = new Rectangle(0, 0, width, height);
-			Bitmap destImage = new Bitmap(width, height);
+			Rectangle destRect = new(0, 0, width, height);
+			Bitmap destImage = new(width, height);
 
 			destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
 
@@ -205,7 +205,7 @@ namespace DevilDaggersAssetEditor.Chunks
 				graphics.SmoothingMode = SmoothingMode.HighQuality;
 				graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-				using ImageAttributes wrapMode = new ImageAttributes();
+				using ImageAttributes wrapMode = new();
 				wrapMode.SetWrapMode(WrapMode.TileFlipXY);
 				graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
 			}

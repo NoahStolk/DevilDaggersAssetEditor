@@ -47,11 +47,11 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			byte[] vertexBuffer = new byte[vertexSize];
 			Buf.BlockCopy(Buffer, (int)nameLength + 12, vertexBuffer, 0, (int)vertexSize);
-			yield return new FileResult($"{Name}_vertex", vertexBuffer);
+			yield return new($"{Name}_vertex", vertexBuffer);
 
 			byte[] fragmentBuffer = new byte[fragmentSize];
 			Buf.BlockCopy(Buffer, (int)nameLength + 12 + (int)vertexSize, fragmentBuffer, 0, (int)fragmentSize);
-			yield return new FileResult($"{Name}_fragment", fragmentBuffer);
+			yield return new($"{Name}_fragment", fragmentBuffer);
 		}
 	}
 }

@@ -15,8 +15,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 	public partial class LoadingWindow : Window
 	{
 		private int _threadsComplete;
-		private readonly List<BackgroundWorker> _threads = new List<BackgroundWorker>();
-		private readonly List<string> _threadMessages = new List<string>();
+		private readonly List<BackgroundWorker> _threads = new();
+		private readonly List<string> _threadMessages = new();
 
 		public LoadingWindow()
 		{
@@ -34,7 +34,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void RunThreads(object? sender, EventArgs e)
 		{
-			using BackgroundWorker checkVersionThread = new BackgroundWorker();
+			using BackgroundWorker checkVersionThread = new();
 			checkVersionThread.DoWork += (sender, e) => NetworkHandler.Instance.GetOnlineTool();
 			checkVersionThread.RunWorkerCompleted += (sender, e) =>
 			{
@@ -80,14 +80,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			bool readUserSettingsSuccess = false;
 			bool userSettingsFileExists = File.Exists(UserSettings.FileName);
-			using BackgroundWorker readUserSettingsThread = new BackgroundWorker();
+			using BackgroundWorker readUserSettingsThread = new();
 			readUserSettingsThread.DoWork += (sender, e) =>
 			{
 				try
 				{
 					if (userSettingsFileExists)
 					{
-						using StreamReader sr = new StreamReader(File.OpenRead(UserSettings.FileName));
+						using StreamReader sr = new(File.OpenRead(UserSettings.FileName));
 						UserHandler.Instance.Settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
 					}
 
@@ -115,14 +115,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			bool readUserCacheSuccess = false;
 			bool userCacheFileExists = File.Exists(UserCache.FileName);
-			using BackgroundWorker readUserCacheThread = new BackgroundWorker();
+			using BackgroundWorker readUserCacheThread = new();
 			readUserCacheThread.DoWork += (sender, e) =>
 			{
 				try
 				{
 					if (userCacheFileExists)
 					{
-						using StreamReader sr = new StreamReader(File.OpenRead(UserCache.FileName));
+						using StreamReader sr = new(File.OpenRead(UserCache.FileName));
 						UserHandler.Instance.Cache = JsonConvert.DeserializeObject<UserCache>(sr.ReadToEnd());
 					}
 
@@ -148,12 +148,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				ThreadComplete();
 			};
 
-			using BackgroundWorker mainInitThread = new BackgroundWorker();
+			using BackgroundWorker mainInitThread = new();
 			mainInitThread.DoWork += (sender, e) =>
 			{
 				Dispatcher.Invoke(() =>
 				{
-					MainWindow mainWindow = new MainWindow();
+					MainWindow mainWindow = new();
 					mainWindow.Show();
 				});
 			};

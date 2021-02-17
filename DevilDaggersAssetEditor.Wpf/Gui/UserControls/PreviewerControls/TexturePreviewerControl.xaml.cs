@@ -36,10 +36,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 					FileMipmaps.Content = TextureAsset.GetMipmapCount(image.Width, image.Height).ToString(CultureInfo.InvariantCulture);
 				}
 
-				using FileStream imageFileStream = new FileStream(textureAsset.EditorPath, FileMode.Open, FileAccess.Read);
-				MemoryStream imageCopyStream = new MemoryStream();
+				using FileStream imageFileStream = new(textureAsset.EditorPath, FileMode.Open, FileAccess.Read);
+				MemoryStream imageCopyStream = new();
 				imageFileStream.CopyTo(imageCopyStream);
-				BitmapImage src = new BitmapImage();
+				BitmapImage src = new();
 				src.BeginInit();
 				src.StreamSource = imageCopyStream;
 				src.EndInit();

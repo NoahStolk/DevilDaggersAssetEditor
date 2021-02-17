@@ -11,29 +11,29 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public sealed class AssetHandler
 	{
-		private static readonly Lazy<AssetHandler> _lazy = new Lazy<AssetHandler>(() => new AssetHandler());
+		private static readonly Lazy<AssetHandler> _lazy = new(() => new());
 
 		private AssetHandler()
 		{
-			using StreamReader srAudioAudio = new StreamReader(AssemblyUtils.GetContentStream("audio.Audio.json"));
+			using StreamReader srAudioAudio = new(AssemblyUtils.GetContentStream("audio.Audio.json"));
 			AudioAudioAssets = JsonConvert.DeserializeObject<List<AudioAsset>>(srAudioAudio.ReadToEnd());
 
-			using StreamReader srCoreShaders = new StreamReader(AssemblyUtils.GetContentStream("core.Shaders.json"));
+			using StreamReader srCoreShaders = new(AssemblyUtils.GetContentStream("core.Shaders.json"));
 			CoreShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srCoreShaders.ReadToEnd());
 
-			using StreamReader srDdModelBindings = new StreamReader(AssemblyUtils.GetContentStream("dd.Model Bindings.json"));
+			using StreamReader srDdModelBindings = new(AssemblyUtils.GetContentStream("dd.Model Bindings.json"));
 			DdModelBindingsAssets = JsonConvert.DeserializeObject<List<ModelBindingAsset>>(srDdModelBindings.ReadToEnd());
 
-			using StreamReader srDdModels = new StreamReader(AssemblyUtils.GetContentStream("dd.Models.json"));
+			using StreamReader srDdModels = new(AssemblyUtils.GetContentStream("dd.Models.json"));
 			DdModelsAssets = JsonConvert.DeserializeObject<List<ModelAsset>>(srDdModels.ReadToEnd());
 
-			using StreamReader srDdShaders = new StreamReader(AssemblyUtils.GetContentStream("dd.Shaders.json"));
+			using StreamReader srDdShaders = new(AssemblyUtils.GetContentStream("dd.Shaders.json"));
 			DdShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srDdShaders.ReadToEnd());
 
-			using StreamReader srDdTextures = new StreamReader(AssemblyUtils.GetContentStream("dd.Textures.json"));
+			using StreamReader srDdTextures = new(AssemblyUtils.GetContentStream("dd.Textures.json"));
 			DdTexturesAssets = JsonConvert.DeserializeObject<List<TextureAsset>>(srDdTextures.ReadToEnd());
 
-			using StreamReader srParticleParticles = new StreamReader(AssemblyUtils.GetContentStream("particle.Particles.json"));
+			using StreamReader srParticleParticles = new(AssemblyUtils.GetContentStream("particle.Particles.json"));
 			ParticleParticlesAssets = JsonConvert.DeserializeObject<List<ParticleAsset>>(srParticleParticles.ReadToEnd());
 		}
 

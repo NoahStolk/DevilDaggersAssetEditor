@@ -31,7 +31,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void OpenFile_Click(object sender, RoutedEventArgs e)
 		{
-			OpenFileDialog openDialog = new OpenFileDialog();
+			OpenFileDialog openDialog = new();
 			openDialog.OpenDevilDaggersRootFolder();
 
 			bool? openResult = openDialog.ShowDialog();
@@ -55,9 +55,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			ChunkData.Children.Clear();
 			ChunkData.RowDefinitions.Clear();
 
-			Dictionary<string, AnalyzerChunkGroup> chunkGroups = new Dictionary<string, AnalyzerChunkGroup>
+			Dictionary<string, AnalyzerChunkGroup> chunkGroups = new()
 			{
-				{ "File header", ChunkResult(Color.FromRgb(255, 127, 127), fileResult.HeaderByteCount, new List<IChunk>()) },
+				{ "File header", ChunkResult(Color.FromRgb(255, 127, 127), fileResult.HeaderByteCount, new()) },
 			};
 
 			IEnumerable<IGrouping<AssetType, IChunk>> chunksByType = fileResult.Chunks.GroupBy(c => c.AssetType);
@@ -101,7 +101,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			uint unknownSize = (uint)(fileResult.FileByteCount - chunkGroups.Sum(c => c.Value.ByteCount));
 			if (unknownSize > 0)
-				chunkGroups.Add("Unknown", ChunkResult(Color.FromRgb(127, 127, 255), unknownSize, new List<IChunk>()));
+				chunkGroups.Add("Unknown", ChunkResult(Color.FromRgb(127, 127, 255), unknownSize, new()));
 
 			const int totalHeight = 32;
 			double pos = 0;
@@ -116,7 +116,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				double sizePercentage = kvp.Value.ByteCount / (double)fileResult.FileByteCount;
 				double width = sizePercentage * Canvas.Width;
-				Rectangle rect = new Rectangle
+				Rectangle rect = new()
 				{
 					Width = width,
 					Height = totalHeight,
@@ -127,25 +127,25 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				pos += width;
 
-				Rectangle rectColor = new Rectangle { Fill = new SolidColorBrush(color) };
+				Rectangle rectColor = new() { Fill = new SolidColorBrush(color) };
 				rectColor.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 				rectColor.StrokeThickness = 1;
 				rectColor.SnapsToDevicePixels = true;
 
 				SolidColorBrush bgColor = ColorUtils.ThemeColors[i++ % 2 == 0 ? "Gray4" : "Gray5"];
 
-				Rectangle rectBackground = new Rectangle { Fill = bgColor };
+				Rectangle rectBackground = new() { Fill = bgColor };
 				rectBackground.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
 				rectBackground.StrokeThickness = 1;
 				rectBackground.StrokeDashArray = new DoubleCollection(new List<double> { 1, 2 });
 				rectBackground.SnapsToDevicePixels = true;
-				Label labelPercentage = new Label { Content = sizePercentage.ToString("0.000%", CultureInfo.InvariantCulture) };
+				Label labelPercentage = new() { Content = sizePercentage.ToString("0.000%", CultureInfo.InvariantCulture) };
 
 				Grid.SetColumn(rectColor, 0);
 				Grid.SetColumn(rectBackground, 1);
 				Grid.SetColumnSpan(labelPercentage, 2);
 
-				Grid grid = new Grid();
+				Grid grid = new();
 				double col0w = sizePercentage / maxPercentage * 100;
 				double col1w = 100 - sizePercentage / maxPercentage * 100;
 				if (col0w < 0.001)
@@ -158,7 +158,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				grid.Children.Add(rectBackground);
 				grid.Children.Add(labelPercentage);
 
-				StackPanel stackPanel = new StackPanel { Background = bgColor };
+				StackPanel stackPanel = new() { Background = bgColor };
 				stackPanel.Children.Add(new Label { Content = $"{kvp.Key} data", FontWeight = FontWeights.Bold });
 				stackPanel.Children.Add(grid);
 				stackPanel.Children.Add(new Label { Content = $"{kvp.Value.ByteCount:N0} bytes" });
@@ -180,8 +180,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				Color bgColor = baseBgColor * (float)chunkSizePercentage * 50;
 				Brush textColor = GetTextColorBasedOnBackgroundColor(bgColor);
 
-				StackPanel stackPanel = new StackPanel { Background = new SolidColorBrush(bgColor) };
-				TextBlock textBlockDataName = new TextBlock { Margin = new Thickness(2), Text = chunk.AssetType.ToString(), FontWeight = FontWeights.Bold, Foreground = textColor };
+				StackPanel stackPanel = new() { Background = new SolidColorBrush(bgColor) };
+				TextBlock textBlockDataName = new() { Margin = new Thickness(2), Text = chunk.AssetType.ToString(), FontWeight = FontWeights.Bold, Foreground = textColor };
 				if (chunkSizePercentage < 0.005f)
 					textBlockDataName.Background = new SolidColorBrush(baseBgColor * 0.25f);
 				stackPanel.Children.Add(textBlockDataName);
@@ -189,7 +189,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				stackPanel.Children.Add(new Label { Content = $"{chunk.Size:N0} bytes", Foreground = textColor });
 				stackPanel.Children.Add(new Label { Content = $"{chunkSizePercentage:0.000%} of file", Foreground = textColor });
 
-				Border border = new Border { BorderThickness = new Thickness(1), BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)) };
+				Border border = new() { BorderThickness = new Thickness(1), BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)) };
 				border.Child = stackPanel;
 				Grid.SetColumn(border, k % _columnCount);
 				Grid.SetRow(border, k / _columnCount);
@@ -203,7 +203,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			=> ColorUtils.GetPerceivedBrightness(backgroundColor) < 140 ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["Gray1"];
 
 		private static AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, List<IChunk> chunks)
-			=> new AnalyzerChunkGroup(color.R, color.G, color.B, byteCount, chunks);
+			=> new(color.R, color.G, color.B, byteCount, chunks);
 
 		private static Color ChunkResultColor(AnalyzerChunkGroup chunkResult)
 			=> Color.FromRgb(chunkResult.R, chunkResult.G, chunkResult.B);
@@ -212,12 +212,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			try
 			{
-				ResourceFileHandler fileHandler = new ResourceFileHandler(BinaryFileType.None); // Since we're only validating the file, we can pass None as BinaryFileType.
+				ResourceFileHandler fileHandler = new(BinaryFileType.None); // Since we're only validating the file, we can pass None as BinaryFileType.
 				fileHandler.ValidateFile(sourceFileBytes);
 
 				byte[] tocBuffer = ResourceFileHandler.ReadTocBuffer(sourceFileBytes);
 
-				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer).Cast<IChunk>().ToList());
+				return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer).Cast<IChunk>().ToList());
 			}
 			catch
 			{
@@ -229,7 +229,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			try
 			{
-				ParticleFileHandler fileHandler = new ParticleFileHandler();
+				ParticleFileHandler fileHandler = new();
 				fileHandler.ValidateFile(sourceFileBytes);
 
 				int i = ParticleFileHandler.HeaderSize;
@@ -241,7 +241,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					chunks.Add(chunk);
 				}
 
-				return new AnalyzerFileResult(sourceFileName, (uint)sourceFileBytes.Length, ParticleFileHandler.HeaderSize, chunks);
+				return new(sourceFileName, (uint)sourceFileBytes.Length, ParticleFileHandler.HeaderSize, chunks);
 			}
 			catch
 			{

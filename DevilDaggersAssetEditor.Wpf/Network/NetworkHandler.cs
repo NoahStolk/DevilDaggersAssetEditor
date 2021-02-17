@@ -1,8 +1,6 @@
 ﻿using DevilDaggersAssetEditor.Wpf.Clients;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 
 namespace DevilDaggersAssetEditor.Wpf.Network
 {
@@ -14,15 +12,11 @@ namespace DevilDaggersAssetEditor.Wpf.Network
 		public static readonly string BaseUrl = "https://devildaggers.info";
 #endif
 
-		private static readonly Lazy<NetworkHandler> _lazy = new Lazy<NetworkHandler>(() => new NetworkHandler());
+		private static readonly Lazy<NetworkHandler> _lazy = new(() => new());
 
 		private NetworkHandler()
 		{
-			HttpClient httpClient = new HttpClient
-			{
-				BaseAddress = new Uri(BaseUrl),
-			};
-			ApiClient = new DevilDaggersInfoApiClient(httpClient);
+			ApiClient = new(new() { BaseAddress = new(BaseUrl), });
 		}
 
 		public static NetworkHandler Instance => _lazy.Value;
@@ -36,7 +30,7 @@ namespace DevilDaggersAssetEditor.Wpf.Network
 			try
 			{
 				List<Tool> tools = ApiClient.Tools_GetToolsAsync(App.ApplicationName).Result;
-				Tool = tools.First();
+				Tool = tools[0];
 
 				return true;
 			}

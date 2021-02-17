@@ -7,8 +7,8 @@ namespace DevilDaggersAssetEditor.Json
 	{
 		public static void SerializeToFile(string path, object obj, bool includeType)
 		{
-			using StreamWriter sw = new StreamWriter(File.Create(path));
-			using JsonTextWriter jtw = new JsonTextWriter(sw) { Formatting = Formatting.Indented, IndentChar = '\t', Indentation = 1 };
+			using StreamWriter sw = new(File.Create(path));
+			using JsonTextWriter jtw = new(sw) { Formatting = Formatting.Indented, IndentChar = '\t', Indentation = 1 };
 			if (includeType)
 				JsonSerializers.TypeNameSerializer.Serialize(jtw, obj);
 			else
@@ -20,7 +20,7 @@ namespace DevilDaggersAssetEditor.Json
 		{
 			try
 			{
-				using StreamReader sr = new StreamReader(File.OpenRead(path));
+				using StreamReader sr = new(File.OpenRead(path));
 				if (includeType)
 					return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), JsonSerializers.TypeNameSerializationSettings);
 				return JsonConvert.DeserializeObject<T>(sr.ReadToEnd(), JsonSerializers.DefaultSerializationSettings);

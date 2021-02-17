@@ -29,7 +29,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			{
 				byte[] bytes = File.ReadAllBytes(particleAsset.EditorPath);
 				string hex = BitConverter.ToString(bytes).Replace("-", string.Empty, StringComparison.InvariantCulture);
-				StringBuilder sb = new StringBuilder();
+				StringBuilder sb = new();
 				for (int i = 0; i < hex.Length; i++)
 				{
 					if (i != 0)

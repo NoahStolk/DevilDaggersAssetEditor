@@ -20,16 +20,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 	{
 		private int _tabControlSizeIndex;
 
-		private readonly List<Point> _tabControlSizes = new List<Point>
+		private readonly List<Point> _tabControlSizes = new()
 		{
-			new Point(3840, 2160),
-			new Point(2560, 1440),
-			new Point(2048, 1152),
-			new Point(1920, 1200),
-			new Point(1920, 1080),
-			new Point(1680, 1050),
-			new Point(1440, 900),
-			new Point(1366, 768),
+			new(3840, 2160),
+			new(2560, 1440),
+			new(2048, 1152),
+			new(1920, 1200),
+			new(1920, 1080),
+			new(1680, 1050),
+			new(1440, 900),
+			new(1366, 768),
 		};
 
 		public MainWindow()
@@ -104,7 +104,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			if (NetworkHandler.Instance.Tool != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 			{
-				UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
+				UpdateRecommendedWindow updateRecommendedWindow = new(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
 				updateRecommendedWindow.ShowDialog();
 			}
 

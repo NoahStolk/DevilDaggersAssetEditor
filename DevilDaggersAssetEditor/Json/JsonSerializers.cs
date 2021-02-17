@@ -4,11 +4,11 @@ namespace DevilDaggersAssetEditor.Json
 {
 	public static class JsonSerializers
 	{
-		public static readonly JsonSerializerSettings DefaultSerializationSettings = new JsonSerializerSettings
+		public static readonly JsonSerializerSettings DefaultSerializationSettings = new()
 		{
 			DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
 		};
-		public static readonly JsonSerializerSettings TypeNameSerializationSettings = new JsonSerializerSettings
+		public static readonly JsonSerializerSettings TypeNameSerializationSettings = new()
 		{
 			TypeNameHandling = TypeNameHandling.Objects,
 			DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,

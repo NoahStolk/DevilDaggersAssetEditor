@@ -11,6 +11,6 @@ namespace DevilDaggersAssetEditor.Assets
 		}
 
 		public override UserAsset ToUserAsset()
-			=> new UserAsset(AssetType.ModelBinding, AssetName, EditorPath);
+			=> new(AssetType.ModelBinding, AssetName, EditorPath);
 	}
 }

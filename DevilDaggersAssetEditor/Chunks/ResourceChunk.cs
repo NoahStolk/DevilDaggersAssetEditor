@@ -31,7 +31,7 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		public virtual IEnumerable<FileResult> ExtractBinary()
 		{
-			yield return new FileResult(Name, Buffer);
+			yield return new(Name, Buffer);
 		}
 
 		public override string ToString()

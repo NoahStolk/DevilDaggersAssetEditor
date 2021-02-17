@@ -27,7 +27,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 			ToggleImage.Source = ((Image)Resources["PlayImage"]).Source;
 			ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
 
-			DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 0, 0, 10) };
+			DispatcherTimer timer = new() { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 			timer.Tick += (sender, e) =>
 			{
 				if (Song?.Paused != false)

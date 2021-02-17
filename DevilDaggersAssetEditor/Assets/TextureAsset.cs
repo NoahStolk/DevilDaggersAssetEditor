@@ -20,7 +20,7 @@ namespace DevilDaggersAssetEditor.Assets
 		public bool IsModelTexture { get; set; }
 
 		public override UserAsset ToUserAsset()
-			=> new UserAsset(AssetType.Texture, AssetName, EditorPath);
+			=> new(AssetType.Texture, AssetName, EditorPath);
 
 		public static byte GetMipmapCount(int width, int height)
 			=> (byte)(Math.Log(Math.Min(width, height), 2) + 1);

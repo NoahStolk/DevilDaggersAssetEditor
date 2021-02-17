@@ -142,7 +142,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			for (int i = 0; i < Asset.Tags.Count; i++)
 			{
 				string tag = Asset.Tags[i];
-				Run tagRun = new Run(tag);
+				Run tagRun = new(tag);
 				if (checkedFilters.Contains(tag))
 					tagRun.Background = new SolidColorBrush(filterHighlightColor);
 
@@ -154,7 +154,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void BrowsePath(bool fragmentShader)
 		{
-			OpenFileDialog openDialog = new OpenFileDialog { Filter = OpenDialogFilter };
+			OpenFileDialog openDialog = new() { Filter = OpenDialogFilter };
 			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableAssetsRootFolder, UserHandler.Instance.Settings.AssetsRootFolder);
 
 			bool? openResult = openDialog.ShowDialog();

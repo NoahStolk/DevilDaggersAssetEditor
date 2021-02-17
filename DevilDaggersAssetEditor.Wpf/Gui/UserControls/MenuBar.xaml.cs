@@ -44,14 +44,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 
 #if DEBUG
-			MenuItem debugItem = new MenuItem { Header = "Open debug window" };
+			MenuItem debugItem = new() { Header = "Open debug window" };
 			debugItem.Click += (sender, e) =>
 			{
-				DebugWindow debugWindow = new DebugWindow();
+				DebugWindow debugWindow = new();
 				debugWindow.ShowDialog();
 			};
 
-			MenuItem debugHeader = new MenuItem { Header = "Debug" };
+			MenuItem debugHeader = new() { Header = "Debug" };
 			debugHeader.Items.Add(debugItem);
 
 			MenuPanel.Items.Add(debugHeader);
@@ -77,7 +77,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void OpenMod_Click(object sender, RoutedEventArgs e)
 		{
-			OpenFileDialog dialog = new OpenFileDialog { Filter = _modFileFilter };
+			OpenFileDialog dialog = new() { Filter = _modFileFilter };
 			dialog.OpenModsRootFolder();
 
 			bool? openResult = dialog.ShowDialog();
@@ -108,11 +108,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
 
-			List<UserAsset> userAssets = new List<UserAsset>();
+			List<UserAsset> userAssets = new();
 			foreach (AbstractAsset asset in assets)
 				userAssets.Add(asset.ToUserAsset());
 
-			SaveFileDialog dialog = new SaveFileDialog { Filter = _modFileFilter };
+			SaveFileDialog dialog = new() { Filter = _modFileFilter };
 			dialog.OpenModsRootFolder();
 
 			bool? result = dialog.ShowDialog();
@@ -124,19 +124,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void ExtractBinaries_Click(object sender, RoutedEventArgs e)
 		{
-			ExtractBinariesWindow window = new ExtractBinariesWindow();
+			ExtractBinariesWindow window = new();
 			window.ShowDialog();
 		}
 
 		private void MakeBinaries_Click(object sender, RoutedEventArgs e)
 		{
-			MakeBinariesWindow window = new MakeBinariesWindow();
+			MakeBinariesWindow window = new();
 			window.ShowDialog();
 		}
 
 		private void ImportAssets_Click(object sender, RoutedEventArgs e)
 		{
-			ImportAssetsWindow window = new ImportAssetsWindow();
+			ImportAssetsWindow window = new();
 			window.ShowDialog();
 		}
 
@@ -151,26 +151,26 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void Settings_Click(object sender, RoutedEventArgs e)
 		{
-			SettingsWindow settingsWindow = new SettingsWindow();
+			SettingsWindow settingsWindow = new();
 			if (settingsWindow.ShowDialog() == true)
 				UserHandler.Instance.SaveSettings();
 		}
 
 		private void AnalyzeBinaryFile_Click(object sender, RoutedEventArgs e)
 		{
-			BinaryFileAnalyzerWindow fileAnalyzerWindow = new BinaryFileAnalyzerWindow();
+			BinaryFileAnalyzerWindow fileAnalyzerWindow = new();
 			fileAnalyzerWindow.ShowDialog();
 		}
 
 		private void Help_Click(object sender, RoutedEventArgs e)
 		{
-			HelpWindow helpWindow = new HelpWindow();
+			HelpWindow helpWindow = new();
 			helpWindow.ShowDialog();
 		}
 
 		private void About_Click(object sender, RoutedEventArgs e)
 		{
-			AboutWindow aboutWindow = new AboutWindow();
+			AboutWindow aboutWindow = new();
 			aboutWindow.ShowDialog();
 		}
 
@@ -179,7 +179,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (NetworkHandler.Instance.Tool != null)
 			{
 				List<ChangelogEntry> changes = NetworkHandler.Instance.Tool.Changelog.Select(c => new ChangelogEntry(Version.Parse(c.VersionNumber), c.Date, MapToSharedModel(c.Changes)?.ToList() ?? new List<Change>())).ToList();
-				ChangelogWindow changelogWindow = new ChangelogWindow(changes, App.LocalVersion);
+				ChangelogWindow changelogWindow = new(changes, App.LocalVersion);
 				changelogWindow.ShowDialog();
 			}
 			else
@@ -189,8 +189,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			static IEnumerable<Change>? MapToSharedModel(List<Clients.Change>? changes)
 			{
-				foreach (Clients.Change change in changes ?? new List<Clients.Change>())
-					yield return new Change(change.Description, MapToSharedModel(change.SubChanges)?.ToList());
+				foreach (Clients.Change change in changes ?? new())
+					yield return new(change.Description, MapToSharedModel(change.SubChanges)?.ToList());
 			}
 		}
 
@@ -199,14 +199,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void CheckForUpdates_Click(object sender, RoutedEventArgs e)
 		{
-			CheckingForUpdatesWindow window = new CheckingForUpdatesWindow(NetworkHandler.Instance.GetOnlineTool);
+			CheckingForUpdatesWindow window = new(NetworkHandler.Instance.GetOnlineTool);
 			window.ShowDialog();
 
 			if (NetworkHandler.Instance.Tool != null)
 			{
 				if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 				{
-					UpdateRecommendedWindow updateRecommendedWindow = new UpdateRecommendedWindow(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
+					UpdateRecommendedWindow updateRecommendedWindow = new(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
 					updateRecommendedWindow.ShowDialog();
 				}
 				else
