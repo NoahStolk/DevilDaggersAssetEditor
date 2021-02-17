@@ -51,7 +51,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
 			bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Any(c => invalidFileNameChars.Contains(c));
-			OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", $"{BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}_{BinaryName}");
+			OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture) + BinaryName);
 			TextBlockOutputPath.Text = OutputPath;
 		}
 
