@@ -706,7 +706,7 @@
 		"AssetName": "fontlevibg",
 		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
-		"Description": "Leviathan font background",
+		"Description": "Leviathan font mask",
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -1316,7 +1316,7 @@
 			"Icon",
 			"UI"
 		]
-	},	
+	},
 	{
 		"AssetName": "iconmaskgem",
 		"ChunkTypeName": "TextureChunk",
