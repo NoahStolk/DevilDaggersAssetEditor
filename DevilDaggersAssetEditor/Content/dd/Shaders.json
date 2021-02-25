@@ -2,7 +2,7 @@
 	{
 		"AssetName": "boid",
 		"Description": "?",
-		"IsProhibited": true,
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -74,7 +74,7 @@
 	{
 		"AssetName": "gib",
 		"Description": "?",
-		"IsProhibited": true,
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -122,7 +122,7 @@
 	{
 		"AssetName": "owlwing",
 		"Description": "Unused?",
-		"IsProhibited": true,
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -234,7 +234,7 @@
 	{
 		"AssetName": "squidarm",
 		"Description": "?",
-		"IsProhibited": true,
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -242,7 +242,7 @@
 	{
 		"AssetName": "thorn",
 		"Description": "?",
-		"IsProhibited": true,
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
