@@ -7,8 +7,8 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public class TextureAsset : AbstractAsset
 	{
-		public TextureAsset(string assetName, string description, List<string> tags, Point defaultDimensions, string modelBinding, bool isModelTexture)
-			: base(assetName, AssetType.Texture, description, tags)
+		public TextureAsset(string assetName, string description, List<string> tags, bool isProhibited, Point defaultDimensions, string modelBinding, bool isModelTexture)
+			: base(assetName, AssetType.Texture, description, tags, isProhibited)
 		{
 			DefaultDimensions = defaultDimensions;
 			ModelBinding = modelBinding;

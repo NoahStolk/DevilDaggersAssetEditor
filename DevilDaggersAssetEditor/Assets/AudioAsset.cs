@@ -5,8 +5,8 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public class AudioAsset : AbstractAsset
 	{
-		public AudioAsset(string assetName, string description, List<string> tags, float loudness, bool presentInDefaultLoudness)
-			: base(assetName, AssetType.Audio, description, tags)
+		public AudioAsset(string assetName, string description, List<string> tags, bool isProhibited, float loudness, bool presentInDefaultLoudness)
+			: base(assetName, AssetType.Audio, description, tags, isProhibited)
 		{
 			PresentInDefaultLoudness = presentInDefaultLoudness;
 			DefaultLoudness = loudness;

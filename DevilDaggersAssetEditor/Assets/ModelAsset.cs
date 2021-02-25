@@ -5,8 +5,8 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public class ModelAsset : AbstractAsset
 	{
-		public ModelAsset(string assetName, string description, List<string> tags, int defaultVertexCount, int defaultIndexCount)
-			: base(assetName, AssetType.Model, description, tags)
+		public ModelAsset(string assetName, string description, List<string> tags, bool isProhibited, int defaultVertexCount, int defaultIndexCount)
+			: base(assetName, AssetType.Model, description, tags, isProhibited)
 		{
 			DefaultVertexCount = defaultVertexCount;
 			DefaultIndexCount = defaultIndexCount;

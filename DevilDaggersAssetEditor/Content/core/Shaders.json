@@ -1,16 +1,16 @@
 [
 	{
 		"AssetName": "gui",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"UI"
 		]
 	},
 	{
 		"AssetName": "guifont",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"Font",
 			"UI"
@@ -18,8 +18,8 @@
 	},
 	{
 		"AssetName": "guifontlev",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"Font",
 			"UI"
@@ -27,8 +27,8 @@
 	},
 	{
 		"AssetName": "test",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]

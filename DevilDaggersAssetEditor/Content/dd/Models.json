@@ -1,130 +1,130 @@
 [
 	{
 		"AssetName": "bat",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 16,
 		"DefaultVertexCount": 40,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 58,
 		"DefaultVertexCount": 50,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood10",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 165,
 		"DefaultVertexCount": 106,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood11",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 86,
 		"DefaultVertexCount": 74,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 44,
 		"DefaultVertexCount": 33,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 114,
 		"DefaultVertexCount": 93,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood4",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 48,
 		"DefaultVertexCount": 38,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood5",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 167,
 		"DefaultVertexCount": 228,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood6",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 112,
 		"DefaultVertexCount": 116,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood7",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 78,
 		"DefaultVertexCount": 54,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood8",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 82,
 		"DefaultVertexCount": 73,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "blood9",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 59,
 		"DefaultVertexCount": 43,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "boid",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 694,
 		"DefaultVertexCount": 375,
 		"Description": "Skull I",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Skull I"
@@ -132,10 +132,10 @@
 	},
 	{
 		"AssetName": "boid2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
 		"Description": "Skull II",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Skull II"
@@ -143,22 +143,22 @@
 	},
 	{
 		"AssetName": "boid2horns",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 490,
 		"DefaultVertexCount": 281,
 		"Description": "Skull II horns",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"Skull II",
-			"Horns"
+			"Horns",
+			"Skull II"
 		]
 	},
 	{
 		"AssetName": "boid3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
 		"Description": "Skull III",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Skull III"
@@ -166,34 +166,34 @@
 	},
 	{
 		"AssetName": "boid3horns",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 620,
 		"DefaultVertexCount": 364,
 		"Description": "Skull III horns",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"Skull III",
-			"Horns"
+			"Horns",
+			"Skull III"
 		]
 	},
 	{
 		"AssetName": "boid3jaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 322,
 		"DefaultVertexCount": 185,
 		"Description": "Skull III jaw",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"Skull III",
-			"Jaw"
+			"Jaw",
+			"Skull III"
 		]
 	},
 	{
 		"AssetName": "boid4",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2299,
 		"DefaultVertexCount": 3229,
 		"Description": "Skull IV",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Skull IV"
@@ -201,212 +201,212 @@
 	},
 	{
 		"AssetName": "boid4jaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 414,
 		"DefaultVertexCount": 781,
 		"Description": "Skull IV jaw",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"Skull IV",
-			"Jaw"
+			"Jaw",
+			"Skull IV"
 		]
 	},
 	{
 		"AssetName": "bottom",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2,
 		"DefaultVertexCount": 4,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 60,
 		"DefaultVertexCount": 164,
 		"Description": "Dagger",
+		"IsProhibited": false,
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
 		"AssetName": "ember1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 44,
 		"DefaultVertexCount": 27,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ember2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 44,
 		"DefaultVertexCount": 60,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ember3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 38,
 		"DefaultVertexCount": 40,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "feather1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 90,
 		"DefaultVertexCount": 67,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "feather2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 66,
 		"DefaultVertexCount": 47,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 76,
 		"DefaultVertexCount": 45,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 130,
 		"DefaultVertexCount": 107,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 98,
 		"DefaultVertexCount": 65,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame4",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 81,
 		"DefaultVertexCount": 62,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame5",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 131,
 		"DefaultVertexCount": 100,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame6",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 190,
 		"DefaultVertexCount": 147,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame7",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 198,
 		"DefaultVertexCount": 176,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "flame8",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 110,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gib",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
 		"Description": "Gem",
+		"IsProhibited": true,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
 		"AssetName": "gib1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 96,
 		"DefaultVertexCount": 54,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gib2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 214,
 		"DefaultVertexCount": 117,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gib3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 94,
 		"DefaultVertexCount": 54,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaegg",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 980,
 		"DefaultVertexCount": 595,
 		"Description": "Spider Egg II",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Spider Egg II"
@@ -414,768 +414,768 @@
 	},
 	{
 		"AssetName": "gigaspiderbody",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1196,
 		"DefaultVertexCount": 645,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaspidercrest",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 590,
 		"DefaultVertexCount": 343,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaspiderfangs",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 392,
 		"DefaultVertexCount": 218,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaspiderfangs2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 290,
 		"DefaultVertexCount": 162,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaspiderhead",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 722,
 		"DefaultVertexCount": 402,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaspiderhorns",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 379,
 		"DefaultVertexCount": 220,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaspiderjaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 424,
 		"DefaultVertexCount": 293,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaspiderpalm",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 292,
 		"DefaultVertexCount": 160,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 185,
 		"Description": "Level 1 player hand (right)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 1"
+			"Level 1",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "hand2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 238,
 		"Description": "Level 2 player hand (right)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 2"
+			"Level 2",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "hand2left",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 414,
 		"Description": "Level 2 player hand (left)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 2"
+			"Level 2",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "hand3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
 		"Description": "Level 3 player hand (right)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 3"
+			"Level 3",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "hand3left",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 397,
 		"Description": "Level 3 player hand (left)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 3"
+			"Level 3",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "hand4",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
 		"Description": "Level 4 player hand (right)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 4"
+			"Level 4",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "hand4left",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
 		"Description": "Level 4 player hand (left)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 4"
+			"Level 4",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "handleft",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 386,
 		"Description": "Level 1 player hand (left)",
+		"IsProhibited": false,
 		"Tags": [
-			"Player",
-			"Level 1"
+			"Level 1",
+			"Player"
 		]
 	},
 	{
 		"AssetName": "immortalorb",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 224,
 		"DefaultVertexCount": 151,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levicrown",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2299,
 		"DefaultVertexCount": 1329,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levicrown2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2299,
 		"DefaultVertexCount": 1329,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levicrown2jaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 422,
 		"DefaultVertexCount": 430,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levicrownjaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 414,
 		"DefaultVertexCount": 795,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levideath",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 3122,
 		"DefaultVertexCount": 4052,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levidividerskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levigem",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levigem2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "leviorb",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 192,
 		"DefaultVertexCount": 144,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "leviskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "leviskull2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "leviskulljaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 322,
 		"DefaultVertexCount": 185,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levitent",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1496,
 		"DefaultVertexCount": 824,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levitent2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 400,
 		"DefaultVertexCount": 231,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "light_sphere",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 20,
 		"DefaultVertexCount": 22,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "logodagger",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 60,
 		"DefaultVertexCount": 164,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "logohand",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 238,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "minisquidcrest",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1028,
 		"DefaultVertexCount": 585,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "minisquidcrestskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1196,
 		"DefaultVertexCount": 625,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "minisquidgem",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 10,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "minisquidhorns",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 490,
 		"DefaultVertexCount": 281,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "minisquidjaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1054,
 		"DefaultVertexCount": 710,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "minisquidjawskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1420,
 		"DefaultVertexCount": 3669,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 104,
 		"DefaultVertexCount": 108,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib10",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 80,
 		"DefaultVertexCount": 89,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib11",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 82,
 		"DefaultVertexCount": 87,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib12",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 50,
 		"DefaultVertexCount": 59,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib13",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 70,
 		"DefaultVertexCount": 75,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib14",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 70,
 		"DefaultVertexCount": 86,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib15",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 74,
 		"DefaultVertexCount": 108,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib16",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 86,
 		"DefaultVertexCount": 91,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 102,
 		"DefaultVertexCount": 97,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 76,
 		"DefaultVertexCount": 109,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib4",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 78,
 		"DefaultVertexCount": 87,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib5",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 60,
 		"DefaultVertexCount": 77,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib6",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 50,
 		"DefaultVertexCount": 57,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib7",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 78,
 		"DefaultVertexCount": 85,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib8",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 66,
 		"DefaultVertexCount": 75,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "orbgib9",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 38,
 		"DefaultVertexCount": 51,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "owlwing",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 243,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedebody",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 698,
 		"DefaultVertexCount": 406,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedehead",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 3749,
 		"DefaultVertexCount": 2174,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedejaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 596,
 		"DefaultVertexCount": 704,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedeleg1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 246,
 		"DefaultVertexCount": 137,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedeleg2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 92,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedeleg3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 196,
 		"DefaultVertexCount": 120,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedetail",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 696,
 		"DefaultVertexCount": 379,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedetaillegs",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1176,
 		"DefaultVertexCount": 698,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedeweak",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 4,
 		"DefaultVertexCount": 12,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pillar",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 16,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "plane400",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 32,
 		"DefaultVertexCount": 25,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "rubble",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 414,
 		"DefaultVertexCount": 332,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "smokeblob1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 106,
 		"DefaultVertexCount": 60,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "smokeblob2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 122,
 		"DefaultVertexCount": 68,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "smokeblob3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 62,
 		"DefaultVertexCount": 36,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "smokeblob4",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 80,
 		"DefaultVertexCount": 46,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "sorathstone",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 294,
 		"DefaultVertexCount": 164,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderbody",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1196,
 		"DefaultVertexCount": 645,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spideregg1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 704,
 		"DefaultVertexCount": 1210,
 		"Description": "Spider Egg I",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Spider Egg I"
@@ -1183,440 +1183,440 @@
 	},
 	{
 		"AssetName": "spideregg2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
 		"Description": "Unused? (Same as 'gib')",
+		"IsProhibited": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
 		"AssetName": "spiderfangs",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 392,
 		"DefaultVertexCount": 218,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spidergib",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderhead",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 722,
 		"DefaultVertexCount": 402,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderjaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 424,
 		"DefaultVertexCount": 293,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderleg1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 88,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderleg1f",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 88,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderleg2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 118,
 		"DefaultVertexCount": 72,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderleg2f",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 118,
 		"DefaultVertexCount": 72,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderleg3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 118,
 		"DefaultVertexCount": 70,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderleg3f",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 118,
 		"DefaultVertexCount": 70,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderling",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 524,
 		"DefaultVertexCount": 324,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderlingleg1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 38,
 		"DefaultVertexCount": 65,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderlingleg2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 36,
 		"DefaultVertexCount": 107,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderlingleg3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 18,
 		"DefaultVertexCount": 50,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderlingpalms",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 138,
 		"DefaultVertexCount": 328,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderpalm",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 292,
 		"DefaultVertexCount": 160,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spiderpalmf",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 80,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidarm",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 596,
 		"DefaultVertexCount": 349,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidcrest",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2044,
 		"DefaultVertexCount": 1137,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidcrestskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2392,
 		"DefaultVertexCount": 1250,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidgem",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidhorns",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1240,
 		"DefaultVertexCount": 728,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidjaws",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2036,
 		"DefaultVertexCount": 1194,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidjawskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1422,
 		"DefaultVertexCount": 932,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidteeth",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 5583,
 		"DefaultVertexCount": 7794,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "statue1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 994,
 		"DefaultVertexCount": 529,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "statue2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1986,
 		"DefaultVertexCount": 1084,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "statue3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2900,
 		"DefaultVertexCount": 8326,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "thorn",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2928,
 		"DefaultVertexCount": 1756,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "thorngib1",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 240,
 		"DefaultVertexCount": 138,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "thorngib2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 196,
 		"DefaultVertexCount": 125,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "thorngib3",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 176,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "tile",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 10,
 		"DefaultVertexCount": 20,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "tile2",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 12,
 		"DefaultVertexCount": 25,
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrapedecrown",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 3964,
 		"DefaultVertexCount": 2254,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidcrest",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 3072,
 		"DefaultVertexCount": 1767,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidcrestskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 3588,
 		"DefaultVertexCount": 1875,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidgem",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidhorns",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 3909,
 		"DefaultVertexCount": 2325,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidjaw",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 2988,
 		"DefaultVertexCount": 1770,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidjawskull",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 1418,
 		"DefaultVertexCount": 958,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidteeth",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 5567,
 		"DefaultVertexCount": 15663,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "ultrasquidtent",
-		"ChunkTypeName": "ModelChunk",
 		"DefaultIndexCount": 570,
 		"DefaultVertexCount": 1293,
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]

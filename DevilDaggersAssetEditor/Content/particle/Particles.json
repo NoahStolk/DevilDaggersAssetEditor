@@ -1,32 +1,32 @@
 [
 	{
 		"AssetName": "blood",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Blood"
 		]
 	},
 	{
 		"AssetName": "centipedeburrow",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy"
 		]
 	},
 	{
 		"AssetName": "centipedeburst",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy"
 		]
 	},
 	{
 		"AssetName": "centipededecals",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Enemy"
@@ -34,8 +34,8 @@
 	},
 	{
 		"AssetName": "centipededecals2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Enemy"
@@ -43,48 +43,48 @@
 	},
 	{
 		"AssetName": "centipedeemerge",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy"
 		]
 	},
 	{
 		"AssetName": "centipedefrags",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy"
 		]
 	},
 	{
 		"AssetName": "daggerfireflight",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
 		"AssetName": "default",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "eggburst",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spider Egg"
 		]
 	},
 	{
 		"AssetName": "eggdecals",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Spider Egg"
@@ -92,112 +92,112 @@
 	},
 	{
 		"AssetName": "egghit",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spider Egg"
 		]
 	},
 	{
 		"AssetName": "eggspores",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spider Egg"
 		]
 	},
 	{
 		"AssetName": "fire",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "fire1",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "fire2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "fire3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "fire4",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "fire5",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gibs",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
 		"AssetName": "gibtrail",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
 		"AssetName": "hit1",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hitbone",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hominghit",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Homing dagger"
 		]
 	},
 	{
 		"AssetName": "levdeath",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -206,16 +206,16 @@
 	},
 	{
 		"AssetName": "levelup",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Upgrade"
 		]
 	},
 	{
 		"AssetName": "levfire",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan"
@@ -223,8 +223,8 @@
 	},
 	{
 		"AssetName": "levfountain",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan"
@@ -232,8 +232,8 @@
 	},
 	{
 		"AssetName": "leviathansuck",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan"
@@ -241,8 +241,8 @@
 	},
 	{
 		"AssetName": "levideath",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -251,8 +251,8 @@
 	},
 	{
 		"AssetName": "levidust",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan"
@@ -260,8 +260,8 @@
 	},
 	{
 		"AssetName": "levidust2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan"
@@ -269,8 +269,8 @@
 	},
 	{
 		"AssetName": "magentabomb",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
@@ -278,8 +278,8 @@
 	},
 	{
 		"AssetName": "magic",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 3"
@@ -287,40 +287,40 @@
 	},
 	{
 		"AssetName": "medal1bronze",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Bronze"
 		]
 	},
 	{
 		"AssetName": "medal2silver",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Silver"
 		]
 	},
 	{
 		"AssetName": "medal3gold",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Golden"
 		]
 	},
 	{
 		"AssetName": "medal4devil",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Devil"
 		]
 	},
 	{
 		"AssetName": "rapid1",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -329,8 +329,8 @@
 	},
 	{
 		"AssetName": "rapid1ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -339,8 +339,8 @@
 	},
 	{
 		"AssetName": "rapid2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -349,8 +349,8 @@
 	},
 	{
 		"AssetName": "rapid2ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -359,8 +359,8 @@
 	},
 	{
 		"AssetName": "rapid3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Spray"
@@ -368,8 +368,8 @@
 	},
 	{
 		"AssetName": "rapid3alt",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Spray"
@@ -377,8 +377,8 @@
 	},
 	{
 		"AssetName": "rapid3altember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Spray"
@@ -386,8 +386,8 @@
 	},
 	{
 		"AssetName": "rapid3ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Spray"
@@ -395,8 +395,8 @@
 	},
 	{
 		"AssetName": "rapid4",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Spray"
@@ -404,8 +404,8 @@
 	},
 	{
 		"AssetName": "rapid4alt",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Spray"
@@ -413,8 +413,8 @@
 	},
 	{
 		"AssetName": "rapid4altember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Spray"
@@ -422,8 +422,8 @@
 	},
 	{
 		"AssetName": "rapid4ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Spray"
@@ -431,8 +431,8 @@
 	},
 	{
 		"AssetName": "ricochet1",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger",
 			"Ricochet"
@@ -440,8 +440,8 @@
 	},
 	{
 		"AssetName": "ricochet2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger",
 			"Ricochet"
@@ -449,8 +449,8 @@
 	},
 	{
 		"AssetName": "ricochet3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger",
 			"Ricochet"
@@ -458,8 +458,8 @@
 	},
 	{
 		"AssetName": "ricochet4",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger",
 			"Ricochet"
@@ -467,8 +467,8 @@
 	},
 	{
 		"AssetName": "ricochet5",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger",
 			"Ricochet"
@@ -476,8 +476,8 @@
 	},
 	{
 		"AssetName": "ricochet6",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger",
 			"Ricochet"
@@ -485,8 +485,8 @@
 	},
 	{
 		"AssetName": "ricochetdecal",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Dagger",
 			"Ricochet"
@@ -494,24 +494,24 @@
 	},
 	{
 		"AssetName": "rockethit",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "rockethit2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "shot1",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -520,8 +520,8 @@
 	},
 	{
 		"AssetName": "shot1ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -530,8 +530,8 @@
 	},
 	{
 		"AssetName": "shot2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -540,8 +540,8 @@
 	},
 	{
 		"AssetName": "shot2ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -550,8 +550,8 @@
 	},
 	{
 		"AssetName": "shot3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Shot"
@@ -559,8 +559,8 @@
 	},
 	{
 		"AssetName": "shot3alt",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Shot"
@@ -568,8 +568,8 @@
 	},
 	{
 		"AssetName": "shot3altember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Shot"
@@ -577,8 +577,8 @@
 	},
 	{
 		"AssetName": "shot3ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 3",
 			"Shot"
@@ -586,8 +586,8 @@
 	},
 	{
 		"AssetName": "shot4",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Shot"
@@ -595,8 +595,8 @@
 	},
 	{
 		"AssetName": "shot4alt",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Shot"
@@ -604,8 +604,8 @@
 	},
 	{
 		"AssetName": "shot4altember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Shot"
@@ -613,8 +613,8 @@
 	},
 	{
 		"AssetName": "shot4ember",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Level 4",
 			"Shot"
@@ -622,8 +622,8 @@
 	},
 	{
 		"AssetName": "skulldecals",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Skull"
@@ -631,8 +631,8 @@
 	},
 	{
 		"AssetName": "skulldecals2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Skull"
@@ -640,16 +640,16 @@
 	},
 	{
 		"AssetName": "skullfrags",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Skull"
 		]
 	},
 	{
 		"AssetName": "skullpop",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Skull"
@@ -657,8 +657,8 @@
 	},
 	{
 		"AssetName": "spiderdeath",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Spider"
@@ -666,8 +666,8 @@
 	},
 	{
 		"AssetName": "spiderdeath2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Spider"
@@ -675,8 +675,8 @@
 	},
 	{
 		"AssetName": "spiderdeath3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Spider"
@@ -684,8 +684,8 @@
 	},
 	{
 		"AssetName": "spiderdeath4",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Spider"
@@ -693,8 +693,8 @@
 	},
 	{
 		"AssetName": "spiderdecals",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Spider"
@@ -702,8 +702,8 @@
 	},
 	{
 		"AssetName": "spiderdecals2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Spider"
@@ -711,8 +711,8 @@
 	},
 	{
 		"AssetName": "spiderdecals3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Spider"
@@ -720,8 +720,8 @@
 	},
 	{
 		"AssetName": "spiderdecals4",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Spider"
@@ -729,8 +729,8 @@
 	},
 	{
 		"AssetName": "spiderlingdecals",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Spiderling"
@@ -738,8 +738,8 @@
 	},
 	{
 		"AssetName": "spiderlingdecals2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Spiderling"
@@ -747,104 +747,104 @@
 	},
 	{
 		"AssetName": "spiderlingfrags",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spiderling"
 		]
 	},
 	{
 		"AssetName": "spiderlinghit1",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spiderling"
 		]
 	},
 	{
 		"AssetName": "spiderlingpop",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spiderling"
 		]
 	},
 	{
 		"AssetName": "spiderspit",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spider"
 		]
 	},
 	{
 		"AssetName": "spiderspit2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spider"
 		]
 	},
 	{
 		"AssetName": "spiderstring",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Spider"
 		]
 	},
 	{
 		"AssetName": "squidbubbles",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squidburst",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squidburst2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squidburst3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squidburstgibs",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squidburstgibs2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squiddecals",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Squid"
@@ -852,8 +852,8 @@
 	},
 	{
 		"AssetName": "squiddecals2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Squid"
@@ -861,8 +861,8 @@
 	},
 	{
 		"AssetName": "squiddecals3",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Squid"
@@ -870,8 +870,8 @@
 	},
 	{
 		"AssetName": "squiddecals4",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Squid"
@@ -879,32 +879,32 @@
 	},
 	{
 		"AssetName": "squiddrill",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squiddrill2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "squidweak",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Squid"
 		]
 	},
 	{
 		"AssetName": "superskulldecals",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Skull"
@@ -912,8 +912,8 @@
 	},
 	{
 		"AssetName": "superskulldecals2",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Decals",
 			"Skull"
@@ -921,16 +921,16 @@
 	},
 	{
 		"AssetName": "superskullfrags",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Skull"
 		]
 	},
 	{
 		"AssetName": "superskullpop",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Death",
 			"Skull"
@@ -938,24 +938,24 @@
 	},
 	{
 		"AssetName": "thornemerge",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Thorn"
 		]
 	},
 	{
 		"AssetName": "thornfrag",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"Thorn"
 		]
 	},
 	{
 		"AssetName": "weakhit1",
-		"ChunkTypeName": "ParticleChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]

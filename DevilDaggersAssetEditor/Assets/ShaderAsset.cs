@@ -6,8 +6,8 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public class ShaderAsset : AbstractAsset
 	{
-		public ShaderAsset(string assetName, string description, List<string> tags)
-			: base(assetName, AssetType.Shader, description, tags)
+		public ShaderAsset(string assetName, string description, List<string> tags, bool isProhibited)
+			: base(assetName, AssetType.Shader, description, tags, isProhibited)
 		{
 		}
 

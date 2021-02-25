@@ -1,10 +1,10 @@
 [
 	{
 		"AssetName": "blood",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Blood decals",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Particles"
@@ -12,10 +12,10 @@
 	},
 	{
 		"AssetName": "boid",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull I base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -24,10 +24,10 @@
 	},
 	{
 		"AssetName": "boid2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull II base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -36,10 +36,10 @@
 	},
 	{
 		"AssetName": "boid2gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull II death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -49,10 +49,10 @@
 	},
 	{
 		"AssetName": "boid2hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull II damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -62,10 +62,10 @@
 	},
 	{
 		"AssetName": "boid2horns",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull II horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -74,10 +74,10 @@
 	},
 	{
 		"AssetName": "boid2hornsgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull II horns death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -87,10 +87,10 @@
 	},
 	{
 		"AssetName": "boid2hornshit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull II horns damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -100,10 +100,10 @@
 	},
 	{
 		"AssetName": "boid2hornslev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull II horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -112,10 +112,10 @@
 	},
 	{
 		"AssetName": "boid2lev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull II base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -124,10 +124,10 @@
 	},
 	{
 		"AssetName": "boid2levgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Transmuted Skull II death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -137,10 +137,10 @@
 	},
 	{
 		"AssetName": "boid3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull III base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -149,10 +149,10 @@
 	},
 	{
 		"AssetName": "boid3gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull III death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -162,10 +162,10 @@
 	},
 	{
 		"AssetName": "boid3hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull III damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -175,10 +175,10 @@
 	},
 	{
 		"AssetName": "boid3horns",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull III horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -187,10 +187,10 @@
 	},
 	{
 		"AssetName": "boid3hornsgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull III horns death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -200,10 +200,10 @@
 	},
 	{
 		"AssetName": "boid3hornshit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull III horns damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -213,10 +213,10 @@
 	},
 	{
 		"AssetName": "boid3hornslev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull III horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -225,10 +225,10 @@
 	},
 	{
 		"AssetName": "boid3jaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Skull III jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -237,10 +237,10 @@
 	},
 	{
 		"AssetName": "boid3jawgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Skull III jaw death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -250,10 +250,10 @@
 	},
 	{
 		"AssetName": "boid3jawhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Skull III jaw damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -263,10 +263,10 @@
 	},
 	{
 		"AssetName": "boid3jawlev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Transmuted Skull III jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -275,10 +275,10 @@
 	},
 	{
 		"AssetName": "boid3lev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull III base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -287,10 +287,10 @@
 	},
 	{
 		"AssetName": "boid4",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "512, 512",
 		"Description": "Skull IV base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -299,10 +299,10 @@
 	},
 	{
 		"AssetName": "boid4gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull IV death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -312,10 +312,10 @@
 	},
 	{
 		"AssetName": "boid4hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull IV damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -325,10 +325,10 @@
 	},
 	{
 		"AssetName": "boid4jaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Skull IV jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -337,10 +337,10 @@
 	},
 	{
 		"AssetName": "boid4jawgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull IV jaw death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -350,10 +350,10 @@
 	},
 	{
 		"AssetName": "boid4jawhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull IV jaw damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -363,10 +363,10 @@
 	},
 	{
 		"AssetName": "boid4jawlev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Transmuted Skull IV jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -375,10 +375,10 @@
 	},
 	{
 		"AssetName": "boid4lev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "512, 512",
 		"Description": "Transmuted Skull IV base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -387,10 +387,10 @@
 	},
 	{
 		"AssetName": "boidgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull I death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -400,10 +400,10 @@
 	},
 	{
 		"AssetName": "boidhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Skull I damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -413,10 +413,10 @@
 	},
 	{
 		"AssetName": "boidlev",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull I",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -425,10 +425,10 @@
 	},
 	{
 		"AssetName": "bottom",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Tile bottom?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "tile2",
 		"Tags": [
 			"Arena"
@@ -436,10 +436,10 @@
 	},
 	{
 		"AssetName": "crystal",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Unused",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Unused"
@@ -447,10 +447,10 @@
 	},
 	{
 		"AssetName": "dagger",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Level 1 Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "dagger1",
 		"Tags": [
 			"Dagger"
@@ -458,10 +458,10 @@
 	},
 	{
 		"AssetName": "dagger0",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Pleb Lobby Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "dagger",
 		"Tags": [
 			"Dagger",
@@ -470,10 +470,10 @@
 	},
 	{
 		"AssetName": "dagger2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Level 2 Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "dagger2",
 		"Tags": [
 			"Dagger"
@@ -481,10 +481,10 @@
 	},
 	{
 		"AssetName": "dagger3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Level 3 Dagger / Devil Lobby Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "dagger3",
 		"Tags": [
 			"Dagger",
@@ -493,10 +493,10 @@
 	},
 	{
 		"AssetName": "dagger4",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Level 3 Homing Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "dagger4",
 		"Tags": [
 			"Dagger"
@@ -504,10 +504,10 @@
 	},
 	{
 		"AssetName": "dagger5",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Level 4 Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "dagger5",
 		"Tags": [
 			"Dagger"
@@ -515,10 +515,10 @@
 	},
 	{
 		"AssetName": "dagger6",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Level 4 Homing Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "dagger6",
 		"Tags": [
 			"Dagger"
@@ -526,10 +526,10 @@
 	},
 	{
 		"AssetName": "daggerbronze",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Bronze Lobby Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "daggerbronze",
 		"Tags": [
 			"Bronze",
@@ -538,10 +538,10 @@
 	},
 	{
 		"AssetName": "daggergold",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Golden Lobby Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "daggergold",
 		"Tags": [
 			"Dagger",
@@ -550,10 +550,10 @@
 	},
 	{
 		"AssetName": "daggersilver",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Silver Lobby Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "daggersilver",
 		"Tags": [
 			"Dagger",
@@ -562,10 +562,10 @@
 	},
 	{
 		"AssetName": "emberflame",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Primary fire after-embers / Decals base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Particles"
@@ -573,10 +573,10 @@
 	},
 	{
 		"AssetName": "feather",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 64",
 		"Description": "Unused",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Unused"
@@ -584,9 +584,10 @@
 	},
 	{
 		"AssetName": "fontbronze",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Bronze font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Bronze",
@@ -596,9 +597,10 @@
 	},
 	{
 		"AssetName": "fontbronzeover",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Bronze font hover",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Bronze",
@@ -609,9 +611,10 @@
 	},
 	{
 		"AssetName": "fontdevil",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Devil font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Devil",
@@ -621,9 +624,10 @@
 	},
 	{
 		"AssetName": "fontdevilover",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Devil font hover",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Devil",
@@ -634,9 +638,10 @@
 	},
 	{
 		"AssetName": "fontgold",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Golden font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -646,9 +651,10 @@
 	},
 	{
 		"AssetName": "fontgoldover",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Golden font hover",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -659,9 +665,10 @@
 	},
 	{
 		"AssetName": "fontgrad",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Default UI font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -670,9 +677,10 @@
 	},
 	{
 		"AssetName": "fontgrad2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Default UI colored font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -681,9 +689,10 @@
 	},
 	{
 		"AssetName": "fontgrad3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Default UI colored font over",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -693,9 +702,10 @@
 	},
 	{
 		"AssetName": "fontlevi",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Leviathan font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -704,9 +714,10 @@
 	},
 	{
 		"AssetName": "fontlevibg",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Leviathan font mask",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -716,9 +727,10 @@
 	},
 	{
 		"AssetName": "fontleviover",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Leviathan font over",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -728,9 +740,10 @@
 	},
 	{
 		"AssetName": "fontpleb",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Pleb font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -740,9 +753,10 @@
 	},
 	{
 		"AssetName": "fontplebover",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Pleb font hover",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -753,9 +767,10 @@
 	},
 	{
 		"AssetName": "fontsilver",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Silver font",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -765,9 +780,10 @@
 	},
 	{
 		"AssetName": "fontsilverover",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Silver font hover",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Font",
@@ -778,10 +794,10 @@
 	},
 	{
 		"AssetName": "gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Gem (including gems in Squids)",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gem"
@@ -789,10 +805,10 @@
 	},
 	{
 		"AssetName": "gib1a",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -800,10 +816,10 @@
 	},
 	{
 		"AssetName": "gib1b",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -811,10 +827,10 @@
 	},
 	{
 		"AssetName": "gib1c",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -822,10 +838,10 @@
 	},
 	{
 		"AssetName": "gib1d",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -833,10 +849,10 @@
 	},
 	{
 		"AssetName": "gib2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Alternate Gem (unused)",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "gib",
 		"Tags": [
 			"Gem"
@@ -844,10 +860,10 @@
 	},
 	{
 		"AssetName": "gib2a",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -855,10 +871,10 @@
 	},
 	{
 		"AssetName": "gib2b",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -866,10 +882,10 @@
 	},
 	{
 		"AssetName": "gib2c",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -877,10 +893,10 @@
 	},
 	{
 		"AssetName": "gib2d",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -888,10 +904,10 @@
 	},
 	{
 		"AssetName": "gib3a",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -899,10 +915,10 @@
 	},
 	{
 		"AssetName": "gib3b",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -910,10 +926,10 @@
 	},
 	{
 		"AssetName": "gib3c",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -921,10 +937,10 @@
 	},
 	{
 		"AssetName": "gib3d",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Gore"
@@ -932,10 +948,10 @@
 	},
 	{
 		"AssetName": "gigaegg",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Spider Egg II base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -944,10 +960,10 @@
 	},
 	{
 		"AssetName": "gigaspiderbody",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Spider II",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -956,10 +972,10 @@
 	},
 	{
 		"AssetName": "gigaspidercrest",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -968,10 +984,10 @@
 	},
 	{
 		"AssetName": "gigaspidercrestgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Spider II death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -981,10 +997,10 @@
 	},
 	{
 		"AssetName": "gigaspidercresthit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Spider II damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -994,10 +1010,10 @@
 	},
 	{
 		"AssetName": "gigaspiderfangs",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Spider II Primary Fangs",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1006,10 +1022,10 @@
 	},
 	{
 		"AssetName": "gigaspiderfangs2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Secondary Fangs",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1018,10 +1034,10 @@
 	},
 	{
 		"AssetName": "gigaspiderfangs2gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spider II Fangs death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -1031,10 +1047,10 @@
 	},
 	{
 		"AssetName": "gigaspiderfangs2hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spider II Fangs damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -1044,10 +1060,10 @@
 	},
 	{
 		"AssetName": "gigaspiderhead",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Spider II Gem Holder",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1056,10 +1072,10 @@
 	},
 	{
 		"AssetName": "gigaspiderhorns",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Spider II Horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1068,10 +1084,10 @@
 	},
 	{
 		"AssetName": "gigaspiderhornsgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Horns death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -1081,10 +1097,10 @@
 	},
 	{
 		"AssetName": "gigaspiderhornshit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Horns damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -1094,10 +1110,10 @@
 	},
 	{
 		"AssetName": "gigaspiderjaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Mouth",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1106,10 +1122,10 @@
 	},
 	{
 		"AssetName": "gigaspiderleg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Leg 1",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1118,10 +1134,10 @@
 	},
 	{
 		"AssetName": "gigaspiderleg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Leg 2",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1130,10 +1146,10 @@
 	},
 	{
 		"AssetName": "gigaspiderleg3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Leg 3",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1142,10 +1158,10 @@
 	},
 	{
 		"AssetName": "gigaspiderpalm",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Palm",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1154,10 +1170,10 @@
 	},
 	{
 		"AssetName": "hand",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Level 1 Hand",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "hand",
 		"Tags": [
 			"Player"
@@ -1165,10 +1181,10 @@
 	},
 	{
 		"AssetName": "hand0",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Lobby Hand",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "hand0",
 		"Tags": [
 			"Player"
@@ -1176,10 +1192,10 @@
 	},
 	{
 		"AssetName": "hand2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Level 2 Hand",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "hand2",
 		"Tags": [
 			"Player"
@@ -1187,10 +1203,10 @@
 	},
 	{
 		"AssetName": "hand3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Level 3 Hand",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "hand3",
 		"Tags": [
 			"Player"
@@ -1198,10 +1214,10 @@
 	},
 	{
 		"AssetName": "hand4",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Level 3 Hand Flash",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "hand4",
 		"Tags": [
 			"Player"
@@ -1209,10 +1225,10 @@
 	},
 	{
 		"AssetName": "hand5",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Level 4 Hand",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "hand5",
 		"Tags": [
 			"Player"
@@ -1220,10 +1236,10 @@
 	},
 	{
 		"AssetName": "hand6",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Level 4 Hand Flash",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "hand6",
 		"Tags": [
 			"Player"
@@ -1231,9 +1247,10 @@
 	},
 	{
 		"AssetName": "iconcrosshair",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Accuracy Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1242,9 +1259,10 @@
 	},
 	{
 		"AssetName": "icondagger",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Enemies Killed Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1253,9 +1271,10 @@
 	},
 	{
 		"AssetName": "icondd",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Application Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon"
@@ -1263,9 +1282,10 @@
 	},
 	{
 		"AssetName": "iconeye",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 16",
 		"Description": "Replay Recorded Run Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1274,9 +1294,10 @@
 	},
 	{
 		"AssetName": "iconeye2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 16",
 		"Description": "Replay Recorded Run Icon hover",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Hover",
@@ -1286,20 +1307,10 @@
 	},
 	{
 		"AssetName": "icongem",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Gems Collected Icon",
-		"ModelBinding": "",
-		"Tags": [
-			"Icon",
-			"UI"
-		]
-	},
-	{
-		"AssetName": "iconmaskdagger",
-		"ChunkTypeName": "TextureChunk",
-		"DefaultDimensions": "16, 16",
-		"Description": "Enemies Killed Timeline Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1308,9 +1319,22 @@
 	},
 	{
 		"AssetName": "iconmaskcrosshair",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Accuracy Timeline Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
+		"ModelBinding": "",
+		"Tags": [
+			"Icon",
+			"UI"
+		]
+	},
+	{
+		"AssetName": "iconmaskdagger",
+		"DefaultDimensions": "16, 16",
+		"Description": "Enemies Killed Timeline Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1319,9 +1343,10 @@
 	},
 	{
 		"AssetName": "iconmaskgem",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Gems Collected Timeline Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1330,9 +1355,10 @@
 	},
 	{
 		"AssetName": "iconmaskhoming",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Homing Daggers Timeline Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1341,9 +1367,10 @@
 	},
 	{
 		"AssetName": "iconmaskskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Enemies Alive Timeline Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1352,9 +1379,10 @@
 	},
 	{
 		"AssetName": "iconmaskstopwatch",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Scrubber Time Mark Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1363,9 +1391,10 @@
 	},
 	{
 		"AssetName": "iconreplay",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 16",
 		"Description": "Unused icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1375,9 +1404,10 @@
 	},
 	{
 		"AssetName": "iconreplay2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 16",
 		"Description": "Unused icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1387,9 +1417,10 @@
 	},
 	{
 		"AssetName": "iconskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Death Type / Total Deaths Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1398,9 +1429,10 @@
 	},
 	{
 		"AssetName": "iconstopwatch",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Run Time Icon",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Icon",
@@ -1409,10 +1441,10 @@
 	},
 	{
 		"AssetName": "levicrown",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1421,10 +1453,10 @@
 	},
 	{
 		"AssetName": "levicrown2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1433,10 +1465,10 @@
 	},
 	{
 		"AssetName": "levicrown2jaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1445,10 +1477,10 @@
 	},
 	{
 		"AssetName": "levicrownjaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1457,10 +1489,10 @@
 	},
 	{
 		"AssetName": "levideath",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -1470,10 +1502,10 @@
 	},
 	{
 		"AssetName": "levidividerskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1482,10 +1514,10 @@
 	},
 	{
 		"AssetName": "levileg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1494,10 +1526,10 @@
 	},
 	{
 		"AssetName": "levileg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1506,10 +1538,10 @@
 	},
 	{
 		"AssetName": "levileg3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1518,10 +1550,10 @@
 	},
 	{
 		"AssetName": "leviskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1530,10 +1562,10 @@
 	},
 	{
 		"AssetName": "leviskull2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1542,10 +1574,10 @@
 	},
 	{
 		"AssetName": "leviskulljaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1554,10 +1586,10 @@
 	},
 	{
 		"AssetName": "levitent",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1566,10 +1598,10 @@
 	},
 	{
 		"AssetName": "levitent2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1578,10 +1610,10 @@
 	},
 	{
 		"AssetName": "levitentgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -1591,10 +1623,10 @@
 	},
 	{
 		"AssetName": "levitenthit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -1604,10 +1636,10 @@
 	},
 	{
 		"AssetName": "leviwarp",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Leviathan Secondary Dome effect",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1616,10 +1648,10 @@
 	},
 	{
 		"AssetName": "leviwarpover",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Leviathan Dome effect / Beckoned Skulls override",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1628,10 +1660,10 @@
 	},
 	{
 		"AssetName": "logodagger",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Splash Screen Dagger",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "logodagger",
 		"Tags": [
 			"UI"
@@ -1639,10 +1671,10 @@
 	},
 	{
 		"AssetName": "logodagger2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Unused",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"UI"
@@ -1650,10 +1682,10 @@
 	},
 	{
 		"AssetName": "logohand",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Splash Screen Hand",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "logohand",
 		"Tags": [
 			"UI"
@@ -1661,9 +1693,10 @@
 	},
 	{
 		"AssetName": "logotext",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 64",
 		"Description": "Splash Screen Text",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"UI"
@@ -1671,9 +1704,10 @@
 	},
 	{
 		"AssetName": "lut",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Unused post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing",
@@ -1682,10 +1716,10 @@
 	},
 	{
 		"AssetName": "minisquidarm",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid I Tentacle",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1694,10 +1728,10 @@
 	},
 	{
 		"AssetName": "minisquidcrest",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid I Body texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1706,10 +1740,10 @@
 	},
 	{
 		"AssetName": "minisquidcrestskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1718,10 +1752,10 @@
 	},
 	{
 		"AssetName": "minisquidhorns",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder Horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1730,10 +1764,10 @@
 	},
 	{
 		"AssetName": "minisquidjaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder Skull Jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1742,10 +1776,10 @@
 	},
 	{
 		"AssetName": "minisquidjawskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder Skull",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1754,10 +1788,10 @@
 	},
 	{
 		"AssetName": "pedeblackbody",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Gigapede Segment texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1766,10 +1800,10 @@
 	},
 	{
 		"AssetName": "pedeblackhead",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Gigapede Head texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1778,10 +1812,10 @@
 	},
 	{
 		"AssetName": "pedeblackjaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Gigapede Jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1790,10 +1824,10 @@
 	},
 	{
 		"AssetName": "pedeblackleg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Gigapede Leg 1",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1802,10 +1836,10 @@
 	},
 	{
 		"AssetName": "pedeblackleg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Gigapede Leg 2",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1814,10 +1848,10 @@
 	},
 	{
 		"AssetName": "pedeblackleg3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Gigapede Leg 3",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1826,10 +1860,10 @@
 	},
 	{
 		"AssetName": "pedeblacktail",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Gigapede Tail",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1838,10 +1872,10 @@
 	},
 	{
 		"AssetName": "pedeblacktaillegs",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Gigapede Tail Legs",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -1850,10 +1884,10 @@
 	},
 	{
 		"AssetName": "pedebody",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Centipede Body",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1862,10 +1896,10 @@
 	},
 	{
 		"AssetName": "pedebodyfragged",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Centipede / Gigapede / Ghostpede Segment without gem",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1876,10 +1910,10 @@
 	},
 	{
 		"AssetName": "pedebodygib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Segment death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1891,10 +1925,10 @@
 	},
 	{
 		"AssetName": "pedebodyhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Segment damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1906,10 +1940,10 @@
 	},
 	{
 		"AssetName": "pedehead",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Centipede Head texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1918,10 +1952,10 @@
 	},
 	{
 		"AssetName": "pedeheadgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Centipede / Gigapede / Ghostpede Head death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1933,10 +1967,10 @@
 	},
 	{
 		"AssetName": "pedeheadhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Centipede / Gigapede / Ghostpede Head damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1948,10 +1982,10 @@
 	},
 	{
 		"AssetName": "pedejaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Centipede Jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1960,10 +1994,10 @@
 	},
 	{
 		"AssetName": "pedejawgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Centipede / Gigapede / Ghostpede Jaw death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1975,10 +2009,10 @@
 	},
 	{
 		"AssetName": "pedejawhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 16",
 		"Description": "Centipede / Gigapede / Ghostpede Jaw damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -1990,10 +2024,10 @@
 	},
 	{
 		"AssetName": "pedeleg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede Leg 1",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2002,10 +2036,10 @@
 	},
 	{
 		"AssetName": "pedeleg1gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 1 death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2017,10 +2051,10 @@
 	},
 	{
 		"AssetName": "pedeleg1hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 1 damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2032,10 +2066,10 @@
 	},
 	{
 		"AssetName": "pedeleg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede Leg 2",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2044,10 +2078,10 @@
 	},
 	{
 		"AssetName": "pedeleg2gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 2 death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2059,10 +2093,10 @@
 	},
 	{
 		"AssetName": "pedeleg2hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 2 damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2074,10 +2108,10 @@
 	},
 	{
 		"AssetName": "pedeleg3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede Leg 3",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2086,10 +2120,10 @@
 	},
 	{
 		"AssetName": "pedeleg3gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 3 death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2101,10 +2135,10 @@
 	},
 	{
 		"AssetName": "pedeleg3hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 3 damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2116,10 +2150,10 @@
 	},
 	{
 		"AssetName": "pedetail",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Centipede Tail",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2128,10 +2162,10 @@
 	},
 	{
 		"AssetName": "pedetailgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Tail death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2143,10 +2177,10 @@
 	},
 	{
 		"AssetName": "pedetailhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Tail damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2158,10 +2192,10 @@
 	},
 	{
 		"AssetName": "pedetaillegs",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Centipede Tail Legs",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2170,10 +2204,10 @@
 	},
 	{
 		"AssetName": "pedetaillegsgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Tail Leg death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2185,10 +2219,10 @@
 	},
 	{
 		"AssetName": "pedetaillegshit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Tail Leg damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
@@ -2200,10 +2234,10 @@
 	},
 	{
 		"AssetName": "pillar",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Tile sides texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "tile2",
 		"Tags": [
 			"Arena"
@@ -2211,9 +2245,10 @@
 	},
 	{
 		"AssetName": "post_lut",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Arena In-game post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
@@ -2221,9 +2256,10 @@
 	},
 	{
 		"AssetName": "post_lut_bronzeflash",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Bronze Score post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Bronze",
@@ -2232,9 +2268,10 @@
 	},
 	{
 		"AssetName": "post_lut_collect",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Gem Collected post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
@@ -2242,9 +2279,10 @@
 	},
 	{
 		"AssetName": "post_lut_dagger",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Lobby post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
@@ -2252,9 +2290,10 @@
 	},
 	{
 		"AssetName": "post_lut_death",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Post Death post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
@@ -2262,9 +2301,10 @@
 	},
 	{
 		"AssetName": "post_lut_devilflash",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Devil Score post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Devil",
@@ -2273,9 +2313,10 @@
 	},
 	{
 		"AssetName": "post_lut_goldflash",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Golden Score post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Golden",
@@ -2284,9 +2325,10 @@
 	},
 	{
 		"AssetName": "post_lut_leveldown",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Death fade out/flash post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2295,9 +2337,10 @@
 	},
 	{
 		"AssetName": "post_lut_levelup",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Level Up post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
@@ -2305,9 +2348,10 @@
 	},
 	{
 		"AssetName": "post_lut_levi",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Leviathan Spawn post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
@@ -2315,9 +2359,10 @@
 	},
 	{
 		"AssetName": "post_lut_silverflash",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "16, 256",
 		"Description": "Silver Score post filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Post-processing",
@@ -2326,10 +2371,10 @@
 	},
 	{
 		"AssetName": "rubble",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Thorn Tile Destruction texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2338,10 +2383,10 @@
 	},
 	{
 		"AssetName": "skulltile",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Unused",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Unused"
@@ -2349,10 +2394,10 @@
 	},
 	{
 		"AssetName": "smokeblob",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Emerging Enemies texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Particles"
@@ -2360,9 +2405,10 @@
 	},
 	{
 		"AssetName": "sorathmask",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "240, 240",
 		"Description": "Sorath Logo texture mask",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Splash Screen"
@@ -2370,10 +2416,10 @@
 	},
 	{
 		"AssetName": "sorathstone",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Sorath Stone base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Easter Egg"
@@ -2381,10 +2427,10 @@
 	},
 	{
 		"AssetName": "sorathtexture",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "240, 240",
 		"Description": "Sorath Logo base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Splash Screen"
@@ -2392,9 +2438,10 @@
 	},
 	{
 		"AssetName": "sorathvector",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Sorath Logo texture filter",
+		"IsModelTexture": false,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Splash Screen"
@@ -2402,10 +2449,10 @@
 	},
 	{
 		"AssetName": "spiderbody",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2414,10 +2461,10 @@
 	},
 	{
 		"AssetName": "spiderbodygib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2426,10 +2473,10 @@
 	},
 	{
 		"AssetName": "spiderbodyhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2438,10 +2485,10 @@
 	},
 	{
 		"AssetName": "spideregg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spider Egg I Goo base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2450,10 +2497,10 @@
 	},
 	{
 		"AssetName": "spideregg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Spider Egg I base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2462,10 +2509,10 @@
 	},
 	{
 		"AssetName": "spidereggflash",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Spider Egg I flashing texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2474,10 +2521,10 @@
 	},
 	{
 		"AssetName": "spiderfangs",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2486,10 +2533,10 @@
 	},
 	{
 		"AssetName": "spiderfangsgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2499,10 +2546,10 @@
 	},
 	{
 		"AssetName": "spiderfangshit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2512,10 +2559,10 @@
 	},
 	{
 		"AssetName": "spiderhead",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2524,10 +2571,10 @@
 	},
 	{
 		"AssetName": "spiderheadgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2537,10 +2584,10 @@
 	},
 	{
 		"AssetName": "spiderheadhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2550,10 +2597,10 @@
 	},
 	{
 		"AssetName": "spiderjaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2562,10 +2609,10 @@
 	},
 	{
 		"AssetName": "spiderjawgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2575,10 +2622,10 @@
 	},
 	{
 		"AssetName": "spiderjawhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2588,10 +2635,10 @@
 	},
 	{
 		"AssetName": "spiderleg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2600,10 +2647,10 @@
 	},
 	{
 		"AssetName": "spiderleg1gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2613,10 +2660,10 @@
 	},
 	{
 		"AssetName": "spiderleg1hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2626,10 +2673,10 @@
 	},
 	{
 		"AssetName": "spiderleg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2638,10 +2685,10 @@
 	},
 	{
 		"AssetName": "spiderleg2gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2651,10 +2698,10 @@
 	},
 	{
 		"AssetName": "spiderleg2hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2664,10 +2711,10 @@
 	},
 	{
 		"AssetName": "spiderleg3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2676,10 +2723,10 @@
 	},
 	{
 		"AssetName": "spiderleg3gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2689,10 +2736,10 @@
 	},
 	{
 		"AssetName": "spiderleg3hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2702,10 +2749,10 @@
 	},
 	{
 		"AssetName": "spiderling",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Spiderling Body base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2714,10 +2761,10 @@
 	},
 	{
 		"AssetName": "spiderlinggib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Spiderling Body death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2727,10 +2774,10 @@
 	},
 	{
 		"AssetName": "spiderlinghit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Spiderling Body damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2740,10 +2787,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 1",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2752,10 +2799,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg1gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 1 death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2765,10 +2812,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg1hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 1",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2777,10 +2824,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 2",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2789,10 +2836,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg2gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 2 death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2802,10 +2849,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg2hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 2 damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2815,10 +2862,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 3",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2827,10 +2874,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg3gib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 3 death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2840,10 +2887,10 @@
 	},
 	{
 		"AssetName": "spiderlingleg3hit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 3 damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2853,10 +2900,10 @@
 	},
 	{
 		"AssetName": "spiderlingpalm",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Palm",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2865,10 +2912,10 @@
 	},
 	{
 		"AssetName": "spiderlingpalmgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Palm death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2878,10 +2925,10 @@
 	},
 	{
 		"AssetName": "spiderlingpalmhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Palm damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2891,10 +2938,10 @@
 	},
 	{
 		"AssetName": "spiderpalm",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Spider I Palm",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2903,10 +2950,10 @@
 	},
 	{
 		"AssetName": "spiderpalmgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spider I Palm death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2916,10 +2963,10 @@
 	},
 	{
 		"AssetName": "spiderpalmhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Spider I Palm damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2929,10 +2976,10 @@
 	},
 	{
 		"AssetName": "squidarm",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Tentacle",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2941,10 +2988,10 @@
 	},
 	{
 		"AssetName": "squidarmgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Tentacle death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -2954,10 +3001,10 @@
 	},
 	{
 		"AssetName": "squidarmhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Tentacle damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2967,10 +3014,10 @@
 	},
 	{
 		"AssetName": "squidcrest",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Body texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -2979,10 +3026,10 @@
 	},
 	{
 		"AssetName": "squidcrestgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Body damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -2992,10 +3039,10 @@
 	},
 	{
 		"AssetName": "squidcresthit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Body death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -3005,10 +3052,10 @@
 	},
 	{
 		"AssetName": "squidcrestskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Skull",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3017,10 +3064,10 @@
 	},
 	{
 		"AssetName": "squidcrestskullgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -3030,10 +3077,10 @@
 	},
 	{
 		"AssetName": "squidcrestskullhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -3043,10 +3090,10 @@
 	},
 	{
 		"AssetName": "squidhorns",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3055,10 +3102,10 @@
 	},
 	{
 		"AssetName": "squidjaws",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Gem Holder Skull Jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3067,10 +3114,10 @@
 	},
 	{
 		"AssetName": "squidjawsgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Skull Jaw death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -3080,10 +3127,10 @@
 	},
 	{
 		"AssetName": "squidjawshit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Skull Jaw damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -3093,10 +3140,10 @@
 	},
 	{
 		"AssetName": "squidjawskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3105,10 +3152,10 @@
 	},
 	{
 		"AssetName": "squidjawskullfragged",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Without Gem",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3117,10 +3164,10 @@
 	},
 	{
 		"AssetName": "squidjawskullgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull Jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3129,10 +3176,10 @@
 	},
 	{
 		"AssetName": "squidjawskullhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull Jaw death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -3142,10 +3189,10 @@
 	},
 	{
 		"AssetName": "squidteeth",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Bottom Teeth",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3154,10 +3201,10 @@
 	},
 	{
 		"AssetName": "squidteethgib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Bottom Teeth death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -3167,10 +3214,10 @@
 	},
 	{
 		"AssetName": "squidteethhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Bottom Teeth damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -3180,10 +3227,10 @@
 	},
 	{
 		"AssetName": "statue1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Player Number 3",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Easter Egg"
@@ -3191,10 +3238,10 @@
 	},
 	{
 		"AssetName": "statue2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "512, 512",
 		"Description": "Player Number 2",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Easter Egg"
@@ -3202,10 +3249,10 @@
 	},
 	{
 		"AssetName": "statue3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "512, 512",
 		"Description": "Player Number 1",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Easter Egg"
@@ -3213,10 +3260,10 @@
 	},
 	{
 		"AssetName": "thorn",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Thorn Body base texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "thorn",
 		"Tags": [
 			"Enemy",
@@ -3225,10 +3272,10 @@
 	},
 	{
 		"AssetName": "thorngib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Thorn Body death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "thorn",
 		"Tags": [
 			"Death",
@@ -3238,10 +3285,10 @@
 	},
 	{
 		"AssetName": "thornhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Thorn Body damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "thornhit",
 		"Tags": [
 			"Damage",
@@ -3251,10 +3298,10 @@
 	},
 	{
 		"AssetName": "tile",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Floor texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "tile2",
 		"Tags": [
 			"Arena"
@@ -3262,10 +3309,10 @@
 	},
 	{
 		"AssetName": "ultrapedebody",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede segment",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3274,10 +3321,10 @@
 	},
 	{
 		"AssetName": "ultrapedebodyfragged",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede segment without gem",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3286,10 +3333,10 @@
 	},
 	{
 		"AssetName": "ultrapedecrown",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Ghostpede extra horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3298,10 +3345,10 @@
 	},
 	{
 		"AssetName": "ultrapedecrowngib",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede extra horns death",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Death",
@@ -3311,10 +3358,10 @@
 	},
 	{
 		"AssetName": "ultrapedecrownhit",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede extra horns damage",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Damage",
@@ -3324,10 +3371,10 @@
 	},
 	{
 		"AssetName": "ultrapedehead",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Ghostpede head",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3336,10 +3383,10 @@
 	},
 	{
 		"AssetName": "ultrapedejaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "64, 64",
 		"Description": "Ghostpede jaw",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3348,10 +3395,10 @@
 	},
 	{
 		"AssetName": "ultrapedeleg1",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Ghostpede leg texture?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3360,10 +3407,10 @@
 	},
 	{
 		"AssetName": "ultrapedeleg2",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Ghostpede leg texture?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3372,10 +3419,10 @@
 	},
 	{
 		"AssetName": "ultrapedeleg3",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "32, 32",
 		"Description": "Ghostpede leg texture?",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3384,10 +3431,10 @@
 	},
 	{
 		"AssetName": "ultrapedetail",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede tail texture",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3396,10 +3443,10 @@
 	},
 	{
 		"AssetName": "ultrasquidcrest",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid III body",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3408,10 +3455,10 @@
 	},
 	{
 		"AssetName": "ultrasquidcrestskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid III body skull",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3420,10 +3467,10 @@
 	},
 	{
 		"AssetName": "ultrasquidhorns",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "512, 512",
 		"Description": "Squid III skull gem holder horns",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3432,10 +3479,10 @@
 	},
 	{
 		"AssetName": "ultrasquidjaw",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "256, 256",
 		"Description": "Squid III skull jaw gem holder",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
@@ -3444,10 +3491,10 @@
 	},
 	{
 		"AssetName": "ultrasquidjawskull",
-		"ChunkTypeName": "TextureChunk",
 		"DefaultDimensions": "128, 128",
 		"Description": "Squid III skull gem holder",
 		"IsModelTexture": true,
+		"IsProhibited": false,
 		"ModelBinding": "",
 		"Tags": [
 			"Enemy",

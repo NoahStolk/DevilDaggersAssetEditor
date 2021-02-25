@@ -1,312 +1,312 @@
 [
 	{
 		"AssetName": "boid",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "boid_batch",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "boid_pop",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "boid_pop_batch",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "daggerlevi",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "debug",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "Unused?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "default_texture",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "depth",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "egg",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gib",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand_batch",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "light",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "light_batch",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "light_ring",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "owlwing",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "Unused?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "particle",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "particle2",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "particle_decal",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "post",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "post_combine",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "post_final",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "post_title",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "shadow",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "shadow_batch",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "sorath",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "sprite",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "sprite_debug",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "Unused?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "sprite_terrain",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidarm",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "thorn",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "tile",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "tile2",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "tile_batch",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "unlit",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "warp",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "warp2",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "warp3",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "warpeye",
-		"ChunkTypeName": "ShaderChunk",
 		"Description": "?",
+		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]

@@ -1,8 +1,8 @@
 [
 	{
 		"AssetName": "andrasimpact",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -13,8 +13,8 @@
 	},
 	{
 		"AssetName": "andrasrise",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -25,8 +25,8 @@
 	},
 	{
 		"AssetName": "burrowcentipede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede burrow",
+		"IsProhibited": false,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -37,8 +37,8 @@
 	},
 	{
 		"AssetName": "chatterandras",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -50,8 +50,8 @@
 	},
 	{
 		"AssetName": "chattercentipede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede chatter",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -62,8 +62,8 @@
 	},
 	{
 		"AssetName": "chattercentipede2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gigapede chatter",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -74,8 +74,8 @@
 	},
 	{
 		"AssetName": "chattergigaspider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider II chatter",
+		"IsProhibited": true,
 		"Loudness": 20,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -86,8 +86,8 @@
 	},
 	{
 		"AssetName": "chatterleviathan",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan chatter",
+		"IsProhibited": false,
 		"Loudness": 50,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -98,8 +98,8 @@
 	},
 	{
 		"AssetName": "chatterminisquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid I chatter",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -110,8 +110,8 @@
 	},
 	{
 		"AssetName": "chatterskull",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I chatter",
+		"IsProhibited": true,
 		"Loudness": 2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -122,8 +122,8 @@
 	},
 	{
 		"AssetName": "chatterskull2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull II chatter",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -134,8 +134,8 @@
 	},
 	{
 		"AssetName": "chatterskull2black",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull II chatter",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -146,8 +146,8 @@
 	},
 	{
 		"AssetName": "chatterskull3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull III chatter",
+		"IsProhibited": true,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -158,8 +158,8 @@
 	},
 	{
 		"AssetName": "chatterskull3black",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull III chatter",
+		"IsProhibited": true,
 		"Loudness": 20,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -170,8 +170,8 @@
 	},
 	{
 		"AssetName": "chatterskull4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull IV chatter",
+		"IsProhibited": true,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -182,8 +182,8 @@
 	},
 	{
 		"AssetName": "chatterskull4black",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull IV chatter",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -194,8 +194,8 @@
 	},
 	{
 		"AssetName": "chatterskullblack",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I chatter",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -206,8 +206,8 @@
 	},
 	{
 		"AssetName": "chatterspider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I chatter",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -218,8 +218,8 @@
 	},
 	{
 		"AssetName": "chatterspiderling",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling chatter",
+		"IsProhibited": true,
 		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -230,8 +230,8 @@
 	},
 	{
 		"AssetName": "chattersquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid II chatter",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -242,8 +242,8 @@
 	},
 	{
 		"AssetName": "chattersquidsmall",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -252,8 +252,8 @@
 	},
 	{
 		"AssetName": "chattersquidultra",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III chatter",
+		"IsProhibited": true,
 		"Loudness": 15,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -264,8 +264,8 @@
 	},
 	{
 		"AssetName": "chatterthorn",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Thorn chatter",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -276,8 +276,8 @@
 	},
 	{
 		"AssetName": "chatterultrapede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede chatter",
+		"IsProhibited": true,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -288,8 +288,8 @@
 	},
 	{
 		"AssetName": "collectgib1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -298,8 +298,8 @@
 	},
 	{
 		"AssetName": "collectgib2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -308,8 +308,8 @@
 	},
 	{
 		"AssetName": "collectgib3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -318,8 +318,8 @@
 	},
 	{
 		"AssetName": "collectgibbase1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -328,8 +328,8 @@
 	},
 	{
 		"AssetName": "collectgibbase2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -338,8 +338,8 @@
 	},
 	{
 		"AssetName": "collectgibbase3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -348,8 +348,8 @@
 	},
 	{
 		"AssetName": "daggercall",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Pleb Dagger in lobby",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -360,8 +360,8 @@
 	},
 	{
 		"AssetName": "daggercall1bronze",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Bronze Dagger in lobby",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -372,8 +372,8 @@
 	},
 	{
 		"AssetName": "daggercall2silver",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Silver Dagger in lobby",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -384,8 +384,8 @@
 	},
 	{
 		"AssetName": "daggercall3gold",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Golden Dagger in lobby",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -396,8 +396,8 @@
 	},
 	{
 		"AssetName": "daggercall4devil",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Devil Dagger in lobby",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -408,8 +408,8 @@
 	},
 	{
 		"AssetName": "daggercall5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan Dagger in lobby",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -420,8 +420,8 @@
 	},
 	{
 		"AssetName": "daggercollect",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Dagger lobby grab",
+		"IsProhibited": false,
 		"Loudness": 0.2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -431,8 +431,8 @@
 	},
 	{
 		"AssetName": "daggercollect1bronze",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Bronze Dagger unlock",
+		"IsProhibited": false,
 		"Loudness": 1000,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -443,8 +443,8 @@
 	},
 	{
 		"AssetName": "daggercollect2silver",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Silver Dagger unlock",
+		"IsProhibited": false,
 		"Loudness": 1000,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -455,8 +455,8 @@
 	},
 	{
 		"AssetName": "daggercollect3gold",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Golden Dagger unlock",
+		"IsProhibited": false,
 		"Loudness": 1000,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -467,8 +467,8 @@
 	},
 	{
 		"AssetName": "daggercollect4devil",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Devil Dagger unlock",
+		"IsProhibited": false,
 		"Loudness": 1000,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -479,8 +479,8 @@
 	},
 	{
 		"AssetName": "daggercollect5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan Dagger unlock",
+		"IsProhibited": false,
 		"Loudness": 1000,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -491,8 +491,8 @@
 	},
 	{
 		"AssetName": "daggerdivert",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused (Andras?)",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -501,8 +501,8 @@
 	},
 	{
 		"AssetName": "daggerdrone",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger noise",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -512,8 +512,8 @@
 	},
 	{
 		"AssetName": "daggerhit1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Default dagger hit",
+		"IsProhibited": true,
 		"Loudness": 1.4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -522,8 +522,8 @@
 	},
 	{
 		"AssetName": "daggerseek",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger fire",
+		"IsProhibited": true,
 		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -533,8 +533,8 @@
 	},
 	{
 		"AssetName": "daggersteal1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -543,8 +543,8 @@
 	},
 	{
 		"AssetName": "daggersteal2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -553,8 +553,8 @@
 	},
 	{
 		"AssetName": "daggersteal3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -563,8 +563,8 @@
 	},
 	{
 		"AssetName": "daggersteal4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -573,8 +573,8 @@
 	},
 	{
 		"AssetName": "daggersteal5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 8,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -583,8 +583,8 @@
 	},
 	{
 		"AssetName": "damageandras",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -596,8 +596,8 @@
 	},
 	{
 		"AssetName": "damagecentipede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede gem is damaged",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -608,8 +608,8 @@
 	},
 	{
 		"AssetName": "damagecentipede2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gigapede gem is damaged",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -620,8 +620,8 @@
 	},
 	{
 		"AssetName": "damagegigaspider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider II damage",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -632,8 +632,8 @@
 	},
 	{
 		"AssetName": "damageleviathan",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan gem comes off",
+		"IsProhibited": true,
 		"Loudness": 66.6,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -644,8 +644,8 @@
 	},
 	{
 		"AssetName": "damagespider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I damage",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -656,8 +656,8 @@
 	},
 	{
 		"AssetName": "damagesquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid I / II / III / Leviathan gem damage",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -671,8 +671,8 @@
 	},
 	{
 		"AssetName": "damagesquid2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid II gem comes off",
+		"IsProhibited": true,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -683,8 +683,8 @@
 	},
 	{
 		"AssetName": "damagesquid3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III gem comes off",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -695,8 +695,8 @@
 	},
 	{
 		"AssetName": "damagesquid4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 35,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -705,8 +705,8 @@
 	},
 	{
 		"AssetName": "damagethorn",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Thorn damage",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -717,8 +717,8 @@
 	},
 	{
 		"AssetName": "damageultrapede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede gem comes off",
+		"IsProhibited": true,
 		"Loudness": 50,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -729,8 +729,8 @@
 	},
 	{
 		"AssetName": "death",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Player death from enemy",
+		"IsProhibited": false,
 		"Loudness": 99,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -740,8 +740,8 @@
 	},
 	{
 		"AssetName": "eggbounce",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider Egg I / Spider Egg II bounce on floor",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -752,8 +752,8 @@
 	},
 	{
 		"AssetName": "eggburst",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider Egg I / Spider Egg II burst (hatch or death)",
+		"IsProhibited": true,
 		"Loudness": 50,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -765,8 +765,8 @@
 	},
 	{
 		"AssetName": "eggburst2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -775,8 +775,8 @@
 	},
 	{
 		"AssetName": "eggdrone",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider Egg I chatter",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -787,8 +787,8 @@
 	},
 	{
 		"AssetName": "eggdrone2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider Egg II chatter",
+		"IsProhibited": true,
 		"Loudness": 2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -799,8 +799,8 @@
 	},
 	{
 		"AssetName": "eyearouse",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb is locating Player",
+		"IsProhibited": false,
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -810,8 +810,8 @@
 	},
 	{
 		"AssetName": "eyearousedrone",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb sees Player",
+		"IsProhibited": false,
 		"Loudness": 98,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -821,8 +821,8 @@
 	},
 	{
 		"AssetName": "eyehit",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb damage",
+		"IsProhibited": false,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -833,8 +833,8 @@
 	},
 	{
 		"AssetName": "eyepacifydrone",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -843,8 +843,8 @@
 	},
 	{
 		"AssetName": "fall",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Player death from falling",
+		"IsProhibited": false,
 		"Loudness": 100,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -854,8 +854,8 @@
 	},
 	{
 		"AssetName": "gibcollect",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gem collect during Level 1 / 2 / 4",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -864,8 +864,8 @@
 	},
 	{
 		"AssetName": "gibcollectmagic",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gem collect during Level 3",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -874,8 +874,8 @@
 	},
 	{
 		"AssetName": "gibdrone1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gem idle?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -884,8 +884,8 @@
 	},
 	{
 		"AssetName": "gibdrone2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gem idle?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -894,8 +894,8 @@
 	},
 	{
 		"AssetName": "gibdrone3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gem idle?",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -904,8 +904,8 @@
 	},
 	{
 		"AssetName": "gigaricochet1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 / 4 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -917,8 +917,8 @@
 	},
 	{
 		"AssetName": "gigaricochet2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 / 4 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -930,8 +930,8 @@
 	},
 	{
 		"AssetName": "gigaricochet3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 / 4 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -943,8 +943,8 @@
 	},
 	{
 		"AssetName": "gigaricochet4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 / 4 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -956,8 +956,8 @@
 	},
 	{
 		"AssetName": "gigaricochet5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 / 4 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -969,8 +969,8 @@
 	},
 	{
 		"AssetName": "highscore1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays when beating your highscore.",
+		"IsProhibited": false,
 		"Loudness": 2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -979,8 +979,8 @@
 	},
 	{
 		"AssetName": "highscore2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays 10 seconds before beating next person on friends leaderboard.",
+		"IsProhibited": false,
 		"Loudness": 2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -989,8 +989,8 @@
 	},
 	{
 		"AssetName": "jump1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Player jump",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -999,8 +999,8 @@
 	},
 	{
 		"AssetName": "jump2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Player bunnyhop",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1009,8 +1009,8 @@
 	},
 	{
 		"AssetName": "jump3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Player precise bunnyhop",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1019,8 +1019,8 @@
 	},
 	{
 		"AssetName": "killandras",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1032,8 +1032,8 @@
 	},
 	{
 		"AssetName": "killcentipede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede death",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1044,8 +1044,8 @@
 	},
 	{
 		"AssetName": "killcentipede2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gigapede death",
+		"IsProhibited": true,
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1056,8 +1056,8 @@
 	},
 	{
 		"AssetName": "killeye",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb death",
+		"IsProhibited": false,
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1068,8 +1068,8 @@
 	},
 	{
 		"AssetName": "killgigaspider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider II death",
+		"IsProhibited": true,
 		"Loudness": 75,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1080,8 +1080,8 @@
 	},
 	{
 		"AssetName": "killleviathan",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan death",
+		"IsProhibited": true,
 		"Loudness": 66.6,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1092,8 +1092,8 @@
 	},
 	{
 		"AssetName": "killminisquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid I death",
+		"IsProhibited": true,
 		"Loudness": 50,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1104,8 +1104,8 @@
 	},
 	{
 		"AssetName": "killskull1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1116,8 +1116,8 @@
 	},
 	{
 		"AssetName": "killskull2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1128,8 +1128,8 @@
 	},
 	{
 		"AssetName": "killskull3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1140,8 +1140,8 @@
 	},
 	{
 		"AssetName": "killskull4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1152,8 +1152,8 @@
 	},
 	{
 		"AssetName": "killskull5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull I death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1164,8 +1164,8 @@
 	},
 	{
 		"AssetName": "killskullblack1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1176,8 +1176,8 @@
 	},
 	{
 		"AssetName": "killskullblack2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1188,8 +1188,8 @@
 	},
 	{
 		"AssetName": "killskullblack3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1200,8 +1200,8 @@
 	},
 	{
 		"AssetName": "killskullblack4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull I death",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1212,8 +1212,8 @@
 	},
 	{
 		"AssetName": "killspider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I death",
+		"IsProhibited": true,
 		"Loudness": 55,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1224,8 +1224,8 @@
 	},
 	{
 		"AssetName": "killspiderling1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1236,8 +1236,8 @@
 	},
 	{
 		"AssetName": "killspiderling2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1248,8 +1248,8 @@
 	},
 	{
 		"AssetName": "killspiderling3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1260,8 +1260,8 @@
 	},
 	{
 		"AssetName": "killspiderling4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1272,8 +1272,8 @@
 	},
 	{
 		"AssetName": "killspiderling5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spiderling death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1284,8 +1284,8 @@
 	},
 	{
 		"AssetName": "killsquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid II death",
+		"IsProhibited": true,
 		"Loudness": 50,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1296,8 +1296,8 @@
 	},
 	{
 		"AssetName": "killsuperskull",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull II death",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1308,8 +1308,8 @@
 	},
 	{
 		"AssetName": "killsuperskull2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull III death",
+		"IsProhibited": true,
 		"Loudness": 6,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1320,8 +1320,8 @@
 	},
 	{
 		"AssetName": "killsuperskull2black",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull III death",
+		"IsProhibited": true,
 		"Loudness": 6,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1332,8 +1332,8 @@
 	},
 	{
 		"AssetName": "killsuperskull3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull IV death / Transmuted Skull IV death",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1345,8 +1345,8 @@
 	},
 	{
 		"AssetName": "killsuperskullblack",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Transmuted Skull II death",
+		"IsProhibited": true,
 		"Loudness": 6,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1357,8 +1357,8 @@
 	},
 	{
 		"AssetName": "killthorn",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Thorn death",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1369,8 +1369,8 @@
 	},
 	{
 		"AssetName": "killultraskull",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1379,8 +1379,8 @@
 	},
 	{
 		"AssetName": "killultrasquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III death",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1391,8 +1391,8 @@
 	},
 	{
 		"AssetName": "land",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Land sound for Player",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1401,8 +1401,8 @@
 	},
 	{
 		"AssetName": "land2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Land sound for Player",
+		"IsProhibited": true,
 		"Loudness": 2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1411,8 +1411,8 @@
 	},
 	{
 		"AssetName": "legends",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Easter egg music for skull thrones",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1422,8 +1422,8 @@
 	},
 	{
 		"AssetName": "leveldown",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 97,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1432,44 +1432,44 @@
 	},
 	{
 		"AssetName": "levelup2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 upgrade",
+		"IsProhibited": false,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
+			"Level 2",
 			"Player",
-			"Upgrade",
-			"Level 2"
+			"Upgrade"
 		]
 	},
 	{
 		"AssetName": "levelup3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 upgrade",
+		"IsProhibited": false,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
+			"Level 3",
 			"Player",
-			"Upgrade",
-			"Level 3"
+			"Upgrade"
 		]
 	},
 	{
 		"AssetName": "levelup4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 upgrade",
+		"IsProhibited": false,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
+			"Level 4",
 			"Player",
-			"Upgrade",
-			"Level 4"
+			"Upgrade"
 		]
 	},
 	{
 		"AssetName": "leviathanbeckon",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan / The Orb beckon",
+		"IsProhibited": false,
 		"Loudness": 200,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1480,8 +1480,8 @@
 	},
 	{
 		"AssetName": "leviathanbeckon2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays when a skull touches Leviathan's or The Orb's beckon ring.",
+		"IsProhibited": false,
 		"Loudness": 20,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1496,8 +1496,8 @@
 	},
 	{
 		"AssetName": "leviathantransmute",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays when a skull is transmuted by Leviathan (and The Orb?).",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1512,8 +1512,8 @@
 	},
 	{
 		"AssetName": "magentadetonate1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1523,8 +1523,8 @@
 	},
 	{
 		"AssetName": "magentadetonate2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1534,8 +1534,8 @@
 	},
 	{
 		"AssetName": "magentadetonate3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1545,8 +1545,8 @@
 	},
 	{
 		"AssetName": "magentadetonate4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1556,8 +1556,8 @@
 	},
 	{
 		"AssetName": "magentadetonate5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger explode",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1567,8 +1567,8 @@
 	},
 	{
 		"AssetName": "magentadrone",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger noise",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1578,8 +1578,8 @@
 	},
 	{
 		"AssetName": "magentashot",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1590,8 +1590,8 @@
 	},
 	{
 		"AssetName": "magentastuckenemy1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1602,8 +1602,8 @@
 	},
 	{
 		"AssetName": "magentastuckenemy2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1614,8 +1614,8 @@
 	},
 	{
 		"AssetName": "magentastuckenemy3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1626,8 +1626,8 @@
 	},
 	{
 		"AssetName": "magentastuckenemy4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1638,8 +1638,8 @@
 	},
 	{
 		"AssetName": "magentastuckenemy5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1650,8 +1650,8 @@
 	},
 	{
 		"AssetName": "magicpierce1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 9,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1662,8 +1662,8 @@
 	},
 	{
 		"AssetName": "magicpierce2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 9,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1674,8 +1674,8 @@
 	},
 	{
 		"AssetName": "magicpierce3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 9,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1686,8 +1686,8 @@
 	},
 	{
 		"AssetName": "magicpierce4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 9,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1698,8 +1698,8 @@
 	},
 	{
 		"AssetName": "magicpierce5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger pierces an enemy",
+		"IsProhibited": true,
 		"Loudness": 9,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -1710,8 +1710,8 @@
 	},
 	{
 		"AssetName": "magicpulse",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1720,8 +1720,8 @@
 	},
 	{
 		"AssetName": "meat1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1730,8 +1730,8 @@
 	},
 	{
 		"AssetName": "meat10",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1740,8 +1740,8 @@
 	},
 	{
 		"AssetName": "meat11",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1750,8 +1750,8 @@
 	},
 	{
 		"AssetName": "meat12",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1760,8 +1760,8 @@
 	},
 	{
 		"AssetName": "meat13",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1770,8 +1770,8 @@
 	},
 	{
 		"AssetName": "meat2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1780,8 +1780,8 @@
 	},
 	{
 		"AssetName": "meat3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1790,8 +1790,8 @@
 	},
 	{
 		"AssetName": "meat4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1800,8 +1800,8 @@
 	},
 	{
 		"AssetName": "meat5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1810,8 +1810,8 @@
 	},
 	{
 		"AssetName": "meat6",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1820,8 +1820,8 @@
 	},
 	{
 		"AssetName": "meat7",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1830,8 +1830,8 @@
 	},
 	{
 		"AssetName": "meat8",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1840,8 +1840,8 @@
 	},
 	{
 		"AssetName": "meat9",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Small meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1850,8 +1850,8 @@
 	},
 	{
 		"AssetName": "meatbig1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1860,8 +1860,8 @@
 	},
 	{
 		"AssetName": "meatbig2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1870,8 +1870,8 @@
 	},
 	{
 		"AssetName": "meatbig3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1880,8 +1880,8 @@
 	},
 	{
 		"AssetName": "meatbig4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1890,8 +1890,8 @@
 	},
 	{
 		"AssetName": "meatbig5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1900,8 +1900,8 @@
 	},
 	{
 		"AssetName": "meatbig6",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Big meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1910,8 +1910,8 @@
 	},
 	{
 		"AssetName": "meatmed1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1920,8 +1920,8 @@
 	},
 	{
 		"AssetName": "meatmed2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1930,8 +1930,8 @@
 	},
 	{
 		"AssetName": "meatmed3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1940,8 +1940,8 @@
 	},
 	{
 		"AssetName": "meatmed4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1950,8 +1950,8 @@
 	},
 	{
 		"AssetName": "meatmed5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1960,8 +1960,8 @@
 	},
 	{
 		"AssetName": "meatmed6",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Medium meat bounce on floor",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1970,8 +1970,8 @@
 	},
 	{
 		"AssetName": "menuatmos",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Main menu music",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1980,8 +1980,8 @@
 	},
 	{
 		"AssetName": "menutheme",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Devil Daggers splash screen music",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -1990,8 +1990,8 @@
 	},
 	{
 		"AssetName": "polarity1e",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Arena east",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2000,8 +2000,8 @@
 	},
 	{
 		"AssetName": "polarity2w",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Arena west",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2010,8 +2010,8 @@
 	},
 	{
 		"AssetName": "polarity3n",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Arena north",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2020,8 +2020,8 @@
 	},
 	{
 		"AssetName": "polarity4s",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Arena south",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2030,8 +2030,8 @@
 	},
 	{
 		"AssetName": "rapid1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger spray",
+		"IsProhibited": true,
 		"Loudness": 0.2,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2042,8 +2042,8 @@
 	},
 	{
 		"AssetName": "rapid2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger spray",
+		"IsProhibited": true,
 		"Loudness": 0.3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2054,8 +2054,8 @@
 	},
 	{
 		"AssetName": "rapid3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 normal dagger spray",
+		"IsProhibited": true,
 		"Loudness": 0.5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2066,8 +2066,8 @@
 	},
 	{
 		"AssetName": "rapid4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 normal dagger spray",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2078,8 +2078,8 @@
 	},
 	{
 		"AssetName": "ricochet1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2090,8 +2090,8 @@
 	},
 	{
 		"AssetName": "ricochet2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2102,8 +2102,8 @@
 	},
 	{
 		"AssetName": "ricochet3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2114,8 +2114,8 @@
 	},
 	{
 		"AssetName": "ricochet4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2126,8 +2126,8 @@
 	},
 	{
 		"AssetName": "ricochet5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2138,8 +2138,8 @@
 	},
 	{
 		"AssetName": "ricochetmagenta1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2150,8 +2150,8 @@
 	},
 	{
 		"AssetName": "ricochetmagenta2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2162,8 +2162,8 @@
 	},
 	{
 		"AssetName": "ricochetmagenta3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2174,8 +2174,8 @@
 	},
 	{
 		"AssetName": "ricochetmagenta4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2186,8 +2186,8 @@
 	},
 	{
 		"AssetName": "ricochetmagenta5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2198,8 +2198,8 @@
 	},
 	{
 		"AssetName": "ricochetmagic1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2210,8 +2210,8 @@
 	},
 	{
 		"AssetName": "ricochetmagic2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2222,8 +2222,8 @@
 	},
 	{
 		"AssetName": "ricochetmagic3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2234,8 +2234,8 @@
 	},
 	{
 		"AssetName": "ricochetmagic4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 homing dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2246,8 +2246,8 @@
 	},
 	{
 		"AssetName": "ricochetmed1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2258,8 +2258,8 @@
 	},
 	{
 		"AssetName": "ricochetmed2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2270,8 +2270,8 @@
 	},
 	{
 		"AssetName": "ricochetmed3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2282,8 +2282,8 @@
 	},
 	{
 		"AssetName": "ricochetmed4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2294,8 +2294,8 @@
 	},
 	{
 		"AssetName": "ricochetmed5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger ricochet",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2306,8 +2306,8 @@
 	},
 	{
 		"AssetName": "secretsnake",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -2316,8 +2316,8 @@
 	},
 	{
 		"AssetName": "secretsnake2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Plays when discovering an easter egg in the lobby.",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -2327,8 +2327,8 @@
 	},
 	{
 		"AssetName": "shard1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
+		"IsProhibited": true,
 		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2338,8 +2338,8 @@
 	},
 	{
 		"AssetName": "shard2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
+		"IsProhibited": true,
 		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2349,8 +2349,8 @@
 	},
 	{
 		"AssetName": "shard3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
+		"IsProhibited": true,
 		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2360,8 +2360,8 @@
 	},
 	{
 		"AssetName": "shard4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
+		"IsProhibited": true,
 		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2371,8 +2371,8 @@
 	},
 	{
 		"AssetName": "shard5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "The Orb shard bounce on floor",
+		"IsProhibited": true,
 		"Loudness": 4,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2382,8 +2382,8 @@
 	},
 	{
 		"AssetName": "shot1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 1 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2394,8 +2394,8 @@
 	},
 	{
 		"AssetName": "shot2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 2 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 1.5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2406,8 +2406,8 @@
 	},
 	{
 		"AssetName": "shot3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2416,8 +2416,8 @@
 	},
 	{
 		"AssetName": "shot3alt1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2428,8 +2428,8 @@
 	},
 	{
 		"AssetName": "shot3alt2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2440,8 +2440,8 @@
 	},
 	{
 		"AssetName": "shot3alt3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2452,8 +2452,8 @@
 	},
 	{
 		"AssetName": "shot3alt4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 3 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 3,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2464,8 +2464,8 @@
 	},
 	{
 		"AssetName": "shot4alt1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2476,8 +2476,8 @@
 	},
 	{
 		"AssetName": "shot4alt2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2488,8 +2488,8 @@
 	},
 	{
 		"AssetName": "shot4alt3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2500,8 +2500,8 @@
 	},
 	{
 		"AssetName": "shot4alt4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2512,8 +2512,8 @@
 	},
 	{
 		"AssetName": "shot4alt5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Level 4 normal dagger shotgun",
+		"IsProhibited": true,
 		"Loudness": 5,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2524,8 +2524,8 @@
 	},
 	{
 		"AssetName": "skullaggro",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2534,8 +2534,8 @@
 	},
 	{
 		"AssetName": "skullclop1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull bounce on floor or with other skull",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2546,8 +2546,8 @@
 	},
 	{
 		"AssetName": "skullclop2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull bounce on floor or with other skull",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2558,8 +2558,8 @@
 	},
 	{
 		"AssetName": "skullclop3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull bounce on floor or with other skull",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2570,8 +2570,8 @@
 	},
 	{
 		"AssetName": "skullclop4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull bounce on floor or with other skull",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2582,8 +2582,8 @@
 	},
 	{
 		"AssetName": "skullclop5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull bounce on floor or with other skull",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2594,8 +2594,8 @@
 	},
 	{
 		"AssetName": "skullclop6",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Skull bounce on floor or with other skull",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2606,8 +2606,8 @@
 	},
 	{
 		"AssetName": "sorathlogo",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Sorath splash screen sound",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -2616,8 +2616,8 @@
 	},
 	{
 		"AssetName": "sorathlogo2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -2626,8 +2626,8 @@
 	},
 	{
 		"AssetName": "sorathstone",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Sorath stone easter egg music",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -2637,8 +2637,8 @@
 	},
 	{
 		"AssetName": "spawnandras",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": false,
 		"Loudness": 45,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2650,8 +2650,8 @@
 	},
 	{
 		"AssetName": "spawncentipede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede spawn",
+		"IsProhibited": true,
 		"Loudness": 35,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2662,8 +2662,8 @@
 	},
 	{
 		"AssetName": "spawncentipede2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gigapede spawn",
+		"IsProhibited": true,
 		"Loudness": 35,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2674,8 +2674,8 @@
 	},
 	{
 		"AssetName": "spawnegg",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I / Spider II shoot egg",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2687,8 +2687,8 @@
 	},
 	{
 		"AssetName": "spawngigaspider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider II spawn",
+		"IsProhibited": true,
 		"Loudness": 70,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2699,8 +2699,8 @@
 	},
 	{
 		"AssetName": "spawnleviathan",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Leviathan spawn",
+		"IsProhibited": false,
 		"Loudness": 666,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2711,8 +2711,8 @@
 	},
 	{
 		"AssetName": "spawnminisquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid I spawn",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2723,8 +2723,8 @@
 	},
 	{
 		"AssetName": "spawnplayer",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Player spawn",
+		"IsProhibited": false,
 		"Loudness": 100,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2734,8 +2734,8 @@
 	},
 	{
 		"AssetName": "spawnskulls",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid II gush (yes, really)",
+		"IsProhibited": true,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2746,8 +2746,8 @@
 	},
 	{
 		"AssetName": "spawnskulls2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid I gush (yes, really)",
+		"IsProhibited": true,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2758,8 +2758,8 @@
 	},
 	{
 		"AssetName": "spawnskulls3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III gush",
+		"IsProhibited": true,
 		"Loudness": 25,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2770,8 +2770,8 @@
 	},
 	{
 		"AssetName": "spawnspider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I spawn",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2782,8 +2782,8 @@
 	},
 	{
 		"AssetName": "spawnsquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid II spawn",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2794,20 +2794,20 @@
 	},
 	{
 		"AssetName": "spawnultrapede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede spawn",
+		"IsProhibited": true,
 		"Loudness": 120,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
-			"Spawn",
-			"Ghostpede"
+			"Ghostpede",
+			"Spawn"
 		]
 	},
 	{
 		"AssetName": "spawnultrasquid",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III spawn",
+		"IsProhibited": true,
 		"Loudness": 70,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2818,8 +2818,8 @@
 	},
 	{
 		"AssetName": "spidereat1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I / Spider II eat gem",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2830,8 +2830,8 @@
 	},
 	{
 		"AssetName": "spidereat2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I / Spider II eat gem",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2842,8 +2842,8 @@
 	},
 	{
 		"AssetName": "spidereat3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I / Spider II eat gem",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2854,8 +2854,8 @@
 	},
 	{
 		"AssetName": "spidereat4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I / Spider II eat gem",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2866,8 +2866,8 @@
 	},
 	{
 		"AssetName": "spidereat5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I / Spider II eat gem",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2878,8 +2878,8 @@
 	},
 	{
 		"AssetName": "spidereat6",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I / Spider II eat gem",
+		"IsProhibited": true,
 		"Loudness": 60,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2890,8 +2890,8 @@
 	},
 	{
 		"AssetName": "splashgiga",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid II death splash",
+		"IsProhibited": true,
 		"Loudness": 35,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2902,8 +2902,8 @@
 	},
 	{
 		"AssetName": "splashgiga2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede / Gigapede death splash",
+		"IsProhibited": true,
 		"Loudness": 35,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2915,8 +2915,8 @@
 	},
 	{
 		"AssetName": "splashgiga3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider I death splash",
+		"IsProhibited": true,
 		"Loudness": 35,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2927,8 +2927,8 @@
 	},
 	{
 		"AssetName": "splashgiga4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Squid III death splash",
+		"IsProhibited": true,
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2939,8 +2939,8 @@
 	},
 	{
 		"AssetName": "splashgiga5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Spider II death splash",
+		"IsProhibited": true,
 		"Loudness": 45,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2951,8 +2951,8 @@
 	},
 	{
 		"AssetName": "splashgiga6",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede death splash",
+		"IsProhibited": true,
 		"Loudness": 45,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2963,8 +2963,8 @@
 	},
 	{
 		"AssetName": "stealgib",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gem attracted by Spider I",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2973,8 +2973,8 @@
 	},
 	{
 		"AssetName": "stealgib2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Gem attracted by Spider II",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2983,8 +2983,8 @@
 	},
 	{
 		"AssetName": "subchattercentipede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede / Gigapede / Ghostpede underground",
+		"IsProhibited": false,
 		"Loudness": 20,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -2997,8 +2997,8 @@
 	},
 	{
 		"AssetName": "thornemerge",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Thorn spawn",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -3009,8 +3009,8 @@
 	},
 	{
 		"AssetName": "thorngib1",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3019,8 +3019,8 @@
 	},
 	{
 		"AssetName": "thorngib2",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3029,8 +3029,8 @@
 	},
 	{
 		"AssetName": "thorngib3",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3039,8 +3039,8 @@
 	},
 	{
 		"AssetName": "thorngib4",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3049,8 +3049,8 @@
 	},
 	{
 		"AssetName": "thorngib5",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3059,8 +3059,8 @@
 	},
 	{
 		"AssetName": "thorngib6",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Unused",
+		"IsProhibited": true,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3069,8 +3069,8 @@
 	},
 	{
 		"AssetName": "uiclick",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "User interface click",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3079,8 +3079,8 @@
 	},
 	{
 		"AssetName": "uihover",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "User interface hover",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3089,8 +3089,8 @@
 	},
 	{
 		"AssetName": "uislider",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "User interface slider",
+		"IsProhibited": false,
 		"Loudness": 1,
 		"PresentInDefaultLoudness": false,
 		"Tags": [
@@ -3099,8 +3099,8 @@
 	},
 	{
 		"AssetName": "ultrapedecrash",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede collide with floor",
+		"IsProhibited": true,
 		"Loudness": 30,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -3110,8 +3110,8 @@
 	},
 	{
 		"AssetName": "ultrapedeeat",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede eat homing dagger",
+		"IsProhibited": true,
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -3121,8 +3121,8 @@
 	},
 	{
 		"AssetName": "ultrapedefall",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Ghostpede death",
+		"IsProhibited": true,
 		"Loudness": 40,
 		"PresentInDefaultLoudness": true,
 		"Tags": [
@@ -3133,8 +3133,8 @@
 	},
 	{
 		"AssetName": "unburrowcentipede",
-		"ChunkTypeName": "AudioChunk",
 		"Description": "Centipede emerge",
+		"IsProhibited": true,
 		"Loudness": 10,
 		"PresentInDefaultLoudness": true,
 		"Tags": [

@@ -5,8 +5,8 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public class ModelBindingAsset : AbstractAsset
 	{
-		public ModelBindingAsset(string assetName, string description, List<string> tags)
-			: base(assetName, AssetType.ModelBinding, description, tags)
+		public ModelBindingAsset(string assetName, string description, List<string> tags, bool isProhibited)
+			: base(assetName, AssetType.ModelBinding, description, tags, isProhibited)
 		{
 		}
 
