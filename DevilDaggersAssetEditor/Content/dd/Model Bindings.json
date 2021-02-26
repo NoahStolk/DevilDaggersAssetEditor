@@ -2,7 +2,6 @@
 	{
 		"AssetName": "bat",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -10,7 +9,6 @@
 	{
 		"AssetName": "boid",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -18,7 +16,6 @@
 	{
 		"AssetName": "boid_pop",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -26,7 +23,6 @@
 	{
 		"AssetName": "dagger",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -34,7 +30,6 @@
 	{
 		"AssetName": "dagger1",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -42,7 +37,6 @@
 	{
 		"AssetName": "dagger2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -50,7 +44,6 @@
 	{
 		"AssetName": "dagger3",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -58,7 +51,6 @@
 	{
 		"AssetName": "dagger4",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -66,7 +58,6 @@
 	{
 		"AssetName": "dagger5",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -74,7 +65,6 @@
 	{
 		"AssetName": "dagger6",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -82,7 +72,6 @@
 	{
 		"AssetName": "daggerbronze",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -90,7 +79,6 @@
 	{
 		"AssetName": "daggerdevil",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -98,7 +86,6 @@
 	{
 		"AssetName": "daggergold",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -106,7 +93,6 @@
 	{
 		"AssetName": "daggerlevi",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -114,7 +100,6 @@
 	{
 		"AssetName": "daggersilver",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -122,7 +107,6 @@
 	{
 		"AssetName": "gib",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -130,7 +114,6 @@
 	{
 		"AssetName": "gibegg",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -138,7 +121,6 @@
 	{
 		"AssetName": "gigaegg",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -146,7 +128,6 @@
 	{
 		"AssetName": "hand",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -154,7 +135,6 @@
 	{
 		"AssetName": "hand0",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -162,7 +142,6 @@
 	{
 		"AssetName": "hand2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -170,7 +149,6 @@
 	{
 		"AssetName": "hand3",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -178,7 +156,6 @@
 	{
 		"AssetName": "hand4",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -186,7 +163,6 @@
 	{
 		"AssetName": "hand5",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -194,7 +170,6 @@
 	{
 		"AssetName": "hand6",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -202,7 +177,6 @@
 	{
 		"AssetName": "immortaleye",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -210,7 +184,6 @@
 	{
 		"AssetName": "immortaleyehit",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -218,7 +191,6 @@
 	{
 		"AssetName": "levitent",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -226,7 +198,6 @@
 	{
 		"AssetName": "levitentgib",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -234,7 +205,6 @@
 	{
 		"AssetName": "levitenthit",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -242,7 +212,6 @@
 	{
 		"AssetName": "leviwarp",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -250,7 +219,6 @@
 	{
 		"AssetName": "leviwarp2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -258,7 +226,6 @@
 	{
 		"AssetName": "leviwarp3",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -266,7 +233,6 @@
 	{
 		"AssetName": "logodagger",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -274,7 +240,6 @@
 	{
 		"AssetName": "logohand",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -282,7 +247,6 @@
 	{
 		"AssetName": "logotext",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -290,7 +254,6 @@
 	{
 		"AssetName": "minisquidarm",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -298,7 +261,6 @@
 	{
 		"AssetName": "particle",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -306,7 +268,6 @@
 	{
 		"AssetName": "particle2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -314,7 +275,6 @@
 	{
 		"AssetName": "particle_decal",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -322,7 +282,6 @@
 	{
 		"AssetName": "pedebody",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -330,7 +289,6 @@
 	{
 		"AssetName": "pedehead",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -338,7 +296,6 @@
 	{
 		"AssetName": "pedejaw",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -346,7 +303,6 @@
 	{
 		"AssetName": "pedeleg1",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -354,7 +310,6 @@
 	{
 		"AssetName": "pedeleg2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -362,7 +317,6 @@
 	{
 		"AssetName": "pedeleg3",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -370,7 +324,6 @@
 	{
 		"AssetName": "pedetail",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -378,7 +331,6 @@
 	{
 		"AssetName": "skullscroll",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -386,7 +338,6 @@
 	{
 		"AssetName": "skullwarp",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -394,7 +345,6 @@
 	{
 		"AssetName": "sorathlogo",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -402,7 +352,6 @@
 	{
 		"AssetName": "spideregg1",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -410,7 +359,6 @@
 	{
 		"AssetName": "spideregg2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -418,7 +366,6 @@
 	{
 		"AssetName": "spidereggflash",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -426,7 +373,6 @@
 	{
 		"AssetName": "squidarm",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -434,7 +380,6 @@
 	{
 		"AssetName": "squidarmgib",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -442,7 +387,6 @@
 	{
 		"AssetName": "squidarmhit",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -450,7 +394,6 @@
 	{
 		"AssetName": "squidteeth",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -458,7 +401,6 @@
 	{
 		"AssetName": "squidteethgib",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -466,7 +408,6 @@
 	{
 		"AssetName": "squidteethhit",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -474,7 +415,6 @@
 	{
 		"AssetName": "thorn",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -482,7 +422,6 @@
 	{
 		"AssetName": "thornhit",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -490,7 +429,6 @@
 	{
 		"AssetName": "tile",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -498,7 +436,6 @@
 	{
 		"AssetName": "tile2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]

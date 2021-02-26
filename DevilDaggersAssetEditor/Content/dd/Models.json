@@ -1,18 +1,17 @@
 [
 	{
-		"AssetName": "bat",
 		"DefaultIndexCount": 16,
 		"DefaultVertexCount": 40,
+		"AssetName": "bat",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "blood1",
 		"DefaultIndexCount": 58,
 		"DefaultVertexCount": 50,
+		"AssetName": "blood1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -20,9 +19,9 @@
 		]
 	},
 	{
-		"AssetName": "blood10",
 		"DefaultIndexCount": 165,
 		"DefaultVertexCount": 106,
+		"AssetName": "blood10",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -30,9 +29,9 @@
 		]
 	},
 	{
-		"AssetName": "blood11",
 		"DefaultIndexCount": 86,
 		"DefaultVertexCount": 74,
+		"AssetName": "blood11",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -40,9 +39,9 @@
 		]
 	},
 	{
-		"AssetName": "blood2",
 		"DefaultIndexCount": 44,
 		"DefaultVertexCount": 33,
+		"AssetName": "blood2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -50,9 +49,9 @@
 		]
 	},
 	{
-		"AssetName": "blood3",
 		"DefaultIndexCount": 114,
 		"DefaultVertexCount": 93,
+		"AssetName": "blood3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -60,9 +59,9 @@
 		]
 	},
 	{
-		"AssetName": "blood4",
 		"DefaultIndexCount": 48,
 		"DefaultVertexCount": 38,
+		"AssetName": "blood4",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -70,9 +69,9 @@
 		]
 	},
 	{
-		"AssetName": "blood5",
 		"DefaultIndexCount": 167,
 		"DefaultVertexCount": 228,
+		"AssetName": "blood5",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -80,9 +79,9 @@
 		]
 	},
 	{
-		"AssetName": "blood6",
 		"DefaultIndexCount": 112,
 		"DefaultVertexCount": 116,
+		"AssetName": "blood6",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -90,9 +89,9 @@
 		]
 	},
 	{
-		"AssetName": "blood7",
 		"DefaultIndexCount": 78,
 		"DefaultVertexCount": 54,
+		"AssetName": "blood7",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -100,9 +99,9 @@
 		]
 	},
 	{
-		"AssetName": "blood8",
 		"DefaultIndexCount": 82,
 		"DefaultVertexCount": 73,
+		"AssetName": "blood8",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -110,9 +109,9 @@
 		]
 	},
 	{
-		"AssetName": "blood9",
 		"DefaultIndexCount": 59,
 		"DefaultVertexCount": 43,
+		"AssetName": "blood9",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -120,9 +119,9 @@
 		]
 	},
 	{
-		"AssetName": "boid",
 		"DefaultIndexCount": 694,
 		"DefaultVertexCount": 375,
+		"AssetName": "boid",
 		"Description": "Skull I",
 		"IsProhibited": true,
 		"Tags": [
@@ -131,9 +130,9 @@
 		]
 	},
 	{
-		"AssetName": "boid2",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
+		"AssetName": "boid2",
 		"Description": "Skull II",
 		"IsProhibited": true,
 		"Tags": [
@@ -142,9 +141,9 @@
 		]
 	},
 	{
-		"AssetName": "boid2horns",
 		"DefaultIndexCount": 490,
 		"DefaultVertexCount": 281,
+		"AssetName": "boid2horns",
 		"Description": "Skull II horns",
 		"IsProhibited": true,
 		"Tags": [
@@ -154,9 +153,9 @@
 		]
 	},
 	{
-		"AssetName": "boid3",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
+		"AssetName": "boid3",
 		"Description": "Skull III",
 		"IsProhibited": true,
 		"Tags": [
@@ -165,9 +164,9 @@
 		]
 	},
 	{
-		"AssetName": "boid3horns",
 		"DefaultIndexCount": 620,
 		"DefaultVertexCount": 364,
+		"AssetName": "boid3horns",
 		"Description": "Skull III horns",
 		"IsProhibited": true,
 		"Tags": [
@@ -177,9 +176,9 @@
 		]
 	},
 	{
-		"AssetName": "boid3jaw",
 		"DefaultIndexCount": 322,
 		"DefaultVertexCount": 185,
+		"AssetName": "boid3jaw",
 		"Description": "Skull III jaw",
 		"IsProhibited": true,
 		"Tags": [
@@ -189,9 +188,9 @@
 		]
 	},
 	{
-		"AssetName": "boid4",
 		"DefaultIndexCount": 2299,
 		"DefaultVertexCount": 3229,
+		"AssetName": "boid4",
 		"Description": "Skull IV",
 		"IsProhibited": true,
 		"Tags": [
@@ -200,9 +199,9 @@
 		]
 	},
 	{
-		"AssetName": "boid4jaw",
 		"DefaultIndexCount": 414,
 		"DefaultVertexCount": 781,
+		"AssetName": "boid4jaw",
 		"Description": "Skull IV jaw",
 		"IsProhibited": true,
 		"Tags": [
@@ -212,29 +211,27 @@
 		]
 	},
 	{
-		"AssetName": "bottom",
 		"DefaultIndexCount": 2,
 		"DefaultVertexCount": 4,
+		"AssetName": "bottom",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "dagger",
 		"DefaultIndexCount": 60,
 		"DefaultVertexCount": 164,
+		"AssetName": "dagger",
 		"Description": "Dagger",
-		"IsProhibited": false,
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
-		"AssetName": "ember1",
 		"DefaultIndexCount": 44,
 		"DefaultVertexCount": 27,
+		"AssetName": "ember1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -242,9 +239,9 @@
 		]
 	},
 	{
-		"AssetName": "ember2",
 		"DefaultIndexCount": 44,
 		"DefaultVertexCount": 60,
+		"AssetName": "ember2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -252,9 +249,9 @@
 		]
 	},
 	{
-		"AssetName": "ember3",
 		"DefaultIndexCount": 38,
 		"DefaultVertexCount": 40,
+		"AssetName": "ember3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -262,29 +259,27 @@
 		]
 	},
 	{
-		"AssetName": "feather1",
 		"DefaultIndexCount": 90,
 		"DefaultVertexCount": 67,
+		"AssetName": "feather1",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "feather2",
 		"DefaultIndexCount": 66,
 		"DefaultVertexCount": 47,
+		"AssetName": "feather2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "flame1",
 		"DefaultIndexCount": 76,
 		"DefaultVertexCount": 45,
+		"AssetName": "flame1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -292,9 +287,9 @@
 		]
 	},
 	{
-		"AssetName": "flame2",
 		"DefaultIndexCount": 130,
 		"DefaultVertexCount": 107,
+		"AssetName": "flame2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -302,9 +297,9 @@
 		]
 	},
 	{
-		"AssetName": "flame3",
 		"DefaultIndexCount": 98,
 		"DefaultVertexCount": 65,
+		"AssetName": "flame3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -312,9 +307,9 @@
 		]
 	},
 	{
-		"AssetName": "flame4",
 		"DefaultIndexCount": 81,
 		"DefaultVertexCount": 62,
+		"AssetName": "flame4",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -322,9 +317,9 @@
 		]
 	},
 	{
-		"AssetName": "flame5",
 		"DefaultIndexCount": 131,
 		"DefaultVertexCount": 100,
+		"AssetName": "flame5",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -332,9 +327,9 @@
 		]
 	},
 	{
-		"AssetName": "flame6",
 		"DefaultIndexCount": 190,
 		"DefaultVertexCount": 147,
+		"AssetName": "flame6",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -342,9 +337,9 @@
 		]
 	},
 	{
-		"AssetName": "flame7",
 		"DefaultIndexCount": 198,
 		"DefaultVertexCount": 176,
+		"AssetName": "flame7",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -352,9 +347,9 @@
 		]
 	},
 	{
-		"AssetName": "flame8",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 110,
+		"AssetName": "flame8",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -362,9 +357,9 @@
 		]
 	},
 	{
-		"AssetName": "gib",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
+		"AssetName": "gib",
 		"Description": "Gem",
 		"IsProhibited": true,
 		"Tags": [
@@ -372,9 +367,9 @@
 		]
 	},
 	{
-		"AssetName": "gib1",
 		"DefaultIndexCount": 96,
 		"DefaultVertexCount": 54,
+		"AssetName": "gib1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -382,9 +377,9 @@
 		]
 	},
 	{
-		"AssetName": "gib2",
 		"DefaultIndexCount": 214,
 		"DefaultVertexCount": 117,
+		"AssetName": "gib2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -392,9 +387,9 @@
 		]
 	},
 	{
-		"AssetName": "gib3",
 		"DefaultIndexCount": 94,
 		"DefaultVertexCount": 54,
+		"AssetName": "gib3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -402,9 +397,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaegg",
 		"DefaultIndexCount": 980,
 		"DefaultVertexCount": 595,
+		"AssetName": "gigaegg",
 		"Description": "Spider Egg II",
 		"IsProhibited": true,
 		"Tags": [
@@ -413,9 +408,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderbody",
 		"DefaultIndexCount": 1196,
 		"DefaultVertexCount": 645,
+		"AssetName": "gigaspiderbody",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -423,9 +418,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspidercrest",
 		"DefaultIndexCount": 590,
 		"DefaultVertexCount": 343,
+		"AssetName": "gigaspidercrest",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -433,9 +428,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderfangs",
 		"DefaultIndexCount": 392,
 		"DefaultVertexCount": 218,
+		"AssetName": "gigaspiderfangs",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -443,9 +438,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderfangs2",
 		"DefaultIndexCount": 290,
 		"DefaultVertexCount": 162,
+		"AssetName": "gigaspiderfangs2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -453,9 +448,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderhead",
 		"DefaultIndexCount": 722,
 		"DefaultVertexCount": 402,
+		"AssetName": "gigaspiderhead",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -463,9 +458,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderhorns",
 		"DefaultIndexCount": 379,
 		"DefaultVertexCount": 220,
+		"AssetName": "gigaspiderhorns",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -473,9 +468,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderjaw",
 		"DefaultIndexCount": 424,
 		"DefaultVertexCount": 293,
+		"AssetName": "gigaspiderjaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -483,9 +478,9 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderpalm",
 		"DefaultIndexCount": 292,
 		"DefaultVertexCount": 160,
+		"AssetName": "gigaspiderpalm",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -493,97 +488,89 @@
 		]
 	},
 	{
-		"AssetName": "hand",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 185,
+		"AssetName": "hand",
 		"Description": "Level 1 player hand (right)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 1",
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand2",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 238,
+		"AssetName": "hand2",
 		"Description": "Level 2 player hand (right)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 2",
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand2left",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 414,
+		"AssetName": "hand2left",
 		"Description": "Level 2 player hand (left)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 2",
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand3",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
+		"AssetName": "hand3",
 		"Description": "Level 3 player hand (right)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 3",
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand3left",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 397,
+		"AssetName": "hand3left",
 		"Description": "Level 3 player hand (left)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 3",
 			"Player"
 		]
 	},
 	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 237,
 		"AssetName": "hand4",
-		"DefaultIndexCount": 396,
-		"DefaultVertexCount": 237,
 		"Description": "Level 4 player hand (right)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 4",
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand4left",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 237,
+		"AssetName": "hand4left",
 		"Description": "Level 4 player hand (left)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 4",
 			"Player"
 		]
 	},
 	{
-		"AssetName": "handleft",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 386,
+		"AssetName": "handleft",
 		"Description": "Level 1 player hand (left)",
-		"IsProhibited": false,
 		"Tags": [
 			"Level 1",
 			"Player"
 		]
 	},
 	{
-		"AssetName": "immortalorb",
 		"DefaultIndexCount": 224,
 		"DefaultVertexCount": 151,
+		"AssetName": "immortalorb",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -591,9 +578,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 2299,
+		"DefaultVertexCount": 1329,
 		"AssetName": "levicrown",
-		"DefaultIndexCount": 2299,
-		"DefaultVertexCount": 1329,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -601,9 +588,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 2299,
+		"DefaultVertexCount": 1329,
 		"AssetName": "levicrown2",
-		"DefaultIndexCount": 2299,
-		"DefaultVertexCount": 1329,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -611,9 +598,9 @@
 		]
 	},
 	{
-		"AssetName": "levicrown2jaw",
 		"DefaultIndexCount": 422,
 		"DefaultVertexCount": 430,
+		"AssetName": "levicrown2jaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -621,9 +608,9 @@
 		]
 	},
 	{
-		"AssetName": "levicrownjaw",
 		"DefaultIndexCount": 414,
 		"DefaultVertexCount": 795,
+		"AssetName": "levicrownjaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -631,9 +618,9 @@
 		]
 	},
 	{
-		"AssetName": "levideath",
 		"DefaultIndexCount": 3122,
 		"DefaultVertexCount": 4052,
+		"AssetName": "levideath",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -641,9 +628,9 @@
 		]
 	},
 	{
-		"AssetName": "levidividerskull",
 		"DefaultIndexCount": 594,
 		"DefaultVertexCount": 325,
+		"AssetName": "levidividerskull",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -651,9 +638,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
 		"AssetName": "levigem",
-		"DefaultIndexCount": 8,
-		"DefaultVertexCount": 24,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -661,9 +648,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
 		"AssetName": "levigem2",
-		"DefaultIndexCount": 8,
-		"DefaultVertexCount": 24,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -671,9 +658,9 @@
 		]
 	},
 	{
-		"AssetName": "leviorb",
 		"DefaultIndexCount": 192,
 		"DefaultVertexCount": 144,
+		"AssetName": "leviorb",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -681,9 +668,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 594,
+		"DefaultVertexCount": 325,
 		"AssetName": "leviskull",
-		"DefaultIndexCount": 594,
-		"DefaultVertexCount": 325,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -691,9 +678,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 594,
+		"DefaultVertexCount": 325,
 		"AssetName": "leviskull2",
-		"DefaultIndexCount": 594,
-		"DefaultVertexCount": 325,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -701,9 +688,9 @@
 		]
 	},
 	{
-		"AssetName": "leviskulljaw",
 		"DefaultIndexCount": 322,
 		"DefaultVertexCount": 185,
+		"AssetName": "leviskulljaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -711,9 +698,9 @@
 		]
 	},
 	{
-		"AssetName": "levitent",
 		"DefaultIndexCount": 1496,
 		"DefaultVertexCount": 824,
+		"AssetName": "levitent",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -721,9 +708,9 @@
 		]
 	},
 	{
-		"AssetName": "levitent2",
 		"DefaultIndexCount": 400,
 		"DefaultVertexCount": 231,
+		"AssetName": "levitent2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -731,39 +718,36 @@
 		]
 	},
 	{
-		"AssetName": "light_sphere",
 		"DefaultIndexCount": 20,
 		"DefaultVertexCount": 22,
+		"AssetName": "light_sphere",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "logodagger",
 		"DefaultIndexCount": 60,
 		"DefaultVertexCount": 164,
+		"AssetName": "logodagger",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "logohand",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 238,
+		"AssetName": "logohand",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "minisquidcrest",
 		"DefaultIndexCount": 1028,
 		"DefaultVertexCount": 585,
+		"AssetName": "minisquidcrest",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -771,9 +755,9 @@
 		]
 	},
 	{
-		"AssetName": "minisquidcrestskull",
 		"DefaultIndexCount": 1196,
 		"DefaultVertexCount": 625,
+		"AssetName": "minisquidcrestskull",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -781,9 +765,9 @@
 		]
 	},
 	{
-		"AssetName": "minisquidgem",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 10,
+		"AssetName": "minisquidgem",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -791,9 +775,9 @@
 		]
 	},
 	{
-		"AssetName": "minisquidhorns",
 		"DefaultIndexCount": 490,
 		"DefaultVertexCount": 281,
+		"AssetName": "minisquidhorns",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -801,9 +785,9 @@
 		]
 	},
 	{
-		"AssetName": "minisquidjaw",
 		"DefaultIndexCount": 1054,
 		"DefaultVertexCount": 710,
+		"AssetName": "minisquidjaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -811,9 +795,9 @@
 		]
 	},
 	{
-		"AssetName": "minisquidjawskull",
 		"DefaultIndexCount": 1420,
 		"DefaultVertexCount": 3669,
+		"AssetName": "minisquidjawskull",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -821,9 +805,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib1",
 		"DefaultIndexCount": 104,
 		"DefaultVertexCount": 108,
+		"AssetName": "orbgib1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -831,9 +815,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib10",
 		"DefaultIndexCount": 80,
 		"DefaultVertexCount": 89,
+		"AssetName": "orbgib10",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -841,9 +825,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib11",
 		"DefaultIndexCount": 82,
 		"DefaultVertexCount": 87,
+		"AssetName": "orbgib11",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -851,9 +835,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib12",
 		"DefaultIndexCount": 50,
 		"DefaultVertexCount": 59,
+		"AssetName": "orbgib12",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -861,9 +845,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib13",
 		"DefaultIndexCount": 70,
 		"DefaultVertexCount": 75,
+		"AssetName": "orbgib13",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -871,9 +855,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib14",
 		"DefaultIndexCount": 70,
 		"DefaultVertexCount": 86,
+		"AssetName": "orbgib14",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -881,9 +865,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib15",
 		"DefaultIndexCount": 74,
 		"DefaultVertexCount": 108,
+		"AssetName": "orbgib15",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -891,9 +875,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib16",
 		"DefaultIndexCount": 86,
 		"DefaultVertexCount": 91,
+		"AssetName": "orbgib16",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -901,9 +885,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib2",
 		"DefaultIndexCount": 102,
 		"DefaultVertexCount": 97,
+		"AssetName": "orbgib2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -911,9 +895,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib3",
 		"DefaultIndexCount": 76,
 		"DefaultVertexCount": 109,
+		"AssetName": "orbgib3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -921,9 +905,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib4",
 		"DefaultIndexCount": 78,
 		"DefaultVertexCount": 87,
+		"AssetName": "orbgib4",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -931,9 +915,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib5",
 		"DefaultIndexCount": 60,
 		"DefaultVertexCount": 77,
+		"AssetName": "orbgib5",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -941,9 +925,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib6",
 		"DefaultIndexCount": 50,
 		"DefaultVertexCount": 57,
+		"AssetName": "orbgib6",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -951,9 +935,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib7",
 		"DefaultIndexCount": 78,
 		"DefaultVertexCount": 85,
+		"AssetName": "orbgib7",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -961,9 +945,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib8",
 		"DefaultIndexCount": 66,
 		"DefaultVertexCount": 75,
+		"AssetName": "orbgib8",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -971,9 +955,9 @@
 		]
 	},
 	{
-		"AssetName": "orbgib9",
 		"DefaultIndexCount": 38,
 		"DefaultVertexCount": 51,
+		"AssetName": "orbgib9",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -981,9 +965,9 @@
 		]
 	},
 	{
-		"AssetName": "owlwing",
 		"DefaultIndexCount": 396,
 		"DefaultVertexCount": 243,
+		"AssetName": "owlwing",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -991,9 +975,9 @@
 		]
 	},
 	{
-		"AssetName": "pedebody",
 		"DefaultIndexCount": 698,
 		"DefaultVertexCount": 406,
+		"AssetName": "pedebody",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1001,9 +985,9 @@
 		]
 	},
 	{
-		"AssetName": "pedehead",
 		"DefaultIndexCount": 3749,
 		"DefaultVertexCount": 2174,
+		"AssetName": "pedehead",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1011,9 +995,9 @@
 		]
 	},
 	{
-		"AssetName": "pedejaw",
 		"DefaultIndexCount": 596,
 		"DefaultVertexCount": 704,
+		"AssetName": "pedejaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1021,9 +1005,9 @@
 		]
 	},
 	{
-		"AssetName": "pedeleg1",
 		"DefaultIndexCount": 246,
 		"DefaultVertexCount": 137,
+		"AssetName": "pedeleg1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1031,9 +1015,9 @@
 		]
 	},
 	{
-		"AssetName": "pedeleg2",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 92,
+		"AssetName": "pedeleg2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1041,9 +1025,9 @@
 		]
 	},
 	{
-		"AssetName": "pedeleg3",
 		"DefaultIndexCount": 196,
 		"DefaultVertexCount": 120,
+		"AssetName": "pedeleg3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1051,9 +1035,9 @@
 		]
 	},
 	{
-		"AssetName": "pedetail",
 		"DefaultIndexCount": 696,
 		"DefaultVertexCount": 379,
+		"AssetName": "pedetail",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1061,9 +1045,9 @@
 		]
 	},
 	{
-		"AssetName": "pedetaillegs",
 		"DefaultIndexCount": 1176,
 		"DefaultVertexCount": 698,
+		"AssetName": "pedetaillegs",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1071,9 +1055,9 @@
 		]
 	},
 	{
-		"AssetName": "pedeweak",
 		"DefaultIndexCount": 4,
 		"DefaultVertexCount": 12,
+		"AssetName": "pedeweak",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1081,29 +1065,27 @@
 		]
 	},
 	{
-		"AssetName": "pillar",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 16,
+		"AssetName": "pillar",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "plane400",
 		"DefaultIndexCount": 32,
 		"DefaultVertexCount": 25,
+		"AssetName": "plane400",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "rubble",
 		"DefaultIndexCount": 414,
 		"DefaultVertexCount": 332,
+		"AssetName": "rubble",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1111,9 +1093,9 @@
 		]
 	},
 	{
-		"AssetName": "smokeblob1",
 		"DefaultIndexCount": 106,
 		"DefaultVertexCount": 60,
+		"AssetName": "smokeblob1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1121,9 +1103,9 @@
 		]
 	},
 	{
-		"AssetName": "smokeblob2",
 		"DefaultIndexCount": 122,
 		"DefaultVertexCount": 68,
+		"AssetName": "smokeblob2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1131,9 +1113,9 @@
 		]
 	},
 	{
-		"AssetName": "smokeblob3",
 		"DefaultIndexCount": 62,
 		"DefaultVertexCount": 36,
+		"AssetName": "smokeblob3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1141,9 +1123,9 @@
 		]
 	},
 	{
-		"AssetName": "smokeblob4",
 		"DefaultIndexCount": 80,
 		"DefaultVertexCount": 46,
+		"AssetName": "smokeblob4",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1151,19 +1133,18 @@
 		]
 	},
 	{
-		"AssetName": "sorathstone",
 		"DefaultIndexCount": 294,
 		"DefaultVertexCount": 164,
+		"AssetName": "sorathstone",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "spiderbody",
 		"DefaultIndexCount": 1196,
 		"DefaultVertexCount": 645,
+		"AssetName": "spiderbody",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1171,9 +1152,9 @@
 		]
 	},
 	{
-		"AssetName": "spideregg1",
 		"DefaultIndexCount": 704,
 		"DefaultVertexCount": 1210,
+		"AssetName": "spideregg1",
 		"Description": "Spider Egg I",
 		"IsProhibited": true,
 		"Tags": [
@@ -1182,9 +1163,9 @@
 		]
 	},
 	{
-		"AssetName": "spideregg2",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
+		"AssetName": "spideregg2",
 		"Description": "Unused? (Same as 'gib')",
 		"IsProhibited": true,
 		"Tags": [
@@ -1192,9 +1173,9 @@
 		]
 	},
 	{
-		"AssetName": "spiderfangs",
 		"DefaultIndexCount": 392,
 		"DefaultVertexCount": 218,
+		"AssetName": "spiderfangs",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1202,9 +1183,9 @@
 		]
 	},
 	{
-		"AssetName": "spidergib",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
+		"AssetName": "spidergib",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1212,9 +1193,9 @@
 		]
 	},
 	{
-		"AssetName": "spiderhead",
 		"DefaultIndexCount": 722,
 		"DefaultVertexCount": 402,
+		"AssetName": "spiderhead",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1222,9 +1203,9 @@
 		]
 	},
 	{
-		"AssetName": "spiderjaw",
 		"DefaultIndexCount": 424,
 		"DefaultVertexCount": 293,
+		"AssetName": "spiderjaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1232,9 +1213,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 146,
+		"DefaultVertexCount": 88,
 		"AssetName": "spiderleg1",
-		"DefaultIndexCount": 146,
-		"DefaultVertexCount": 88,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1242,9 +1223,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 146,
+		"DefaultVertexCount": 88,
 		"AssetName": "spiderleg1f",
-		"DefaultIndexCount": 146,
-		"DefaultVertexCount": 88,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1252,9 +1233,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 72,
 		"AssetName": "spiderleg2",
-		"DefaultIndexCount": 118,
-		"DefaultVertexCount": 72,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1262,9 +1243,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 72,
 		"AssetName": "spiderleg2f",
-		"DefaultIndexCount": 118,
-		"DefaultVertexCount": 72,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1272,9 +1253,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 70,
 		"AssetName": "spiderleg3",
-		"DefaultIndexCount": 118,
-		"DefaultVertexCount": 70,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1282,9 +1263,9 @@
 		]
 	},
 	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 70,
 		"AssetName": "spiderleg3f",
-		"DefaultIndexCount": 118,
-		"DefaultVertexCount": 70,
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1292,59 +1273,54 @@
 		]
 	},
 	{
-		"AssetName": "spiderling",
 		"DefaultIndexCount": 524,
 		"DefaultVertexCount": 324,
+		"AssetName": "spiderling",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "spiderlingleg1",
 		"DefaultIndexCount": 38,
 		"DefaultVertexCount": 65,
+		"AssetName": "spiderlingleg1",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "spiderlingleg2",
 		"DefaultIndexCount": 36,
 		"DefaultVertexCount": 107,
+		"AssetName": "spiderlingleg2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "spiderlingleg3",
 		"DefaultIndexCount": 18,
 		"DefaultVertexCount": 50,
+		"AssetName": "spiderlingleg3",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "spiderlingpalms",
 		"DefaultIndexCount": 138,
 		"DefaultVertexCount": 328,
+		"AssetName": "spiderlingpalms",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "spiderpalm",
 		"DefaultIndexCount": 292,
 		"DefaultVertexCount": 160,
+		"AssetName": "spiderpalm",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1352,9 +1328,9 @@
 		]
 	},
 	{
-		"AssetName": "spiderpalmf",
 		"DefaultIndexCount": 146,
 		"DefaultVertexCount": 80,
+		"AssetName": "spiderpalmf",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1362,9 +1338,9 @@
 		]
 	},
 	{
-		"AssetName": "squidarm",
 		"DefaultIndexCount": 596,
 		"DefaultVertexCount": 349,
+		"AssetName": "squidarm",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1372,9 +1348,9 @@
 		]
 	},
 	{
-		"AssetName": "squidcrest",
 		"DefaultIndexCount": 2044,
 		"DefaultVertexCount": 1137,
+		"AssetName": "squidcrest",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1382,9 +1358,9 @@
 		]
 	},
 	{
-		"AssetName": "squidcrestskull",
 		"DefaultIndexCount": 2392,
 		"DefaultVertexCount": 1250,
+		"AssetName": "squidcrestskull",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1392,9 +1368,9 @@
 		]
 	},
 	{
-		"AssetName": "squidgem",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
+		"AssetName": "squidgem",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1402,9 +1378,9 @@
 		]
 	},
 	{
-		"AssetName": "squidhorns",
 		"DefaultIndexCount": 1240,
 		"DefaultVertexCount": 728,
+		"AssetName": "squidhorns",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1412,9 +1388,9 @@
 		]
 	},
 	{
-		"AssetName": "squidjaws",
 		"DefaultIndexCount": 2036,
 		"DefaultVertexCount": 1194,
+		"AssetName": "squidjaws",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1422,9 +1398,9 @@
 		]
 	},
 	{
-		"AssetName": "squidjawskull",
 		"DefaultIndexCount": 1422,
 		"DefaultVertexCount": 932,
+		"AssetName": "squidjawskull",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1432,9 +1408,9 @@
 		]
 	},
 	{
-		"AssetName": "squidteeth",
 		"DefaultIndexCount": 5583,
 		"DefaultVertexCount": 7794,
+		"AssetName": "squidteeth",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1442,39 +1418,36 @@
 		]
 	},
 	{
-		"AssetName": "statue1",
 		"DefaultIndexCount": 994,
 		"DefaultVertexCount": 529,
+		"AssetName": "statue1",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "statue2",
 		"DefaultIndexCount": 1986,
 		"DefaultVertexCount": 1084,
+		"AssetName": "statue2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "statue3",
 		"DefaultIndexCount": 2900,
 		"DefaultVertexCount": 8326,
+		"AssetName": "statue3",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "thorn",
 		"DefaultIndexCount": 2928,
 		"DefaultVertexCount": 1756,
+		"AssetName": "thorn",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1482,9 +1455,9 @@
 		]
 	},
 	{
-		"AssetName": "thorngib1",
 		"DefaultIndexCount": 240,
 		"DefaultVertexCount": 138,
+		"AssetName": "thorngib1",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1492,9 +1465,9 @@
 		]
 	},
 	{
-		"AssetName": "thorngib2",
 		"DefaultIndexCount": 196,
 		"DefaultVertexCount": 125,
+		"AssetName": "thorngib2",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1502,9 +1475,9 @@
 		]
 	},
 	{
-		"AssetName": "thorngib3",
 		"DefaultIndexCount": 296,
 		"DefaultVertexCount": 176,
+		"AssetName": "thorngib3",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1512,29 +1485,27 @@
 		]
 	},
 	{
-		"AssetName": "tile",
 		"DefaultIndexCount": 10,
 		"DefaultVertexCount": 20,
+		"AssetName": "tile",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "tile2",
 		"DefaultIndexCount": 12,
 		"DefaultVertexCount": 25,
+		"AssetName": "tile2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
 	},
 	{
-		"AssetName": "ultrapedecrown",
 		"DefaultIndexCount": 3964,
 		"DefaultVertexCount": 2254,
+		"AssetName": "ultrapedecrown",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1542,9 +1513,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidcrest",
 		"DefaultIndexCount": 3072,
 		"DefaultVertexCount": 1767,
+		"AssetName": "ultrasquidcrest",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1552,9 +1523,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidcrestskull",
 		"DefaultIndexCount": 3588,
 		"DefaultVertexCount": 1875,
+		"AssetName": "ultrasquidcrestskull",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1562,9 +1533,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidgem",
 		"DefaultIndexCount": 8,
 		"DefaultVertexCount": 24,
+		"AssetName": "ultrasquidgem",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1572,9 +1543,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidhorns",
 		"DefaultIndexCount": 3909,
 		"DefaultVertexCount": 2325,
+		"AssetName": "ultrasquidhorns",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1582,9 +1553,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidjaw",
 		"DefaultIndexCount": 2988,
 		"DefaultVertexCount": 1770,
+		"AssetName": "ultrasquidjaw",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1592,9 +1563,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidjawskull",
 		"DefaultIndexCount": 1418,
 		"DefaultVertexCount": 958,
+		"AssetName": "ultrasquidjawskull",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1602,9 +1573,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidteeth",
 		"DefaultIndexCount": 5567,
 		"DefaultVertexCount": 15663,
+		"AssetName": "ultrasquidteeth",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [
@@ -1612,9 +1583,9 @@
 		]
 	},
 	{
-		"AssetName": "ultrasquidtent",
 		"DefaultIndexCount": 570,
 		"DefaultVertexCount": 1293,
+		"AssetName": "ultrasquidtent",
 		"Description": "?",
 		"IsProhibited": true,
 		"Tags": [

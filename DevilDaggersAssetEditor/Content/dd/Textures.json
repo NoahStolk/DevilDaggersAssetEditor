@@ -1,46 +1,42 @@
 [
 	{
-		"AssetName": "blood",
 		"DefaultDimensions": "256, 256",
-		"Description": "Blood decals",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "blood",
+		"Description": "Blood decals",
 		"Tags": [
 			"Particles"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull I base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull II base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull II"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull II death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -48,12 +44,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull II damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -61,24 +56,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2horns",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull II horns",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull II"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2hornsgib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull II horns death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -86,12 +79,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2hornshit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull II horns damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -99,36 +91,33 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2hornslev",
-		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull II horns",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull II"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2lev",
-		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull II base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull II"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid2levgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Transmuted Skull II death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -136,24 +125,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull III base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull III"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull III death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -161,12 +148,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull III damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -174,24 +160,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3horns",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull III horns",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull III"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3hornsgib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull III horns death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -199,12 +183,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3hornshit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull III horns damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -212,36 +195,33 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3hornslev",
-		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull III horns",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull III"
 		]
 	},
 	{
-		"AssetName": "boid3jaw",
 		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3jaw",
 		"Description": "Skull III jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull III"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3jawgib",
-		"DefaultDimensions": "16, 16",
 		"Description": "Skull III jaw death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -249,12 +229,11 @@
 		]
 	},
 	{
-		"AssetName": "boid3jawhit",
 		"DefaultDimensions": "16, 16",
-		"Description": "Skull III jaw damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "boid3jawhit",
+		"Description": "Skull III jaw damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -262,48 +241,44 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3jawlev",
-		"DefaultDimensions": "128, 128",
 		"Description": "Transmuted Skull III jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull III"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid3lev",
-		"DefaultDimensions": "256, 256",
 		"Description": "Transmuted Skull III base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull III"
 		]
 	},
 	{
+		"DefaultDimensions": "512, 512",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid4",
-		"DefaultDimensions": "512, 512",
 		"Description": "Skull IV base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull IV"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid4gib",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull IV death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -311,12 +286,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid4hit",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull IV damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -324,24 +298,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid4jaw",
-		"DefaultDimensions": "128, 128",
 		"Description": "Skull IV jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Skull IV"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid4jawgib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull IV jaw death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -349,12 +321,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "boid4jawhit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Skull IV jaw damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -362,36 +333,33 @@
 		]
 	},
 	{
-		"AssetName": "boid4jawlev",
 		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4jawlev",
 		"Description": "Transmuted Skull IV jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull IV"
 		]
 	},
 	{
-		"AssetName": "boid4lev",
 		"DefaultDimensions": "512, 512",
-		"Description": "Transmuted Skull IV base texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "boid4lev",
+		"Description": "Transmuted Skull IV base texture",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull IV"
 		]
 	},
 	{
-		"AssetName": "boidgib",
 		"DefaultDimensions": "32, 32",
-		"Description": "Skull I death",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "boidgib",
+		"Description": "Skull I death",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -399,12 +367,11 @@
 		]
 	},
 	{
-		"AssetName": "boidhit",
 		"DefaultDimensions": "32, 32",
-		"Description": "Skull I damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "boidhit",
+		"Description": "Skull I damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -412,183 +379,166 @@
 		]
 	},
 	{
-		"AssetName": "boidlev",
 		"DefaultDimensions": "256, 256",
-		"Description": "Transmuted Skull I",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "boidlev",
+		"Description": "Transmuted Skull I",
 		"Tags": [
 			"Enemy",
 			"Transmuted Skull I"
 		]
 	},
 	{
-		"AssetName": "bottom",
 		"DefaultDimensions": "128, 128",
-		"Description": "Tile bottom?",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "tile2",
+		"AssetName": "bottom",
+		"Description": "Tile bottom?",
 		"Tags": [
 			"Arena"
 		]
 	},
 	{
-		"AssetName": "crystal",
 		"DefaultDimensions": "128, 128",
-		"Description": "Unused",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "crystal",
+		"Description": "Unused",
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
-		"AssetName": "dagger",
 		"DefaultDimensions": "64, 64",
-		"Description": "Level 1 Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "dagger1",
+		"AssetName": "dagger",
+		"Description": "Level 1 Dagger",
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
-		"AssetName": "dagger0",
 		"DefaultDimensions": "64, 64",
-		"Description": "Pleb Lobby Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "dagger",
+		"AssetName": "dagger0",
+		"Description": "Pleb Lobby Dagger",
 		"Tags": [
 			"Dagger",
 			"Pleb"
 		]
 	},
 	{
-		"AssetName": "dagger2",
 		"DefaultDimensions": "64, 64",
-		"Description": "Level 2 Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "dagger2",
+		"AssetName": "dagger2",
+		"Description": "Level 2 Dagger",
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
-		"AssetName": "dagger3",
 		"DefaultDimensions": "64, 64",
-		"Description": "Level 3 Dagger / Devil Lobby Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "dagger3",
+		"AssetName": "dagger3",
+		"Description": "Level 3 Dagger / Devil Lobby Dagger",
 		"Tags": [
 			"Dagger",
 			"Devil"
 		]
 	},
 	{
-		"AssetName": "dagger4",
 		"DefaultDimensions": "64, 64",
-		"Description": "Level 3 Homing Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "dagger4",
+		"AssetName": "dagger4",
+		"Description": "Level 3 Homing Dagger",
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
-		"AssetName": "dagger5",
 		"DefaultDimensions": "64, 64",
-		"Description": "Level 4 Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "dagger5",
+		"AssetName": "dagger5",
+		"Description": "Level 4 Dagger",
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
-		"AssetName": "dagger6",
 		"DefaultDimensions": "64, 64",
-		"Description": "Level 4 Homing Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "dagger6",
+		"AssetName": "dagger6",
+		"Description": "Level 4 Homing Dagger",
 		"Tags": [
 			"Dagger"
 		]
 	},
 	{
-		"AssetName": "daggerbronze",
 		"DefaultDimensions": "64, 64",
-		"Description": "Bronze Lobby Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "daggerbronze",
+		"AssetName": "daggerbronze",
+		"Description": "Bronze Lobby Dagger",
 		"Tags": [
 			"Bronze",
 			"Dagger"
 		]
 	},
 	{
-		"AssetName": "daggergold",
 		"DefaultDimensions": "64, 64",
-		"Description": "Golden Lobby Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "daggergold",
+		"AssetName": "daggergold",
+		"Description": "Golden Lobby Dagger",
 		"Tags": [
 			"Dagger",
 			"Golden"
 		]
 	},
 	{
-		"AssetName": "daggersilver",
 		"DefaultDimensions": "64, 64",
-		"Description": "Silver Lobby Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "daggersilver",
+		"AssetName": "daggersilver",
+		"Description": "Silver Lobby Dagger",
 		"Tags": [
 			"Dagger",
 			"Silver"
 		]
 	},
 	{
-		"AssetName": "emberflame",
 		"DefaultDimensions": "128, 128",
-		"Description": "Primary fire after-embers / Decals base texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "emberflame",
+		"Description": "Primary fire after-embers / Decals base texture",
 		"Tags": [
 			"Particles"
 		]
 	},
 	{
-		"AssetName": "feather",
 		"DefaultDimensions": "128, 64",
-		"Description": "Unused",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "feather",
+		"Description": "Unused",
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontbronze",
-		"DefaultDimensions": "16, 16",
 		"Description": "Bronze font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Bronze",
 			"Font",
@@ -596,12 +546,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontbronzeover",
-		"DefaultDimensions": "16, 16",
 		"Description": "Bronze font hover",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Bronze",
 			"Font",
@@ -610,12 +558,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontdevil",
-		"DefaultDimensions": "16, 16",
 		"Description": "Devil font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Devil",
 			"Font",
@@ -623,12 +569,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontdevilover",
-		"DefaultDimensions": "16, 16",
 		"Description": "Devil font hover",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Devil",
 			"Font",
@@ -637,12 +581,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontgold",
-		"DefaultDimensions": "16, 16",
 		"Description": "Golden font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"Golden",
@@ -650,12 +592,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontgoldover",
-		"DefaultDimensions": "16, 16",
 		"Description": "Golden font hover",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"Golden",
@@ -664,36 +604,30 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontgrad",
-		"DefaultDimensions": "16, 16",
 		"Description": "Default UI font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontgrad2",
-		"DefaultDimensions": "16, 16",
 		"Description": "Default UI colored font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontgrad3",
-		"DefaultDimensions": "16, 16",
 		"Description": "Default UI colored font over",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"Hover",
@@ -701,24 +635,20 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontlevi",
-		"DefaultDimensions": "16, 16",
 		"Description": "Leviathan font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontlevibg",
-		"DefaultDimensions": "16, 16",
 		"Description": "Leviathan font mask",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"Hover",
@@ -726,12 +656,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontleviover",
-		"DefaultDimensions": "16, 16",
 		"Description": "Leviathan font over",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"Hover",
@@ -739,12 +667,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontpleb",
-		"DefaultDimensions": "16, 16",
 		"Description": "Pleb font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"Pleb",
@@ -752,12 +678,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "fontplebover",
-		"DefaultDimensions": "16, 16",
 		"Description": "Pleb font hover",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Font",
 			"Hover",
@@ -766,12 +690,10 @@
 		]
 	},
 	{
-		"AssetName": "fontsilver",
 		"DefaultDimensions": "16, 16",
-		"Description": "Silver font",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "fontsilver",
+		"Description": "Silver font",
 		"Tags": [
 			"Font",
 			"Silver",
@@ -779,12 +701,10 @@
 		]
 	},
 	{
-		"AssetName": "fontsilverover",
 		"DefaultDimensions": "16, 16",
-		"Description": "Silver font hover",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "fontsilverover",
+		"Description": "Silver font hover",
 		"Tags": [
 			"Font",
 			"Hover",
@@ -793,202 +713,184 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Gem (including gems in Squids)",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib1a",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib1b",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib1c",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib1d",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
-		"AssetName": "gib2",
 		"DefaultDimensions": "64, 64",
-		"Description": "Alternate Gem (unused)",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "gib",
+		"AssetName": "gib2",
+		"Description": "Alternate Gem (unused)",
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib2a",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib2b",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib2c",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib2d",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib3a",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib3b",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib3c",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gib3d",
-		"DefaultDimensions": "64, 64",
 		"Description": "Meat piece base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
-		"AssetName": "gigaegg",
 		"DefaultDimensions": "256, 256",
-		"Description": "Spider Egg II base texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "gigaegg",
+		"Description": "Spider Egg II base texture",
 		"Tags": [
 			"Enemy",
 			"Spider Egg II"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderbody",
-		"DefaultDimensions": "256, 256",
 		"Description": "Spider II",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspidercrest",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspidercrestgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Spider II death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -996,12 +898,11 @@
 		]
 	},
 	{
-		"AssetName": "gigaspidercresthit",
 		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspidercresthit",
 		"Description": "Spider II damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -1009,36 +910,33 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderfangs",
-		"DefaultDimensions": "256, 256",
 		"Description": "Spider II Primary Fangs",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderfangs2",
-		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Secondary Fangs",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderfangs2gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spider II Fangs death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1046,12 +944,11 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderfangs2hit",
 		"DefaultDimensions": "32, 32",
-		"Description": "Spider II Fangs damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "gigaspiderfangs2hit",
+		"Description": "Spider II Fangs damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -1059,36 +956,33 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderhead",
-		"DefaultDimensions": "256, 256",
 		"Description": "Spider II Gem Holder",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
-		"AssetName": "gigaspiderhorns",
 		"DefaultDimensions": "256, 256",
-		"Description": "Spider II Horns",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "gigaspiderhorns",
+		"Description": "Spider II Horns",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
-		"AssetName": "gigaspiderhornsgib",
 		"DefaultDimensions": "128, 128",
-		"Description": "Spider II Horns death",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "gigaspiderhornsgib",
+		"Description": "Spider II Horns death",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1096,12 +990,11 @@
 		]
 	},
 	{
-		"AssetName": "gigaspiderhornshit",
 		"DefaultDimensions": "128, 128",
-		"Description": "Spider II Horns damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "gigaspiderhornshit",
+		"Description": "Spider II Horns damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -1109,196 +1002,174 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderjaw",
-		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Mouth",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderleg1",
-		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Leg 1",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderleg2",
-		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Leg 2",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "gigaspiderleg3",
-		"DefaultDimensions": "128, 128",
 		"Description": "Spider II Leg 3",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
-		"AssetName": "gigaspiderpalm",
 		"DefaultDimensions": "128, 128",
-		"Description": "Spider II Palm",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "gigaspiderpalm",
+		"Description": "Spider II Palm",
 		"Tags": [
 			"Enemy",
 			"Spider II"
 		]
 	},
 	{
-		"AssetName": "hand",
 		"DefaultDimensions": "256, 256",
-		"Description": "Level 1 Hand",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "hand",
+		"AssetName": "hand",
+		"Description": "Level 1 Hand",
 		"Tags": [
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand0",
 		"DefaultDimensions": "256, 256",
-		"Description": "Lobby Hand",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "hand0",
+		"AssetName": "hand0",
+		"Description": "Lobby Hand",
 		"Tags": [
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand2",
 		"DefaultDimensions": "256, 256",
-		"Description": "Level 2 Hand",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "hand2",
+		"AssetName": "hand2",
+		"Description": "Level 2 Hand",
 		"Tags": [
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand3",
 		"DefaultDimensions": "256, 256",
-		"Description": "Level 3 Hand",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "hand3",
+		"AssetName": "hand3",
+		"Description": "Level 3 Hand",
 		"Tags": [
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand4",
 		"DefaultDimensions": "256, 256",
-		"Description": "Level 3 Hand Flash",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "hand4",
+		"AssetName": "hand4",
+		"Description": "Level 3 Hand Flash",
 		"Tags": [
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand5",
 		"DefaultDimensions": "256, 256",
-		"Description": "Level 4 Hand",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "hand5",
+		"AssetName": "hand5",
+		"Description": "Level 4 Hand",
 		"Tags": [
 			"Player"
 		]
 	},
 	{
-		"AssetName": "hand6",
 		"DefaultDimensions": "256, 256",
-		"Description": "Level 4 Hand Flash",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "hand6",
+		"AssetName": "hand6",
+		"Description": "Level 4 Hand Flash",
 		"Tags": [
 			"Player"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconcrosshair",
-		"DefaultDimensions": "16, 16",
 		"Description": "Accuracy Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "icondagger",
-		"DefaultDimensions": "16, 16",
 		"Description": "Enemies Killed Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
-		"AssetName": "icondd",
 		"DefaultDimensions": "16, 16",
-		"Description": "Application Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "icondd",
+		"Description": "Application Icon",
 		"Tags": [
 			"Icon"
 		]
 	},
 	{
-		"AssetName": "iconeye",
 		"DefaultDimensions": "32, 16",
-		"Description": "Replay Recorded Run Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "iconeye",
+		"Description": "Replay Recorded Run Icon",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
-		"AssetName": "iconeye2",
 		"DefaultDimensions": "32, 16",
-		"Description": "Replay Recorded Run Icon hover",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "iconeye2",
+		"Description": "Replay Recorded Run Icon hover",
 		"Tags": [
 			"Hover",
 			"Icon",
@@ -1306,96 +1177,80 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "icongem",
-		"DefaultDimensions": "16, 16",
 		"Description": "Gems Collected Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconmaskcrosshair",
-		"DefaultDimensions": "16, 16",
 		"Description": "Accuracy Timeline Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconmaskdagger",
-		"DefaultDimensions": "16, 16",
 		"Description": "Enemies Killed Timeline Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconmaskgem",
-		"DefaultDimensions": "16, 16",
 		"Description": "Gems Collected Timeline Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconmaskhoming",
-		"DefaultDimensions": "16, 16",
 		"Description": "Homing Daggers Timeline Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconmaskskull",
-		"DefaultDimensions": "16, 16",
 		"Description": "Enemies Alive Timeline Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconmaskstopwatch",
-		"DefaultDimensions": "16, 16",
 		"Description": "Scrubber Time Mark Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 16",
+		"ModelBinding": "",
 		"AssetName": "iconreplay",
-		"DefaultDimensions": "32, 16",
 		"Description": "Unused icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI",
@@ -1403,12 +1258,10 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 16",
+		"ModelBinding": "",
 		"AssetName": "iconreplay2",
-		"DefaultDimensions": "32, 16",
 		"Description": "Unused icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI",
@@ -1416,84 +1269,75 @@
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"ModelBinding": "",
 		"AssetName": "iconskull",
-		"DefaultDimensions": "16, 16",
 		"Description": "Death Type / Total Deaths Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
-		"AssetName": "iconstopwatch",
 		"DefaultDimensions": "16, 16",
-		"Description": "Run Time Icon",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "iconstopwatch",
+		"Description": "Run Time Icon",
 		"Tags": [
 			"Icon",
 			"UI"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levicrown",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levicrown2",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levicrown2jaw",
-		"DefaultDimensions": "128, 128",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levicrownjaw",
-		"DefaultDimensions": "128, 128",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levideath",
-		"DefaultDimensions": "128, 128",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1501,120 +1345,110 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levidividerskull",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levileg1",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levileg2",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levileg3",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "leviskull",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "leviskull2",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
-		"AssetName": "leviskulljaw",
 		"DefaultDimensions": "128, 128",
-		"Description": "?",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "leviskulljaw",
+		"Description": "?",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levitent",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "levitent2",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
-		"AssetName": "levitentgib",
 		"DefaultDimensions": "64, 64",
-		"Description": "?",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "levitentgib",
+		"Description": "?",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1622,12 +1456,11 @@
 		]
 	},
 	{
-		"AssetName": "levitenthit",
 		"DefaultDimensions": "64, 64",
-		"Description": "?",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "levitenthit",
+		"Description": "?",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -1635,272 +1468,247 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "leviwarp",
-		"DefaultDimensions": "128, 128",
 		"Description": "Leviathan Secondary Dome effect",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "leviwarpover",
-		"DefaultDimensions": "128, 128",
 		"Description": "Leviathan Dome effect / Beckoned Skulls override",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Leviathan"
 		]
 	},
 	{
-		"AssetName": "logodagger",
 		"DefaultDimensions": "64, 64",
-		"Description": "Splash Screen Dagger",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "logodagger",
+		"AssetName": "logodagger",
+		"Description": "Splash Screen Dagger",
 		"Tags": [
 			"UI"
 		]
 	},
 	{
-		"AssetName": "logodagger2",
 		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "logodagger2",
 		"Description": "Unused",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"UI"
 		]
 	},
 	{
-		"AssetName": "logohand",
 		"DefaultDimensions": "256, 256",
-		"Description": "Splash Screen Hand",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "logohand",
+		"AssetName": "logohand",
+		"Description": "Splash Screen Hand",
 		"Tags": [
 			"UI"
 		]
 	},
 	{
-		"AssetName": "logotext",
 		"DefaultDimensions": "256, 64",
-		"Description": "Splash Screen Text",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "logotext",
+		"Description": "Splash Screen Text",
 		"Tags": [
 			"UI"
 		]
 	},
 	{
-		"AssetName": "lut",
 		"DefaultDimensions": "16, 256",
-		"Description": "Unused post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "lut",
+		"Description": "Unused post filter",
 		"Tags": [
 			"Post-processing",
 			"Unused"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "minisquidarm",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid I Tentacle",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid I"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "minisquidcrest",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid I Body texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "minisquidcrestskull",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "minisquidhorns",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder Horns",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "minisquidjaw",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder Skull Jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "minisquidjawskull",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid I Gem Holder Skull",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblackbody",
-		"DefaultDimensions": "128, 128",
 		"Description": "Gigapede Segment texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblackhead",
-		"DefaultDimensions": "256, 256",
 		"Description": "Gigapede Head texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblackjaw",
-		"DefaultDimensions": "64, 64",
 		"Description": "Gigapede Jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblackleg1",
-		"DefaultDimensions": "32, 32",
 		"Description": "Gigapede Leg 1",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblackleg2",
-		"DefaultDimensions": "32, 32",
 		"Description": "Gigapede Leg 2",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblackleg3",
-		"DefaultDimensions": "32, 32",
 		"Description": "Gigapede Leg 3",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblacktail",
-		"DefaultDimensions": "128, 128",
 		"Description": "Gigapede Tail",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeblacktaillegs",
-		"DefaultDimensions": "64, 64",
 		"Description": "Gigapede Tail Legs",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Gigapede"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedebody",
-		"DefaultDimensions": "128, 128",
 		"Description": "Centipede Body",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
-		"AssetName": "pedebodyfragged",
 		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedebodyfragged",
 		"Description": "Centipede / Gigapede / Ghostpede Segment without gem",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy",
@@ -1909,12 +1717,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedebodygib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Segment death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -1924,12 +1731,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedebodyhit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Segment damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -1939,24 +1745,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedehead",
-		"DefaultDimensions": "256, 256",
 		"Description": "Centipede Head texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeheadgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Centipede / Gigapede / Ghostpede Head death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -1966,12 +1770,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeheadhit",
-		"DefaultDimensions": "64, 64",
 		"Description": "Centipede / Gigapede / Ghostpede Head damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -1981,24 +1784,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedejaw",
-		"DefaultDimensions": "64, 64",
 		"Description": "Centipede Jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 16",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedejawgib",
-		"DefaultDimensions": "16, 16",
 		"Description": "Centipede / Gigapede / Ghostpede Jaw death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -2008,12 +1809,11 @@
 		]
 	},
 	{
-		"AssetName": "pedejawhit",
 		"DefaultDimensions": "16, 16",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedejawhit",
 		"Description": "Centipede / Gigapede / Ghostpede Jaw damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -2023,24 +1823,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg1",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede Leg 1",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg1gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 1 death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -2050,12 +1848,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg1hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 1 damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -2065,24 +1862,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg2",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede Leg 2",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg2gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 2 death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -2092,12 +1887,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg2hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 2 damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -2107,24 +1901,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg3",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede Leg 3",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg3gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 3 death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -2134,12 +1926,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedeleg3hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Leg 3 damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -2149,24 +1940,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedetail",
-		"DefaultDimensions": "64, 64",
 		"Description": "Centipede Tail",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "pedetailgib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Centipede / Gigapede / Ghostpede Tail death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -2176,12 +1965,11 @@
 		]
 	},
 	{
-		"AssetName": "pedetailhit",
 		"DefaultDimensions": "32, 32",
-		"Description": "Centipede / Gigapede / Ghostpede Tail damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "pedetailhit",
+		"Description": "Centipede / Gigapede / Ghostpede Tail damage",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -2191,24 +1979,22 @@
 		]
 	},
 	{
-		"AssetName": "pedetaillegs",
 		"DefaultDimensions": "64, 64",
-		"Description": "Centipede Tail Legs",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "pedetaillegs",
+		"Description": "Centipede Tail Legs",
 		"Tags": [
 			"Centipede",
 			"Enemy"
 		]
 	},
 	{
-		"AssetName": "pedetaillegsgib",
 		"DefaultDimensions": "32, 32",
-		"Description": "Centipede / Gigapede / Ghostpede Tail Leg death",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "pedetaillegsgib",
+		"Description": "Centipede / Gigapede / Ghostpede Tail Leg death",
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -2218,12 +2004,11 @@
 		]
 	},
 	{
-		"AssetName": "pedetaillegshit",
 		"DefaultDimensions": "32, 32",
-		"Description": "Centipede / Gigapede / Ghostpede Tail Leg damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "pedetaillegshit",
+		"Description": "Centipede / Gigapede / Ghostpede Tail Leg damage",
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -2233,311 +2018,271 @@
 		]
 	},
 	{
-		"AssetName": "pillar",
 		"DefaultDimensions": "256, 256",
-		"Description": "Tile sides texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "tile2",
+		"AssetName": "pillar",
+		"Description": "Tile sides texture",
 		"Tags": [
 			"Arena"
 		]
 	},
 	{
-		"AssetName": "post_lut",
 		"DefaultDimensions": "16, 256",
-		"Description": "Arena In-game post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "post_lut",
+		"Description": "Arena In-game post filter",
 		"Tags": [
 			"Post-processing"
 		]
 	},
 	{
-		"AssetName": "post_lut_bronzeflash",
 		"DefaultDimensions": "16, 256",
-		"Description": "Bronze Score post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "post_lut_bronzeflash",
+		"Description": "Bronze Score post filter",
 		"Tags": [
 			"Bronze",
 			"Post-processing"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 256",
+		"ModelBinding": "",
 		"AssetName": "post_lut_collect",
-		"DefaultDimensions": "16, 256",
 		"Description": "Gem Collected post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 256",
+		"ModelBinding": "",
 		"AssetName": "post_lut_dagger",
-		"DefaultDimensions": "16, 256",
 		"Description": "Lobby post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 256",
+		"ModelBinding": "",
 		"AssetName": "post_lut_death",
-		"DefaultDimensions": "16, 256",
 		"Description": "Post Death post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
 		]
 	},
 	{
-		"AssetName": "post_lut_devilflash",
 		"DefaultDimensions": "16, 256",
-		"Description": "Devil Score post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "post_lut_devilflash",
+		"Description": "Devil Score post filter",
 		"Tags": [
 			"Devil",
 			"Post-processing"
 		]
 	},
 	{
-		"AssetName": "post_lut_goldflash",
 		"DefaultDimensions": "16, 256",
-		"Description": "Golden Score post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "post_lut_goldflash",
+		"Description": "Golden Score post filter",
 		"Tags": [
 			"Golden",
 			"Post-processing"
 		]
 	},
 	{
-		"AssetName": "post_lut_leveldown",
 		"DefaultDimensions": "16, 256",
-		"Description": "Death fade out/flash post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "post_lut_leveldown",
+		"Description": "Death fade out/flash post filter",
 		"Tags": [
 			"Death",
 			"Post-processing"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 256",
+		"ModelBinding": "",
 		"AssetName": "post_lut_levelup",
-		"DefaultDimensions": "16, 256",
 		"Description": "Level Up post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
 		]
 	},
 	{
+		"DefaultDimensions": "16, 256",
+		"ModelBinding": "",
 		"AssetName": "post_lut_levi",
-		"DefaultDimensions": "16, 256",
 		"Description": "Leviathan Spawn post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Post-processing"
 		]
 	},
 	{
-		"AssetName": "post_lut_silverflash",
 		"DefaultDimensions": "16, 256",
-		"Description": "Silver Score post filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "post_lut_silverflash",
+		"Description": "Silver Score post filter",
 		"Tags": [
 			"Post-processing",
 			"Silver"
 		]
 	},
 	{
-		"AssetName": "rubble",
 		"DefaultDimensions": "256, 256",
-		"Description": "Thorn Tile Destruction texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "rubble",
+		"Description": "Thorn Tile Destruction texture",
 		"Tags": [
 			"Enemy",
 			"Thorn"
 		]
 	},
 	{
-		"AssetName": "skulltile",
 		"DefaultDimensions": "256, 256",
-		"Description": "Unused",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "skulltile",
+		"Description": "Unused",
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
-		"AssetName": "smokeblob",
 		"DefaultDimensions": "256, 256",
-		"Description": "Emerging Enemies texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "smokeblob",
+		"Description": "Emerging Enemies texture",
 		"Tags": [
 			"Particles"
 		]
 	},
 	{
+		"DefaultDimensions": "240, 240",
+		"ModelBinding": "",
 		"AssetName": "sorathmask",
-		"DefaultDimensions": "240, 240",
 		"Description": "Sorath Logo texture mask",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Splash Screen"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "sorathstone",
-		"DefaultDimensions": "256, 256",
 		"Description": "Sorath Stone base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Easter Egg"
 		]
 	},
 	{
-		"AssetName": "sorathtexture",
 		"DefaultDimensions": "240, 240",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "sorathtexture",
 		"Description": "Sorath Logo base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Splash Screen"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"ModelBinding": "",
 		"AssetName": "sorathvector",
-		"DefaultDimensions": "256, 256",
 		"Description": "Sorath Logo texture filter",
-		"IsModelTexture": false,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Splash Screen"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderbody",
-		"DefaultDimensions": "256, 256",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderbodygib",
-		"DefaultDimensions": "128, 128",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderbodyhit",
-		"DefaultDimensions": "128, 128",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spideregg1",
-		"DefaultDimensions": "128, 128",
 		"Description": "Spider Egg I Goo base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider Egg I"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spideregg2",
-		"DefaultDimensions": "64, 64",
 		"Description": "Spider Egg I base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider Egg I"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spidereggflash",
-		"DefaultDimensions": "64, 64",
 		"Description": "Spider Egg I flashing texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider Egg I"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderfangs",
-		"DefaultDimensions": "128, 128",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderfangsgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2545,12 +2290,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderfangshit",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2558,24 +2302,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderhead",
-		"DefaultDimensions": "128, 128",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderheadgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2583,12 +2325,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderheadhit",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2596,24 +2337,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderjaw",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderjawgib",
-		"DefaultDimensions": "32, 32",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2621,12 +2360,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderjawhit",
-		"DefaultDimensions": "32, 32",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2634,24 +2372,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg1",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg1gib",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2659,12 +2395,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg1hit",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2672,24 +2407,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg2",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg2gib",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2697,12 +2430,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg2hit",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2710,24 +2442,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg3",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg3gib",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2735,12 +2465,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderleg3hit",
-		"DefaultDimensions": "64, 64",
 		"Description": "?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2748,24 +2477,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderling",
-		"DefaultDimensions": "128, 128",
 		"Description": "Spiderling Body base texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spiderling"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlinggib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Spiderling Body death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2773,12 +2500,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlinghit",
-		"DefaultDimensions": "64, 64",
 		"Description": "Spiderling Body damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2786,24 +2512,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg1",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 1",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spiderling"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg1gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 1 death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2811,36 +2535,33 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg1hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 1",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spiderling"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg2",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 2",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spiderling"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg2gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 2 death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2848,12 +2569,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg2hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 2 damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2861,24 +2581,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg3",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 3",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spiderling"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg3gib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 3 death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2886,12 +2604,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingleg3hit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Leg 3 damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2899,24 +2616,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingpalm",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Palm",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spiderling"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingpalmgib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Palm death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2924,12 +2639,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderlingpalmhit",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spiderling Palm damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2937,24 +2651,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderpalm",
-		"DefaultDimensions": "64, 64",
 		"Description": "Spider I Palm",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Spider I"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "spiderpalmgib",
-		"DefaultDimensions": "32, 32",
 		"Description": "Spider I Palm death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -2962,12 +2674,11 @@
 		]
 	},
 	{
-		"AssetName": "spiderpalmhit",
 		"DefaultDimensions": "32, 32",
-		"Description": "Spider I Palm damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "spiderpalmhit",
+		"Description": "Spider I Palm damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -2975,24 +2686,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidarm",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Tentacle",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidarmgib",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Tentacle death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3000,12 +2709,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidarmhit",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Tentacle damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -3013,24 +2721,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidcrest",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Body texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidcrestgib",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Body damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -3038,12 +2744,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidcresthit",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Body death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3051,24 +2756,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidcrestskull",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Skull",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidcrestskullgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3076,12 +2779,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidcrestskullhit",
-		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -3089,36 +2791,33 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidhorns",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Horns",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidjaws",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid II Gem Holder Skull Jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidjawsgib",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Skull Jaw death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3126,12 +2825,11 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidjawshit",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Skull Jaw damage",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -3139,48 +2837,44 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidjawskull",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidjawskullfragged",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Gem Holder Without Gem",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidjawskullgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull Jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidjawskullhit",
-		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Gem Holder Skull Jaw death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3188,24 +2882,22 @@
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidteeth",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid II Bottom Teeth",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid II"
 		]
 	},
 	{
+		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "squidteethgib",
-		"DefaultDimensions": "64, 64",
 		"Description": "Squid II Bottom Teeth death",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3213,12 +2905,11 @@
 		]
 	},
 	{
-		"AssetName": "squidteethhit",
 		"DefaultDimensions": "64, 64",
-		"Description": "Squid II Bottom Teeth damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "squidteethhit",
+		"Description": "Squid II Bottom Teeth damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -3226,57 +2917,52 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "statue1",
-		"DefaultDimensions": "256, 256",
 		"Description": "Player Number 3",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Easter Egg"
 		]
 	},
 	{
+		"DefaultDimensions": "512, 512",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "statue2",
-		"DefaultDimensions": "512, 512",
 		"Description": "Player Number 2",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Easter Egg"
 		]
 	},
 	{
-		"AssetName": "statue3",
 		"DefaultDimensions": "512, 512",
-		"Description": "Player Number 1",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "statue3",
+		"Description": "Player Number 1",
 		"Tags": [
 			"Easter Egg"
 		]
 	},
 	{
-		"AssetName": "thorn",
 		"DefaultDimensions": "256, 256",
-		"Description": "Thorn Body base texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "thorn",
+		"AssetName": "thorn",
+		"Description": "Thorn Body base texture",
 		"Tags": [
 			"Enemy",
 			"Thorn"
 		]
 	},
 	{
-		"AssetName": "thorngib",
 		"DefaultDimensions": "128, 128",
-		"Description": "Thorn Body death",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "thorn",
+		"AssetName": "thorngib",
+		"Description": "Thorn Body death",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3284,12 +2970,11 @@
 		]
 	},
 	{
-		"AssetName": "thornhit",
 		"DefaultDimensions": "128, 128",
-		"Description": "Thorn Body damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "thornhit",
+		"AssetName": "thornhit",
+		"Description": "Thorn Body damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -3297,59 +2982,54 @@
 		]
 	},
 	{
-		"AssetName": "tile",
 		"DefaultDimensions": "128, 128",
-		"Description": "Floor texture",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "tile2",
+		"AssetName": "tile",
+		"Description": "Floor texture",
 		"Tags": [
 			"Arena"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrapedebody",
-		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede segment",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrapedebodyfragged",
-		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede segment without gem",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
-		"AssetName": "ultrapedecrown",
 		"DefaultDimensions": "256, 256",
-		"Description": "Ghostpede extra horns",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "ultrapedecrown",
+		"Description": "Ghostpede extra horns",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
-		"AssetName": "ultrapedecrowngib",
 		"DefaultDimensions": "128, 128",
-		"Description": "Ghostpede extra horns death",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "ultrapedecrowngib",
+		"Description": "Ghostpede extra horns death",
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3357,12 +3037,11 @@
 		]
 	},
 	{
-		"AssetName": "ultrapedecrownhit",
 		"DefaultDimensions": "128, 128",
-		"Description": "Ghostpede extra horns damage",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "ultrapedecrownhit",
+		"Description": "Ghostpede extra horns damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -3370,132 +3049,121 @@
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrapedehead",
-		"DefaultDimensions": "256, 256",
 		"Description": "Ghostpede head",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
-		"AssetName": "ultrapedejaw",
 		"DefaultDimensions": "64, 64",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedejaw",
 		"Description": "Ghostpede jaw",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrapedeleg1",
-		"DefaultDimensions": "32, 32",
 		"Description": "Ghostpede leg texture?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrapedeleg2",
-		"DefaultDimensions": "32, 32",
 		"Description": "Ghostpede leg texture?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"DefaultDimensions": "32, 32",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrapedeleg3",
-		"DefaultDimensions": "32, 32",
 		"Description": "Ghostpede leg texture?",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrapedetail",
-		"DefaultDimensions": "128, 128",
 		"Description": "Ghostpede tail texture",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"DefaultDimensions": "256, 256",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrasquidcrest",
-		"DefaultDimensions": "256, 256",
 		"Description": "Squid III body",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid III"
 		]
 	},
 	{
+		"DefaultDimensions": "128, 128",
+		"IsModelTexture": true,
+		"ModelBinding": "",
 		"AssetName": "ultrasquidcrestskull",
-		"DefaultDimensions": "128, 128",
 		"Description": "Squid III body skull",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid III"
 		]
 	},
 	{
-		"AssetName": "ultrasquidhorns",
 		"DefaultDimensions": "512, 512",
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrasquidhorns",
 		"Description": "Squid III skull gem holder horns",
-		"IsModelTexture": true,
-		"IsProhibited": false,
-		"ModelBinding": "",
 		"Tags": [
 			"Enemy",
 			"Squid III"
 		]
 	},
 	{
-		"AssetName": "ultrasquidjaw",
 		"DefaultDimensions": "256, 256",
-		"Description": "Squid III skull jaw gem holder",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "ultrasquidjaw",
+		"Description": "Squid III skull jaw gem holder",
 		"Tags": [
 			"Enemy",
 			"Squid III"
 		]
 	},
 	{
-		"AssetName": "ultrasquidjawskull",
 		"DefaultDimensions": "128, 128",
-		"Description": "Squid III skull gem holder",
 		"IsModelTexture": true,
-		"IsProhibited": false,
 		"ModelBinding": "",
+		"AssetName": "ultrasquidjawskull",
+		"Description": "Squid III skull gem holder",
 		"Tags": [
 			"Enemy",
 			"Squid III"

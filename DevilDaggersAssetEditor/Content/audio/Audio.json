@@ -1,10 +1,8 @@
 [
 	{
+		"Loudness": 1.0,
 		"AssetName": "andrasimpact",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Andras",
 			"Enemy",
@@ -12,11 +10,9 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "andrasrise",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Andras",
 			"Enemy",
@@ -24,11 +20,10 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "burrowcentipede",
 		"Description": "Centipede burrow",
-		"IsProhibited": false,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Enemy",
@@ -36,11 +31,10 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterandras",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Andras",
 			"Chatter",
@@ -49,11 +43,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chattercentipede",
 		"Description": "Centipede chatter",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Chatter",
@@ -61,11 +55,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chattercentipede2",
 		"Description": "Gigapede chatter",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -73,11 +67,11 @@
 		]
 	},
 	{
+		"Loudness": 20.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chattergigaspider",
 		"Description": "Spider II chatter",
 		"IsProhibited": true,
-		"Loudness": 20,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -85,11 +79,10 @@
 		]
 	},
 	{
+		"Loudness": 50.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterleviathan",
 		"Description": "Leviathan chatter",
-		"IsProhibited": false,
-		"Loudness": 50,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -97,11 +90,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterminisquid",
 		"Description": "Squid I chatter",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -109,11 +102,11 @@
 		]
 	},
 	{
+		"Loudness": 2.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull",
 		"Description": "Skull I chatter",
 		"IsProhibited": true,
-		"Loudness": 2,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -121,11 +114,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull2",
 		"Description": "Skull II chatter",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -133,11 +126,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull2black",
 		"Description": "Transmuted Skull II chatter",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -145,11 +138,11 @@
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull3",
 		"Description": "Skull III chatter",
 		"IsProhibited": true,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -157,11 +150,11 @@
 		]
 	},
 	{
+		"Loudness": 20.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull3black",
 		"Description": "Transmuted Skull III chatter",
 		"IsProhibited": true,
-		"Loudness": 20,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -169,11 +162,11 @@
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull4",
 		"Description": "Skull IV chatter",
 		"IsProhibited": true,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -181,11 +174,11 @@
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskull4black",
 		"Description": "Transmuted Skull IV chatter",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -193,11 +186,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterskullblack",
 		"Description": "Transmuted Skull I chatter",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -205,11 +198,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterspider",
 		"Description": "Spider I chatter",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -217,11 +210,11 @@
 		]
 	},
 	{
+		"Loudness": 4.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterspiderling",
 		"Description": "Spiderling chatter",
 		"IsProhibited": true,
-		"Loudness": 4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -229,11 +222,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chattersquid",
 		"Description": "Squid II chatter",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -241,21 +234,20 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "chattersquidsmall",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 15.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chattersquidultra",
 		"Description": "Squid III chatter",
 		"IsProhibited": true,
-		"Loudness": 15,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -263,11 +255,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterthorn",
 		"Description": "Thorn chatter",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -275,11 +267,11 @@
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "chatterultrapede",
 		"Description": "Ghostpede chatter",
 		"IsProhibited": true,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -287,71 +279,70 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "collectgib1",
 		"Description": "Unused?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "collectgib2",
 		"Description": "Unused?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "collectgib3",
 		"Description": "Unused?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "collectgibbase1",
 		"Description": "Unused?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "collectgibbase2",
 		"Description": "Unused?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "collectgibbase3",
 		"Description": "Unused?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall",
 		"Description": "Pleb Dagger in lobby",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Lobby",
@@ -359,11 +350,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall1bronze",
 		"Description": "Bronze Dagger in lobby",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Bronze",
 			"Dagger",
@@ -371,11 +361,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall2silver",
 		"Description": "Silver Dagger in lobby",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Lobby",
@@ -383,11 +372,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall3gold",
 		"Description": "Golden Dagger in lobby",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Golden",
@@ -395,11 +383,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall4devil",
 		"Description": "Devil Dagger in lobby",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Devil",
@@ -407,11 +394,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercall5",
 		"Description": "Leviathan Dagger in lobby",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Leviathan",
@@ -419,22 +405,20 @@
 		]
 	},
 	{
-		"AssetName": "daggercollect",
-		"Description": "Dagger lobby grab",
-		"IsProhibited": false,
 		"Loudness": 0.2,
 		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercollect",
+		"Description": "Dagger lobby grab",
 		"Tags": [
 			"Dagger",
 			"Lobby"
 		]
 	},
 	{
+		"Loudness": 1000.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect1bronze",
 		"Description": "Bronze Dagger unlock",
-		"IsProhibited": false,
-		"Loudness": 1000,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Bronze",
 			"Dagger",
@@ -442,11 +426,10 @@
 		]
 	},
 	{
+		"Loudness": 1000.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect2silver",
 		"Description": "Silver Dagger unlock",
-		"IsProhibited": false,
-		"Loudness": 1000,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Silver",
@@ -454,11 +437,10 @@
 		]
 	},
 	{
+		"Loudness": 1000.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect3gold",
 		"Description": "Golden Dagger unlock",
-		"IsProhibited": false,
-		"Loudness": 1000,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Golden",
@@ -466,11 +448,10 @@
 		]
 	},
 	{
+		"Loudness": 1000.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect4devil",
 		"Description": "Devil Dagger unlock",
-		"IsProhibited": false,
-		"Loudness": 1000,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Devil",
@@ -478,11 +459,10 @@
 		]
 	},
 	{
+		"Loudness": 1000.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggercollect5",
 		"Description": "Leviathan Dagger unlock",
-		"IsProhibited": false,
-		"Loudness": 1000,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger",
 			"Leviathan",
@@ -490,103 +470,101 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "daggerdivert",
 		"Description": "Unused (Andras?)",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggerdrone",
 		"Description": "Level 3 homing dagger noise",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 3"
 		]
 	},
 	{
+		"Loudness": 1.4,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggerhit1",
 		"Description": "Default dagger hit",
 		"IsProhibited": true,
-		"Loudness": 1.4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Normal dagger"
 		]
 	},
 	{
+		"Loudness": 4.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggerseek",
 		"Description": "Level 4 homing dagger fire",
 		"IsProhibited": true,
-		"Loudness": 4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
 		]
 	},
 	{
+		"Loudness": 8.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggersteal1",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 8,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 8.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggersteal2",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 8,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 8.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggersteal3",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 8,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 8.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggersteal4",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 8,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 8.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "daggersteal5",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 8,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damageandras",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Andras",
 			"Damage",
@@ -595,11 +573,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagecentipede",
 		"Description": "Centipede gem is damaged",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Damage",
@@ -607,11 +585,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagecentipede2",
 		"Description": "Gigapede gem is damaged",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -619,11 +597,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagegigaspider",
 		"Description": "Spider II damage",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -631,11 +609,11 @@
 		]
 	},
 	{
+		"Loudness": 66.6,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damageleviathan",
 		"Description": "Leviathan gem comes off",
 		"IsProhibited": true,
-		"Loudness": 66.6,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -643,11 +621,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagespider",
 		"Description": "Spider I damage",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -655,11 +633,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagesquid",
 		"Description": "Squid I / II / III / Leviathan gem damage",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -670,11 +648,11 @@
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagesquid2",
 		"Description": "Squid II gem comes off",
 		"IsProhibited": true,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -682,11 +660,11 @@
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagesquid3",
 		"Description": "Squid III gem comes off",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -694,21 +672,21 @@
 		]
 	},
 	{
+		"Loudness": 35.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagesquid4",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 35,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damagethorn",
 		"Description": "Thorn damage",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -716,11 +694,11 @@
 		]
 	},
 	{
+		"Loudness": 50.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "damageultrapede",
 		"Description": "Ghostpede gem comes off",
 		"IsProhibited": true,
-		"Loudness": 50,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -728,22 +706,21 @@
 		]
 	},
 	{
+		"Loudness": 99.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "death",
 		"Description": "Player death from enemy",
-		"IsProhibited": false,
-		"Loudness": 99,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Player"
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eggbounce",
 		"Description": "Spider Egg I / Spider Egg II bounce on floor",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spider Egg I",
@@ -751,11 +728,11 @@
 		]
 	},
 	{
+		"Loudness": 50.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eggburst",
 		"Description": "Spider Egg I / Spider Egg II burst (hatch or death)",
 		"IsProhibited": true,
-		"Loudness": 50,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -764,21 +741,20 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "eggburst2",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eggdrone",
 		"Description": "Spider Egg I chatter",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -786,11 +762,11 @@
 		]
 	},
 	{
+		"Loudness": 2.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eggdrone2",
 		"Description": "Spider Egg II chatter",
 		"IsProhibited": true,
-		"Loudness": 2,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Chatter",
 			"Enemy",
@@ -798,33 +774,30 @@
 		]
 	},
 	{
+		"Loudness": 40.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eyearouse",
 		"Description": "The Orb is locating Player",
-		"IsProhibited": false,
-		"Loudness": 40,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"The Orb"
 		]
 	},
 	{
+		"Loudness": 98.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eyearousedrone",
 		"Description": "The Orb sees Player",
-		"IsProhibited": false,
-		"Loudness": 98,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"The Orb"
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eyehit",
 		"Description": "The Orb damage",
-		"IsProhibited": false,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Damage",
 			"Enemy",
@@ -832,82 +805,78 @@
 		]
 	},
 	{
+		"Loudness": 2.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "eyepacifydrone",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 2,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 100.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "fall",
 		"Description": "Player death from falling",
-		"IsProhibited": false,
-		"Loudness": 100,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Player"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "gibcollect",
 		"Description": "Gem collect during Level 1 / 2 / 4",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "gibcollectmagic",
 		"Description": "Gem collect during Level 3",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gibdrone1",
 		"Description": "Gem idle?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gibdrone2",
 		"Description": "Gem idle?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gibdrone3",
 		"Description": "Gem idle?",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gigaricochet1",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Level 4",
@@ -916,11 +885,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gigaricochet2",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Level 4",
@@ -929,11 +898,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gigaricochet3",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Level 4",
@@ -942,11 +911,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gigaricochet4",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Level 4",
@@ -955,11 +924,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "gigaricochet5",
 		"Description": "Level 3 / 4 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Level 4",
@@ -968,61 +937,58 @@
 		]
 	},
 	{
+		"Loudness": 2.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "highscore1",
 		"Description": "Plays when beating your highscore.",
-		"IsProhibited": false,
-		"Loudness": 2,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Highscore"
 		]
 	},
 	{
+		"Loudness": 2.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "highscore2",
 		"Description": "Plays 10 seconds before beating next person on friends leaderboard.",
-		"IsProhibited": false,
-		"Loudness": 2,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Highscore"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "jump1",
 		"Description": "Player jump",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "jump2",
 		"Description": "Player bunnyhop",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "jump3",
 		"Description": "Player precise bunnyhop",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player"
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killandras",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Andras",
 			"Death",
@@ -1031,11 +997,11 @@
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killcentipede",
 		"Description": "Centipede death",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Death",
@@ -1043,11 +1009,11 @@
 		]
 	},
 	{
+		"Loudness": 40.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killcentipede2",
 		"Description": "Gigapede death",
 		"IsProhibited": true,
-		"Loudness": 40,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1055,11 +1021,10 @@
 		]
 	},
 	{
+		"Loudness": 40.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killeye",
 		"Description": "The Orb death",
-		"IsProhibited": false,
-		"Loudness": 40,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1067,11 +1032,11 @@
 		]
 	},
 	{
+		"Loudness": 75.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killgigaspider",
 		"Description": "Spider II death",
 		"IsProhibited": true,
-		"Loudness": 75,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1079,11 +1044,11 @@
 		]
 	},
 	{
+		"Loudness": 66.6,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killleviathan",
 		"Description": "Leviathan death",
 		"IsProhibited": true,
-		"Loudness": 66.6,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1091,11 +1056,11 @@
 		]
 	},
 	{
+		"Loudness": 50.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killminisquid",
 		"Description": "Squid I death",
 		"IsProhibited": true,
-		"Loudness": 50,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1103,11 +1068,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull1",
 		"Description": "Skull I death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1115,11 +1080,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull2",
 		"Description": "Skull I death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1127,11 +1092,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull3",
 		"Description": "Skull I death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1139,11 +1104,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull4",
 		"Description": "Skull I death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1151,11 +1116,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killskull5",
 		"Description": "Skull I death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1163,11 +1128,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "killskullblack1",
 		"Description": "Transmuted Skull I death",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1175,11 +1139,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "killskullblack2",
 		"Description": "Transmuted Skull I death",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1187,11 +1150,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "killskullblack3",
 		"Description": "Transmuted Skull I death",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1199,11 +1161,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "killskullblack4",
 		"Description": "Transmuted Skull I death",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1211,11 +1172,11 @@
 		]
 	},
 	{
+		"Loudness": 55.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killspider",
 		"Description": "Spider I death",
 		"IsProhibited": true,
-		"Loudness": 55,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1223,11 +1184,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling1",
 		"Description": "Spiderling death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1235,11 +1196,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling2",
 		"Description": "Spiderling death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1247,11 +1208,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling3",
 		"Description": "Spiderling death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1259,11 +1220,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling4",
 		"Description": "Spiderling death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1271,11 +1232,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killspiderling5",
 		"Description": "Spiderling death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1283,11 +1244,11 @@
 		]
 	},
 	{
+		"Loudness": 50.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killsquid",
 		"Description": "Squid II death",
 		"IsProhibited": true,
-		"Loudness": 50,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1295,11 +1256,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull",
 		"Description": "Skull II death",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1307,11 +1268,11 @@
 		]
 	},
 	{
+		"Loudness": 6.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull2",
 		"Description": "Skull III death",
 		"IsProhibited": true,
-		"Loudness": 6,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1319,11 +1280,11 @@
 		]
 	},
 	{
+		"Loudness": 6.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull2black",
 		"Description": "Transmuted Skull III death",
 		"IsProhibited": true,
-		"Loudness": 6,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1331,11 +1292,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskull3",
 		"Description": "Skull IV death / Transmuted Skull IV death",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1344,11 +1305,11 @@
 		]
 	},
 	{
+		"Loudness": 6.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killsuperskullblack",
 		"Description": "Transmuted Skull II death",
 		"IsProhibited": true,
-		"Loudness": 6,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1356,11 +1317,11 @@
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killthorn",
 		"Description": "Thorn death",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1368,21 +1329,20 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "killultraskull",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "killultrasquid",
 		"Description": "Squid III death",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -1390,52 +1350,48 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "land",
 		"Description": "Land sound for Player",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player"
 		]
 	},
 	{
+		"Loudness": 2.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "land2",
 		"Description": "Land sound for Player",
 		"IsProhibited": true,
-		"Loudness": 2,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "legends",
 		"Description": "Easter egg music for skull thrones",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Lobby",
 			"Music"
 		]
 	},
 	{
+		"Loudness": 97.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "leveldown",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 97,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "levelup2",
 		"Description": "Level 2 upgrade",
-		"IsProhibited": false,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Player",
@@ -1443,11 +1399,10 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "levelup3",
 		"Description": "Level 3 upgrade",
-		"IsProhibited": false,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Player",
@@ -1455,11 +1410,10 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "levelup4",
 		"Description": "Level 4 upgrade",
-		"IsProhibited": false,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 4",
 			"Player",
@@ -1467,11 +1421,10 @@
 		]
 	},
 	{
+		"Loudness": 200.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "leviathanbeckon",
 		"Description": "Leviathan / The Orb beckon",
-		"IsProhibited": false,
-		"Loudness": 200,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan",
@@ -1479,11 +1432,10 @@
 		]
 	},
 	{
+		"Loudness": 20.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "leviathanbeckon2",
 		"Description": "Plays when a skull touches Leviathan's or The Orb's beckon ring.",
-		"IsProhibited": false,
-		"Loudness": 20,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan",
@@ -1495,11 +1447,9 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "leviathantransmute",
 		"Description": "Plays when a skull is transmuted by Leviathan (and The Orb?).",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Enemy",
 			"Leviathan",
@@ -1511,77 +1461,77 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate1",
 		"Description": "Level 4 homing dagger explode",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate2",
 		"Description": "Level 4 homing dagger explode",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate3",
 		"Description": "Level 4 homing dagger explode",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate4",
 		"Description": "Level 4 homing dagger explode",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadetonate5",
 		"Description": "Level 4 homing dagger explode",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magentadrone",
 		"Description": "Level 4 homing dagger noise",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4"
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magentashot",
 		"Description": "Level 4 homing dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4",
@@ -1589,11 +1539,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "magentastuckenemy1",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1601,11 +1550,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "magentastuckenemy2",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1613,11 +1561,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "magentastuckenemy3",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1625,11 +1572,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "magentastuckenemy4",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1637,11 +1583,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "magentastuckenemy5",
 		"Description": "Level 4 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1649,11 +1594,11 @@
 		]
 	},
 	{
+		"Loudness": 9.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce1",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 9,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1661,11 +1606,11 @@
 		]
 	},
 	{
+		"Loudness": 9.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce2",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 9,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1673,11 +1618,11 @@
 		]
 	},
 	{
+		"Loudness": 9.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce3",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 9,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1685,11 +1630,11 @@
 		]
 	},
 	{
+		"Loudness": 9.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce4",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 9,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1697,11 +1642,11 @@
 		]
 	},
 	{
+		"Loudness": 9.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "magicpierce5",
 		"Description": "Level 3 homing dagger pierces an enemy",
 		"IsProhibited": true,
-		"Loudness": 9,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Dagger pierce",
 			"Homing dagger",
@@ -1709,331 +1654,271 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "magicpulse",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat1",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat10",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat11",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat12",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat13",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat2",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat3",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat4",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat5",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat6",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat7",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat8",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meat9",
 		"Description": "Small meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatbig1",
 		"Description": "Big meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatbig2",
 		"Description": "Big meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatbig3",
 		"Description": "Big meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatbig4",
 		"Description": "Big meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatbig5",
 		"Description": "Big meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatbig6",
 		"Description": "Big meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatmed1",
 		"Description": "Medium meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatmed2",
 		"Description": "Medium meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatmed3",
 		"Description": "Medium meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatmed4",
 		"Description": "Medium meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatmed5",
 		"Description": "Medium meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "meatmed6",
 		"Description": "Medium meat bounce on floor",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Gore"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "menuatmos",
 		"Description": "Main menu music",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Music"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "menutheme",
 		"Description": "Devil Daggers splash screen music",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Music"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "polarity1e",
 		"Description": "Arena east",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Arena"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "polarity2w",
 		"Description": "Arena west",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Arena"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "polarity3n",
 		"Description": "Arena north",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Arena"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "polarity4s",
 		"Description": "Arena south",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Arena"
 		]
 	},
 	{
+		"Loudness": 0.2,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "rapid1",
 		"Description": "Level 1 normal dagger spray",
 		"IsProhibited": true,
-		"Loudness": 0.2,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -2041,11 +1926,11 @@
 		]
 	},
 	{
+		"Loudness": 0.3,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "rapid2",
 		"Description": "Level 2 normal dagger spray",
 		"IsProhibited": true,
-		"Loudness": 0.3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -2053,11 +1938,11 @@
 		]
 	},
 	{
+		"Loudness": 0.5,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "rapid3",
 		"Description": "Level 3 normal dagger spray",
 		"IsProhibited": true,
-		"Loudness": 0.5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Normal dagger",
@@ -2065,11 +1950,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "rapid4",
 		"Description": "Level 4 normal dagger spray",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 4",
 			"Normal dagger",
@@ -2077,11 +1962,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet1",
 		"Description": "Level 1 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -2089,11 +1974,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet2",
 		"Description": "Level 1 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -2101,11 +1986,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet3",
 		"Description": "Level 1 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -2113,11 +1998,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet4",
 		"Description": "Level 1 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -2125,11 +2010,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochet5",
 		"Description": "Level 1 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -2137,11 +2022,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta1",
 		"Description": "Level 4 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4",
@@ -2149,11 +2034,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta2",
 		"Description": "Level 4 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4",
@@ -2161,11 +2046,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta3",
 		"Description": "Level 4 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4",
@@ -2173,11 +2058,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta4",
 		"Description": "Level 4 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4",
@@ -2185,11 +2070,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagenta5",
 		"Description": "Level 4 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 4",
@@ -2197,11 +2082,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic1",
 		"Description": "Level 3 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 3",
@@ -2209,11 +2094,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic2",
 		"Description": "Level 3 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 3",
@@ -2221,11 +2106,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic3",
 		"Description": "Level 3 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 3",
@@ -2233,11 +2118,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmagic4",
 		"Description": "Level 3 homing dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Homing dagger",
 			"Level 3",
@@ -2245,11 +2130,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed1",
 		"Description": "Level 2 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -2257,11 +2142,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed2",
 		"Description": "Level 2 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -2269,11 +2154,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed3",
 		"Description": "Level 2 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -2281,11 +2166,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed4",
 		"Description": "Level 2 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -2293,11 +2178,11 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ricochetmed5",
 		"Description": "Level 2 normal dagger ricochet",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -2305,87 +2190,83 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "secretsnake",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "secretsnake2",
 		"Description": "Plays when discovering an easter egg in the lobby.",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Easter Egg",
 			"Lobby"
 		]
 	},
 	{
+		"Loudness": 4.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shard1",
 		"Description": "The Orb shard bounce on floor",
 		"IsProhibited": true,
-		"Loudness": 4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"The Orb"
 		]
 	},
 	{
+		"Loudness": 4.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shard2",
 		"Description": "The Orb shard bounce on floor",
 		"IsProhibited": true,
-		"Loudness": 4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"The Orb"
 		]
 	},
 	{
+		"Loudness": 4.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shard3",
 		"Description": "The Orb shard bounce on floor",
 		"IsProhibited": true,
-		"Loudness": 4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"The Orb"
 		]
 	},
 	{
+		"Loudness": 4.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shard4",
 		"Description": "The Orb shard bounce on floor",
 		"IsProhibited": true,
-		"Loudness": 4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"The Orb"
 		]
 	},
 	{
+		"Loudness": 4.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shard5",
 		"Description": "The Orb shard bounce on floor",
 		"IsProhibited": true,
-		"Loudness": 4,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"The Orb"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot1",
 		"Description": "Level 1 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 1",
 			"Normal dagger",
@@ -2393,11 +2274,11 @@
 		]
 	},
 	{
+		"Loudness": 1.5,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot2",
 		"Description": "Level 2 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 1.5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 2",
 			"Normal dagger",
@@ -2405,21 +2286,21 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot3",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot3alt1",
 		"Description": "Level 3 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Normal dagger",
@@ -2427,11 +2308,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot3alt2",
 		"Description": "Level 3 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Normal dagger",
@@ -2439,11 +2320,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot3alt3",
 		"Description": "Level 3 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Normal dagger",
@@ -2451,11 +2332,11 @@
 		]
 	},
 	{
+		"Loudness": 3.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot3alt4",
 		"Description": "Level 3 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 3,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 3",
 			"Normal dagger",
@@ -2463,11 +2344,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot4alt1",
 		"Description": "Level 4 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 4",
 			"Normal dagger",
@@ -2475,11 +2356,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot4alt2",
 		"Description": "Level 4 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 4",
 			"Normal dagger",
@@ -2487,11 +2368,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot4alt3",
 		"Description": "Level 4 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 4",
 			"Normal dagger",
@@ -2499,11 +2380,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot4alt4",
 		"Description": "Level 4 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 4",
 			"Normal dagger",
@@ -2511,11 +2392,11 @@
 		]
 	},
 	{
+		"Loudness": 5.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "shot4alt5",
 		"Description": "Level 4 normal dagger shotgun",
 		"IsProhibited": true,
-		"Loudness": 5,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Level 4",
 			"Normal dagger",
@@ -2523,21 +2404,19 @@
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "skullaggro",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "skullclop1",
 		"Description": "Skull bounce on floor or with other skull",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Skull I",
@@ -2545,11 +2424,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "skullclop2",
 		"Description": "Skull bounce on floor or with other skull",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Skull I",
@@ -2557,11 +2435,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "skullclop3",
 		"Description": "Skull bounce on floor or with other skull",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Skull I",
@@ -2569,11 +2446,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "skullclop4",
 		"Description": "Skull bounce on floor or with other skull",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Skull I",
@@ -2581,11 +2457,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "skullclop5",
 		"Description": "Skull bounce on floor or with other skull",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Skull I",
@@ -2593,11 +2468,10 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "skullclop6",
 		"Description": "Skull bounce on floor or with other skull",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Skull I",
@@ -2605,42 +2479,35 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "sorathlogo",
 		"Description": "Sorath splash screen sound",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Splash screen"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "sorathlogo2",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "sorathstone",
 		"Description": "Sorath stone easter egg music",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Lobby",
 			"Music"
 		]
 	},
 	{
+		"Loudness": 45.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnandras",
 		"Description": "Unused",
-		"IsProhibited": false,
-		"Loudness": 45,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Andras",
 			"Enemy",
@@ -2649,11 +2516,11 @@
 		]
 	},
 	{
+		"Loudness": 35.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawncentipede",
 		"Description": "Centipede spawn",
 		"IsProhibited": true,
-		"Loudness": 35,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Enemy",
@@ -2661,11 +2528,11 @@
 		]
 	},
 	{
+		"Loudness": 35.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawncentipede2",
 		"Description": "Gigapede spawn",
 		"IsProhibited": true,
-		"Loudness": 35,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Gigapede",
@@ -2673,11 +2540,11 @@
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnegg",
 		"Description": "Spider I / Spider II shoot egg",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2686,11 +2553,11 @@
 		]
 	},
 	{
+		"Loudness": 70.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawngigaspider",
 		"Description": "Spider II spawn",
 		"IsProhibited": true,
-		"Loudness": 70,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2698,11 +2565,10 @@
 		]
 	},
 	{
+		"Loudness": 666.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnleviathan",
 		"Description": "Leviathan spawn",
-		"IsProhibited": false,
-		"Loudness": 666,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Leviathan",
@@ -2710,11 +2576,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnminisquid",
 		"Description": "Squid I spawn",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2722,22 +2588,21 @@
 		]
 	},
 	{
+		"Loudness": 100.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnplayer",
 		"Description": "Player spawn",
-		"IsProhibited": false,
-		"Loudness": 100,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Player",
 			"Spawn"
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnskulls",
 		"Description": "Squid II gush (yes, really)",
 		"IsProhibited": true,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2745,11 +2610,11 @@
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnskulls2",
 		"Description": "Squid I gush (yes, really)",
 		"IsProhibited": true,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2757,11 +2622,11 @@
 		]
 	},
 	{
+		"Loudness": 25.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnskulls3",
 		"Description": "Squid III gush",
 		"IsProhibited": true,
-		"Loudness": 25,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2769,11 +2634,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnspider",
 		"Description": "Spider I spawn",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2781,11 +2646,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnsquid",
 		"Description": "Squid II spawn",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2793,11 +2658,11 @@
 		]
 	},
 	{
+		"Loudness": 120.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnultrapede",
 		"Description": "Ghostpede spawn",
 		"IsProhibited": true,
-		"Loudness": 120,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Ghostpede",
@@ -2805,11 +2670,11 @@
 		]
 	},
 	{
+		"Loudness": 70.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spawnultrasquid",
 		"Description": "Squid III spawn",
 		"IsProhibited": true,
-		"Loudness": 70,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spawn",
@@ -2817,11 +2682,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spidereat1",
 		"Description": "Spider I / Spider II eat gem",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spider I",
@@ -2829,11 +2694,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spidereat2",
 		"Description": "Spider I / Spider II eat gem",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spider I",
@@ -2841,11 +2706,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spidereat3",
 		"Description": "Spider I / Spider II eat gem",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spider I",
@@ -2853,11 +2718,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spidereat4",
 		"Description": "Spider I / Spider II eat gem",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spider I",
@@ -2865,11 +2730,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spidereat5",
 		"Description": "Spider I / Spider II eat gem",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spider I",
@@ -2877,11 +2742,11 @@
 		]
 	},
 	{
+		"Loudness": 60.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "spidereat6",
 		"Description": "Spider I / Spider II eat gem",
 		"IsProhibited": true,
-		"Loudness": 60,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Spider I",
@@ -2889,11 +2754,11 @@
 		]
 	},
 	{
+		"Loudness": 35.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "splashgiga",
 		"Description": "Squid II death splash",
 		"IsProhibited": true,
-		"Loudness": 35,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death splash",
 			"Enemy",
@@ -2901,11 +2766,11 @@
 		]
 	},
 	{
+		"Loudness": 35.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "splashgiga2",
 		"Description": "Centipede / Gigapede death splash",
 		"IsProhibited": true,
-		"Loudness": 35,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Death splash",
@@ -2914,11 +2779,11 @@
 		]
 	},
 	{
+		"Loudness": 35.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "splashgiga3",
 		"Description": "Spider I death splash",
 		"IsProhibited": true,
-		"Loudness": 35,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death splash",
 			"Enemy",
@@ -2926,11 +2791,11 @@
 		]
 	},
 	{
+		"Loudness": 40.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "splashgiga4",
 		"Description": "Squid III death splash",
 		"IsProhibited": true,
-		"Loudness": 40,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death splash",
 			"Enemy",
@@ -2938,11 +2803,11 @@
 		]
 	},
 	{
+		"Loudness": 45.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "splashgiga5",
 		"Description": "Spider II death splash",
 		"IsProhibited": true,
-		"Loudness": 45,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death splash",
 			"Enemy",
@@ -2950,11 +2815,11 @@
 		]
 	},
 	{
+		"Loudness": 45.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "splashgiga6",
 		"Description": "Ghostpede death splash",
 		"IsProhibited": true,
-		"Loudness": 45,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death splash",
 			"Enemy",
@@ -2962,31 +2827,30 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "stealgib",
 		"Description": "Gem attracted by Spider I",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"Loudness": 1.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "stealgib2",
 		"Description": "Gem attracted by Spider II",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Gem"
 		]
 	},
 	{
+		"Loudness": 20.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "subchattercentipede",
 		"Description": "Centipede / Gigapede / Ghostpede underground",
-		"IsProhibited": false,
-		"Loudness": 20,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Enemy",
@@ -2996,11 +2860,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "thornemerge",
 		"Description": "Thorn spawn",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Thorn",
@@ -3008,123 +2872,111 @@
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "thorngib1",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "thorngib2",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "thorngib3",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "thorngib4",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "thorngib5",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "thorngib6",
 		"Description": "Unused",
 		"IsProhibited": true,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"Unused"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "uiclick",
 		"Description": "User interface click",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"UI"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "uihover",
 		"Description": "User interface hover",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"UI"
 		]
 	},
 	{
+		"Loudness": 1.0,
 		"AssetName": "uislider",
 		"Description": "User interface slider",
-		"IsProhibited": false,
-		"Loudness": 1,
-		"PresentInDefaultLoudness": false,
 		"Tags": [
 			"UI"
 		]
 	},
 	{
+		"Loudness": 30.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ultrapedecrash",
 		"Description": "Ghostpede collide with floor",
 		"IsProhibited": true,
-		"Loudness": 30,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"Loudness": 40.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ultrapedeeat",
 		"Description": "Ghostpede eat homing dagger",
 		"IsProhibited": true,
-		"Loudness": 40,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Enemy",
 			"Ghostpede"
 		]
 	},
 	{
+		"Loudness": 40.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "ultrapedefall",
 		"Description": "Ghostpede death",
 		"IsProhibited": true,
-		"Loudness": 40,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Death",
 			"Enemy",
@@ -3132,11 +2984,11 @@
 		]
 	},
 	{
+		"Loudness": 10.0,
+		"PresentInDefaultLoudness": true,
 		"AssetName": "unburrowcentipede",
 		"Description": "Centipede emerge",
 		"IsProhibited": true,
-		"Loudness": 10,
-		"PresentInDefaultLoudness": true,
 		"Tags": [
 			"Centipede",
 			"Enemy",

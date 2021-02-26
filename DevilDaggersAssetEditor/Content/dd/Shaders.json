@@ -2,7 +2,6 @@
 	{
 		"AssetName": "boid",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -10,7 +9,6 @@
 	{
 		"AssetName": "boid_batch",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -34,7 +32,6 @@
 	{
 		"AssetName": "daggerlevi",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -42,7 +39,6 @@
 	{
 		"AssetName": "debug",
 		"Description": "Unused?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -50,7 +46,6 @@
 	{
 		"AssetName": "default_texture",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -58,7 +53,6 @@
 	{
 		"AssetName": "depth",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -66,7 +60,6 @@
 	{
 		"AssetName": "egg",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -74,7 +67,13 @@
 	{
 		"AssetName": "gib",
 		"Description": "?",
-		"IsProhibited": false,
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "gib_batch",
+		"Description": "?",
 		"Tags": [
 			"?"
 		]
@@ -82,7 +81,6 @@
 	{
 		"AssetName": "hand",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -90,7 +88,6 @@
 	{
 		"AssetName": "hand_batch",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -98,7 +95,6 @@
 	{
 		"AssetName": "light",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -106,7 +102,6 @@
 	{
 		"AssetName": "light_batch",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -114,7 +109,6 @@
 	{
 		"AssetName": "light_ring",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -122,7 +116,6 @@
 	{
 		"AssetName": "owlwing",
 		"Description": "Unused?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -130,7 +123,6 @@
 	{
 		"AssetName": "particle",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -144,9 +136,24 @@
 		]
 	},
 	{
+		"AssetName": "particle2_batch",
+		"Description": "?",
+		"IsProhibited": true,
+		"Tags": [
+			"?"
+		]
+	},
+	{
 		"AssetName": "particle_decal",
 		"Description": "?",
-		"IsProhibited": false,
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "particle_decal_batch",
+		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
@@ -154,7 +161,6 @@
 	{
 		"AssetName": "post",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -162,7 +168,6 @@
 	{
 		"AssetName": "post_combine",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -170,7 +175,6 @@
 	{
 		"AssetName": "post_final",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -178,7 +182,6 @@
 	{
 		"AssetName": "post_title",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -186,7 +189,6 @@
 	{
 		"AssetName": "shadow",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -194,7 +196,6 @@
 	{
 		"AssetName": "shadow_batch",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -202,7 +203,6 @@
 	{
 		"AssetName": "sorath",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -210,7 +210,6 @@
 	{
 		"AssetName": "sprite",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -218,7 +217,6 @@
 	{
 		"AssetName": "sprite_debug",
 		"Description": "Unused?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -226,7 +224,6 @@
 	{
 		"AssetName": "sprite_terrain",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -234,7 +231,13 @@
 	{
 		"AssetName": "squidarm",
 		"Description": "?",
-		"IsProhibited": false,
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "squidarm_batch",
+		"Description": "?",
 		"Tags": [
 			"?"
 		]
@@ -242,7 +245,6 @@
 	{
 		"AssetName": "thorn",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -250,7 +252,6 @@
 	{
 		"AssetName": "tile",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -258,7 +259,6 @@
 	{
 		"AssetName": "tile2",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -266,7 +266,6 @@
 	{
 		"AssetName": "tile_batch",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -274,7 +273,6 @@
 	{
 		"AssetName": "unlit",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -282,7 +280,6 @@
 	{
 		"AssetName": "warp",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -290,7 +287,20 @@
 	{
 		"AssetName": "warp2",
 		"Description": "?",
-		"IsProhibited": false,
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "warp2_batch",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "warp_batch",
+		"Description": "?",
 		"Tags": [
 			"?"
 		]
@@ -298,7 +308,6 @@
 	{
 		"AssetName": "warp3",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
@@ -306,7 +315,6 @@
 	{
 		"AssetName": "warpeye",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]

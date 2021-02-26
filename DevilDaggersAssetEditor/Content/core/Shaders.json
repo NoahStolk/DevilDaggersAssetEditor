@@ -2,7 +2,6 @@
 	{
 		"AssetName": "gui",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"UI"
 		]
@@ -10,7 +9,6 @@
 	{
 		"AssetName": "guifont",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"Font",
 			"UI"
@@ -19,7 +17,6 @@
 	{
 		"AssetName": "guifontlev",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"Font",
 			"UI"
@@ -28,7 +25,6 @@
 	{
 		"AssetName": "test",
 		"Description": "?",
-		"IsProhibited": false,
 		"Tags": [
 			"?"
 		]
