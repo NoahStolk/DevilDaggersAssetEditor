@@ -20,10 +20,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class ExtractBinariesWindow : Window
 	{
-		private readonly BinaryPathControl _audioControl = new("'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
-		private readonly BinaryPathControl _coreControl = new("'core' binary path", BinaryFileType.Core, AssetType.Shader);
-		private readonly BinaryPathControl _ddControl = new("'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
-		private readonly BinaryPathControl _particleControl = new("'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
+		private readonly BinaryPathControl _audioControl;
+		private readonly BinaryPathControl _coreControl;
+		private readonly BinaryPathControl _ddControl;
+		private readonly BinaryPathControl _particleControl;
 
 		private readonly List<BinaryPathControl> _controls = new();
 
@@ -32,6 +32,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public ExtractBinariesWindow()
 		{
 			InitializeComponent();
+
+			_audioControl = new(this, "'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
+			_coreControl = new(this, "'core' binary path", BinaryFileType.Core, AssetType.Shader);
+			_ddControl = new(this, "'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
+			_particleControl = new(this, "'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
@@ -51,11 +56,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				_outputPath = folderDialog.SelectedPath;
 				TextBoxOutput.Text = _outputPath;
+				UpdateButtonExtractBinaries();
 			}
 		}
 
 		private void TextBoxOutput_TextChanged(object sender, TextChangedEventArgs e)
-			=> _outputPath = TextBoxOutput.Text;
+		{
+			_outputPath = TextBoxOutput.Text;
+			UpdateButtonExtractBinaries();
+		}
+
+		public void UpdateButtonExtractBinaries()
+		{
+			ButtonExtractBinaries.IsEnabled = !string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath) && _controls.Any(c => c.CheckBoxEnable.IsChecked() && !string.IsNullOrWhiteSpace(c.BinaryPath) && File.Exists(c.BinaryPath));
+		}
 
 		private async void ExtractBinaries_Click(object sender, RoutedEventArgs e)
 		{

@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
@@ -17,11 +18,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class BinaryPathControl : UserControl
 	{
+		private readonly ExtractBinariesWindow? _parent;
+
 		private string _binaryPath;
 
-		public BinaryPathControl(string header, BinaryFileType binaryFileType, AssetType assetTypeForColor)
+		public BinaryPathControl(ExtractBinariesWindow? parent, string header, BinaryFileType binaryFileType, AssetType assetTypeForColor)
 		{
 			InitializeComponent();
+
+			_parent = parent;
 
 			BinaryFileType = binaryFileType;
 
@@ -44,10 +49,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public string BinaryPath => _binaryPath;
 
 		private void TextBoxPath_TextChanged(object sender, RoutedEventArgs e)
-			=> _binaryPath = TextBoxPath.Text;
+		{
+			_binaryPath = TextBoxPath.Text;
+			_parent?.UpdateButtonExtractBinaries();
+		}
 
 		private void BrowseButton_Click(object sender, RoutedEventArgs e)
-			=> SetPath(ref _binaryPath);
+		{
+			SetPath(ref _binaryPath);
+			_parent?.UpdateButtonExtractBinaries();
+		}
 
 		private void UpdateGui()
 			=> TextBoxPath.Text = _binaryPath;
@@ -87,6 +98,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				ButtonBrowse.IsEnabled = isChecked;
 
 			Main.Background = ColorUtils.ThemeColors[isChecked ? "Gray3" : "Gray2"];
+
+			_parent?.UpdateButtonExtractBinaries();
 		}
 	}
 }
