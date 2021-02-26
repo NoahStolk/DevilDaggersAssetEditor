@@ -8,15 +8,16 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MakeBinariesWindow : Window
 	{
-		private readonly BinaryNameControl _audioControl = new(BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles());
-		private readonly BinaryNameControl _coreControl = new(BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles());
-		private readonly BinaryNameControl _ddControl = new(BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles());
-		private readonly BinaryNameControl _particleControl = new(BinaryFileType.Particle, AssetType.Particle, App.Instance.MainWindow!.HasAnyParticleFiles());
+		private readonly BinaryNameControl _audioControl;
+		private readonly BinaryNameControl _coreControl;
+		private readonly BinaryNameControl _ddControl;
+		private readonly BinaryNameControl _particleControl;
 
 		private readonly List<BinaryNameControl> _controls = new();
 
@@ -24,13 +25,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			InitializeComponent();
 
+			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles());
+			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles());
+			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles());
+			_particleControl = new(this, BinaryFileType.Particle, AssetType.Particle, App.Instance.MainWindow!.HasAnyParticleFiles());
+
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
 			_controls.Add(_ddControl);
 			_controls.Add(_particleControl);
 
 			for (int i = 0; i < _controls.Count; i++)
-				Main.Children.Insert(i, _controls[i]);
+				Main.Children.Insert(i + 1, _controls[i]);
+
+			UpdateButtonMakeBinaries();
 		}
 
 		private async void MakeBinaries_Click(object sender, RoutedEventArgs e)
@@ -90,6 +98,22 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					});
 				}
 			});
+		}
+
+		private void TextBoxModName_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			foreach (BinaryNameControl control in _controls)
+			{
+				control.UpdateName(TextBoxModName.Text);
+				control.UpdateGui();
+			}
+
+			UpdateButtonMakeBinaries();
+		}
+
+		public void UpdateButtonMakeBinaries()
+		{
+			ButtonMakeBinaries.IsEnabled = _controls.Any(c => c.CheckBoxEnable.IsChecked() && !string.IsNullOrWhiteSpace(c.OutputPath));
 		}
 	}
 }

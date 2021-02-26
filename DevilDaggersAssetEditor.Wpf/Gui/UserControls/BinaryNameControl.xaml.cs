@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
@@ -16,11 +17,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class BinaryNameControl : UserControl
 	{
+		private readonly MakeBinariesWindow? _parent;
+
 		private string _binaryName = string.Empty;
 
-		public BinaryNameControl(BinaryFileType binaryFileType, AssetType assetTypeForColor, bool checkBoxIsChecked)
+		public BinaryNameControl(MakeBinariesWindow? parent, BinaryFileType binaryFileType, AssetType assetTypeForColor, bool checkBoxIsChecked)
 		{
 			InitializeComponent();
+
+			_parent = parent;
 
 			BinaryFileType = binaryFileType;
 
@@ -47,7 +52,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void TextBoxName_TextChanged(object sender, RoutedEventArgs e)
 		{
-			_binaryName = TextBoxName.Text;
+			UpdateName(TextBoxName.Text);
+
+			_parent?.UpdateButtonMakeBinaries();
+		}
+
+		public void UpdateName(string name)
+		{
+			_binaryName = name;
 
 			char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
 			bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Any(c => invalidFileNameChars.Contains(c));
@@ -55,7 +67,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			TextBlockOutputPath.Text = OutputPath;
 		}
 
-		private void UpdateGui()
+		public void UpdateGui()
 			=> TextBoxName.Text = _binaryName;
 
 		private void CheckBoxEnable_Changed(object sender, RoutedEventArgs e)
@@ -66,6 +78,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				TextBoxName.IsEnabled = isChecked;
 
 			Main.Background = ColorUtils.ThemeColors[isChecked ? "Gray3" : "Gray2"];
+
+			_parent?.UpdateButtonMakeBinaries();
 		}
 	}
 }
