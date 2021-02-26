@@ -5,8 +5,8 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public class ParticleAsset : AbstractAsset
 	{
-		public ParticleAsset(string assetName, string description, List<string> tags, bool isProhibited)
-			: base(assetName, AssetType.Particle, description, tags, isProhibited)
+		public ParticleAsset(string assetName, string description, bool isProhibited, List<string> tags)
+			: base(assetName, AssetType.Particle, description, isProhibited, tags)
 		{
 		}
 

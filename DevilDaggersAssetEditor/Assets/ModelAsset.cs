@@ -5,15 +5,16 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public class ModelAsset : AbstractAsset
 	{
-		public ModelAsset(string assetName, string description, List<string> tags, bool isProhibited, int defaultVertexCount, int defaultIndexCount)
-			: base(assetName, AssetType.Model, description, tags, isProhibited)
+		public ModelAsset(string assetName, string description, bool isProhibited, List<string> tags, int defaultIndexCount, int defaultVertexCount)
+			: base(assetName, AssetType.Model, description, isProhibited, tags)
 		{
-			DefaultVertexCount = defaultVertexCount;
 			DefaultIndexCount = defaultIndexCount;
+			DefaultVertexCount = defaultVertexCount;
 		}
 
-		public int DefaultVertexCount { get; }
 		public int DefaultIndexCount { get; }
+
+		public int DefaultVertexCount { get; }
 
 		public override UserAsset ToUserAsset()
 			=> new(AssetType.Model, AssetName, EditorPath);

@@ -1,16 +1,18 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class ShaderAsset : AbstractAsset
 	{
-		public ShaderAsset(string assetName, string description, List<string> tags, bool isProhibited)
-			: base(assetName, AssetType.Shader, description, tags, isProhibited)
+		public ShaderAsset(string assetName, string description, bool isProhibited, List<string> tags)
+			: base(assetName, AssetType.Shader, description, isProhibited, tags)
 		{
 		}
 
+		[JsonIgnore]
 		public string EditorPathFragmentShader { get; set; } = GuiUtils.FileNotFound;
 
 		public override UserAsset ToUserAsset()
