@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;
 using System;
@@ -91,6 +92,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
 
 			UpdateTextBoxSizes();
+			UpdateHeights();
 
 			TabControl.Items.Add(new TabItem { Header = "audio/Audio", Content = AudioAudioAssetTabControl });
 			TabControl.Items.Add(new TabItem { Header = "core/Shaders", Content = CoreShadersAssetTabControl });
@@ -143,6 +145,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					TabControl.Height = size.Y - 81;
 
 					UpdateTextBoxSizes();
+					UpdateHeights();
 
 					_tabControlSizeIndex = i;
 					return;
@@ -155,8 +158,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			if (AssetTabControls == null)
 				return;
 
-			double columnWidth = (TabControl.Width - 32) / 20; // 20 columns
-			double columnWidthAudio = columnWidth - 96 / 6f; // Loudness is 96 pixels in width, 8 is the grid star size of the column containing paths
+			double columnWidth = (TabControl.Width - 32) / 20; // Consists of 20 columns.
+			double columnWidthAudio = columnWidth - 96 / 6f; // Loudness is 96 pixels in width. 8 is the grid star size of the column containing paths.
 
 			foreach (AssetTabControl tab in AssetTabControls)
 			{
@@ -170,6 +173,33 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					row.GridDescription.MaxWidth = descriptionWidth;
 					row.GridPath.MaxWidth = pathWidth;
 					row.GridPathFragment.MaxWidth = pathWidth;
+				}
+			}
+		}
+
+		private void UpdateHeights()
+		{
+			if (AssetTabControls == null)
+				return;
+
+			double heightLeft = TabControl.Height - 192; // Tag filters area is 192 pixels in height.
+			double previewerHeight = heightLeft * 0.3f;
+			double assetsHeight = heightLeft * 0.7f;
+
+			foreach (AssetTabControl tab in AssetTabControls)
+			{
+				tab.PreviewRowDefinition.MaxHeight = previewerHeight;
+				tab.AssetsRowDefinition.MaxHeight = assetsHeight;
+
+				if (tab.Previewer is TexturePreviewerControl texturePreviewer)
+				{
+					texturePreviewer.PreviewImage.MaxWidth = previewerHeight - 32;
+					texturePreviewer.PreviewImage.MaxHeight = previewerHeight - 32;
+				}
+				else if (tab.Previewer is ShaderPreviewerControl shaderPreviewer)
+				{
+					shaderPreviewer.ScrollViewerVertex.MaxHeight = previewerHeight - 32;
+					shaderPreviewer.ScrollViewerFragment.MaxHeight = previewerHeight - 32;
 				}
 			}
 		}

@@ -9,9 +9,9 @@
 			 SizeChanged="UserControl_SizeChanged">
 	<Grid Name="MainGrid">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="416" />
+			<RowDefinition Name="PreviewRowDefinition" />
 			<RowDefinition Height="192" />
-			<RowDefinition />
+			<RowDefinition Name="AssetsRowDefinition" />
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
