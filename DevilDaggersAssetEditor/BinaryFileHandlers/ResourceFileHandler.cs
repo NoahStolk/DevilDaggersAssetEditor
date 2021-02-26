@@ -90,10 +90,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			// If any audio asset is included in this list, we need to create a loudness chunk as well.
 			if (loudnessValues.Count > 0)
 			{
-				// Any missing audio will need to have its default loudness included or Devil Daggers will play those with loudness 1.0.
+				// Any missing audio will need to have its default loudness included, otherwise the game will play those with loudness 1.0.
 				foreach (AudioAsset audioAsset in AssetHandler.Instance.AudioAudioAssets)
 				{
-					if (!loudnessValues.ContainsKey(audioAsset.AssetName))
+					// Only add it to the list if it is present in the default loudness file, otherwise the game will detect prohibited mods.
+					if (audioAsset.PresentInDefaultLoudness && !loudnessValues.ContainsKey(audioAsset.AssetName))
 						loudnessValues.Add(audioAsset.AssetName, audioAsset.DefaultLoudness);
 				}
 
