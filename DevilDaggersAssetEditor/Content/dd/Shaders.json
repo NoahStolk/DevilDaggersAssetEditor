@@ -80,6 +80,14 @@
 		]
 	},
 	{
+		"AssetName": "gib_batch",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
 		"AssetName": "hand",
 		"Description": "?",
 		"IsProhibited": false,
@@ -240,6 +248,14 @@
 		]
 	},
 	{
+		"AssetName": "squidarm_batch",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
+		"Tags": [
+			"?"
+		]
+	},
+	{
 		"AssetName": "thorn",
 		"Description": "?",
 		"IsProhibited": false,
@@ -291,6 +307,14 @@
 		"AssetName": "warp2",
 		"Description": "?",
 		"IsProhibited": false,
+		"Tags": [
+			"?"
+		]
+	},
+	{
+		"AssetName": "warp2_batch",
+		"ChunkTypeName": "ShaderChunk",
+		"Description": "?",
 		"Tags": [
 			"?"
 		]
