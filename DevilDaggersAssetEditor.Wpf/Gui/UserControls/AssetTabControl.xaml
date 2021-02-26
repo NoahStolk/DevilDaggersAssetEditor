@@ -36,7 +36,7 @@
 
 			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="{StaticResource Gray3}" />
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
-				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Model Binding name</TextBlock>
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Asset name</TextBlock>
 				<Button Name="NameSortButton" Click="NameSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
