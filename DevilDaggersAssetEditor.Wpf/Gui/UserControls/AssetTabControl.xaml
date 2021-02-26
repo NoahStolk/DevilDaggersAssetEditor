@@ -21,9 +21,10 @@
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="1*" />
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="5*" />
-				<ColumnDefinition Width="10*" />
+				<ColumnDefinition Width="8*" />
 				<ColumnDefinition Width="20" />
 			</Grid.ColumnDefinitions>
 
@@ -42,18 +43,24 @@
 				</Button>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Blocked</TextBlock>
+				<Button Name="ProhibitedSortButton" Click="ProhibitedSortButton_Click">
+					<Image Style="{StaticResource SortIcon}" />
+				</Button>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tags</TextBlock>
 				<Button Name="TagsSortButton" Click="TagsSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Description</TextBlock>
 				<Button Name="DescriptionSortButton" Click="DescriptionSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<Grid Grid.Row="2" Grid.Column="3">
+			<Grid Grid.Row="2" Grid.Column="4">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="0" Name="ColumnDefinitionLoudness" />
 					<ColumnDefinition Width="*" />

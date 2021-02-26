@@ -41,6 +41,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			Asset = asset;
 			AssetType = assetType;
+			TextBlockProhibited.Text = asset.IsProhibited ? "Yes" : "No";
 			TextBlockTags.Text = string.Join(_tagSeparator, asset.Tags);
 
 			Color colorEditEven = EditorUtils.FromRgbTuple(assetType.GetColor()) * 0.25f;
@@ -55,12 +56,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			UpdateGui();
 
 			Panel.SetZIndex(RectangleInfo, -1);
-			Grid.SetColumnSpan(RectangleInfo, 3);
+			Grid.SetColumnSpan(RectangleInfo, 4);
 			Grid.SetRowSpan(RectangleInfo, 2);
 
 			Panel.SetZIndex(RectangleEdit, -1);
-			Grid.SetColumn(RectangleEdit, 3);
-			Grid.SetColumnSpan(RectangleEdit, 4);
+			Grid.SetColumn(RectangleEdit, 4);
+			Grid.SetColumnSpan(RectangleEdit, 3);
 			Grid.SetRowSpan(RectangleEdit, 2);
 
 			UpdateBackgroundRectangleColors(isEven);
@@ -76,14 +77,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				BrowseButtonFragmentShader.Visibility = Visibility.Visible;
 				RemovePathButtonFragmentShader.Visibility = Visibility.Visible;
 				TextBlockEditorPathFragmentShader.Visibility = Visibility.Visible;
-				RowDefinitionFragmentShader.Height = new GridLength(24);
+				RowDefinitionFragmentShader.Height = new(24);
 				Grid.SetRowSpan(TextBlockTags, 2);
 			}
 
 			if (Asset is AudioAsset audioAsset)
 			{
 				_audioAsset = audioAsset;
-				ColumnDefinitionLoudness.Width = new GridLength(96);
+				ColumnDefinitionLoudness.Width = new(96);
 				TextBoxLoudness.Visibility = Visibility.Visible;
 			}
 		}

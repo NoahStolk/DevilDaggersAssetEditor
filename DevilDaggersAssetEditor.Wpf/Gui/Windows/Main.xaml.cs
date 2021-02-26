@@ -155,14 +155,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			if (AssetTabControls == null)
 				return;
 
-			double columnWidth = (TabControl.Width - 32) / 21; // 21 columns
-			double columnWidthAudio = columnWidth - 96 / 8f; // Loudness is 96 pixels in width, 8 is the grid star size of the column containing paths
+			double columnWidth = (TabControl.Width - 32) / 20; // 20 columns
+			double columnWidthAudio = columnWidth - 96 / 6f; // Loudness is 96 pixels in width, 8 is the grid star size of the column containing paths
 
 			foreach (AssetTabControl tab in AssetTabControls)
 			{
 				double tagsWidth = columnWidth * 3;
 				double descriptionWidth = columnWidth * 5;
-				double pathWidth = (tab.AssetType == AssetType.Audio ? columnWidthAudio : columnWidth) * 8;
+				double pathWidth = (tab.AssetType == AssetType.Audio ? columnWidthAudio : columnWidth) * 6;
 
 				foreach (AssetRowControl row in tab.RowControls)
 				{

@@ -9,9 +9,10 @@
 	<Grid Name="Data">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="3*" />
+			<ColumnDefinition Width="1*" />
 			<ColumnDefinition Width="3*" />
 			<ColumnDefinition Width="5*" />
-			<ColumnDefinition Width="8*" />
+			<ColumnDefinition Width="6*" />
 			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
@@ -21,13 +22,16 @@
 		</Grid.RowDefinitions>
 
 		<TextBlock Grid.RowSpan="2" Style="{StaticResource AssetTextBlock}" Grid.Column="0" Name="TextBlockAssetName" />
-		<Grid Grid.Column="1" Grid.RowSpan="2" Name="GridTags" HorizontalAlignment="Left">
+		<Grid Grid.Column="1" Grid.RowSpan="2" Name="GridProhibited" HorizontalAlignment="Left">
+			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockProhibited" />
+		</Grid>
+		<Grid Grid.Column="2" Grid.RowSpan="2" Name="GridTags" HorizontalAlignment="Left">
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockTags" />
 		</Grid>
-		<Grid Grid.Column="2" Grid.RowSpan="2" Name="GridDescription" HorizontalAlignment="Left">
+		<Grid Grid.Column="3" Grid.RowSpan="2" Name="GridDescription" HorizontalAlignment="Left">
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockDescription" />
 		</Grid>
-		<Grid Grid.Column="3">
+		<Grid Grid.Column="4">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="0" Name="ColumnDefinitionLoudness" />
 				<ColumnDefinition Width="*" />
@@ -37,13 +41,13 @@
 				<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockEditorPath" HorizontalAlignment="Right" />
 			</Grid>
 		</Grid>
-		<Button Grid.Column="4" Click="ButtonRemovePath_Click">Reset</Button>
-		<Button Grid.Column="5" Click="ButtonBrowsePath_Click">Browse</Button>
+		<Button Grid.Column="5" Click="ButtonRemovePath_Click">Reset</Button>
+		<Button Grid.Column="6" Click="ButtonBrowsePath_Click">Browse</Button>
 
-		<Grid Grid.Column="3" Grid.Row="1" Name="GridPathFragment" HorizontalAlignment="Left">
+		<Grid Grid.Column="4" Grid.Row="1" Name="GridPathFragment" HorizontalAlignment="Left">
 			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockEditorPathFragmentShader" Visibility="Collapsed" HorizontalAlignment="Right" />
 		</Grid>
-		<Button Grid.Column="4" Grid.Row="1" Click="ButtonRemovePathFragmentShader_Click" Name="RemovePathButtonFragmentShader" Visibility="Collapsed">Reset</Button>
-		<Button Grid.Column="5" Grid.Row="1" Click="ButtonBrowsePathFragmentShader_Click" Name="BrowseButtonFragmentShader" Visibility="Collapsed">Browse</Button>
+		<Button Grid.Column="5" Grid.Row="1" Click="ButtonRemovePathFragmentShader_Click" Name="RemovePathButtonFragmentShader" Visibility="Collapsed">Reset</Button>
+		<Button Grid.Column="6" Grid.Row="1" Click="ButtonBrowsePathFragmentShader_Click" Name="BrowseButtonFragmentShader" Visibility="Collapsed">Browse</Button>
 	</Grid>
 </UserControl>

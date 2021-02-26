@@ -19,6 +19,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 	public partial class AssetTabControl : UserControl
 	{
 		private readonly AssetRowSorting _nameSort = new(a => a.Asset.AssetName);
+		private readonly AssetRowSorting _prohibitedSort = new(a => a.Asset.IsProhibited);
 		private readonly AssetRowSorting _tagsSort = new(a => string.Join(", ", a.Asset.Tags));
 		private readonly AssetRowSorting _descriptionSort = new(a => a.Asset.Description);
 		private readonly AssetRowSorting _loudnessSort = new(a => (a.Asset as AudioAsset)?.Loudness ?? 0);
@@ -164,6 +165,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private void NameSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_nameSort);
 
+		private void ProhibitedSortButton_Click(object sender, RoutedEventArgs e)
+			=> SetSorting(_prohibitedSort);
+
 		private void TagsSortButton_Click(object sender, RoutedEventArgs e)
 			=> SetSorting(_tagsSort);
 
@@ -286,7 +290,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		}
 
 		public List<AbstractAsset> GetAssets()
-			=> RowControls.Select(a => a.Asset).ToList();
+			=> RowControls.ConvertAll(a => a.Asset);
 
 		public void UpdateAssetTabControls(List<UserAsset> userAssets)
 		{
