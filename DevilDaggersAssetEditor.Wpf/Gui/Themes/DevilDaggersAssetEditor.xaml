@@ -11,6 +11,14 @@
 	<Style TargetType="{x:Type windows:MainWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:SettingsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 
+	<Style TargetType="Image" x:Key="Logo">
+		<Style.Setters>
+			<Setter Property="Width" Value="96" />
+			<Setter Property="Source" Value="/Content/Images/Icon/Icon.png" />
+			<Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+		</Style.Setters>
+	</Style>
+
 	<Style TargetType="Image" x:Key="SortIcon">
 		<Setter Property="ToolTip" Value="Sort assets" />
 		<Setter Property="Width" Value="12" />
