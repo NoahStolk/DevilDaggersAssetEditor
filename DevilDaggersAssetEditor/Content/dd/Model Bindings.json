@@ -1,329 +1,329 @@
 [
 	{
 		"AssetName": "bat",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
-			"?"
+			""
 		]
 	},
 	{
 		"AssetName": "boid",
-		"Description": "?",
+		"Description": "Pede heads and tail / Spiders pedipalps",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "boid_pop",
-		"Description": "?",
+		"Description": "Unused?",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger",
-		"Description": "?",
+		"Description": "Pleb lobby dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger1",
-		"Description": "?",
+		"Description": "Level 1 dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger2",
-		"Description": "?",
+		"Description": "Level 2 dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger3",
-		"Description": "?",
+		"Description": "Level 3 regular dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger4",
-		"Description": "?",
+		"Description": "Level 3 homing dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger5",
-		"Description": "?",
+		"Description": "Level 4 regular dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "dagger6",
-		"Description": "?",
+		"Description": "Level 4 homing dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "daggerbronze",
-		"Description": "?",
+		"Description": "Bronze lobby dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "daggerdevil",
-		"Description": "?",
+		"Description": "Devil lobby dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "daggergold",
-		"Description": "?",
+		"Description": "Golden lobby dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "daggerlevi",
-		"Description": "?",
+		"Description": "Leviathan lobby dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "daggersilver",
-		"Description": "?",
+		"Description": "Silver lobby dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gib",
-		"Description": "?",
+		"Description": "Gems (Including enemies gems)",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gibegg",
-		"Description": "?",
+		"Description": "Blinking effect of gems close to active spiders",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "gigaegg",
-		"Description": "?",
+		"Description": "Spider 2 egg goo",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand",
-		"Description": "?",
+		"Description": "Level 1 Hand",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand0",
-		"Description": "?",
+		"Description": "Lobby hand",
 		"Tags": [
-			"?"
+			""
 		]
 	},
 	{
 		"AssetName": "hand2",
-		"Description": "?",
+		"Description": "Level 2 hand",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand3",
-		"Description": "?",
+		"Description": "Level 3 hand",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand4",
-		"Description": "?",
+		"Description": "Level 3 hand flash",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand5",
-		"Description": "?",
+		"Description": "Level 4 hand",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "hand6",
-		"Description": "?",
+		"Description": "Level 4 hand flash",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "immortaleye",
-		"Description": "?",
+		"Description": "Orb / Eye",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "immortaleyehit",
-		"Description": "?",
+		"Description": "Orb / Eye damage",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levitent",
-		"Description": "?",
+		"Description": "Leviathan antlers",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levitentgib",
-		"Description": "?",
+		"Description": "Leviathan antlers death",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "levitenthit",
-		"Description": "?",
+		"Description": "Leviathan antlers damage",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "leviwarp",
-		"Description": "?",
+		"Description": "Leviathan antlers and divider skulls spawn effect",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "leviwarp2",
-		"Description": "?",
+		"Description": "Leviathan's skybox effect",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "leviwarp3",
-		"Description": "?",
+		"Description": "Unused?",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "logodagger",
-		"Description": "?",
+		"Description":"Title screen dagger",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "logohand",
-		"Description": "?",
+		"Description": "Title screen hand",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "logotext",
-		"Description": "?",
+		"Description": "Title",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "minisquidarm",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "particle",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "particle2",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "particle_decal",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedebody",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedehead",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedejaw",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedeleg1",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedeleg2",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedeleg3",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "pedetail",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
@@ -337,105 +337,105 @@
 	},
 	{
 		"AssetName": "skullwarp",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "sorathlogo",
-		"Description": "?",
+		"Description": "Splash screen logo",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spideregg1",
-		"Description": "?",
+		"Description": "Spider 1 egg goo",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spideregg2",
-		"Description": "?",
+		"Description": "Spider 1 and 2 egg",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "spidereggflash",
-		"Description": "?",
+		"Description": "Flashing effect of spider eggs near hatching",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidarm",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidarmgib",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidarmhit",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidteeth",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidteethgib",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "squidteethhit",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "thorn",
-		"Description": "?",
+		"Description": "Thorn (excluding rubble)",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "thornhit",
-		"Description": "?",
+		"Description": "Thorn damage (excluding rubble)",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "tile",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
 	},
 	{
 		"AssetName": "tile2",
-		"Description": "?",
+		"Description": "Unused",
 		"Tags": [
 			"?"
 		]
