@@ -10,7 +10,6 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -127,7 +126,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (_shaderAsset != null)
 				TextBlockEditorPathFragmentShader.Text = File.Exists(_shaderAsset.EditorPathFragmentShader) ? _shaderAsset.EditorPathFragmentShader : GuiUtils.FileNotFound;
 			if (_audioAsset != null)
-				TextBoxLoudness.Text = _audioAsset.Loudness.ToString(CultureInfo.InvariantCulture);
+				TextBoxLoudness.Text = _audioAsset.Loudness.ToString();
 		}
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)

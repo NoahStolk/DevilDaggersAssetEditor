@@ -8,7 +8,6 @@ using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -139,7 +138,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				rectBackground.StrokeThickness = 1;
 				rectBackground.StrokeDashArray = new DoubleCollection(new List<double> { 1, 2 });
 				rectBackground.SnapsToDevicePixels = true;
-				Label labelPercentage = new() { Content = sizePercentage.ToString("0.000%", CultureInfo.InvariantCulture) };
+				Label labelPercentage = new() { Content = sizePercentage.ToString("0.000%") };
 
 				Grid.SetColumn(rectColor, 0);
 				Grid.SetColumn(rectBackground, 1);

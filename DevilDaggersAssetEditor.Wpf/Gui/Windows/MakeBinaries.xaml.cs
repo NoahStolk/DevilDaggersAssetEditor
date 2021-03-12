@@ -4,7 +4,6 @@ using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -93,7 +92,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred while making '{control.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
+						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred while making '{control.BinaryFileType.ToString().ToLower()}' binary.", ex);
 						control.Progress.Report("Execution did not complete successfully.");
 					});
 				}

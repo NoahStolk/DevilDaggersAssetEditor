@@ -28,7 +28,7 @@ namespace DevilDaggersAssetEditor.Chunks
 		}
 
 		private static float ParseVertexValue(string value)
-			=> (float)double.Parse(value, NumberStyles.Float, CultureInfo.InvariantCulture);
+			=> (float)double.Parse(value, NumberStyles.Float);
 
 		public override void MakeBinary(string path)
 		{
@@ -144,7 +144,7 @@ namespace DevilDaggersAssetEditor.Chunks
 									// f 1/2/3 4/5/6 7/8/9
 									string[] references = value.Split('/');
 
-									vertices.Add(new(uint.Parse(references[0], CultureInfo.InvariantCulture), uint.Parse(references[1], CultureInfo.InvariantCulture), uint.Parse(references[2], CultureInfo.InvariantCulture)));
+									vertices.Add(new(uint.Parse(references[0]), uint.Parse(references[1]), uint.Parse(references[2])));
 								}
 							}
 						}

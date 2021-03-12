@@ -8,7 +8,6 @@ using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
-using System.Globalization;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,7 +37,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			ProgressBar.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(assetTypeForColor.GetColor()) * 0.25f);
 
-			_binaryPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName(), binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture));
+			_binaryPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName(), binaryFileType.ToString().ToLower());
 			UpdateGui();
 		}
 

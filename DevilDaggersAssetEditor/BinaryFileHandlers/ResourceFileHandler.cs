@@ -4,7 +4,6 @@ using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Utils;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,7 +25,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			if (binaryFileType == BinaryFileType.Particle)
 				throw new NotSupportedException($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
 
-			BinaryFileName = binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture);
+			BinaryFileName = binaryFileType.ToString().ToLower();
 		}
 
 		public string BinaryFileName { get; }

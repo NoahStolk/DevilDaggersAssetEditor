@@ -5,7 +5,6 @@ using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using IrrKlang;
 using System;
-using System.Globalization;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -113,10 +112,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 				return;
 
 			AudioName.Text = audioAsset.AssetName;
-			DefaultLoudness.Content = audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString(CultureInfo.InvariantCulture) : "N/A (Defaults to 1)";
+			DefaultLoudness.Content = audioAsset.PresentInDefaultLoudness ? audioAsset.DefaultLoudness.ToString() : "N/A (Defaults to 1)";
 
 			FileName.Text = File.Exists(audioAsset.EditorPath) ? Path.GetFileName(audioAsset.EditorPath) : GuiUtils.FileNotFound;
-			FileLoudness.Content = audioAsset.Loudness.ToString(CultureInfo.InvariantCulture);
+			FileLoudness.Content = audioAsset.Loudness.ToString();
 
 			bool startPaused = !Autoplay.IsChecked ?? true;
 

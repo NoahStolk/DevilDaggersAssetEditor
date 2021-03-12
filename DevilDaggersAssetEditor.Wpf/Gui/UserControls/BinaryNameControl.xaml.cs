@@ -6,7 +6,6 @@ using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -29,7 +28,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			BinaryFileType = binaryFileType;
 
-			LabelModFileName.Content = $"'{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' mod file name";
+			LabelModFileName.Content = $"'{binaryFileType.ToString().ToLower()}' mod file name";
 
 			Progress = new(
 				new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
@@ -63,7 +62,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
 			bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Any(c => invalidFileNameChars.Contains(c));
-			OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture) + BinaryName);
+			OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", BinaryFileType.ToString().ToLower() + BinaryName);
 			TextBlockOutputPath.Text = OutputPath;
 		}
 

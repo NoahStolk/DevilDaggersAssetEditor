@@ -9,7 +9,6 @@ using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -117,7 +116,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred while extracting '{control.BinaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}' binary.", ex);
+						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred while extracting '{control.BinaryFileType.ToString().ToLower()}' binary.", ex);
 						control.Progress.Report("Execution did not complete successfully.");
 					});
 				}

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace DevilDaggersAssetEditor.Utils
 {
@@ -16,7 +15,7 @@ namespace DevilDaggersAssetEditor.Utils
 				int equalsIndex = line.IndexOf('=', StringComparison.InvariantCulture);
 
 				assetName = line.Substring(0, equalsIndex);
-				loudness = float.Parse(line.Substring(equalsIndex + 1, line.Length - assetName.Length - 1), CultureInfo.InvariantCulture);
+				loudness = float.Parse(line.Substring(equalsIndex + 1, line.Length - assetName.Length - 1));
 				return true;
 			}
 			catch

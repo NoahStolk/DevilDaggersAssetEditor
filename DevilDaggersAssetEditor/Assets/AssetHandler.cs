@@ -3,7 +3,6 @@ using DevilDaggersAssetEditor.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -49,7 +48,7 @@ namespace DevilDaggersAssetEditor.Assets
 
 		public List<AbstractAsset> GetAssets(BinaryFileType binaryFileType, string assetType)
 		{
-			string id = $"{binaryFileType.ToString().ToLower(CultureInfo.InvariantCulture)}.{assetType.ToLower(CultureInfo.InvariantCulture)}";
+			string id = $"{binaryFileType.ToString().ToLower()}.{assetType.ToLower()}";
 
 			return id switch
 			{

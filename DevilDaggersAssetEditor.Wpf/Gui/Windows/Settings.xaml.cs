@@ -8,7 +8,6 @@ using Ookii.Dialogs.Wpf;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,7 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			CheckBoxCreateModFileWhenExtracting.IsChecked = UserHandler.Instance.Settings.CreateModFileWhenExtracting;
 			CheckBoxOpenModFolderAfterExtracting.IsChecked = UserHandler.Instance.Settings.OpenModFolderAfterExtracting;
 
-			TextBoxTextureSizeLimit.Text = UserHandler.Instance.Settings.TextureSizeLimit.ToString(CultureInfo.InvariantCulture);
+			TextBoxTextureSizeLimit.Text = UserHandler.Instance.Settings.TextureSizeLimit.ToString();
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
