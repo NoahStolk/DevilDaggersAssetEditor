@@ -66,9 +66,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 						}
 					}
 
-					TaskResultsStackPanel.Children.Add(new Label
+					TaskResultsStackPanel.Children.Add(new TextBlock
 					{
-						Content = message,
+						Text = message,
 						Foreground = color,
 						FontWeight = FontWeights.Bold,
 					});
@@ -95,9 +95,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				Dispatcher.Invoke(() =>
 				{
-					TaskResultsStackPanel.Children.Add(new Label
+					TaskResultsStackPanel.Children.Add(new TextBlock
 					{
-						Content = readUserSettingsSuccess ? File.Exists(UserSettings.FileName) ? "OK (found user settings)" : "OK (created new user settings)" : "Error",
+						Text = readUserSettingsSuccess ? File.Exists(UserSettings.FileName) ? "OK (found user settings)" : "OK (created new user settings)" : "Error",
 						Foreground = readUserSettingsSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});
@@ -124,9 +124,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				Dispatcher.Invoke(() =>
 				{
-					TaskResultsStackPanel.Children.Add(new Label
+					TaskResultsStackPanel.Children.Add(new TextBlock
 					{
-						Content = readUserCacheSuccess ? File.Exists(UserCache.FileName) ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
+						Text = readUserCacheSuccess ? File.Exists(UserCache.FileName) ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
 						Foreground = readUserCacheSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});
