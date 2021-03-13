@@ -14,8 +14,26 @@ namespace DevilDaggersAssetEditor.User
 
 		public static UserHandler Instance => _lazy.Value;
 
-		public UserSettings Settings { get; set; } = new();
 		public UserCache Cache { get; set; } = new();
+		public UserSettings Settings { get; set; } = new();
+
+		public void ReadCache()
+		{
+			if (!File.Exists(UserCache.FileName))
+				return;
+
+			using StreamReader sr = new(File.OpenRead(UserCache.FileName));
+			Cache = JsonConvert.DeserializeObject<UserCache>(sr.ReadToEnd());
+		}
+
+		public void ReadSettings()
+		{
+			if (!File.Exists(UserSettings.FileName))
+				return;
+
+			using StreamReader sr = new(File.OpenRead(UserSettings.FileName));
+			Settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
+		}
 
 		public void SaveCache()
 		{

@@ -1,7 +1,6 @@
 ﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Utils;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,18 +78,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			};
 
 			bool readUserSettingsSuccess = false;
-			bool userSettingsFileExists = File.Exists(UserSettings.FileName);
 			using BackgroundWorker readUserSettingsThread = new();
 			readUserSettingsThread.DoWork += (sender, e) =>
 			{
 				try
 				{
-					if (userSettingsFileExists)
-					{
-						using StreamReader sr = new(File.OpenRead(UserSettings.FileName));
-						UserHandler.Instance.Settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
-					}
-
+					UserHandler.Instance.ReadSettings();
 					readUserSettingsSuccess = true;
 				}
 				catch (Exception ex)
@@ -104,7 +97,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					TaskResultsStackPanel.Children.Add(new Label
 					{
-						Content = readUserSettingsSuccess ? userSettingsFileExists ? "OK (found user settings)" : "OK (created new user settings)" : "Error",
+						Content = readUserSettingsSuccess ? File.Exists(UserSettings.FileName) ? "OK (found user settings)" : "OK (created new user settings)" : "Error",
 						Foreground = readUserSettingsSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});
@@ -114,18 +107,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			};
 
 			bool readUserCacheSuccess = false;
-			bool userCacheFileExists = File.Exists(UserCache.FileName);
 			using BackgroundWorker readUserCacheThread = new();
 			readUserCacheThread.DoWork += (sender, e) =>
 			{
 				try
 				{
-					if (userCacheFileExists)
-					{
-						using StreamReader sr = new(File.OpenRead(UserCache.FileName));
-						UserHandler.Instance.Cache = JsonConvert.DeserializeObject<UserCache>(sr.ReadToEnd());
-					}
-
+					UserHandler.Instance.ReadCache();
 					readUserCacheSuccess = true;
 				}
 				catch (Exception ex)
@@ -139,7 +126,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					TaskResultsStackPanel.Children.Add(new Label
 					{
-						Content = readUserCacheSuccess ? userCacheFileExists ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
+						Content = readUserCacheSuccess ? File.Exists(UserCache.FileName) ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
 						Foreground = readUserCacheSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});
