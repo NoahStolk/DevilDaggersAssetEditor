@@ -97,7 +97,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					TaskResultsStackPanel.Children.Add(new TextBlock
 					{
-						Text = readUserSettingsSuccess ? File.Exists(UserSettings.FileName) ? "OK (found user settings)" : "OK (created new user settings)" : "Error",
+						Text = readUserSettingsSuccess ? File.Exists(UserSettings.FilePath) ? "OK (found user settings)" : "OK (created new user settings)" : "Error",
 						Foreground = readUserSettingsSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});
@@ -126,7 +126,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					TaskResultsStackPanel.Children.Add(new TextBlock
 					{
-						Text = readUserCacheSuccess ? File.Exists(UserCache.FileName) ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
+						Text = readUserCacheSuccess ? File.Exists(UserCache.FilePath) ? "OK (found user cache)" : "OK (created new user cache)" : "Error",
 						Foreground = readUserCacheSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
 						FontWeight = FontWeights.Bold,
 					});

@@ -19,31 +19,37 @@ namespace DevilDaggersAssetEditor.User
 
 		public void ReadCache()
 		{
-			if (!File.Exists(UserCache.FileName))
+			if (!File.Exists(UserCache.FilePath))
 				return;
 
-			using StreamReader sr = new(File.OpenRead(UserCache.FileName));
+			using StreamReader sr = new(File.OpenRead(UserCache.FilePath));
 			Cache = JsonConvert.DeserializeObject<UserCache>(sr.ReadToEnd());
 		}
 
 		public void ReadSettings()
 		{
-			if (!File.Exists(UserSettings.FileName))
+			if (!File.Exists(UserSettings.FilePath))
 				return;
 
-			using StreamReader sr = new(File.OpenRead(UserSettings.FileName));
+			using StreamReader sr = new(File.OpenRead(UserSettings.FilePath));
 			Settings = JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
 		}
 
 		public void SaveCache()
 		{
-			using StreamWriter sw = new(File.Create(UserCache.FileName));
+			if (!Directory.Exists(UserCache.FileDirectory))
+				Directory.CreateDirectory(UserCache.FileDirectory);
+
+			using StreamWriter sw = new(File.Create(UserCache.FilePath));
 			sw.Write(JsonConvert.SerializeObject(Cache, Formatting.Indented));
 		}
 
 		public void SaveSettings()
 		{
-			using StreamWriter sw = new(File.Create(UserSettings.FileName));
+			if (!Directory.Exists(UserSettings.FileDirectory))
+				Directory.CreateDirectory(UserSettings.FileDirectory);
+
+			using StreamWriter sw = new(File.Create(UserSettings.FilePath));
 			sw.Write(JsonConvert.SerializeObject(Settings, Formatting.Indented));
 		}
 	}

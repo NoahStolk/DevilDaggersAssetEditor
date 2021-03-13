@@ -1,10 +1,15 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.IO;
 
 namespace DevilDaggersAssetEditor.User
 {
 	public class UserCache
 	{
-		public const string FileName = "cache.json";
+		private const string _fileName = "cache.json";
+
+		public static string FileDirectory => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DevilDaggersAssetEditor");
+		public static string FilePath => Path.Combine(FileDirectory, _fileName);
 
 		[JsonProperty]
 		public string OpenedModFilePath { get; set; } = string.Empty;
