@@ -3,10 +3,21 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:windows="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.Windows"
 		mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="900" Width="1600"
         Loaded="Window_Loaded"
 		SizeChanged="Window_SizeChanged">
+	<Window.CommandBindings>
+		<CommandBinding Command="windows:MainWindow.NewCommand" CanExecute="CanExecute" Executed="New_Executed" />
+		<CommandBinding Command="windows:MainWindow.OpenCommand" CanExecute="CanExecute" Executed="Open_Executed" />
+		<CommandBinding Command="windows:MainWindow.SaveCommand" CanExecute="CanExecute" Executed="Save_Executed" />
+		<!--<CommandBinding Command="windows:MainWindow.SaveAsCommand" CanExecute="CanExecute" Executed="SaveAs_Executed" />-->
+		<CommandBinding Command="windows:MainWindow.ExtractBinariesCommand" CanExecute="CanExecute" Executed="ExtractBinaries_Executed" />
+		<CommandBinding Command="windows:MainWindow.MakeBinariesCommand" CanExecute="CanExecute" Executed="MakeBinaries_Executed" />
+		<CommandBinding Command="windows:MainWindow.ImportAssetsCommand" CanExecute="CanExecute" Executed="ImportAssets_Executed" />
+		<CommandBinding Command="windows:MainWindow.ExitCommand" CanExecute="CanExecute" Executed="Exit_Executed" />
+	</Window.CommandBindings>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="18" />
@@ -15,18 +26,19 @@
 		<DockPanel Grid.Row="0">
 			<Menu DockPanel.Dock="Top" Name="MenuPanel">
 				<MenuItem Header="File">
-					<MenuItem Header="New mod" Click="NewMod_Click" />
-					<MenuItem Header="Open mod" Click="OpenMod_Click" />
-					<MenuItem Header="Save mod" Click="SaveMod_Click" />
+					<MenuItem Command="windows:MainWindow.NewCommand" />
+					<MenuItem Command="windows:MainWindow.OpenCommand" />
+					<MenuItem Command="windows:MainWindow.SaveCommand" />
+					<!--<MenuItem Command="windows:MainWindow.SaveAsCommand" />-->
 					<Separator />
-					<MenuItem Header="Extract binaries" Click="ExtractBinaries_Click" />
-					<MenuItem Header="Make binaries" Click="MakeBinaries_Click" />
-					<MenuItem Header="Import assets" Click="ImportAssets_Click" />
+					<MenuItem Command="windows:MainWindow.ExtractBinariesCommand" />
+					<MenuItem Command="windows:MainWindow.MakeBinariesCommand" />
+					<MenuItem Command="windows:MainWindow.ImportAssetsCommand" />
 					<Separator />
 					<MenuItem Header="Import audio loudness" Click="ImportAudioLoudness_Click" />
 					<MenuItem Header="Export audio loudness" Click="ExportAudioLoudness_Click" />
 					<Separator />
-					<MenuItem Header="Exit" Click="Exit_Click" />
+					<MenuItem Command="windows:MainWindow.ExitCommand" />
 				</MenuItem>
 				<MenuItem Header="Options">
 					<MenuItem Header="Settings" Click="Settings_Click" />

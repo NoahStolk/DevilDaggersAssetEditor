@@ -19,6 +19,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
@@ -26,6 +27,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 	public partial class MainWindow : Window
 	{
 		private const string _modFileFilter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae";
+
+		public static readonly RoutedUICommand NewCommand = new("New", nameof(NewCommand), typeof(MainWindow), new() { new KeyGesture(Key.N, ModifierKeys.Control) });
+		public static readonly RoutedUICommand OpenCommand = new("Open", nameof(OpenCommand), typeof(MainWindow), new() { new KeyGesture(Key.O, ModifierKeys.Control) });
+		public static readonly RoutedUICommand SaveCommand = new("Save", nameof(SaveCommand), typeof(MainWindow), new() { new KeyGesture(Key.S, ModifierKeys.Control) });
+		//public static readonly RoutedUICommand SaveAsCommand = new("Save as", nameof(SaveAsCommand), typeof(MainWindow), new() { new KeyGesture(Key.S, ModifierKeys.Control | ModifierKeys.Shift) });
+		public static readonly RoutedUICommand ExtractBinariesCommand = new("Extract binaries", nameof(ExtractBinariesCommand), typeof(MainWindow), new() { new KeyGesture(Key.E, ModifierKeys.Control) });
+		public static readonly RoutedUICommand MakeBinariesCommand = new("Make binaries", nameof(MakeBinariesCommand), typeof(MainWindow), new() { new KeyGesture(Key.M, ModifierKeys.Control) });
+		public static readonly RoutedUICommand ImportAssetsCommand = new("Import assets", nameof(ImportAssetsCommand), typeof(MainWindow), new() { new KeyGesture(Key.I, ModifierKeys.Control) });
+		public static readonly RoutedUICommand ExitCommand = new("Exit", nameof(ExitCommand), typeof(MainWindow), new() { new KeyGesture(Key.F4, ModifierKeys.Alt) });
 
 		private int _tabControlSizeIndex;
 
@@ -168,7 +178,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			timer.Start();
 		}
 
-		private void NewMod_Click(object sender, RoutedEventArgs e)
+		#region Events
+
+		private void CanExecute(object sender, CanExecuteRoutedEventArgs e)
+			=> e.CanExecute = true;
+
+		private void New_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			foreach (AssetTabControl assetTabControl in App.Instance.MainWindow!.AssetTabControls)
 			{
@@ -185,7 +200,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private void OpenMod_Click(object sender, RoutedEventArgs e)
+		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			OpenFileDialog dialog = new() { Filter = _modFileFilter };
 			dialog.OpenModsRootFolder();
@@ -214,7 +229,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private void SaveMod_Click(object sender, RoutedEventArgs e)
+		private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
 
@@ -232,19 +247,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			JsonFileUtils.SerializeToFile(dialog.FileName, userAssets, true);
 		}
 
-		private void ExtractBinaries_Click(object sender, RoutedEventArgs e)
+		private void ExtractBinaries_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			ExtractBinariesWindow window = new();
 			window.ShowDialog();
 		}
 
-		private void MakeBinaries_Click(object sender, RoutedEventArgs e)
+		private void MakeBinaries_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			MakeBinariesWindow window = new();
 			window.ShowDialog();
 		}
 
-		private void ImportAssets_Click(object sender, RoutedEventArgs e)
+		private void ImportAssets_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			ImportAssetsWindow window = new();
 			window.ShowDialog();
@@ -256,7 +271,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void ExportAudioLoudness_Click(object sender, RoutedEventArgs e)
 			=> LoudnessWpfUtils.ExportLoudness(App.Instance.MainWindow!.AudioAudioAssetTabControl.RowControls);
 
-		private void Exit_Click(object sender, RoutedEventArgs e)
+		private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
 			=> Application.Current.Shutdown();
 
 		private void Settings_Click(object sender, RoutedEventArgs e)
@@ -329,6 +344,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
 			}
 		}
+
+		#endregion Events
+
+		#region GUI Responsiveness
 
 		private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
 		{
@@ -403,5 +422,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				}
 			}
 		}
+
+		#endregion GUI Responsiveness
 	}
 }
