@@ -1,12 +1,12 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
+using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Utils;
@@ -26,12 +26,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class MainWindow : Window
 	{
-		private const string _modFileFilter = "Devil Daggers Asset Editor mod files (*.ddae)|*.ddae";
-
 		public static readonly RoutedUICommand NewCommand = new("New", nameof(NewCommand), typeof(MainWindow), new() { new KeyGesture(Key.N, ModifierKeys.Control) });
 		public static readonly RoutedUICommand OpenCommand = new("Open", nameof(OpenCommand), typeof(MainWindow), new() { new KeyGesture(Key.O, ModifierKeys.Control) });
 		public static readonly RoutedUICommand SaveCommand = new("Save", nameof(SaveCommand), typeof(MainWindow), new() { new KeyGesture(Key.S, ModifierKeys.Control) });
-		//public static readonly RoutedUICommand SaveAsCommand = new("Save as", nameof(SaveAsCommand), typeof(MainWindow), new() { new KeyGesture(Key.S, ModifierKeys.Control | ModifierKeys.Shift) });
+		public static readonly RoutedUICommand SaveAsCommand = new("Save as", nameof(SaveAsCommand), typeof(MainWindow), new() { new KeyGesture(Key.S, ModifierKeys.Control | ModifierKeys.Shift) });
 		public static readonly RoutedUICommand ExtractBinariesCommand = new("Extract binaries", nameof(ExtractBinariesCommand), typeof(MainWindow), new() { new KeyGesture(Key.E, ModifierKeys.Control) });
 		public static readonly RoutedUICommand MakeBinariesCommand = new("Make binaries", nameof(MakeBinariesCommand), typeof(MainWindow), new() { new KeyGesture(Key.M, ModifierKeys.Control) });
 		public static readonly RoutedUICommand ImportAssetsCommand = new("Import assets", nameof(ImportAssetsCommand), typeof(MainWindow), new() { new KeyGesture(Key.I, ModifierKeys.Control) });
@@ -165,7 +163,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				if (File.Exists(UserHandler.Instance.Cache.OpenedModFilePath))
 				{
-					List<UserAsset> assets = ModFileUtils.GetAssetsFromModFilePath(UserHandler.Instance.Cache.OpenedModFilePath);
+					List<UserAsset> assets = ModFileHandler.GetAssetsFromModFilePath(UserHandler.Instance.Cache.OpenedModFilePath);
 					if (assets.Count > 0)
 					{
 						foreach (AssetTabControl tabHandler in AssetTabControls)
@@ -198,19 +196,21 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					rowHandler.UpdateGui();
 				}
 			}
+
+			ModFileHandler.Instance.ModFile.Clear();
 		}
 
 		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
-			OpenFileDialog dialog = new() { Filter = _modFileFilter };
+			OpenFileDialog dialog = new() { Filter = GuiUtils.ModFileFilter };
 			dialog.OpenModsRootFolder();
 
 			bool? openResult = dialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			List<UserAsset> userAssets = ModFileUtils.GetAssetsFromModFilePath(dialog.FileName);
-			if (userAssets.Count == 0)
+			ModFileHandler.Instance.ModFile = ModFileHandler.GetAssetsFromModFilePath(dialog.FileName);
+			if (ModFileHandler.Instance.ModFile.Count == 0)
 				return;
 
 			foreach (AssetTabControl assetTabControl in App.Instance.MainWindow!.AssetTabControls)
@@ -218,7 +218,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				foreach (AssetRowControl rowHandler in assetTabControl.RowControls)
 				{
 					AbstractAsset asset = rowHandler.Asset;
-					UserAsset? userAsset = userAssets.Find(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
+					UserAsset? userAsset = ModFileHandler.Instance.ModFile.Find(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
 					if (userAsset != null)
 					{
 						asset.ImportValuesFromUserAsset(userAsset);
@@ -230,22 +230,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		}
 
 		private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
-		{
-			List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
+			=> ModFileHandler.Instance.FileSave();
 
-			List<UserAsset> userAssets = new();
-			foreach (AbstractAsset asset in assets)
-				userAssets.Add(asset.ToUserAsset());
-
-			SaveFileDialog dialog = new() { Filter = _modFileFilter };
-			dialog.OpenModsRootFolder();
-
-			bool? result = dialog.ShowDialog();
-			if (!result.HasValue || !result.Value)
-				return;
-
-			JsonFileUtils.SerializeToFile(dialog.FileName, userAssets, true);
-		}
+		private void SaveAs_Executed(object sender, ExecutedRoutedEventArgs e)
+			=> ModFileHandler.Instance.FileSaveAs();
 
 		private void ExtractBinaries_Executed(object sender, ExecutedRoutedEventArgs e)
 		{

@@ -1,9 +1,9 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
 using System;
@@ -81,7 +81,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			if (!string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath))
 			{
 				if (UserHandler.Instance.Settings.CreateModFileWhenExtracting)
-					ModFileUtils.CreateModFileFromPath(_outputPath);
+					ModFileHandler.CreateModFileFromPath(_outputPath);
 
 				if (UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
 				{
