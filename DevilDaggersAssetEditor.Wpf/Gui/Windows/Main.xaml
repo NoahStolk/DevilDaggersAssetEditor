@@ -3,7 +3,6 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:userControls="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.UserControls"
 		mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="900" Width="1600"
         Loaded="Window_Loaded"
@@ -14,7 +13,35 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<DockPanel Grid.Row="0">
-			<userControls:MenuBarUserControl x:Name="MenuBar" />
+			<Menu DockPanel.Dock="Top" Name="MenuPanel">
+				<MenuItem Header="File">
+					<MenuItem Header="New mod" Click="NewMod_Click" />
+					<MenuItem Header="Open mod" Click="OpenMod_Click" />
+					<MenuItem Header="Save mod" Click="SaveMod_Click" />
+					<Separator />
+					<MenuItem Header="Extract binaries" Click="ExtractBinaries_Click" />
+					<MenuItem Header="Make binaries" Click="MakeBinaries_Click" />
+					<MenuItem Header="Import assets" Click="ImportAssets_Click" />
+					<Separator />
+					<MenuItem Header="Import audio loudness" Click="ImportAudioLoudness_Click" />
+					<MenuItem Header="Export audio loudness" Click="ExportAudioLoudness_Click" />
+					<Separator />
+					<MenuItem Header="Exit" Click="Exit_Click" />
+				</MenuItem>
+				<MenuItem Header="Options">
+					<MenuItem Header="Settings" Click="Settings_Click" />
+				</MenuItem>
+				<MenuItem Header="Tools">
+					<MenuItem Header="Analyze binary file" Click="AnalyzeBinaryFile_Click" />
+				</MenuItem>
+				<MenuItem Header="Help" Name="HelpItem">
+					<MenuItem Header="Help" Click="Help_Click" />
+					<MenuItem Header="About" Click="About_Click" />
+					<MenuItem Header="Changelog" Click="Changelog_Click" />
+					<MenuItem Header="View source code" Click="ViewSourceCode_Click" />
+					<MenuItem Header="Check for updates" Name="UpdateItem" Click="CheckForUpdates_Click" />
+				</MenuItem>
+			</Menu>
 		</DockPanel>
 		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 			<TabControl Grid.Row="1" Name="TabControl" Width="1366" Height="768" />
