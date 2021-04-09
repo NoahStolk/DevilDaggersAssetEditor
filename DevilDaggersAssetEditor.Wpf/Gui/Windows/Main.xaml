@@ -7,7 +7,8 @@
 		mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="900" Width="1600"
         Loaded="Window_Loaded"
-		SizeChanged="Window_SizeChanged">
+		SizeChanged="Window_SizeChanged"
+		Closing="Window_Closing">
 	<Window.CommandBindings>
 		<CommandBinding Command="windows:MainWindow.NewCommand" CanExecute="CanExecute" Executed="New_Executed" />
 		<CommandBinding Command="windows:MainWindow.OpenCommand" CanExecute="CanExecute" Executed="Open_Executed" />

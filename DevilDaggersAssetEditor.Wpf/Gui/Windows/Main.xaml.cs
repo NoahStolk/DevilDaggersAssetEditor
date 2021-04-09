@@ -15,6 +15,7 @@ using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -179,6 +180,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void New_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
+			if (ModFileHandler.Instance.ProceedWithUnsavedChanges())
+				return;
+
 			foreach (AssetTabControl assetTabControl in App.Instance.MainWindow!.AssetTabControls)
 			{
 				foreach (AssetRowControl rowHandler in assetTabControl.RowControls)
@@ -200,6 +204,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
+			if (ModFileHandler.Instance.ProceedWithUnsavedChanges())
+				return;
+
 			OpenFileDialog dialog = new() { Filter = GuiUtils.ModFileFilter };
 			dialog.OpenModsRootFolder();
 
@@ -329,6 +336,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
 			}
+		}
+
+		private void Window_Closing(object sender, CancelEventArgs e)
+		{
+			e.Cancel = ModFileHandler.Instance.ProceedWithUnsavedChanges();
 		}
 
 		#endregion Events
