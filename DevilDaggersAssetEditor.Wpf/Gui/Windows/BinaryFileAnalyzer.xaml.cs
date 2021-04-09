@@ -40,7 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				AnalyzerFileResult? result = TryReadResourceFile(openDialog.FileName, sourceFileBytes);
 				if (result == null)
-					App.Instance.ShowMessage("File not recognized", "Make sure to open one of the following binary files: audio, core, dd");
+					App.Instance.ShowMessage("Invalid file format", "Make sure to open one of the following binary files: audio, core, dd");
 				else
 					ShowFileResult(result);
 			}
@@ -204,16 +204,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private static AnalyzerFileResult? TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
 		{
-			try
-			{
-				BinaryFileHandler.ValidateFile(sourceFileBytes);
-				byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(sourceFileBytes);
-				return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
-			}
-			catch
-			{
+			if (!BinaryFileHandler.IsValidFile(sourceFileBytes))
 				return null;
-			}
+
+			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(sourceFileBytes);
+			return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
 		}
 
 		private static Color GetColor(AssetType? assetType, bool isHeader)

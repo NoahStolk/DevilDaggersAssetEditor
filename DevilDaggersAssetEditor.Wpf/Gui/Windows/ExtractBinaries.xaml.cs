@@ -100,8 +100,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				try
 				{
-					BinaryFileHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
-					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
+					string? error = BinaryFileHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
+					if (error == null)
+						App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
+					else
+						App.Instance.Dispatcher.Invoke(() => control.Progress.Report(error, 0));
 				}
 				catch (Exception ex)
 				{

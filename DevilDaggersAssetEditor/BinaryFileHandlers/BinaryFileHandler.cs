@@ -13,14 +13,15 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 	public static class BinaryFileHandler
 	{
 		/// <summary>
-		/// uint magic1, uint magic2, uint tocBufferSize = 12 bytes.
+		/// The header consists of three unsigned 32-bit integers (Magic1, Magic2, and TocBufferSize), which is 12 bytes.
 		/// </summary>
 		public const int HeaderSize = 12;
 
 		public static readonly ulong Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
 		public static readonly ulong Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
 
-		private static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
+		private static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d)
+			=> a | b << 8 | c << 16 | d << 24;
 
 		#region Make binary
 
@@ -184,12 +185,13 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// <param name="inputPath">The binary file path.</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
 		/// <param name="progress">The progress wrapper to report progress to.</param>
-		public static void ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress)
+		public static string? ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress)
 		{
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
 			progress.Report("Validating file.");
-			ValidateFile(sourceFileBytes);
+			if (!IsValidFile(sourceFileBytes))
+				return "Invalid file format. Make sure to open one of the following binary files: audio, core, dd";
 
 			progress.Report("Reading TOC buffer.");
 			byte[] tocBuffer = ReadTocBuffer(sourceFileBytes);
@@ -199,15 +201,15 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 			progress.Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress);
+
+			return null;
 		}
 
-		public static void ValidateFile(byte[] sourceFileBytes)
+		public static bool IsValidFile(byte[] sourceFileBytes)
 		{
-			// TODO: Show message instead of throwing exception.
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
-			if (magic1FromFile != Magic1 && magic2FromFile != Magic2)
-				throw new($"Invalid file format. At least one of the two magic number values is incorrect:\n\nHeader value 1: {magic1FromFile} should be {Magic1}\nHeader value 2: {magic2FromFile} should be {Magic2}");
+			return magic1FromFile == Magic1 && magic2FromFile == Magic2;
 		}
 
 		public static byte[] ReadTocBuffer(byte[] sourceFileBytes)
