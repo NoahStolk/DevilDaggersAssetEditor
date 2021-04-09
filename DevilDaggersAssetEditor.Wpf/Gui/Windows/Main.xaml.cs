@@ -163,6 +163,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 						foreach (AssetTabControl tabHandler in AssetTabControls)
 							tabHandler.UpdateAssetTabControls(assets);
 					}
+
+					ModFileHandler.Instance.UpdateModFileState(UserHandler.Instance.Cache.OpenedModFilePath);
 				}
 
 				timer.Stop();
@@ -192,6 +194,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 
 			ModFileHandler.Instance.ModFile.Clear();
+
+			ModFileHandler.Instance.UpdateModFileState(string.Empty);
 		}
 
 		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
