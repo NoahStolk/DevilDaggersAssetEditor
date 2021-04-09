@@ -23,6 +23,8 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		public byte[] Buffer { get; set; } = null!;
 
+		public virtual int HeaderSize { get; }
+
 		public virtual void MakeBinary(string path)
 		{
 			Buffer = File.ReadAllBytes(path);

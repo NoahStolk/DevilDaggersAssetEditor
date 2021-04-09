@@ -63,29 +63,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			foreach (IGrouping<AssetType, Chunk> group in chunksByType.OrderBy(c => c.Key))
 			{
 				IEnumerable<Chunk> validChunks = group;
-				uint size = 0;
-				uint headerSize = 0;
+				int size = 0;
+				int headerSize = 0;
 				foreach (Chunk chunk in validChunks)
 				{
-					if (chunk is ModelChunk)
-					{
-						size += chunk.Size - 10;
-						headerSize += 10;
-					}
-					else if (chunk is ShaderChunk)
-					{
-						size += chunk.Size - 12;
-						headerSize += 12;
-					}
-					else if (chunk is TextureChunk)
-					{
-						size += chunk.Size - 11;
-						headerSize += 11;
-					}
-					else
-					{
-						size += chunk.Size;
-					}
+					headerSize += chunk.HeaderSize;
+					size += (int)chunk.Size - chunk.HeaderSize;
 				}
 
 				chunkGroups.Add(group.Key.ToString(), ChunkResult(GetColor(group.Key, false), size, validChunks.ToList()));
@@ -93,7 +76,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					chunkGroups.Add($"{group.Key} header", ChunkResult(GetColor(group.Key, true), headerSize, validChunks.ToList()));
 			}
 
-			uint unknownSize = (uint)(fileResult.FileByteCount - chunkGroups.Sum(c => c.Value.ByteCount));
+			int unknownSize = fileResult.FileByteCount - chunkGroups.Sum(c => c.Value.ByteCount);
 			if (unknownSize > 0)
 				chunkGroups.Add("Unknown", ChunkResult(Color.FromRgb(127, 127, 255), unknownSize, new()));
 
@@ -196,7 +179,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private static Brush GetTextColorBasedOnBackgroundColor(Color backgroundColor)
 			=> ColorUtils.GetPerceivedBrightness(backgroundColor) < 140 ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["Gray1"];
 
-		private static AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, List<Chunk> chunks)
+		private static AnalyzerChunkGroup ChunkResult(Color color, int byteCount, List<Chunk> chunks)
 			=> new(color.R, color.G, color.B, byteCount, chunks);
 
 		private static Color ChunkResultColor(AnalyzerChunkGroup chunkResult)
@@ -208,7 +191,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				return null;
 
 			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(sourceFileBytes);
-			return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
+			return new(sourceFileName, sourceFileBytes.Length, tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
 		}
 
 		private static Color GetColor(AssetType? assetType, bool isHeader)

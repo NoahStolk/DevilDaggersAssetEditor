@@ -21,6 +21,8 @@ namespace DevilDaggersAssetEditor.Chunks
 		{
 		}
 
+		public override int HeaderSize => 10;
+
 		private static Dictionary<string, byte[]> GetClosures()
 		{
 			using StreamReader sr = new(AssemblyUtils.GetContentStream("ModelClosures.json"));
@@ -37,7 +39,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			int vertexCount = outPositions.Count;
 
 			byte[] closure = _closures[Name];
-			Buffer = new byte[10 + vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
+			Buffer = new byte[HeaderSize + vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
 
 			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 0, sizeof(uint));
 			Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 4, sizeof(uint));
@@ -47,12 +49,12 @@ namespace DevilDaggersAssetEditor.Chunks
 			{
 				Vertex vertex = new(outPositions[(int)outVertices[i].PositionReference - 1], outTexCoords[(int)outVertices[i].TexCoordReference - 1], outNormals[(int)outVertices[i].NormalReference - 1]);
 				byte[] vertexBytes = vertex.ToByteArray();
-				Buf.BlockCopy(vertexBytes, 0, Buffer, 10 + i * Vertex.ByteCount, Vertex.ByteCount);
+				Buf.BlockCopy(vertexBytes, 0, Buffer, HeaderSize + i * Vertex.ByteCount, Vertex.ByteCount);
 			}
 
 			for (int i = 0; i < vertexCount; i++)
-				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, 10 + vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
-			Buf.BlockCopy(closure, 0, Buffer, 10 + vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
+				Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, HeaderSize + vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
+			Buf.BlockCopy(closure, 0, Buffer, HeaderSize + vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
 
 			Size = (uint)Buffer.Length;
 		}
@@ -197,10 +199,10 @@ namespace DevilDaggersAssetEditor.Chunks
 			uint[] indices = new uint[indexCount];
 
 			for (int i = 0; i < vertices.Length; i++)
-				vertices[i] = Vertex.CreateFromBuffer(Buffer, 10, i);
+				vertices[i] = Vertex.CreateFromBuffer(Buffer, HeaderSize, i);
 
 			for (int i = 0; i < indices.Length; i++)
-				indices[i] = BitConverter.ToUInt32(Buffer, 10 + vertices.Length * Vertex.ByteCount + i * sizeof(uint));
+				indices[i] = BitConverter.ToUInt32(Buffer, HeaderSize + vertices.Length * Vertex.ByteCount + i * sizeof(uint));
 
 			StringBuilder sb = new();
 			sb.Append("# ").Append(Name).AppendLine(".obj\n");
