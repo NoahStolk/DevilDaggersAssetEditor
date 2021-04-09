@@ -5,9 +5,9 @@ using System.IO;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class ResourceChunk : IChunk
+	public class Chunk
 	{
-		public ResourceChunk(AssetType assetType, string name, uint startOffset, uint size)
+		public Chunk(AssetType assetType, string name, uint startOffset, uint size)
 		{
 			AssetType = assetType;
 			Name = name;
@@ -21,7 +21,9 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		public AssetType AssetType { get; }
 
-		public byte[] Buffer { get; set; }
+		public byte[] Buffer { get; set; } = null!;
+
+		public virtual int HeaderSize { get; }
 
 		public virtual void MakeBinary(string path)
 		{

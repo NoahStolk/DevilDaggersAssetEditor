@@ -2,10 +2,8 @@
 {
 	public enum BinaryFileType
 	{
-		None = 0,
-		Audio = 1,
-		Dd = 2,
-		Core = 3,
-		Particle = 4,
+		Audio,
+		Dd,
+		Core,
 	}
 }

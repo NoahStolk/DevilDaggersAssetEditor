@@ -31,9 +31,6 @@ namespace DevilDaggersAssetEditor.Assets
 
 			using StreamReader srDdTextures = new(AssemblyUtils.GetContentStream("dd.Textures.json"));
 			DdTexturesAssets = JsonConvert.DeserializeObject<List<TextureAsset>>(srDdTextures.ReadToEnd());
-
-			using StreamReader srParticleParticles = new(AssemblyUtils.GetContentStream("particle.Particles.json"));
-			ParticleParticlesAssets = JsonConvert.DeserializeObject<List<ParticleAsset>>(srParticleParticles.ReadToEnd());
 		}
 
 		public static AssetHandler Instance => _lazy.Value;
@@ -44,7 +41,6 @@ namespace DevilDaggersAssetEditor.Assets
 		public List<ModelAsset> DdModelsAssets { get; }
 		public List<ShaderAsset> DdShadersAssets { get; }
 		public List<TextureAsset> DdTexturesAssets { get; }
-		public List<ParticleAsset> ParticleParticlesAssets { get; }
 
 		public List<AbstractAsset> GetAssets(BinaryFileType binaryFileType, string assetType)
 		{
@@ -58,7 +54,6 @@ namespace DevilDaggersAssetEditor.Assets
 				"dd.models" => DdModelsAssets.Cast<AbstractAsset>().ToList(),
 				"dd.shaders" => DdShadersAssets.Cast<AbstractAsset>().ToList(),
 				"dd.textures" => DdTexturesAssets.Cast<AbstractAsset>().ToList(),
-				"particle.particles" => ParticleParticlesAssets.Cast<AbstractAsset>().ToList(),
 				_ => throw new($"No asset data found for binary file type '{binaryFileType}' and asset type '{assetType}.'"),
 			};
 		}

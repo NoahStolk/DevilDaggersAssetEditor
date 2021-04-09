@@ -52,7 +52,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				AssetType.Audio => new AudioPreviewerControl(),
 				AssetType.Model => new ModelPreviewerControl(),
 				AssetType.ModelBinding => new ModelBindingPreviewerControl(),
-				AssetType.Particle => new ParticlePreviewerControl(),
 				AssetType.Shader => new ShaderPreviewerControl(),
 				AssetType.Texture => new TexturePreviewerControl(),
 				_ => throw new NotSupportedException($"Previewer control for type {assetType} is not supported."),

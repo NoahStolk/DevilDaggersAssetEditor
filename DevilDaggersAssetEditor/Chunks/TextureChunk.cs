@@ -12,12 +12,14 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class TextureChunk : ResourceChunk
+	public class TextureChunk : Chunk
 	{
 		public TextureChunk(string name, uint startOffset, uint size)
 			: base(AssetType.Texture, name, startOffset, size)
 		{
 		}
+
+		public override int HeaderSize => 11;
 
 		public override void MakeBinary(string path)
 		{
@@ -40,7 +42,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			byte mipmapCount = GetMipmapCountFromImage(resizedImage);
 			GetBufferSizes(resizedImage.Width, resizedImage.Height, mipmapCount, out int pixelBufferLength, out int[] mipmapBufferSizes);
 
-			Buffer = new byte[11 + pixelBufferLength];
+			Buffer = new byte[HeaderSize + pixelBufferLength];
 			Buf.BlockCopy(BitConverter.GetBytes((ushort)16401), 0, Buffer, 0, sizeof(ushort));
 			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Width), 0, Buffer, 2, sizeof(uint));
 			Buf.BlockCopy(BitConverter.GetBytes(resizedImage.Height), 0, Buffer, 6, sizeof(uint));
@@ -66,10 +68,10 @@ namespace DevilDaggersAssetEditor.Chunks
 						if (bufferPosition >= mipmapBufferSizes[i])
 							continue;
 
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.R;
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.G;
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.B;
-						Buffer[11 + mipmapBufferOffset + bufferPosition++] = pixel.A;
+						Buffer[HeaderSize + mipmapBufferOffset + bufferPosition++] = pixel.R;
+						Buffer[HeaderSize + mipmapBufferOffset + bufferPosition++] = pixel.G;
+						Buffer[HeaderSize + mipmapBufferOffset + bufferPosition++] = pixel.B;
+						Buffer[HeaderSize + mipmapBufferOffset + bufferPosition++] = pixel.A;
 					}
 				}
 
@@ -89,7 +91,7 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			GetBufferSizes((int)width, (int)height, mipmapCount, out _, out int[] _);
 
-			IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, 11);
+			IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, HeaderSize);
 			using Bitmap bitmap = new((int)width, (int)height, (int)width * 4, PixelFormat.Format32bppArgb, intPtr);
 			bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
@@ -124,7 +126,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			{
 				int mipmapSizeDivisor = (int)Math.Pow(2, i);
 				int bitmapWidth = (int)width / mipmapSizeDivisor;
-				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset + 11);
+				IntPtr intPtr = Marshal.UnsafeAddrOfPinnedArrayElement(Buffer, mipmapOffset + HeaderSize);
 				using Bitmap bitmap = new Bitmap(bitmapWidth, (int)height / mipmapSizeDivisor, bitmapWidth * 4, PixelFormat.Format32bppArgb, intPtr);
 				bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 

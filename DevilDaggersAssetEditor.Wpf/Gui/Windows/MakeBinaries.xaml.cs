@@ -16,7 +16,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private readonly BinaryNameControl _audioControl;
 		private readonly BinaryNameControl _coreControl;
 		private readonly BinaryNameControl _ddControl;
-		private readonly BinaryNameControl _particleControl;
 
 		private readonly List<BinaryNameControl> _controls = new();
 
@@ -27,12 +26,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles());
 			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles());
 			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles());
-			_particleControl = new(this, BinaryFileType.Particle, AssetType.Particle, App.Instance.MainWindow!.HasAnyParticleFiles());
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
 			_controls.Add(_ddControl);
-			_controls.Add(_particleControl);
 
 			for (int i = 0; i < _controls.Count; i++)
 				Main.Children.Insert(i + 1, _controls[i]);
@@ -58,12 +55,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				try
 				{
-					IBinaryFileHandler fileHandler = control.BinaryFileType switch
-					{
-						BinaryFileType.Particle => new ParticleFileHandler(),
-						_ => new ResourceFileHandler(control.BinaryFileType),
-					};
-
 					List<AssetTabControl> assetTabControls = new();
 					switch (control.BinaryFileType)
 					{
@@ -79,12 +70,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 							assetTabControls.Add(App.Instance.MainWindow!.DdShadersAssetTabControl);
 							assetTabControls.Add(App.Instance.MainWindow!.DdTexturesAssetTabControl);
 							break;
-						case BinaryFileType.Particle:
-							assetTabControls.Add(App.Instance.MainWindow!.ParticleParticlesAssetTabControl);
-							break;
 					}
 
-					fileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.OutputPath, control.Progress);
+					BinaryFileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.OutputPath, control.Progress);
 
 					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 				}

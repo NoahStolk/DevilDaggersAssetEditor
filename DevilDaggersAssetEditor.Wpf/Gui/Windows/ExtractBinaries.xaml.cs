@@ -22,7 +22,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private readonly BinaryPathControl _audioControl;
 		private readonly BinaryPathControl _coreControl;
 		private readonly BinaryPathControl _ddControl;
-		private readonly BinaryPathControl _particleControl;
 
 		private readonly List<BinaryPathControl> _controls = new();
 
@@ -35,12 +34,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			_audioControl = new(this, "'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
 			_coreControl = new(this, "'core' binary path", BinaryFileType.Core, AssetType.Shader);
 			_ddControl = new(this, "'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
-			_particleControl = new(this, "'particle' binary path", BinaryFileType.Particle, AssetType.Particle);
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
 			_controls.Add(_ddControl);
-			_controls.Add(_particleControl);
 
 			for (int i = 0; i < _controls.Count; i++)
 				Main.Children.Insert(i, _controls[i]);
@@ -103,14 +100,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				try
 				{
-					IBinaryFileHandler fileHandler = control.BinaryFileType switch
-					{
-						BinaryFileType.Particle => new ParticleFileHandler(),
-						_ => new ResourceFileHandler(control.BinaryFileType),
-					};
-
-					fileHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
-					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
+					string? error = BinaryFileHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
+					if (error == null)
+						App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
+					else
+						App.Instance.Dispatcher.Invoke(() => control.Progress.Report(error, 0));
 				}
 				catch (Exception ex)
 				{
