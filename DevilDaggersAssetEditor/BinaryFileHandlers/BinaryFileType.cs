@@ -6,6 +6,5 @@
 		Audio = 1,
 		Dd = 2,
 		Core = 3,
-		Particle = 4,
 	}
 }

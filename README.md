@@ -15,7 +15,6 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 	- Audio
 	- Models
 	- Model bindings
-	- Particles
 	- Shaders
 	- Textures
 
@@ -23,7 +22,6 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 	- res/audio
 	- res/dd
 	- core/core
-	- dd/particle
 
 ## System requirements
 - Microsoft Windows (64-bit)

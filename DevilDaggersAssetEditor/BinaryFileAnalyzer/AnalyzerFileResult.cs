@@ -6,7 +6,7 @@ namespace DevilDaggersAssetEditor.BinaryFileAnalyzer
 {
 	public class AnalyzerFileResult
 	{
-		public AnalyzerFileResult(string fileName, uint fileByteCount, uint headerByteCount, List<IChunk> chunks)
+		public AnalyzerFileResult(string fileName, uint fileByteCount, uint headerByteCount, List<Chunk> chunks)
 		{
 			FileName = fileName;
 			FileByteCount = fileByteCount;
@@ -17,6 +17,6 @@ namespace DevilDaggersAssetEditor.BinaryFileAnalyzer
 		public string FileName { get; }
 		public uint FileByteCount { get; }
 		public uint HeaderByteCount { get; }
-		public List<IChunk> Chunks { get; }
+		public List<Chunk> Chunks { get; }
 	}
 }

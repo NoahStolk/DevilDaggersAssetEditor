@@ -13,7 +13,6 @@ namespace DevilDaggersAssetEditor.Extensions
 				BinaryFileType.Audio => "res",
 				BinaryFileType.Dd => "res",
 				BinaryFileType.Core => "core",
-				BinaryFileType.Particle => "dd",
 				_ => throw new NotSupportedException($"{nameof(BinaryFileType)} '{binaryFileType}' is not supported in the {nameof(GetSubfolderName)} method."),
 			};
 		}
@@ -27,7 +26,6 @@ namespace DevilDaggersAssetEditor.Extensions
 				AssetType.Model => ".obj",
 				AssetType.Shader => ".glsl",
 				AssetType.Texture => ".png",
-				AssetType.Particle => ".bin",
 				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFileExtension)} method."),
 			};
 		}
@@ -41,7 +39,6 @@ namespace DevilDaggersAssetEditor.Extensions
 				AssetType.Model => "Models",
 				AssetType.Shader => "Shaders",
 				AssetType.Texture => "Textures",
-				AssetType.Particle => "Particles",
 				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderName)} method."),
 			};
 		}
@@ -55,7 +52,6 @@ namespace DevilDaggersAssetEditor.Extensions
 				AssetType.Model => (255, 0, 0),
 				AssetType.Shader => (0, 255, 0),
 				AssetType.Texture => (255, 127, 0),
-				AssetType.Particle => (255, 255, 0),
 				_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderName)} method."),
 			};
 		}
@@ -83,7 +79,6 @@ namespace DevilDaggersAssetEditor.Extensions
 				".obj" => AssetType.Model,
 				".glsl" => AssetType.Shader,
 				".png" => AssetType.Texture,
-				".bin" => AssetType.Particle,
 				_ => null,
 			};
 		}

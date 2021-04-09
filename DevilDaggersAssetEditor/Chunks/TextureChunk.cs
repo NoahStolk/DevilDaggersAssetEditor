@@ -12,7 +12,7 @@ using Buf = System.Buffer;
 
 namespace DevilDaggersAssetEditor.Chunks
 {
-	public class TextureChunk : ResourceChunk
+	public class TextureChunk : Chunk
 	{
 		public TextureChunk(string name, uint startOffset, uint size)
 			: base(AssetType.Texture, name, startOffset, size)

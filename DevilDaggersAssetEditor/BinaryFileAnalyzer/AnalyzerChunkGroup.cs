@@ -5,7 +5,7 @@ namespace DevilDaggersAssetEditor.BinaryFileAnalyzer
 {
 	public class AnalyzerChunkGroup
 	{
-		public AnalyzerChunkGroup(byte r, byte g, byte b, uint byteCount, List<IChunk> chunks)
+		public AnalyzerChunkGroup(byte r, byte g, byte b, uint byteCount, List<Chunk> chunks)
 		{
 			R = r;
 			G = g;
@@ -18,6 +18,6 @@ namespace DevilDaggersAssetEditor.BinaryFileAnalyzer
 		public byte G { get; }
 		public byte B { get; }
 		public uint ByteCount { get; }
-		public List<IChunk> Chunks { get; }
+		public List<Chunk> Chunks { get; }
 	}
 }

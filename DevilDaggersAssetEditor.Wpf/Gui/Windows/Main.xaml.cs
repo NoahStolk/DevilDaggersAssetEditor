@@ -102,7 +102,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public AssetTabControl DdModelsAssetTabControl { get; private set; } = null!;
 		public AssetTabControl DdShadersAssetTabControl { get; private set; } = null!;
 		public AssetTabControl DdTexturesAssetTabControl { get; private set; } = null!;
-		public AssetTabControl ParticleParticlesAssetTabControl { get; private set; } = null!;
 
 		public List<AssetTabControl> AssetTabControls { get; private set; } = null!;
 
@@ -124,9 +123,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			|| DdShadersAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound || (rc.Asset as ShaderAsset)!.EditorPathFragmentShader != GuiUtils.FileNotFound)
 			|| DdTexturesAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
 
-		public bool HasAnyParticleFiles()
-			=> ParticleParticlesAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
-
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			AudioAudioAssetTabControl = new(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
@@ -135,9 +131,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			DdModelsAssetTabControl = new(BinaryFileType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
 			DdShadersAssetTabControl = new(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
 			DdTexturesAssetTabControl = new(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
-			ParticleParticlesAssetTabControl = new(BinaryFileType.Particle, AssetType.Particle, "Particle files (*.bin)|*.bin", "Particles");
 
-			AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl, ParticleParticlesAssetTabControl };
+			AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl };
 
 			UpdateTextBoxSizes();
 			UpdateHeights();
@@ -148,7 +143,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			TabControl.Items.Add(new TabItem { Header = "dd/Models", Content = DdModelsAssetTabControl });
 			TabControl.Items.Add(new TabItem { Header = "dd/Shaders", Content = DdShadersAssetTabControl });
 			TabControl.Items.Add(new TabItem { Header = "dd/Textures", Content = DdTexturesAssetTabControl });
-			TabControl.Items.Add(new TabItem { Header = "particle/Particles", Content = ParticleParticlesAssetTabControl });
 
 			TabControl.SelectedIndex = Math.Clamp(UserHandler.Instance.Cache.ActiveTabIndex, 0, AssetTabControls.Count - 1);
 

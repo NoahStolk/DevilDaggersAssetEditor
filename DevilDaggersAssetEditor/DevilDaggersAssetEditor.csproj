@@ -14,7 +14,6 @@
     <EmbeddedResource Include="Content\dd\Shaders.json" />
     <EmbeddedResource Include="Content\dd\Textures.json" />
     <EmbeddedResource Include="Content\ModelClosures.json" />
-    <EmbeddedResource Include="Content\particle\Particles.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevilDaggersCore" Version="1.3.0" />

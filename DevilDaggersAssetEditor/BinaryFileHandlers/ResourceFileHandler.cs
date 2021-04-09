@@ -10,7 +10,7 @@ using System.Text;
 
 namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
-	public class ResourceFileHandler : IBinaryFileHandler
+	public class ResourceFileHandler
 	{
 		/// <summary>
 		/// uint magic1, uint magic2, uint tocBufferSize = 12 bytes.
@@ -22,9 +22,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public ResourceFileHandler(BinaryFileType binaryFileType)
 		{
-			if (binaryFileType == BinaryFileType.Particle)
-				throw new NotSupportedException($"{nameof(BinaryFileType.Particle)} is unsupported by {nameof(ResourceFileHandler)}, use {nameof(ParticleFileHandler)} instead.");
-
 			BinaryFileName = binaryFileType.ToString().ToLower();
 		}
 
@@ -47,10 +44,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList(); // TODO: Also check if FragmentShader file exists.
 
 			progress.Report("Generating chunks based on asset list.");
-			List<ResourceChunk> chunks = CreateChunksFromAssets(allAssets, progress);
+			List<Chunk> chunks = CreateChunksFromAssets(allAssets, progress);
 
 			progress.Report("Generating TOC stream.");
-			CreateTocStream(chunks, out byte[] tocBuffer, out Dictionary<ResourceChunk, long> startOffsetBytePositions);
+			CreateTocStream(chunks, out byte[] tocBuffer, out Dictionary<Chunk, long> startOffsetBytePositions);
 
 			progress.Report("Generating asset stream.");
 			byte[] assetBuffer = CreateAssetStream(chunks, tocBuffer, startOffsetBytePositions, progress);
@@ -62,11 +59,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			File.WriteAllBytes(outputPath, binaryBytes);
 		}
 
-		private static List<ResourceChunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, ProgressWrapper progress)
+		private static List<Chunk> CreateChunksFromAssets(List<AbstractAsset> allAssets, ProgressWrapper progress)
 		{
 			Dictionary<string, float> loudnessValues = new();
 
-			List<ResourceChunk> chunks = new();
+			List<Chunk> chunks = new();
 			foreach (AbstractAsset asset in allAssets)
 			{
 				progress.Report($"Generating {asset.AssetType} chunk \"{asset.AssetName}\".", chunks.Count / (float)allAssets.Count / 2);
@@ -74,12 +71,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				if (asset is AudioAsset audioAsset)
 					loudnessValues.Add(audioAsset.AssetName, audioAsset.Loudness);
 
-				ResourceChunk chunk = asset.AssetType switch
+				Chunk chunk = asset.AssetType switch
 				{
 					AssetType.Model => new ModelChunk(asset.AssetName, 0, 0),
 					AssetType.Shader => new ShaderChunk(asset.AssetName, 0, 0),
 					AssetType.Texture => new TextureChunk(asset.AssetName, 0, 0),
-					_ => new ResourceChunk(asset.AssetType, asset.AssetName, 0, 0),
+					_ => new Chunk(asset.AssetType, asset.AssetName, 0, 0),
 				};
 				chunk.MakeBinary(asset.EditorPath);
 
@@ -116,11 +113,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return chunks;
 		}
 
-		public static void CreateTocStream(List<ResourceChunk> chunks, out byte[] tocBuffer, out Dictionary<ResourceChunk, long> startOffsetBytePositions)
+		public static void CreateTocStream(List<Chunk> chunks, out byte[] tocBuffer, out Dictionary<Chunk, long> startOffsetBytePositions)
 		{
 			startOffsetBytePositions = new();
 			using MemoryStream tocStream = new();
-			foreach (ResourceChunk chunk in chunks)
+			foreach (Chunk chunk in chunks)
 			{
 				// Write binary type.
 				tocStream.Write(new[] { chunk.AssetType.GetBinaryType() }, 0, sizeof(byte));
@@ -145,11 +142,11 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			tocBuffer = tocStream.ToArray();
 		}
 
-		private byte[] CreateAssetStream(List<ResourceChunk> chunks, byte[] tocBuffer, Dictionary<ResourceChunk, long> startOffsetBytePositions, ProgressWrapper progress)
+		private byte[] CreateAssetStream(List<Chunk> chunks, byte[] tocBuffer, Dictionary<Chunk, long> startOffsetBytePositions, ProgressWrapper progress)
 		{
 			using MemoryStream assetStream = new();
 			int i = 0;
-			foreach (ResourceChunk chunk in chunks)
+			foreach (Chunk chunk in chunks)
 			{
 				progress.Report($"Writing file contents of \"{chunk.Name}\" to '{BinaryFileName}' file.", 0.5f + i++ / (float)chunks.Count / 2);
 
@@ -205,7 +202,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			byte[] tocBuffer = ReadTocBuffer(sourceFileBytes);
 
 			progress.Report("Creating chunks.");
-			List<ResourceChunk> chunks = ReadChunks(tocBuffer);
+			List<Chunk> chunks = ReadChunks(tocBuffer);
 
 			progress.Report("Initializing extraction.");
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress);
@@ -228,9 +225,9 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return tocBuffer;
 		}
 
-		public static List<ResourceChunk> ReadChunks(byte[] tocBuffer)
+		public static List<Chunk> ReadChunks(byte[] tocBuffer)
 		{
-			List<ResourceChunk> chunks = new();
+			List<Chunk> chunks = new();
 
 			int i = 0;
 
@@ -248,12 +245,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				AssetType? assetType = type.GetAssetType();
 				if (assetType.HasValue)
 				{
-					ResourceChunk chunk = assetType switch
+					Chunk chunk = assetType switch
 					{
 						AssetType.Model => new ModelChunk(name, startOffset, size),
 						AssetType.Shader => new ShaderChunk(name, startOffset, size),
 						AssetType.Texture => new TextureChunk(name, startOffset, size),
-						_ => new ResourceChunk(assetType.Value, name, startOffset, size),
+						_ => new Chunk(assetType.Value, name, startOffset, size),
 					};
 					chunks.Add(chunk);
 				}
@@ -262,12 +259,12 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return chunks;
 		}
 
-		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<ResourceChunk> chunks, ProgressWrapper progress)
+		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<Chunk> chunks, ProgressWrapper progress)
 		{
 			int chunksDone = 0;
 			int totalChunks = chunks.Count();
 
-			foreach (ResourceChunk chunk in chunks)
+			foreach (Chunk chunk in chunks)
 			{
 				if (chunk.Size == 0) // Filter empty chunks (garbage in TOC buffers).
 					continue;

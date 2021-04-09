@@ -5,7 +5,6 @@
 		Audio,
 		Model,
 		ModelBinding,
-		Particle,
 		Shader,
 		Texture,
 	}

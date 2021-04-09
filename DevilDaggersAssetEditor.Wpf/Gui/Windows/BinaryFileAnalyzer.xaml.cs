@@ -38,9 +38,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
 
-				AnalyzerFileResult? result = TryReadResourceFile(openDialog.FileName, sourceFileBytes) ?? TryReadParticleFile(openDialog.FileName, sourceFileBytes);
+				AnalyzerFileResult? result = TryReadResourceFile(openDialog.FileName, sourceFileBytes);
 				if (result == null)
-					App.Instance.ShowMessage("File not recognized", "Make sure to open one of the following binary files: audio, core, dd, particle");
+					App.Instance.ShowMessage("File not recognized", "Make sure to open one of the following binary files: audio, core, dd");
 				else
 					ShowFileResult(result);
 			}
@@ -59,13 +59,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{ "File header", ChunkResult(Color.FromRgb(255, 127, 127), fileResult.HeaderByteCount, new()) },
 			};
 
-			IEnumerable<IGrouping<AssetType, IChunk>> chunksByType = fileResult.Chunks.GroupBy(c => c.AssetType);
-			foreach (IGrouping<AssetType, IChunk> group in chunksByType.OrderBy(c => c.Key))
+			IEnumerable<IGrouping<AssetType, Chunk>> chunksByType = fileResult.Chunks.GroupBy(c => c.AssetType);
+			foreach (IGrouping<AssetType, Chunk> group in chunksByType.OrderBy(c => c.Key))
 			{
-				IEnumerable<IChunk> validChunks = group;
+				IEnumerable<Chunk> validChunks = group;
 				uint size = 0;
 				uint headerSize = 0;
-				foreach (IChunk chunk in validChunks)
+				foreach (Chunk chunk in validChunks)
 				{
 					if (chunk is ModelChunk)
 					{
@@ -81,11 +81,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					{
 						size += chunk.Size - 11;
 						headerSize += 11;
-					}
-					else if (chunk is ParticleChunk particleChunk)
-					{
-						size += ParticleFileHandler.ParticleBufferLength;
-						headerSize += (uint)particleChunk.Name.Length;
 					}
 					else
 					{
@@ -168,7 +163,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 
 			int k = 0;
-			foreach (IChunk chunk in fileResult.Chunks.OrderByDescending(c => c.Size))
+			foreach (Chunk chunk in fileResult.Chunks.OrderByDescending(c => c.Size))
 			{
 				if (k % _columnCount == 0)
 					ChunkData.RowDefinitions.Add(new RowDefinition());
@@ -201,7 +196,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private static Brush GetTextColorBasedOnBackgroundColor(Color backgroundColor)
 			=> ColorUtils.GetPerceivedBrightness(backgroundColor) < 140 ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["Gray1"];
 
-		private static AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, List<IChunk> chunks)
+		private static AnalyzerChunkGroup ChunkResult(Color color, uint byteCount, List<Chunk> chunks)
 			=> new(color.R, color.G, color.B, byteCount, chunks);
 
 		private static Color ChunkResultColor(AnalyzerChunkGroup chunkResult)
@@ -216,31 +211,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				byte[] tocBuffer = ResourceFileHandler.ReadTocBuffer(sourceFileBytes);
 
-				return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer).Cast<IChunk>().ToList());
-			}
-			catch
-			{
-				return null;
-			}
-		}
-
-		private static AnalyzerFileResult? TryReadParticleFile(string sourceFileName, byte[] sourceFileBytes)
-		{
-			try
-			{
-				ParticleFileHandler fileHandler = new();
-				fileHandler.ValidateFile(sourceFileBytes);
-
-				int i = ParticleFileHandler.HeaderSize;
-				List<IChunk> chunks = new List<IChunk>();
-				while (i < sourceFileBytes.Length)
-				{
-					ParticleChunk chunk = ParticleFileHandler.ReadParticleChunk(sourceFileBytes, i);
-					i += chunk.Buffer.Length;
-					chunks.Add(chunk);
-				}
-
-				return new(sourceFileName, (uint)sourceFileBytes.Length, ParticleFileHandler.HeaderSize, chunks);
+				return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer));
 			}
 			catch
 			{

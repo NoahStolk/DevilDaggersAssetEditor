@@ -15,7 +15,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private readonly ImportDirectoryControl _ddModelsControl = new("'dd/Models' import directory", AssetType.Model, App.Instance.MainWindow!.DdModelsAssetTabControl);
 		private readonly ImportDirectoryControl _ddShadersControl = new("'dd/Shaders' import directory", AssetType.Shader, App.Instance.MainWindow!.DdShadersAssetTabControl);
 		private readonly ImportDirectoryControl _ddTexturesControl = new("'dd/Textures' import directory", AssetType.Texture, App.Instance.MainWindow!.DdTexturesAssetTabControl);
-		private readonly ImportDirectoryControl _particleParticlesControl = new("'particle/Particles' import directory", AssetType.Particle, App.Instance.MainWindow!.ParticleParticlesAssetTabControl);
 
 		private readonly List<ImportDirectoryControl> _controls = new();
 
@@ -29,7 +28,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			_controls.Add(_ddModelsControl);
 			_controls.Add(_ddShadersControl);
 			_controls.Add(_ddTexturesControl);
-			_controls.Add(_particleParticlesControl);
 
 			for (int i = 0; i < _controls.Count; i++)
 				Main.Children.Insert(i, _controls[i]);
