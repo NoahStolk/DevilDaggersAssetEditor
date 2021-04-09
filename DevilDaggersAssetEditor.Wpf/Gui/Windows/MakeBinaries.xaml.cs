@@ -55,8 +55,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				try
 				{
-					ResourceFileHandler fileHandler = new(control.BinaryFileType);
-
 					List<AssetTabControl> assetTabControls = new();
 					switch (control.BinaryFileType)
 					{
@@ -74,7 +72,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 							break;
 					}
 
-					fileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.OutputPath, control.Progress);
+					BinaryFileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.OutputPath, control.Progress);
 
 					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 				}

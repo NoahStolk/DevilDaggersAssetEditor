@@ -10,7 +10,7 @@ using System.Text;
 
 namespace DevilDaggersAssetEditor.BinaryFileHandlers
 {
-	public class ResourceFileHandler
+	public static class BinaryFileHandler
 	{
 		/// <summary>
 		/// uint magic1, uint magic2, uint tocBufferSize = 12 bytes.
@@ -19,13 +19,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static readonly ulong Magic1 = MakeMagic(0x3AUL, 0x68UL, 0x78UL, 0x3AUL);
 		public static readonly ulong Magic2 = MakeMagic(0x72UL, 0x67UL, 0x3AUL, 0x01UL);
-
-		public ResourceFileHandler(BinaryFileType binaryFileType)
-		{
-			BinaryFileName = binaryFileType.ToString().ToLower();
-		}
-
-		public string BinaryFileName { get; }
 
 		private static ulong MakeMagic(ulong a, ulong b, ulong c, ulong d) => a | b << 8 | c << 16 | d << 24;
 
@@ -37,9 +30,9 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// <param name="allAssets">The list of asset objects.</param>
 		/// <param name="outputPath">The path where the binary file will be placed.</param>
 		/// <param name="progress">The progress wrapper to report progress to.</param>
-		public void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
+		public static void MakeBinary(List<AbstractAsset> allAssets, string outputPath, ProgressWrapper progress)
 		{
-			progress.Report($"Initializing '{BinaryFileName}' file creation.");
+			progress.Report("Initializing file creation.");
 
 			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList(); // TODO: Also check if FragmentShader file exists.
 
@@ -52,10 +45,10 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			progress.Report("Generating asset stream.");
 			byte[] assetBuffer = CreateAssetStream(chunks, tocBuffer, startOffsetBytePositions, progress);
 
-			progress.Report($"Writing buffers to '{BinaryFileName}' file.");
+			progress.Report("Writing buffers to file.");
 			byte[] binaryBytes = CreateBinary(tocBuffer, assetBuffer);
 
-			progress.Report($"Writing '{BinaryFileName}' file.");
+			progress.Report("Writing file.");
 			File.WriteAllBytes(outputPath, binaryBytes);
 		}
 
@@ -142,13 +135,13 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			tocBuffer = tocStream.ToArray();
 		}
 
-		private byte[] CreateAssetStream(List<Chunk> chunks, byte[] tocBuffer, Dictionary<Chunk, long> startOffsetBytePositions, ProgressWrapper progress)
+		private static byte[] CreateAssetStream(List<Chunk> chunks, byte[] tocBuffer, Dictionary<Chunk, long> startOffsetBytePositions, ProgressWrapper progress)
 		{
 			using MemoryStream assetStream = new();
 			int i = 0;
 			foreach (Chunk chunk in chunks)
 			{
-				progress.Report($"Writing file contents of \"{chunk.Name}\" to '{BinaryFileName}' file.", 0.5f + i++ / (float)chunks.Count / 2);
+				progress.Report($"Writing file contents of \"{chunk.Name}\" to file.", 0.5f + i++ / (float)chunks.Count / 2);
 
 				uint startOffset = (uint)(HeaderSize + tocBuffer.Length + assetStream.Position);
 				chunk.StartOffset = startOffset;
@@ -191,7 +184,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		/// <param name="inputPath">The binary file path.</param>
 		/// <param name="outputPath">The path where the extracted asset files will be placed.</param>
 		/// <param name="progress">The progress wrapper to report progress to.</param>
-		public void ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress)
+		public static void ExtractBinary(string inputPath, string outputPath, ProgressWrapper progress)
 		{
 			byte[] sourceFileBytes = File.ReadAllBytes(inputPath);
 
@@ -208,7 +201,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			CreateFiles(outputPath, sourceFileBytes, chunks, progress);
 		}
 
-		public void ValidateFile(byte[] sourceFileBytes)
+		public static void ValidateFile(byte[] sourceFileBytes)
 		{
 			// TODO: Show message instead of throwing exception.
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);

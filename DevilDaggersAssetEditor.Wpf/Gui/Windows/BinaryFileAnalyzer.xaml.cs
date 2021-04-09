@@ -206,12 +206,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			try
 			{
-				ResourceFileHandler fileHandler = new(BinaryFileType.None); // Since we're only validating the file, we can pass None as BinaryFileType.
-				fileHandler.ValidateFile(sourceFileBytes);
-
-				byte[] tocBuffer = ResourceFileHandler.ReadTocBuffer(sourceFileBytes);
-
-				return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + ResourceFileHandler.HeaderSize, ResourceFileHandler.ReadChunks(tocBuffer));
+				BinaryFileHandler.ValidateFile(sourceFileBytes);
+				byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(sourceFileBytes);
+				return new(sourceFileName, (uint)sourceFileBytes.Length, (uint)tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
 			}
 			catch
 			{
