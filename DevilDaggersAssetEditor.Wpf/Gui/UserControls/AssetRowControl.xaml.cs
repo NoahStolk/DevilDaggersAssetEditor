@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
+using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
@@ -170,6 +171,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			if (_audioAsset != null && App.Instance.MainWindow!.AudioAudioAssetTabControl.SelectedAsset == Asset && App.Instance.MainWindow!.AudioAudioAssetTabControl.Previewer is IPreviewerControl audioPreviewer)
 				audioPreviewer.Initialize(Asset);
+
+			ModFileHandler.Instance.HasUnsavedChanges = true;
 		}
 
 		public void RemovePath(bool fragmentShader)
@@ -180,6 +183,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				Asset.EditorPath = GuiUtils.FileNotFound;
 
 			UpdateGui();
+
+			ModFileHandler.Instance.HasUnsavedChanges = true;
 		}
 
 		private void TextBoxLoudness_TextChanged(object sender, TextChangedEventArgs e)
@@ -190,7 +195,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			TextBoxLoudness.Background = isValid ? ColorUtils.ThemeColors["Gray2"] : ColorUtils.ThemeColors["ErrorBackground"];
 
 			if (isValid)
+			{
 				_audioAsset.Loudness = loudness;
+				ModFileHandler.Instance.HasUnsavedChanges = true;
+			}
 		}
 	}
 }

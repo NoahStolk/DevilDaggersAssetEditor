@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
+using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersCore.Wpf.Windows;
 using log4net;
 using log4net.Config;
@@ -48,7 +49,13 @@ namespace DevilDaggersAssetEditor.Wpf
 		}
 
 		public void UpdateMainWindowTitle()
-			=> Dispatcher.Invoke(() => MainWindow!.Title = $"{ApplicationDisplayName} {LocalVersion}");
+		{
+			Dispatcher.Invoke(() =>
+			{
+				if (MainWindow != null)
+					MainWindow.Title = $"{ApplicationDisplayName} {LocalVersion} - {ModFileHandler.Instance.ModFileName}{(ModFileHandler.Instance.HasUnsavedChanges ? "*" : string.Empty)}";
+			});
+		}
 
 		/// <summary>
 		/// Logs the error message (and <see cref="Exception" /> if there is one).

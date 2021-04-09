@@ -7,12 +7,13 @@
 		mc:Ignorable="d"
         Title="Devil Daggers Asset Editor" Height="900" Width="1600"
         Loaded="Window_Loaded"
-		SizeChanged="Window_SizeChanged">
+		SizeChanged="Window_SizeChanged"
+		Closing="Window_Closing">
 	<Window.CommandBindings>
 		<CommandBinding Command="windows:MainWindow.NewCommand" CanExecute="CanExecute" Executed="New_Executed" />
 		<CommandBinding Command="windows:MainWindow.OpenCommand" CanExecute="CanExecute" Executed="Open_Executed" />
 		<CommandBinding Command="windows:MainWindow.SaveCommand" CanExecute="CanExecute" Executed="Save_Executed" />
-		<!--<CommandBinding Command="windows:MainWindow.SaveAsCommand" CanExecute="CanExecute" Executed="SaveAs_Executed" />-->
+		<CommandBinding Command="windows:MainWindow.SaveAsCommand" CanExecute="CanExecute" Executed="SaveAs_Executed" />
 		<CommandBinding Command="windows:MainWindow.ExtractBinariesCommand" CanExecute="CanExecute" Executed="ExtractBinaries_Executed" />
 		<CommandBinding Command="windows:MainWindow.MakeBinariesCommand" CanExecute="CanExecute" Executed="MakeBinaries_Executed" />
 		<CommandBinding Command="windows:MainWindow.ImportAssetsCommand" CanExecute="CanExecute" Executed="ImportAssets_Executed" />
@@ -29,7 +30,7 @@
 					<MenuItem Command="windows:MainWindow.NewCommand" />
 					<MenuItem Command="windows:MainWindow.OpenCommand" />
 					<MenuItem Command="windows:MainWindow.SaveCommand" />
-					<!--<MenuItem Command="windows:MainWindow.SaveAsCommand" />-->
+					<MenuItem Command="windows:MainWindow.SaveAsCommand" />
 					<Separator />
 					<MenuItem Command="windows:MainWindow.ExtractBinariesCommand" />
 					<MenuItem Command="windows:MainWindow.MakeBinariesCommand" />
