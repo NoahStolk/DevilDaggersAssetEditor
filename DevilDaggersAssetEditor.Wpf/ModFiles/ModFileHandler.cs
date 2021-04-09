@@ -104,8 +104,12 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 			bool? result = dialog.ShowDialog();
 			if (result == true)
 			{
+				ModFileLocation = dialog.FileName;
+
 				JsonFileUtils.SerializeToFile(ModFileLocation, ModFile, true);
 				UpdateModFileState(dialog.FileName);
+
+				UserHandler.Instance.Cache.OpenedModFilePath = dialog.FileName;
 			}
 		}
 
@@ -116,6 +120,7 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 				return new();
 
 			UserHandler.Instance.Cache.OpenedModFilePath = path;
+			App.Instance.UpdateMainWindowTitle();
 
 			return assets;
 		}
