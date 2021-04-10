@@ -177,7 +177,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			ModFileHandler.Instance.HasUnsavedChanges = true;
 		}
 
-		// TODO: Use this method to set paths on initial file load (from cache).
 		public void SetPath(bool fragmentShader, string path)
 		{
 			if (fragmentShader && _shaderAsset != null)
