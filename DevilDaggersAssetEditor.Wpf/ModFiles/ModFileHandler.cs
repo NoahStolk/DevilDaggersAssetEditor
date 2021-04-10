@@ -70,13 +70,17 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 			return confirmWindow.IsConfirmed == null;
 		}
 
-		private void SaveAssets()
+		public void FileOpen(string path)
 		{
-			List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
+			List<UserAsset>? assets = JsonFileUtils.TryDeserializeFromFile<List<UserAsset>>(path, true);
+			if (assets == null)
+				return;
 
-			ModFile.Clear();
-			foreach (AbstractAsset asset in assets)
-				ModFile.Add(asset.ToUserAsset());
+			UserHandler.Instance.Cache.OpenedModFilePath = path;
+			UpdateModFileState(path);
+			App.Instance.UpdateMainWindowTitle();
+
+			ModFile = assets;
 		}
 
 		public void FileSave()
@@ -113,16 +117,13 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 			}
 		}
 
-		public static List<UserAsset> GetAssetsFromModFilePath(string path)
+		private void SaveAssets()
 		{
-			List<UserAsset>? assets = JsonFileUtils.TryDeserializeFromFile<List<UserAsset>>(path, true);
-			if (assets == null)
-				return new();
+			List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
 
-			UserHandler.Instance.Cache.OpenedModFilePath = path;
-			App.Instance.UpdateMainWindowTitle();
-
-			return assets;
+			ModFile.Clear();
+			foreach (AbstractAsset asset in assets)
+				ModFile.Add(asset.ToUserAsset());
 		}
 
 		/// <summary>
@@ -130,16 +131,8 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 		/// </summary>
 		public static void CreateModFileFromPath(string path)
 		{
-			List<UserAsset> assets = GetAssets(path);
-
-			string folderName = new DirectoryInfo(path).Name;
-			JsonFileUtils.SerializeToFile(Path.Combine(path, $"{folderName}.ddae"), assets, true);
-		}
-
-		private static List<UserAsset> GetAssets(string directory)
-		{
 			Dictionary<string, float> loudnessValues = new();
-			string? loudnessFilePath = Array.Find(Directory.GetFiles(directory, "*.ini", SearchOption.AllDirectories), p => Path.GetFileNameWithoutExtension(p) == "loudness");
+			string? loudnessFilePath = Array.Find(Directory.GetFiles(path, "*.ini", SearchOption.AllDirectories), p => Path.GetFileNameWithoutExtension(p) == "loudness");
 			if (loudnessFilePath != null)
 			{
 				foreach (string line in File.ReadAllLines(loudnessFilePath))
@@ -151,10 +144,10 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 
 			List<UserAsset> assets = new();
 
-			foreach (string path in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories))
+			foreach (string filePath in Directory.GetFiles(path, "*.*", SearchOption.AllDirectories))
 			{
-				string name = Path.GetFileNameWithoutExtension(path);
-				AssetType? assetType = Path.GetExtension(path).GetAssetType();
+				string name = Path.GetFileNameWithoutExtension(filePath);
+				AssetType? assetType = Path.GetExtension(filePath).GetAssetType();
 				if (!assetType.HasValue)
 					continue;
 
@@ -162,7 +155,7 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 				{
 					if (!assets.Any(a => a.AssetType == AssetType.Shader && a.AssetName == name))
 					{
-						string normalizedPath = path.TrimEnd("_vertex.glsl").TrimEnd("_fragment.glsl");
+						string normalizedPath = filePath.TrimEnd("_vertex.glsl").TrimEnd("_fragment.glsl");
 
 						assets.Add(new ShaderUserAsset(
 							name.TrimEnd("_vertex").TrimEnd("_fragment"),
@@ -175,15 +168,16 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 					float loudness = 1;
 					if (loudnessValues.ContainsKey(name))
 						loudness = loudnessValues[name];
-					assets.Add(new AudioUserAsset(name, path, loudness));
+					assets.Add(new AudioUserAsset(name, filePath, loudness));
 				}
 				else
 				{
-					assets.Add(new UserAsset(assetType.Value, name, path));
+					assets.Add(new UserAsset(assetType.Value, name, filePath));
 				}
 			}
 
-			return assets;
+			string folderName = new DirectoryInfo(path).Name;
+			JsonFileUtils.SerializeToFile(Path.Combine(path, $"{folderName}.ddae"), assets, true);
 		}
 	}
 }

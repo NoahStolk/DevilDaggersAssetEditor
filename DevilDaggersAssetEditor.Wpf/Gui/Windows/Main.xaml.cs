@@ -214,7 +214,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			ModFileHandler.Instance.ModFile = ModFileHandler.GetAssetsFromModFilePath(dialog.FileName);
+			ModFileHandler.Instance.FileOpen(dialog.FileName);
 			if (ModFileHandler.Instance.ModFile.Count == 0)
 				return;
 
