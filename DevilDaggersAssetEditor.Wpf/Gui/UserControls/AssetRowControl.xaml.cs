@@ -162,11 +162,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (!openResult.HasValue || !openResult.Value)
 				return;
 
-			if (fragmentShader && _shaderAsset != null)
-				_shaderAsset.EditorPathFragmentShader = openDialog.FileName;
-			else
-				Asset.EditorPath = openDialog.FileName;
-
+			SetPath(fragmentShader, openDialog.FileName);
 			UpdateGui();
 
 			if (_audioAsset != null && App.Instance.MainWindow!.AudioAudioAssetTabControl.SelectedAsset == Asset && App.Instance.MainWindow!.AudioAudioAssetTabControl.Previewer is IPreviewerControl audioPreviewer)
@@ -177,14 +173,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void RemovePath(bool fragmentShader)
 		{
-			if (fragmentShader && _shaderAsset != null)
-				_shaderAsset.EditorPathFragmentShader = GuiUtils.FileNotFound;
-			else
-				Asset.EditorPath = GuiUtils.FileNotFound;
-
+			SetPath(fragmentShader, GuiUtils.FileNotFound);
 			UpdateGui();
 
 			ModFileHandler.Instance.HasUnsavedChanges = true;
+		}
+
+		// TODO: Use this method to set paths on initial file load (from cache).
+		public void SetPath(bool fragmentShader, string path)
+		{
+			if (fragmentShader && _shaderAsset != null)
+				_shaderAsset.EditorPathFragmentShader = path;
+			else
+				Asset.EditorPath = path;
 		}
 
 		private void TextBoxLoudness_TextChanged(object sender, TextChangedEventArgs e)
