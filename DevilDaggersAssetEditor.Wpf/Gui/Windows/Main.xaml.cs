@@ -1,6 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
@@ -158,11 +157,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				if (File.Exists(UserHandler.Instance.Cache.OpenedModFilePath))
 				{
-					List<UserAsset> assets = ModFileHandler.GetAssetsFromModFilePath(UserHandler.Instance.Cache.OpenedModFilePath);
-					if (assets.Count > 0)
+					ModFileHandler.Instance.FileOpen(UserHandler.Instance.Cache.OpenedModFilePath);
+					if (ModFileHandler.Instance.ModFile.Count > 0)
 					{
-						foreach (AssetTabControl tabHandler in AssetTabControls)
-							tabHandler.UpdateAssetTabControls(assets);
+						foreach (AssetTabControl assetTabControl in AssetTabControls)
+							assetTabControl.UpdateAssetTabControls(ModFileHandler.Instance.ModFile);
 					}
 
 					ModFileHandler.Instance.UpdateModFileState(UserHandler.Instance.Cache.OpenedModFilePath);
@@ -185,15 +184,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			foreach (AssetTabControl assetTabControl in App.Instance.MainWindow!.AssetTabControls)
 			{
-				foreach (AssetRowControl rowHandler in assetTabControl.RowControls)
+				foreach (AssetRowControl assetRowControl in assetTabControl.RowControls)
 				{
-					AbstractAsset asset = rowHandler.Asset;
+					AbstractAsset asset = assetRowControl.Asset;
 
 					asset.EditorPath = GuiUtils.FileNotFound;
 					if (asset is ShaderAsset shaderAsset)
 						shaderAsset.EditorPathFragmentShader = GuiUtils.FileNotFound;
 
-					rowHandler.UpdateGui();
+					assetRowControl.UpdateGui();
 				}
 			}
 
@@ -219,19 +218,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				return;
 
 			foreach (AssetTabControl assetTabControl in App.Instance.MainWindow!.AssetTabControls)
-			{
-				foreach (AssetRowControl rowHandler in assetTabControl.RowControls)
-				{
-					AbstractAsset asset = rowHandler.Asset;
-					UserAsset? userAsset = ModFileHandler.Instance.ModFile.Find(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
-					if (userAsset != null)
-					{
-						asset.ImportValuesFromUserAsset(userAsset);
-
-						rowHandler.UpdateGui();
-					}
-				}
-			}
+				assetTabControl.UpdateAssetTabControls(ModFileHandler.Instance.ModFile);
 		}
 
 		private void Save_Executed(object sender, ExecutedRoutedEventArgs e)

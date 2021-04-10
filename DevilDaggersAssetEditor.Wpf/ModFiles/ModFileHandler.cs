@@ -72,15 +72,15 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 
 		public void FileOpen(string path)
 		{
-			List<UserAsset>? assets = JsonFileUtils.TryDeserializeFromFile<List<UserAsset>>(path, true);
-			if (assets == null)
+			List<UserAsset>? modFile = JsonFileUtils.TryDeserializeFromFile<List<UserAsset>>(path, true);
+			if (modFile == null)
 				return;
 
 			UserHandler.Instance.Cache.OpenedModFilePath = path;
 			UpdateModFileState(path);
 			App.Instance.UpdateMainWindowTitle();
 
-			ModFile = assets;
+			ModFile = modFile;
 		}
 
 		public void FileSave()
@@ -142,7 +142,7 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 				}
 			}
 
-			List<UserAsset> assets = new();
+			List<UserAsset> modFile = new();
 
 			foreach (string filePath in Directory.GetFiles(path, "*.*", SearchOption.AllDirectories))
 			{
@@ -153,11 +153,11 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 
 				if (assetType == AssetType.Shader)
 				{
-					if (!assets.Any(a => a.AssetType == AssetType.Shader && a.AssetName == name))
+					if (!modFile.Any(a => a.AssetType == AssetType.Shader && a.AssetName == name))
 					{
 						string normalizedPath = filePath.TrimEnd("_vertex.glsl").TrimEnd("_fragment.glsl");
 
-						assets.Add(new ShaderUserAsset(
+						modFile.Add(new ShaderUserAsset(
 							name.TrimEnd("_vertex").TrimEnd("_fragment"),
 							$"{normalizedPath}_vertex.glsl",
 							$"{normalizedPath}_fragment.glsl"));
@@ -168,16 +168,16 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 					float loudness = 1;
 					if (loudnessValues.ContainsKey(name))
 						loudness = loudnessValues[name];
-					assets.Add(new AudioUserAsset(name, filePath, loudness));
+					modFile.Add(new AudioUserAsset(name, filePath, loudness));
 				}
 				else
 				{
-					assets.Add(new UserAsset(assetType.Value, name, filePath));
+					modFile.Add(new UserAsset(assetType.Value, name, filePath));
 				}
 			}
 
 			string folderName = new DirectoryInfo(path).Name;
-			JsonFileUtils.SerializeToFile(Path.Combine(path, $"{folderName}.ddae"), assets, true);
+			JsonFileUtils.SerializeToFile(Path.Combine(path, $"{folderName}.ddae"), modFile, true);
 		}
 	}
 }

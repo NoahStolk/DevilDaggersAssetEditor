@@ -192,14 +192,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void UpdateTagHighlighting()
 		{
-			foreach (AssetRowControl rowHandler in RowControls.Where(a => a.IsActive))
-				rowHandler.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
+			foreach (AssetRowControl assetRowControl in RowControls.Where(a => a.IsActive))
+				assetRowControl.UpdateTagHighlighting(CheckedFilters, FilterHighlightColor);
 		}
 
 		public void SetAssetEditorBackgroundColors(ItemCollection items)
 		{
-			foreach (AssetRowControl rowHandler in RowControls.Where(a => a.IsActive))
-				rowHandler.UpdateBackgroundRectangleColors(items.IndexOf(rowHandler) % 2 == 0);
+			foreach (AssetRowControl assetRowControl in RowControls.Where(a => a.IsActive))
+				assetRowControl.UpdateBackgroundRectangleColors(items.IndexOf(assetRowControl) % 2 == 0);
 		}
 
 		public void SelectAsset(AbstractAsset asset)
@@ -220,15 +220,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					assetName = assetName.TrimEnd("_fragment").TrimEnd("_vertex");
 				}
 
-				AssetRowControl? rowControl = RowControls.Find(a => a.Asset.AssetName == assetName);
-				if (rowControl == null)
+				AssetRowControl? assetRowControl = RowControls.Find(a => a.Asset.AssetName == assetName);
+				if (assetRowControl == null)
 					continue;
 
-				if (isFragmentShader && rowControl.Asset is ShaderAsset shaderAsset)
+				if (isFragmentShader && assetRowControl.Asset is ShaderAsset shaderAsset)
 					shaderAsset.EditorPathFragmentShader = filePath;
 				else
-					rowControl.Asset.EditorPath = filePath;
-				rowControl.UpdateGui();
+					assetRowControl.Asset.EditorPath = filePath;
+				assetRowControl.UpdateGui();
 			}
 		}
 
@@ -249,17 +249,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			ApplyFilter(GetFilterOperation());
 
-			foreach (AssetRowControl assetRowEntry in RowControls)
+			foreach (AssetRowControl assetRowControl in RowControls)
 			{
-				if (!assetRowEntry.IsActive)
+				if (!assetRowControl.IsActive)
 				{
-					if (AssetEditor.Items.Contains(assetRowEntry))
-						AssetEditor.Items.Remove(assetRowEntry);
+					if (AssetEditor.Items.Contains(assetRowControl))
+						AssetEditor.Items.Remove(assetRowControl);
 				}
 				else
 				{
-					if (!AssetEditor.Items.Contains(assetRowEntry))
-						AssetEditor.Items.Add(assetRowEntry);
+					if (!AssetEditor.Items.Contains(assetRowControl))
+						AssetEditor.Items.Add(assetRowControl);
 				}
 			}
 
@@ -268,18 +268,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void ApplyFilter(FilterOperation filterOperation)
 		{
-			foreach (AssetRowControl rowHandler in RowControls)
+			foreach (AssetRowControl assetRowControl in RowControls)
 			{
 				if (!CheckedFilters.Any())
 				{
-					rowHandler.IsActive = true;
+					assetRowControl.IsActive = true;
 				}
 				else
 				{
-					rowHandler.IsActive = filterOperation switch
+					assetRowControl.IsActive = filterOperation switch
 					{
-						FilterOperation.And => CheckedFilters.All(t => rowHandler.Asset.Tags.Contains(t)),
-						FilterOperation.Or => rowHandler.Asset.Tags.Any(t => CheckedFilters.Contains(t)),
+						FilterOperation.And => CheckedFilters.All(t => assetRowControl.Asset.Tags.Contains(t)),
+						FilterOperation.Or => assetRowControl.Asset.Tags.Any(t => CheckedFilters.Contains(t)),
 						_ => throw new NotSupportedException($"{nameof(FilterOperation)} {filterOperation} not supported in {nameof(ApplyFilter)} method."),
 					};
 				}
@@ -291,17 +291,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public List<AbstractAsset> GetAssets()
 			=> RowControls.ConvertAll(a => a.Asset);
 
-		public void UpdateAssetTabControls(List<UserAsset> userAssets)
+		public void UpdateAssetTabControls(List<UserAsset> modFile)
 		{
-			foreach (AssetRowControl rowControl in RowControls)
+			foreach (AssetRowControl assetRowControl in RowControls)
 			{
-				AbstractAsset asset = rowControl.Asset;
-				UserAsset? userAsset = userAssets.Find(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
+				AbstractAsset asset = assetRowControl.Asset;
+				UserAsset? userAsset = modFile.Find(a => a.AssetName == asset.AssetName && a.AssetType == asset.AssetType);
 				if (userAsset != null)
 				{
 					asset.ImportValuesFromUserAsset(userAsset);
 
-					rowControl.UpdateGui();
+					assetRowControl.UpdateGui();
 				}
 			}
 		}
