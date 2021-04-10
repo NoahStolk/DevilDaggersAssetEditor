@@ -15,12 +15,10 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
@@ -109,6 +107,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public double DescriptionSize { get; private set; }
 		public double TagsSize { get; private set; }
 
+		public bool HasLoaded { get; private set; }
+
 		public bool HasAnyAudioFiles()
 			=> AudioAudioAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
 
@@ -123,6 +123,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
+			ModFileHandler.Instance.FileOpen(UserHandler.Instance.Cache.OpenedModFilePath);
+			ModFileHandler.Instance.UpdateModFileState(UserHandler.Instance.Cache.OpenedModFilePath);
+
 			AudioAudioAssetTabControl = new(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
 			CoreShadersAssetTabControl = new(BinaryFileType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
 			DdModelBindingsAssetTabControl = new(BinaryFileType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
@@ -150,26 +153,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				updateRecommendedWindow.ShowDialog();
 			}
 
-			// After the window has loaded, some user controls still need to finish loading, so set a timer to make sure everything has loaded.
-			// TODO: Find a better way to do this.
-			DispatcherTimer timer = new() { Interval = new(0, 0, 0, 0, 10) };
-			timer.Tick += (sender, e) =>
-			{
-				if (File.Exists(UserHandler.Instance.Cache.OpenedModFilePath))
-				{
-					ModFileHandler.Instance.FileOpen(UserHandler.Instance.Cache.OpenedModFilePath);
-					if (ModFileHandler.Instance.ModFile.Count > 0)
-					{
-						foreach (AssetTabControl assetTabControl in AssetTabControls)
-							assetTabControl.UpdateAssetTabControls(ModFileHandler.Instance.ModFile);
-					}
-
-					ModFileHandler.Instance.UpdateModFileState(UserHandler.Instance.Cache.OpenedModFilePath);
-				}
-
-				timer.Stop();
-			};
-			timer.Start();
+			HasLoaded = true;
 		}
 
 		#region Events

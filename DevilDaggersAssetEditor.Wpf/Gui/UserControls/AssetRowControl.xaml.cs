@@ -53,8 +53,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			_brushEditEven = new(colorEditEven);
 			_brushEditOdd = new(colorEditOdd);
 
-			UpdateGui();
-
 			Panel.SetZIndex(RectangleInfo, -1);
 			Grid.SetColumnSpan(RectangleInfo, 4);
 			Grid.SetRowSpan(RectangleInfo, 2);
@@ -198,7 +196,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (isValid)
 			{
 				_audioAsset.Loudness = loudness;
-				ModFileHandler.Instance.HasUnsavedChanges = true;
+				ModFileHandler.Instance.HasUnsavedChanges = App.Instance.MainWindow!.HasLoaded;
 			}
 		}
 	}

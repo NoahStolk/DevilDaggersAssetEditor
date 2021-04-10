@@ -2,7 +2,9 @@
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
+using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Extensions;
 using DevilDaggersCore.Wpf.Extensions;
@@ -33,13 +35,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			AssetType = assetType;
 
-			List<AbstractAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, assetTypeJsonFileName).ToList();
+			List<AbstractAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, assetTypeJsonFileName);
 
 			int i = 0;
 			foreach (AbstractAsset asset in assets)
 			{
-				AssetRowControl rowHandler = new(asset, assetType, i++ % 2 == 0, openDialogFilter);
-				RowControls.Add(rowHandler);
+				AssetRowControl assetRowControl = new(asset, assetType, i++ % 2 == 0, openDialogFilter);
+				UserAsset? userAsset = ModFileHandler.Instance.ModFile.Find(ua => ua.AssetType == assetType && ua.AssetName == asset.AssetName);
+				assetRowControl.SetPath(false, userAsset?.EditorPath ?? GuiUtils.FileNotFound);
+				if (asset.AssetType == AssetType.Shader && userAsset is ShaderUserAsset shaderUserAsset)
+					assetRowControl.SetPath(true, shaderUserAsset?.EditorPathFragmentShader ?? GuiUtils.FileNotFound);
+
+				assetRowControl.UpdateGui();
+				RowControls.Add(assetRowControl);
 			}
 
 			AllFilters = RowControls.Select(a => a.Asset).SelectMany(a => a.Tags ?? new()).Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(s => s);
