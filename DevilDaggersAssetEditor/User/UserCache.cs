@@ -23,5 +23,14 @@ namespace DevilDaggersAssetEditor.User
 		public bool WindowIsFullScreen { get; set; }
 		[JsonProperty]
 		public bool AudioPlayerIsAutoplayEnabled { get; set; }
+
+		[JsonProperty]
+		public string MakeBinaryName { get; set; } = string.Empty;
+		[JsonProperty]
+		public string MakeBinaryAudioName { get; set; } = string.Empty;
+		[JsonProperty]
+		public string MakeBinaryCoreName { get; set; } = string.Empty;
+		[JsonProperty]
+		public string MakeBinaryDdName { get; set; } = string.Empty;
 	}
 }

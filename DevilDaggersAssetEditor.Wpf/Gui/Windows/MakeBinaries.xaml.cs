@@ -1,9 +1,11 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,9 +25,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			InitializeComponent();
 
-			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles());
-			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles());
-			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles());
+			TextBoxModName.Text = UserHandler.Instance.Cache.MakeBinaryName;
+
+			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles(), UserHandler.Instance.Cache.MakeBinaryAudioName);
+			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles(), UserHandler.Instance.Cache.MakeBinaryCoreName);
+			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles(), UserHandler.Instance.Cache.MakeBinaryDdName);
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
@@ -101,6 +105,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public void UpdateButtonMakeBinaries()
 		{
 			ButtonMakeBinaries.IsEnabled = _controls.Any(c => c.CheckBoxEnable.IsChecked() && !string.IsNullOrWhiteSpace(c.OutputPath));
+		}
+
+		private void Window_Closing(object sender, CancelEventArgs e)
+		{
+			UserHandler.Instance.Cache.MakeBinaryAudioName = _audioControl.BinaryName;
+			UserHandler.Instance.Cache.MakeBinaryCoreName = _coreControl.BinaryName;
+			UserHandler.Instance.Cache.MakeBinaryDdName = _ddControl.BinaryName;
+			UserHandler.Instance.Cache.MakeBinaryName = TextBoxModName.Text;
 		}
 	}
 }
