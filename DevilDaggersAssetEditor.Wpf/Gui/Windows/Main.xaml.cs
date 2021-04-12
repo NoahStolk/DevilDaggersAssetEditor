@@ -258,10 +258,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		}
 
 		private void Help_Click(object sender, RoutedEventArgs e)
-		{
-			HelpWindow helpWindow = new();
-			helpWindow.ShowDialog();
-		}
+			=> ProcessUtils.OpenUrl("https://devildaggers.info/Wiki/Guides/AssetEditor");
 
 		private void About_Click(object sender, RoutedEventArgs e)
 		{
