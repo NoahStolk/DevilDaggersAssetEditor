@@ -15,22 +15,22 @@ namespace DevilDaggersAssetEditor.Assets
 		private AssetHandler()
 		{
 			using StreamReader srAudioAudio = new(AssemblyUtils.GetContentStream("audio.Audio.json"));
-			AudioAudioAssets = JsonConvert.DeserializeObject<List<AudioAsset>>(srAudioAudio.ReadToEnd());
+			AudioAudioAssets = JsonConvert.DeserializeObject<List<AudioAsset>>(srAudioAudio.ReadToEnd()) ?? throw new("Corrupt audio.Audio.json.");
 
 			using StreamReader srCoreShaders = new(AssemblyUtils.GetContentStream("core.Shaders.json"));
-			CoreShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srCoreShaders.ReadToEnd());
+			CoreShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srCoreShaders.ReadToEnd()) ?? throw new("Corrupt core.Shaders.json.");
 
 			using StreamReader srDdModelBindings = new(AssemblyUtils.GetContentStream("dd.Model Bindings.json"));
-			DdModelBindingsAssets = JsonConvert.DeserializeObject<List<ModelBindingAsset>>(srDdModelBindings.ReadToEnd());
+			DdModelBindingsAssets = JsonConvert.DeserializeObject<List<ModelBindingAsset>>(srDdModelBindings.ReadToEnd()) ?? throw new("Corrupt dd.Model Bindings.json.");
 
 			using StreamReader srDdModels = new(AssemblyUtils.GetContentStream("dd.Models.json"));
-			DdModelsAssets = JsonConvert.DeserializeObject<List<ModelAsset>>(srDdModels.ReadToEnd());
+			DdModelsAssets = JsonConvert.DeserializeObject<List<ModelAsset>>(srDdModels.ReadToEnd()) ?? throw new("Corrupt dd.Models.json.");
 
 			using StreamReader srDdShaders = new(AssemblyUtils.GetContentStream("dd.Shaders.json"));
-			DdShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srDdShaders.ReadToEnd());
+			DdShadersAssets = JsonConvert.DeserializeObject<List<ShaderAsset>>(srDdShaders.ReadToEnd()) ?? throw new("Corrupt dd.Shaders.json.");
 
 			using StreamReader srDdTextures = new(AssemblyUtils.GetContentStream("dd.Textures.json"));
-			DdTexturesAssets = JsonConvert.DeserializeObject<List<TextureAsset>>(srDdTextures.ReadToEnd());
+			DdTexturesAssets = JsonConvert.DeserializeObject<List<TextureAsset>>(srDdTextures.ReadToEnd()) ?? throw new("Corrupt dd.Textures.json.");
 		}
 
 		public static AssetHandler Instance => _lazy.Value;

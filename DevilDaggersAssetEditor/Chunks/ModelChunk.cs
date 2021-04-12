@@ -26,7 +26,7 @@ namespace DevilDaggersAssetEditor.Chunks
 		private static Dictionary<string, byte[]> GetClosures()
 		{
 			using StreamReader sr = new(AssemblyUtils.GetContentStream("ModelClosures.json"));
-			return JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd());
+			return JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd()) ?? throw new("Corrupt ModelClosures.json.");
 		}
 
 		private static float ParseVertexValue(string value)
