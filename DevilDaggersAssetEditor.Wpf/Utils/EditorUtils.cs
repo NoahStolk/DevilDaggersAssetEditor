@@ -6,7 +6,7 @@ namespace DevilDaggersAssetEditor.Wpf.Utils
 	public static class EditorUtils
 	{
 		public static Uri MakeUri(string localPath)
-			=> new Uri($"pack://application:,,,/{Assembly.GetCallingAssembly().GetName().Name};component/{localPath}");
+			=> new($"pack://application:,,,/{Assembly.GetCallingAssembly().GetName().Name};component/{localPath}");
 
 		public static string ToTimeString(int milliseconds)
 		{

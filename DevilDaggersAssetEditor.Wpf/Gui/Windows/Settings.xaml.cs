@@ -1,27 +1,18 @@
 ﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
-using DevilDaggersAssetEditor.Wpf.Native;
 using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using Ookii.Dialogs.Wpf;
-using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Interop;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
 	public partial class SettingsWindow : Window
 	{
-#pragma warning disable IDE1006, SA1310 // Field names should not contain underscore
-		private const int GWL_STYLE = -16;
-		private const int WS_SYSMENU = 0x80000;
-#pragma warning restore IDE1006, SA1310 // Field names should not contain underscore
-
 		public SettingsWindow()
 		{
 			InitializeComponent();
@@ -42,23 +33,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			TextBoxTextureSizeLimit.Text = UserHandler.Instance.Settings.TextureSizeLimit.ToString();
 		}
 
-		private void Window_Loaded(object sender, RoutedEventArgs e)
-		{
-			// Removes Exit button.
-			IntPtr hwnd = new WindowInteropHelper(this).Handle;
-			_ = NativeMethods.SetWindowLong(hwnd, GWL_STYLE, NativeMethods.GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
-		}
-
-		private void Window_Closing(object sender, CancelEventArgs e)
-		{
-			// Prevents Alt F4 from closing the window.
-			if (!DialogResult.HasValue || !DialogResult.Value)
-				e.Cancel = true;
-		}
-
 		private void Browse(Label label)
 		{
-			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog();
+			VistaFolderBrowserDialog dialog = new();
 			dialog.OpenDirectory(true, label.Content.ToString());
 
 			if (dialog.ShowDialog() == true)
