@@ -10,7 +10,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			InitializeComponent();
 
-			VersionLabel.Content = $"Version {App.LocalVersion}";
+			VersionLabel.Text = $"Version {App.LocalVersion}";
 		}
 
 		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

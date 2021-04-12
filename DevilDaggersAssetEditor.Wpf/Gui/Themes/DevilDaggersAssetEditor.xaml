@@ -56,6 +56,14 @@
 		</Style.Setters>
 	</Style>
 
+	<Style TargetType="TextBlock" x:Key="TitleTextBlock">
+		<Style.Setters>
+			<Setter Property="FontSize" Value="20" />
+			<Setter Property="Margin" Value="4" />
+			<Setter Property="Foreground" Value="{StaticResource Text}" />
+		</Style.Setters>
+	</Style>
+
 	<Style TargetType="TextBlock" x:Key="AssetTextBlock">
 		<Style.Setters>
 			<Setter Property="Margin" Value="2" />

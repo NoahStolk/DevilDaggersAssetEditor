@@ -21,11 +21,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			InitializeComponent();
 
-			VersionLabel.Content = $"Version {App.LocalVersion}";
+			VersionLabel.Text = $"Version {App.LocalVersion}";
 
 #if DEBUG
 			VersionLabel.Background = ColorUtils.ThemeColors["SuccessText"];
-			VersionLabel.Content += " DEBUG";
+			VersionLabel.Text += " DEBUG";
 #endif
 
 			Loaded += RunThreads;

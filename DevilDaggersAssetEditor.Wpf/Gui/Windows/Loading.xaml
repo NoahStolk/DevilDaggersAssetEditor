@@ -7,10 +7,10 @@
         Title="Loading..." Height="750" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 	<StackPanel Style="{StaticResource PaddingStackPanel}">
 		<Image Style="{StaticResource Logo}" />
-		<Label Style="{StaticResource TitleLabel}" HorizontalAlignment="Center">Devil Daggers Asset Editor</Label>
-		<Label Style="{StaticResource TitleLabel}" HorizontalAlignment="Center" Name="VersionLabel" />
+		<TextBlock Style="{StaticResource TitleTextBlock}" HorizontalAlignment="Center">Devil Daggers Asset Editor</TextBlock>
+		<TextBlock Style="{StaticResource TitleTextBlock}" HorizontalAlignment="Center" Name="VersionLabel" />
 		<Label HorizontalAlignment="Center">Developed by Noah Stolk</Label>
-		<Label Style="{StaticResource TitleLabel}" HorizontalAlignment="Center">Loading...</Label>
+		<TextBlock Style="{StaticResource TitleTextBlock}" HorizontalAlignment="Center">Loading...</TextBlock>
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />

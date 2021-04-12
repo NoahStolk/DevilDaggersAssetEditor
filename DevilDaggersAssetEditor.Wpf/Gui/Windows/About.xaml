@@ -7,8 +7,8 @@
         Title="About" Height="384" Width="384" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 	<StackPanel Style="{StaticResource PaddingStackPanel}">
 		<Image Style="{StaticResource Logo}" />
-		<Label Style="{StaticResource TitleLabel}" HorizontalAlignment="Center">Devil Daggers Asset Editor</Label>
-		<Label Style="{StaticResource TitleLabel}" HorizontalAlignment="Center" Name="VersionLabel" />
+		<TextBlock Style="{StaticResource TitleTextBlock}" HorizontalAlignment="Center">Devil Daggers Asset Editor</TextBlock>
+		<TextBlock Style="{StaticResource TitleTextBlock}" HorizontalAlignment="Center" Name="VersionLabel" />
 		<Label HorizontalAlignment="Center">Developed by Noah Stolk</Label>
 		<Label HorizontalAlignment="Center">
 			<Hyperlink NavigateUri="http://www.noahstolk.com" RequestNavigate="Hyperlink_RequestNavigate">
