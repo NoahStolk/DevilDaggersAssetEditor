@@ -106,7 +106,7 @@
 	},
 	{
 		"AssetName": "gib",
-		"Description": "Gems (Including enemies gems)",
+		"Description": "Gems (including gems on enemies)",
 		"Tags": [
 			"?"
 		]
