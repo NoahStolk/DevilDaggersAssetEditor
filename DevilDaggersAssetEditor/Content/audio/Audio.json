@@ -777,31 +777,31 @@
 		"Loudness": 40.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "eyearouse",
-		"Description": "The Orb is locating Player",
+		"Description": "Orb is locating Player",
 		"Tags": [
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 98.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "eyearousedrone",
-		"Description": "The Orb sees Player",
+		"Description": "Orb sees Player",
 		"Tags": [
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 3.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "eyehit",
-		"Description": "The Orb damage",
+		"Description": "Orb damage",
 		"Tags": [
 			"Damage",
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
@@ -1024,11 +1024,11 @@
 		"Loudness": 40.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "killeye",
-		"Description": "The Orb death",
+		"Description": "Orb death",
 		"Tags": [
 			"Death",
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
@@ -1424,18 +1424,18 @@
 		"Loudness": 200.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "leviathanbeckon",
-		"Description": "Leviathan / The Orb beckon",
+		"Description": "Leviathan / Orb beckon",
 		"Tags": [
 			"Enemy",
 			"Leviathan",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 20.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "leviathanbeckon2",
-		"Description": "Plays when a skull touches Leviathan's or The Orb's beckon ring.",
+		"Description": "Plays when a skull touches Leviathan's or Orb's beckon ring.",
 		"Tags": [
 			"Enemy",
 			"Leviathan",
@@ -1443,17 +1443,17 @@
 			"Skull II",
 			"Skull III",
 			"Skull IV",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 1.0,
 		"AssetName": "leviathantransmute",
-		"Description": "Plays when a skull is transmuted by Leviathan (and The Orb?).",
+		"Description": "Plays when a skull is transmuted by Leviathan (and Orb?).",
 		"Tags": [
 			"Enemy",
 			"Leviathan",
-			"The Orb",
+			"Orb",
 			"Transmuted Skull I",
 			"Transmuted Skull II",
 			"Transmuted Skull III",
@@ -2210,55 +2210,55 @@
 		"Loudness": 4.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "shard1",
-		"Description": "The Orb shard bounce on floor",
+		"Description": "Orb shard bounce on floor",
 		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 4.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "shard2",
-		"Description": "The Orb shard bounce on floor",
+		"Description": "Orb shard bounce on floor",
 		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 4.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "shard3",
-		"Description": "The Orb shard bounce on floor",
+		"Description": "Orb shard bounce on floor",
 		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 4.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "shard4",
-		"Description": "The Orb shard bounce on floor",
+		"Description": "Orb shard bounce on floor",
 		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
 		"Loudness": 4.0,
 		"PresentInDefaultLoudness": true,
 		"AssetName": "shard5",
-		"Description": "The Orb shard bounce on floor",
+		"Description": "Orb shard bounce on floor",
 		"IsProhibited": true,
 		"Tags": [
 			"Enemy",
-			"The Orb"
+			"Orb"
 		]
 	},
 	{
