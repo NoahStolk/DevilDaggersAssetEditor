@@ -10,7 +10,6 @@ using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -187,7 +186,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void TextBoxLoudness_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			Debug.Assert(_audioAsset != null, $"Should not be able to edit {nameof(TextBoxLoudness)} when asset is not an audio asset.");
+			if (_audioAsset == null)
+				return;
+
 			bool isValid = float.TryParse(TextBoxLoudness.Text, out float loudness) && loudness >= 0;
 
 			TextBoxLoudness.Background = isValid ? ColorUtils.ThemeColors["Gray2"] : ColorUtils.ThemeColors["ErrorBackground"];
