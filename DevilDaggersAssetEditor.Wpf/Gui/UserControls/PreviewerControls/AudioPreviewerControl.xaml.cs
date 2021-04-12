@@ -15,7 +15,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 {
 	public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 	{
-		private readonly ISoundEngine _engine = new ISoundEngine();
+		private readonly ISoundEngine _engine = new();
 
 		public AudioPreviewerControl()
 		{
