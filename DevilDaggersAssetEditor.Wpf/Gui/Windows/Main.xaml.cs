@@ -247,8 +247,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void AnalyzeBinaryFile_Click(object sender, RoutedEventArgs e)
 		{
-			BinaryFileAnalyzerWindow fileAnalyzerWindow = new();
-			fileAnalyzerWindow.ShowDialog();
+			BinaryFileAnalyzerWindow window = new();
+			window.ShowDialog();
+		}
+
+		private void TrimBinaryFile_Click(object sender, RoutedEventArgs e)
+		{
+			TrimBinaryWindow window = new();
+			window.ShowDialog();
 		}
 
 		private void Help_Click(object sender, RoutedEventArgs e)

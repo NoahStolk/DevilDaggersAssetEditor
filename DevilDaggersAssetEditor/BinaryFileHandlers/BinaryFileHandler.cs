@@ -136,13 +136,13 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			tocBuffer = tocStream.ToArray();
 		}
 
-		private static byte[] CreateAssetStream(List<Chunk> chunks, byte[] tocBuffer, Dictionary<Chunk, long> startOffsetBytePositions, ProgressWrapper progress)
+		public static byte[] CreateAssetStream(List<Chunk> chunks, byte[] tocBuffer, Dictionary<Chunk, long> startOffsetBytePositions, ProgressWrapper? progress)
 		{
 			using MemoryStream assetStream = new();
 			int i = 0;
 			foreach (Chunk chunk in chunks)
 			{
-				progress.Report($"Writing file contents of \"{chunk.Name}\" to file.", 0.5f + i++ / (float)chunks.Count / 2);
+				progress?.Report($"Writing file contents of \"{chunk.Name}\" to file.", 0.5f + i++ / (float)chunks.Count / 2);
 
 				uint startOffset = (uint)(HeaderSize + tocBuffer.Length + assetStream.Position);
 				chunk.StartOffset = startOffset;

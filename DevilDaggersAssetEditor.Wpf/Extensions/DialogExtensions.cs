@@ -13,6 +13,12 @@ namespace DevilDaggersAssetEditor.Wpf.Extensions
 		public static void OpenDevilDaggersRootFolder(this FileDialog folderDialog)
 			=> folderDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, UserHandler.Instance.Settings.DevilDaggersRootFolder);
 
+		public static void OpenDevilDaggersModsFolder(this VistaFolderBrowserDialog folderDialog)
+			=> folderDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods"));
+
+		public static void OpenDevilDaggersModsFolder(this FileDialog folderDialog)
+			=> folderDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods"));
+
 		public static void OpenModsRootFolder(this VistaFolderBrowserDialog folderDialog)
 			=> folderDialog.OpenDirectory(UserHandler.Instance.Settings.EnableModsRootFolder, UserHandler.Instance.Settings.ModsRootFolder);
 
