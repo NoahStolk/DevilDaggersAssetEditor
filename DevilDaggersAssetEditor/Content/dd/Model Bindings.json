@@ -10,7 +10,11 @@
 		"AssetName": "boid",
 		"Description": "Pede heads and tail / Spiders pedipalps",
 		"Tags": [
-			"?"
+			"Spider I",
+			"Spider II",
+			"Centipede",
+			"Gigapede",
+			"Ghostpede"
 		]
 	},
 	{
@@ -24,203 +28,227 @@
 		"AssetName": "dagger",
 		"Description": "Pleb lobby dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Pleb"
 		]
 	},
 	{
 		"AssetName": "dagger1",
 		"Description": "Level 1 dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Level 1"
 		]
 	},
 	{
 		"AssetName": "dagger2",
 		"Description": "Level 2 dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Level 2"
 		]
 	},
 	{
 		"AssetName": "dagger3",
 		"Description": "Level 3 regular dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Level 3"
 		]
 	},
 	{
 		"AssetName": "dagger4",
 		"Description": "Level 3 homing dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Level 3",
+			"Homing"
 		]
 	},
 	{
 		"AssetName": "dagger5",
 		"Description": "Level 4 regular dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Level 4"
 		]
 	},
 	{
 		"AssetName": "dagger6",
 		"Description": "Level 4 homing dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Level 4",
+			"Homing"
 		]
 	},
 	{
 		"AssetName": "daggerbronze",
 		"Description": "Bronze lobby dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Bronze"
 		]
 	},
 	{
 		"AssetName": "daggerdevil",
 		"Description": "Devil lobby dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Devil"
 		]
 	},
 	{
 		"AssetName": "daggergold",
 		"Description": "Golden lobby dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Golden"
 		]
 	},
 	{
 		"AssetName": "daggerlevi",
 		"Description": "Leviathan lobby dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Leviathan"
 		]
 	},
 	{
 		"AssetName": "daggersilver",
 		"Description": "Silver lobby dagger",
 		"Tags": [
-			"?"
+			"Dagger",
+			"Silver"
 		]
 	},
 	{
 		"AssetName": "gib",
 		"Description": "Gems (including gems on enemies)",
 		"Tags": [
-			"?"
+			"Gem"
 		]
 	},
 	{
 		"AssetName": "gibegg",
 		"Description": "Blinking effect of gems close to active spiders",
 		"Tags": [
-			"?"
+			"Gem"
 		]
 	},
 	{
 		"AssetName": "gigaegg",
-		"Description": "Spider 2 egg goo",
+		"Description": "Spider II egg goo",
 		"Tags": [
-			"?"
+			"Spider Egg II",
+			"Goo"
 		]
 	},
 	{
 		"AssetName": "hand",
 		"Description": "Level 1 hand",
 		"Tags": [
-			"?"
+			"Hand",
+			"Level 1"
 		]
 	},
 	{
 		"AssetName": "hand0",
 		"Description": "Lobby hand",
 		"Tags": [
-			"?"
+			"Hand"
 		]
 	},
 	{
 		"AssetName": "hand2",
 		"Description": "Level 2 hand",
 		"Tags": [
-			"?"
+			"Hand",
+			"Level 2"
 		]
 	},
 	{
 		"AssetName": "hand3",
 		"Description": "Level 3 hand",
 		"Tags": [
-			"?"
+			"Hand",
+			"Level 3"
 		]
 	},
 	{
 		"AssetName": "hand4",
 		"Description": "Level 3 hand flash",
 		"Tags": [
-			"?"
+			"Hand",
+			"Level 3"
 		]
 	},
 	{
 		"AssetName": "hand5",
 		"Description": "Level 4 hand",
 		"Tags": [
-			"?"
+			"Hand",
+			"Level 4"
 		]
 	},
 	{
 		"AssetName": "hand6",
 		"Description": "Level 4 hand flash",
 		"Tags": [
-			"?"
+			"Hand",
+			"Level 4"
 		]
 	},
 	{
 		"AssetName": "immortaleye",
 		"Description": "Orb",
 		"Tags": [
-			"?"
+			"Orb"
 		]
 	},
 	{
 		"AssetName": "immortaleyehit",
 		"Description": "Orb damage",
 		"Tags": [
-			"?"
+			"Orb",
+			"Damage"
 		]
 	},
 	{
 		"AssetName": "levitent",
 		"Description": "Leviathan antlers",
 		"Tags": [
-			"?"
+			"Leviathan"
 		]
 	},
 	{
 		"AssetName": "levitentgib",
 		"Description": "Leviathan antlers death",
 		"Tags": [
-			"?"
+			"Leviathan",
+			"Death"
 		]
 	},
 	{
 		"AssetName": "levitenthit",
 		"Description": "Leviathan antlers damage",
 		"Tags": [
-			"?"
+			"Leviathan",
+			"Damage"
 		]
 	},
 	{
 		"AssetName": "leviwarp",
 		"Description": "Leviathan antlers and divider skulls spawn effect",
 		"Tags": [
-			"?"
+			"Leviathan"
 		]
 	},
 	{
 		"AssetName": "leviwarp2",
 		"Description": "Leviathan skybox effect",
 		"Tags": [
-			"?"
+			"Leviathan"
 		]
 	},
 	{
@@ -234,21 +262,21 @@
 		"AssetName": "logodagger",
 		"Description": "Title screen dagger",
 		"Tags": [
-			"?"
+			"Title"
 		]
 	},
 	{
 		"AssetName": "logohand",
 		"Description": "Title screen hand",
 		"Tags": [
-			"?"
+			"Title"
 		]
 	},
 	{
 		"AssetName": "logotext",
 		"Description": "Title",
 		"Tags": [
-			"?"
+			"Title"
 		]
 	},
 	{
@@ -346,28 +374,31 @@
 		"AssetName": "sorathlogo",
 		"Description": "Splash screen logo",
 		"Tags": [
-			"?"
+			"Splash screen"
 		]
 	},
 	{
 		"AssetName": "spideregg1",
-		"Description": "Spider 1 egg goo",
+		"Description": "Spider I egg goo",
 		"Tags": [
-			"?"
+			"Spider Egg I",
+			"Goo"
 		]
 	},
 	{
 		"AssetName": "spideregg2",
-		"Description": "Spider 1 and 2 egg",
+		"Description": "Spider I and II egg",
 		"Tags": [
-			"?"
+			"Spider Egg I",
+			"Spider Egg II"
 		]
 	},
 	{
 		"AssetName": "spidereggflash",
 		"Description": "Flashing effect of spider eggs near hatching",
 		"Tags": [
-			"?"
+			"Spider Egg I",
+			"Spider Egg II"
 		]
 	},
 	{
@@ -416,14 +447,14 @@
 		"AssetName": "thorn",
 		"Description": "Thorn (excluding rubble)",
 		"Tags": [
-			"?"
+			"Thorn"
 		]
 	},
 	{
 		"AssetName": "thornhit",
 		"Description": "Thorn damage (excluding rubble)",
 		"Tags": [
-			"?"
+			"Thorn"
 		]
 	},
 	{
