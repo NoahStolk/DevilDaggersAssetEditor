@@ -9,7 +9,7 @@
 		<StackPanel Margin="6" Background="{StaticResource Gray3}">
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
 				<TextBlock Style="{StaticResource ParagraphTextBlock}">
-					With this tool you can easily remove unwanted assets from your binary by comparing it against another binary. If a file is present and identical in both binaries, it will be excluded in the final binary.
+					With this tool you can easily remove unwanted assets from your binary by comparing it against another binary. If a file is present and identical in both binaries, it will be excluded in the trimmed binary.
 				</TextBlock>
 				<TextBlock Style="{StaticResource ParagraphTextBlock}">
 					This is particularly useful for binaries that were compiled before Devil Daggers V3.1 came out. Back then, partial mods were not supported. With this tool you can make your old binary file a lot smaller by leaving out all the unchanged assets, which can be done by comparing it against the original binary.
