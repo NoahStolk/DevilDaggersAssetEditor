@@ -263,6 +263,7 @@
 		"DefaultVertexCount": 67,
 		"AssetName": "feather1",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
@@ -272,6 +273,7 @@
 		"DefaultVertexCount": 47,
 		"AssetName": "feather2",
 		"Description": "?",
+		"IsProhibited": true,
 		"Tags": [
 			"?"
 		]
