@@ -225,8 +225,6 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			List<Chunk> chunks = new();
 
 			int i = 0;
-
-			// TODO: Might still get out of range maybe... (14 bytes per chunk, but name length is variable)
 			while (i < tocBuffer.Length - 14)
 			{
 				byte type = tocBuffer[i];
@@ -238,17 +236,17 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 				i += 14;
 
 				AssetType? assetType = type.GetAssetType();
-				if (assetType.HasValue)
+				if (!assetType.HasValue)
+					continue;
+
+				Chunk chunk = assetType switch
 				{
-					Chunk chunk = assetType switch
-					{
-						AssetType.Model => new ModelChunk(name, startOffset, size),
-						AssetType.Shader => new ShaderChunk(name, startOffset, size),
-						AssetType.Texture => new TextureChunk(name, startOffset, size),
-						_ => new Chunk(assetType.Value, name, startOffset, size),
-					};
-					chunks.Add(chunk);
-				}
+					AssetType.Model => new ModelChunk(name, startOffset, size),
+					AssetType.Shader => new ShaderChunk(name, startOffset, size),
+					AssetType.Texture => new TextureChunk(name, startOffset, size),
+					_ => new Chunk(assetType.Value, name, startOffset, size),
+				};
+				chunks.Add(chunk);
 			}
 
 			return chunks;
