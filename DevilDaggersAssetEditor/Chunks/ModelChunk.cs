@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Utils;
+using DevilDaggersCore.Mods;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

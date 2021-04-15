@@ -1,10 +1,10 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileAnalyzer;
+﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System.Collections.Generic;

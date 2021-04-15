@@ -1,6 +1,6 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
-using Newtonsoft.Json;
+using DevilDaggersCore.Mods;
 using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
@@ -18,7 +18,6 @@ namespace DevilDaggersAssetEditor.Assets
 
 		public string AssetName { get; }
 
-		[JsonIgnore]
 		public AssetType AssetType { get; }
 
 		public string Description { get; }
@@ -27,7 +26,6 @@ namespace DevilDaggersAssetEditor.Assets
 
 		public List<string> Tags { get; }
 
-		[JsonIgnore]
 		public string EditorPath { get; set; } = GuiUtils.FileNotFound;
 
 		public abstract UserAsset ToUserAsset();

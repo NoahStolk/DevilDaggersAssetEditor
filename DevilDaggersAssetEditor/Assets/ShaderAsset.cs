@@ -1,6 +1,6 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
-using Newtonsoft.Json;
+using DevilDaggersCore.Mods;
 using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
@@ -12,7 +12,6 @@ namespace DevilDaggersAssetEditor.Assets
 		{
 		}
 
-		[JsonIgnore]
 		public string EditorPathFragmentShader { get; set; } = GuiUtils.FileNotFound;
 
 		public override UserAsset ToUserAsset()

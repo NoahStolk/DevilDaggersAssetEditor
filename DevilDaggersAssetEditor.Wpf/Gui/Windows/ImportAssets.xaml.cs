@@ -1,5 +1,5 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+﻿using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using System.Collections.Generic;
 using System.IO;

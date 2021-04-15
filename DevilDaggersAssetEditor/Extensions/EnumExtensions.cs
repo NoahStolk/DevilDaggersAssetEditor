@@ -1,5 +1,5 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersCore.Mods;
 using System;
 
 namespace DevilDaggersAssetEditor.Extensions

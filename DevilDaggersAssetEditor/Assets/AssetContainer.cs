@@ -1,0 +1,48 @@
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersCore.Mods;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DevilDaggersAssetEditor.Assets
+{
+	public sealed class AssetContainer
+	{
+		private static readonly Lazy<AssetContainer> _lazy = new(() => new());
+
+		private AssetContainer()
+		{
+			AudioAudioAssets = AssetHandler.Instance.AudioAudioAssets.ConvertAll(a => new AudioAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags, a.DefaultLoudness, a.PresentInDefaultLoudness));
+			CoreShadersAssets = AssetHandler.Instance.CoreShadersAssets.ConvertAll(a => new ShaderAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags));
+			DdModelBindingsAssets = AssetHandler.Instance.DdModelBindingsAssets.ConvertAll(a => new ModelBindingAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags));
+			DdModelsAssets = AssetHandler.Instance.DdModelsAssets.ConvertAll(a => new ModelAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags, a.DefaultIndexCount, a.DefaultVertexCount));
+			DdShadersAssets = AssetHandler.Instance.DdShadersAssets.ConvertAll(a => new ShaderAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags));
+			DdTexturesAssets = AssetHandler.Instance.DdTexturesAssets.ConvertAll(a => new TextureAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags, a.DefaultWidth, a.DefaultHeight, a.IsModelTexture, a.ModelBinding));
+		}
+
+		public static AssetContainer Instance => _lazy.Value;
+
+		public List<AudioAsset> AudioAudioAssets { get; }
+		public List<ShaderAsset> CoreShadersAssets { get; }
+		public List<ModelBindingAsset> DdModelBindingsAssets { get; }
+		public List<ModelAsset> DdModelsAssets { get; }
+		public List<ShaderAsset> DdShadersAssets { get; }
+		public List<TextureAsset> DdTexturesAssets { get; }
+
+		public List<AbstractAsset> GetAssets(BinaryFileType binaryFileType, string assetType)
+		{
+			string id = $"{binaryFileType.ToString().ToLower()}.{assetType.ToLower()}";
+
+			return id switch
+			{
+				"audio.audio" => AudioAudioAssets.Cast<AbstractAsset>().ToList(),
+				"core.shaders" => CoreShadersAssets.Cast<AbstractAsset>().ToList(),
+				"dd.model bindings" => DdModelBindingsAssets.Cast<AbstractAsset>().ToList(),
+				"dd.models" => DdModelsAssets.Cast<AbstractAsset>().ToList(),
+				"dd.shaders" => DdShadersAssets.Cast<AbstractAsset>().ToList(),
+				"dd.textures" => DdTexturesAssets.Cast<AbstractAsset>().ToList(),
+				_ => throw new($"No asset data found for binary file type '{binaryFileType}' and asset type '{assetType}.'"),
+			};
+		}
+	}
+}

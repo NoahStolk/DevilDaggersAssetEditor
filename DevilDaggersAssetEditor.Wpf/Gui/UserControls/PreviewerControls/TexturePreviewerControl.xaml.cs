@@ -20,8 +20,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 				return;
 
 			TextureName.Text = textureAsset.AssetName;
-			DefaultDimensions.Content = $"{textureAsset.DefaultDimensions.X}x{textureAsset.DefaultDimensions.Y}";
-			DefaultMipmaps.Content = TextureAsset.GetMipmapCount(textureAsset.DefaultDimensions.X, textureAsset.DefaultDimensions.Y).ToString();
+			DefaultDimensions.Content = $"{textureAsset.DefaultWidth}x{textureAsset.DefaultHeight}";
+			DefaultMipmaps.Content = TextureAsset.GetMipmapCount(textureAsset.DefaultWidth, textureAsset.DefaultHeight).ToString();
 
 			bool isPathValid = File.Exists(textureAsset.EditorPath);
 

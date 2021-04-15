@@ -8,6 +8,7 @@ using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Models;
 using DevilDaggersCore.Wpf.Windows;

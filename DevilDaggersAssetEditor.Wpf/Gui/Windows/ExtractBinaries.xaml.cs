@@ -1,9 +1,9 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.ModFiles;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
 using System;

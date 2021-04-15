@@ -6,6 +6,7 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersCore.Extensions;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;

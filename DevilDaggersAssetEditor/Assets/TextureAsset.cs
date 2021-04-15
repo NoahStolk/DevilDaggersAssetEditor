@@ -1,21 +1,23 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class TextureAsset : AbstractAsset
 	{
-		public TextureAsset(string assetName, string description, bool isProhibited, List<string> tags, Point defaultDimensions, bool isModelTexture, string modelBinding)
+		public TextureAsset(string assetName, string description, bool isProhibited, List<string> tags, int defaultWidth, int defaultHeight, bool isModelTexture, string modelBinding)
 			: base(assetName, AssetType.Texture, description, isProhibited, tags)
 		{
-			DefaultDimensions = defaultDimensions;
+			DefaultWidth = defaultWidth;
+			DefaultHeight = defaultHeight;
 			IsModelTexture = isModelTexture;
 			ModelBinding = modelBinding;
 		}
 
-		public Point DefaultDimensions { get; }
+		public int DefaultWidth { get; }
+		public int DefaultHeight { get; }
 		public bool IsModelTexture { get; set; }
 		public string ModelBinding { get; set; }
 

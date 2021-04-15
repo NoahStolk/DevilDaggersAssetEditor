@@ -2,6 +2,7 @@
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Utils;
+using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -81,7 +82,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			if (loudnessValues.Count > 0)
 			{
 				// Any missing audio will need to have its default loudness included, otherwise the game will play those with loudness 1.0.
-				foreach (AudioAsset audioAsset in AssetHandler.Instance.AudioAudioAssets)
+				foreach (AudioAsset audioAsset in AssetContainer.Instance.AudioAudioAssets)
 				{
 					// Only add it to the list if it is present in the default loudness file, otherwise the game will detect prohibited mods.
 					if (audioAsset.PresentInDefaultLoudness && !loudnessValues.ContainsKey(audioAsset.AssetName))

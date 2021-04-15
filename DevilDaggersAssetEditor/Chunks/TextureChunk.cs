@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -27,7 +28,7 @@ namespace DevilDaggersAssetEditor.Chunks
 			int maxDimension = Math.Max(image.Width, image.Height);
 			int newWidth = image.Width;
 			int newHeight = image.Height;
-			if (AssetHandler.Instance.DdTexturesAssets.Find(t => t.AssetName == Name)?.IsModelTexture == true)
+			if (AssetContainer.Instance.DdTexturesAssets.Find(t => t.AssetName == Name)?.IsModelTexture == true)
 			{
 				while (maxDimension > UserHandler.Instance.Settings.TextureSizeLimit)
 				{

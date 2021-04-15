@@ -7,6 +7,7 @@ using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Extensions;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			AssetType = assetType;
 
-			List<AbstractAsset> assets = AssetHandler.Instance.GetAssets(binaryFileType, assetTypeJsonFileName);
+			List<AbstractAsset> assets = AssetContainer.Instance.GetAssets(binaryFileType, assetTypeJsonFileName);
 
 			int i = 0;
 			foreach (AbstractAsset asset in assets)

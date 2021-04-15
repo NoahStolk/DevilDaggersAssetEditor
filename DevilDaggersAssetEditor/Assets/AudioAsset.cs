@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersCore.Mods;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 

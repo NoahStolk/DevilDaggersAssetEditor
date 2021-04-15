@@ -1,9 +1,9 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using System.IO;
