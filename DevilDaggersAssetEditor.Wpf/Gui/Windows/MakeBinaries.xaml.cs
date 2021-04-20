@@ -27,9 +27,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			TextBoxModName.Text = UserHandler.Instance.Cache.MakeBinaryName;
 
-			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles(), UserHandler.Instance.Cache.MakeBinaryAudioName);
-			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles(), UserHandler.Instance.Cache.MakeBinaryCoreName);
-			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles(), UserHandler.Instance.Cache.MakeBinaryDdName);
+			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles(), UserHandler.Instance.Cache.MakeBinaryAudioName, true);
+			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles(), "core", false);
+			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles(), UserHandler.Instance.Cache.MakeBinaryDdName, true);
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
@@ -110,7 +110,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void Window_Closing(object sender, CancelEventArgs e)
 		{
 			UserHandler.Instance.Cache.MakeBinaryAudioName = _audioControl.BinaryName;
-			UserHandler.Instance.Cache.MakeBinaryCoreName = _coreControl.BinaryName;
 			UserHandler.Instance.Cache.MakeBinaryDdName = _ddControl.BinaryName;
 			UserHandler.Instance.Cache.MakeBinaryName = TextBoxModName.Text;
 		}

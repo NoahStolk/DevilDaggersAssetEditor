@@ -29,8 +29,6 @@ namespace DevilDaggersAssetEditor.User
 		[JsonProperty]
 		public string MakeBinaryAudioName { get; set; } = string.Empty;
 		[JsonProperty]
-		public string MakeBinaryCoreName { get; set; } = string.Empty;
-		[JsonProperty]
 		public string MakeBinaryDdName { get; set; } = string.Empty;
 	}
 }

@@ -19,8 +19,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private readonly MakeBinariesWindow? _parent;
 
 		private string _binaryName = string.Empty;
+		private readonly bool _supportsPartialMods;
 
-		public BinaryNameControl(MakeBinariesWindow? parent, BinaryFileType binaryFileType, AssetType assetTypeForColor, bool checkBoxIsChecked, string binaryName)
+		public BinaryNameControl(MakeBinariesWindow? parent, BinaryFileType binaryFileType, AssetType assetTypeForColor, bool checkBoxIsChecked, string binaryName, bool supportsPartialMods)
 		{
 			InitializeComponent();
 
@@ -39,6 +40,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			CheckBoxEnable.IsChecked = checkBoxIsChecked;
 
 			_binaryName = binaryName;
+			_supportsPartialMods = supportsPartialMods;
+
+			TextBoxName.IsEnabled = supportsPartialMods;
 
 			UpdateGui();
 		}
@@ -60,11 +64,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void UpdateName(string name)
 		{
-			_binaryName = name;
+			if (_supportsPartialMods)
+			{
+				_binaryName = name;
 
-			char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
-			bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Any(c => invalidFileNameChars.Contains(c));
-			OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", BinaryFileType.ToString().ToLower() + BinaryName);
+				char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
+				bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Any(c => invalidFileNameChars.Contains(c));
+				OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", BinaryFileType.ToString().ToLower() + BinaryName);
+			}
+			else
+			{
+				OutputPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.GetSubfolderName(), _binaryName);
+			}
+
 			TextBlockOutputPath.Text = OutputPath;
 		}
 
