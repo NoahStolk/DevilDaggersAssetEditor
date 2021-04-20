@@ -116,7 +116,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				rectBackground.StrokeThickness = 1;
 				rectBackground.StrokeDashArray = new DoubleCollection(new List<double> { 1, 2 });
 				rectBackground.SnapsToDevicePixels = true;
-				Label labelPercentage = new() { Content = sizePercentage.ToString("0.000%") };
+				Brush textColor = GetTextColorBasedOnBackgroundColor(color);
+				Label labelPercentage = new() { Content = sizePercentage.ToString("0.000%"), Foreground = textColor };
 
 				Grid.SetColumn(rectColor, 0);
 				Grid.SetColumn(rectBackground, 1);
