@@ -93,6 +93,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			App.Instance.UpdateMainWindowTitle();
 		}
 
+		public TabControl TabControl { get; private set; } = new() { Width = 1366, Height = 768 };
+
 		public AssetTabControl AudioAudioAssetTabControl { get; private set; } = null!;
 		public AssetTabControl CoreShadersAssetTabControl { get; private set; } = null!;
 		public AssetTabControl DdModelBindingsAssetTabControl { get; private set; } = null!;
@@ -147,6 +149,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 					AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl };
 
+					ScrollViewerMain.Content = TabControl;
 					TabControl.Items.Add(new TabItem { Header = "audio/Audio", Content = AudioAudioAssetTabControl });
 					TabControl.Items.Add(new TabItem { Header = "core/Shaders", Content = CoreShadersAssetTabControl });
 					TabControl.Items.Add(new TabItem { Header = "dd/Model Bindings", Content = DdModelBindingsAssetTabControl });
@@ -161,7 +164,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			};
 			heavyGuiThread.RunWorkerCompleted += (sender, e) =>
 			{
-				TabControl.Items.Remove(LabelLoadingUi);
 				UpdateTextBoxSizes();
 				UpdateHeights();
 			};
