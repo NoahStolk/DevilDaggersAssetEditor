@@ -127,34 +127,45 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			ModFileHandler.Instance.FileOpen(UserHandler.Instance.Cache.OpenedModFilePath);
 			ModFileHandler.Instance.UpdateModFileState(UserHandler.Instance.Cache.OpenedModFilePath);
 
-			AudioAudioAssetTabControl = new(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
-			CoreShadersAssetTabControl = new(BinaryFileType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
-			DdModelBindingsAssetTabControl = new(BinaryFileType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
-			DdModelsAssetTabControl = new(BinaryFileType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
-			DdShadersAssetTabControl = new(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
-			DdTexturesAssetTabControl = new(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
-
-			AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl };
-
-			UpdateTextBoxSizes();
-			UpdateHeights();
-
-			TabControl.Items.Add(new TabItem { Header = "audio/Audio", Content = AudioAudioAssetTabControl });
-			TabControl.Items.Add(new TabItem { Header = "core/Shaders", Content = CoreShadersAssetTabControl });
-			TabControl.Items.Add(new TabItem { Header = "dd/Model Bindings", Content = DdModelBindingsAssetTabControl });
-			TabControl.Items.Add(new TabItem { Header = "dd/Models", Content = DdModelsAssetTabControl });
-			TabControl.Items.Add(new TabItem { Header = "dd/Shaders", Content = DdShadersAssetTabControl });
-			TabControl.Items.Add(new TabItem { Header = "dd/Textures", Content = DdTexturesAssetTabControl });
-
-			TabControl.SelectedIndex = Math.Clamp(UserHandler.Instance.Cache.ActiveTabIndex, 0, AssetTabControls.Count - 1);
-
 			if (NetworkHandler.Instance.Tool != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 			{
 				UpdateRecommendedWindow updateRecommendedWindow = new(NetworkHandler.Instance.Tool.VersionNumber, App.LocalVersion.ToString(), App.ApplicationName, App.ApplicationDisplayName);
 				updateRecommendedWindow.ShowDialog();
 			}
 
-			HasLoaded = true;
+			using BackgroundWorker heavyGuiThread = new();
+			heavyGuiThread.DoWork += (sender, e) =>
+			{
+				Dispatcher.Invoke(() =>
+				{
+					AudioAudioAssetTabControl = new(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
+					CoreShadersAssetTabControl = new(BinaryFileType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+					DdModelBindingsAssetTabControl = new(BinaryFileType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
+					DdModelsAssetTabControl = new(BinaryFileType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
+					DdShadersAssetTabControl = new(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+					DdTexturesAssetTabControl = new(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
+
+					AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl };
+
+					TabControl.Items.Add(new TabItem { Header = "audio/Audio", Content = AudioAudioAssetTabControl });
+					TabControl.Items.Add(new TabItem { Header = "core/Shaders", Content = CoreShadersAssetTabControl });
+					TabControl.Items.Add(new TabItem { Header = "dd/Model Bindings", Content = DdModelBindingsAssetTabControl });
+					TabControl.Items.Add(new TabItem { Header = "dd/Models", Content = DdModelsAssetTabControl });
+					TabControl.Items.Add(new TabItem { Header = "dd/Shaders", Content = DdShadersAssetTabControl });
+					TabControl.Items.Add(new TabItem { Header = "dd/Textures", Content = DdTexturesAssetTabControl });
+
+					TabControl.SelectedIndex = Math.Clamp(UserHandler.Instance.Cache.ActiveTabIndex, 0, AssetTabControls.Count - 1);
+
+					HasLoaded = true;
+				});
+			};
+			heavyGuiThread.RunWorkerCompleted += (sender, e) =>
+			{
+				TabControl.Items.Remove(LabelLoadingUi);
+				UpdateTextBoxSizes();
+				UpdateHeights();
+			};
+			heavyGuiThread.RunWorkerAsync();
 		}
 
 		#region Events
