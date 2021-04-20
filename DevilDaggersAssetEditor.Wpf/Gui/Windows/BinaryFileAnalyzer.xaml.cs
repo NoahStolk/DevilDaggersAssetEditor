@@ -21,6 +21,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 	{
 		private readonly int _columnCount;
 
+		private static readonly SolidColorBrush _black = new(Color.FromRgb(0, 0, 0));
+
 		public BinaryFileAnalyzerWindow()
 		{
 			InitializeComponent();
@@ -89,7 +91,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			int i = 0;
 			foreach (KeyValuePair<string, AnalyzerChunkGroup> kvp in chunkGroups.OrderBy(c => c.Value.Chunks.Count != 0).ThenByDescending(c => c.Value.ByteCount).Where(c => c.Value.ByteCount > 0))
 			{
-				Color color = ChunkResultColor(kvp.Value);
+				Color chunkColor = ChunkResultColor(kvp.Value);
+				SolidColorBrush chunkBrush = new(chunkColor);
 
 				double sizePercentage = kvp.Value.ByteCount / (double)fileResult.FileByteCount;
 				double width = sizePercentage * Canvas.Width;
@@ -97,26 +100,27 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					Width = width,
 					Height = totalHeight,
-					Fill = new SolidColorBrush(color),
+					Fill = chunkBrush,
 				};
 				Canvas.SetLeft(rect, pos);
 				Canvas.Children.Add(rect);
 
 				pos += width;
 
-				Rectangle rectColor = new() { Fill = new SolidColorBrush(color) };
-				rectColor.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+				Rectangle rectColor = new() { Fill = chunkBrush };
+				rectColor.Stroke = _black;
 				rectColor.StrokeThickness = 1;
 				rectColor.SnapsToDevicePixels = true;
 
 				SolidColorBrush bgColor = ColorUtils.ThemeColors[i++ % 2 == 0 ? "Gray4" : "Gray5"];
 
 				Rectangle rectBackground = new() { Fill = bgColor };
-				rectBackground.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+				rectBackground.Stroke = _black;
 				rectBackground.StrokeThickness = 1;
 				rectBackground.StrokeDashArray = new DoubleCollection(new List<double> { 1, 2 });
 				rectBackground.SnapsToDevicePixels = true;
-				Brush textColor = GetTextColorBasedOnBackgroundColor(color);
+				rectBackground.Fill = new SolidColorBrush(ColorWithAlpha(chunkColor, 95));
+				Brush textColor = GetTextColorBasedOnBackgroundColor(chunkColor);
 				Label labelPercentage = new() { Content = sizePercentage.ToString("0.000%"), Foreground = textColor };
 
 				Grid.SetColumn(rectColor, 0);
@@ -167,7 +171,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				stackPanel.Children.Add(new Label { Content = $"{chunk.Size:N0} bytes", Foreground = textColor });
 				stackPanel.Children.Add(new Label { Content = $"{chunkSizePercentage:0.000%} of file", Foreground = textColor });
 
-				Border border = new() { BorderThickness = new Thickness(1), BorderBrush = new SolidColorBrush(Color.FromRgb(0, 0, 0)) };
+				Border border = new() { BorderThickness = new Thickness(1), BorderBrush = _black };
 				border.Child = stackPanel;
 				Grid.SetColumn(border, k % _columnCount);
 				Grid.SetRow(border, k / _columnCount);
@@ -185,6 +189,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private static Color ChunkResultColor(AnalyzerChunkGroup chunkResult)
 			=> Color.FromRgb(chunkResult.R, chunkResult.G, chunkResult.B);
+
+		private static Color ColorWithAlpha(Color color, byte alpha)
+			=> Color.FromArgb(alpha, color.R, color.G, color.B);
 
 		private static AnalyzerFileResult? TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
 		{
