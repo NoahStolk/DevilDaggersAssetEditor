@@ -38,7 +38,7 @@
 					<Button Content="Browse" Click="BrowseCompareButton_Click" HorizontalAlignment="Stretch" />
 					<TextBox Grid.Column="1" Name="TextBoxCompare" TextChanged="TextBoxCompare_TextChanged" />
 				</Grid>
-				<Label>Trimmed binary output directory</Label>
+				<Label>Trimmed binary output file</Label>
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition />
