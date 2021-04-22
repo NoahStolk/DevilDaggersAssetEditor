@@ -1,0 +1,74 @@
+﻿<Window x:Class="DevilDaggersAssetEditor.Wpf.Gui.Windows.DownloadModWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:windows="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.Windows"
+		mc:Ignorable="d"
+        Title="Download mod" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+	<Window.CommandBindings>
+		<CommandBinding Command="windows:DownloadModWindow.FirstPageCommand" CanExecute="CanExecute" Executed="FirstPage_Executed" />
+		<CommandBinding Command="windows:DownloadModWindow.PreviousPageCommand" CanExecute="CanExecute" Executed="PreviousPage_Executed" />
+		<CommandBinding Command="windows:DownloadModWindow.NextPageCommand" CanExecute="CanExecute" Executed="NextPage_Executed" />
+		<CommandBinding Command="windows:DownloadModWindow.LastPageCommand" CanExecute="CanExecute" Executed="LastPage_Executed" />
+	</Window.CommandBindings>
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+		<StackPanel Height="730" Width="1366" Background="{StaticResource Gray3}">
+			<TextBlock Style="{StaticResource TitleTextBlock}">Mods from DevilDaggers.info</TextBlock>
+			<Grid Margin="8">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="5*" />
+				</Grid.ColumnDefinitions>
+				<StackPanel Margin="0,0,8,0">
+					<Button Name="ReloadButton" Click="ReloadButton_Click" Width="128" HorizontalAlignment="Left">Reload all</Button>
+
+					<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Filters</Label>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Label>Mod name</Label>
+						<TextBox Grid.Column="1" Name="ModSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
+						<Button Grid.Column="2" Content="✕" Click="ClearModSearchButton_Click" ToolTip="Clear mod filter" />
+					</Grid>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Label>Author name</Label>
+						<TextBox Grid.Column="1" Name="AuthorSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
+						<Button Grid.Column="2" Name="ClearAuthorSearchButton" Content="✕" Click="ClearAuthorSearchButton_Click" ToolTip="Clear author filter" />
+					</Grid>
+
+					<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Paging</Label>
+					<Label Name="PageLabel" />
+					<StackPanel Orientation="Horizontal">
+						<Button Width="32" Click="FirstPage_Click" ToolTip="First page">|&lt;</Button>
+						<Button Width="32" Click="PreviousPage_Click" ToolTip="Previous page">&lt;</Button>
+						<Button Width="32" Click="NextPage_Click" ToolTip="Next page">&gt;</Button>
+						<Button Width="32" Click="LastPage_Click" ToolTip="Last page">&gt;|</Button>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
+					<Grid Name="ModHeaders" HorizontalAlignment="Stretch" Background="{StaticResource Gray2}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+					</Grid>
+					<StackPanel Height="638" Name="ModsStackPanel" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+	</ScrollViewer>
+</Window>

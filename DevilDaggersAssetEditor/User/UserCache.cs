@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace DevilDaggersAssetEditor.User
@@ -30,5 +31,14 @@ namespace DevilDaggersAssetEditor.User
 		public string MakeBinaryAudioName { get; set; } = string.Empty;
 		[JsonProperty]
 		public string MakeBinaryDdName { get; set; } = string.Empty;
+
+		[JsonProperty]
+		public string? DownloadAuthorFilter { get; set; }
+		[JsonProperty]
+		public string? DownloadModFilter { get; set; }
+		[JsonProperty]
+		public int? DownloadSortingIndex { get; set; }
+		[JsonProperty]
+		public List<bool>? DownloadSortingDirections { get; set; }
 	}
 }

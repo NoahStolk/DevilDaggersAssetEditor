@@ -39,6 +39,7 @@
     <Resource Include="Content\Images\AudioPlayer\Pause.png" />
     <Resource Include="Content\Images\AudioPlayer\Play.png" />
     <Resource Include="Content\Images\AudioPlayer\ResetPitch.png" />
+    <Resource Include="Content\Images\Buttons\Sort.png" />
     <Resource Include="Content\Images\Icon\Icon.png" />
   </ItemGroup>
   <ItemGroup>
