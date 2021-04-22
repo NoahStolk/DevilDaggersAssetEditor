@@ -579,7 +579,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="DevilDaggersInfoApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.DateTimeOffset> GameVersions_GetGameVersionReleaseDateAsync(GameVersion gameVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.DateTime> GameVersions_GetGameVersionReleaseDateAsync(GameVersion gameVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (gameVersion == null)
                 throw new System.ArgumentNullException("gameVersion");
@@ -620,7 +620,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.DateTimeOffset>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.DateTime>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new DevilDaggersInfoApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -659,7 +659,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="DevilDaggersInfoApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<GameVersion> GameVersions_GetGameVersionAtDateAsync(System.DateTimeOffset? date = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GameVersion> GameVersions_GetGameVersionAtDateAsync(System.DateTime? date = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("api/game-versions/at-date?");
@@ -2164,10 +2164,10 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
         public int TimeLeviathan { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("dateLastPlayed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? DateLastPlayed { get; set; }= default!;
+        public System.DateTime? DateLastPlayed { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("dateCreated", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? DateCreated { get; set; }= default!;
+        public System.DateTime? DateCreated { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("category", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -2406,7 +2406,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     
         [Newtonsoft.Json.JsonProperty("submitDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset SubmitDate { get; set; }= default!;
+        public System.DateTime SubmitDate { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("clientVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? ClientVersion { get; set; }= default!;
@@ -2809,7 +2809,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     {
         [Newtonsoft.Json.JsonProperty("dateTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset DateTime { get; set; }= default!;
+        public System.DateTime DateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("entry", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -2824,7 +2824,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
         /// <summary>Represents the UTC date and time when the leaderboard was fetched.</summary>
         [Newtonsoft.Json.JsonProperty("dateTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset DateTime { get; set; }= default!;
+        public System.DateTime DateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("players", Required = Newtonsoft.Json.Required.Always)]
         public int Players { get; set; }= default!;
@@ -2867,7 +2867,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     
         [Newtonsoft.Json.JsonProperty("lastUpdated", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset LastUpdated { get; set; }= default!;
+        public System.DateTime LastUpdated { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("assetModTypes", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -2915,7 +2915,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     
         [Newtonsoft.Json.JsonProperty("lastUpdated", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset LastUpdated { get; set; }= default!;
+        public System.DateTime LastUpdated { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("spawnsetData", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -3002,7 +3002,7 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Date { get; set; }= default!;
+        public System.DateTime Date { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("changes", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
