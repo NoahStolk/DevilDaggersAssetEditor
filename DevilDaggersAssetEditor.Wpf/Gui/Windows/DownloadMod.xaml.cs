@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -235,8 +236,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				if (downloadedModContents == null)
 					return;
 
-				// TODO: Extract binaries from downloaded zip and write all binaries to mods folder.
-				//File.WriteAllBytes(Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", ...), downloadedModContents);
+				using MemoryStream ms = new(downloadedModContents);
+				using ZipArchive archive = new(ms);
+				archive.ExtractToDirectory(Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods"));
 			};
 
 			thread.RunWorkerAsync();
