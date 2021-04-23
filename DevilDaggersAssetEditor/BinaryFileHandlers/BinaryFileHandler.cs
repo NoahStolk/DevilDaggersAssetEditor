@@ -208,12 +208,16 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static bool IsValidFile(byte[] sourceFileBytes)
 		{
-			if (sourceFileBytes.Length < 8)
+			if (sourceFileBytes.Length < 12)
 				return false;
 
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
-			return magic1FromFile == Magic1 && magic2FromFile == Magic2;
+			if (magic1FromFile != Magic1 || magic2FromFile != Magic2)
+				return false;
+
+			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);
+			return tocSize <= sourceFileBytes.Length - 12;
 		}
 
 		public static byte[] ReadTocBuffer(byte[] sourceFileBytes)
