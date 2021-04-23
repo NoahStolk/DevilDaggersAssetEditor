@@ -238,7 +238,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				using MemoryStream ms = new(downloadedModContents);
 				using ZipArchive archive = new(ms);
-				archive.ExtractToDirectory(Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods"));
+				archive.ExtractToDirectory(Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods"), true);
 			};
 
 			thread.RunWorkerAsync();
