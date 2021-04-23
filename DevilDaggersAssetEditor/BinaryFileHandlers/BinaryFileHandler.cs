@@ -208,6 +208,9 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 
 		public static bool IsValidFile(byte[] sourceFileBytes)
 		{
+			if (sourceFileBytes.Length < 8)
+				return false;
+
 			uint magic1FromFile = BitConverter.ToUInt32(sourceFileBytes, 0);
 			uint magic2FromFile = BitConverter.ToUInt32(sourceFileBytes, 4);
 			return magic1FromFile == Magic1 && magic2FromFile == Magic2;

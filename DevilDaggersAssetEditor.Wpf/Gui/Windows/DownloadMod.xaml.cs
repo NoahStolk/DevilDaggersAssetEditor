@@ -219,7 +219,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		#region Events
 
-		private void Download_Click(string modName)
+		private static void Download_Click(string modName)
 		{
 			byte[]? downloadedModContents = null;
 
