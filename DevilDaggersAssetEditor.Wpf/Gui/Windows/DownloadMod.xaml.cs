@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Wpf.Clients;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
+using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -222,6 +223,25 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private static void Download_Click(string modName)
 		{
+			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
+
+			ModArchive? archive = NetworkHandler.Instance.Mods.Find(m => m.Name == modName)?.ModArchive;
+			if (archive != null)
+			{
+				foreach (ModBinary binary in archive.Binaries)
+				{
+					if (File.Exists(Path.Combine(modsDirectory, binary.Name)))
+					{
+						ConfirmWindow window = new("File already exists", $"The mod '{modName}' contains a binary called '{binary.Name}'. A file with the same name already exists in the mods directory. Are you sure you want to overwrite it by downloading the '{modName}' mod?", false);
+						window.ShowDialog();
+
+						if (window.IsConfirmed != true)
+							return;
+					}
+				}
+			}
+
+			// TODO: Start displaying download progress at this point.
 			byte[]? downloadedModContents = null;
 
 			using BackgroundWorker thread = new();
@@ -238,7 +258,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				using MemoryStream ms = new(downloadedModContents);
 				using ZipArchive archive = new(ms);
-				archive.ExtractToDirectory(Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods"), true);
+				archive.ExtractToDirectory(modsDirectory, true);
 			};
 
 			thread.RunWorkerAsync();
