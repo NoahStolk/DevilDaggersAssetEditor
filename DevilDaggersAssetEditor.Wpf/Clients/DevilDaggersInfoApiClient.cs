@@ -2742,9 +2742,6 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
         [Newtonsoft.Json.JsonProperty("homing4", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public float? Homing4 { get; set; }= default!;
     
-        [Newtonsoft.Json.JsonProperty("registerKill", Required = Newtonsoft.Json.Required.Always)]
-        public bool RegisterKill { get; set; }= default!;
-    
         [Newtonsoft.Json.JsonProperty("spawnedBy", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.List<Enemy> SpawnedBy { get; set; } = new System.Collections.Generic.List<Enemy>();
