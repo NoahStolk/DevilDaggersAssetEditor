@@ -209,7 +209,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				grid.Hyperlink.Click += newEvent;
 
 				grid.TextBlocks[0].Text = string.Join(", ", mod.Authors);
-				grid.TextBlocks[1].Text = mod.LastUpdated.ToString("dd MMM yyyy");
+				grid.TextBlocks[1].Text = mod.LastUpdated == DateTime.MinValue ? "Unknown" : mod.LastUpdated.ToString("dd MMM yyyy");
 				grid.TextBlocks[2].Text = mod.AssetModTypes.ToString() ?? "N/A";
 				grid.TextBlocks[3].Text = mod.ContainsProhibitedAssets.HasValue ? mod.ContainsProhibitedAssets.Value ? "Yes" : "No" : "Unknown";
 				grid.TextBlocks[4].Text = FormatUtils.FormatFileSize(mod.ModArchive?.FileSize ?? 0);
