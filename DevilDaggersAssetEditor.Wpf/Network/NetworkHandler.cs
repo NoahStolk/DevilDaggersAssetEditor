@@ -1,7 +1,6 @@
 ﻿using DevilDaggersAssetEditor.Wpf.Clients;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace DevilDaggersAssetEditor.Wpf.Network
@@ -58,22 +57,6 @@ namespace DevilDaggersAssetEditor.Wpf.Network
 			{
 				App.Instance.ShowError("Error retrieving mod list", "An error occurred while attempting to retrieve mods from the API.", ex);
 				return false;
-			}
-		}
-
-		public async Task<byte[]?> DownloadMod(string modName)
-		{
-			try
-			{
-				using FileResponse fileResponse = await ApiClient.Mods_GetModFileAsync(modName);
-				using MemoryStream memoryStream = new();
-				fileResponse.Stream.CopyTo(memoryStream);
-				return memoryStream.ToArray();
-			}
-			catch (Exception ex)
-			{
-				App.Instance.ShowError("Error downloading file", "An error occurred while attempting to download mod from the API.", ex);
-				return null;
 			}
 		}
 	}

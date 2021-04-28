@@ -1,5 +1,7 @@
-﻿using DevilDaggersAssetEditor.User;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Clients;
+using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
@@ -10,6 +12,7 @@ using System.ComponentModel;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -204,7 +207,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				if (grid.Hyperlink.Tag is RoutedEventHandler oldEvent)
 					grid.Hyperlink.Click -= oldEvent;
 
-				RoutedEventHandler newEvent = (_, _) => Download_Click(mod.Name);
+				RoutedEventHandler newEvent = async (_, _) => await Download_Click(mod.Name);
 				grid.Hyperlink.Tag = newEvent;
 				grid.Hyperlink.Click += newEvent;
 
@@ -221,7 +224,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		#region Events
 
-		private static void Download_Click(string modName)
+		private async Task Download_Click(string modName)
 		{
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 
@@ -241,27 +244,26 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				}
 			}
 
-			// TODO: Start displaying download progress at this point.
-			byte[]? downloadedModContents = null;
+			ProgressWrapper progress = new(
+				new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
+				new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
 
-			using BackgroundWorker thread = new();
-			thread.DoWork += (senderDoWork, eDoWork) =>
+			progress.Report("Downloading...", 0);
+
+			using WebClient wc = new();
+			byte[]? downloadedModContents = await wc.DownloadByteArrayAsync($"https://devildaggers.info/api/mods/{Uri.EscapeDataString(modName)}/file", progress);
+
+			if (downloadedModContents == null)
 			{
-				Task<byte[]?> downloadTask = NetworkHandler.Instance.DownloadMod(modName);
-				downloadTask.Wait();
-				downloadedModContents = downloadTask.Result;
-			};
-			thread.RunWorkerCompleted += (senderRunWorkerCompleted, eRunWorkerCompleted) =>
-			{
-				if (downloadedModContents == null)
-					return;
+				App.Instance.Dispatcher.Invoke(() => progress.Report("Download failed.", 0));
+				return;
+			}
 
-				using MemoryStream ms = new(downloadedModContents);
-				using ZipArchive archive = new(ms);
-				archive.ExtractToDirectory(modsDirectory, true);
-			};
+			App.Instance.Dispatcher.Invoke(() => progress.Report("Download completed.", 1));
 
-			thread.RunWorkerAsync();
+			using MemoryStream ms = new(downloadedModContents);
+			using ZipArchive zipArchive = new(ms);
+			zipArchive.ExtractToDirectory(modsDirectory, true);
 		}
 
 		private void ReloadButton_Click(object sender, RoutedEventArgs e)

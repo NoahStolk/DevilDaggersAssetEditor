@@ -53,6 +53,11 @@
 						<Button Width="32" Click="NextPage_Click" ToolTip="Next page">&gt;</Button>
 						<Button Width="32" Click="LastPage_Click" ToolTip="Last page">&gt;|</Button>
 					</StackPanel>
+
+					<Grid>
+						<ProgressBar Name="ProgressBar" />
+						<TextBlock Name="ProgressDescription" Style="{StaticResource ProgressBarTextBlock}" />
+					</Grid>
 				</StackPanel>
 				<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
 					<Grid Name="ModHeaders" HorizontalAlignment="Stretch" Background="{StaticResource Gray2}">
