@@ -23,14 +23,14 @@ using System.Windows.Media.Imaging;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 {
-	public partial class DownloadModWindow : Window
+	public partial class ModManagerWindow : Window
 	{
 		private const int _pageSize = 40;
 
-		public static readonly RoutedUICommand FirstPageCommand = new("FirstPage", nameof(FirstPageCommand), typeof(DownloadModWindow), new() { new KeyGesture(Key.OemComma, ModifierKeys.Control) });
-		public static readonly RoutedUICommand PreviousPageCommand = new("PreviousPage", nameof(PreviousPageCommand), typeof(DownloadModWindow), new() { new KeyGesture(Key.OemComma) });
-		public static readonly RoutedUICommand NextPageCommand = new("NextPage", nameof(NextPageCommand), typeof(DownloadModWindow), new() { new KeyGesture(Key.OemPeriod) });
-		public static readonly RoutedUICommand LastPageCommand = new("LastPage", nameof(LastPageCommand), typeof(DownloadModWindow), new() { new KeyGesture(Key.OemPeriod, ModifierKeys.Control) });
+		public static readonly RoutedUICommand FirstPageCommand = new("FirstPage", nameof(FirstPageCommand), typeof(ModManagerWindow), new() { new KeyGesture(Key.OemComma, ModifierKeys.Control) });
+		public static readonly RoutedUICommand PreviousPageCommand = new("PreviousPage", nameof(PreviousPageCommand), typeof(ModManagerWindow), new() { new KeyGesture(Key.OemComma) });
+		public static readonly RoutedUICommand NextPageCommand = new("NextPage", nameof(NextPageCommand), typeof(ModManagerWindow), new() { new KeyGesture(Key.OemPeriod) });
+		public static readonly RoutedUICommand LastPageCommand = new("LastPage", nameof(LastPageCommand), typeof(ModManagerWindow), new() { new KeyGesture(Key.OemPeriod, ModifierKeys.Control) });
 
 		private int _pageIndex;
 		private int _totalMods;
@@ -40,7 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private readonly List<ModGrid> _modGrids = new();
 
-		public DownloadModWindow()
+		public ModManagerWindow()
 		{
 			InitializeComponent();
 
