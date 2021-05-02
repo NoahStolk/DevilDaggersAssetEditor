@@ -222,6 +222,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			int i = 0;
 			foreach (ModBinary binary in mod.ModArchive.Binaries)
 				PreviewBinariesList.Children.Add(new TextBlock { Text = binary.Name, Background = (i++ % 2 == 0) ? _even : _odd });
+
+			PreviewScreenshot.Source = mod.ScreenshotFileNames.Count == 0 ? null : new BitmapImage(new Uri($"https://devildaggers.info/mod-screenshots/{mod.Name}/{mod.ScreenshotFileNames[0]}"));
 		}
 
 		private async void DownloadModButton_Click(object sender, RoutedEventArgs e)

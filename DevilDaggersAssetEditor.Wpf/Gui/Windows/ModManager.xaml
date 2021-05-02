@@ -57,22 +57,12 @@
 								</StackPanel>
 
 								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Preview</Label>
-								<StackPanel Name="Preview">
-									<Button Name="DownloadModButton" Click="DownloadModButton_Click">Download and install mod</Button>
-									<Grid>
-										<Grid.ColumnDefinitions>
-											<ColumnDefinition />
-											<ColumnDefinition Width="2*" />
-										</Grid.ColumnDefinitions>
-										<Grid.RowDefinitions>
-											<RowDefinition />
-											<RowDefinition />
-										</Grid.RowDefinitions>
-										<TextBlock FontWeight="Bold">Mod name</TextBlock>
-										<TextBlock FontWeight="Bold" Grid.Row="1">Binaries</TextBlock>
-										<TextBlock Grid.Column="1" Name="PreviewName" />
-										<StackPanel Grid.Column="1" Grid.Row="1" MaxWidth="160" HorizontalAlignment="Left" Name="PreviewBinariesList" />
-									</Grid>
+								<StackPanel Margin="0,10,0,0" Name="Preview">
+									<TextBlock FontWeight="Bold" Name="PreviewName" />
+									<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left">Download and install</Button>
+									<TextBlock FontWeight="Bold" Grid.Row="1">Binaries</TextBlock>
+									<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
+									<Image MaxWidth="256" Stretch="Fill" Name="PreviewScreenshot" HorizontalAlignment="Left" />
 								</StackPanel>
 							</StackPanel>
 							<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
