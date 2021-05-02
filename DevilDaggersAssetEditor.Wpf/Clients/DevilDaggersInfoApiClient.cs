@@ -2883,6 +2883,10 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
         [Newtonsoft.Json.JsonProperty("modArchive", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ModArchive? ModArchive { get; set; }= default!;
     
+        [Newtonsoft.Json.JsonProperty("screenshotFileNames", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.List<string> ScreenshotFileNames { get; set; } = new System.Collections.Generic.List<string>();
+    
     
     }
     
@@ -2992,6 +2996,17 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
     public partial class SpawnsetData 
     {
+        [Newtonsoft.Json.JsonProperty("spawnVersion", Required = Newtonsoft.Json.Required.Always)]
+        public int SpawnVersion { get; set; }= default!;
+    
+        [Newtonsoft.Json.JsonProperty("worldVersion", Required = Newtonsoft.Json.Required.Always)]
+        public int WorldVersion { get; set; }= default!;
+    
+        [Newtonsoft.Json.JsonProperty("gameMode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public GameMode GameMode { get; set; }= default!;
+    
         [Newtonsoft.Json.JsonProperty("nonLoopSpawnCount", Required = Newtonsoft.Json.Required.Always)]
         public int NonLoopSpawnCount { get; set; }= default!;
     
@@ -3003,11 +3018,6 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
     
         [Newtonsoft.Json.JsonProperty("loopLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public float? LoopLength { get; set; }= default!;
-    
-        [Newtonsoft.Json.JsonProperty("gameMode", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public GameMode GameMode { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("hand", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public byte? Hand { get; set; }= default!;
