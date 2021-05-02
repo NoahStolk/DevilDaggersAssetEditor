@@ -1,7 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.User;
+﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Clients;
-using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
@@ -10,13 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -39,6 +34,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private readonly List<ModSorting> _modSortings = new();
 
 		private readonly List<ModGrid> _modGrids = new();
+
+		private static readonly SolidColorBrush _even = new(Color.FromArgb(31, 127, 127, 127));
+		private static readonly SolidColorBrush _odd = new(Color.FromArgb(31, 91, 91, 91));
+
+		private string? _selectedModName;
 
 		public ModManagerWindow()
 		{
@@ -106,28 +106,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				Grid grid = new()
 				{
-					Background = (i % 2 == 0) ? ColorUtils.ThemeColors["Gray28"] : ColorUtils.ThemeColors["Gray2"],
+					Background = (i % 2 == 0) ? _even : _odd,
 					Margin = new(2, 0, 2, 0),
 				};
-				Hyperlink hyperlink = new();
 				List<TextBlock> textBlocks = new();
 
 				for (int j = 0; j < sortings.Count; j++)
 				{
 					grid.ColumnDefinitions.Add(new() { Width = new GridLength(1, GridUnitType.Star) });
 
-					// First element is hyperlink.
-					if (j == 0)
-					{
-						TextBlock hyperlinkTextBlock = new();
-						hyperlinkTextBlock.Inlines.Add(hyperlink);
-						grid.Children.Add(hyperlinkTextBlock);
-						continue;
-					}
-
 					TextBlock textBlock = new()
 					{
 						HorizontalAlignment = j < 5 ? HorizontalAlignment.Left : HorizontalAlignment.Right,
+						Foreground = ColorUtils.ThemeColors["Text"],
 					};
 					Grid.SetColumn(textBlock, j);
 
@@ -135,8 +126,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					grid.Children.Add(textBlock);
 				}
 
-				_modGrids.Add(new(grid, hyperlink, textBlocks));
-				ModsStackPanel.Children.Add(grid);
+				_modGrids.Add(new(grid, textBlocks));
+				ModsListView.Items.Add(grid);
 			}
 
 			AuthorSearchTextBox.Text = UserHandler.Instance.Cache.DownloadAuthorFilter ?? string.Empty;
@@ -190,7 +181,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void FillModGrid(int index, Mod? mod)
 		{
 			ModGrid grid = _modGrids[index];
-			grid.Hyperlink.Inlines.Clear();
+			grid.Mod = mod;
 			if (mod == null)
 			{
 				grid.TextBlocks[0].Text = string.Empty;
@@ -199,24 +190,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				grid.TextBlocks[3].Text = string.Empty;
 				grid.TextBlocks[4].Text = string.Empty;
 				grid.TextBlocks[5].Text = string.Empty;
+				grid.TextBlocks[6].Text = string.Empty;
 			}
 			else
 			{
-				grid.Hyperlink.Inlines.Add(new Run(mod.Name));
-
-				if (grid.Hyperlink.Tag is RoutedEventHandler oldEvent)
-					grid.Hyperlink.Click -= oldEvent;
-
-				RoutedEventHandler newEvent = async (_, _) => await Download_Click(mod.Name);
-				grid.Hyperlink.Tag = newEvent;
-				grid.Hyperlink.Click += newEvent;
-
-				grid.TextBlocks[0].Text = string.Join(", ", mod.Authors);
-				grid.TextBlocks[1].Text = mod.LastUpdated == DateTime.MinValue ? "Unknown" : mod.LastUpdated.ToString("dd MMM yyyy");
-				grid.TextBlocks[2].Text = mod.AssetModTypes.ToString() ?? "N/A";
-				grid.TextBlocks[3].Text = mod.ContainsProhibitedAssets.HasValue ? mod.ContainsProhibitedAssets.Value ? "Yes" : "No" : "Unknown";
-				grid.TextBlocks[4].Text = FormatUtils.FormatFileSize(mod.ModArchive?.FileSize ?? 0);
-				grid.TextBlocks[5].Text = FormatUtils.FormatFileSize(mod.ModArchive?.FileSizeExtracted ?? 0);
+				grid.TextBlocks[0].Text = mod.Name;
+				grid.TextBlocks[1].Text = string.Join(", ", mod.Authors);
+				grid.TextBlocks[2].Text = mod.LastUpdated == DateTime.MinValue ? "Unknown" : mod.LastUpdated.ToString("dd MMM yyyy");
+				grid.TextBlocks[3].Text = mod.AssetModTypes.ToString() ?? "N/A";
+				grid.TextBlocks[4].Text = mod.ContainsProhibitedAssets.HasValue ? mod.ContainsProhibitedAssets.Value ? "Yes" : "No" : "Unknown";
+				grid.TextBlocks[5].Text = FormatUtils.FormatFileSize(mod.ModArchive?.FileSize ?? 0);
+				grid.TextBlocks[6].Text = FormatUtils.FormatFileSize(mod.ModArchive?.FileSizeExtracted ?? 0);
 			}
 		}
 
@@ -224,18 +208,37 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		#region Events
 
-		private async Task Download_Click(string modName)
+		private void ModsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			PreviewBinariesList.Children.Clear();
+
+			Mod? mod = _modGrids[ModsListView.SelectedIndex].Mod;
+			_selectedModName = mod?.Name;
+			Preview.Visibility = mod?.ModArchive == null ? Visibility.Collapsed : Visibility.Visible;
+			if (mod?.ModArchive == null)
+				return;
+
+			PreviewName.Text = mod.Name;
+			int i = 0;
+			foreach (ModBinary binary in mod.ModArchive.Binaries)
+				PreviewBinariesList.Children.Add(new TextBlock { Text = binary.Name, Background = (i++ % 2 == 0) ? _even : _odd });
+		}
+
+		private async void DownloadModButton_Click(object sender, RoutedEventArgs e)
+		{
+			if (_selectedModName == null)
+				return;
+
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 
-			ModArchive? archive = NetworkHandler.Instance.Mods.Find(m => m.Name == modName)?.ModArchive;
+			ModArchive? archive = NetworkHandler.Instance.Mods.Find(m => m.Name == _selectedModName)?.ModArchive;
 			if (archive != null)
 			{
 				foreach (ModBinary binary in archive.Binaries)
 				{
 					if (File.Exists(Path.Combine(modsDirectory, binary.Name)))
 					{
-						ConfirmWindow window = new("File already exists", $"The mod '{modName}' contains a binary called '{binary.Name}'. A file with the same name already exists in the mods directory. Are you sure you want to overwrite it by downloading the '{modName}' mod?", false);
+						ConfirmWindow window = new("File already exists", $"The mod '{_selectedModName}' contains a binary called '{binary.Name}'. A file with the same name already exists in the mods directory. Are you sure you want to overwrite it by downloading the '{_selectedModName}' mod?", false);
 						window.ShowDialog();
 
 						if (window.IsConfirmed != true)
@@ -244,26 +247,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				}
 			}
 
-			ProgressWrapper progress = new(
-				new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
-				new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
-
-			progress.Report("Downloading...", 0);
-
-			using WebClient wc = new();
-			byte[]? downloadedModContents = await wc.DownloadByteArrayAsync($"https://devildaggers.info/api/mods/{Uri.EscapeDataString(modName)}/file", progress);
-
-			if (downloadedModContents == null)
-			{
-				App.Instance.Dispatcher.Invoke(() => progress.Report("Download failed.", 0));
-				return;
-			}
-
-			App.Instance.Dispatcher.Invoke(() => progress.Report("Download completed.", 1));
-
-			using MemoryStream ms = new(downloadedModContents);
-			using ZipArchive zipArchive = new(ms);
-			zipArchive.ExtractToDirectory(modsDirectory, true);
+			DownloadAndInstallModWindow downloadingWindow = new();
+			downloadingWindow.Show();
+			await downloadingWindow.DownloadAndInstall(modsDirectory, _selectedModName);
 		}
 
 		private void ReloadButton_Click(object sender, RoutedEventArgs e)
@@ -407,16 +393,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private class ModGrid
 		{
-			public ModGrid(Grid grid, Hyperlink hyperlink, List<TextBlock> textBlocks)
+			public ModGrid(Grid grid, List<TextBlock> textBlocks)
 			{
 				Grid = grid;
-				Hyperlink = hyperlink;
 				TextBlocks = textBlocks;
 			}
 
 			public Grid Grid { get; }
-			public Hyperlink Hyperlink { get; }
 			public List<TextBlock> TextBlocks { get; }
+
+			public Mod? Mod { get; set; }
 		}
 
 		#endregion Classes

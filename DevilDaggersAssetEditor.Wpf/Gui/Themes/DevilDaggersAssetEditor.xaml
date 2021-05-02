@@ -3,6 +3,7 @@
 					xmlns:windows="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.Windows">
 	<Style TargetType="{x:Type windows:AboutWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:BinaryFileAnalyzerWindow}" BasedOn="{StaticResource {x:Type Window}}" />
+	<Style TargetType="{x:Type windows:DownloadAndInstallModWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:ExtractBinariesWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:ImportAssetsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:LoadingWindow}" BasedOn="{StaticResource {x:Type Window}}" />
