@@ -1,6 +1,8 @@
-﻿using DevilDaggersAssetEditor.Wpf.Clients;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Wpf.Clients;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DevilDaggersAssetEditor.Wpf.Network
@@ -56,6 +58,43 @@ namespace DevilDaggersAssetEditor.Wpf.Network
 			catch (Exception ex)
 			{
 				App.Instance.ShowError("Error retrieving mod list", "An error occurred while attempting to retrieve mods from the API.", ex);
+				return false;
+			}
+		}
+
+		public async Task<bool> RetrieveAssetInfo()
+		{
+			try
+			{
+				foreach (KeyValuePair<string, List<AssetInfo>> kvp in await ApiClient.Assets_GetAssetInfoAsync())
+				{
+					List<AbstractAsset>? assets = (kvp.Key switch
+					{
+						"audioAudio" => AssetContainer.Instance.AudioAudioAssets.Cast<AbstractAsset>(),
+						"coreShaders" => AssetContainer.Instance.CoreShadersAssets.Cast<AbstractAsset>(),
+						"ddModelBindings" => AssetContainer.Instance.DdModelBindingsAssets.Cast<AbstractAsset>(),
+						"ddModels" => AssetContainer.Instance.DdModelsAssets.Cast<AbstractAsset>(),
+						"ddShaders" => AssetContainer.Instance.DdShadersAssets.Cast<AbstractAsset>(),
+						"ddTextures" => AssetContainer.Instance.DdTexturesAssets.Cast<AbstractAsset>(),
+						_ => null,
+					})?.ToList();
+
+					if (assets == null)
+						continue;
+
+					foreach (AbstractAsset asset in assets)
+					{
+						AssetInfo? assetInfo = kvp.Value.Find(ai => ai.Name == asset.AssetName);
+						asset.Description = assetInfo?.Description;
+						asset.Tags = assetInfo?.Tags ?? new();
+					}
+				}
+
+				return true;
+			}
+			catch (Exception ex)
+			{
+				App.Instance.ShowError("Error retrieving asset info", "An error occurred while attempting to retrieve asset info from the API.", ex);
 				return false;
 			}
 		}

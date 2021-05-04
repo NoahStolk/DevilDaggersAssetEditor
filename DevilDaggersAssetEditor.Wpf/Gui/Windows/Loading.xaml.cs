@@ -159,6 +159,29 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				ThreadComplete();
 			};
 
+			bool retrieveAssetInfoSuccess = false;
+			using BackgroundWorker retrieveAssetInfoThread = new();
+			retrieveModsThread.DoWork += (sender, e) =>
+			{
+				Task<bool> assetInfoTask = NetworkHandler.Instance.RetrieveAssetInfo();
+				assetInfoTask.Wait();
+				retrieveAssetInfoSuccess = assetInfoTask.Result;
+			};
+			retrieveModsThread.RunWorkerCompleted += (sender, e) =>
+			{
+				Dispatcher.Invoke(() =>
+				{
+					TaskResultsStackPanel.Children.Add(new TextBlock
+					{
+						Text = retrieveAssetInfoSuccess ? "OK" : "Error",
+						Foreground = retrieveAssetInfoSuccess ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["ErrorText"],
+						FontWeight = FontWeights.Bold,
+					});
+				});
+
+				ThreadComplete();
+			};
+
 			using BackgroundWorker mainInitThread = new();
 			mainInitThread.DoWork += (sender, e) =>
 			{
@@ -174,12 +197,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			_threads.Add(readUserSettingsThread);
 			_threads.Add(readUserCacheThread);
 			_threads.Add(retrieveModsThread);
+			_threads.Add(retrieveAssetInfoThread);
 			_threads.Add(mainInitThread);
 
 			_threadMessages.Add("Checking for updates...");
 			_threadMessages.Add("Reading user settings...");
 			_threadMessages.Add("Reading user cache...");
 			_threadMessages.Add("Retrieving mods...");
+			_threadMessages.Add("Retrieving asset info...");
 			_threadMessages.Add("Initializing application...");
 
 			RunThread(_threads[0]);
