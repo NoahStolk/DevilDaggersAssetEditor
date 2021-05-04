@@ -60,6 +60,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(File.ReadAllBytes(_selectedPath));
 			foreach (Chunk chunk in BinaryFileHandler.ReadChunks(tocBuffer))
 			{
+				if (chunk.Name == "loudness")
+					continue;
+
 				bool? isProhibited = AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType);
 
 				ChunkListView.Children.Add(new TextBlock
