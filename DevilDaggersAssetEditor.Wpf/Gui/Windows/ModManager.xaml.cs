@@ -211,6 +211,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void ModsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			PreviewBinariesList.Children.Clear();
+			PreviewScreenshotsList.Children.Clear();
 
 			Mod? mod = _modGrids[ModsListView.SelectedIndex].Mod;
 			_selectedModName = mod?.Name;
@@ -222,11 +223,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				foreach (ModBinary binary in mod.ModArchive.Binaries)
 					PreviewBinariesList.Children.Add(new TextBlock { Text = binary.Name, Background = (i++ % 2 == 0) ? _even : _odd, Margin = new Thickness(4, 0, 0, 0) });
 
-				PreviewScreenshot.Source = mod.ScreenshotFileNames.Count == 0 ? null : new BitmapImage(new Uri($"https://devildaggers.info/mod-screenshots/{mod.Name}/{mod.ScreenshotFileNames[0]}"));
-			}
-			else
-			{
-				PreviewScreenshot.Source = null;
+				foreach (string screenshotFileName in mod.ScreenshotFileNames)
+				{
+					PreviewScreenshotsList.Children.Add(new Image
+					{
+						Margin = new Thickness(4, 0, 0, 0),
+						MaxWidth = 256,
+						Stretch = Stretch.Fill,
+						HorizontalAlignment = HorizontalAlignment.Left,
+						Source = new BitmapImage(new Uri($"https://devildaggers.info/mod-screenshots/{mod.Name}/{screenshotFileName}")),
+					});
+				}
 			}
 		}
 

@@ -60,12 +60,16 @@
 								<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False">Download and install</Button>
 
 								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binaries</Label>
-								<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
+								<ScrollViewer MaxHeight="128">
+									<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
+								</ScrollViewer>
 
 								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Screenshots</Label>
-								<Image Margin="4,0,0,0" MaxWidth="256" Stretch="Fill" Name="PreviewScreenshot" HorizontalAlignment="Left" />
+								<ScrollViewer MaxHeight="256">
+									<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewScreenshotsList" />
+								</ScrollViewer>
 							</StackPanel>
-							<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
+							<StackPanel Grid.Column="1" Background="{StaticResource Gray2}">
 								<Grid Name="ModHeaders" HorizontalAlignment="Stretch" Background="{StaticResource Gray2}">
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition />
