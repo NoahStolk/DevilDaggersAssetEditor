@@ -1,4 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersCore.Wpf.Utils;
@@ -59,9 +60,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(File.ReadAllBytes(_selectedPath));
 			foreach (Chunk chunk in BinaryFileHandler.ReadChunks(tocBuffer))
 			{
+				bool? isProhibited = AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType);
+
 				ChunkListView.Children.Add(new TextBlock
 				{
 					Text = chunk.Name,
+					Foreground = ColorUtils.ThemeColors[isProhibited.HasValue ? isProhibited.Value ? "ErrorText" : "Text" : "Gray6"],
 				});
 			}
 		}
