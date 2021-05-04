@@ -18,6 +18,17 @@ namespace DevilDaggersAssetEditor.Assets
 			DdModelsAssets = AssetHandler.Instance.DdModelsAssets.ConvertAll(a => new ModelAsset(a.AssetName, a.IsProhibited, a.DefaultIndexCount, a.DefaultVertexCount));
 			DdShadersAssets = AssetHandler.Instance.DdShadersAssets.ConvertAll(a => new ShaderAsset(a.AssetName, a.IsProhibited));
 			DdTexturesAssets = AssetHandler.Instance.DdTexturesAssets.ConvertAll(a => new TextureAsset(a.AssetName, a.IsProhibited, a.DefaultWidth, a.DefaultHeight, a.IsModelTexture, a.ModelBinding));
+
+			DdAssets = DdModelBindingsAssets.Cast<AbstractAsset>()
+				.Concat(DdModelsAssets.Cast<AbstractAsset>())
+				.Concat(DdShadersAssets.Cast<AbstractAsset>())
+				.Concat(DdTexturesAssets.Cast<AbstractAsset>())
+				.ToList();
+
+			AllAssets = AudioAudioAssets.Cast<AbstractAsset>()
+				.Concat(CoreShadersAssets.Cast<AbstractAsset>())
+				.Concat(DdAssets)
+				.ToList();
 		}
 
 		public static AssetContainer Instance => _lazy.Value;
@@ -28,6 +39,9 @@ namespace DevilDaggersAssetEditor.Assets
 		public List<ModelAsset> DdModelsAssets { get; }
 		public List<ShaderAsset> DdShadersAssets { get; }
 		public List<TextureAsset> DdTexturesAssets { get; }
+
+		public List<AbstractAsset> DdAssets { get; }
+		public List<AbstractAsset> AllAssets { get; }
 
 		public List<AbstractAsset> GetAssets(BinaryFileType binaryFileType, string assetType)
 		{
@@ -43,6 +57,12 @@ namespace DevilDaggersAssetEditor.Assets
 				"dd.textures" => DdTexturesAssets.Cast<AbstractAsset>().ToList(),
 				_ => throw new($"No asset data found for binary file type '{binaryFileType}' and asset type '{assetType}.'"),
 			};
+		}
+
+		public bool? IsProhibited(string name, AssetType assetType)
+		{
+			AbstractAsset? asset = AllAssets.Find(a => a.AssetName == name && a.AssetType == assetType);
+			return asset?.IsProhibited;
 		}
 	}
 }
