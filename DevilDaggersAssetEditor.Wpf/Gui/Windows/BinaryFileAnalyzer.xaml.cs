@@ -38,6 +38,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult == true)
 			{
+				// TODO: Use FileStream instead of reading all bytes to improve performance.
 				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
 
 				AnalyzerFileResult? result = TryReadResourceFile(openDialog.FileName, sourceFileBytes);

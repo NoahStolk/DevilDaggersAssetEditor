@@ -206,6 +206,25 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return null;
 		}
 
+		public static bool IsValidFile(string path)
+		{
+			using FileStream fs = new(path, FileMode.Open);
+			fs.Seek(0, SeekOrigin.Begin);
+
+			byte[] fileHeader = new byte[12];
+			int bytesRead = fs.Read(fileHeader, 0, fileHeader.Length);
+			if (bytesRead < fileHeader.Length)
+				return false;
+
+			uint magic1FromFile = BitConverter.ToUInt32(fileHeader, 0);
+			uint magic2FromFile = BitConverter.ToUInt32(fileHeader, 4);
+			if (magic1FromFile != Magic1 || magic2FromFile != Magic2)
+				return false;
+
+			uint tocSize = BitConverter.ToUInt32(fileHeader, 8);
+			return tocSize <= fs.Length - 12;
+		}
+
 		public static bool IsValidFile(byte[] sourceFileBytes)
 		{
 			if (sourceFileBytes.Length < 12)
