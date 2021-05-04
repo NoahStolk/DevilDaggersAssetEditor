@@ -3,91 +3,17 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:windows="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.Windows"
+		xmlns:usercontrols="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.UserControls"
 		mc:Ignorable="d"
         Title="Mod manager" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
-	<Window.CommandBindings>
-		<CommandBinding Command="windows:ModManagerWindow.FirstPageCommand" CanExecute="CanExecute" Executed="FirstPage_Executed" />
-		<CommandBinding Command="windows:ModManagerWindow.PreviousPageCommand" CanExecute="CanExecute" Executed="PreviousPage_Executed" />
-		<CommandBinding Command="windows:ModManagerWindow.NextPageCommand" CanExecute="CanExecute" Executed="NextPage_Executed" />
-		<CommandBinding Command="windows:ModManagerWindow.LastPageCommand" CanExecute="CanExecute" Executed="LastPage_Executed" />
-	</Window.CommandBindings>
 	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 		<StackPanel MinHeight="730" MinWidth="1366" Background="{StaticResource Gray3}">
 			<TabControl>
 				<TabItem Header="Download mods">
-					<StackPanel>
-						<Grid Margin="8">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition Width="5*" />
-							</Grid.ColumnDefinitions>
-							<StackPanel Margin="0,0,8,0">
-								<Button Name="ReloadButton" Click="ReloadButton_Click" Width="128" HorizontalAlignment="Left">Reload all</Button>
-
-								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Filters</Label>
-								<Grid>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition Width="24" />
-									</Grid.ColumnDefinitions>
-									<Label>Mod name</Label>
-									<TextBox Grid.Column="1" Name="ModSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
-									<Button Grid.Column="2" Content="✕" Click="ClearModSearchButton_Click" ToolTip="Clear mod filter" />
-								</Grid>
-								<Grid>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition Width="24" />
-									</Grid.ColumnDefinitions>
-									<Label>Author name</Label>
-									<TextBox Grid.Column="1" Name="AuthorSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
-									<Button Grid.Column="2" Name="ClearAuthorSearchButton" Content="✕" Click="ClearAuthorSearchButton_Click" ToolTip="Clear author filter" />
-								</Grid>
-
-								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Paging</Label>
-								<Label Name="PageLabel" />
-								<StackPanel Orientation="Horizontal">
-									<Button Width="32" Click="FirstPage_Click" ToolTip="First page">|&lt;</Button>
-									<Button Width="32" Click="PreviousPage_Click" ToolTip="Previous page">&lt;</Button>
-									<Button Width="32" Click="NextPage_Click" ToolTip="Next page">&gt;</Button>
-									<Button Width="32" Click="LastPage_Click" ToolTip="Last page">&gt;|</Button>
-								</StackPanel>
-
-								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0" Name="PreviewName">No mod selected</Label>
-								<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False">Download and install</Button>
-
-								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binaries</Label>
-								<ScrollViewer MaxHeight="128">
-									<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
-								</ScrollViewer>
-
-								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Screenshots</Label>
-								<ScrollViewer MaxHeight="256">
-									<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewScreenshotsList" />
-								</ScrollViewer>
-							</StackPanel>
-							<StackPanel Grid.Column="1" Background="{StaticResource Gray2}">
-								<Grid Name="ModHeaders" HorizontalAlignment="Stretch" Background="{StaticResource Gray2}">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition />
-										<ColumnDefinition Width="20" />
-									</Grid.ColumnDefinitions>
-								</Grid>
-								<ListView Name="ModsListView" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="ModsListView_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}" MinHeight="638" />
-							</StackPanel>
-						</Grid>
-					</StackPanel>
+					<usercontrols:DownloadModsControl x:Name="DownloadModsControl" />
 				</TabItem>
 				<TabItem Header="Manage mods">
+
 				</TabItem>
 			</TabControl>
 		</StackPanel>
