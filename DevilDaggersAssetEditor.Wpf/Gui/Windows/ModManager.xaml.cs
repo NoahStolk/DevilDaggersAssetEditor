@@ -53,7 +53,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				new(sortingIndex, "Author", "Author", GetCachedDirection(sortingIndex++, true), m => string.Join(", ", m.Authors), m => m.Name),
 				new(sortingIndex, "Last updated", "Last updated", GetCachedDirection(sortingIndex++, false), m => m.LastUpdated),
 				new(sortingIndex, "Asset types", "Asset types", GetCachedDirection(sortingIndex++, false), m => m.AssetModTypes, m => m.Name),
-				new(sortingIndex, "Blocked assets", "Blocked assets", GetCachedDirection(sortingIndex++, false), m => m.ContainsProhibitedAssets, m => m.Name),
+				new(sortingIndex, "Prohibited assets", "Prohibited assets", GetCachedDirection(sortingIndex++, false), m => m.ContainsProhibitedAssets, m => m.Name),
 				new(sortingIndex, "File size", "File size", GetCachedDirection(sortingIndex++, false), m => m.ModArchive?.FileSize, m => m.Name),
 				new(sortingIndex, "File size (extracted)", "File size (extracted)", GetCachedDirection(sortingIndex++, false), m => m.ModArchive?.FileSizeExtracted, m => m.Name),
 			};

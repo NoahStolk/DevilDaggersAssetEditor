@@ -43,7 +43,7 @@
 				</Button>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Blocked</TextBlock>
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold" FontSize="9">Prohibited</TextBlock>
 				<Button Name="ProhibitedSortButton" Click="ProhibitedSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
