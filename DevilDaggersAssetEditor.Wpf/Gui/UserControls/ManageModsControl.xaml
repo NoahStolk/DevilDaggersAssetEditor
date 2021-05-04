@@ -24,13 +24,18 @@
 		</StackPanel>
 		<StackPanel Grid.Column="1">
 			<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binary contents</Label>
+			<TextBlock Foreground="{StaticResource ErrorText}">Prohibited assets</TextBlock>
+			<TextBlock Foreground="{StaticResource Text}">Active assets (in this binary)</TextBlock>
+			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
 		</StackPanel>
 		<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Final modified assets</Label>
 		</StackPanel>
 
-		<ListView Grid.Row="1" Name="ModFilesListView" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="ModFilesListView_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}" />
+		<ListView Grid.Row="1" Name="ModFilesListView" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="ModFilesListView_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray3}" />
 
-		<StackPanel Grid.Column="1" Grid.Row="1" Name="ChunkListView" />
+		<ScrollViewer Grid.Column="1" Grid.Row="1" MaxHeight="640">
+			<StackPanel Name="ChunkListView" Background="{StaticResource Gray3}" />
+		</ScrollViewer>
 	</Grid>
 </UserControl>
