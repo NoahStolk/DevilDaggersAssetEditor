@@ -13,7 +13,7 @@
 					<usercontrols:DownloadModsControl x:Name="DownloadModsControl" />
 				</TabItem>
 				<TabItem Header="Manage mods">
-
+					<usercontrols:ManageModsControl x:Name="ManageModsControl" />
 				</TabItem>
 			</TabControl>
 		</StackPanel>
