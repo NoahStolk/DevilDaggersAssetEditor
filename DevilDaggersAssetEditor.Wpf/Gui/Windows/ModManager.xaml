@@ -56,14 +56,14 @@
 									<Button Width="32" Click="LastPage_Click" ToolTip="Last page">&gt;|</Button>
 								</StackPanel>
 
-								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Preview</Label>
-								<StackPanel Margin="0,10,0,0" Name="Preview">
-									<TextBlock FontWeight="Bold" Name="PreviewName" />
-									<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left">Download and install</Button>
-									<TextBlock FontWeight="Bold" Grid.Row="1">Binaries</TextBlock>
-									<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
-									<Image MaxWidth="256" Stretch="Fill" Name="PreviewScreenshot" HorizontalAlignment="Left" />
-								</StackPanel>
+								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0" Name="PreviewName">No mod selected</Label>
+								<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False">Download and install</Button>
+
+								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binaries</Label>
+								<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
+
+								<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Screenshots</Label>
+								<Image Margin="4,0,0,0" MaxWidth="256" Stretch="Fill" Name="PreviewScreenshot" HorizontalAlignment="Left" />
 							</StackPanel>
 							<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
 								<Grid Name="ModHeaders" HorizontalAlignment="Stretch" Background="{StaticResource Gray2}">

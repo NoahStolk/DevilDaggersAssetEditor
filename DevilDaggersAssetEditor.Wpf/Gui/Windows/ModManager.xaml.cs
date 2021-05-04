@@ -214,16 +214,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			Mod? mod = _modGrids[ModsListView.SelectedIndex].Mod;
 			_selectedModName = mod?.Name;
-			Preview.Visibility = mod?.ModArchive == null ? Visibility.Collapsed : Visibility.Visible;
-			if (mod?.ModArchive == null)
-				return;
+			DownloadModButton.IsEnabled = mod?.ModArchive != null;
+			PreviewName.Content = _selectedModName ?? "No mod selected";
+			if (mod?.ModArchive != null)
+			{
+				int i = 0;
+				foreach (ModBinary binary in mod.ModArchive.Binaries)
+					PreviewBinariesList.Children.Add(new TextBlock { Text = binary.Name, Background = (i++ % 2 == 0) ? _even : _odd, Margin = new Thickness(4, 0, 0, 0) });
 
-			PreviewName.Text = mod.Name;
-			int i = 0;
-			foreach (ModBinary binary in mod.ModArchive.Binaries)
-				PreviewBinariesList.Children.Add(new TextBlock { Text = binary.Name, Background = (i++ % 2 == 0) ? _even : _odd });
-
-			PreviewScreenshot.Source = mod.ScreenshotFileNames.Count == 0 ? null : new BitmapImage(new Uri($"https://devildaggers.info/mod-screenshots/{mod.Name}/{mod.ScreenshotFileNames[0]}"));
+				PreviewScreenshot.Source = mod.ScreenshotFileNames.Count == 0 ? null : new BitmapImage(new Uri($"https://devildaggers.info/mod-screenshots/{mod.Name}/{mod.ScreenshotFileNames[0]}"));
+			}
+			else
+			{
+				PreviewScreenshot.Source = null;
+			}
 		}
 
 		private async void DownloadModButton_Click(object sender, RoutedEventArgs e)
