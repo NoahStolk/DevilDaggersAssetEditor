@@ -7,24 +7,19 @@ namespace DevilDaggersAssetEditor.Assets
 {
 	public abstract class AbstractAsset
 	{
-		protected AbstractAsset(string assetName, AssetType assetType, string description, bool isProhibited, List<string> tags)
+		protected AbstractAsset(string assetName, AssetType assetType, bool isProhibited)
 		{
 			AssetName = assetName;
 			AssetType = assetType;
-			Description = description;
 			IsProhibited = isProhibited;
-			Tags = tags;
 		}
 
 		public string AssetName { get; }
-
 		public AssetType AssetType { get; }
-
-		public string Description { get; }
-
 		public bool IsProhibited { get; set; }
 
-		public List<string> Tags { get; }
+		public string? Description { get; set; }
+		public List<string> Tags { get; set; } = new();
 
 		public string EditorPath { get; set; } = GuiUtils.FileNotFound;
 

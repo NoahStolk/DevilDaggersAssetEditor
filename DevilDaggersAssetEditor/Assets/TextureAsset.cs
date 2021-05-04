@@ -1,14 +1,13 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersCore.Mods;
 using System;
-using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class TextureAsset : AbstractAsset
 	{
-		public TextureAsset(string assetName, string description, bool isProhibited, List<string> tags, int defaultWidth, int defaultHeight, bool isModelTexture, string modelBinding)
-			: base(assetName, AssetType.Texture, description, isProhibited, tags)
+		public TextureAsset(string assetName, bool isProhibited, int defaultWidth, int defaultHeight, bool isModelTexture, string modelBinding)
+			: base(assetName, AssetType.Texture, isProhibited)
 		{
 			DefaultWidth = defaultWidth;
 			DefaultHeight = defaultHeight;

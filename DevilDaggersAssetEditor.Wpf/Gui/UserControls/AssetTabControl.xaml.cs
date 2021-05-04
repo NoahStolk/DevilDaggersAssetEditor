@@ -24,7 +24,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private readonly AssetRowSorting _nameSort = new(a => a.Asset.AssetName);
 		private readonly AssetRowSorting _prohibitedSort = new(a => a.Asset.IsProhibited);
 		private readonly AssetRowSorting _tagsSort = new(a => string.Join(", ", a.Asset.Tags));
-		private readonly AssetRowSorting _descriptionSort = new(a => a.Asset.Description);
+		private readonly AssetRowSorting _descriptionSort = new(a => a.Asset.Description ?? "Not fetched");
 		private readonly AssetRowSorting _loudnessSort = new(a => (a.Asset as AudioAsset)?.Loudness ?? 0);
 		private readonly AssetRowSorting _pathSort = new(a => a.Asset.EditorPath);
 

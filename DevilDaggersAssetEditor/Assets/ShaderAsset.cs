@@ -1,14 +1,13 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Mods;
-using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class ShaderAsset : AbstractAsset
 	{
-		public ShaderAsset(string assetName, string description, bool isProhibited, List<string> tags)
-			: base(assetName, AssetType.Shader, description, isProhibited, tags)
+		public ShaderAsset(string assetName, bool isProhibited)
+			: base(assetName, AssetType.Shader, isProhibited)
 		{
 		}
 

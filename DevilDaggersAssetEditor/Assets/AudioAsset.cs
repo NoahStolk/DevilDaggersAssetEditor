@@ -1,14 +1,13 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersCore.Mods;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class AudioAsset : AbstractAsset
 	{
-		public AudioAsset(string assetName, string description, bool isProhibited, List<string> tags, float loudness, bool presentInDefaultLoudness)
-			: base(assetName, AssetType.Audio, description, isProhibited, tags)
+		public AudioAsset(string assetName, bool isProhibited, float loudness, bool presentInDefaultLoudness)
+			: base(assetName, AssetType.Audio, isProhibited)
 		{
 			Loudness = loudness;
 			PresentInDefaultLoudness = presentInDefaultLoudness;
@@ -17,7 +16,6 @@ namespace DevilDaggersAssetEditor.Assets
 		}
 
 		public float Loudness { get; set; }
-
 		public bool PresentInDefaultLoudness { get; }
 
 		[JsonIgnore]

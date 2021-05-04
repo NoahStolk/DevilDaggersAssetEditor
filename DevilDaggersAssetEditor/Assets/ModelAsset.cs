@@ -1,20 +1,18 @@
 ﻿using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersCore.Mods;
-using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets
 {
 	public class ModelAsset : AbstractAsset
 	{
-		public ModelAsset(string assetName, string description, bool isProhibited, List<string> tags, int defaultIndexCount, int defaultVertexCount)
-			: base(assetName, AssetType.Model, description, isProhibited, tags)
+		public ModelAsset(string assetName, bool isProhibited, int defaultIndexCount, int defaultVertexCount)
+			: base(assetName, AssetType.Model, isProhibited)
 		{
 			DefaultIndexCount = defaultIndexCount;
 			DefaultVertexCount = defaultVertexCount;
 		}
 
 		public int DefaultIndexCount { get; }
-
 		public int DefaultVertexCount { get; }
 
 		public override UserAsset ToUserAsset()

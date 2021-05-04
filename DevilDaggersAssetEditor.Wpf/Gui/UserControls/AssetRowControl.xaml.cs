@@ -120,7 +120,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void UpdateGui()
 		{
-			TextBlockDescription.Text = Asset.Description;
+			TextBlockDescription.Text = Asset.Description ?? "Not fetched";
 			TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath : GuiUtils.FileNotFound;
 			if (_shaderAsset != null)
 				TextBlockEditorPathFragmentShader.Text = File.Exists(_shaderAsset.EditorPathFragmentShader) ? _shaderAsset.EditorPathFragmentShader : GuiUtils.FileNotFound;

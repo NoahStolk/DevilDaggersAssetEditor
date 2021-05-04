@@ -12,12 +12,12 @@ namespace DevilDaggersAssetEditor.Assets
 
 		private AssetContainer()
 		{
-			AudioAudioAssets = AssetHandler.Instance.AudioAudioAssets.ConvertAll(a => new AudioAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags, a.DefaultLoudness, a.PresentInDefaultLoudness));
-			CoreShadersAssets = AssetHandler.Instance.CoreShadersAssets.ConvertAll(a => new ShaderAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags));
-			DdModelBindingsAssets = AssetHandler.Instance.DdModelBindingsAssets.ConvertAll(a => new ModelBindingAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags));
-			DdModelsAssets = AssetHandler.Instance.DdModelsAssets.ConvertAll(a => new ModelAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags, a.DefaultIndexCount, a.DefaultVertexCount));
-			DdShadersAssets = AssetHandler.Instance.DdShadersAssets.ConvertAll(a => new ShaderAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags));
-			DdTexturesAssets = AssetHandler.Instance.DdTexturesAssets.ConvertAll(a => new TextureAsset(a.AssetName, a.Description, a.IsProhibited, a.Tags, a.DefaultWidth, a.DefaultHeight, a.IsModelTexture, a.ModelBinding));
+			AudioAudioAssets = AssetHandler.Instance.AudioAudioAssets.ConvertAll(a => new AudioAsset(a.AssetName, a.IsProhibited, a.DefaultLoudness, a.PresentInDefaultLoudness));
+			CoreShadersAssets = AssetHandler.Instance.CoreShadersAssets.ConvertAll(a => new ShaderAsset(a.AssetName, a.IsProhibited));
+			DdModelBindingsAssets = AssetHandler.Instance.DdModelBindingsAssets.ConvertAll(a => new ModelBindingAsset(a.AssetName, a.IsProhibited));
+			DdModelsAssets = AssetHandler.Instance.DdModelsAssets.ConvertAll(a => new ModelAsset(a.AssetName, a.IsProhibited, a.DefaultIndexCount, a.DefaultVertexCount));
+			DdShadersAssets = AssetHandler.Instance.DdShadersAssets.ConvertAll(a => new ShaderAsset(a.AssetName, a.IsProhibited));
+			DdTexturesAssets = AssetHandler.Instance.DdTexturesAssets.ConvertAll(a => new TextureAsset(a.AssetName, a.IsProhibited, a.DefaultWidth, a.DefaultHeight, a.IsModelTexture, a.ModelBinding));
 		}
 
 		public static AssetContainer Instance => _lazy.Value;
