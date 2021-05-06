@@ -2945,6 +2945,12 @@ namespace DevilDaggersAssetEditor.Wpf.Clients
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public string Name { get; set; }= default!;
     
+        [Newtonsoft.Json.JsonProperty("htmlDescription", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string? HtmlDescription { get; set; }= default!;
+    
+        [Newtonsoft.Json.JsonProperty("trailerUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string? TrailerUrl { get; set; }= default!;
+    
         [Newtonsoft.Json.JsonProperty("authors", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.List<string> Authors { get; set; } = new System.Collections.Generic.List<string>();
