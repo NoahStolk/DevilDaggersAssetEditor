@@ -5,7 +5,7 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:usercontrols="clr-namespace:DevilDaggersAssetEditor.Wpf.Gui.UserControls"
 			 mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="768" d:DesignWidth="1024">
 	<UserControl.CommandBindings>
 		<CommandBinding Command="usercontrols:DownloadModsControl.FirstPageCommand" CanExecute="CanExecute" Executed="FirstPage_Executed" />
 		<CommandBinding Command="usercontrols:DownloadModsControl.PreviousPageCommand" CanExecute="CanExecute" Executed="PreviousPage_Executed" />
@@ -53,7 +53,7 @@
 				</StackPanel>
 
 				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0" Name="PreviewName">No mod selected</Label>
-				<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False">Download and install</Button>
+				<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False" Width="116" HorizontalAlignment="Left">Download and install</Button>
 
 				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binaries</Label>
 				<ScrollViewer MaxHeight="128">
