@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Wpf.Extensions;
+using DevilDaggersCore.Wpf.Utils;
 using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;
@@ -94,13 +95,21 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			if (originalChunks.Count == 0 || compareChunks.Count == 0)
 				return;
 
-			List<Chunk> remainingChunks = new();
+			TrimLog.Children.Clear();
 
+			List<Chunk> remainingChunks = new();
 			foreach (Chunk chunk in originalChunks)
 			{
 				Chunk? compareChunk = compareChunks.Find(c => c.AssetType == chunk.AssetType && c.Name == chunk.Name);
-				if (!HaveIdenticalAssets(chunk, compareChunk))
+				if (chunk.IsBinaryEqual(compareChunk, out string? diffReason))
+				{
+					TrimLog.Children.Add(new TextBlock { Text = $"{chunk.AssetType} chunk '{chunk.Name}' will be removed because the chunks are identical.", Foreground = ColorUtils.ThemeColors["ErrorText"] });
+				}
+				else
+				{
+					TrimLog.Children.Add(new TextBlock { Text = $"{chunk.AssetType} chunk '{chunk.Name}' will be kept: {diffReason}", Foreground = ColorUtils.ThemeColors["SuccessText"] });
 					remainingChunks.Add(chunk);
+				}
 			}
 
 			BinaryFileHandler.CreateTocStream(remainingChunks, out byte[] tocBuffer, out Dictionary<Chunk, long> startOffsetBytePositions);
@@ -143,30 +152,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				}
 
 				return chunks;
-			}
-
-			static bool HaveIdenticalAssets(Chunk chunk, Chunk? compareChunk)
-			{
-				if (compareChunk == null || chunk.Buffer.Length != compareChunk.Buffer.Length)
-					return false;
-
-				int fileLength = chunk.Buffer.Length;
-
-				// Ignore mipmap data when comparing textures.
-				if (chunk is TextureChunk textureChunk)
-				{
-					int width = BitConverter.ToInt32(chunk.Buffer, 2);
-					int height = BitConverter.ToInt32(chunk.Buffer, 6);
-					fileLength = width * height * 4;
-				}
-
-				for (int i = 0; i < fileLength; i++)
-				{
-					if (chunk.Buffer[i] != compareChunk.Buffer[i])
-						return false;
-				}
-
-				return true;
 			}
 		}
 	}

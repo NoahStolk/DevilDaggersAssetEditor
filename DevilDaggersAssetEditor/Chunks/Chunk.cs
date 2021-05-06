@@ -38,5 +38,32 @@ namespace DevilDaggersAssetEditor.Chunks
 
 		public override string ToString()
 			=> $"Type: {AssetType} | Name: {Name} | Size: {Size}";
+
+		public virtual bool IsBinaryEqual(Chunk? otherChunk, out string? diffReason)
+		{
+			if (otherChunk == null)
+			{
+				diffReason = "Other chunk is not present.";
+				return false;
+			}
+
+			if (Buffer.Length != otherChunk.Buffer.Length)
+			{
+				diffReason = $"Chunks do not have the same length ({Buffer.Length} - {otherChunk.Buffer.Length}).";
+				return false;
+			}
+
+			for (int i = 0; i < Buffer.Length; i++)
+			{
+				if (Buffer[i] != otherChunk.Buffer[i])
+				{
+					diffReason = $"Bytes at position {i} do not match (0x{Buffer[i]:X} - 0x{otherChunk.Buffer[i]:X}).";
+					return false;
+				}
+			}
+
+			diffReason = null;
+			return true;
+		}
 	}
 }

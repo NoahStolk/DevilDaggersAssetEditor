@@ -10,5 +10,8 @@
 
 		public string Name { get; set; }
 		public byte[] Buffer { get; set; }
+
+		public override string ToString()
+			=> $"{Name} ({Buffer.Length} bytes)";
 	}
 }

@@ -3,6 +3,7 @@ using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Buf = System.Buffer;
 
@@ -54,6 +55,42 @@ namespace DevilDaggersAssetEditor.Chunks
 			byte[] fragmentBuffer = new byte[fragmentSize];
 			Buf.BlockCopy(Buffer, (int)nameLength + HeaderSize + (int)vertexSize, fragmentBuffer, 0, (int)fragmentSize);
 			yield return new($"{Name}_fragment", fragmentBuffer);
+		}
+
+		public override bool IsBinaryEqual(Chunk? otherChunk, out string? diffReason)
+		{
+			if (otherChunk == null)
+			{
+				diffReason = "Other chunk is not present.";
+				return false;
+			}
+
+			FileResult[] originalFiles = ExtractBinary().ToArray();
+			FileResult[] otherFiles = otherChunk.ExtractBinary().ToArray();
+
+			for (int i = 0; i < 2; i++)
+			{
+				FileResult originalFile = originalFiles[i];
+				FileResult otherFile = otherFiles[i];
+
+				if (originalFile.Buffer.Length != otherFile.Buffer.Length)
+				{
+					diffReason = $"Parts '{originalFile.Name}' do not have the same length ({Buffer.Length} - {otherChunk.Buffer.Length}).";
+					return false;
+				}
+
+				for (int j = 0; j < originalFile.Buffer.Length; j++)
+				{
+					if (originalFile.Buffer[j] != otherFile.Buffer[j])
+					{
+						diffReason = $"Bytes at position {j} in part '{originalFile.Name}' do not match (0x{originalFile.Buffer[j]:X} - 0x{otherFile.Buffer[j]:X}).";
+						return false;
+					}
+				}
+			}
+
+			diffReason = null;
+			return true;
 		}
 	}
 }

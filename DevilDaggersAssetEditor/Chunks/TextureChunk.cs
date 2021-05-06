@@ -215,5 +215,35 @@ namespace DevilDaggersAssetEditor.Chunks
 
 			return destImage;
 		}
+
+		public override bool IsBinaryEqual(Chunk? otherChunk, out string? diffReason)
+		{
+			if (otherChunk == null)
+			{
+				diffReason = "Other chunk does not exist.";
+				return false;
+			}
+
+			if (Buffer.Length != otherChunk.Buffer.Length)
+			{
+				diffReason = $"Chunks do not have the same length ({Buffer.Length} - {otherChunk.Buffer.Length}).";
+				return false;
+			}
+
+			// Ignore mipmap data.
+			int width = BitConverter.ToInt32(Buffer, 2);
+			int height = BitConverter.ToInt32(Buffer, 6);
+			for (int i = 0; i < width * height * 4; i++)
+			{
+				if (Buffer[i] != otherChunk.Buffer[i])
+				{
+					diffReason = $"Bytes at position {i} do not match (0x{Buffer[i]:X} - 0x{otherChunk.Buffer[i]:X}).";
+					return false;
+				}
+			}
+
+			diffReason = null;
+			return true;
+		}
 	}
 }

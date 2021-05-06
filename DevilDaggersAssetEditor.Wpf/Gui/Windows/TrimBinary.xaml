@@ -53,6 +53,9 @@
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
 				<Button Name="ButtonTrimBinary" Content="Trim binary" Click="TrimBinary_Click" Style="{StaticResource OkButtonLarge}" />
 			</StackPanel>
+			<ScrollViewer Height="256" MaxHeight="256" Background="{StaticResource Gray1}">
+				<StackPanel Name="TrimLog" />
+			</ScrollViewer>
 		</StackPanel>
 	</StackPanel>
 </Window>
