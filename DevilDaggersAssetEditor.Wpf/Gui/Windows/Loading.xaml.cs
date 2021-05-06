@@ -161,13 +161,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			bool retrieveAssetInfoSuccess = false;
 			using BackgroundWorker retrieveAssetInfoThread = new();
-			retrieveModsThread.DoWork += (sender, e) =>
+			retrieveAssetInfoThread.DoWork += (sender, e) =>
 			{
 				Task<bool> assetInfoTask = NetworkHandler.Instance.RetrieveAssetInfo();
 				assetInfoTask.Wait();
 				retrieveAssetInfoSuccess = assetInfoTask.Result;
 			};
-			retrieveModsThread.RunWorkerCompleted += (sender, e) =>
+			retrieveAssetInfoThread.RunWorkerCompleted += (sender, e) =>
 			{
 				Dispatcher.Invoke(() =>
 				{
