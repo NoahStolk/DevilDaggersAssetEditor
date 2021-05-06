@@ -24,7 +24,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
 			new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
 
-			progress.Report("Downloading...", 0);
+			progress.Report("Downloading.", 0);
 
 			using WebClient wc = new();
 			byte[]? downloadedModContents = await wc.DownloadByteArrayAsync($"https://devildaggers.info/api/mods/{Uri.EscapeDataString(modName)}/file", progress);
@@ -34,7 +34,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				return;
 			}
 
-			App.Instance.Dispatcher.Invoke(() => progress.Report("Installing...", 1));
+			App.Instance.Dispatcher.Invoke(() => progress.Report("Installing.", 1));
 			using MemoryStream ms = new(downloadedModContents);
 			using ZipArchive zipArchive = new(ms);
 			zipArchive.ExtractToDirectory(modsDirectory, true);

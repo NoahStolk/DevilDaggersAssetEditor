@@ -53,7 +53,11 @@
 			<StackPanel Style="{StaticResource PaddingStackPanel}">
 				<Button Name="ButtonTrimBinary" Content="Trim binary" Click="TrimBinary_Click" Style="{StaticResource OkButtonLarge}" />
 			</StackPanel>
-			<ScrollViewer Height="256" MaxHeight="256" Background="{StaticResource Gray1}">
+			<Grid>
+				<ProgressBar Name="ProgressBar" />
+				<TextBlock Name="ProgressDescription" Style="{StaticResource ProgressBarTextBlock}" />
+			</Grid>
+			<ScrollViewer Name="TrimScrollViewer" Height="240" MaxHeight="240" Background="{StaticResource Gray1}">
 				<StackPanel Name="TrimLog" />
 			</ScrollViewer>
 		</StackPanel>

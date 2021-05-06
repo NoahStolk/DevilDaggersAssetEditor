@@ -7,6 +7,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,7 +22,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public TrimBinaryWindow()
 		{
 			InitializeComponent();
+
+			Progress = new(
+				new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
+				new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
 		}
+
+		public ProgressWrapper Progress { get; }
 
 		private void BrowseOriginalButton_Click(object sender, RoutedEventArgs e)
 		{
@@ -85,7 +92,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			ButtonTrimBinary.IsEnabled = !string.IsNullOrWhiteSpace(_originalFilePath) && !string.IsNullOrWhiteSpace(_compareFilePath) && !string.IsNullOrWhiteSpace(_outputFilePath) && File.Exists(_originalFilePath) && File.Exists(_compareFilePath);
 		}
 
-		private void TrimBinary_Click(object sender, RoutedEventArgs e)
+		private async void TrimBinary_Click(object sender, RoutedEventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(_outputFilePath) || !ValidateFileExists(_originalFilePath) || !ValidateFileExists(_compareFilePath))
 				return;
@@ -97,25 +104,51 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			TrimLog.Children.Clear();
 
-			List<Chunk> remainingChunks = new();
-			foreach (Chunk chunk in originalChunks)
+			await Task.Run(() =>
 			{
-				Chunk? compareChunk = compareChunks.Find(c => c.AssetType == chunk.AssetType && c.Name == chunk.Name);
-				if (chunk.IsBinaryEqual(compareChunk, out string? diffReason))
+				try
 				{
-					TrimLog.Children.Add(new TextBlock { Text = $"{chunk.AssetType} chunk '{chunk.Name}' will be removed because the chunks are identical.", Foreground = ColorUtils.ThemeColors["ErrorText"] });
-				}
-				else
-				{
-					TrimLog.Children.Add(new TextBlock { Text = $"{chunk.AssetType} chunk '{chunk.Name}' will be kept: {diffReason}", Foreground = ColorUtils.ThemeColors["SuccessText"] });
-					remainingChunks.Add(chunk);
-				}
-			}
+					List<Chunk> remainingChunks = new();
+					int i = 0;
+					foreach (Chunk chunk in originalChunks)
+					{
+						App.Instance.Dispatcher.Invoke(() => Progress.Report($"Comparing {chunk.AssetType} chunk '{chunk.Name}'.", i++ / (float)originalChunks.Count * 0.5f));
 
-			BinaryFileHandler.CreateTocStream(remainingChunks, out byte[] tocBuffer, out Dictionary<Chunk, long> startOffsetBytePositions);
-			byte[] assetBuffer = BinaryFileHandler.CreateAssetStream(remainingChunks, tocBuffer, startOffsetBytePositions, null);
-			byte[] binaryBytes = BinaryFileHandler.CreateBinary(tocBuffer, assetBuffer);
-			File.WriteAllBytes(_outputFilePath, binaryBytes);
+						Chunk? compareChunk = compareChunks.Find(c => c.AssetType == chunk.AssetType && c.Name == chunk.Name);
+						if (chunk.IsBinaryEqual(compareChunk, out string? diffReason))
+						{
+							App.Instance.Dispatcher.Invoke(() => TrimLog.Children.Add(new TextBlock { Text = $"{chunk.AssetType} chunk '{chunk.Name}' will be removed because the chunks are identical.", Foreground = ColorUtils.ThemeColors["ErrorText"] }));
+						}
+						else
+						{
+							App.Instance.Dispatcher.Invoke(() => TrimLog.Children.Add(new TextBlock { Text = $"{chunk.AssetType} chunk '{chunk.Name}' will be kept: {diffReason}", Foreground = ColorUtils.ThemeColors["SuccessText"] }));
+							remainingChunks.Add(chunk);
+						}
+
+						App.Instance.Dispatcher.Invoke(() => TrimScrollViewer.ScrollToEnd());
+					}
+
+					App.Instance.Dispatcher.Invoke(() => Progress.Report("Creating TOC stream.", 0.5f));
+					BinaryFileHandler.CreateTocStream(remainingChunks, out byte[] tocBuffer, out Dictionary<Chunk, long> startOffsetBytePositions);
+					byte[] assetBuffer = BinaryFileHandler.CreateAssetStream(remainingChunks, tocBuffer, startOffsetBytePositions, Progress);
+
+					App.Instance.Dispatcher.Invoke(() => Progress.Report("Creating file.", 1));
+					byte[] binaryBytes = BinaryFileHandler.CreateBinary(tocBuffer, assetBuffer);
+
+					App.Instance.Dispatcher.Invoke(() => Progress.Report("Writing file.", 1));
+					File.WriteAllBytes(_outputFilePath, binaryBytes);
+
+					App.Instance.Dispatcher.Invoke(() => Progress.Report("Completed successfully.", 1));
+				}
+				catch (Exception ex)
+				{
+					App.Instance.Dispatcher.Invoke(() =>
+					{
+						App.Instance.ShowError("Comparing binaries did not complete successfully", "An error occurred while comparing binaries.", ex);
+						Progress.Report("Execution did not complete successfully.");
+					});
+				}
+			});
 
 			static bool ValidateFileExists(string? filePath)
 			{
