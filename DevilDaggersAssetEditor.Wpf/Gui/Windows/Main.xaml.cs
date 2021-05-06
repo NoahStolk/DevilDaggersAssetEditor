@@ -29,7 +29,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		public static readonly RoutedUICommand OpenCommand = new("Open", nameof(OpenCommand), typeof(MainWindow), new() { new KeyGesture(Key.O, ModifierKeys.Control) });
 		public static readonly RoutedUICommand SaveCommand = new("Save", nameof(SaveCommand), typeof(MainWindow), new() { new KeyGesture(Key.S, ModifierKeys.Control) });
 		public static readonly RoutedUICommand SaveAsCommand = new("Save as", nameof(SaveAsCommand), typeof(MainWindow), new() { new KeyGesture(Key.S, ModifierKeys.Control | ModifierKeys.Shift) });
-		//public static readonly RoutedUICommand OpenManagerCommand = new("Open mod manager", nameof(OpenManagerCommand), typeof(MainWindow), new() { new KeyGesture(Key.I, ModifierKeys.Control) });
+		public static readonly RoutedUICommand OpenManagerCommand = new("Open mod manager", nameof(OpenManagerCommand), typeof(MainWindow), new() { new KeyGesture(Key.I, ModifierKeys.Control) });
 		public static readonly RoutedUICommand ExtractBinariesCommand = new("Extract binaries", nameof(ExtractBinariesCommand), typeof(MainWindow), new() { new KeyGesture(Key.E, ModifierKeys.Control) });
 		public static readonly RoutedUICommand MakeBinariesCommand = new("Make binaries", nameof(MakeBinariesCommand), typeof(MainWindow), new() { new KeyGesture(Key.M, ModifierKeys.Control) });
 		public static readonly RoutedUICommand ImportAssetsCommand = new("Import assets", nameof(ImportAssetsCommand), typeof(MainWindow), new() { new KeyGesture(Key.I, ModifierKeys.Control | ModifierKeys.Shift) });

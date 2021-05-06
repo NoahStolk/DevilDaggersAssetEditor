@@ -14,7 +14,7 @@
 		<CommandBinding Command="windows:MainWindow.OpenCommand" CanExecute="CanExecute" Executed="Open_Executed" />
 		<CommandBinding Command="windows:MainWindow.SaveCommand" CanExecute="CanExecute" Executed="Save_Executed" />
 		<CommandBinding Command="windows:MainWindow.SaveAsCommand" CanExecute="CanExecute" Executed="SaveAs_Executed" />
-		<!--<CommandBinding Command="windows:MainWindow.OpenManagerCommand" CanExecute="CanExecute" Executed="OpenManager_Executed" />-->
+		<CommandBinding Command="windows:MainWindow.OpenManagerCommand" CanExecute="CanExecute" Executed="OpenManager_Executed" />
 		<CommandBinding Command="windows:MainWindow.ExtractBinariesCommand" CanExecute="CanExecute" Executed="ExtractBinaries_Executed" />
 		<CommandBinding Command="windows:MainWindow.MakeBinariesCommand" CanExecute="CanExecute" Executed="MakeBinaries_Executed" />
 		<CommandBinding Command="windows:MainWindow.ImportAssetsCommand" CanExecute="CanExecute" Executed="ImportAssets_Executed" />
@@ -32,8 +32,8 @@
 					<MenuItem Command="windows:MainWindow.OpenCommand" />
 					<MenuItem Command="windows:MainWindow.SaveCommand" />
 					<MenuItem Command="windows:MainWindow.SaveAsCommand" />
-					<!--<Separator />
-					<MenuItem Command="windows:MainWindow.OpenManagerCommand" />-->
+					<Separator />
+					<MenuItem Command="windows:MainWindow.OpenManagerCommand" />
 					<Separator />
 					<MenuItem Command="windows:MainWindow.ExtractBinariesCommand" />
 					<MenuItem Command="windows:MainWindow.MakeBinariesCommand" />
