@@ -136,6 +136,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				ThreadComplete();
 			};
 
+			/*
 			bool retrieveModsSuccess = false;
 			using BackgroundWorker retrieveModsThread = new();
 			retrieveModsThread.DoWork += (sender, e) =>
@@ -158,6 +159,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				ThreadComplete();
 			};
+			*/
 
 			bool retrieveAssetInfoSuccess = false;
 			using BackgroundWorker retrieveAssetInfoThread = new();
@@ -196,14 +198,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			_threads.Add(checkVersionThread);
 			_threads.Add(readUserSettingsThread);
 			_threads.Add(readUserCacheThread);
-			_threads.Add(retrieveModsThread);
+			//_threads.Add(retrieveModsThread);
 			_threads.Add(retrieveAssetInfoThread);
 			_threads.Add(mainInitThread);
 
 			_threadMessages.Add("Checking for updates...");
 			_threadMessages.Add("Reading user settings...");
 			_threadMessages.Add("Reading user cache...");
-			_threadMessages.Add("Retrieving mods...");
+			//_threadMessages.Add("Retrieving mods...");
 			_threadMessages.Add("Retrieving asset info...");
 			_threadMessages.Add("Initializing application...");
 
