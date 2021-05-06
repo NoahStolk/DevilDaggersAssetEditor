@@ -219,9 +219,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private void RunThread(BackgroundWorker worker)
 		{
-			TasksStackPanel.Children.Add(new Label
+			TasksStackPanel.Children.Add(new TextBlock
 			{
-				Content = _threadMessages[_threadsComplete],
+				Text = _threadMessages[_threadsComplete],
 			});
 
 			worker.RunWorkerAsync();
