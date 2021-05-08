@@ -33,6 +33,9 @@ namespace DevilDaggersAssetEditor.User
 		public string MakeBinaryDdName { get; set; } = string.Empty;
 
 		[JsonProperty]
+		public int ModManagerActiveTabIndex { get; set; }
+
+		[JsonProperty]
 		public string? DownloadAuthorFilter { get; set; }
 		[JsonProperty]
 		public string? DownloadModFilter { get; set; }
