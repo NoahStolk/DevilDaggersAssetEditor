@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using System;
 using System.Collections.Generic;

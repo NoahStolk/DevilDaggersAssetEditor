@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevilDaggersAssetEditor.BinaryFileHandlers
+namespace DevilDaggersAssetEditor.Progress
 {
 	public class ProgressWrapper
 	{

@@ -1,6 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Chunks;
 using DevilDaggersAssetEditor.Extensions;
+using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Mods;
 using System;

@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using DevilDaggersCore.Wpf.Windows;
