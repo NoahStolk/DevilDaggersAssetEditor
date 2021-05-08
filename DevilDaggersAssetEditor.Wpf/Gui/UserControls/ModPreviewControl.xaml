@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="DevilDaggersAssetEditor.Wpf.Gui.UserControls.ModPreviewControl"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" 
+             d:DesignHeight="512" d:DesignWidth="272">
+	<StackPanel ClipToBounds="True" Width="264">
+		<Label FontWeight="Bold" Margin="0,10,0,0" Background="{StaticResource Gray28}">Mod preview</Label>
+		<StackPanel ClipToBounds="True" Background="{StaticResource Gray38}">
+			<Label FontWeight="Bold" Name="PreviewName">No mod selected</Label>
+			<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False" Width="116" HorizontalAlignment="Left">Download and install</Button>
+		</StackPanel>
+
+		<StackPanel ClipToBounds="True" Name="BinariesContainer" Visibility="Collapsed">
+			<Label FontWeight="Bold" Margin="0,10,0,0" Background="{StaticResource Gray28}">Binaries</Label>
+			<ScrollViewer MaxHeight="96" Margin="2,0,0,0" ClipToBounds="True" Name="ScrollViewerBinaries"  Background="{StaticResource Gray38}">
+				<StackPanel HorizontalAlignment="Left" Name="PreviewBinariesList" ClipToBounds="True"/>
+			</ScrollViewer>
+		</StackPanel>
+
+		<StackPanel ClipToBounds="True" Name="DescriptionContainer" Visibility="Collapsed">
+			<Label FontWeight="Bold" Margin="0,10,0,0" Background="{StaticResource Gray28}">Description</Label>
+			<ScrollViewer MaxHeight="96" Margin="2,0,0,0" ClipToBounds="True" Name="ScrollViewerDescription" Background="{StaticResource Gray38}">
+				<TextBlock HorizontalAlignment="Left" Name="PreviewDescription" />
+			</ScrollViewer>
+		</StackPanel>
+
+		<StackPanel ClipToBounds="True" Name="ScreenshotsContainer" Visibility="Collapsed">
+			<Label FontWeight="Bold" Margin="0,10,0,0" Background="{StaticResource Gray28}">Screenshots</Label>
+			<ScrollViewer MaxHeight="192" Margin="2,0,0,0" ClipToBounds="True" Name="ScrollViewerScreenshots" Background="{StaticResource Gray38}">
+				<StackPanel HorizontalAlignment="Left" Name="PreviewScreenshotsList" ClipToBounds="True" />
+			</ScrollViewer>
+		</StackPanel>
+	</StackPanel>
+</UserControl>

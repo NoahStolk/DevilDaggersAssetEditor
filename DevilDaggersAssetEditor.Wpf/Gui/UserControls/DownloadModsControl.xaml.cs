@@ -1,10 +1,8 @@
 ﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Clients;
-using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
-using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,8 +36,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private static readonly SolidColorBrush _even = new(Color.FromArgb(31, 127, 127, 127));
 		private static readonly SolidColorBrush _odd = new(Color.FromArgb(31, 91, 91, 91));
-
-		private string? _selectedModName;
 
 		public DownloadModsControl()
 		{
@@ -177,6 +173,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			List<Mod> modsFinal = mods.ToList();
 			for (int i = 0; i < _pageSize; i++)
 				FillModGrid(i, i < modsFinal.Count ? modsFinal[i] : null);
+
+			UpdateSelection();
 		}
 
 		private void FillModGrid(int index, Mod? mod)
@@ -210,61 +208,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		#region Events
 
 		private void ModsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+			=> UpdateSelection();
+
+		private void UpdateSelection()
 		{
-			PreviewBinariesList.Children.Clear();
-			PreviewScreenshotsList.Children.Clear();
-
-			Mod? mod = _modGrids[ModsListView.SelectedIndex].Mod;
-			_selectedModName = mod?.Name;
-			DownloadModButton.IsEnabled = mod?.ModArchive != null;
-			PreviewName.Content = _selectedModName ?? "No mod selected";
-			PreviewDescription.Text = mod?.HtmlDescription;
-			if (mod?.ModArchive != null)
-			{
-				int i = 0;
-				foreach (ModBinary binary in mod.ModArchive.Binaries)
-					PreviewBinariesList.Children.Add(new TextBlock { Text = binary.Name, Background = (i++ % 2 == 0) ? _even : _odd, Margin = new Thickness(4, 0, 0, 0) });
-
-				foreach (string screenshotFileName in mod.ScreenshotFileNames)
-				{
-					PreviewScreenshotsList.Children.Add(new Image
-					{
-						Margin = new Thickness(4, 0, 0, 0),
-						MaxWidth = 256,
-						Stretch = Stretch.Fill,
-						HorizontalAlignment = HorizontalAlignment.Left,
-						Source = new BitmapImage(new Uri($"https://devildaggers.info/mod-screenshots/{mod.Name}/{screenshotFileName}")),
-					});
-				}
-			}
-		}
-
-		private async void DownloadModButton_Click(object sender, RoutedEventArgs e)
-		{
-			if (_selectedModName == null)
-				return;
-
-			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
-
-			ModArchive? archive = NetworkHandler.Instance.Mods.Find(m => m.Name == _selectedModName)?.ModArchive;
-			if (archive != null)
-			{
-				foreach (ModBinary binary in archive.Binaries)
-				{
-					if (File.Exists(Path.Combine(modsDirectory, binary.Name)))
-					{
-						ConfirmWindow window = new("File already exists", $"The mod '{_selectedModName}' contains a binary called '{binary.Name}'. A file with the same name already exists in the mods directory. Are you sure you want to overwrite it by downloading the '{_selectedModName}' mod?", false);
-						window.ShowDialog();
-
-						if (window.IsConfirmed != true)
-							return;
-					}
-				}
-			}
-
-			DownloadAndInstallModWindow downloadingWindow = new();
-			downloadingWindow.Show();
-			await downloadingWindow.DownloadAndInstall(modsDirectory, _selectedModName);
+			Mod? mod = ModsListView.SelectedIndex == -1 ? null : _modGrids[ModsListView.SelectedIndex].Mod;
+			ModPreview.Update(mod);
 		}
 
 		private void ReloadButton_Click(object sender, RoutedEventArgs e)

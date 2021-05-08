@@ -15,59 +15,46 @@
 	<StackPanel>
 		<Grid Margin="8">
 			<Grid.ColumnDefinitions>
+				<ColumnDefinition MinWidth="272" MaxWidth="272" />
 				<ColumnDefinition />
-				<ColumnDefinition Width="5*" />
 			</Grid.ColumnDefinitions>
 			<StackPanel Margin="0,0,8,0">
 				<Button Name="ReloadButton" Click="ReloadButton_Click" Width="128" HorizontalAlignment="Left">Reload all</Button>
 
-				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Filters</Label>
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition />
-						<ColumnDefinition />
-						<ColumnDefinition Width="24" />
-					</Grid.ColumnDefinitions>
-					<Label>Mod name</Label>
-					<TextBox Grid.Column="1" Name="ModSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
-					<Button Grid.Column="2" Content="✕" Click="ClearModSearchButton_Click" ToolTip="Clear mod filter" />
-				</Grid>
-				<Grid>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition />
-						<ColumnDefinition />
-						<ColumnDefinition Width="24" />
-					</Grid.ColumnDefinitions>
-					<Label>Author name</Label>
-					<TextBox Grid.Column="1" Name="AuthorSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
-					<Button Grid.Column="2" Name="ClearAuthorSearchButton" Content="✕" Click="ClearAuthorSearchButton_Click" ToolTip="Clear author filter" />
-				</Grid>
+				<Label FontWeight="Bold" Background="{StaticResource Gray28}" Margin="0,10,0,0">Filters</Label>
+				<StackPanel ClipToBounds="True" Background="{StaticResource Gray38}">
+					<Grid ClipToBounds="True">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Label>Mod name</Label>
+						<TextBox Grid.Column="1" Name="ModSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
+						<Button Grid.Column="2" Content="✕" Click="ClearModSearchButton_Click" ToolTip="Clear mod filter" />
+					</Grid>
+					<Grid ClipToBounds="True">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Label>Author name</Label>
+						<TextBox Grid.Column="1" Name="AuthorSearchTextBox" TextChanged="FilterTextBox_TextChanged" />
+						<Button Grid.Column="2" Name="ClearAuthorSearchButton" Content="✕" Click="ClearAuthorSearchButton_Click" ToolTip="Clear author filter" />
+					</Grid>
+				</StackPanel>
 
-				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Paging</Label>
-				<Label Name="PageLabel" />
-				<StackPanel Orientation="Horizontal">
+				<Label FontWeight="Bold" Background="{StaticResource Gray28}" Margin="0,10,0,0">Paging</Label>
+				<Label Name="PageLabel" Background="{StaticResource Gray38}" />
+				<StackPanel Orientation="Horizontal" Background="{StaticResource Gray38}">
 					<Button Width="32" Click="FirstPage_Click" ToolTip="First page">|&lt;</Button>
 					<Button Width="32" Click="PreviousPage_Click" ToolTip="Previous page">&lt;</Button>
 					<Button Width="32" Click="NextPage_Click" ToolTip="Next page">&gt;</Button>
 					<Button Width="32" Click="LastPage_Click" ToolTip="Last page">&gt;|</Button>
 				</StackPanel>
 
-				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Mod preview</Label>
-				<Label Style="{StaticResource BoldLabel}" Margin="0,10,0,0" Name="PreviewName">No mod selected</Label>
-				<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False" Width="116" HorizontalAlignment="Left">Download and install</Button>
-				<ScrollViewer MaxHeight="96">
-					<TextBlock MaxWidth="256" HorizontalAlignment="Left" Margin="4,0,0,0" Name="PreviewDescription" />
-				</ScrollViewer>
-
-				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binaries</Label>
-				<ScrollViewer MaxHeight="96">
-					<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
-				</ScrollViewer>
-
-				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Screenshots</Label>
-				<ScrollViewer MaxHeight="192">
-					<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewScreenshotsList" />
-				</ScrollViewer>
+				<usercontrols:ModPreviewControl x:Name="ModPreview" ClipToBounds="True" />
 			</StackPanel>
 			<StackPanel Grid.Column="1" Background="{StaticResource Gray2}">
 				<Grid Name="ModHeaders" HorizontalAlignment="Stretch" Background="{StaticResource Gray2}">
