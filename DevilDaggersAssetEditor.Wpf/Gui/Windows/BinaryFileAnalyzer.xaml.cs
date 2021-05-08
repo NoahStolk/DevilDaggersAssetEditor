@@ -38,10 +38,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			bool? openResult = openDialog.ShowDialog();
 			if (openResult == true)
 			{
-				// TODO: Use FileStream instead of reading all bytes to improve performance.
-				byte[] sourceFileBytes = File.ReadAllBytes(openDialog.FileName);
-
-				AnalyzerFileResult? result = TryReadResourceFile(openDialog.FileName, sourceFileBytes);
+				AnalyzerFileResult? result = TryReadResourceFile(openDialog.FileName);
 				if (result == null)
 					App.Instance.ShowMessage("Invalid file format", "Make sure to open one of the following binary files: audio, core, dd");
 				else
@@ -194,13 +191,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private static Color ColorWithAlpha(Color color, byte alpha)
 			=> Color.FromArgb(alpha, color.R, color.G, color.B);
 
-		private static AnalyzerFileResult? TryReadResourceFile(string sourceFileName, byte[] sourceFileBytes)
+		private static AnalyzerFileResult? TryReadResourceFile(string sourceFileName)
 		{
-			if (!BinaryFileHandler.IsValidFile(sourceFileBytes))
+			if (!BinaryFileHandler.IsValidFile(sourceFileName))
 				return null;
 
-			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(sourceFileBytes);
-			return new(sourceFileName, sourceFileBytes.Length, tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
+			int length = (int)new FileInfo(sourceFileName).Length;
+
+			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(sourceFileName);
+			return new(sourceFileName, length, tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
 		}
 
 		private static Color GetColor(AssetType? assetType, bool isHeader)
