@@ -52,16 +52,20 @@
 					<Button Width="32" Click="LastPage_Click" ToolTip="Last page">&gt;|</Button>
 				</StackPanel>
 
-				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0" Name="PreviewName">No mod selected</Label>
+				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Mod preview</Label>
+				<Label Style="{StaticResource BoldLabel}" Margin="0,10,0,0" Name="PreviewName">No mod selected</Label>
 				<Button Name="DownloadModButton" Click="DownloadModButton_Click" HorizontalContentAlignment="Left" IsEnabled="False" Width="116" HorizontalAlignment="Left">Download and install</Button>
+				<ScrollViewer MaxHeight="96">
+					<TextBlock MaxWidth="256" HorizontalAlignment="Left" Margin="4,0,0,0" Name="PreviewDescription" />
+				</ScrollViewer>
 
 				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binaries</Label>
-				<ScrollViewer MaxHeight="128">
+				<ScrollViewer MaxHeight="96">
 					<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewBinariesList" />
 				</ScrollViewer>
 
 				<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Screenshots</Label>
-				<ScrollViewer MaxHeight="256">
+				<ScrollViewer MaxHeight="192">
 					<StackPanel MaxWidth="256" HorizontalAlignment="Left" Name="PreviewScreenshotsList" />
 				</ScrollViewer>
 			</StackPanel>

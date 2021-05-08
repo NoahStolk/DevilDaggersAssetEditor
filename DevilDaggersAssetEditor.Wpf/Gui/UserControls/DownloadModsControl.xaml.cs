@@ -218,6 +218,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			_selectedModName = mod?.Name;
 			DownloadModButton.IsEnabled = mod?.ModArchive != null;
 			PreviewName.Content = _selectedModName ?? "No mod selected";
+			PreviewDescription.Text = mod?.HtmlDescription;
 			if (mod?.ModArchive != null)
 			{
 				int i = 0;
