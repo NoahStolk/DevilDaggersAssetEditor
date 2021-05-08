@@ -239,6 +239,20 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			return tocSize <= sourceFileBytes.Length - 12;
 		}
 
+		public static byte[] ReadTocBuffer(string path)
+		{
+			using FileStream fs = new(path, FileMode.Open);
+			fs.Seek(8, SeekOrigin.Begin);
+
+			byte[] tocSizeBytes = new byte[sizeof(uint)];
+			fs.Read(tocSizeBytes, 0, sizeof(uint));
+			uint tocSize = BitConverter.ToUInt32(tocSizeBytes);
+
+			byte[] tocBuffer = new byte[tocSize];
+			fs.Read(tocBuffer, 0, (int)tocSize);
+			return tocBuffer;
+		}
+
 		public static byte[] ReadTocBuffer(byte[] sourceFileBytes)
 		{
 			uint tocSize = BitConverter.ToUInt32(sourceFileBytes, 8);

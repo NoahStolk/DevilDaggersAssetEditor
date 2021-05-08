@@ -56,8 +56,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || !localFile.IsValidFile)
 				return;
 
-			// TODO: Use FileStream instead of reading all bytes to improve performance.
-			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(File.ReadAllBytes(_selectedPath));
+			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(_selectedPath);
 			foreach (Chunk chunk in BinaryFileHandler.ReadChunks(tocBuffer))
 			{
 				if (chunk.Name == "loudness")
