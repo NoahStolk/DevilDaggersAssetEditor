@@ -1,10 +1,6 @@
-﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.ModFiles;
+﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
-using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
@@ -31,25 +27,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			TextBoxModName.Text = UserHandler.Instance.Cache.MakeBinaryName;
 
-			bool hasAudioAssets = ModFileHandler.Instance.ModFile.Any(a =>
-				a.AssetType == AssetType.Audio && // Must be audio.
-				a.EditorPath != GuiUtils.FileNotFound); // Must have file.
-
-			bool hasCoreAssets = ModFileHandler.Instance.ModFile.Any(a =>
-				a is ShaderUserAsset shaderAsset && // Must be shader.
-				a.EditorPath != GuiUtils.FileNotFound && // Must have vertex file.
-				shaderAsset.EditorPathFragmentShader != GuiUtils.FileNotFound && // Must have fragment file.
-				AssetContainer.Instance.CoreShadersAssets.Any(sa => sa.AssetName == a.AssetName)); // Must be present in core.
-
-			bool hasDdAssets = ModFileHandler.Instance.ModFile.Any(a =>
-				a.AssetType != AssetType.Audio && // Must not be audio.
-				a.EditorPath != GuiUtils.FileNotFound && // Must have (vertex) file.
-					(a is not ShaderUserAsset shaderAsset || // Must either not be a shader.
-					shaderAsset.EditorPathFragmentShader != GuiUtils.FileNotFound && !AssetContainer.Instance.CoreShadersAssets.Any(sa => sa.AssetName == a.AssetName))); // Or be a shader not present in core, with a fragment file.
-
-			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, hasAudioAssets, UserHandler.Instance.Cache.MakeBinaryAudioName, true);
-			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, hasCoreAssets, "core", false);
-			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, hasDdAssets, UserHandler.Instance.Cache.MakeBinaryDdName, true);
+			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles(), UserHandler.Instance.Cache.MakeBinaryAudioName, true);
+			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles(), "core", false);
+			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles(), UserHandler.Instance.Cache.MakeBinaryDdName, true);
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
