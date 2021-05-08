@@ -113,18 +113,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		public bool HasLoaded { get; private set; }
 
-		public bool HasAnyAudioFiles()
-			=> AudioAudioAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
-
-		public bool HasAnyCoreFiles()
-			=> CoreShadersAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound || (rc.Asset as ShaderAsset)!.EditorPathFragmentShader != GuiUtils.FileNotFound);
-
-		public bool HasAnyDdFiles()
-			=> DdModelBindingsAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound)
-			|| DdModelsAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound)
-			|| DdShadersAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound || (rc.Asset as ShaderAsset)!.EditorPathFragmentShader != GuiUtils.FileNotFound)
-			|| DdTexturesAssetTabControl.RowControls.Any(rc => rc.Asset.EditorPath != GuiUtils.FileNotFound);
-
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			ModFileHandler.Instance.FileOpen(UserHandler.Instance.Cache.OpenedModFilePath);
