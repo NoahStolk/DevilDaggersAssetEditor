@@ -37,7 +37,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 		{
 			progress.Report("Initializing file creation.");
 
-			allAssets = allAssets.Where(a => File.Exists(a.EditorPath)).ToList(); // TODO: Also check if FragmentShader file exists.
+			allAssets = allAssets.Where(a => File.Exists(a.EditorPath) && (a is not ShaderAsset sa || File.Exists(sa.EditorPathFragmentShader))).ToList();
 
 			progress.Report("Generating chunks based on asset list.");
 			List<Chunk> chunks = CreateChunksFromAssets(allAssets, progress);
