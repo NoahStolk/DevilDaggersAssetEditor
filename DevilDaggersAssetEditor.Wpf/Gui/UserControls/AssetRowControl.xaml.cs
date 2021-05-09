@@ -129,8 +129,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			UpdateGui();
 
-			if (AudioAsset != null && App.Instance.MainWindow!.AudioAudioAssetTabControl.SelectedAsset == Asset && App.Instance.MainWindow!.AudioAudioAssetTabControl.Previewer is IPreviewerControl audioPreviewer)
-				audioPreviewer.Initialize(Asset);
+			foreach (AssetTabControl tabControl in App.Instance.MainWindow!.AssetTabControls)
+			{
+				if (tabControl.SelectedAsset == Asset && tabControl.Previewer is IPreviewerControl previewer)
+					previewer.Initialize(Asset);
+			}
 
 			ModFileHandler.Instance.HasUnsavedChanges = true;
 		}
