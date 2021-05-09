@@ -1,5 +1,5 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Chunks;
+﻿using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
@@ -130,11 +130,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					}
 
 					App.Instance.Dispatcher.Invoke(() => Progress.Report("Creating TOC stream.", 0.5f));
-					BinaryFileHandler.CreateTocStream(remainingChunks, out byte[] tocBuffer, out Dictionary<Chunk, long> startOffsetBytePositions);
-					byte[] assetBuffer = BinaryFileHandler.CreateAssetStream(remainingChunks, tocBuffer, startOffsetBytePositions, Progress);
+					BinaryHandler.CreateTocStream(remainingChunks, out byte[] tocBuffer, out Dictionary<Chunk, long> startOffsetBytePositions);
+					byte[] assetBuffer = BinaryHandler.CreateAssetStream(remainingChunks, tocBuffer, startOffsetBytePositions, Progress);
 
 					App.Instance.Dispatcher.Invoke(() => Progress.Report("Creating file.", 1));
-					byte[] binaryBytes = BinaryFileHandler.CreateBinary(tocBuffer, assetBuffer);
+					byte[] binaryBytes = BinaryHandler.CreateBinary(tocBuffer, assetBuffer);
 
 					App.Instance.Dispatcher.Invoke(() => Progress.Report("Writing file.", 1));
 					File.WriteAllBytes(_outputFilePath, binaryBytes);
@@ -166,15 +166,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			static List<Chunk> GetChunksFromFile(string filePath)
 			{
 				byte[] fileBytes = File.ReadAllBytes(filePath);
-				if (!BinaryFileHandler.IsValidFile(fileBytes))
+				if (!BinaryHandler.IsValidFile(fileBytes))
 				{
 					MessageWindow window = new("Invalid file format.", "Make sure to open one of the following binary files: audio, core, dd");
 					window.ShowDialog();
 					return new();
 				}
 
-				byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(fileBytes);
-				List<Chunk> chunks = BinaryFileHandler.ReadChunks(tocBuffer);
+				byte[] tocBuffer = BinaryHandler.ReadTocBuffer(fileBytes);
+				List<Chunk> chunks = BinaryHandler.ReadChunks(tocBuffer);
 
 				foreach (Chunk chunk in chunks)
 				{

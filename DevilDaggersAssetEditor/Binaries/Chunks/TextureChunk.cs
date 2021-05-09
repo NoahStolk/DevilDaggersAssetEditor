@@ -1,5 +1,4 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersCore.Mods;
 using System;
@@ -11,7 +10,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetEditor.Chunks
+namespace DevilDaggersAssetEditor.Binaries.Chunks
 {
 	public class TextureChunk : Chunk
 	{

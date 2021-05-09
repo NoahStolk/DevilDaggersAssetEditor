@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.User;
@@ -22,15 +22,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private string _binaryName = string.Empty;
 		private readonly bool _supportsPartialMods;
 
-		public BinaryNameControl(MakeBinariesWindow? parent, BinaryFileType binaryFileType, AssetType assetTypeForColor, bool checkBoxIsChecked, string binaryName, bool supportsPartialMods)
+		public BinaryNameControl(MakeBinariesWindow? parent, BinaryType binaryType, AssetType assetTypeForColor, bool checkBoxIsChecked, string binaryName, bool supportsPartialMods)
 		{
 			InitializeComponent();
 
 			_parent = parent;
 
-			BinaryFileType = binaryFileType;
+			BinaryType = binaryType;
 
-			LabelModFileName.Content = $"'{binaryFileType.ToString().ToLower()}' mod file name";
+			LabelModFileName.Content = $"'{binaryType.ToString().ToLower()}' mod file name";
 
 			Progress = new(
 				new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
@@ -48,7 +48,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			UpdateGui();
 		}
 
-		public BinaryFileType BinaryFileType { get; }
+		public BinaryType BinaryType { get; }
 
 		public ProgressWrapper Progress { get; }
 
@@ -71,11 +71,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
 				bool isInvalid = string.IsNullOrWhiteSpace(_binaryName) || _binaryName.Any(c => invalidFileNameChars.Contains(c));
-				OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", BinaryFileType.ToString().ToLower() + BinaryName);
+				OutputPath = isInvalid ? null : Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods", BinaryType.ToString().ToLower() + BinaryName);
 			}
 			else
 			{
-				OutputPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.GetSubfolderName(), _binaryName);
+				OutputPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryType.GetSubfolderName(), _binaryName);
 			}
 
 			TextBlockOutputPath.Text = OutputPath;

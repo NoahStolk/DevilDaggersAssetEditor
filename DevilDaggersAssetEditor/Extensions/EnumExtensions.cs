@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersCore.Mods;
 using System;
 
@@ -6,14 +6,14 @@ namespace DevilDaggersAssetEditor.Extensions
 {
 	public static class EnumExtensions
 	{
-		public static string GetSubfolderName(this BinaryFileType binaryFileType)
+		public static string GetSubfolderName(this BinaryType binaryType)
 		{
-			return binaryFileType switch
+			return binaryType switch
 			{
-				BinaryFileType.Audio => "res",
-				BinaryFileType.Dd => "res",
-				BinaryFileType.Core => "core",
-				_ => throw new NotSupportedException($"{nameof(BinaryFileType)} '{binaryFileType}' is not supported in the {nameof(GetSubfolderName)} method."),
+				BinaryType.Audio => "res",
+				BinaryType.Dd => "res",
+				BinaryType.Core => "core",
+				_ => throw new NotSupportedException($"{nameof(BinaryType)} '{binaryType}' is not supported in the {nameof(GetSubfolderName)} method."),
 			};
 		}
 

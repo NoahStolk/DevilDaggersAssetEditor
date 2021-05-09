@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
@@ -43,9 +43,9 @@ namespace DevilDaggersAssetEditor.Assets
 		public List<AbstractAsset> DdAssets { get; }
 		public List<AbstractAsset> AllAssets { get; }
 
-		public List<AbstractAsset> GetAssets(BinaryFileType binaryFileType, string assetType)
+		public List<AbstractAsset> GetAssets(BinaryType binaryType, string assetType)
 		{
-			string id = $"{binaryFileType.ToString().ToLower()}.{assetType.ToLower()}";
+			string id = $"{binaryType.ToString().ToLower()}.{assetType.ToLower()}";
 
 			return id switch
 			{
@@ -55,7 +55,7 @@ namespace DevilDaggersAssetEditor.Assets
 				"dd.models" => DdModelsAssets.Cast<AbstractAsset>().ToList(),
 				"dd.shaders" => DdShadersAssets.Cast<AbstractAsset>().ToList(),
 				"dd.textures" => DdTexturesAssets.Cast<AbstractAsset>().ToList(),
-				_ => throw new($"No asset data found for binary file type '{binaryFileType}' and asset type '{assetType}.'"),
+				_ => throw new($"No asset data found for binary file type '{binaryType}' and asset type '{assetType}.'"),
 			};
 		}
 

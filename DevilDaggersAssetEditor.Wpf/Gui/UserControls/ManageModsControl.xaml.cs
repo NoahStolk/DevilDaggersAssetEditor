@@ -1,6 +1,6 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersCore.Wpf.Utils;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => p))
 			{
 				string fileName = Path.GetFileName(filePath);
-				bool isValidFile = BinaryFileHandler.IsValidFile(filePath);
+				bool isValidFile = BinaryHandler.IsValidFile(filePath);
 				bool isActiveFile = isValidFile && (fileName.StartsWith("audio") || fileName.StartsWith("dd"));
 
 				TextBlock textBlock = new()
@@ -56,8 +56,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || !localFile.IsValidFile)
 				return;
 
-			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(_selectedPath);
-			foreach (Chunk chunk in BinaryFileHandler.ReadChunks(tocBuffer))
+			byte[] tocBuffer = BinaryHandler.ReadTocBuffer(_selectedPath);
+			foreach (Chunk chunk in BinaryHandler.ReadChunks(tocBuffer))
 			{
 				if (chunk.Name == "loudness")
 					continue;

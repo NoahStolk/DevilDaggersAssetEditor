@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Utils;
+﻿using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Mods;
 using Newtonsoft.Json;
 using System;
@@ -10,7 +9,7 @@ using System.Numerics;
 using System.Text;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetEditor.Chunks
+namespace DevilDaggersAssetEditor.Binaries.Chunks
 {
 	public class ModelChunk : Chunk
 	{

@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
@@ -141,12 +141,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				Dispatcher.Invoke(() =>
 				{
-					AudioAudioAssetTabControl = new(BinaryFileType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
-					CoreShadersAssetTabControl = new(BinaryFileType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
-					DdModelBindingsAssetTabControl = new(BinaryFileType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
-					DdModelsAssetTabControl = new(BinaryFileType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
-					DdShadersAssetTabControl = new(BinaryFileType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
-					DdTexturesAssetTabControl = new(BinaryFileType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
+					AudioAudioAssetTabControl = new(BinaryType.Audio, AssetType.Audio, "Audio files (*.wav)|*.wav", "Audio");
+					CoreShadersAssetTabControl = new(BinaryType.Core, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+					DdModelBindingsAssetTabControl = new(BinaryType.Dd, AssetType.ModelBinding, "Model binding files (*.txt)|*.txt", "Model Bindings");
+					DdModelsAssetTabControl = new(BinaryType.Dd, AssetType.Model, "Model files (*.obj)|*.obj", "Models");
+					DdShadersAssetTabControl = new(BinaryType.Dd, AssetType.Shader, "Shader files (*.glsl)|*.glsl", "Shaders");
+					DdTexturesAssetTabControl = new(BinaryType.Dd, AssetType.Texture, "Texture files (*.png)|*.png", "Textures");
 
 					AssetTabControls = new() { AudioAudioAssetTabControl, CoreShadersAssetTabControl, DdModelBindingsAssetTabControl, DdModelsAssetTabControl, DdShadersAssetTabControl, DdTexturesAssetTabControl };
 

@@ -1,6 +1,6 @@
-﻿using DevilDaggersAssetEditor.BinaryFileAnalyzer;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersAssetEditor.Chunks;
+﻿using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Binaries.Analyzer;
+using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Utils;
@@ -193,13 +193,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 		private static AnalyzerFileResult? TryReadResourceFile(string sourceFileName)
 		{
-			if (!BinaryFileHandler.IsValidFile(sourceFileName))
+			if (!BinaryHandler.IsValidFile(sourceFileName))
 				return null;
 
 			int length = (int)new FileInfo(sourceFileName).Length;
 
-			byte[] tocBuffer = BinaryFileHandler.ReadTocBuffer(sourceFileName);
-			return new(sourceFileName, length, tocBuffer.Length + BinaryFileHandler.HeaderSize, BinaryFileHandler.ReadChunks(tocBuffer));
+			byte[] tocBuffer = BinaryHandler.ReadTocBuffer(sourceFileName);
+			return new(sourceFileName, length, tocBuffer.Length + BinaryHandler.HeaderSize, BinaryHandler.ReadChunks(tocBuffer));
 		}
 
 		private static Color GetColor(AssetType? assetType, bool isHeader)

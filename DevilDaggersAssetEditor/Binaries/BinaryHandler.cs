@@ -1,8 +1,7 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Chunks;
+using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Progress;
-using DevilDaggersAssetEditor.Utils;
 using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
@@ -10,12 +9,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace DevilDaggersAssetEditor.BinaryFileHandlers
+namespace DevilDaggersAssetEditor.Binaries
 {
-	public static class BinaryFileHandler
+	public static class BinaryHandler
 	{
 		/// <summary>
-		/// The header consists of three unsigned 32-bit integers (Magic1, Magic2, and TocBufferSize), which is 12 bytes.
+		/// The header consists of three 32-bit integers (Magic1, Magic2, and TocBufferSize), which is 12 bytes.
 		/// </summary>
 		public const int HeaderSize = 12;
 
@@ -270,7 +269,7 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			while (i < tocBuffer.Length - 14)
 			{
 				byte type = tocBuffer[i];
-				string name = BinaryUtils.ReadNullTerminatedString(tocBuffer, i + 2);
+				string name = ReadNullTerminatedString(tocBuffer, i + 2);
 
 				i += name.Length + 1; // + 1 to include null terminator.
 				uint startOffset = BitConverter.ToUInt32(tocBuffer, i + 2);
@@ -292,6 +291,20 @@ namespace DevilDaggersAssetEditor.BinaryFileHandlers
 			}
 
 			return chunks;
+
+			static string ReadNullTerminatedString(byte[] buffer, int offset)
+			{
+				StringBuilder sb = new();
+				for (int i = offset; i < buffer.Length; i++)
+				{
+					char c = (char)buffer[i];
+					if (c == '\0')
+						return sb.ToString();
+					sb.Append(c);
+				}
+
+				throw new($"Null terminator not observed in buffer with length {buffer.Length} starting from offset {offset}.");
+			}
 		}
 
 		private static void CreateFiles(string outputPath, byte[] sourceFileBytes, IEnumerable<Chunk> chunks, ProgressWrapper progress)

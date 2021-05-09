@@ -1,5 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.BinaryFileHandlers;
+using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.Utils;
@@ -30,13 +30,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private AssetRowSorting _activeSorting = new(a => a.Asset.AssetName);
 
-		public AssetTabControl(BinaryFileType binaryFileType, AssetType assetType, string openDialogFilter, string assetTypeJsonFileName)
+		public AssetTabControl(BinaryType binaryType, AssetType assetType, string openDialogFilter, string assetTypeJsonFileName)
 		{
 			InitializeComponent();
 
 			AssetType = assetType;
 
-			List<AbstractAsset> assets = AssetContainer.Instance.GetAssets(binaryFileType, assetTypeJsonFileName);
+			List<AbstractAsset> assets = AssetContainer.Instance.GetAssets(binaryType, assetTypeJsonFileName);
 
 			int i = 0;
 			foreach (AbstractAsset asset in assets)

@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.User;
@@ -22,13 +22,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private string _binaryPath;
 
-		public BinaryPathControl(ExtractBinariesWindow? parent, string header, BinaryFileType binaryFileType, AssetType assetTypeForColor)
+		public BinaryPathControl(ExtractBinariesWindow? parent, string header, BinaryType binaryType, AssetType assetTypeForColor)
 		{
 			InitializeComponent();
 
 			_parent = parent;
 
-			BinaryFileType = binaryFileType;
+			BinaryType = binaryType;
 
 			Header.Content = header;
 
@@ -38,11 +38,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			ProgressBar.Foreground = new SolidColorBrush(EditorUtils.FromRgbTuple(assetTypeForColor.GetColor()) * 0.25f);
 
-			_binaryPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryFileType.GetSubfolderName(), binaryFileType.ToString().ToLower());
+			_binaryPath = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, binaryType.GetSubfolderName(), binaryType.ToString().ToLower());
 			UpdateGui();
 		}
 
-		public BinaryFileType BinaryFileType { get; }
+		public BinaryType BinaryType { get; }
 
 		public ProgressWrapper Progress { get; }
 
@@ -75,7 +75,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private bool TrySetPath(out string selectedPath)
 		{
 			OpenFileDialog openDialog = new();
-			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryFileType.GetSubfolderName()));
+			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableDevilDaggersRootFolder, Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, BinaryType.GetSubfolderName()));
 
 			bool? openResult = openDialog.ShowDialog();
 			if (!openResult.HasValue || !openResult.Value)

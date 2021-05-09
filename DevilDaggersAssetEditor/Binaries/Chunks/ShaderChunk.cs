@@ -1,5 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersCore.Mods;
+﻿using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Buf = System.Buffer;
 
-namespace DevilDaggersAssetEditor.Chunks
+namespace DevilDaggersAssetEditor.Binaries.Chunks
 {
 	public class ShaderChunk : Chunk
 	{

@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetEditor.Chunks
+﻿namespace DevilDaggersAssetEditor.Binaries.Chunks
 {
 	public struct VertexReference
 	{

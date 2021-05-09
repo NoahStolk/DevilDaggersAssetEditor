@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersCore.Mods;
@@ -27,9 +27,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			TextBoxModName.Text = UserHandler.Instance.Cache.MakeBinaryName;
 
-			_audioControl = new(this, BinaryFileType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles(), UserHandler.Instance.Cache.MakeBinaryAudioName, true);
-			_coreControl = new(this, BinaryFileType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles(), "core", false);
-			_ddControl = new(this, BinaryFileType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles(), UserHandler.Instance.Cache.MakeBinaryDdName, true);
+			_audioControl = new(this, BinaryType.Audio, AssetType.Audio, App.Instance.MainWindow!.HasAnyAudioFiles(), UserHandler.Instance.Cache.MakeBinaryAudioName, true);
+			_coreControl = new(this, BinaryType.Core, AssetType.Shader, App.Instance.MainWindow!.HasAnyCoreFiles(), "core", false);
+			_ddControl = new(this, BinaryType.Dd, AssetType.Texture, App.Instance.MainWindow!.HasAnyDdFiles(), UserHandler.Instance.Cache.MakeBinaryDdName, true);
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
@@ -60,15 +60,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				try
 				{
 					List<AssetTabControl> assetTabControls = new();
-					switch (control.BinaryFileType)
+					switch (control.BinaryType)
 					{
-						case BinaryFileType.Audio:
+						case BinaryType.Audio:
 							assetTabControls.Add(App.Instance.MainWindow!.AudioAudioAssetTabControl);
 							break;
-						case BinaryFileType.Core:
+						case BinaryType.Core:
 							assetTabControls.Add(App.Instance.MainWindow!.CoreShadersAssetTabControl);
 							break;
-						case BinaryFileType.Dd:
+						case BinaryType.Dd:
 							assetTabControls.Add(App.Instance.MainWindow!.DdModelBindingsAssetTabControl);
 							assetTabControls.Add(App.Instance.MainWindow!.DdModelsAssetTabControl);
 							assetTabControls.Add(App.Instance.MainWindow!.DdShadersAssetTabControl);
@@ -76,7 +76,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 							break;
 					}
 
-					BinaryFileHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.OutputPath, control.Progress);
+					BinaryHandler.MakeBinary(assetTabControls.SelectMany(atc => atc.GetAssets()).ToList(), control.OutputPath, control.Progress);
 
 					App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 				}
@@ -84,7 +84,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred while making '{control.BinaryFileType.ToString().ToLower()}' binary.", ex);
+						App.Instance.ShowError("Making binary did not complete successfully", $"An error occurred while making '{control.BinaryType.ToString().ToLower()}' binary.", ex);
 						control.Progress.Report("Execution did not complete successfully.");
 					});
 				}

@@ -10,7 +10,7 @@ namespace DevilDaggersAssetEditor.Utils
 			{
 				line = line
 					.Replace(" ", string.Empty, StringComparison.InvariantCulture) // Remove spaces to make things easier.
-					.TrimEnd('.'); // Remove dots at the end of the line. (The original loudness file has one on line 154 for some reason...)
+					.TrimEnd('.'); // Remove dots at the end of the line. (The original V3 loudness file has one on line 154 for some reason...)
 
 				int equalsIndex = line.IndexOf('=', StringComparison.InvariantCulture);
 

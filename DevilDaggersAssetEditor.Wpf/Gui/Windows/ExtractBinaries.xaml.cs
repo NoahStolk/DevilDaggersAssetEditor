@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
+﻿using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
@@ -31,9 +31,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			InitializeComponent();
 
-			_audioControl = new(this, "'audio' binary path", BinaryFileType.Audio, AssetType.Audio);
-			_coreControl = new(this, "'core' binary path", BinaryFileType.Core, AssetType.Shader);
-			_ddControl = new(this, "'dd' binary path", BinaryFileType.Dd, AssetType.Texture);
+			_audioControl = new(this, "'audio' binary path", BinaryType.Audio, AssetType.Audio);
+			_coreControl = new(this, "'core' binary path", BinaryType.Core, AssetType.Shader);
+			_ddControl = new(this, "'dd' binary path", BinaryType.Dd, AssetType.Texture);
 
 			_controls.Add(_audioControl);
 			_controls.Add(_coreControl);
@@ -100,7 +100,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				try
 				{
-					string? error = BinaryFileHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
+					string? error = BinaryHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
 					if (error == null)
 						App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 					else
@@ -110,7 +110,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					App.Instance.Dispatcher.Invoke(() =>
 					{
-						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred while extracting '{control.BinaryFileType.ToString().ToLower()}' binary.", ex);
+						App.Instance.ShowError("Extracting binary did not complete successfully", $"An error occurred while extracting '{control.BinaryType.ToString().ToLower()}' binary.", ex);
 						control.Progress.Report("Execution did not complete successfully.");
 					});
 				}

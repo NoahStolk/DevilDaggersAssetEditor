@@ -1,9 +1,8 @@
-﻿using DevilDaggersAssetEditor.BinaryFileHandlers;
-using DevilDaggersCore.Mods;
+﻿using DevilDaggersCore.Mods;
 using System.Collections.Generic;
 using System.IO;
 
-namespace DevilDaggersAssetEditor.Chunks
+namespace DevilDaggersAssetEditor.Binaries.Chunks
 {
 	public class Chunk
 	{

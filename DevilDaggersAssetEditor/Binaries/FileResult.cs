@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetEditor.BinaryFileHandlers
+﻿namespace DevilDaggersAssetEditor.Binaries
 {
 	public class FileResult
 	{
