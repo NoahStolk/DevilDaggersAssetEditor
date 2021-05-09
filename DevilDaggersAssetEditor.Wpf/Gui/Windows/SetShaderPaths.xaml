@@ -4,7 +4,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
-        Title="Set shader paths" Height="256" Width="640" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="Set shader paths" Height="256" Width="640" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 	<StackPanel Style="{StaticResource PaddingStackPanel}">
 		<TextBlock>In order for shaders to work, both a fragment and a vertex shader must be specified.</TextBlock>
 		<Separator />
