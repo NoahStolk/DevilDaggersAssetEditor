@@ -5,6 +5,7 @@ using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
+using DevilDaggersCore.Wpf.Windows;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -89,6 +90,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					Button buttonDelete = new() { Content = "Delete file" };
 					buttonDelete.Click += (_, _) =>
 					{
+						ConfirmWindow confirmWindow = new("Delete file", $"Are you sure you want to delete the file '{fileName}'?", false);
+						confirmWindow.ShowDialog();
+
+						if (confirmWindow.IsConfirmed != true)
+							return;
+
 						File.Delete(filePath);
 						PopulateModFilesList();
 					};
