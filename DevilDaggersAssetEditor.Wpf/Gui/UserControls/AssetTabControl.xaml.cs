@@ -71,7 +71,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (assetType == AssetType.Audio)
 			{
 				ColumnDefinitionLoudness.Width = new GridLength(1, GridUnitType.Star);
-				ColumnDefinitionPath.Width = new GridLength(5, GridUnitType.Star);
+				ColumnDefinitionPath.Width = new GridLength(7, GridUnitType.Star);
 			}
 		}
 
