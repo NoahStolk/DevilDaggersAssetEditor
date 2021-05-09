@@ -43,9 +43,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			{
 				AssetRowControl assetRowControl = new(asset, assetType, i++ % 2 == 0, openDialogFilter);
 				UserAsset? userAsset = ModFileHandler.Instance.ModFile.Find(ua => ua.AssetType == assetType && ua.AssetName == asset.AssetName);
-				assetRowControl.SetPath(false, userAsset?.EditorPath ?? GuiUtils.FileNotFound);
-				if (asset.AssetType == AssetType.Shader && userAsset is ShaderUserAsset shaderUserAsset)
-					assetRowControl.SetPath(true, shaderUserAsset?.EditorPathFragmentShader ?? GuiUtils.FileNotFound);
+				assetRowControl.Asset.EditorPath = userAsset?.EditorPath ?? GuiUtils.FileNotFound;
+				if (asset.AssetType == AssetType.Shader && userAsset is ShaderUserAsset shaderUserAsset && assetRowControl.ShaderAsset != null)
+					assetRowControl.ShaderAsset.EditorPathFragmentShader = shaderUserAsset?.EditorPathFragmentShader ?? GuiUtils.FileNotFound;
 
 				assetRowControl.UpdateGui();
 				RowControls.Add(assetRowControl);

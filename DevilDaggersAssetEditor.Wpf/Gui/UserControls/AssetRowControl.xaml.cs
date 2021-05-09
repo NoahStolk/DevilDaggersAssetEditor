@@ -30,9 +30,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private readonly SolidColorBrush _brushEditEven;
 		private readonly SolidColorBrush _brushEditOdd;
 
-		private readonly ShaderAsset? _shaderAsset;
-		private readonly AudioAsset? _audioAsset;
-
 		public AssetRowControl(AbstractAsset asset, AssetType assetType, bool isEven, string openDialogFilter)
 		{
 			InitializeComponent();
@@ -71,16 +68,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			if (Asset is ShaderAsset shaderAsset)
 			{
-				_shaderAsset = shaderAsset;
-				BrowseButtonFragmentShader.Visibility = Visibility.Visible;
-				RemovePathButtonFragmentShader.Visibility = Visibility.Visible;
-				TextBlockEditorPathFragmentShader.Visibility = Visibility.Visible;
-				RowDefinitionFragmentShader.Height = new(24);
-				Grid.SetRowSpan(TextBlockTags, 2);
+				ShaderAsset = shaderAsset;
+				Height = 40;
 			}
 			else if (Asset is AudioAsset audioAsset)
 			{
-				_audioAsset = audioAsset;
+				AudioAsset = audioAsset;
 				ColumnDefinitionLoudness.Width = new(1, GridUnitType.Star);
 				ColumnDefinitionPath.Width = new(5, GridUnitType.Star);
 				TextBoxLoudness.Visibility = Visibility.Visible;
@@ -91,6 +84,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public Rectangle RectangleEdit { get; } = new();
 
 		public AbstractAsset Asset { get; }
+		public AudioAsset? AudioAsset { get; }
+		public ShaderAsset? ShaderAsset { get; }
 		public AssetType AssetType { get; }
 
 		public bool IsActive { get; set; } = true;
@@ -98,16 +93,49 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public string OpenDialogFilter { get; }
 
 		private void ButtonRemovePath_Click(object sender, RoutedEventArgs e)
-			=> RemovePath(false);
+		{
+			Asset.EditorPath = GuiUtils.FileNotFound;
+			if (ShaderAsset != null)
+				ShaderAsset.EditorPathFragmentShader = GuiUtils.FileNotFound;
+
+			UpdateGui();
+
+			ModFileHandler.Instance.HasUnsavedChanges = true;
+		}
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e)
-			=> BrowsePath(false);
+		{
+			bool isShader = ShaderAsset != null;
+			string assetTypeTitlePart = isShader ? "vertex shader" : AssetType.ToString().ToLower();
+			string title = $"Select source for {assetTypeTitlePart} '{Asset.AssetName}'";
+			OpenFileDialog openDialog = new() { Filter = OpenDialogFilter, Title = title };
+			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableAssetsRootFolder, UserHandler.Instance.Settings.AssetsRootFolder);
 
-		private void ButtonRemovePathFragmentShader_Click(object sender, RoutedEventArgs e)
-			=> RemovePath(true);
+			bool? openResult = openDialog.ShowDialog();
+			if (!openResult.HasValue || !openResult.Value)
+				return;
 
-		private void ButtonBrowsePathFragmentShader_Click(object sender, RoutedEventArgs e)
-			=> BrowsePath(true);
+			Asset.EditorPath = openDialog.FileName;
+
+			if (isShader)
+			{
+				openDialog = new() { Filter = OpenDialogFilter, Title = $"Select source for fragment shader '{Asset.AssetName}'" };
+				openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableAssetsRootFolder, UserHandler.Instance.Settings.AssetsRootFolder);
+
+				openResult = openDialog.ShowDialog();
+				if (!openResult.HasValue || !openResult.Value)
+					return;
+
+				ShaderAsset!.EditorPathFragmentShader = openDialog.FileName;
+			}
+
+			UpdateGui();
+
+			if (AudioAsset != null && App.Instance.MainWindow!.AudioAudioAssetTabControl.SelectedAsset == Asset && App.Instance.MainWindow!.AudioAudioAssetTabControl.Previewer is IPreviewerControl audioPreviewer)
+				audioPreviewer.Initialize(Asset);
+
+			ModFileHandler.Instance.HasUnsavedChanges = true;
+		}
 
 		private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
 			=> UpdateGui();
@@ -121,11 +149,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		public void UpdateGui()
 		{
 			TextBlockDescription.Text = Asset.Description ?? "Not fetched";
-			TextBlockEditorPath.Text = File.Exists(Asset.EditorPath) ? Asset.EditorPath : GuiUtils.FileNotFound;
-			if (_shaderAsset != null)
-				TextBlockEditorPathFragmentShader.Text = File.Exists(_shaderAsset.EditorPathFragmentShader) ? _shaderAsset.EditorPathFragmentShader : GuiUtils.FileNotFound;
-			if (_audioAsset != null)
-				TextBoxLoudness.Text = _audioAsset.Loudness.ToString();
+
+			string editorPath = File.Exists(Asset.EditorPath) ? Asset.EditorPath : GuiUtils.FileNotFound;
+			if (ShaderAsset != null)
+			{
+				string fragmentEditorPath = File.Exists(ShaderAsset.EditorPathFragmentShader) ? ShaderAsset.EditorPathFragmentShader : GuiUtils.FileNotFound;
+				TextBlockEditorPath.Text = $"{editorPath}\n{fragmentEditorPath}";
+			}
+			else
+			{
+				TextBlockEditorPath.Text = editorPath;
+			}
+
+			if (AudioAsset != null)
+				TextBoxLoudness.Text = AudioAsset.Loudness.ToString();
 		}
 
 		public void UpdateTagHighlighting(IEnumerable<string> checkedFilters, Color filterHighlightColor)
@@ -151,43 +188,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		public void BrowsePath(bool fragmentShader)
-		{
-			OpenFileDialog openDialog = new() { Filter = OpenDialogFilter };
-			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableAssetsRootFolder, UserHandler.Instance.Settings.AssetsRootFolder);
-
-			bool? openResult = openDialog.ShowDialog();
-			if (!openResult.HasValue || !openResult.Value)
-				return;
-
-			SetPath(fragmentShader, openDialog.FileName);
-			UpdateGui();
-
-			if (_audioAsset != null && App.Instance.MainWindow!.AudioAudioAssetTabControl.SelectedAsset == Asset && App.Instance.MainWindow!.AudioAudioAssetTabControl.Previewer is IPreviewerControl audioPreviewer)
-				audioPreviewer.Initialize(Asset);
-
-			ModFileHandler.Instance.HasUnsavedChanges = true;
-		}
-
-		public void RemovePath(bool fragmentShader)
-		{
-			SetPath(fragmentShader, GuiUtils.FileNotFound);
-			UpdateGui();
-
-			ModFileHandler.Instance.HasUnsavedChanges = true;
-		}
-
-		public void SetPath(bool fragmentShader, string path)
-		{
-			if (fragmentShader && _shaderAsset != null)
-				_shaderAsset.EditorPathFragmentShader = path;
-			else
-				Asset.EditorPath = path;
-		}
-
 		private void TextBoxLoudness_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			if (_audioAsset == null)
+			if (AudioAsset == null)
 				return;
 
 			bool isValid = float.TryParse(TextBoxLoudness.Text, out float loudness) && loudness >= 0;
@@ -196,7 +199,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			if (isValid)
 			{
-				_audioAsset.Loudness = loudness;
+				AudioAsset.Loudness = loudness;
 				ModFileHandler.Instance.HasUnsavedChanges = App.Instance.MainWindow!.HasLoaded;
 			}
 		}
