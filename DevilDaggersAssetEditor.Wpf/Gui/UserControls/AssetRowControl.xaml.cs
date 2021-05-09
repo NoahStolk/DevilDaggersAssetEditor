@@ -81,7 +81,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			else if (Asset is AudioAsset audioAsset)
 			{
 				_audioAsset = audioAsset;
-				ColumnDefinitionLoudness.Width = new(96);
+				ColumnDefinitionLoudness.Width = new(1, GridUnitType.Star);
 				TextBoxLoudness.Visibility = Visibility.Visible;
 			}
 		}

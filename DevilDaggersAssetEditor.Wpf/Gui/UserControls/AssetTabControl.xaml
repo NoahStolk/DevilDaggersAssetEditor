@@ -17,68 +17,65 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="22" />
 				<RowDefinition />
-				<RowDefinition Height="20" />
 			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="3*" />
-				<ColumnDefinition Width="1*" />
-				<ColumnDefinition Width="3*" />
-				<ColumnDefinition Width="5*" />
-				<ColumnDefinition Width="8*" />
-				<ColumnDefinition Width="20" />
-			</Grid.ColumnDefinitions>
-
 			<StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" Background="{StaticResource Gray3}">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tag filters</TextBlock>
 				<RadioButton Margin="4" Name="FilterOperationAnd">And</RadioButton>
 				<RadioButton Margin="4" Name="FilterOperationOr" IsChecked="True">Or</RadioButton>
 			</StackPanel>
 			<Grid Grid.ColumnSpan="6" Grid.Row="1" HorizontalAlignment="Stretch" Background="{StaticResource Gray4}" Name="Filters" />
-
-			<Rectangle Grid.ColumnSpan="6" Grid.Row="2" Fill="{StaticResource Gray3}" />
-			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+		</Grid>
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="5*" />
+				<ColumnDefinition Name="ColumnDefinitionLoudness" Width="0*" />
+				<ColumnDefinition Width="8*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="22" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Rectangle Grid.ColumnSpan="6" Fill="{StaticResource Gray3}" />
+			<StackPanel Orientation="Horizontal">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Asset name</TextBlock>
 				<Button Name="NameSortButton" Click="NameSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+			<StackPanel Orientation="Horizontal" Grid.Column="1">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold" FontSize="9">Prohibited</TextBlock>
 				<Button Name="ProhibitedSortButton" Click="ProhibitedSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+			<StackPanel Orientation="Horizontal" Grid.Column="2">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Tags</TextBlock>
 				<Button Name="TagsSortButton" Click="TagsSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3">
+			<StackPanel Orientation="Horizontal" Grid.Column="3">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Description</TextBlock>
 				<Button Name="DescriptionSortButton" Click="DescriptionSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<Grid Grid.Row="2" Grid.Column="4">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="0" Name="ColumnDefinitionLoudness" />
-					<ColumnDefinition Width="*" />
-				</Grid.ColumnDefinitions>
-				<StackPanel Orientation="Horizontal" Name="StackPanelLoudness" Visibility="Collapsed">
-					<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Loudness</TextBlock>
-					<Button Name="LoudnessSortButton" Click="LoudnessSortButton_Click">
-						<Image Style="{StaticResource SortIcon}" />
-					</Button>
-				</StackPanel>
-				<StackPanel Orientation="Horizontal" Grid.Column="1">
-					<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Path</TextBlock>
-					<Button Name="PathSortButton" Click="PathSortButton_Click">
-						<Image Style="{StaticResource SortIcon}" />
-					</Button>
-				</StackPanel>
-			</Grid>
+			<StackPanel Orientation="Horizontal" Grid.Column="4" Name="StackPanelLoudness" Visibility="Collapsed">
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Loudness</TextBlock>
+				<Button Name="LoudnessSortButton" Click="LoudnessSortButton_Click">
+					<Image Style="{StaticResource SortIcon}" />
+				</Button>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Column="5">
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Path</TextBlock>
+				<Button Name="PathSortButton" Click="PathSortButton_Click">
+					<Image Style="{StaticResource SortIcon}" />
+				</Button>
+			</StackPanel>
+			<ListView Grid.Row="1" Grid.ColumnSpan="6" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}" />
 		</Grid>
-		<ListView Grid.Row="2" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}" />
 	</Grid>
 </UserControl>
