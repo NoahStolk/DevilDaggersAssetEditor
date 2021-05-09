@@ -5,15 +5,15 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-	<Grid>
+	<Grid MinWidth="1024">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition />
+			<ColumnDefinition Width="2*" />
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="96" />
-			<RowDefinition />
+			<RowDefinition Height="640" />
 		</Grid.RowDefinitions>
 
 		<StackPanel>
@@ -29,13 +29,17 @@
 			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
 		</StackPanel>
 		<StackPanel Grid.Column="2">
-			<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Final modified assets</Label>
+			<Label Style="{StaticResource BoldLabel}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Effective assets</Label>
 		</StackPanel>
 
 		<ListView Grid.Row="1" Name="ModFilesListView" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="ModFilesListView_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray3}" />
 
 		<ScrollViewer Grid.Column="1" Grid.Row="1" MaxHeight="640">
-			<StackPanel Name="ChunkListView" Background="{StaticResource Gray3}" />
+			<StackPanel Name="ChunkListView" Background="{StaticResource Gray28}" />
+		</ScrollViewer>
+
+		<ScrollViewer Grid.Column="2" Grid.Row="1" MaxHeight="640">
+			<StackPanel Name="EffectiveChunkListView" Background="{StaticResource Gray3}" />
 		</ScrollViewer>
 	</Grid>
 </UserControl>

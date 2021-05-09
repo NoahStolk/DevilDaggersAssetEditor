@@ -6,6 +6,7 @@ using DevilDaggersCore.Wpf.Utils;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
@@ -26,38 +27,87 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private void PopulateModFilesList()
 		{
 			_localFiles.Clear();
+			ModFilesListView.Items.Clear();
 
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 			ModsDirectoryLabel.Content = $"Files in mods directory ({modsDirectory})";
-			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => p))
+			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => Path.GetFileName(p).TrimStart('_')))
 			{
 				string fileName = Path.GetFileName(filePath);
 				bool isValidFile = BinaryHandler.IsValidFile(filePath);
 				bool isActiveFile = isValidFile && (fileName.StartsWith("audio") || fileName.StartsWith("dd"));
+
+				List<Chunk>? chunks = null;
+				bool hasProhibitedAssets = false;
+				if (isValidFile)
+				{
+					byte[] tocBuffer = BinaryHandler.ReadTocBuffer(filePath);
+					chunks = BinaryHandler.ReadChunks(tocBuffer);
+					hasProhibitedAssets = chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name, c.AssetType) == true);
+				}
+
+				_localFiles.Add(new(filePath, chunks));
+
+				Grid grid = new() { Height = 24 };
+				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(4, GridUnitType.Star) });
+				grid.ColumnDefinitions.Add(new ColumnDefinition());
+				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(2, GridUnitType.Star) });
 
 				TextBlock textBlock = new()
 				{
 					Text = fileName,
 					IsEnabled = isValidFile,
 					Foreground = ColorUtils.ThemeColors[isActiveFile ? "SuccessText" : isValidFile ? "Text" : "Gray6"],
+					FontSize = 16,
 				};
-				_localFiles.Add(new(textBlock, filePath, isValidFile));
+				grid.Children.Add(textBlock);
 
-				ModFilesListView.Items.Add(textBlock);
+				if (isValidFile)
+				{
+					Button buttonToggle = new()
+					{
+						Content = isActiveFile ? "Disable binary" : "Enable binary",
+						IsEnabled = isValidFile,
+					};
+					buttonToggle.Click += (_, _) =>
+					{
+						string dir = Path.GetDirectoryName(filePath)!;
+						if (isActiveFile)
+							File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
+						else
+							File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
+
+						PopulateModFilesList();
+					};
+					Grid.SetColumn(buttonToggle, 1);
+					grid.Children.Add(buttonToggle);
+
+					Button buttonToggleProhibited = new()
+					{
+						Content = hasProhibitedAssets ? "Disable prohibited assets" : "Enable prohibited assets",
+						IsEnabled = isValidFile,
+					};
+					Grid.SetColumn(buttonToggleProhibited, 2);
+					grid.Children.Add(buttonToggleProhibited);
+				}
+
+				ModFilesListView.Items.Add(grid);
 			}
 		}
 
 		private void ModFilesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			if (ModFilesListView.SelectedIndex == -1)
+				return;
+
 			LocalFile localFile = _localFiles[ModFilesListView.SelectedIndex];
 			_selectedPath = localFile.FilePath;
 			ChunkListView.Children.Clear();
 
-			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || !localFile.IsValidFile)
+			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || localFile.Chunks == null)
 				return;
 
-			byte[] tocBuffer = BinaryHandler.ReadTocBuffer(_selectedPath);
-			foreach (Chunk chunk in BinaryHandler.ReadChunks(tocBuffer))
+			foreach (Chunk chunk in localFile.Chunks)
 			{
 				if (chunk.Name == "loudness")
 					continue;
@@ -74,16 +124,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private class LocalFile
 		{
-			public LocalFile(TextBlock textBlock, string? filePath, bool isValidFile)
+			public LocalFile(string? filePath, List<Chunk>? chunks)
 			{
-				TextBlock = textBlock;
 				FilePath = filePath;
-				IsValidFile = isValidFile;
+				Chunks = chunks;
 			}
 
-			public TextBlock TextBlock { get; }
 			public string? FilePath { get; }
-			public bool IsValidFile { get; }
+			public List<Chunk>? Chunks { get; }
 		}
 	}
 }
