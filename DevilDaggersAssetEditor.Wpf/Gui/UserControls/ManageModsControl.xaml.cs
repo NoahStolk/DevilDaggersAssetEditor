@@ -18,6 +18,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class ManageModsControl : UserControl
 	{
+		private static readonly SolidColorBrush _transparentBrush = new(Color.FromArgb(0, 0, 0, 0));
+		private static readonly SolidColorBrush _highlightBrush = new(Color.FromArgb(63, 0, 255, 0));
+
 		private readonly List<LocalFile> _localFiles = new();
 		private readonly List<EffectiveChunk> _effectiveChunks = new();
 
@@ -176,6 +179,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || localFile.Chunks == null)
 				return;
 
+			// Clear highlight.
+			foreach (Grid grid in EffectiveChunkListView.Children)
+				grid.Background = _transparentBrush;
+
 			foreach (Chunk chunk in localFile.Chunks)
 			{
 				if (chunk.Name == "loudness")
@@ -203,6 +210,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				grid.Children.Add(textBlockName);
 
 				ChunkListView.Children.Add(grid);
+
+				// Highlight effective chunk.
+				string? binaryName = Path.GetFileName(localFile.FilePath);
+				EffectiveChunk? effectiveChunk = _effectiveChunks.Find(ec => ec.AssetName == chunk.Name && ec.AssetType == chunk.AssetType && ec.BinaryName == binaryName);
+				if (effectiveChunk != null)
+				{
+					int index = _effectiveChunks.IndexOf(effectiveChunk);
+					(EffectiveChunkListView.Children[index] as Grid)!.Background = _highlightBrush;
+				}
 			}
 		}
 
