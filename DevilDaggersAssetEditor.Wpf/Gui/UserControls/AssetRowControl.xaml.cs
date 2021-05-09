@@ -78,8 +78,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				RowDefinitionFragmentShader.Height = new(24);
 				Grid.SetRowSpan(TextBlockTags, 2);
 			}
-
-			if (Asset is AudioAsset audioAsset)
+			else if (Asset is AudioAsset audioAsset)
 			{
 				_audioAsset = audioAsset;
 				ColumnDefinitionLoudness.Width = new(96);
