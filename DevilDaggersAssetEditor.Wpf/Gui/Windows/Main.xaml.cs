@@ -381,8 +381,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 				foreach (AssetRowControl row in tab.RowControls)
 				{
-					row.GridTags.MaxWidth = tagsWidth;
-					row.GridDescription.MaxWidth = descriptionWidth;
+					row.TextBlockTags.MaxWidth = tagsWidth;
+					row.TextBlockDescription.MaxWidth = descriptionWidth;
 					row.GridPath.MaxWidth = pathWidth;
 					row.GridPathFragment.MaxWidth = pathWidth;
 				}

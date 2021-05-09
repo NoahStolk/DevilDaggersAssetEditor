@@ -22,15 +22,9 @@
 		</Grid.RowDefinitions>
 
 		<TextBlock Grid.RowSpan="2" Style="{StaticResource AssetTextBlock}" Grid.Column="0" Name="TextBlockAssetName" />
-		<Grid Grid.Column="1" Grid.RowSpan="2" Name="GridProhibited" HorizontalAlignment="Left">
-			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockProhibited" />
-		</Grid>
-		<Grid Grid.Column="2" Grid.RowSpan="2" Name="GridTags" HorizontalAlignment="Left">
-			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockTags" />
-		</Grid>
-		<Grid Grid.Column="3" Grid.RowSpan="2" Name="GridDescription" HorizontalAlignment="Left">
-			<TextBlock Style="{StaticResource AssetTextBlock}" Name="TextBlockDescription" />
-		</Grid>
+		<TextBlock Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Left" Style="{StaticResource AssetTextBlock}" Name="TextBlockProhibited" />
+		<TextBlock Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Left" Style="{StaticResource AssetTextBlock}" Name="TextBlockTags" />
+		<TextBlock Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Left" Style="{StaticResource AssetTextBlock}" Name="TextBlockDescription" />
 		<Grid Grid.Column="4">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="0" Name="ColumnDefinitionLoudness" />
