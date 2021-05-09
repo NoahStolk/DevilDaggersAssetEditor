@@ -383,8 +383,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 				{
 					row.TextBlockTags.MaxWidth = tagsWidth;
 					row.TextBlockDescription.MaxWidth = descriptionWidth;
-					row.GridPath.MaxWidth = pathWidth;
-					row.GridPathFragment.MaxWidth = pathWidth;
+					row.TextBlockEditorPath.MaxWidth = pathWidth;
+					row.TextBlockEditorPathFragmentShader.MaxWidth = pathWidth;
 				}
 			}
 		}
