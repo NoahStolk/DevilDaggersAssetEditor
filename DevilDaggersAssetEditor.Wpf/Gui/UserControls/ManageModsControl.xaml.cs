@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Utils;
 using DevilDaggersCore.Wpf.Windows;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 	public partial class ManageModsControl : UserControl
 	{
 		private readonly List<LocalFile> _localFiles = new();
+		private readonly List<EffectiveChunk> _effectiveChunks = new();
 
 		private string? _selectedPath;
 
@@ -31,7 +33,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private void PopulateModFilesList()
 		{
 			_localFiles.Clear();
+			_effectiveChunks.Clear();
+
 			ModFilesListView.Items.Clear();
+			EffectiveChunkListView.Children.Clear();
 
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 			ModsDirectoryLabel.Text = $"Files in mods directory ({modsDirectory})";
@@ -48,6 +53,26 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					byte[] tocBuffer = BinaryHandler.ReadTocBuffer(filePath);
 					chunks = BinaryHandler.ReadChunks(tocBuffer);
 					hasProhibitedAssets = chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name, c.AssetType) == true);
+
+					if (isActiveFile)
+					{
+						foreach (Chunk chunk in chunks)
+						{
+							EffectiveChunk? existingEffectiveChunk = _effectiveChunks.Find(ec => ec.AssetType == chunk.AssetType && ec.AssetName == chunk.Name);
+							if (existingEffectiveChunk == null)
+							{
+								bool? isProhibited = AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType);
+								_effectiveChunks.Add(new EffectiveChunk(fileName, chunk.AssetType, chunk.Name, isProhibited));
+							}
+							else
+							{
+								_effectiveChunks.Remove(existingEffectiveChunk);
+#pragma warning disable S1121 // Assignments should not be made from within sub-expressions
+								_effectiveChunks.Add(existingEffectiveChunk with { BinaryName = fileName });
+#pragma warning restore S1121 // Assignments should not be made from within sub-expressions
+							}
+						}
+					}
 				}
 
 				_localFiles.Add(new(filePath, chunks));
@@ -105,6 +130,35 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				ModFilesListView.Items.Add(grid);
 			}
+
+			foreach (EffectiveChunk ec in _effectiveChunks)
+			{
+				Grid effectiveChunkGrid = new();
+				effectiveChunkGrid.ColumnDefinitions.Add(new());
+				effectiveChunkGrid.ColumnDefinitions.Add(new() { Width = new(2, GridUnitType.Star) });
+				effectiveChunkGrid.ColumnDefinitions.Add(new() { Width = new(2, GridUnitType.Star) });
+
+				TextBlock textBlockType = new()
+				{
+					Text = ec.AssetType.ToString(),
+					Background = new SolidColorBrush(EditorUtils.FromRgbTuple(ec.AssetType.GetColor()) * 0.25f),
+				};
+				effectiveChunkGrid.Children.Add(textBlockType);
+
+				TextBlock textBlockBinary = new() { Text = ec.BinaryName };
+				Grid.SetColumn(textBlockBinary, 1);
+				effectiveChunkGrid.Children.Add(textBlockBinary);
+
+				TextBlock textBlockName = new()
+				{
+					Text = ec.AssetName,
+					Foreground = ColorUtils.ThemeColors[ec.IsProhibited.HasValue ? ec.IsProhibited.Value ? "ErrorText" : "Text" : "Gray6"],
+				};
+				Grid.SetColumn(textBlockName, 2);
+				effectiveChunkGrid.Children.Add(textBlockName);
+
+				EffectiveChunkListView.Children.Add(effectiveChunkGrid);
+			}
 		}
 
 		private void ModFilesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -152,16 +206,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		private class LocalFile
-		{
-			public LocalFile(string? filePath, List<Chunk>? chunks)
-			{
-				FilePath = filePath;
-				Chunks = chunks;
-			}
+		private record LocalFile(string? FilePath, List<Chunk>? Chunks);
 
-			public string? FilePath { get; }
-			public List<Chunk>? Chunks { get; }
-		}
+		private record EffectiveChunk(string BinaryName, AssetType AssetType, string AssetName, bool? IsProhibited);
 	}
 }
