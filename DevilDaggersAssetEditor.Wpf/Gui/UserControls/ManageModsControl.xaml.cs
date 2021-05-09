@@ -1,13 +1,16 @@
 ﻿using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Binaries.Chunks;
+using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
@@ -30,7 +33,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			ModFilesListView.Items.Clear();
 
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
-			ModsDirectoryLabel.Content = $"Files in mods directory ({modsDirectory})";
+			ModsDirectoryLabel.Text = $"Files in mods directory ({modsDirectory})";
 			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => Path.GetFileName(p).TrimStart('_')))
 			{
 				string fileName = Path.GetFileName(filePath);
@@ -52,6 +55,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(4, GridUnitType.Star) });
 				grid.ColumnDefinitions.Add(new ColumnDefinition());
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(2, GridUnitType.Star) });
+				grid.ColumnDefinitions.Add(new ColumnDefinition());
 
 				TextBlock textBlock = new()
 				{
@@ -64,11 +68,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				if (isValidFile)
 				{
-					Button buttonToggle = new()
-					{
-						Content = isActiveFile ? "Disable binary" : "Enable binary",
-						IsEnabled = isValidFile,
-					};
+					Button buttonToggle = new() { Content = isActiveFile ? "Disable binary" : "Enable binary" };
 					buttonToggle.Click += (_, _) =>
 					{
 						string dir = Path.GetDirectoryName(filePath)!;
@@ -82,13 +82,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					Grid.SetColumn(buttonToggle, 1);
 					grid.Children.Add(buttonToggle);
 
-					Button buttonToggleProhibited = new()
-					{
-						Content = hasProhibitedAssets ? "Disable prohibited assets" : "Enable prohibited assets",
-						IsEnabled = isValidFile,
-					};
+					Button buttonToggleProhibited = new() { Content = hasProhibitedAssets ? "Disable prohibited assets" : "Enable prohibited assets" };
 					Grid.SetColumn(buttonToggleProhibited, 2);
 					grid.Children.Add(buttonToggleProhibited);
+
+					Button buttonDelete = new() { Content = "Delete file" };
+					buttonDelete.Click += (_, _) =>
+					{
+						File.Delete(filePath);
+						PopulateModFilesList();
+					};
+					Grid.SetColumn(buttonDelete, 3);
+					grid.Children.Add(buttonDelete);
 				}
 
 				ModFilesListView.Items.Add(grid);
@@ -99,6 +104,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			if (ModFilesListView.SelectedIndex == -1)
 				return;
+
+			ChunkListScrollViewer.ScrollToTop();
+			EffectiveChunkListScrollViewer.ScrollToTop();
 
 			LocalFile localFile = _localFiles[ModFilesListView.SelectedIndex];
 			_selectedPath = localFile.FilePath;
@@ -114,11 +122,26 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				bool? isProhibited = AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType);
 
-				ChunkListView.Children.Add(new TextBlock
+				Grid grid = new();
+				grid.ColumnDefinitions.Add(new());
+				grid.ColumnDefinitions.Add(new() { Width = new(3, GridUnitType.Star) });
+
+				TextBlock textBlockType = new()
+				{
+					Text = chunk.AssetType.ToString(),
+					Background = new SolidColorBrush(EditorUtils.FromRgbTuple(chunk.AssetType.GetColor()) * 0.25f),
+				};
+				grid.Children.Add(textBlockType);
+
+				TextBlock textBlockName = new()
 				{
 					Text = chunk.Name,
 					Foreground = ColorUtils.ThemeColors[isProhibited.HasValue ? isProhibited.Value ? "ErrorText" : "Text" : "Gray6"],
-				});
+				};
+				Grid.SetColumn(textBlockName, 1);
+				grid.Children.Add(textBlockName);
+
+				ChunkListView.Children.Add(grid);
 			}
 		}
 
