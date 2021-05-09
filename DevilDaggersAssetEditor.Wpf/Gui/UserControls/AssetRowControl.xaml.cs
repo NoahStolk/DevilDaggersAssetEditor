@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Mods;
@@ -105,28 +106,25 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void ButtonBrowsePath_Click(object sender, RoutedEventArgs e)
 		{
-			bool isShader = ShaderAsset != null;
-			string assetTypeTitlePart = isShader ? "vertex shader" : AssetType.ToString().ToLower();
-			string title = $"Select source for {assetTypeTitlePart} '{Asset.AssetName}'";
-			OpenFileDialog openDialog = new() { Filter = OpenDialogFilter, Title = title };
-			openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableAssetsRootFolder, UserHandler.Instance.Settings.AssetsRootFolder);
-
-			bool? openResult = openDialog.ShowDialog();
-			if (!openResult.HasValue || !openResult.Value)
-				return;
-
-			Asset.EditorPath = openDialog.FileName;
-
-			if (isShader)
+			if (ShaderAsset != null)
 			{
-				openDialog = new() { Filter = OpenDialogFilter, Title = $"Select source for fragment shader '{Asset.AssetName}'" };
+				SetShaderPathsWindow window = new(OpenDialogFilter, Asset.AssetName);
+				if (window.ShowDialog() == true)
+				{
+					ShaderAsset.EditorPath = window.VertexPath!;
+					ShaderAsset.EditorPathFragmentShader = window.FragmentPath!;
+				}
+			}
+			else
+			{
+				OpenFileDialog openDialog = new() { Filter = OpenDialogFilter, Title = $"Select source for {AssetType.ToString().ToLower()} '{Asset.AssetName}'" };
 				openDialog.OpenDirectory(UserHandler.Instance.Settings.EnableAssetsRootFolder, UserHandler.Instance.Settings.AssetsRootFolder);
 
-				openResult = openDialog.ShowDialog();
+				bool? openResult = openDialog.ShowDialog();
 				if (!openResult.HasValue || !openResult.Value)
 					return;
 
-				ShaderAsset!.EditorPathFragmentShader = openDialog.FileName;
+				Asset.EditorPath = openDialog.FileName;
 			}
 
 			UpdateGui();

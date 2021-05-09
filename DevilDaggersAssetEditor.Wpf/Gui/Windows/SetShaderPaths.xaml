@@ -1,0 +1,31 @@
+﻿<Window x:Class="DevilDaggersAssetEditor.Wpf.Gui.Windows.SetShaderPathsWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d"
+        Title="Set shader paths" Height="256" Width="640" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+	<StackPanel Style="{StaticResource PaddingStackPanel}">
+		<TextBlock>In order for shaders to work, both a fragment and a vertex shader must be specified.</TextBlock>
+		<Separator />
+		<TextBlock>Fragment shader path</TextBlock>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="7*" />
+			</Grid.ColumnDefinitions>
+			<Button Name="ButtonBrowseFragment" Content="Browse" Click="BrowseButtonFragment_Click" HorizontalAlignment="Stretch" />
+			<TextBox Grid.Column="1" Name="TextBoxPathFragment" TextChanged="TextBoxPathFragment_TextChanged" />
+		</Grid>
+		<TextBlock>Vertex shader path</TextBlock>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="7*" />
+			</Grid.ColumnDefinitions>
+			<Button Name="ButtonBrowseVertex" Content="Browse" Click="BrowseButtonVertex_Click" HorizontalAlignment="Stretch" />
+			<TextBox Grid.Column="1" Name="TextBoxPathVertex" TextChanged="TextBoxPathVertex_TextChanged" />
+		</Grid>
+		<Button Style="{StaticResource OkButton}" Name="OkButton" Click="OkButton_Click" IsEnabled="False">OK</Button>
+	</StackPanel>
+</Window>

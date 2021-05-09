@@ -10,6 +10,7 @@
 	<Style TargetType="{x:Type windows:MakeBinariesWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:ModManagerWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:MainWindow}" BasedOn="{StaticResource {x:Type Window}}" />
+	<Style TargetType="{x:Type windows:SetShaderPathsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:SettingsWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 	<Style TargetType="{x:Type windows:TrimBinaryWindow}" BasedOn="{StaticResource {x:Type Window}}" />
 
