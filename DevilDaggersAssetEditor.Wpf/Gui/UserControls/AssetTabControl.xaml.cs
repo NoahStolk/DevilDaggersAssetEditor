@@ -70,8 +70,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			if (assetType == AssetType.Audio)
 			{
-				StackPanelLoudness.Visibility = Visibility.Visible;
 				ColumnDefinitionLoudness.Width = new GridLength(1, GridUnitType.Star);
+				ColumnDefinitionPath.Width = new GridLength(5, GridUnitType.Star);
 			}
 		}
 

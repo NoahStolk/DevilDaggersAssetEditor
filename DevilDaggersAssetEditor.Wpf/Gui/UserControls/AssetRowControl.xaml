@@ -13,7 +13,7 @@
 			<ColumnDefinition Width="3*" />
 			<ColumnDefinition Width="5*" />
 			<ColumnDefinition Width="0*" Name="ColumnDefinitionLoudness" />
-			<ColumnDefinition Width="6*" />
+			<ColumnDefinition Width="6*" Name="ColumnDefinitionPath" />
 			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>

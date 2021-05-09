@@ -31,14 +31,15 @@
 				<ColumnDefinition Width="1*" />
 				<ColumnDefinition Width="3*" />
 				<ColumnDefinition Width="5*" />
-				<ColumnDefinition Name="ColumnDefinitionLoudness" Width="0*" />
-				<ColumnDefinition Width="8*" />
+				<ColumnDefinition Width="0*" Name="ColumnDefinitionLoudness" />
+				<ColumnDefinition Width="8*" Name="ColumnDefinitionPath" />
+				<ColumnDefinition Width="20" />
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="22" />
+				<RowDefinition Height="24" />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			<Rectangle Grid.ColumnSpan="6" Fill="{StaticResource Gray3}" />
+			<Rectangle Grid.ColumnSpan="7" Fill="{StaticResource Gray3}" />
 			<StackPanel Orientation="Horizontal">
 				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Asset name</TextBlock>
 				<Button Name="NameSortButton" Click="NameSortButton_Click">
@@ -63,8 +64,8 @@
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<StackPanel Orientation="Horizontal" Grid.Column="4" Name="StackPanelLoudness" Visibility="Collapsed">
-				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold">Loudness</TextBlock>
+			<StackPanel Orientation="Horizontal" Grid.Column="4">
+				<TextBlock Style="{StaticResource AssetTextBlock}" FontWeight="Bold" FontSize="9">Loudness</TextBlock>
 				<Button Name="LoudnessSortButton" Click="LoudnessSortButton_Click">
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
@@ -75,7 +76,7 @@
 					<Image Style="{StaticResource SortIcon}" />
 				</Button>
 			</StackPanel>
-			<ListView Grid.Row="1" Grid.ColumnSpan="6" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}" />
+			<ListView Grid.Row="1" Grid.ColumnSpan="7" Name="AssetEditor" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="AssetEditor_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray2}" />
 		</Grid>
 	</Grid>
 </UserControl>
