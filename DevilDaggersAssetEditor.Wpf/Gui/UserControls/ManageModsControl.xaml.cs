@@ -70,9 +70,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 							else
 							{
 								_effectiveChunks.Remove(existingEffectiveChunk);
-#pragma warning disable S1121 // Assignments should not be made from within sub-expressions
 								_effectiveChunks.Add(existingEffectiveChunk with { BinaryName = fileName });
-#pragma warning restore S1121 // Assignments should not be made from within sub-expressions
 							}
 						}
 					}
