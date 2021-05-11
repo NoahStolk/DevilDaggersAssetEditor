@@ -15,10 +15,7 @@
 					This is particularly useful for binaries that were compiled before Devil Daggers V3.1 came out. Back then, partial mods were not supported. With this tool you can make your old binary file a lot smaller by leaving out all the unchanged assets, which can be done by comparing it against the original binary.
 				</TextBlock>
 				<TextBlock Style="{StaticResource ParagraphTextBlock}">
-					NOTE: The way Devil Daggers Asset Editor compiles model data differs from what is stored in the original 'dd' binary. Therefore this tool will not trim models if used with the original 'dd' binary from the game. The easiest way to work around this is to extract the original 'dd' binary, re-compile it with the program, and then use that file to compare against.
-				</TextBlock>
-				<TextBlock Style="{StaticResource ParagraphTextBlock}">
-					If the trimmed binary file still contains models that weren't modified, the binary you're trying to trim was probably compiled using an older version of the program. Make sure to compile it with the latest version first before attempting to trim it.
+					Note that model data cannot be compared accurately.
 				</TextBlock>
 				<Label>Binary to trim</Label>
 				<Grid>
