@@ -24,6 +24,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private readonly List<LocalFile> _localFiles = new();
 		private readonly List<EffectiveChunk> _effectiveChunks = new();
 
+		private readonly Dictionary<EffectiveChunk, TextBlock> _effectiveChunkUi = new();
+
 		private string? _selectedPath;
 
 		public ManageModsControl()
@@ -37,6 +39,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			_localFiles.Clear();
 			_effectiveChunks.Clear();
+			_effectiveChunkUi.Clear();
 
 			ModFilesListView.Items.Clear();
 			EffectiveChunkListView.Children.Clear();
@@ -61,11 +64,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					{
 						foreach (Chunk chunk in chunks)
 						{
+							if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
+								continue;
+
 							EffectiveChunk? existingEffectiveChunk = _effectiveChunks.Find(ec => ec.AssetType == chunk.AssetType && ec.AssetName == chunk.Name);
 							if (existingEffectiveChunk == null)
 							{
-								bool? isProhibited = AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType);
-								_effectiveChunks.Add(new EffectiveChunk(fileName, chunk.AssetType, chunk.Name, isProhibited));
+								_effectiveChunks.Add(new EffectiveChunk(fileName, chunk.AssetType, chunk.Name, AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType)));
 							}
 							else
 							{
@@ -80,9 +85,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				Grid grid = new() { Height = 24 };
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(4, GridUnitType.Star) });
-				grid.ColumnDefinitions.Add(new ColumnDefinition());
+				grid.ColumnDefinitions.Add(new());
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(2, GridUnitType.Star) });
-				grid.ColumnDefinitions.Add(new ColumnDefinition());
+				grid.ColumnDefinitions.Add(new());
 
 				TextBlock textBlock = new()
 				{
@@ -132,33 +137,42 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				ModFilesListView.Items.Add(grid);
 			}
 
-			foreach (EffectiveChunk ec in _effectiveChunks)
+			CreateEffectiveChunkUi();
+		}
+
+		private void CreateEffectiveChunkUi()
+		{
+			foreach (IGrouping<string, EffectiveChunk> ecg in _effectiveChunks.GroupBy(e => e.BinaryName))
 			{
-				Grid effectiveChunkGrid = new();
-				effectiveChunkGrid.ColumnDefinitions.Add(new());
-				effectiveChunkGrid.ColumnDefinitions.Add(new() { Width = new(2, GridUnitType.Star) });
-				effectiveChunkGrid.ColumnDefinitions.Add(new() { Width = new(2, GridUnitType.Star) });
-
-				TextBlock textBlockType = new()
-				{
-					Text = ec.AssetType.ToString(),
-					Background = new SolidColorBrush(EditorUtils.FromRgbTuple(ec.AssetType.GetColor()) * 0.25f),
-				};
-				effectiveChunkGrid.Children.Add(textBlockType);
-
-				TextBlock textBlockBinary = new() { Text = ec.BinaryName };
+				TextBlock textBlockBinary = new() { Text = ecg.Key, Background = ColorUtils.ThemeColors["Gray28"], FontSize = 14, Padding = new(0, 4, 0, 0), FontWeight = FontWeights.Bold };
 				Grid.SetColumn(textBlockBinary, 1);
-				effectiveChunkGrid.Children.Add(textBlockBinary);
+				EffectiveChunkListView.Children.Add(textBlockBinary);
 
-				TextBlock textBlockName = new()
+				foreach (EffectiveChunk ec in ecg)
 				{
-					Text = ec.AssetName,
-					Foreground = ColorUtils.ThemeColors[ec.IsProhibited.HasValue ? ec.IsProhibited.Value ? "ErrorText" : "Text" : "Gray6"],
-				};
-				Grid.SetColumn(textBlockName, 2);
-				effectiveChunkGrid.Children.Add(textBlockName);
+					Grid effectiveChunkGrid = new();
+					effectiveChunkGrid.ColumnDefinitions.Add(new());
+					effectiveChunkGrid.ColumnDefinitions.Add(new() { Width = new(3, GridUnitType.Star) });
 
-				EffectiveChunkListView.Children.Add(effectiveChunkGrid);
+					TextBlock textBlockType = new()
+					{
+						Text = ec.AssetType.ToString(),
+						Background = new SolidColorBrush(EditorUtils.FromRgbTuple(ec.AssetType.GetColor()) * 0.25f),
+					};
+					effectiveChunkGrid.Children.Add(textBlockType);
+
+					TextBlock textBlockName = new()
+					{
+						Text = ec.AssetName,
+						Foreground = ColorUtils.ThemeColors[ec.IsProhibited.HasValue ? ec.IsProhibited.Value ? "ErrorText" : "Text" : "Gray6"],
+					};
+					Grid.SetColumn(textBlockName, 1);
+					effectiveChunkGrid.Children.Add(textBlockName);
+
+					EffectiveChunkListView.Children.Add(effectiveChunkGrid);
+
+					_effectiveChunkUi.Add(ec, textBlockName);
+				}
 			}
 		}
 
@@ -178,12 +192,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				return;
 
 			// Clear highlight.
-			foreach (Grid grid in EffectiveChunkListView.Children)
-				grid.Background = _transparentBrush;
+			foreach (KeyValuePair<EffectiveChunk, TextBlock> kvp in _effectiveChunkUi)
+				kvp.Value.Background = _transparentBrush;
 
 			foreach (Chunk chunk in localFile.Chunks)
 			{
-				if (chunk.Name == "loudness")
+				// Highlight effective chunk.
+				string? binaryName = Path.GetFileName(localFile.FilePath);
+				EffectiveChunk? effectiveChunk = _effectiveChunks.Find(ec => ec.AssetName == chunk.Name && ec.AssetType == chunk.AssetType && ec.BinaryName == binaryName);
+				if (effectiveChunk != null)
+					_effectiveChunkUi[effectiveChunk].Background = _highlightBrush;
+
+				if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
 					continue;
 
 				bool? isProhibited = AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType);
@@ -208,15 +228,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				grid.Children.Add(textBlockName);
 
 				ChunkListView.Children.Add(grid);
-
-				// Highlight effective chunk.
-				string? binaryName = Path.GetFileName(localFile.FilePath);
-				EffectiveChunk? effectiveChunk = _effectiveChunks.Find(ec => ec.AssetName == chunk.Name && ec.AssetType == chunk.AssetType && ec.BinaryName == binaryName);
-				if (effectiveChunk != null)
-				{
-					int index = _effectiveChunks.IndexOf(effectiveChunk);
-					(EffectiveChunkListView.Children[index] as Grid)!.Background = _highlightBrush;
-				}
 			}
 		}
 
