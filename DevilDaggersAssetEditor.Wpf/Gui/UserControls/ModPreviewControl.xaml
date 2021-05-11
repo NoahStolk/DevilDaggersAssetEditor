@@ -29,9 +29,14 @@
 
 		<StackPanel ClipToBounds="True" Name="ScreenshotsContainer" Visibility="Collapsed">
 			<Label FontWeight="Bold" Margin="0,10,0,0" Background="{StaticResource Gray28}">Screenshots</Label>
-			<ScrollViewer MaxHeight="192" Margin="2,0,0,0" ClipToBounds="True" Name="ScrollViewerScreenshots" Background="{StaticResource Gray38}">
-				<StackPanel HorizontalAlignment="Left" Name="PreviewScreenshotsList" ClipToBounds="True" />
-			</ScrollViewer>
+			<Label Name="ScreenshotLabel" Background="{StaticResource Gray38}" />
+			<StackPanel Orientation="Horizontal" Background="{StaticResource Gray38}">
+				<Button Width="32" Name="FirstScreenshotButton" Click="FirstScreenshot_Click" ToolTip="First screenshot">|&lt;</Button>
+				<Button Width="32" Name="PreviousScreenshotButton" Click="PreviousScreenshot_Click" ToolTip="Previous screenshot">&lt;</Button>
+				<Button Width="32" Name="NextScreenshotButton" Click="NextScreenshot_Click" ToolTip="Next screenshot">&gt;</Button>
+				<Button Width="32" Name="LastScreenshotButton" Click="LastScreenshot_Click" ToolTip="Last screenshot">&gt;|</Button>
+			</StackPanel>
+			<Image Stretch="Fill" HorizontalAlignment="Left" Name="Screenshot" />
 		</StackPanel>
 	</StackPanel>
 </UserControl>
