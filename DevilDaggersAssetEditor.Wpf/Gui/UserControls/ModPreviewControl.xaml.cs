@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Wpf.Clients;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;
+using HTMLConverter;
 using System;
 using System.IO;
 using System.Windows;
@@ -37,7 +38,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			_selectedModName = mod?.Name;
 			DownloadModButton.IsEnabled = mod?.ModArchive != null;
 			PreviewName.Content = _selectedModName ?? "No mod selected";
-			PreviewDescription.Text = mod?.HtmlDescription;
+			PreviewDescription.Text = string.IsNullOrWhiteSpace(mod?.HtmlDescription) ? null : HtmlToXamlConverter.ConvertHtmlToXaml(mod?.HtmlDescription, false);
 
 			BinariesContainer.Visibility = mod == null ? Visibility.Collapsed : Visibility.Visible;
 			DescriptionContainer.Visibility = string.IsNullOrWhiteSpace(mod?.HtmlDescription) ? Visibility.Collapsed : Visibility.Visible;
