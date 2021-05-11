@@ -38,12 +38,12 @@
 
 		<ListView Grid.Row="1" Name="ModFilesListView" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="ModFilesListView_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray3}" />
 
-		<ScrollViewer Name="ChunkListScrollViewer" Grid.Column="1" Grid.Row="1" MaxHeight="640">
-			<StackPanel Name="ChunkListView" Background="{StaticResource Gray28}" />
+		<ScrollViewer Name="ChunkListScrollViewer" Grid.Column="1" Grid.Row="1" MaxHeight="640" Background="{StaticResource Gray28}">
+			<StackPanel Name="ChunkListView" />
 		</ScrollViewer>
 
-		<ScrollViewer Name="EffectiveChunkListScrollViewer" Grid.Column="2" Grid.Row="1" MaxHeight="640">
-			<StackPanel Name="EffectiveChunkListView" Background="{StaticResource Gray3}" />
+		<ScrollViewer Name="EffectiveChunkListScrollViewer" Grid.Column="2" Grid.Row="1" MaxHeight="640" Background="{StaticResource Gray3}">
+			<StackPanel Name="EffectiveChunkListView" />
 		</ScrollViewer>
 	</Grid>
 </UserControl>

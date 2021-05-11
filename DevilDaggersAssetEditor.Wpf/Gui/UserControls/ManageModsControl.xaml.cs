@@ -159,7 +159,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			foreach (IGrouping<string, EffectiveChunk> ecg in _effectiveChunks.GroupBy(e => e.BinaryName))
 			{
-				TextBlock textBlockBinary = new() { Text = ecg.Key, Background = ColorUtils.ThemeColors["Gray28"], FontSize = 14, Padding = new(0, 4, 0, 0), FontWeight = FontWeights.Bold };
+				TextBlock textBlockBinary = new() { Text = ecg.Key, Background = ColorUtils.ThemeColors["Gray4"], FontSize = 14, Padding = new(0, 4, 0, 0), FontWeight = FontWeights.Bold };
 				Grid.SetColumn(textBlockBinary, 1);
 				EffectiveChunkListView.Children.Add(textBlockBinary);
 
