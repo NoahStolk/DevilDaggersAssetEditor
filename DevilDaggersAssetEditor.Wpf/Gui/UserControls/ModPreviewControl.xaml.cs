@@ -40,7 +40,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			PreviewDescription.Text = mod?.HtmlDescription;
 
 			BinariesContainer.Visibility = mod == null ? Visibility.Collapsed : Visibility.Visible;
-			DescriptionContainer.Visibility = string.IsNullOrWhiteSpace(PreviewDescription.Text) ? Visibility.Collapsed : Visibility.Visible;
+			DescriptionContainer.Visibility = string.IsNullOrWhiteSpace(mod?.HtmlDescription) ? Visibility.Collapsed : Visibility.Visible;
 			ScreenshotsContainer.Visibility = mod?.ScreenshotFileNames.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
 
 			if (mod?.ModArchive != null)
