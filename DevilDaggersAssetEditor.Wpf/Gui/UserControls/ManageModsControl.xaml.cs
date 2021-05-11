@@ -51,6 +51,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				string fileName = Path.GetFileName(filePath);
 				bool isValidFile = BinaryHandler.IsValidFile(filePath);
 				bool isActiveFile = isValidFile && (fileName.StartsWith("audio") || fileName.StartsWith("dd"));
+				bool hasValidName = fileName.StartsWith("audio") || fileName.StartsWith("dd") || fileName.StartsWith("_audio") || fileName.StartsWith("_dd");
 
 				List<Chunk>? chunks = null;
 				bool hasProhibitedAssets = false;
@@ -89,30 +90,44 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(2, GridUnitType.Star) });
 				grid.ColumnDefinitions.Add(new());
 
+				static string GetColor(bool hasValidName, bool isActiveFile, bool isValidFile)
+				{
+					if (!isValidFile)
+						return "Gray6";
+					if (!hasValidName)
+						return "ErrorText";
+					if (!isActiveFile)
+						return "Text";
+					return "SuccessText";
+				}
+
 				TextBlock textBlock = new()
 				{
 					Text = fileName,
 					IsEnabled = isValidFile,
-					Foreground = ColorUtils.ThemeColors[isActiveFile ? "SuccessText" : isValidFile ? "Text" : "Gray6"],
+					Foreground = ColorUtils.ThemeColors[GetColor(hasValidName, isActiveFile, isValidFile)],
 					FontSize = 16,
 				};
 				grid.Children.Add(textBlock);
 
 				if (isValidFile)
 				{
-					Button buttonToggle = new() { Content = isActiveFile ? "Disable binary" : "Enable binary" };
-					buttonToggle.Click += (_, _) =>
+					if (hasValidName)
 					{
-						string dir = Path.GetDirectoryName(filePath)!;
-						if (isActiveFile)
-							File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
-						else
-							File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
+						Button buttonToggle = new() { Content = isActiveFile ? "Disable binary" : "Enable binary" };
+						buttonToggle.Click += (_, _) =>
+						{
+							string dir = Path.GetDirectoryName(filePath)!;
+							if (isActiveFile)
+								File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
+							else
+								File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
 
-						PopulateModFilesList();
-					};
-					Grid.SetColumn(buttonToggle, 1);
-					grid.Children.Add(buttonToggle);
+							PopulateModFilesList();
+						};
+						Grid.SetColumn(buttonToggle, 1);
+						grid.Children.Add(buttonToggle);
+					}
 
 					Button buttonToggleProhibited = new() { Content = hasProhibitedAssets ? "Disable prohibited assets" : "Enable prohibited assets" };
 					Grid.SetColumn(buttonToggleProhibited, 2);

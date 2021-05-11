@@ -20,6 +20,7 @@
 			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" Background="{StaticResource Gray28}" Margin="0,10,0,0" Name="ModsDirectoryLabel"/>
 			<TextBlock Foreground="{StaticResource SuccessText}">Active mod files</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Disabled mod files</TextBlock>
+			<TextBlock Foreground="{StaticResource ErrorText}">Mod files with incorrect prefix</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Other files</TextBlock>
 		</StackPanel>
 		<StackPanel Grid.Column="1">
