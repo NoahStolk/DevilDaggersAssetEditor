@@ -9,9 +9,7 @@
 	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 		<StackPanel MinHeight="730" MinWidth="1366" Background="{StaticResource Gray3}">
 			<TabControl Name="TabControl">
-				<TabItem Header="Download mods">
-					<usercontrols:DownloadModsControl x:Name="DownloadModsControl" />
-				</TabItem>
+				<TabItem Header="Download mods" Name="DownloadModsTabItem" />
 				<TabItem Header="Manage mods">
 					<usercontrols:ManageModsControl x:Name="ManageModsControl" />
 				</TabItem>

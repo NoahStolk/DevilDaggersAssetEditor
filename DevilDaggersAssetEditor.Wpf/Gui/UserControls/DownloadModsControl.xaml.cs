@@ -1,5 +1,6 @@
 ﻿using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Clients;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
@@ -37,9 +38,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private static readonly SolidColorBrush _even = new(Color.FromArgb(31, 127, 127, 127));
 		private static readonly SolidColorBrush _odd = new(Color.FromArgb(31, 91, 91, 91));
 
-		public DownloadModsControl()
+		public DownloadModsControl(ModManagerWindow modManagerWindow)
 		{
 			InitializeComponent();
+
+			ModPreview = new ModPreviewControl(modManagerWindow) { ClipToBounds = true };
+			StackPanelSide.Children.Add(ModPreview);
 
 			// Set sorting values and GUI header.
 			int sortingIndex = 0;
@@ -133,6 +137,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			UpdateMods();
 			UpdatePageLabel();
 		}
+
+		public ModPreviewControl ModPreview { get; }
 
 		public int LastPageIndex => (_totalMods - 1) / _pageSize;
 

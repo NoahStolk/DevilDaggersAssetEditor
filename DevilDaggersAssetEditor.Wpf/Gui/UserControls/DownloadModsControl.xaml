@@ -18,7 +18,7 @@
 				<ColumnDefinition MinWidth="272" MaxWidth="272" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Margin="0,0,8,0">
+			<StackPanel Margin="0,0,8,0" Name="StackPanelSide">
 				<Button Name="ReloadButton" Click="ReloadButton_Click" Width="128" HorizontalAlignment="Left">Reload all</Button>
 
 				<Label FontWeight="Bold" Background="{StaticResource Gray28}" Margin="0,10,0,0">Filters</Label>
@@ -53,8 +53,6 @@
 					<Button Width="32" Click="NextPage_Click" ToolTip="Next page">&gt;</Button>
 					<Button Width="32" Click="LastPage_Click" ToolTip="Last page">&gt;|</Button>
 				</StackPanel>
-
-				<usercontrols:ModPreviewControl x:Name="ModPreview" ClipToBounds="True" />
 			</StackPanel>
 			<StackPanel Grid.Column="1" Background="{StaticResource Gray2}">
 				<Grid Name="ModHeaders" HorizontalAlignment="Stretch" Background="{StaticResource Gray2}">

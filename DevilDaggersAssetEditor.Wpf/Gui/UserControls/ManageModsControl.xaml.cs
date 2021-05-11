@@ -33,7 +33,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			PopulateModFilesList();
 		}
 
-		private void PopulateModFilesList()
+		public void PopulateModFilesList()
 		{
 			_localFiles.Clear();
 			_effectiveChunks.Clear();

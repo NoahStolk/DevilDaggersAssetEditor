@@ -14,11 +14,15 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 {
 	public partial class ModPreviewControl : UserControl
 	{
+		private readonly ModManagerWindow _modManagerWindow;
+
 		private string? _selectedModName;
 
-		public ModPreviewControl()
+		public ModPreviewControl(ModManagerWindow modManagerWindow)
 		{
 			InitializeComponent();
+
+			_modManagerWindow = modManagerWindow;
 		}
 
 		public void Update(Mod? mod)
@@ -82,6 +86,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			DownloadAndInstallModWindow downloadingWindow = new();
 			downloadingWindow.Show();
 			await downloadingWindow.DownloadAndInstall(modsDirectory, _selectedModName);
+
+			_modManagerWindow.ManageModsControl.PopulateModFilesList();
 		}
 	}
 }
