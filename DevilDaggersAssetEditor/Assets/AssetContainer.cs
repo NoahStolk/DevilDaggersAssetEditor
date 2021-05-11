@@ -55,7 +55,7 @@ namespace DevilDaggersAssetEditor.Assets
 				"dd.models" => DdModelsAssets.Cast<AbstractAsset>().ToList(),
 				"dd.shaders" => DdShadersAssets.Cast<AbstractAsset>().ToList(),
 				"dd.textures" => DdTexturesAssets.Cast<AbstractAsset>().ToList(),
-				_ => throw new($"No asset data found for binary file type '{binaryType}' and asset type '{assetType}.'"),
+				_ => throw new($"No asset data found for binary file type '{binaryType}' and asset type '{assetType}'."),
 			};
 		}
 
