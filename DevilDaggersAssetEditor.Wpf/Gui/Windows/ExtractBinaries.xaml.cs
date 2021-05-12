@@ -90,7 +90,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		{
 			ButtonExtractBinaries.IsEnabled = false;
 
-			await Task.WhenAll(_controls.Where(c => c.CheckBoxEnable.IsChecked()).Select(c => ExtractBinary(c, _outputPath)));
+			await Task.WhenAll(_controls.Where(c => c.CheckBoxEnable.IsChecked()).Select(c => ExtractBinary(c)));
 
 			ButtonExtractBinaries.IsEnabled = true;
 
@@ -104,16 +104,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private static async Task ExtractBinary(BinaryPathControl control, string? outputPath)
+		private async Task ExtractBinary(BinaryPathControl control)
 		{
-			if (string.IsNullOrWhiteSpace(outputPath) || string.IsNullOrWhiteSpace(control.BinaryPath) || !Directory.Exists(outputPath) || !File.Exists(control.BinaryPath))
+			if (string.IsNullOrWhiteSpace(_outputPath) || string.IsNullOrWhiteSpace(control.BinaryPath) || !Directory.Exists(_outputPath) || !File.Exists(control.BinaryPath))
 				return;
 
 			await Task.Run(() =>
 			{
 				try
 				{
-					string? error = BinaryHandler.ExtractBinary(control.BinaryPath, outputPath, control.Progress);
+					string? error = BinaryHandler.ExtractBinary(control.BinaryPath, _outputPath, control.Progress);
 					if (error == null)
 						App.Instance.Dispatcher.Invoke(() => control.Progress.Report("Completed successfully.", 1));
 					else
