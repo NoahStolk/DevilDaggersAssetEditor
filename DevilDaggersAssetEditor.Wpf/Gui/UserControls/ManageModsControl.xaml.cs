@@ -70,14 +70,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 							EffectiveChunk? existingEffectiveChunk = _effectiveChunks.Find(ec => ec.AssetType == chunk.AssetType && ec.AssetName == chunk.Name);
 							if (existingEffectiveChunk == null)
-							{
 								_effectiveChunks.Add(new EffectiveChunk(fileName, chunk.AssetType, chunk.Name, AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType)));
-							}
 							else
-							{
-								_effectiveChunks.Remove(existingEffectiveChunk);
-								_effectiveChunks.Add(existingEffectiveChunk with { BinaryName = fileName });
-							}
+								existingEffectiveChunk.BinaryName = fileName;
 						}
 					}
 				}
@@ -89,17 +84,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				grid.ColumnDefinitions.Add(new());
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(2, GridUnitType.Star) });
 				grid.ColumnDefinitions.Add(new());
-
-				static string GetColor(bool hasValidName, bool isActiveFile, bool isValidFile)
-				{
-					if (!isValidFile)
-						return "Gray6";
-					if (!hasValidName)
-						return "ErrorText";
-					if (!isActiveFile)
-						return "Text";
-					return "SuccessText";
-				}
 
 				TextBlock textBlock = new()
 				{
@@ -152,11 +136,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				ModFilesListView.Items.Add(grid);
 			}
 
-			CreateEffectiveChunkUi();
-		}
-
-		private void CreateEffectiveChunkUi()
-		{
 			foreach (IGrouping<string, EffectiveChunk> ecg in _effectiveChunks.GroupBy(e => e.BinaryName))
 			{
 				TextBlock textBlockBinary = new() { Text = ecg.Key, Background = ColorUtils.ThemeColors["Gray4"], FontSize = 14, Padding = new(0, 4, 0, 0), FontWeight = FontWeights.Bold };
@@ -246,8 +225,33 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
+		private static string GetColor(bool hasValidName, bool isActiveFile, bool isValidFile)
+		{
+			if (!isValidFile)
+				return "Gray6";
+			if (!hasValidName)
+				return "ErrorText";
+			if (!isActiveFile)
+				return "Text";
+			return "SuccessText";
+		}
+
 		private record LocalFile(string? FilePath, List<Chunk>? Chunks);
 
-		private record EffectiveChunk(string BinaryName, AssetType AssetType, string AssetName, bool? IsProhibited);
+		private class EffectiveChunk
+		{
+			public EffectiveChunk(string binaryName, AssetType assetType, string assetName, bool? isProhibited)
+			{
+				BinaryName = binaryName;
+				AssetType = assetType;
+				AssetName = assetName;
+				IsProhibited = isProhibited;
+			}
+
+			public string BinaryName { get; set; }
+			public AssetType AssetType { get; set; }
+			public string AssetName { get; set; }
+			public bool? IsProhibited { get; set; }
+		}
 	}
 }
