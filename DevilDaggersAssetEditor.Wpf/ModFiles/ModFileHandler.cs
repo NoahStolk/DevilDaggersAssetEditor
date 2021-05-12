@@ -42,6 +42,8 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 
 		public void UpdateModFileState(string fileLocation)
 		{
+			UserHandler.Instance.Cache.OpenedModFilePath = fileLocation;
+
 			HasUnsavedChanges = false;
 
 			ModFileName = fileLocation.Length == 0 ? "(new mod)" : Path.GetFileNameWithoutExtension(fileLocation);
@@ -74,7 +76,6 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 			if (modFile == null)
 				return;
 
-			UserHandler.Instance.Cache.OpenedModFilePath = path;
 			UpdateModFileState(path);
 			App.Instance.UpdateMainWindowTitle();
 
@@ -110,8 +111,6 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 
 				JsonFileUtils.SerializeToFile(ModFileLocation, ModFile, true);
 				UpdateModFileState(dialog.FileName);
-
-				UserHandler.Instance.Cache.OpenedModFilePath = dialog.FileName;
 			}
 		}
 
