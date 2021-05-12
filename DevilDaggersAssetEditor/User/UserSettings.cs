@@ -30,6 +30,9 @@ namespace DevilDaggersAssetEditor.User
 		public bool EnableAssetsRootFolder { get; set; }
 
 		[JsonProperty]
+		public bool OpenModFolderAfterExtracting { get; set; }
+
+		[JsonProperty]
 		public uint TextureSizeLimit { get; set; } = 512;
 	}
 }

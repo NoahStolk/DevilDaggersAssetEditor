@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersCore.Mods;
@@ -6,6 +7,7 @@ using DevilDaggersCore.Wpf.Extensions;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -72,7 +74,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			ButtonExtractBinaries.IsEnabled = true;
 
-			// TODO: Open extracted assets in editor.
+			if (!string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath) && UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
+			{
+				string? windir = Environment.GetEnvironmentVariable("WINDIR");
+				if (windir == null)
+					App.Instance.ShowMessage("Environment variable not found", $"Cannot open path \"{_outputPath}\" in Windows Explorer because the WINDIR environment variable was not found.");
+				else
+					Process.Start(Path.Combine(windir, "explorer.exe"), _outputPath);
+			}
 		}
 
 		private static async Task ExtractBinary(BinaryPathControl control, string? outputPath)

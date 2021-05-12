@@ -35,6 +35,7 @@
 
 		<Label FontWeight="Bold" FontSize="14">Extracting binaries</Label>
 		<StackPanel Style="{StaticResource PaddingStackPanel}" Background="{StaticResource Gray3}">
+			<CheckBox Name="CheckBoxOpenModFolderAfterExtracting" Margin="4">Automatically open folder after extracting binaries</CheckBox>
 		</StackPanel>
 
 		<Label FontWeight="Bold" FontSize="14">Making binaries</Label>
