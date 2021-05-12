@@ -2,7 +2,6 @@
 using DevilDaggersAssetEditor.Utils;
 using SyntaxHighlighter;
 using SyntaxHighlighter.Parsers;
-using System;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -54,9 +53,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
 		private static string SanitizeCode(string code)
 		{
 			return code
-				.Replace("\r", string.Empty, StringComparison.InvariantCulture)
-				.Replace("\n", "\r\n", StringComparison.InvariantCulture)
-				.Replace("\t", "    ", StringComparison.InvariantCulture);
+				.Replace("\r", string.Empty)
+				.Replace("\n", "\r\n")
+				.Replace("\t", "    ");
 		}
 
 		private static WmColor TranslateColor(ShColor color)

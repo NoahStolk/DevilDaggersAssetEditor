@@ -225,7 +225,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				bool isFragmentShader = false;
 				if (assetType == AssetType.Shader)
 				{
-					isFragmentShader = assetName.EndsWith("_fragment", StringComparison.InvariantCulture);
+					isFragmentShader = assetName.EndsWith("_fragment");
 					assetName = assetName.TrimEnd("_fragment").TrimEnd("_vertex");
 				}
 

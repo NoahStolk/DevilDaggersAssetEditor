@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DevilDaggersAssetEditor.Utils
+﻿namespace DevilDaggersAssetEditor.Utils
 {
 	public static class LoudnessUtils
 	{
@@ -9,10 +7,10 @@ namespace DevilDaggersAssetEditor.Utils
 			try
 			{
 				line = line
-					.Replace(" ", string.Empty, StringComparison.InvariantCulture) // Remove spaces to make things easier.
+					.Replace(" ", string.Empty) // Remove spaces to make things easier.
 					.TrimEnd('.'); // Remove dots at the end of the line. (The original V3 loudness file has one on line 154 for some reason...)
 
-				int equalsIndex = line.IndexOf('=', StringComparison.InvariantCulture);
+				int equalsIndex = line.IndexOf('=');
 
 				assetName = line.Substring(0, equalsIndex);
 				loudness = float.Parse(line.Substring(equalsIndex + 1, line.Length - assetName.Length - 1));

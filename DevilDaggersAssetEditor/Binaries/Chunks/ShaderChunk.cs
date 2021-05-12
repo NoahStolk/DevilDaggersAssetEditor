@@ -20,7 +20,7 @@ namespace DevilDaggersAssetEditor.Binaries.Chunks
 		public override void MakeBinary(string path)
 		{
 			string vertexPath = path;
-			string fragmentPath = path.Replace("_vertex.glsl", "_fragment.glsl", StringComparison.InvariantCulture);
+			string fragmentPath = path.Replace("_vertex.glsl", "_fragment.glsl");
 
 			byte[] vertexBuffer = File.ReadAllBytes(vertexPath);
 			byte[] fragmentBuffer = File.ReadAllBytes(fragmentPath);
