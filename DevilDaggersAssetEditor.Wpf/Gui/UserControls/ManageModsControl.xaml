@@ -5,7 +5,7 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" 
              d:DesignHeight="736" d:DesignWidth="1024">
-	<Grid MinWidth="1024">
+	<Grid MinWidth="1024" Margin="8">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="2*" />
 			<ColumnDefinition />
