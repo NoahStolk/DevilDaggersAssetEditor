@@ -172,6 +172,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void RenameFile(string filePath, string fileName)
 		{
+			if (!File.Exists(filePath))
+				return;
+
 			RenameFileWindow renameFileWindow = new(fileName);
 			renameFileWindow.ShowDialog();
 
@@ -185,6 +188,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void DeleteFile(string filePath, string fileName)
 		{
+			if (!File.Exists(filePath))
+				return;
+
 			ConfirmWindow confirmWindow = new("Delete file", $"Are you sure you want to delete the file '{fileName}'?", false);
 			confirmWindow.ShowDialog();
 
@@ -197,6 +203,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void ToggleFile(string filePath, string fileName, bool isActiveFile)
 		{
+			if (!File.Exists(filePath))
+				return;
+
 			string dir = Path.GetDirectoryName(filePath)!;
 			if (isActiveFile)
 				File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
