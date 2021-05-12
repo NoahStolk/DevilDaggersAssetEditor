@@ -1,9 +1,11 @@
 ﻿using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
+using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private readonly List<BinaryPathControl> _controls = new();
 
 		private string? _outputPath;
+		private string? _modFilePath;
 
 		public ExtractBinariesWindow()
 		{
@@ -55,10 +58,27 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
+		private void BrowseModFilePathButton_Click(object sender, RoutedEventArgs e)
+		{
+			SaveFileDialog saveFileDialog = new() { Filter = GuiUtils.ModFileFilter };
+			saveFileDialog.OpenModsRootFolder();
+
+			if (saveFileDialog.ShowDialog() == true)
+			{
+				_modFilePath = saveFileDialog.FileName;
+				TextBoxModFilePath.Text = _modFilePath;
+			}
+		}
+
 		private void TextBoxOutput_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			_outputPath = TextBoxOutput.Text;
 			UpdateButtonExtractBinaries();
+		}
+
+		private void TextBoxModFilePath_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			_modFilePath = TextBoxModFilePath.Text;
 		}
 
 		public void UpdateButtonExtractBinaries()
