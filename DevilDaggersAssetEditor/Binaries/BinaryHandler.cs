@@ -333,7 +333,11 @@ namespace DevilDaggersAssetEditor.Binaries
 					string assetTypeDirectory = chunk.AssetType.GetFolderName();
 					if (!Directory.Exists(assetTypeDirectory))
 						Directory.CreateDirectory(Path.Combine(outputPath, assetTypeDirectory));
-					File.WriteAllBytes(Path.Combine(outputPath, assetTypeDirectory, fileResult.Name + (fileResult.Name == "loudness" && fileExtension == ".wav" ? ".ini" : fileExtension)), fileResult.Buffer.ToArray());
+
+					if (fileResult.Name == "loudness" && fileExtension == ".wav")
+						fileExtension = ".ini";
+
+					File.WriteAllBytes(Path.Combine(outputPath, assetTypeDirectory, fileResult.Name + fileExtension), fileResult.Buffer.ToArray());
 				}
 			}
 		}
