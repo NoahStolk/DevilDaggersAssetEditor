@@ -5,6 +5,7 @@ using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersCore.Wpf.Windows;
 using HTMLConverter;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 	public partial class ModPreviewControl : UserControl
 	{
 		private readonly ModManagerWindow _modManagerWindow;
+
+		private readonly Dictionary<(string ModName, string ScreenshotFileName), BitmapImage> _cachedScreenshots = new();
 
 		private Mod? _selectedMod;
 
@@ -63,7 +66,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 			else
 			{
-				Screenshot.Source = new BitmapImage(new Uri($"https://devildaggers.info/mod-screenshots/{_selectedMod.Name}/{_selectedMod.ScreenshotFileNames[_screenshotIndex]}"));
+				Screenshot.Source = GetScreenshot(_selectedMod.Name, _selectedMod.ScreenshotFileNames[_screenshotIndex]);
 				ScreenshotLabel.Content = $"Screenshot {_screenshotIndex + 1} of {_selectedMod.ScreenshotFileNames.Count}";
 			}
 		}
@@ -90,6 +93,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			_screenshotIndex = (_selectedMod?.ScreenshotFileNames.Count - 1) ?? 0;
 			UpdateScreenshotUi();
+		}
+
+		private BitmapImage GetScreenshot(string modName, string screenshotFileName)
+		{
+			(string ModName, string ScreenshotFileName) key = (modName, screenshotFileName);
+			if (_cachedScreenshots.ContainsKey(key))
+				return _cachedScreenshots[key];
+
+			BitmapImage image = new(new Uri($"https://devildaggers.info/mod-screenshots/{modName}/{screenshotFileName}"));
+			_cachedScreenshots.Add(key, image);
+			return image;
 		}
 
 		private async void DownloadModButton_Click(object sender, RoutedEventArgs e)
