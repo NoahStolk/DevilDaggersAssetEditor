@@ -12,8 +12,8 @@
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="96" />
-			<RowDefinition Height="640" />
+			<RowDefinition Height="112" />
+			<RowDefinition Height="624" />
 		</Grid.RowDefinitions>
 
 		<StackPanel Background="{StaticResource Gray28}">
@@ -22,6 +22,7 @@
 			<TextBlock Foreground="{StaticResource Text}">Disabled mod files</TextBlock>
 			<TextBlock Foreground="{StaticResource ErrorText}">Mod files with incorrect prefix</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Other files</TextBlock>
+			<Button Name="RefreshButton" Click="RefreshButton_Click" HorizontalAlignment="Left" Width="64">Refresh</Button>
 		</StackPanel>
 		<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
 			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}">Binary contents</TextBlock>

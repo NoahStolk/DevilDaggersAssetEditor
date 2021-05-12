@@ -261,6 +261,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
+		private void RefreshButton_Click(object sender, RoutedEventArgs e)
+			=> PopulateModFilesList();
+
 		private static string GetColor(bool hasValidName, bool isActiveFile, bool isValidFile)
 		{
 			if (!isValidFile)
