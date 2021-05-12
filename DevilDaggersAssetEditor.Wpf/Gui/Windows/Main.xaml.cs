@@ -128,7 +128,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			ModFileHandler.Instance.FileOpen(UserHandler.Instance.Cache.OpenedModFilePath);
-			ModFileHandler.Instance.UpdateModFileState(UserHandler.Instance.Cache.OpenedModFilePath);
 
 			if (NetworkHandler.Instance.Tool != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumber))
 			{
