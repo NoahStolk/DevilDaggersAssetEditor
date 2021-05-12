@@ -170,14 +170,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		private void ToggleFile(string filePath, string fileName, bool isActiveFile)
+		private void RenameFile(string filePath, string fileName)
 		{
-			string dir = Path.GetDirectoryName(filePath)!;
-			if (isActiveFile)
-				File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
-			else
-				File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
+			RenameFileWindow renameFileWindow = new(fileName);
+			renameFileWindow.ShowDialog();
 
+			if (string.IsNullOrEmpty(renameFileWindow.NewFileName))
+				return;
+
+			string dir = Path.GetDirectoryName(filePath)!;
+			File.Move(filePath, Path.Combine(dir, renameFileWindow.NewFileName));
 			PopulateModFilesList();
 		}
 
@@ -193,16 +195,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			PopulateModFilesList();
 		}
 
-		private void RenameFile(string filePath, string fileName)
+		private void ToggleFile(string filePath, string fileName, bool isActiveFile)
 		{
-			RenameFileWindow renameFileWindow = new(fileName);
-			renameFileWindow.ShowDialog();
-
-			if (string.IsNullOrEmpty(renameFileWindow.NewFileName))
-				return;
-
 			string dir = Path.GetDirectoryName(filePath)!;
-			File.Move(filePath, Path.Combine(dir, renameFileWindow.NewFileName));
+			if (isActiveFile)
+				File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
+			else
+				File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
+
 			PopulateModFilesList();
 		}
 
