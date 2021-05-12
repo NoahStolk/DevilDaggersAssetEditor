@@ -99,16 +99,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					if (hasValidName)
 					{
 						Button buttonToggle = new() { Content = isActiveFile ? "Disable binary" : "Enable binary" };
-						buttonToggle.Click += (_, _) =>
-						{
-							string dir = Path.GetDirectoryName(filePath)!;
-							if (isActiveFile)
-								File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
-							else
-								File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
-
-							PopulateModFilesList();
-						};
+						buttonToggle.Click += (_, _) => ToggleFile(filePath, fileName, isActiveFile);
 						Grid.SetColumn(buttonToggle, 1);
 						grid.Children.Add(buttonToggle);
 					}
@@ -118,17 +109,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					grid.Children.Add(buttonToggleProhibited);
 
 					Button buttonDelete = new() { Content = "Delete file" };
-					buttonDelete.Click += (_, _) =>
-					{
-						ConfirmWindow confirmWindow = new("Delete file", $"Are you sure you want to delete the file '{fileName}'?", false);
-						confirmWindow.ShowDialog();
-
-						if (confirmWindow.IsConfirmed != true)
-							return;
-
-						File.Delete(filePath);
-						PopulateModFilesList();
-					};
+					buttonDelete.Click += (_, _) => DeleteFile(filePath, fileName);
 					Grid.SetColumn(buttonDelete, 3);
 					grid.Children.Add(buttonDelete);
 				}
@@ -168,6 +149,29 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					_effectiveChunkUi.Add(ec, textBlockName);
 				}
 			}
+		}
+
+		private void ToggleFile(string filePath, string fileName, bool isActiveFile)
+		{
+			string dir = Path.GetDirectoryName(filePath)!;
+			if (isActiveFile)
+				File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
+			else
+				File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
+
+			PopulateModFilesList();
+		}
+
+		private void DeleteFile(string filePath, string fileName)
+		{
+			ConfirmWindow confirmWindow = new("Delete file", $"Are you sure you want to delete the file '{fileName}'?", false);
+			confirmWindow.ShowDialog();
+
+			if (confirmWindow.IsConfirmed != true)
+				return;
+
+			File.Delete(filePath);
+			PopulateModFilesList();
 		}
 
 		private void ModFilesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
