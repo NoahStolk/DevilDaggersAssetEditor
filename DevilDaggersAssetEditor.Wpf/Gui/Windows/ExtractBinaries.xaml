@@ -20,9 +20,7 @@
 			</StackPanel>
 		</StackPanel>
 		<StackPanel Margin="6" Background="{StaticResource Gray3}">
-			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Button Name="ButtonExtractBinaries" Content="Extract binaries" Click="ExtractBinaries_Click" Style="{StaticResource OkButtonLarge}" />
-			</StackPanel>
+			<Button Name="ButtonExtractBinaries" Content="Extract binaries" Click="ExtractBinaries_Click" Style="{StaticResource OkButtonLarge}" Margin="12" />
 		</StackPanel>
 	</StackPanel>
 </Window>

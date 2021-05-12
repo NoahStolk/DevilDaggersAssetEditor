@@ -7,9 +7,7 @@
         Title="Import assets" Height="768" Width="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 	<StackPanel Name="Main">
 		<StackPanel Margin="6" Background="{StaticResource Gray3}">
-			<StackPanel Style="{StaticResource PaddingStackPanel}">
-				<Button Content="Import assets" Click="ImportAssetsButton_Click" Style="{StaticResource OkButtonLarge}" />
-			</StackPanel>
+			<Button Content="Import assets" Click="ImportAssetsButton_Click" Style="{StaticResource OkButtonLarge}" Margin="12" />
 		</StackPanel>
 	</StackPanel>
 </Window>
