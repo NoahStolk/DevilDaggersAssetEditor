@@ -1,12 +1,9 @@
 ﻿using DevilDaggersAssetEditor.Assets;
-using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.Json;
 using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
-using DevilDaggersCore.Extensions;
-using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;
@@ -125,60 +122,6 @@ namespace DevilDaggersAssetEditor.Wpf.ModFiles
 			ModFile.Clear();
 			foreach (AbstractAsset asset in assets)
 				ModFile.Add(asset.ToUserAsset());
-		}
-
-		/// <summary>
-		/// Creates a mod file based on the assets found in the directory specified by <paramref name="path"/> and places it inside that directory.
-		/// </summary>
-		public static void CreateModFileFromPath(string path)
-		{
-			Dictionary<string, float> loudnessValues = new();
-			string? loudnessFilePath = Array.Find(Directory.GetFiles(path, "*.ini", SearchOption.AllDirectories), p => Path.GetFileNameWithoutExtension(p) == "loudness");
-			if (loudnessFilePath != null)
-			{
-				foreach (string line in File.ReadAllLines(loudnessFilePath))
-				{
-					if (LoudnessUtils.TryReadLoudnessLine(line, out string? assetName, out float loudness))
-						loudnessValues.Add(assetName!, loudness);
-				}
-			}
-
-			List<UserAsset> modFile = new();
-
-			foreach (string filePath in Directory.GetFiles(path, "*.*", SearchOption.AllDirectories))
-			{
-				string name = Path.GetFileNameWithoutExtension(filePath);
-				AssetType? assetType = Path.GetExtension(filePath).GetAssetType();
-				if (!assetType.HasValue)
-					continue;
-
-				if (assetType == AssetType.Shader)
-				{
-					if (!modFile.Any(a => a.AssetType == AssetType.Shader && a.AssetName == name))
-					{
-						string normalizedPath = filePath.TrimEnd("_vertex.glsl").TrimEnd("_fragment.glsl");
-
-						modFile.Add(new ShaderUserAsset(
-							name.TrimEnd("_vertex").TrimEnd("_fragment"),
-							$"{normalizedPath}_vertex.glsl",
-							$"{normalizedPath}_fragment.glsl"));
-					}
-				}
-				else if (assetType == AssetType.Audio)
-				{
-					float loudness = 1;
-					if (loudnessValues.ContainsKey(name))
-						loudness = loudnessValues[name];
-					modFile.Add(new AudioUserAsset(name, filePath, loudness));
-				}
-				else
-				{
-					modFile.Add(new UserAsset(assetType.Value, name, filePath));
-				}
-			}
-
-			string folderName = new DirectoryInfo(path).Name;
-			JsonFileUtils.SerializeToFile(Path.Combine(path, $"{folderName}.ddae"), modFile, true);
 		}
 	}
 }

@@ -27,8 +27,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			CheckBoxDevilDaggersRootFolder.IsChecked = UserHandler.Instance.Settings.EnableDevilDaggersRootFolder;
 			CheckBoxModsRootFolder.IsChecked = UserHandler.Instance.Settings.EnableModsRootFolder;
 
-			CheckBoxCreateModFileWhenExtracting.IsChecked = UserHandler.Instance.Settings.CreateModFileWhenExtracting;
-			CheckBoxOpenModFolderAfterExtracting.IsChecked = UserHandler.Instance.Settings.OpenModFolderAfterExtracting;
 
 			TextBoxTextureSizeLimit.Text = UserHandler.Instance.Settings.TextureSizeLimit.ToString();
 		}
@@ -77,8 +75,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			UserHandler.Instance.Settings.EnableDevilDaggersRootFolder = CheckBoxDevilDaggersRootFolder.IsChecked();
 			UserHandler.Instance.Settings.EnableModsRootFolder = CheckBoxModsRootFolder.IsChecked();
 
-			UserHandler.Instance.Settings.CreateModFileWhenExtracting = CheckBoxCreateModFileWhenExtracting.IsChecked();
-			UserHandler.Instance.Settings.OpenModFolderAfterExtracting = CheckBoxOpenModFolderAfterExtracting.IsChecked();
 
 			if (uint.TryParse(TextBoxTextureSizeLimit.Text, out uint res) && res > 0)
 				UserHandler.Instance.Settings.TextureSizeLimit = res;
