@@ -82,7 +82,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				Grid grid = new() { Height = 24 };
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(4, GridUnitType.Star) });
 				grid.ColumnDefinitions.Add(new());
-				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(2, GridUnitType.Star) });
+				grid.ColumnDefinitions.Add(new());
+				grid.ColumnDefinitions.Add(new());
 				grid.ColumnDefinitions.Add(new());
 
 				TextBlock textBlock = new()
@@ -94,32 +95,49 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				};
 				grid.Children.Add(textBlock);
 
-				if (isValidFile)
+				Button buttonRename = new() { Content = "Rename file" };
+				buttonRename.Click += (_, _) => { };// RenameFile(filePath, fileName);
+				Grid.SetColumn(buttonRename, 1);
+				grid.Children.Add(buttonRename);
+
+				Button buttonDelete = new() { Content = "Delete file" };
+				buttonDelete.Click += (_, _) => DeleteFile(filePath, fileName);
+				Grid.SetColumn(buttonDelete, 2);
+				grid.Children.Add(buttonDelete);
+
+				Button buttonToggle = new()
 				{
-					if (hasValidName)
-					{
-						Button buttonToggle = new() { Content = isActiveFile ? "Disable binary" : "Enable binary" };
-						buttonToggle.Click += (_, _) => ToggleFile(filePath, fileName, isActiveFile);
-						Grid.SetColumn(buttonToggle, 1);
-						grid.Children.Add(buttonToggle);
-					}
+					Content = isActiveFile ? "Disable file" : "Enable file",
+					IsEnabled = isValidFile && hasValidName,
+					Foreground = isValidFile && hasValidName && !isActiveFile ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["Text"],
+				};
+				buttonToggle.Click += (_, _) => ToggleFile(filePath, fileName, isActiveFile);
+				Grid.SetColumn(buttonToggle, 3);
+				grid.Children.Add(buttonToggle);
 
-					Button buttonToggleProhibited = new() { Content = hasProhibitedAssets ? "Disable prohibited assets" : "Enable prohibited assets" };
-					Grid.SetColumn(buttonToggleProhibited, 2);
-					grid.Children.Add(buttonToggleProhibited);
-
-					Button buttonDelete = new() { Content = "Delete file" };
-					buttonDelete.Click += (_, _) => DeleteFile(filePath, fileName);
-					Grid.SetColumn(buttonDelete, 3);
-					grid.Children.Add(buttonDelete);
-				}
+				Button buttonToggleProhibited = new()
+				{
+					Content = hasProhibitedAssets ? "Disable prohibited" : "Enable prohibited",
+					IsEnabled = isValidFile,
+					FontSize = 9,
+				};
+				buttonToggleProhibited.Click += (_, _) => { };
+				Grid.SetColumn(buttonToggleProhibited, 4);
+				grid.Children.Add(buttonToggleProhibited);
 
 				ModFilesListView.Items.Add(grid);
 			}
 
 			foreach (IGrouping<string, EffectiveChunk> ecg in _effectiveChunks.GroupBy(e => e.BinaryName))
 			{
-				TextBlock textBlockBinary = new() { Text = ecg.Key, Background = ColorUtils.ThemeColors["Gray4"], FontSize = 14, Padding = new(0, 4, 0, 0), FontWeight = FontWeights.Bold };
+				TextBlock textBlockBinary = new()
+				{
+					Text = ecg.Key,
+					Background = ColorUtils.ThemeColors["Gray4"],
+					FontSize = 14,
+					Padding = new(0, 4, 0, 0),
+					FontWeight = FontWeights.Bold,
+				};
 				Grid.SetColumn(textBlockBinary, 1);
 				EffectiveChunkListView.Children.Add(textBlockBinary);
 
