@@ -16,33 +16,33 @@
 			<RowDefinition Height="640" />
 		</Grid.RowDefinitions>
 
-		<StackPanel>
-			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" Background="{StaticResource Gray28}" Margin="0,10,0,0" Name="ModsDirectoryLabel"/>
+		<StackPanel Background="{StaticResource Gray28}">
+			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" Name="ModsDirectoryLabel"/>
 			<TextBlock Foreground="{StaticResource SuccessText}">Active mod files</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Disabled mod files</TextBlock>
 			<TextBlock Foreground="{StaticResource ErrorText}">Mod files with incorrect prefix</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Other files</TextBlock>
 		</StackPanel>
-		<StackPanel Grid.Column="1">
-			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Binary contents</TextBlock>
+		<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
+			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}">Binary contents</TextBlock>
 			<TextBlock Foreground="{StaticResource ErrorText}">Active prohibited assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Active allowed assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
 		</StackPanel>
-		<StackPanel Grid.Column="2">
-			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" Background="{StaticResource Gray28}" Margin="0,10,0,0">Effective assets</TextBlock>
+		<StackPanel Grid.Column="2" Background="{StaticResource Gray28}">
+			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}">Effective assets</TextBlock>
 			<TextBlock Foreground="{StaticResource ErrorText}">Active prohibited assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Active allowed assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
 		</StackPanel>
 
-		<ListView Grid.Row="1" Name="ModFilesListView" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="ModFilesListView_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="{StaticResource Gray3}" />
+		<ListView Name="ModFilesListView" Grid.Row="1" BorderThickness="0" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="ModFilesListView_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}" Background="Transparent" />
 
-		<ScrollViewer Name="ChunkListScrollViewer" Grid.Column="1" Grid.Row="1" MaxHeight="640" Background="{StaticResource Gray28}">
+		<ScrollViewer Name="ChunkListScrollViewer" Grid.Column="1" Grid.Row="1" MaxHeight="640">
 			<StackPanel Name="ChunkListView" />
 		</ScrollViewer>
 
-		<ScrollViewer Name="EffectiveChunkListScrollViewer" Grid.Column="2" Grid.Row="1" MaxHeight="640" Background="{StaticResource Gray3}">
+		<ScrollViewer Name="EffectiveChunkListScrollViewer" Grid.Column="2" Grid.Row="1" MaxHeight="640">
 			<StackPanel Name="EffectiveChunkListView" />
 		</ScrollViewer>
 	</Grid>
