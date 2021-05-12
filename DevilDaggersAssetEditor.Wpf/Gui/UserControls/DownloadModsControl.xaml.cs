@@ -1,4 +1,5 @@
 ﻿using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Caching;
 using DevilDaggersAssetEditor.Wpf.Clients;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Network;
@@ -242,6 +243,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				ReloadButton.IsEnabled = true;
 				ReloadButton.Content = "Reload";
+
+				ModScreenshotCache.Instance.Clear();
 			};
 
 			thread.RunWorkerAsync();
