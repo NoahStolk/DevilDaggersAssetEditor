@@ -1,8 +1,12 @@
 ﻿using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Extensions;
+using DevilDaggersAssetEditor.Json;
+using DevilDaggersAssetEditor.ModFiles;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+using DevilDaggersCore.Extensions;
 using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using Microsoft.Win32;
@@ -92,6 +96,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 
 			await Task.WhenAll(_controls.Where(c => c.CheckBoxEnable.IsChecked()).Select(c => ExtractBinary(c)));
 
+			CreateModFile();
+
 			ButtonExtractBinaries.IsEnabled = true;
 
 			if (!string.IsNullOrWhiteSpace(_outputPath) && Directory.Exists(_outputPath) && UserHandler.Instance.Settings.OpenModFolderAfterExtracting)
@@ -128,6 +134,58 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 					});
 				}
 			});
+		}
+
+		private void CreateModFile()
+		{
+			if (string.IsNullOrWhiteSpace(_modFilePath) || string.IsNullOrWhiteSpace(_outputPath) || !Directory.Exists(_outputPath))
+				return;
+
+			Dictionary<string, float> loudnessValues = new();
+			string[] loudnessPaths = Directory.GetFiles(_outputPath, "*.ini", SearchOption.AllDirectories);
+			if (loudnessPaths.Length > 0)
+			{
+				foreach (string line in File.ReadAllLines(loudnessPaths[0]))
+				{
+					if (!LoudnessUtils.TryReadLoudnessLine(line, out string? assetName, out float loudness))
+						continue;
+
+					loudnessValues.Add(assetName!, loudness);
+				}
+			}
+
+			List<UserAsset> modFile = new();
+			foreach (string filePath in Directory.GetFiles(_outputPath, "*.*", SearchOption.AllDirectories))
+			{
+				string extension = Path.GetExtension(filePath);
+				AssetType? assetType = extension.GetAssetType();
+				if (!assetType.HasValue)
+					continue;
+
+				string assetName;
+				switch (extension)
+				{
+					case ".glsl":
+						// Skip fragment shader file and let vertex handle the creation of ShaderUserAsset.
+						if (Path.GetFileNameWithoutExtension(filePath).EndsWith("_fragment"))
+							continue;
+
+						assetName = Path.GetFileNameWithoutExtension(filePath).TrimEnd("_vertex");
+						modFile.Add(new ShaderUserAsset(assetName, filePath, filePath.Replace("_vertex", "_fragment")));
+						break;
+					case ".wav":
+						assetName = Path.GetFileNameWithoutExtension(filePath);
+						float loudness = loudnessValues.ContainsKey(assetName) ? loudnessValues[assetName] : 1;
+						modFile.Add(new AudioUserAsset(assetName, filePath, loudness));
+						break;
+					default:
+						assetName = Path.GetFileNameWithoutExtension(filePath);
+						modFile.Add(new UserAsset(assetType.Value, assetName, filePath));
+						break;
+				}
+			}
+
+			JsonFileUtils.SerializeToFile(_modFilePath, modFile, true);
 		}
 	}
 }
