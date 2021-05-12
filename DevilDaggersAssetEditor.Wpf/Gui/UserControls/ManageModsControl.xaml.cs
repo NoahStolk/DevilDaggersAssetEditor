@@ -3,6 +3,7 @@ using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Extensions;
 using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Utils;
@@ -96,7 +97,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				grid.Children.Add(textBlock);
 
 				Button buttonRename = new() { Content = "Rename file" };
-				buttonRename.Click += (_, _) => { };// RenameFile(filePath, fileName);
+				buttonRename.Click += (_, _) => RenameFile(filePath, fileName);
 				Grid.SetColumn(buttonRename, 1);
 				grid.Children.Add(buttonRename);
 
@@ -189,6 +190,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				return;
 
 			File.Delete(filePath);
+			PopulateModFilesList();
+		}
+
+		private void RenameFile(string filePath, string fileName)
+		{
+			RenameFileWindow renameFileWindow = new(fileName);
+			renameFileWindow.ShowDialog();
+
+			if (string.IsNullOrEmpty(renameFileWindow.NewFileName))
+				return;
+
+			string dir = Path.GetDirectoryName(filePath)!;
+			File.Move(filePath, Path.Combine(dir, renameFileWindow.NewFileName));
 			PopulateModFilesList();
 		}
 
