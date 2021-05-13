@@ -49,7 +49,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 			if (!Directory.Exists(modsDirectory))
 			{
-				MessageWindow window = new("Mods directory not found", $"The directory '{modsDirectory}' does not exist. Please correct the Devil Daggers root folder in the Settings window.");
+				MessageWindow window = new("Mods directory not found", $"The directory '{modsDirectory}' does not exist. Please make sure that the Devil Daggers root folder in the Settings window is correct, and that a 'mods' folder is present.");
 				window.ShowDialog();
 				return;
 			}
