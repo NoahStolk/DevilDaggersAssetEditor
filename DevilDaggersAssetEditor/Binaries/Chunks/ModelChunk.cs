@@ -233,6 +233,72 @@ namespace DevilDaggersAssetEditor.Binaries.Chunks
 			yield return new(Name, Encoding.Default.GetBytes(sb.ToString()));
 		}
 
+		public override bool IsBinaryEqual(Chunk? otherChunk, out string? diffReason)
+		{
+			if (otherChunk == null)
+			{
+				diffReason = "Other chunk is not present.";
+				return false;
+			}
+
+			uint indexCount = BitConverter.ToUInt32(Buffer, 0);
+			uint otherIndexCount = BitConverter.ToUInt32(otherChunk.Buffer, 0);
+			if (indexCount != otherIndexCount)
+			{
+				diffReason = $"Index counts are not equal ({indexCount} - {otherIndexCount}).";
+				return false;
+			}
+
+			uint vertexCount = BitConverter.ToUInt32(Buffer, 0);
+			uint otherVertexCount = BitConverter.ToUInt32(otherChunk.Buffer, 0);
+			if (vertexCount != otherVertexCount)
+			{
+				diffReason = $"Vertex counts are not equal ({vertexCount} - {otherVertexCount}).";
+				return false;
+			}
+
+			for (int i = 0; i < vertexCount; i++)
+			{
+				Vertex vertex = Vertex.CreateFromBuffer(Buffer, HeaderSize, i);
+				Vertex otherVertex = Vertex.CreateFromBuffer(otherChunk.Buffer, HeaderSize, i);
+
+				vertex.RoundValues(3);
+				otherVertex.RoundValues(3);
+
+				if (vertex.Position != otherVertex.Position)
+				{
+					diffReason = $"Vertex positions {i} are not equal ({vertex.Position} - {otherVertex.Position}).";
+					return false;
+				}
+
+				if (vertex.TexCoord != otherVertex.TexCoord)
+				{
+					diffReason = $"Vertex texture coordinates {i} are not equal ({vertex.TexCoord} - {otherVertex.TexCoord}).";
+					return false;
+				}
+
+				if (vertex.Normal != otherVertex.Normal)
+				{
+					diffReason = $"Vertex normals {i} are not equal ({vertex.Normal} - {otherVertex.Normal}).";
+					return false;
+				}
+			}
+
+			for (int i = 0; i < indexCount; i++)
+			{
+				uint index = BitConverter.ToUInt32(Buffer, HeaderSize + (int)vertexCount * Vertex.ByteCount + i * sizeof(uint));
+				uint otherIndex = BitConverter.ToUInt32(otherChunk.Buffer, HeaderSize + (int)vertexCount * Vertex.ByteCount + i * sizeof(uint));
+				if (index != otherIndex)
+				{
+					diffReason = $"Indices {i} are not equal ({index} - {otherIndex}).";
+					return false;
+				}
+			}
+
+			diffReason = null;
+			return true;
+		}
+
 		private struct Vertex
 		{
 			public const int ByteCount = 32;
@@ -277,6 +343,23 @@ namespace DevilDaggersAssetEditor.Binaries.Chunks
 					y: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 16),
 					z: BitConverter.ToSingle(buffer, offset + vertexIndex * ByteCount + 20));
 				return new(position, texCoord, normal);
+			}
+
+			public void RoundValues(int decimals)
+			{
+				Position = new Vector3(
+					(float)Math.Round((decimal)Position.X, decimals, MidpointRounding.AwayFromZero),
+					(float)Math.Round((decimal)Position.Y, decimals, MidpointRounding.AwayFromZero),
+					(float)Math.Round((decimal)Position.Z, decimals, MidpointRounding.AwayFromZero));
+
+				TexCoord = new Vector2(
+					(float)Math.Round((decimal)TexCoord.X, decimals, MidpointRounding.AwayFromZero),
+					(float)Math.Round((decimal)TexCoord.Y, decimals, MidpointRounding.AwayFromZero));
+
+				Normal = new Vector3(
+					(float)Math.Round((decimal)Normal.X, decimals, MidpointRounding.AwayFromZero),
+					(float)Math.Round((decimal)Normal.Y, decimals, MidpointRounding.AwayFromZero),
+					(float)Math.Round((decimal)Normal.Z, decimals, MidpointRounding.AwayFromZero));
 			}
 		}
 	}
