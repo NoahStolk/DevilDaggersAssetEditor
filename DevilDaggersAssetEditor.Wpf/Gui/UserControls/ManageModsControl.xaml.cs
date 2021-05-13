@@ -37,6 +37,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			InitializeComponent();
 
 			PopulateModFilesList();
+			PopulateEffectiveChunks();
 		}
 
 		public void PopulateModFilesList()
@@ -108,12 +109,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				ModFilesListView.Items.Add(grid);
 			}
+		}
 
-			// Populate effective chunks.
+		private void PopulateEffectiveChunks()
+		{
 			_effectiveChunks.Clear();
-			_effectiveChunkUi.Clear();
-			EffectiveChunkListView.Children.Clear();
-
 			foreach (LocalFile localFile in _localFiles.OrderBy(lf => lf.FileName))
 			{
 				if (!localFile.IsActiveFile || localFile.Chunks == null)
@@ -132,6 +132,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				}
 			}
 
+			_effectiveChunkUi.Clear();
+			EffectiveChunkListView.Children.Clear();
 			foreach (IGrouping<string, EffectiveChunk> ecg in _effectiveChunks.GroupBy(e => e.BinaryName))
 			{
 				TextBlock textBlockBinary = new()
@@ -213,6 +215,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
+			PopulateEffectiveChunks();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
@@ -236,6 +239,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
+			PopulateEffectiveChunks();
 		}
 
 		private void ToggleFile(string filePath, string fileName, bool isActiveFile)
@@ -253,6 +257,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
+			PopulateEffectiveChunks();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
@@ -287,6 +292,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
+			PopulateEffectiveChunks();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
@@ -361,7 +367,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		}
 
 		private void RefreshButton_Click(object sender, RoutedEventArgs e)
-			=> PopulateModFilesList();
+		{
+			PopulateModFilesList();
+			PopulateEffectiveChunks();
+		}
 
 		private static string GetColor(bool hasValidName, bool isActiveFile, bool isValidFile)
 		{
