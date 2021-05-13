@@ -61,7 +61,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => Path.GetFileName(p).TrimStart('_')))
 			{
 				LocalFile localFile = GetOrCreateLocalFile(filePath);
-				localFile.UpdateFileContentProperties(_effectiveChunks);
 
 				// Populate mod file listing UI.
 				Grid grid = new() { Height = 24 };
@@ -169,6 +168,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				return localFile;
 
 			localFile = new(filePath);
+			localFile.UpdateFileContentProperties();
 			_localFiles.Add(localFile);
 			return localFile;
 		}
