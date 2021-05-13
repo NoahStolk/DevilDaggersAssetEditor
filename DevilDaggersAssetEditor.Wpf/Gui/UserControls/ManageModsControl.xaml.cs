@@ -41,7 +41,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void PopulateModFilesList()
 		{
-			_localFiles.Clear();
 			_effectiveChunks.Clear();
 			_effectiveChunkUi.Clear();
 
@@ -61,40 +60,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			// Populate mod file listing.
 			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => Path.GetFileName(p).TrimStart('_')))
 			{
-				// Determine file validity.
-				string fileName = Path.GetFileName(filePath);
-				bool isValidFile = BinaryHandler.IsValidFile(filePath);
-				bool isActiveFile = isValidFile && (fileName.StartsWith("audio") || fileName.StartsWith("dd"));
-				bool hasValidName = fileName.StartsWith("audio") || fileName.StartsWith("dd") || fileName.StartsWith("_audio") || fileName.StartsWith("_dd");
-
-				// Determine prohibited assets and effective chunks.
-				List<Chunk>? chunks = null;
-				bool hasProhibitedAssets = false;
-				bool areProhibitedAssetsEnabled = false;
-				if (isValidFile)
-				{
-					byte[] tocBuffer = BinaryHandler.ReadTocBuffer(filePath);
-					chunks = BinaryHandler.ReadChunks(tocBuffer);
-					hasProhibitedAssets = chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name.ToLower(), c.AssetType) == true);
-					areProhibitedAssetsEnabled = chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name, c.AssetType) == true);
-
-					if (isActiveFile)
-					{
-						foreach (Chunk chunk in chunks)
-						{
-							if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
-								continue;
-
-							EffectiveChunk? existingEffectiveChunk = _effectiveChunks.Find(ec => ec.AssetType == chunk.AssetType && ec.AssetName == chunk.Name);
-							if (existingEffectiveChunk == null)
-								_effectiveChunks.Add(new EffectiveChunk(fileName, chunk.AssetType, chunk.Name, AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType)));
-							else
-								existingEffectiveChunk.BinaryName = fileName;
-						}
-					}
-				}
-
-				_localFiles.Add(new(filePath, chunks));
+				LocalFile localFile = GetOrCreateLocalFile(filePath);
+				localFile.UpdateFileContentProperties(_effectiveChunks);
 
 				// Populate mod file listing UI.
 				Grid grid = new() { Height = 24 };
@@ -106,41 +73,41 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				TextBlock textBlock = new()
 				{
-					Text = fileName,
-					IsEnabled = isValidFile,
-					Foreground = ColorUtils.ThemeColors[GetColor(hasValidName, isActiveFile, isValidFile)],
+					Text = localFile.FileName,
+					IsEnabled = localFile.IsValidFile,
+					Foreground = ColorUtils.ThemeColors[GetColor(localFile.HasValidName, localFile.IsActiveFile, localFile.IsValidFile)],
 					FontSize = 16,
 				};
 				grid.Children.Add(textBlock);
 
 				Button buttonRename = new() { Content = "Rename file" };
-				buttonRename.Click += (_, _) => RenameFile(filePath, fileName);
+				buttonRename.Click += (_, _) => RenameFile(filePath, localFile.FileName);
 				Grid.SetColumn(buttonRename, 1);
 				grid.Children.Add(buttonRename);
 
 				Button buttonDelete = new() { Content = "Delete file" };
-				buttonDelete.Click += (_, _) => DeleteFile(filePath, fileName);
+				buttonDelete.Click += (_, _) => DeleteFile(filePath, localFile.FileName);
 				Grid.SetColumn(buttonDelete, 2);
 				grid.Children.Add(buttonDelete);
 
 				Button buttonToggle = new()
 				{
-					Content = isActiveFile ? "Disable file" : "Enable file",
-					IsEnabled = isValidFile && hasValidName,
-					Foreground = isValidFile && hasValidName && !isActiveFile ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["Text"],
+					Content = localFile.IsActiveFile ? "Disable file" : "Enable file",
+					IsEnabled = localFile.IsValidFile && localFile.HasValidName,
+					Foreground = localFile.IsValidFile && localFile.HasValidName && !localFile.IsActiveFile ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["Text"],
 				};
-				buttonToggle.Click += (_, _) => ToggleFile(filePath, fileName, isActiveFile);
+				buttonToggle.Click += (_, _) => ToggleFile(filePath, localFile.FileName, localFile.IsActiveFile);
 				Grid.SetColumn(buttonToggle, 3);
 				grid.Children.Add(buttonToggle);
 
 				Button buttonToggleProhibited = new()
 				{
-					Content = areProhibitedAssetsEnabled ? "Disable prohibited" : "Enable prohibited",
-					IsEnabled = isValidFile && hasProhibitedAssets,
+					Content = localFile.AreProhibitedAssetsEnabled ? "Disable prohibited" : "Enable prohibited",
+					IsEnabled = localFile.IsValidFile && localFile.HasProhibitedAssets,
 					FontSize = 9,
-					Foreground = areProhibitedAssetsEnabled ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["WarningText"],
+					Foreground = localFile.AreProhibitedAssetsEnabled ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["WarningText"],
 				};
-				buttonToggleProhibited.Click += (_, _) => ToggleProhibited(filePath, hasProhibitedAssets, areProhibitedAssetsEnabled);
+				buttonToggleProhibited.Click += (_, _) => ToggleProhibited(filePath, localFile.HasProhibitedAssets, localFile.AreProhibitedAssetsEnabled);
 				Grid.SetColumn(buttonToggleProhibited, 4);
 				grid.Children.Add(buttonToggleProhibited);
 
@@ -189,6 +156,20 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
+		private LocalFile? GetLocalFile(string filePath)
+			=> _localFiles.Find(lf => lf.FilePath == filePath);
+
+		private LocalFile GetOrCreateLocalFile(string filePath)
+		{
+			LocalFile? localFile = GetLocalFile(filePath);
+			if (localFile != null)
+				return localFile;
+
+			localFile = new(filePath);
+			_localFiles.Add(localFile);
+			return localFile;
+		}
+
 		private void RenameFile(string filePath, string fileName)
 		{
 			if (!File.Exists(filePath))
@@ -204,7 +185,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (string.IsNullOrEmpty(renameFileWindow.NewFileName))
 				return;
 
-			File.Move(filePath, Path.Combine(dir, renameFileWindow.NewFileName));
+			string newFilePath = Path.Combine(dir, renameFileWindow.NewFileName);
+			File.Move(filePath, newFilePath);
+
+			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
+
+			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
@@ -222,6 +208,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				return;
 
 			File.Delete(filePath);
+
+			LocalFile? localFile = GetLocalFile(filePath);
+			if (localFile != null)
+				_localFiles.Remove(localFile);
+
+			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 		}
 
@@ -230,12 +222,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (!File.Exists(filePath))
 				return;
 
-			string dir = Path.GetDirectoryName(filePath)!;
-			if (isActiveFile)
-				File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
-			else
-				File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
+			string directory = Path.GetDirectoryName(filePath)!;
+			string newFileName = isActiveFile ? $"_{fileName}" : fileName.TrimStart('_');
+			string newFilePath = Path.Combine(directory, newFileName);
+			File.Move(filePath, newFilePath);
 
+			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
+
+			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
@@ -267,6 +261,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				}
 			}
 
+			GetLocalFile(filePath)?.UpdateFileContentProperties(_effectiveChunks);
+
+			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
@@ -355,7 +352,58 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			return "SuccessText";
 		}
 
-		private record LocalFile(string? FilePath, List<Chunk>? Chunks);
+		private class LocalFile
+		{
+			public LocalFile(string filePath)
+			{
+				UpdateFilePathProperties(filePath);
+			}
+
+			public string FilePath { get; set; } = null!; // Set in UpdateFilePathProperties method.
+			public string FileName { get; set; } = null!; // Set in UpdateFilePathProperties method.
+			public bool IsValidFile { get; set; }
+			public bool IsActiveFile { get; set; }
+			public bool HasValidName { get; set; }
+
+			public List<Chunk>? Chunks { get; set; }
+			public bool HasProhibitedAssets { get; set; }
+			public bool AreProhibitedAssetsEnabled { get; set; }
+
+			public void UpdateFilePathProperties(string filePath)
+			{
+				FilePath = filePath;
+				FileName = Path.GetFileName(filePath);
+				IsValidFile = BinaryHandler.IsValidFile(filePath);
+				IsActiveFile = IsValidFile && (FileName.StartsWith("audio") || FileName.StartsWith("dd"));
+				HasValidName = FileName.StartsWith("audio") || FileName.StartsWith("dd") || FileName.StartsWith("_audio") || FileName.StartsWith("_dd");
+			}
+
+			public void UpdateFileContentProperties(List<EffectiveChunk> effectiveChunks)
+			{
+				if (IsValidFile)
+				{
+					byte[] tocBuffer = BinaryHandler.ReadTocBuffer(FilePath);
+					Chunks = BinaryHandler.ReadChunks(tocBuffer);
+					HasProhibitedAssets = Chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name.ToLower(), c.AssetType) == true);
+					AreProhibitedAssetsEnabled = Chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name, c.AssetType) == true);
+
+					if (IsActiveFile)
+					{
+						foreach (Chunk chunk in Chunks)
+						{
+							if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
+								continue;
+
+							EffectiveChunk? existingEffectiveChunk = effectiveChunks.Find(ec => ec.AssetType == chunk.AssetType && ec.AssetName == chunk.Name);
+							if (existingEffectiveChunk == null)
+								effectiveChunks.Add(new EffectiveChunk(FileName, chunk.AssetType, chunk.Name, AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType)));
+							else
+								existingEffectiveChunk.BinaryName = FileName;
+						}
+					}
+				}
+			}
+		}
 
 		private class EffectiveChunk
 		{
