@@ -49,6 +49,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			EffectiveChunkListView.Children.Clear();
 
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
+			if (!Directory.Exists(modsDirectory))
+			{
+				MessageWindow window = new("Mods directory not found", $"The directory '{modsDirectory}' does not exist. Please correct the Devil Daggers root folder in the Settings window.");
+				window.ShowDialog();
+				return;
+			}
+
 			ModsDirectoryLabel.Text = $"Files in mods directory ({modsDirectory})";
 
 			// Populate mod file listing.
