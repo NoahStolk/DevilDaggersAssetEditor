@@ -49,8 +49,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void PopulateModFilesList()
 		{
-			ModFilesListView.Items.Clear();
-
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 			if (!Directory.Exists(modsDirectory))
 			{
@@ -61,12 +59,19 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			ModsDirectoryLabel.Text = $"Files in mods directory ({modsDirectory})";
 
-			// Populate mod file listing.
+			// Update internal local files.
 			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => Path.GetFileName(p).TrimStart('_')))
 			{
-				LocalFile localFile = GetOrCreateLocalFile(filePath);
+				if (GetLocalFile(filePath) == null)
+					_localFiles.Add(new(filePath));
+			}
 
-				// Populate mod file listing UI.
+			SortLocalFiles();
+
+			// Populate mod files list UI.
+			ModFilesListView.Items.Clear();
+			foreach (LocalFile localFile in _localFiles)
+			{
 				Grid grid = new() { Height = 24 };
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(4, GridUnitType.Star) });
 				grid.ColumnDefinitions.Add(new());
@@ -84,12 +89,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				grid.Children.Add(textBlock);
 
 				Button buttonRename = new() { Content = "Rename file" };
-				buttonRename.Click += (_, _) => RenameFile(filePath, localFile.FileName);
+				buttonRename.Click += (_, _) => RenameFile(localFile.FilePath, localFile.FileName);
 				Grid.SetColumn(buttonRename, 1);
 				grid.Children.Add(buttonRename);
 
 				Button buttonDelete = new() { Content = "Delete file" };
-				buttonDelete.Click += (_, _) => DeleteFile(filePath, localFile.FileName);
+				buttonDelete.Click += (_, _) => DeleteFile(localFile.FilePath, localFile.FileName);
 				Grid.SetColumn(buttonDelete, 2);
 				grid.Children.Add(buttonDelete);
 
@@ -99,7 +104,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					IsEnabled = localFile.IsValidFile && localFile.HasValidName,
 					Foreground = localFile.IsValidFile && localFile.HasValidName && !localFile.IsActiveFile ? ColorUtils.ThemeColors["SuccessText"] : ColorUtils.ThemeColors["Text"],
 				};
-				buttonToggle.Click += (_, _) => ToggleFile(filePath, localFile.FileName, localFile.IsActiveFile);
+				buttonToggle.Click += (_, _) => ToggleFile(localFile.FilePath, localFile.FileName, localFile.IsActiveFile);
 				Grid.SetColumn(buttonToggle, 3);
 				grid.Children.Add(buttonToggle);
 
@@ -110,7 +115,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					FontSize = 9,
 					Foreground = localFile.AreProhibitedAssetsEnabled ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["WarningText"],
 				};
-				buttonToggleProhibited.Click += (_, _) => ToggleProhibited(filePath, localFile.HasProhibitedAssets, localFile.AreProhibitedAssetsEnabled);
+				buttonToggleProhibited.Click += (_, _) => ToggleProhibited(localFile.FilePath, localFile.HasProhibitedAssets, localFile.AreProhibitedAssetsEnabled);
 				Grid.SetColumn(buttonToggleProhibited, 4);
 				grid.Children.Add(buttonToggleProhibited);
 
@@ -191,17 +196,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private LocalFile? GetLocalFile(string filePath)
 			=> _localFiles.Find(lf => lf.FilePath == filePath);
-
-		private LocalFile GetOrCreateLocalFile(string filePath)
-		{
-			LocalFile? localFile = GetLocalFile(filePath);
-			if (localFile != null)
-				return localFile;
-
-			localFile = new(filePath);
-			_localFiles.Add(localFile);
-			return localFile;
-		}
 
 		#endregion Local files
 
