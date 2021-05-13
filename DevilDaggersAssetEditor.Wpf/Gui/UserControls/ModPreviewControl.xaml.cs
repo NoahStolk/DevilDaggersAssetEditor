@@ -119,7 +119,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			downloadingWindow.Show();
 			await downloadingWindow.DownloadAndInstall(modsDirectory, _selectedMod.Name);
 
-			_modManagerWindow.ManageModsControl.PopulateModFilesList();
+			_modManagerWindow.ManageModsControl.UpdateUi();
 		}
 	}
 }

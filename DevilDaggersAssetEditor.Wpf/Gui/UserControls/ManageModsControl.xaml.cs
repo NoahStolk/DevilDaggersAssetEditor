@@ -36,13 +36,18 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		{
 			InitializeComponent();
 
-			PopulateModFilesList();
-			PopulateEffectiveChunks();
+			UpdateUi();
 		}
 
 		#region UI creation
 
-		public void PopulateModFilesList()
+		public void UpdateUi()
+		{
+			PopulateModFilesList();
+			PopulateEffectiveChunks();
+		}
+
+		private void PopulateModFilesList()
 		{
 			ModFilesListView.Items.Clear();
 
@@ -223,8 +228,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
 			SortLocalFiles();
 
-			PopulateModFilesList();
-			PopulateEffectiveChunks();
+			UpdateUi();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
@@ -246,8 +250,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (localFile != null)
 				_localFiles.Remove(localFile);
 
-			PopulateModFilesList();
-			PopulateEffectiveChunks();
+			UpdateUi();
 		}
 
 		private void ToggleFile(string filePath, string fileName, bool isActiveFile)
@@ -263,8 +266,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
 			SortLocalFiles();
 
-			PopulateModFilesList();
-			PopulateEffectiveChunks();
+			UpdateUi();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
@@ -297,8 +299,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			GetLocalFile(filePath)?.UpdateFileContentProperties();
 
-			PopulateModFilesList();
-			PopulateEffectiveChunks();
+			UpdateUi();
 
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
@@ -378,8 +379,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private void RefreshButton_Click(object sender, RoutedEventArgs e)
 		{
-			PopulateModFilesList();
-			PopulateEffectiveChunks();
+			UpdateUi();
 		}
 
 		#endregion Events
