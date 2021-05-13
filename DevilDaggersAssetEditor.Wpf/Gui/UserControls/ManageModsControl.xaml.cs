@@ -156,6 +156,9 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
+		private void SortLocalFiles()
+			=> _localFiles = _localFiles.OrderBy(lf => lf.FileName.TrimStart('_')).ToList();
+
 		private LocalFile? GetLocalFile(string filePath)
 			=> _localFiles.Find(lf => lf.FilePath == filePath);
 
@@ -189,6 +192,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			File.Move(filePath, newFilePath);
 
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
+			SortLocalFiles();
 
 			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
@@ -228,6 +232,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			File.Move(filePath, newFilePath);
 
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
+			SortLocalFiles();
 
 			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
