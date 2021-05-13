@@ -186,7 +186,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				return localFile;
 
 			localFile = new(filePath);
-			localFile.UpdateFileContentProperties();
 			_localFiles.Add(localFile);
 			return localFile;
 		}
@@ -380,6 +379,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			public LocalFile(string filePath)
 			{
 				UpdateFilePathProperties(filePath);
+				UpdateFileContentProperties();
 			}
 
 			public string FilePath { get; set; } = null!; // Set in UpdateFilePathProperties method.
