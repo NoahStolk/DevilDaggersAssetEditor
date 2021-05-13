@@ -4,7 +4,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
-        Title="Downloading and installing" Height="192" Width="384" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Downloading and installing" Height="192" Width="384" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
 	<StackPanel Margin="10">
 		<TextBlock Name="TextBlockModName" />
 		<Grid>

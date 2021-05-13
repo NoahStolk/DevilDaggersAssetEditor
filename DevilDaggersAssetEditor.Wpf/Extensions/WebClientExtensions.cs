@@ -4,13 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DevilDaggersAssetEditor.Wpf.Extensions
 {
 	public static class WebClientExtensions
 	{
-		public static async Task<byte[]> DownloadByteArrayAsync(this WebClient wc, string url, ProgressWrapper progress)
+		public static async Task<byte[]?> DownloadByteArrayAsync(this WebClient wc, string url, ProgressWrapper progress, CancellationTokenSource cancellationTokenSource)
 		{
 			int receivedBytes = 0;
 			List<byte> content = new();
@@ -25,6 +26,9 @@ namespace DevilDaggersAssetEditor.Wpf.Extensions
 
 				while (true)
 				{
+					if (cancellationTokenSource.IsCancellationRequested)
+						return null;
+
 					int length = await stream.ReadAsync(buffer.AsMemory(0, buffer.Length));
 					if (length == 0)
 					{
