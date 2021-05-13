@@ -184,13 +184,16 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (!File.Exists(filePath))
 				return;
 
-			RenameFileWindow renameFileWindow = new(fileName);
+			string? dir = Path.GetDirectoryName(filePath);
+			if (string.IsNullOrWhiteSpace(dir))
+				return;
+
+			RenameFileWindow renameFileWindow = new(dir, fileName);
 			renameFileWindow.ShowDialog();
 
 			if (string.IsNullOrEmpty(renameFileWindow.NewFileName))
 				return;
 
-			string dir = Path.GetDirectoryName(filePath)!;
 			File.Move(filePath, Path.Combine(dir, renameFileWindow.NewFileName));
 			PopulateModFilesList();
 		}

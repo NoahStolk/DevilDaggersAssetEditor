@@ -155,7 +155,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			{
 				if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath))
 				{
-					MessageWindow window = new("File not found.", $"The file at {filePath} was not found.");
+					MessageWindow window = new("File not found.", $"The file at '{filePath}' was not found.");
 					window.ShowDialog();
 					return false;
 				}
