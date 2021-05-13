@@ -257,7 +257,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		}
 
 		private void ModFilesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+			=> UpdateSelection();
+
+		private void UpdateSelection()
 		{
+			ChunkListView.Children.Clear();
+
 			if (ModFilesListView.SelectedIndex == -1)
 				return;
 
@@ -266,7 +271,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			LocalFile localFile = _localFiles[ModFilesListView.SelectedIndex];
 			_selectedPath = localFile.FilePath;
-			ChunkListView.Children.Clear();
 
 			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || localFile.Chunks == null)
 				return;
