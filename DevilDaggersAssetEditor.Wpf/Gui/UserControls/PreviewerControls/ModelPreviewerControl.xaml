@@ -51,9 +51,9 @@
 				<Label Grid.Column="1" Grid.Row="2" Name="FileIndexCount">N/A</Label>
 			</Grid>
 		</StackPanel>
-		<StackPanel Grid.Column="2">
+		<!--<StackPanel Grid.Column="2">
 			<Label Style="{StaticResource PreviewerTitleLabel}">File preview</Label>
-			<!--OBJ Viewer-->
-		</StackPanel>
+			TODO: OBJ Viewer
+		</StackPanel>-->
 	</Grid>
 </UserControl>
