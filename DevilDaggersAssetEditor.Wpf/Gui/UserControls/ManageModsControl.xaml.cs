@@ -81,7 +81,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				TextBlock textBlock = new()
 				{
-					Text = localFile.FileName,
+					Text = localFile.FileName.Length > 40 ? localFile.FileName.Substring(0, 40) + "..." : localFile.FileName,
 					IsEnabled = localFile.IsValidFile,
 					Foreground = ColorUtils.ThemeColors[GetColor(localFile.HasValidName, localFile.IsActiveFile, localFile.IsValidFile)],
 					FontSize = 16,
