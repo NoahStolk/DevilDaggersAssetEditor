@@ -47,13 +47,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 			ModsDirectoryLabel.Text = $"Files in mods directory ({modsDirectory})";
+
+			// Populate mod file listing.
 			foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => Path.GetFileName(p).TrimStart('_')))
 			{
+				// Determine file validity.
 				string fileName = Path.GetFileName(filePath);
 				bool isValidFile = BinaryHandler.IsValidFile(filePath);
 				bool isActiveFile = isValidFile && (fileName.StartsWith("audio") || fileName.StartsWith("dd"));
 				bool hasValidName = fileName.StartsWith("audio") || fileName.StartsWith("dd") || fileName.StartsWith("_audio") || fileName.StartsWith("_dd");
 
+				// Determine prohibited assets and effective chunks.
 				List<Chunk>? chunks = null;
 				bool hasProhibitedAssets = false;
 				if (isValidFile)
@@ -80,6 +84,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				_localFiles.Add(new(filePath, chunks));
 
+				// Populate mod file listing UI.
 				Grid grid = new() { Height = 24 };
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new(4, GridUnitType.Star) });
 				grid.ColumnDefinitions.Add(new());
@@ -129,6 +134,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				ModFilesListView.Items.Add(grid);
 			}
 
+			// Populate effective chunks UI.
 			foreach (IGrouping<string, EffectiveChunk> ecg in _effectiveChunks.GroupBy(e => e.BinaryName))
 			{
 				TextBlock textBlockBinary = new()
@@ -230,21 +236,22 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || localFile.Chunks == null)
 				return;
 
-			// Clear highlight.
+			// Clear effective chunks highlight.
 			foreach (KeyValuePair<EffectiveChunk, TextBlock> kvp in _effectiveChunkUi)
 				kvp.Value.Background = _transparentBrush;
 
 			foreach (Chunk chunk in localFile.Chunks)
 			{
+				if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
+					continue;
+
 				// Highlight effective chunk.
 				string? binaryName = Path.GetFileName(localFile.FilePath);
 				EffectiveChunk? effectiveChunk = _effectiveChunks.Find(ec => ec.AssetName == chunk.Name && ec.AssetType == chunk.AssetType && ec.BinaryName == binaryName);
 				if (effectiveChunk != null)
 					_effectiveChunkUi[effectiveChunk].Background = _highlightBrush;
 
-				if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
-					continue;
-
+				// Populate binary contents UI.
 				bool? isProhibited = AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType);
 
 				Grid grid = new();
