@@ -26,13 +26,13 @@
 		</StackPanel>
 		<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
 			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" FontSize="16">Binary contents</TextBlock>
-			<TextBlock Foreground="{StaticResource ErrorText}">Active prohibited assets</TextBlock>
+			<TextBlock Foreground="{StaticResource WarningText}">Active prohibited assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Active allowed assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
 		</StackPanel>
 		<StackPanel Grid.Column="2" Background="{StaticResource Gray28}">
 			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" FontSize="16">Effective assets</TextBlock>
-			<TextBlock Foreground="{StaticResource ErrorText}">Active prohibited assets</TextBlock>
+			<TextBlock Foreground="{StaticResource WarningText}">Active prohibited assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Active allowed assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
 		</StackPanel>

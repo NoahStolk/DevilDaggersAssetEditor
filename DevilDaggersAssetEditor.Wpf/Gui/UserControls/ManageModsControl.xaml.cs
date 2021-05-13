@@ -131,6 +131,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					Content = areProhibitedAssetsEnabled ? "Disable prohibited" : "Enable prohibited",
 					IsEnabled = isValidFile && hasProhibitedAssets,
 					FontSize = 9,
+					Foreground = areProhibitedAssetsEnabled ? ColorUtils.ThemeColors["Text"] : ColorUtils.ThemeColors["WarningText"],
 				};
 				buttonToggleProhibited.Click += (_, _) => ToggleProhibited(filePath, hasProhibitedAssets, areProhibitedAssetsEnabled);
 				Grid.SetColumn(buttonToggleProhibited, 4);
@@ -169,7 +170,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					TextBlock textBlockName = new()
 					{
 						Text = ec.AssetName,
-						Foreground = ColorUtils.ThemeColors[ec.IsProhibited.HasValue ? ec.IsProhibited.Value ? "ErrorText" : "Text" : "Gray6"],
+						Foreground = ColorUtils.ThemeColors[ec.IsProhibited.HasValue ? ec.IsProhibited.Value ? "WarningText" : "Text" : "Gray6"],
 					};
 					Grid.SetColumn(textBlockName, 1);
 					effectiveChunkGrid.Children.Add(textBlockName);
@@ -327,7 +328,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				TextBlock textBlockName = new()
 				{
 					Text = chunk.Name,
-					Foreground = ColorUtils.ThemeColors[isProhibited.HasValue ? isProhibited.Value ? "ErrorText" : "Text" : "Gray6"],
+					Foreground = ColorUtils.ThemeColors[isProhibited.HasValue ? isProhibited.Value ? "WarningText" : "Text" : "Gray6"],
 				};
 				Grid.SetColumn(textBlockName, 1);
 				grid.Children.Add(textBlockName);
