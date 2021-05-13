@@ -40,6 +40,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			PopulateEffectiveChunks();
 		}
 
+		#region UI creation
+
 		public void PopulateModFilesList()
 		{
 			ModFilesListView.Items.Clear();
@@ -175,6 +177,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
+		#endregion UI creation
+
+		#region Local files
+
 		private void SortLocalFiles()
 			=> _localFiles = _localFiles.OrderBy(lf => lf.FileName.TrimStart('_')).ToList();
 
@@ -191,6 +197,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			_localFiles.Add(localFile);
 			return localFile;
 		}
+
+		#endregion Local files
+
+		#region Actions
 
 		private void RenameFile(string filePath, string fileName)
 		{
@@ -297,6 +307,10 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
 
+		#endregion Actions
+
+		#region Events
+
 		private void ModFilesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			ChunkListView.Children.Clear();
@@ -371,6 +385,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			PopulateModFilesList();
 			PopulateEffectiveChunks();
 		}
+
+		#endregion Events
 
 		private static string GetColor(bool hasValidName, bool isActiveFile, bool isValidFile)
 		{
