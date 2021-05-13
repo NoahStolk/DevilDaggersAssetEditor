@@ -175,17 +175,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (!File.Exists(filePath))
 				return;
 
-			string? dir = Path.GetDirectoryName(filePath);
-			if (string.IsNullOrWhiteSpace(dir))
+			string? directory = Path.GetDirectoryName(filePath);
+			if (string.IsNullOrWhiteSpace(directory))
 				return;
 
-			RenameFileWindow renameFileWindow = new(dir, fileName);
+			RenameFileWindow renameFileWindow = new(directory, fileName);
 			renameFileWindow.ShowDialog();
 
 			if (string.IsNullOrEmpty(renameFileWindow.NewFileName))
 				return;
 
-			string newFilePath = Path.Combine(dir, renameFileWindow.NewFileName);
+			string newFilePath = Path.Combine(directory, renameFileWindow.NewFileName);
 			File.Move(filePath, newFilePath);
 
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
