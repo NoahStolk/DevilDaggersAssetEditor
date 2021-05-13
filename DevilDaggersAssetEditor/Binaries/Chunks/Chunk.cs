@@ -14,7 +14,7 @@ namespace DevilDaggersAssetEditor.Binaries.Chunks
 			Size = size;
 		}
 
-		public string Name { get; }
+		public string Name { get; private set; }
 		public uint StartOffset { get; set; }
 		public uint Size { get; set; }
 
@@ -37,6 +37,12 @@ namespace DevilDaggersAssetEditor.Binaries.Chunks
 
 		public override string ToString()
 			=> $"Type: {AssetType} | Name: {Name} | Size: {Size}";
+
+		public void Enable()
+			=> Name = Name.ToLower();
+
+		public void Disable()
+			=> Name = Name.ToUpper();
 
 		public virtual bool IsBinaryEqual(Chunk? otherChunk, out string? diffReason)
 		{

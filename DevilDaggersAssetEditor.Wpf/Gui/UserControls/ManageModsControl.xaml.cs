@@ -11,6 +11,7 @@ using DevilDaggersCore.Wpf.Windows;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -60,11 +61,13 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				// Determine prohibited assets and effective chunks.
 				List<Chunk>? chunks = null;
 				bool hasProhibitedAssets = false;
+				bool areProhibitedAssetsEnabled = false;
 				if (isValidFile)
 				{
 					byte[] tocBuffer = BinaryHandler.ReadTocBuffer(filePath);
 					chunks = BinaryHandler.ReadChunks(tocBuffer);
-					hasProhibitedAssets = chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name, c.AssetType) == true);
+					hasProhibitedAssets = chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name.ToLower(), c.AssetType) == true);
+					areProhibitedAssetsEnabled = chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name, c.AssetType) == true);
 
 					if (isActiveFile)
 					{
@@ -123,11 +126,11 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 				Button buttonToggleProhibited = new()
 				{
-					Content = hasProhibitedAssets ? "Disable prohibited" : "Enable prohibited",
-					IsEnabled = isValidFile,
+					Content = areProhibitedAssetsEnabled ? "Disable prohibited" : "Enable prohibited",
+					IsEnabled = isValidFile && hasProhibitedAssets,
 					FontSize = 9,
 				};
-				buttonToggleProhibited.Click += (_, _) => { };
+				buttonToggleProhibited.Click += (_, _) => ToggleProhibited(filePath, hasProhibitedAssets, areProhibitedAssetsEnabled);
 				Grid.SetColumn(buttonToggleProhibited, 4);
 				grid.Children.Add(buttonToggleProhibited);
 
@@ -217,6 +220,35 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				File.Move(filePath, Path.Combine(dir, $"_{fileName}"));
 			else
 				File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
+
+			PopulateModFilesList();
+		}
+
+		private void ToggleProhibited(string filePath, bool hasProhibitedAssets, bool areProhibitedAssetsEnabled)
+		{
+			if (!File.Exists(filePath) || !BinaryHandler.IsValidFile(filePath) || !hasProhibitedAssets)
+				return;
+
+			byte[] tocBuffer = BinaryHandler.ReadTocBuffer(filePath);
+			using (FileStream fs = new(filePath, FileMode.Open))
+			{
+				fs.Seek(12, SeekOrigin.Begin);
+
+				foreach (Chunk chunk in BinaryHandler.ReadChunks(tocBuffer))
+				{
+					if (AssetContainer.Instance.IsProhibited(chunk.Name.ToLower(), chunk.AssetType) == true)
+					{
+						if (areProhibitedAssetsEnabled)
+							chunk.Disable();
+						else
+							chunk.Enable();
+					}
+
+					fs.Position += 2; // Type byte, empty byte
+					fs.Write(Encoding.Default.GetBytes(chunk.Name), 0, chunk.Name.Length);
+					fs.Position += 1 + sizeof(uint) * 3; // Null terminator, start offset, size, unknown
+				}
+			}
 
 			PopulateModFilesList();
 		}
