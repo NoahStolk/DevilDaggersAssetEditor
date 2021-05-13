@@ -273,9 +273,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		}
 
 		private void ModFilesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-			=> UpdateSelection();
-
-		private void UpdateSelection()
 		{
 			ChunkListView.Children.Clear();
 
