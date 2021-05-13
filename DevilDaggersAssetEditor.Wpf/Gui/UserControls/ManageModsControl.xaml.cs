@@ -30,6 +30,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		private string? _selectedPath;
 
+		private int _modFileListViewSelectedIndex = -1;
+
 		public ManageModsControl()
 		{
 			InitializeComponent();
@@ -196,6 +198,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			File.Move(filePath, Path.Combine(dir, renameFileWindow.NewFileName));
 			PopulateModFilesList();
+
+			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
 
 		private void DeleteFile(string filePath, string fileName)
@@ -225,6 +229,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				File.Move(filePath, Path.Combine(dir, fileName.TrimStart('_')));
 
 			PopulateModFilesList();
+
+			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
 
 		private void ToggleProhibited(string filePath, bool hasProhibitedAssets, bool areProhibitedAssetsEnabled)
@@ -254,6 +260,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 
 			PopulateModFilesList();
+
+			ModFilesListView.SelectedIndex = _modFileListViewSelectedIndex;
 		}
 
 		private void ModFilesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -265,6 +273,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			if (ModFilesListView.SelectedIndex == -1)
 				return;
+
+			_modFileListViewSelectedIndex = ModFilesListView.SelectedIndex;
 
 			ChunkListScrollViewer.ScrollToTop();
 			EffectiveChunkListScrollViewer.ScrollToTop();
