@@ -17,7 +17,7 @@
 		</Grid.RowDefinitions>
 
 		<StackPanel Background="{StaticResource Gray28}">
-			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" Name="ModsDirectoryLabel"/>
+			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" Name="ModsDirectoryLabel" FontSize="16" />
 			<TextBlock Foreground="{StaticResource SuccessText}">Active mod files</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Disabled mod files</TextBlock>
 			<TextBlock Foreground="{StaticResource ErrorText}">Mod files with incorrect prefix</TextBlock>
@@ -25,13 +25,13 @@
 			<Button Name="RefreshButton" Click="RefreshButton_Click" HorizontalAlignment="Left" Width="64">Refresh</Button>
 		</StackPanel>
 		<StackPanel Grid.Column="1" Background="{StaticResource Gray28}">
-			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}">Binary contents</TextBlock>
+			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" FontSize="16">Binary contents</TextBlock>
 			<TextBlock Foreground="{StaticResource ErrorText}">Active prohibited assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Active allowed assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
 		</StackPanel>
 		<StackPanel Grid.Column="2" Background="{StaticResource Gray28}">
-			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}">Effective assets</TextBlock>
+			<TextBlock FontWeight="Bold" Foreground="{StaticResource Text}" FontSize="16">Effective assets</TextBlock>
 			<TextBlock Foreground="{StaticResource ErrorText}">Active prohibited assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Text}">Active allowed assets</TextBlock>
 			<TextBlock Foreground="{StaticResource Gray6}">Disabled assets</TextBlock>
