@@ -275,6 +275,17 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (string.IsNullOrWhiteSpace(_selectedPath) || !File.Exists(_selectedPath) || localFile.Chunks == null)
 				return;
 
+			string? binaryName = Path.GetFileName(localFile.FilePath);
+			TextBlock textBlockBinary = new()
+			{
+				Text = binaryName,
+				Background = ColorUtils.ThemeColors["Gray4"],
+				FontSize = 14,
+				Padding = new(0, 4, 0, 0),
+				FontWeight = FontWeights.Bold,
+			};
+			ChunkListView.Children.Add(textBlockBinary);
+
 			// Clear effective chunks highlight.
 			foreach (KeyValuePair<EffectiveChunk, TextBlock> kvp in _effectiveChunkUi)
 				kvp.Value.Background = _transparentBrush;
@@ -285,7 +296,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					continue;
 
 				// Highlight effective chunk.
-				string? binaryName = Path.GetFileName(localFile.FilePath);
 				EffectiveChunk? effectiveChunk = _effectiveChunks.Find(ec => ec.AssetName == chunk.Name && ec.AssetType == chunk.AssetType && ec.BinaryName == binaryName);
 				if (effectiveChunk != null)
 					_effectiveChunkUi[effectiveChunk].Background = _highlightBrush;
