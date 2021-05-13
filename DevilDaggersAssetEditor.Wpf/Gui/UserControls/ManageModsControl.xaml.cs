@@ -23,7 +23,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 		private static readonly SolidColorBrush _transparentBrush = new(Color.FromArgb(0, 0, 0, 0));
 		private static readonly SolidColorBrush _highlightBrush = new(Color.FromArgb(63, 0, 255, 0));
 
-		private readonly List<LocalFile> _localFiles = new();
+		private List<LocalFile> _localFiles = new();
 		private readonly List<EffectiveChunk> _effectiveChunks = new();
 
 		private readonly Dictionary<EffectiveChunk, TextBlock> _effectiveChunkUi = new();
