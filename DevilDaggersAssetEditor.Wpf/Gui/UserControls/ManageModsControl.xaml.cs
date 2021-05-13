@@ -223,7 +223,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
 			SortLocalFiles();
 
-			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 			PopulateEffectiveChunks();
 
@@ -247,7 +246,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			if (localFile != null)
 				_localFiles.Remove(localFile);
 
-			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 			PopulateEffectiveChunks();
 		}
@@ -265,7 +263,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
 			SortLocalFiles();
 
-			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 			PopulateEffectiveChunks();
 
@@ -300,7 +297,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			GetLocalFile(filePath)?.UpdateFileContentProperties();
 
-			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
 			PopulateEffectiveChunks();
 
