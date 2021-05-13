@@ -14,11 +14,12 @@
 				<TextBlock Style="{StaticResource ParagraphTextBlock}">
 					This is particularly useful for binaries that were compiled before Devil Daggers V3.1 came out. Back then, partial mods were not supported. With this tool you can make your old binary file a lot smaller by leaving out all the unchanged assets, which can be done by comparing it against the original binary.
 				</TextBlock>
+				<TextBlock Style="{StaticResource ParagraphTextBlock}" FontWeight="Bold">Important notes regarding models</TextBlock>
 				<TextBlock Style="{StaticResource ParagraphTextBlock}">
-					NOTE: The way Devil Daggers Asset Editor compiles model data differs from what is stored in the original 'dd' binary. Therefore this tool will not trim models if used with the original 'dd' binary from the game. The easiest way to work around this is to extract the original 'dd' binary, re-compile it with the program, and then use that file to compare against.
+					The way Devil Daggers Asset Editor compiles model data differs from what is stored in the original 'dd' binary. Therefore this tool will not trim models if used with the original 'dd' binary from the game. The easiest way to work around this is to extract the original 'dd' binary, re-compile it with the program, and then use that file to compare against.
 				</TextBlock>
 				<TextBlock Style="{StaticResource ParagraphTextBlock}">
-					If the trimmed binary file still contains models that weren't modified, the binary you're trying to trim was probably compiled using an older version of the program. Make sure to compile it with the latest version first before attempting to trim it.
+					The tool will not work properly for trimming models inside binaries that were compiled with Devil Daggers Asset Editor 0.7.14.0 or earlier.
 				</TextBlock>
 				<Label>Binary to trim</Label>
 				<Grid>
@@ -55,7 +56,7 @@
 				<ProgressBar Name="ProgressBar" />
 				<TextBlock Name="ProgressDescription" Style="{StaticResource ProgressBarTextBlock}" />
 			</Grid>
-			<ScrollViewer Name="TrimScrollViewer" Height="240" MaxHeight="240" Background="{StaticResource Gray1}">
+			<ScrollViewer Name="TrimScrollViewer" Height="224" MaxHeight="224" Background="{StaticResource Gray1}">
 				<StackPanel Name="TrimLog" />
 			</ScrollViewer>
 		</StackPanel>
