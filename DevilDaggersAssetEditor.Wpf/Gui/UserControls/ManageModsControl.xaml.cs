@@ -41,11 +41,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 		public void PopulateModFilesList()
 		{
-			_effectiveChunks.Clear();
-			_effectiveChunkUi.Clear();
-
 			ModFilesListView.Items.Clear();
-			EffectiveChunkListView.Children.Clear();
 
 			string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 			if (!Directory.Exists(modsDirectory))
@@ -113,7 +109,29 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				ModFilesListView.Items.Add(grid);
 			}
 
-			// Populate effective chunks UI.
+			// Populate effective chunks.
+			_effectiveChunks.Clear();
+			_effectiveChunkUi.Clear();
+			EffectiveChunkListView.Children.Clear();
+
+			foreach (LocalFile localFile in _localFiles.OrderBy(lf => lf.FileName))
+			{
+				if (!localFile.IsActiveFile || localFile.Chunks == null)
+					continue;
+
+				foreach (Chunk chunk in localFile.Chunks)
+				{
+					if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
+						continue;
+
+					EffectiveChunk? existingEffectiveChunk = _effectiveChunks.Find(ec => ec.AssetType == chunk.AssetType && ec.AssetName == chunk.Name);
+					if (existingEffectiveChunk == null)
+						_effectiveChunks.Add(new EffectiveChunk(localFile.FileName, chunk.AssetType, chunk.Name, AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType)));
+					else
+						existingEffectiveChunk.BinaryName = localFile.FileName;
+				}
+			}
+
 			foreach (IGrouping<string, EffectiveChunk> ecg in _effectiveChunks.GroupBy(e => e.BinaryName))
 			{
 				TextBlock textBlockBinary = new()
@@ -266,7 +284,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				}
 			}
 
-			GetLocalFile(filePath)?.UpdateFileContentProperties(_effectiveChunks);
+			GetLocalFile(filePath)?.UpdateFileContentProperties();
 
 			// TODO: Only update UI for relevant file.
 			PopulateModFilesList();
@@ -383,7 +401,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 				HasValidName = FileName.StartsWith("audio") || FileName.StartsWith("dd") || FileName.StartsWith("_audio") || FileName.StartsWith("_dd");
 			}
 
-			public void UpdateFileContentProperties(List<EffectiveChunk> effectiveChunks)
+			public void UpdateFileContentProperties()
 			{
 				if (IsValidFile)
 				{
@@ -391,21 +409,6 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 					Chunks = BinaryHandler.ReadChunks(tocBuffer);
 					HasProhibitedAssets = Chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name.ToLower(), c.AssetType) == true);
 					AreProhibitedAssetsEnabled = Chunks.Any(c => AssetContainer.Instance.IsProhibited(c.Name, c.AssetType) == true);
-
-					if (IsActiveFile)
-					{
-						foreach (Chunk chunk in Chunks)
-						{
-							if (chunk.AssetType == AssetType.Audio && chunk.Name == "loudness")
-								continue;
-
-							EffectiveChunk? existingEffectiveChunk = effectiveChunks.Find(ec => ec.AssetType == chunk.AssetType && ec.AssetName == chunk.Name);
-							if (existingEffectiveChunk == null)
-								effectiveChunks.Add(new EffectiveChunk(FileName, chunk.AssetType, chunk.Name, AssetContainer.Instance.IsProhibited(chunk.Name, chunk.AssetType)));
-							else
-								existingEffectiveChunk.BinaryName = FileName;
-						}
-					}
 				}
 			}
 		}
