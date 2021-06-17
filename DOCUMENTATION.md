@@ -217,9 +217,9 @@ The chunk data for a shader chunk consists of 4 parts:
 | Name | Size in bytes |
 |------|---------------|
 | Shader header | 12 |
-| Shader name | variable |
-| Vertex shader contents | variable |
-| Fragment shader contents | variable |
+| Shader name | Variable |
+| Vertex shader contents | Variable |
+| Fragment shader contents | Variable |
 
 ##### Shader header
 
