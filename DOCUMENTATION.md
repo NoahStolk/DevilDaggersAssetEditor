@@ -161,7 +161,7 @@ The chunk data for a model chunk consists of 4 parts:
 | Model header | 10 |
 | Model vertices | 32 x the amount of vertices |
 | Model indices | 4 x the amount of indices |
-| Unknown | variable |
+| Unknown | Variable |
 
 ##### Model header
 
