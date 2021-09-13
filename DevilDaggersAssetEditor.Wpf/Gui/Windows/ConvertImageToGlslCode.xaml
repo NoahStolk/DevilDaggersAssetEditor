@@ -4,15 +4,15 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d"
-        Title="Convert image to GLSL code" Height="512" Width="512">
+        Title="Convert image to GLSL code" Height="512" Width="1024" ResizeMode="NoResize">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition />
-			<ColumnDefinition />
+			<ColumnDefinition Width="7*" />
 		</Grid.ColumnDefinitions>
 		<StackPanel>
 			<Button Click="BrowseButton_Click">Browse</Button>
 		</StackPanel>
-		<TextBox Grid.Column="1" VerticalAlignment="Top" IsReadOnly="True" Name="GlslCode" Height="448" TextWrapping="Wrap" />
+		<TextBox Grid.Column="1" VerticalAlignment="Top" IsReadOnly="True" Name="GlslCode" Height="448" TextWrapping="Wrap" FontFamily="Consolas" />
 	</Grid>
 </Window>
