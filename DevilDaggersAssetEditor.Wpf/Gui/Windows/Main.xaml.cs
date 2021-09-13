@@ -277,6 +277,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			window.ShowDialog();
 		}
 
+		private void ConvertImageToGlslCode_Click(object sender, RoutedEventArgs e)
+		{
+			ConvertImageToGlslCodeWindow window = new();
+			window.ShowDialog();
+		}
+
 		private void Help_Click(object sender, RoutedEventArgs e)
 			=> ProcessUtils.OpenUrl("https://devildaggers.info/Wiki/Guides/AssetEditor");
 

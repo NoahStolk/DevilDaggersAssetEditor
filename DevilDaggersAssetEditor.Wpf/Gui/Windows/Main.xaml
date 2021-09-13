@@ -50,6 +50,7 @@
 				<MenuItem Header="Tools">
 					<MenuItem Header="Analyze binary file" Click="AnalyzeBinaryFile_Click" />
 					<MenuItem Header="Trim binary file" Click="TrimBinaryFile_Click" />
+					<MenuItem Header="Convert image to GLSL code" Click="ConvertImageToGlslCode_Click" />
 				</MenuItem>
 				<MenuItem Header="Help" Name="HelpItem">
 					<MenuItem Header="Help" Click="Help_Click" />
