@@ -57,7 +57,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 
 			Panel.SetZIndex(RectangleEdit, -1);
 			Grid.SetColumn(RectangleEdit, 4);
-			Grid.SetColumnSpan(RectangleEdit, 3);
+			Grid.SetColumnSpan(RectangleEdit, 4);
 			Grid.SetRowSpan(RectangleEdit, 2);
 
 			UpdateBackgroundRectangleColors(isEven);
