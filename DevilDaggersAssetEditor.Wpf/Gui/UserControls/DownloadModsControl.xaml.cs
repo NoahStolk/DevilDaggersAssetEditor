@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Caching;
 using DevilDaggersAssetEditor.Wpf.Clients;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;

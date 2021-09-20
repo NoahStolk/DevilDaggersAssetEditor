@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.User;
+using DevilDaggersAssetEditor.User;
 using Microsoft.Win32;
 using Ookii.Dialogs.Wpf;
 using System.IO;

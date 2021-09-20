@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.Wpf.Extensions;

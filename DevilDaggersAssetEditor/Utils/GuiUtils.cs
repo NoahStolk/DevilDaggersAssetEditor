@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetEditor.Utils
+namespace DevilDaggersAssetEditor.Utils
 {
 	public static class GuiUtils
 	{

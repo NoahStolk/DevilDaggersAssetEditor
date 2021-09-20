@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Utils;
 using System.IO;
 using System.Linq;

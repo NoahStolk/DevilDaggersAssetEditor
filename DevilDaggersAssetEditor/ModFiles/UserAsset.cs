@@ -1,4 +1,4 @@
-﻿using DevilDaggersCore.Mods;
+using DevilDaggersCore.Mods;
 
 namespace DevilDaggersAssetEditor.ModFiles
 {

@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersCore.Mods;
 using System;

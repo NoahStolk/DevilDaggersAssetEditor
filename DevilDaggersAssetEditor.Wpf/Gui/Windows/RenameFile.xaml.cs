@@ -1,4 +1,4 @@
-﻿using DevilDaggersCore.Wpf.Windows;
+using DevilDaggersCore.Wpf.Windows;
 using System.IO;
 using System.Windows;
 

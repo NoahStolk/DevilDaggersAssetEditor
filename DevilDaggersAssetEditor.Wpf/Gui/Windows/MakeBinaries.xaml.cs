@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersCore.Mods;

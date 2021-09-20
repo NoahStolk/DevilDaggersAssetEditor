@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Binaries.Analyzer;
 using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Extensions;

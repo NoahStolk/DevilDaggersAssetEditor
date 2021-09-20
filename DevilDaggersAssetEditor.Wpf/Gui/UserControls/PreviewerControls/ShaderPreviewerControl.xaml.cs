@@ -1,4 +1,4 @@
-﻿using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Utils;
 using SyntaxHighlighter;
 using SyntaxHighlighter.Parsers;

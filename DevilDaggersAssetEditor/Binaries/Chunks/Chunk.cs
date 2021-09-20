@@ -1,4 +1,4 @@
-﻿using DevilDaggersCore.Mods;
+using DevilDaggersCore.Mods;
 using System.Collections.Generic;
 using System.IO;
 

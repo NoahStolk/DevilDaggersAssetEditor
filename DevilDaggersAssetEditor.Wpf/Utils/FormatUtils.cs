@@ -1,4 +1,4 @@
-﻿namespace DevilDaggersAssetEditor.Wpf.Utils
+namespace DevilDaggersAssetEditor.Wpf.Utils
 {
 	public static class FormatUtils
 	{
