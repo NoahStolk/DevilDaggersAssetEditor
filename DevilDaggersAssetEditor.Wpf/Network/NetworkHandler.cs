@@ -50,7 +50,7 @@ namespace DevilDaggersAssetEditor.Wpf.Network
 			try
 			{
 				Mods.Clear();
-				Mods.AddRange(await ApiClient.Mods_GetModsAsync(null, null, true));
+				Mods.AddRange(await ApiClient.Mods_GetModsForDdaeAsync(null, null, true));
 
 				return true;
 			}
@@ -65,7 +65,7 @@ namespace DevilDaggersAssetEditor.Wpf.Network
 		{
 			try
 			{
-				foreach (KeyValuePair<string, List<AssetInfo>> kvp in await ApiClient.Assets_GetAssetInfoAsync())
+				foreach (KeyValuePair<string, List<AssetInfo>> kvp in await ApiClient.Assets_GetAssetInfoForDdaeAsync())
 				{
 					List<AbstractAsset>? assets = (kvp.Key switch
 					{
