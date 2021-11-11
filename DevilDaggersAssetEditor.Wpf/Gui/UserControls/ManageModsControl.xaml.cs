@@ -255,6 +255,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			string directory = Path.GetDirectoryName(filePath)!;
 			string newFileName = isActiveFile ? $"_{fileName}" : fileName.TrimStart('_');
 			string newFilePath = Path.Combine(directory, newFileName);
+
+			if (File.Exists(newFilePath))
+			{
+				MessageWindow window = new("File already exists", $"File '{newFileName}' already exists in directory '{directory}'.");
+				window.ShowDialog();
+				return;
+			}
+
 			File.Move(filePath, newFilePath);
 
 			GetLocalFile(filePath)?.UpdateFilePathProperties(newFilePath);
@@ -389,7 +397,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			return "SuccessText";
 		}
 
-		private class LocalFile
+		private sealed class LocalFile
 		{
 			public LocalFile(string filePath)
 			{
@@ -428,7 +436,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
 			}
 		}
 
-		private class EffectiveChunk
+		private sealed class EffectiveChunk
 		{
 			public EffectiveChunk(string binaryName, AssetType assetType, string assetName, bool? isProhibited)
 			{
