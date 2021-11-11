@@ -1,4 +1,4 @@
-﻿<Window x:Class="DevilDaggersAssetEditor.Wpf.Gui.Windows.ConvertImageToGlslCodeWindow"
+<Window x:Class="DevilDaggersAssetEditor.Wpf.Gui.Windows.ConvertImageToGlslCodeWindow"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,6 +12,7 @@
 		</Grid.ColumnDefinitions>
 		<StackPanel>
 			<Button Click="BrowseButton_Click">Browse</Button>
+			<Button Click="CopyButton_Click">Copy</Button>
 		</StackPanel>
 		<TextBox Grid.Column="1" VerticalAlignment="Top" IsReadOnly="True" Name="GlslCode" Height="448" TextWrapping="Wrap" FontFamily="Consolas" />
 	</Grid>

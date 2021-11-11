@@ -25,6 +25,26 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			int arrayLength = ir.Colors.Length / 3;
 			GlslCode.Text = $"const int image_width = {ir.Width};\nconst int image_height = {ir.Height};\nconst int[{arrayLength}] image_colors = int[{arrayLength}]({ToColorArrayString(ir.Colors)});";
 
+			static ImageResult GetImageResult(string path)
+			{
+				using Bitmap image = new(Image.FromFile(path));
+				using MemoryStream ms = new();
+				using BinaryWriter bw = new(ms);
+				for (int x = 0; x < image.Width; x++)
+				{
+					for (int y = 0; y < image.Height; y++)
+					{
+						Color pixel = image.GetPixel(x, y);
+
+						bw.Write(pixel.R);
+						bw.Write(pixel.G);
+						bw.Write(pixel.B);
+					}
+				}
+
+				return new(image.Width, image.Height, ms.ToArray());
+			}
+
 			static string ToColorArrayString(byte[] colorBytes)
 			{
 				string[] colors = new string[colorBytes.Length / 3];
@@ -35,26 +55,14 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
 			}
 		}
 
-		private static ImageResult GetImageResult(string path)
+		private void CopyButton_Click(object sender, RoutedEventArgs e)
 		{
-			using Bitmap image = new(Image.FromFile(path));
-			using MemoryStream ms = new();
-			using BinaryWriter bw = new(ms);
-			for (int x = 0; x < image.Width; x++)
-			{
-				for (int y = 0; y < image.Height; y++)
-				{
-					Color pixel = image.GetPixel(x, y);
+			if (string.IsNullOrWhiteSpace(GlslCode.Text))
+				return;
 
-					bw.Write(pixel.R);
-					bw.Write(pixel.G);
-					bw.Write(pixel.B);
-				}
-			}
-
-			return new(image.Width, image.Height, ms.ToArray());
+			Clipboard.SetText(GlslCode.Text);
 		}
 
-		private record ImageResult(int Width, int Height, byte[] Colors);
+		private sealed record ImageResult(int Width, int Height, byte[] Colors);
 	}
 }
