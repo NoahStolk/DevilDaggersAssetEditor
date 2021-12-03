@@ -39,11 +39,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="irrKlang.NET4">
-      <HintPath>irrKlang.NET4.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Content\Images\AssetEditor\Sort.png" />
     <Resource Include="Content\Images\AudioPlayer\Pause.png" />
     <Resource Include="Content\Images\AudioPlayer\Play.png" />
