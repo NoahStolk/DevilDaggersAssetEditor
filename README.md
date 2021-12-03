@@ -18,7 +18,6 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 
 ## System requirements
 - Microsoft Windows (64-bit)
-- [.NET 5.0 Desktop Runtime (x64)](https://dotnet.microsoft.com/download/dotnet/5.0)
 
 ## Installation
 1. Download the zip file.
