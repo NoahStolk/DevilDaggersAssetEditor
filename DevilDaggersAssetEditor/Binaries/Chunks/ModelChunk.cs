@@ -98,7 +98,7 @@ public class ModelChunk : Chunk
 
 						string baseErrorMessage = $"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}:";
 
-						if (value.Contains("/"))
+						if (value.Contains('/'))
 						{
 							// f 1/2/3 4/5/6 7/8/9
 							string[] references = value.Split('/');
@@ -140,7 +140,7 @@ public class ModelChunk : Chunk
 							if (j > 3)
 								k -= 4;
 							string value = values[k + 1];
-							if (value.Contains("/"))
+							if (value.Contains('/'))
 							{
 								// f 1/2/3 4/5/6 7/8/9
 								string[] references = value.Split('/');
