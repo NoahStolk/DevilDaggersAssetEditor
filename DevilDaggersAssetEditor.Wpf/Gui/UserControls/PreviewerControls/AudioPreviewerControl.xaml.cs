@@ -43,12 +43,32 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 				Seek.Value = _audioFile.Position / length * Seek.Maximum;
 			}
 
-			SeekText.Content = $"{EditorUtils.ToTimeString((int)_audioFile.Position)} / {EditorUtils.ToTimeString((int)_audioFile.Length)}";
+			SeekText.Content = $"{GetCurrentSeconds(_audioFile)} / {GetTotalSeconds(_audioFile)}";
 		};
 		timer.Start();
 	}
 
 	public bool IsDragging { get; private set; }
+
+	private static string GetCurrentSeconds(AudioFileReader audioFileReader) => GetTime(audioFileReader, (afr) => afr.Position);
+
+	private static string GetTotalSeconds(AudioFileReader audioFileReader) => GetTime(audioFileReader, (afr) => afr.Length);
+
+	private static string GetTime(AudioFileReader audioFileReader, Func<AudioFileReader, long> selector)
+	{
+		double lengthInSeconds = selector(audioFileReader) / (double)audioFileReader.WaveFormat.AverageBytesPerSecond;
+		return ToTimeString((int)(lengthInSeconds * 1000));
+	}
+
+	private static string ToTimeString(int milliseconds)
+	{
+		TimeSpan timeSpan = new(0, 0, 0, 0, milliseconds);
+		if (timeSpan.Days > 0)
+			return $"{timeSpan:dd\\:hh\\:mm\\:ss\\.fff}";
+		if (timeSpan.Hours > 0)
+			return $"{timeSpan:hh\\:mm\\:ss\\.fff}";
+		return $"{timeSpan:mm\\:ss\\.fff}";
+	}
 
 	protected virtual void Dispose(bool disposing)
 	{
@@ -134,8 +154,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		Seek.Maximum = _audioFile.Length;
 		Seek.Value = 0;
 
-		SeekText.Content = $"{EditorUtils.ToTimeString((int)_audioFile.Position)} / {EditorUtils.ToTimeString((int)_audioFile.Length)}";
-		PitchText.Content = $"x {_pitch.PitchFactor:0.00}";
+		SeekText.Content = $"{GetCurrentSeconds(_audioFile)} / {GetTotalSeconds(_audioFile)}";
+		PitchText.Content = $"x {_pitch?.PitchFactor:0.00}";
 	}
 
 	private void SongSet(string filePath, float pitch, bool startPaused)
