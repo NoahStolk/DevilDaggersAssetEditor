@@ -7,6 +7,7 @@ using DevilDaggersCore.Wpf.Windows;
 using HTMLConverter;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -102,16 +103,13 @@ public partial class ModPreviewControl : UserControl
 		ModArchive? archive = NetworkHandler.Instance.Mods.Find(m => m.Name == _selectedMod?.Name)?.ModArchive;
 		if (archive != null)
 		{
-			foreach (ModBinary binary in archive.Binaries)
+			foreach (ModBinary binary in archive.Binaries.Where(b => File.Exists(Path.Combine(modsDirectory, b.Name))))
 			{
-				if (File.Exists(Path.Combine(modsDirectory, binary.Name)))
-				{
-					ConfirmWindow window = new("File already exists", $"The mod '{_selectedMod.Name}' contains a binary called '{binary.Name}'. A file with the same name already exists in the mods directory. Are you sure you want to overwrite it by downloading the '{_selectedMod.Name}' mod?", false);
-					window.ShowDialog();
+				ConfirmWindow window = new("File already exists", $"The mod '{_selectedMod.Name}' contains a binary called '{binary.Name}'. A file with the same name already exists in the mods directory. Are you sure you want to overwrite it by downloading the '{_selectedMod.Name}' mod?", false);
+				window.ShowDialog();
 
-					if (window.IsConfirmed != true)
-						return;
-				}
+				if (window.IsConfirmed != true)
+					return;
 			}
 		}
 

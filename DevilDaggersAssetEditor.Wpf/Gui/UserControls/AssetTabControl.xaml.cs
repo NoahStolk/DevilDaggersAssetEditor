@@ -315,7 +315,7 @@ public partial class AssetTabControl : UserControl
 		}
 	}
 
-	private class AssetRowSorting
+	private sealed class AssetRowSorting
 	{
 		public AssetRowSorting(Func<AssetRowControl, object> sortingFunction)
 		{

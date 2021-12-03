@@ -343,7 +343,7 @@ public partial class DownloadModsControl : UserControl
 
 	#region Classes
 
-	private class ModSorting
+	private sealed class ModSorting
 	{
 		public ModSorting(int index, string fullName, string displayName, bool ascending, params Func<Mod, object?>[] sortingFunctions)
 		{
@@ -364,7 +364,7 @@ public partial class DownloadModsControl : UserControl
 		public bool Ascending { get; set; }
 	}
 
-	private class ModGrid
+	private sealed class ModGrid
 	{
 		public ModGrid(Grid grid, List<TextBlock> textBlocks)
 		{

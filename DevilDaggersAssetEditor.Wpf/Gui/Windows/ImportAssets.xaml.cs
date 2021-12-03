@@ -3,6 +3,7 @@ using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows;
@@ -35,11 +36,8 @@ public partial class ImportAssetsWindow : Window
 
 	private void ImportAssetsButton_Click(object sender, RoutedEventArgs e)
 	{
-		foreach (ImportDirectoryControl control in _controls)
-		{
-			if (control.CheckBoxEnable.IsChecked())
-				control.AssetTabControl.ImportFolder(control.Directory, control.AssetType, control.CheckBoxAllDirectories.IsChecked() ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
-		}
+		foreach (ImportDirectoryControl control in _controls.Where(idc => idc.CheckBoxEnable.IsChecked()))
+			control.AssetTabControl.ImportFolder(control.Directory, control.AssetType, control.CheckBoxAllDirectories.IsChecked() ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
 
 		Close();
 	}

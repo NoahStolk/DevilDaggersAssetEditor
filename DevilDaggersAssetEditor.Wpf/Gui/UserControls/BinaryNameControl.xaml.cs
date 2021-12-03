@@ -19,7 +19,7 @@ public partial class BinaryNameControl : UserControl
 {
 	private readonly MakeBinariesWindow? _parent;
 
-	private string _binaryName = string.Empty;
+	private string _binaryName;
 	private readonly bool _supportsPartialMods;
 
 	public BinaryNameControl(MakeBinariesWindow? parent, BinaryType binaryType, AssetType assetTypeForColor, bool checkBoxIsChecked, string binaryName, bool supportsPartialMods)
