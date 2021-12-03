@@ -11,116 +11,115 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace DevilDaggersAssetEditor.Wpf.ModFiles
+namespace DevilDaggersAssetEditor.Wpf.ModFiles;
+
+public sealed class ModFileHandler
 {
-	public sealed class ModFileHandler
+	private bool _hasUnsavedChanges;
+
+	private static readonly Lazy<ModFileHandler> _lazy = new(() => new());
+
+	private ModFileHandler()
 	{
-		private bool _hasUnsavedChanges;
+	}
 
-		private static readonly Lazy<ModFileHandler> _lazy = new(() => new());
+	public static ModFileHandler Instance => _lazy.Value;
 
-		private ModFileHandler()
+	public List<UserAsset> ModFile { get; set; } = new();
+
+	public bool HasUnsavedChanges
+	{
+		get => _hasUnsavedChanges;
+		set
 		{
-		}
-
-		public static ModFileHandler Instance => _lazy.Value;
-
-		public List<UserAsset> ModFile { get; set; } = new();
-
-		public bool HasUnsavedChanges
-		{
-			get => _hasUnsavedChanges;
-			set
-			{
-				_hasUnsavedChanges = value;
-				App.Instance.UpdateMainWindowTitle();
-			}
-		}
-
-		public string ModFileName { get; private set; } = "(new mod)";
-		public string ModFileLocation { get; private set; } = string.Empty;
-
-		public void UpdateModFileState(string fileLocation)
-		{
-			UserHandler.Instance.Cache.OpenedModFilePath = fileLocation;
-
-			HasUnsavedChanges = false;
-
-			ModFileName = fileLocation.Length == 0 ? "(new mod)" : Path.GetFileNameWithoutExtension(fileLocation);
-			ModFileLocation = fileLocation;
-
+			_hasUnsavedChanges = value;
 			App.Instance.UpdateMainWindowTitle();
 		}
+	}
 
-		/// <summary>
-		/// Asks the user to save the file before proceeding.
-		/// </summary>
-		/// <returns><see langword="true"/> if the following action should be cancelled.</returns>
-		public bool ProceedWithUnsavedChanges()
-		{
-			if (!HasUnsavedChanges)
-				return false;
+	public string ModFileName { get; private set; } = "(new mod)";
+	public string ModFileLocation { get; private set; } = string.Empty;
 
-			ConfirmWindow confirmWindow = new("Save changes?", "The current mod has unsaved changes. Save before proceeding?", false);
-			confirmWindow.ShowDialog();
+	public void UpdateModFileState(string fileLocation)
+	{
+		UserHandler.Instance.Cache.OpenedModFilePath = fileLocation;
 
-			if (confirmWindow.IsConfirmed == true)
-				FileSave();
+		HasUnsavedChanges = false;
 
-			return confirmWindow.IsConfirmed == null;
-		}
+		ModFileName = fileLocation.Length == 0 ? "(new mod)" : Path.GetFileNameWithoutExtension(fileLocation);
+		ModFileLocation = fileLocation;
 
-		public void FileOpen(string path)
-		{
-			List<UserAsset>? modFile = JsonFileUtils.TryDeserializeFromFile<List<UserAsset>>(path, true);
-			if (modFile == null)
-				return;
+		App.Instance.UpdateMainWindowTitle();
+	}
 
-			UpdateModFileState(path);
-			App.Instance.UpdateMainWindowTitle();
+	/// <summary>
+	/// Asks the user to save the file before proceeding.
+	/// </summary>
+	/// <returns><see langword="true"/> if the following action should be cancelled.</returns>
+	public bool ProceedWithUnsavedChanges()
+	{
+		if (!HasUnsavedChanges)
+			return false;
 
-			ModFile = modFile;
-		}
+		ConfirmWindow confirmWindow = new("Save changes?", "The current mod has unsaved changes. Save before proceeding?", false);
+		confirmWindow.ShowDialog();
 
-		public void FileSave()
-		{
-			if (File.Exists(ModFileLocation))
-			{
-				SaveAssets();
+		if (confirmWindow.IsConfirmed == true)
+			FileSave();
 
-				JsonFileUtils.SerializeToFile(ModFileLocation, ModFile, true);
-				HasUnsavedChanges = false;
-			}
-			else
-			{
-				FileSaveAs();
-			}
-		}
+		return confirmWindow.IsConfirmed == null;
+	}
 
-		public void FileSaveAs()
+	public void FileOpen(string path)
+	{
+		List<UserAsset>? modFile = JsonFileUtils.TryDeserializeFromFile<List<UserAsset>>(path, true);
+		if (modFile == null)
+			return;
+
+		UpdateModFileState(path);
+		App.Instance.UpdateMainWindowTitle();
+
+		ModFile = modFile;
+	}
+
+	public void FileSave()
+	{
+		if (File.Exists(ModFileLocation))
 		{
 			SaveAssets();
 
-			SaveFileDialog dialog = new() { Filter = GuiUtils.ModFileFilter };
-			dialog.OpenModsRootFolder();
-
-			bool? result = dialog.ShowDialog();
-			if (result == true)
-			{
-				ModFileLocation = dialog.FileName;
-
-				JsonFileUtils.SerializeToFile(ModFileLocation, ModFile, true);
-				UpdateModFileState(dialog.FileName);
-			}
+			JsonFileUtils.SerializeToFile(ModFileLocation, ModFile, true);
+			HasUnsavedChanges = false;
 		}
-
-		private void SaveAssets()
+		else
 		{
-			List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
-
-			ModFile.Clear();
-			foreach (AbstractAsset asset in assets)
-				ModFile.Add(asset.ToUserAsset());
+			FileSaveAs();
 		}
+	}
+
+	public void FileSaveAs()
+	{
+		SaveAssets();
+
+		SaveFileDialog dialog = new() { Filter = GuiUtils.ModFileFilter };
+		dialog.OpenModsRootFolder();
+
+		bool? result = dialog.ShowDialog();
+		if (result == true)
+		{
+			ModFileLocation = dialog.FileName;
+
+			JsonFileUtils.SerializeToFile(ModFileLocation, ModFile, true);
+			UpdateModFileState(dialog.FileName);
+		}
+	}
+
+	private void SaveAssets()
+	{
+		List<AbstractAsset> assets = App.Instance.MainWindow!.AssetTabControls.SelectMany(atc => atc.GetAssets()).ToList();
+
+		ModFile.Clear();
+		foreach (AbstractAsset asset in assets)
+			ModFile.Add(asset.ToUserAsset());
 	}
 }

@@ -2,21 +2,20 @@ using DevilDaggersCore.Utils;
 using System.Windows;
 using System.Windows.Navigation;
 
-namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows;
+
+public partial class AboutWindow : Window
 {
-	public partial class AboutWindow : Window
+	public AboutWindow()
 	{
-		public AboutWindow()
-		{
-			InitializeComponent();
+		InitializeComponent();
 
-			VersionLabel.Text = $"Version {App.LocalVersion}";
-		}
+		VersionLabel.Text = $"Version {App.LocalVersion}";
+	}
 
-		private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-		{
-			ProcessUtils.OpenUrl(e.Uri.AbsoluteUri);
-			e.Handled = true;
-		}
+	private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+	{
+		ProcessUtils.OpenUrl(e.Uri.AbsoluteUri);
+		e.Handled = true;
 	}
 }

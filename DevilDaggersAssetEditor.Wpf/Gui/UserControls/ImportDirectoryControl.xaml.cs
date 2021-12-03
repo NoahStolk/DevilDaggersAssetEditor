@@ -7,73 +7,72 @@ using Ookii.Dialogs.Wpf;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls;
+
+public partial class ImportDirectoryControl : UserControl
 {
-	public partial class ImportDirectoryControl : UserControl
+	private string _directory = UserHandler.Instance.Settings.AssetsRootFolder;
+
+	public ImportDirectoryControl(string header, AssetType assetType, AssetTabControl assetTabControl)
 	{
-		private string _directory = UserHandler.Instance.Settings.AssetsRootFolder;
+		InitializeComponent();
+		UpdateGui();
 
-		public ImportDirectoryControl(string header, AssetType assetType, AssetTabControl assetTabControl)
+		AssetType = assetType;
+		AssetTabControl = assetTabControl;
+
+		Header.Content = header;
+	}
+
+	public string Directory => _directory;
+
+	public AssetType AssetType { get; }
+	public AssetTabControl AssetTabControl { get; }
+
+	private void BrowseButton_Click(object sender, RoutedEventArgs e)
+		=> SetPath(ref _directory);
+
+	private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		=> _directory = TextBox.Text;
+
+	private void UpdateGui()
+		=> TextBox.Text = _directory;
+
+	private void SetPath(ref string path)
+	{
+		if (TrySetPath(out string selectedPath))
 		{
-			InitializeComponent();
+			path = selectedPath;
 			UpdateGui();
-
-			AssetType = assetType;
-			AssetTabControl = assetTabControl;
-
-			Header.Content = header;
 		}
+	}
 
-		public string Directory => _directory;
+	private static bool TrySetPath(out string selectedPath)
+	{
+		VistaFolderBrowserDialog dialog = new();
+		dialog.OpenAssetsRootFolder();
 
-		public AssetType AssetType { get; }
-		public AssetTabControl AssetTabControl { get; }
-
-		private void BrowseButton_Click(object sender, RoutedEventArgs e)
-			=> SetPath(ref _directory);
-
-		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-			=> _directory = TextBox.Text;
-
-		private void UpdateGui()
-			=> TextBox.Text = _directory;
-
-		private void SetPath(ref string path)
+		if (dialog.ShowDialog() != true)
 		{
-			if (TrySetPath(out string selectedPath))
-			{
-				path = selectedPath;
-				UpdateGui();
-			}
+			selectedPath = string.Empty;
+			return false;
 		}
 
-		private static bool TrySetPath(out string selectedPath)
-		{
-			VistaFolderBrowserDialog dialog = new();
-			dialog.OpenAssetsRootFolder();
+		selectedPath = dialog.SelectedPath;
+		return true;
+	}
 
-			if (dialog.ShowDialog() != true)
-			{
-				selectedPath = string.Empty;
-				return false;
-			}
+	private void CheckBoxEnable_Changed(object sender, RoutedEventArgs e)
+	{
+		bool isChecked = CheckBoxEnable.IsChecked();
 
-			selectedPath = dialog.SelectedPath;
-			return true;
-		}
+		if (TextBox != null)
+			TextBox.IsEnabled = isChecked;
+		if (ButtonBrowse != null)
+			ButtonBrowse.IsEnabled = isChecked;
+		if (CheckBoxAllDirectories != null)
+			CheckBoxAllDirectories.IsEnabled = isChecked;
 
-		private void CheckBoxEnable_Changed(object sender, RoutedEventArgs e)
-		{
-			bool isChecked = CheckBoxEnable.IsChecked();
-
-			if (TextBox != null)
-				TextBox.IsEnabled = isChecked;
-			if (ButtonBrowse != null)
-				ButtonBrowse.IsEnabled = isChecked;
-			if (CheckBoxAllDirectories != null)
-				CheckBoxAllDirectories.IsEnabled = isChecked;
-
-			Main.Background = ColorUtils.ThemeColors[isChecked ? "Gray3" : "Gray2"];
-		}
+		Main.Background = ColorUtils.ThemeColors[isChecked ? "Gray3" : "Gray2"];
 	}
 }

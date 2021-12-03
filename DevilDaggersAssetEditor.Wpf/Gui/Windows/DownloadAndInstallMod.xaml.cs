@@ -8,52 +8,51 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DevilDaggersAssetEditor.Wpf.Gui.Windows
+namespace DevilDaggersAssetEditor.Wpf.Gui.Windows;
+
+public partial class DownloadAndInstallModWindow : Window
 {
-	public partial class DownloadAndInstallModWindow : Window
+	private readonly CancellationTokenSource _cancellationTokenSource = new();
+
+	public DownloadAndInstallModWindow()
 	{
-		private readonly CancellationTokenSource _cancellationTokenSource = new();
+		InitializeComponent();
+	}
 
-		public DownloadAndInstallModWindow()
-		{
-			InitializeComponent();
-		}
+	public async Task DownloadAndInstall(string modsDirectory, string modName)
+	{
+		TextBlockModName.Text = $"Downloading and installing '{modName}'...";
 
-		public async Task DownloadAndInstall(string modsDirectory, string modName)
-		{
-			TextBlockModName.Text = $"Downloading and installing '{modName}'...";
-
-			ProgressWrapper progress = new(
+		ProgressWrapper progress = new(
 			new(value => App.Instance.Dispatcher.Invoke(() => ProgressDescription.Text = value)),
 			new(value => App.Instance.Dispatcher.Invoke(() => ProgressBar.Value = value)));
 
-			progress.Report("Downloading.", 0);
+		progress.Report("Downloading.", 0);
 
-			using WebClient wc = new();
-			byte[]? downloadedModContents = await wc.DownloadByteArrayAsync($"https://devildaggers.info/api/mods/{Uri.EscapeDataString(modName)}/file", progress, _cancellationTokenSource);
-			if (downloadedModContents == null)
-			{
-				App.Instance.Dispatcher.Invoke(() => progress.Report("Download failed.", 0));
-				return;
-			}
-
-			App.Instance.Dispatcher.Invoke(() => progress.Report("Installing.", 1));
-			using MemoryStream ms = new(downloadedModContents);
-			using ZipArchive zipArchive = new(ms);
-			zipArchive.ExtractToDirectory(modsDirectory, true);
-			App.Instance.Dispatcher.Invoke(() => progress.Report("Installation complete.", 1));
-
-			ButtonOk.IsEnabled = true;
-		}
-
-		private void ButtonOk_Click(object sender, RoutedEventArgs e)
+		using WebClient wc = new();
+		byte[]? downloadedModContents = await wc.DownloadByteArrayAsync($"https://devildaggers.info/api/mods/{Uri.EscapeDataString(modName)}/file", progress, _cancellationTokenSource);
+		if (downloadedModContents == null)
 		{
-			Close();
+			App.Instance.Dispatcher.Invoke(() => progress.Report("Download failed.", 0));
+			return;
 		}
 
-		private void Window_Closed(object sender, EventArgs e)
-		{
-			_cancellationTokenSource.Cancel();
-		}
+		App.Instance.Dispatcher.Invoke(() => progress.Report("Installing.", 1));
+		using MemoryStream ms = new(downloadedModContents);
+		using ZipArchive zipArchive = new(ms);
+		zipArchive.ExtractToDirectory(modsDirectory, true);
+		App.Instance.Dispatcher.Invoke(() => progress.Report("Installation complete.", 1));
+
+		ButtonOk.IsEnabled = true;
+	}
+
+	private void ButtonOk_Click(object sender, RoutedEventArgs e)
+	{
+		Close();
+	}
+
+	private void Window_Closed(object sender, EventArgs e)
+	{
+		_cancellationTokenSource.Cancel();
 	}
 }

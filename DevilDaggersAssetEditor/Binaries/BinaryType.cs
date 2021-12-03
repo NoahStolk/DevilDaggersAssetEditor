@@ -1,9 +1,8 @@
-namespace DevilDaggersAssetEditor.Binaries
+namespace DevilDaggersAssetEditor.Binaries;
+
+public enum BinaryType
 {
-	public enum BinaryType
-	{
-		Audio,
-		Dd,
-		Core,
-	}
+	Audio,
+	Dd,
+	Core,
 }

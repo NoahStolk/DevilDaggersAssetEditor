@@ -3,27 +3,26 @@ using DevilDaggersAssetEditor.Utils;
 using System.IO;
 using System.Windows.Controls;
 
-namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls
+namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
+
+public partial class ModelBindingPreviewerControl : UserControl, IPreviewerControl
 {
-	public partial class ModelBindingPreviewerControl : UserControl, IPreviewerControl
+	public ModelBindingPreviewerControl()
 	{
-		public ModelBindingPreviewerControl()
-		{
-			InitializeComponent();
-		}
+		InitializeComponent();
+	}
 
-		public void Initialize(AbstractAsset asset)
-		{
-			ModelBindingName.Text = asset.AssetName;
+	public void Initialize(AbstractAsset asset)
+	{
+		ModelBindingName.Text = asset.AssetName;
 
-			bool isPathValid = File.Exists(asset.EditorPath);
+		bool isPathValid = File.Exists(asset.EditorPath);
 
-			FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
+		FileName.Text = isPathValid ? Path.GetFileName(asset.EditorPath) : GuiUtils.FileNotFound;
 
-			if (isPathValid)
-				PreviewTextBox.Text = File.ReadAllText(asset.EditorPath);
-			else
-				PreviewTextBox.Text = string.Empty;
-		}
+		if (isPathValid)
+			PreviewTextBox.Text = File.ReadAllText(asset.EditorPath);
+		else
+			PreviewTextBox.Text = string.Empty;
 	}
 }
