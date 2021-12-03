@@ -3,7 +3,7 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
-using IrrKlang;
+using NAudio.Wave;
 using System;
 using System.IO;
 using System.Windows;
@@ -15,7 +15,8 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 
 public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 {
-	private readonly ISoundEngine _engine = new();
+	private readonly WaveOutEvent _outputDevice = new();
+	private AudioFileReader? _audioFile;
 
 	public AudioPreviewerControl()
 	{
@@ -29,31 +30,31 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		DispatcherTimer timer = new() { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 		timer.Tick += (sender, e) =>
 		{
-			if (Song?.Paused != false)
+			if (_outputDevice.PlaybackState != PlaybackState.Playing || _audioFile == null)
 				return;
 
 			if (!IsDragging)
 			{
-				float length = Song.PlayLength;
+				float length = _audioFile.Length;
 				if (length == 0)
 					length = 1;
-				Seek.Value = Song.PlayPosition / length * Seek.Maximum;
+				Seek.Value = _audioFile.Position / length * Seek.Maximum;
 			}
 
-			SeekText.Content = $"{EditorUtils.ToTimeString((int)Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Song.PlayLength)}";
+			SeekText.Content = $"{EditorUtils.ToTimeString((int)_audioFile.Position)} / {EditorUtils.ToTimeString((int)_audioFile.Length)}";
 		};
 		timer.Start();
 	}
-
-	public ISound? Song { get; private set; }
-	public ISoundSource? SongData { get; private set; }
 
 	public bool IsDragging { get; private set; }
 
 	protected virtual void Dispose(bool disposing)
 	{
 		if (disposing)
-			_engine.Dispose();
+		{
+			_outputDevice.Dispose();
+			_audioFile?.Dispose();
+		}
 	}
 
 	public void Dispose()
@@ -64,11 +65,13 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 	private void Toggle_Click(object sender, RoutedEventArgs e)
 	{
-		if (Song != null)
-		{
-			Song.Paused = !Song.Paused;
-			ToggleImage.Source = ((Image)Resources[Song.Paused ? "PlayImage" : "PauseImage"]).Source;
-		}
+		bool wasPlaying = _outputDevice.PlaybackState == PlaybackState.Playing;
+		if (wasPlaying)
+			_outputDevice.Pause();
+		else
+			_outputDevice.Play();
+
+		ToggleImage.Source = ((Image)Resources[wasPlaying ? "PlayImage" : "PauseImage"]).Source;
 	}
 
 	private void Pitch_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -80,8 +83,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 		PitchText.Content = $"x {pitch:0.00}";
 
-		if (Song != null)
-			Song.PlaybackSpeed = pitch;
+		//if (Song != null)
+		//	Song.PlaybackSpeed = pitch;
 	}
 
 	private void ResetPitch_Click(object sender, RoutedEventArgs e)
@@ -89,8 +92,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		PitchText.Content = "x 1.00";
 		Pitch.Value = 1;
 
-		if (Song != null)
-			Song.PlaybackSpeed = 1;
+		//if (Song != null)
+		//	Song.PlaybackSpeed = 1;
 	}
 
 	private void Seek_DragStarted(object sender, DragStartedEventArgs e)
@@ -102,8 +105,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 	{
 		IsDragging = false;
 
-		if (Song != null)
-			Song.PlayPosition = (uint)Seek.Value;
+		if (_audioFile != null)
+			_audioFile.Position = (long)Seek.Value;
 	}
 
 	public void Initialize(AbstractAsset asset)
@@ -121,30 +124,31 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 		SongSet(audioAsset.EditorPath, (float)Pitch.Value, startPaused);
 
-		if (Song == null)
+		if (_audioFile == null)
 			return;
 
 		ToggleImage.Source = ((Image)Resources[startPaused ? "PlayImage" : "PauseImage"]).Source;
 
-		Seek.Maximum = Song.PlayLength;
+		Seek.Maximum = _audioFile.Length;
 		Seek.Value = 0;
 
-		SeekText.Content = $"{EditorUtils.ToTimeString((int)Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Song.PlayLength)}";
-		PitchText.Content = $"x {Song.PlaybackSpeed:0.00}";
+		SeekText.Content = $"{EditorUtils.ToTimeString((int)_audioFile.Position)} / {EditorUtils.ToTimeString((int)_audioFile.Length)}";
+		//PitchText.Content = $"x {Song.PlaybackSpeed:0.00}";
 	}
 
 	private void SongSet(string filePath, float pitch, bool startPaused)
 	{
-		Song?.Stop();
+		_outputDevice.Stop();
 
-		SongData = _engine.GetSoundSource(filePath);
-		Song = _engine.Play2D(SongData, true, startPaused, true);
+		if (!File.Exists(filePath))
+			return;
 
-		if (Song != null)
-		{
-			Song.PlaybackSpeed = pitch;
-			Song.PlayPosition = 0;
-		}
+		_audioFile = new AudioFileReader(filePath);
+		_outputDevice.Init(_audioFile);
+
+		// TODO: Set pitch.
+		if (!startPaused)
+			_outputDevice.Play();
 	}
 
 	private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
