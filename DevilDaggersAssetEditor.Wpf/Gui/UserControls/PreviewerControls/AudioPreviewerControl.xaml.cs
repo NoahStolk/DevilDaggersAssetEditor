@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 using System;
 using System.IO;
 using System.Windows;
@@ -16,6 +17,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 {
 	private readonly WaveOutEvent _outputDevice = new();
+	private SmbPitchShiftingSampleProvider? _pitch;
 	private AudioFileReader? _audioFile;
 
 	public AudioPreviewerControl()
@@ -83,8 +85,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 		PitchText.Content = $"x {pitch:0.00}";
 
-		//if (Song != null)
-		//	Song.PlaybackSpeed = pitch;
+		if (_pitch != null)
+			_pitch.PitchFactor = pitch;
 	}
 
 	private void ResetPitch_Click(object sender, RoutedEventArgs e)
@@ -92,8 +94,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		PitchText.Content = "x 1.00";
 		Pitch.Value = 1;
 
-		//if (Song != null)
-		//	Song.PlaybackSpeed = 1;
+		if (_pitch != null)
+			_pitch.PitchFactor = 1;
 	}
 
 	private void Seek_DragStarted(object sender, DragStartedEventArgs e)
@@ -133,7 +135,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		Seek.Value = 0;
 
 		SeekText.Content = $"{EditorUtils.ToTimeString((int)_audioFile.Position)} / {EditorUtils.ToTimeString((int)_audioFile.Length)}";
-		//PitchText.Content = $"x {Song.PlaybackSpeed:0.00}";
+		PitchText.Content = $"x {_pitch.PitchFactor:0.00}";
 	}
 
 	private void SongSet(string filePath, float pitch, bool startPaused)
@@ -144,9 +146,12 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 			return;
 
 		_audioFile = new AudioFileReader(filePath);
-		_outputDevice.Init(_audioFile);
+		_pitch = new SmbPitchShiftingSampleProvider(_audioFile.ToSampleProvider())
+		{
+			PitchFactor = pitch,
+		};
+		_outputDevice.Init(_pitch);
 
-		// TODO: Set pitch.
 		if (!startPaused)
 			_outputDevice.Play();
 	}
