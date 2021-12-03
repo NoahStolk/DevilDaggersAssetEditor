@@ -1,7 +1,7 @@
 using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersAssetEditor.Wpf.Utils;
+using DevilDaggersAssetEditor.Wpf.Audio;
 using DevilDaggersCore.Wpf.Extensions;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
@@ -19,6 +19,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 	private readonly WaveOutEvent _outputDevice = new();
 	private SmbPitchShiftingSampleProvider? _pitch;
 	private AudioFileReader? _audioFile;
+	private AudioStream? _audioStream;
 
 	public AudioPreviewerControl()
 	{
@@ -166,7 +167,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 			return;
 
 		_audioFile = new AudioFileReader(filePath);
-		_pitch = new SmbPitchShiftingSampleProvider(_audioFile.ToSampleProvider())
+		_audioStream = new AudioStream(_audioFile);
+		_pitch = new SmbPitchShiftingSampleProvider(_audioStream.ToSampleProvider())
 		{
 			PitchFactor = pitch,
 		};
