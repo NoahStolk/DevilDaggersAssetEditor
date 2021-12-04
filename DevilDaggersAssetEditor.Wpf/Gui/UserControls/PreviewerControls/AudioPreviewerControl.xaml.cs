@@ -1,6 +1,7 @@
 using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
+using DevilDaggersAssetEditor.Wpf.Audio;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
@@ -14,8 +15,12 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 
 public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 {
+	private SoundObject? _soundObject;
+
 	public AudioPreviewerControl()
 	{
+		AudioEngine.Initialize();
+
 		InitializeComponent();
 
 		Autoplay.IsChecked = UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled;
@@ -46,11 +51,11 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 
 	private void Toggle_Click(object sender, RoutedEventArgs e)
 	{
-		//if (Song != null)
-		//{
-		//	Song.Paused = !Song.Paused;
-		//	ToggleImage.Source = ((Image)Resources[Song.Paused ? "PlayImage" : "PauseImage"]).Source;
-		//}
+		if (_soundObject == null)
+			return;
+
+		_soundObject.Toggle();
+		ToggleImage.Source = ((Image)Resources[_soundObject.State == OpenAlBindings.Enums.SourceState.Paused ? "PlayImage" : "PauseImage"]).Source;
 	}
 
 	private void Pitch_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -62,8 +67,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 
 		PitchText.Content = $"x {pitch:0.00}";
 
-		//if (Song != null)
-		//	Song.PlaybackSpeed = pitch;
+		if (_soundObject != null)
+			_soundObject.Pitch = pitch;
 	}
 
 	private void ResetPitch_Click(object sender, RoutedEventArgs e)
@@ -71,8 +76,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 		PitchText.Content = "x 1.00";
 		Pitch.Value = 1;
 
-		//if (Song != null)
-		//	Song.PlaybackSpeed = 1;
+		if (_soundObject != null)
+			_soundObject.Pitch = 1;
 	}
 
 	private void Seek_DragStarted(object sender, DragStartedEventArgs e)
@@ -117,16 +122,14 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 
 	private void SongSet(string filePath, float pitch, bool startPaused)
 	{
-		//Song?.Stop();
+		_soundObject?.Delete();
 
-		//SongData = _engine.GetSoundSource(filePath);
-		//Song = _engine.Play2D(SongData, true, startPaused, true);
+		_soundObject = new(new Sound(filePath));
+		_soundObject.Looping = true;
+		_soundObject.Pitch = pitch;
 
-		//if (Song != null)
-		//{
-		//	Song.PlaybackSpeed = pitch;
-		//	Song.PlayPosition = 0;
-		//}
+		if (!startPaused)
+			_soundObject.Play();
 	}
 
 	private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
