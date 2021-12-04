@@ -31,18 +31,18 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 		DispatcherTimer timer = new() { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 		timer.Tick += (sender, e) =>
 		{
-			//if (Song?.Paused != false)
-			//	return;
+			if (_soundObject == null || _soundObject.State == OpenAlBindings.Enums.SourceState.Paused)
+				return;
 
-			//if (!IsDragging)
-			//{
-			//	float length = Song.PlayLength;
-			//	if (length == 0)
-			//		length = 1;
-			//	Seek.Value = Song.PlayPosition / length * Seek.Maximum;
-			//}
+			if (!IsDragging)
+			{
+				float length = GetSoundLength();
+				if (length == 0)
+					length = 1;
+				Seek.Value = GetSoundPosition() / length * Seek.Maximum;
+			}
 
-			//SeekText.Content = $"{EditorUtils.ToTimeString((int)Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Song.PlayLength)}";
+			SetSeekText();
 		};
 		timer.Start();
 	}
@@ -108,21 +108,32 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 
 		SongSet(audioAsset.EditorPath, (float)Pitch.Value, startPaused);
 
-		//if (Song == null)
-		//	return;
+		if (_soundObject == null)
+			return;
 
-		//ToggleImage.Source = ((Image)Resources[startPaused ? "PlayImage" : "PauseImage"]).Source;
+		ToggleImage.Source = ((Image)Resources[startPaused ? "PlayImage" : "PauseImage"]).Source;
 
-		//Seek.Maximum = Song.PlayLength;
-		//Seek.Value = 0;
+		Seek.Maximum = GetSoundLength();
+		Seek.Value = 0;
 
-		//SeekText.Content = $"{EditorUtils.ToTimeString((int)Song.PlayPosition)} / {EditorUtils.ToTimeString((int)Song.PlayLength)}";
-		//PitchText.Content = $"x {Song.PlaybackSpeed:0.00}";
+		SetSeekText();
+		PitchText.Content = $"x {_soundObject.Pitch:0.00}";
 	}
+
+	// TODO
+	private int GetSoundPosition() => 0;
+
+	// TODO
+	private int GetSoundLength() => _soundObject?.Sound.Size ?? 0;
+
+	private void SetSeekText() => SeekText.Content = $"{EditorUtils.ToTimeString(GetSoundPosition())} / {EditorUtils.ToTimeString(GetSoundLength())}";
 
 	private void SongSet(string filePath, float pitch, bool startPaused)
 	{
 		_soundObject?.Delete();
+
+		if (!File.Exists(filePath))
+			return;
 
 		_soundObject = new(new Sound(filePath));
 		_soundObject.Looping = true;
