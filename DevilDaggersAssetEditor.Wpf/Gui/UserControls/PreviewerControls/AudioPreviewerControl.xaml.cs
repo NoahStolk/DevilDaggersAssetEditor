@@ -17,6 +17,7 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 {
 	private readonly WaveOutEvent _outputDevice = new();
+	private bool _isInitialized;
 	private SmbPitchShiftingSampleProvider? _pitch;
 	private AudioFileReader? _audioFile;
 	private AudioStream? _audioStream;
@@ -88,6 +89,9 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 	private void Toggle_Click(object sender, RoutedEventArgs e)
 	{
+		if (!_isInitialized)
+			return;
+
 		bool wasPlaying = _outputDevice.PlaybackState == PlaybackState.Playing;
 		if (wasPlaying)
 			_outputDevice.Pause();
@@ -173,6 +177,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 			PitchFactor = pitch,
 		};
 		_outputDevice.Init(_pitch);
+		_isInitialized = true;
 
 		if (!startPaused)
 			_outputDevice.Play();
