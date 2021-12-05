@@ -2,9 +2,9 @@ using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Audio;
-using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Windows;
+using OpenAlBindings.Enums;
 using System;
 using System.IO;
 using System.Windows;
@@ -32,12 +32,12 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 		DispatcherTimer timer = new() { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 		timer.Tick += (sender, e) =>
 		{
-			if (_soundObject == null || _soundObject.State == OpenAlBindings.Enums.SourceState.Paused)
+			if (_soundObject == null || _soundObject.State == SourceState.Paused)
 				return;
 
 			if (!IsDragging)
 			{
-				float length = GetSoundLength();
+				double length = GetSoundLength();
 				if (length == 0)
 					length = 1;
 				Seek.Value = GetSoundPosition() / length * Seek.Maximum;
@@ -56,7 +56,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 			return;
 
 		_soundObject.Toggle();
-		ToggleImage.Source = ((Image)Resources[_soundObject.State == OpenAlBindings.Enums.SourceState.Paused ? "PlayImage" : "PauseImage"]).Source;
+		ToggleImage.Source = ((Image)Resources[_soundObject.State == SourceState.Paused ? "PlayImage" : "PauseImage"]).Source;
 	}
 
 	private void Pitch_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -124,8 +124,15 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	// TODO
 	private int GetSoundPosition() => 0;
 
-	// TODO
-	private int GetSoundLength() => _soundObject?.Sound.Size ?? 0;
+	private double GetSoundLength()
+	{
+		if (_soundObject == null)
+			return 0;
+
+		Sound sound = _soundObject.Sound;
+		int sampleCount = sound.Size / (sound.BitsPerSample / 8) / sound.Channels;
+		return sampleCount / (double)sound.SampleRate;
+	}
 
 	private void SetSeekText() => SeekText.Content = $"{ToTimeString(GetSoundPosition())} / {ToTimeString(GetSoundLength())}";
 
@@ -163,9 +170,9 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
 		=> UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked();
 
-	private static string ToTimeString(int milliseconds)
+	private static string ToTimeString(double seconds)
 	{
-		TimeSpan timeSpan = new(0, 0, 0, 0, milliseconds);
+		TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
 		if (timeSpan.Days > 0)
 			return $"{timeSpan:dd\\:hh\\:mm\\:ss\\.fff}";
 		if (timeSpan.Hours > 0)
