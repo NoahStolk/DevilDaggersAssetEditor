@@ -20,7 +20,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 {
 	private readonly PlaybackDevice? _openAlDevice;
 
-	private SoundObject? _soundObject;
+	private SoundSource? _soundSource;
 	private bool _disposedValue;
 
 	public AudioPreviewerControl()
@@ -56,7 +56,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		DispatcherTimer timer = new() { Interval = new TimeSpan(0, 0, 0, 0, 10) };
 		timer.Tick += (sender, e) =>
 		{
-			if (_soundObject == null || _soundObject.State == SourceState.Paused)
+			if (_soundSource == null || _soundSource.State == SourceState.Paused)
 				return;
 
 			if (!IsDragging)
@@ -85,11 +85,11 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 	private void Toggle_Click(object sender, RoutedEventArgs e)
 	{
-		if (_soundObject == null)
+		if (_soundSource == null)
 			return;
 
-		_soundObject.Toggle();
-		ToggleImage.Source = ((Image)Resources[_soundObject.State == SourceState.Paused ? "PlayImage" : "PauseImage"]).Source;
+		_soundSource.Toggle();
+		ToggleImage.Source = ((Image)Resources[_soundSource.State == SourceState.Paused ? "PlayImage" : "PauseImage"]).Source;
 	}
 
 	private void Pitch_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -101,8 +101,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 		PitchText.Content = $"x {pitch:0.00}";
 
-		if (_soundObject != null)
-			_soundObject.Pitch = pitch;
+		if (_soundSource != null)
+			_soundSource.Pitch = pitch;
 	}
 
 	private void ResetPitch_Click(object sender, RoutedEventArgs e)
@@ -110,8 +110,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		PitchText.Content = "x 1.00";
 		Pitch.Value = 1;
 
-		if (_soundObject != null)
-			_soundObject.Pitch = 1;
+		if (_soundSource != null)
+			_soundSource.Pitch = 1;
 	}
 
 	private void Seek_DragStarted(object sender, DragStartedEventArgs e)
@@ -123,8 +123,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 	{
 		IsDragging = false;
 
-		if (_soundObject != null)
-			_soundObject.Offset = (float)Seek.Value;
+		if (_soundSource != null)
+			_soundSource.Offset = (float)Seek.Value;
 	}
 
 	public void Initialize(AbstractAsset asset)
@@ -142,7 +142,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 		SongSet(audioAsset.EditorPath, (float)Pitch.Value, startPaused);
 
-		if (_soundObject == null)
+		if (_soundSource == null)
 			return;
 
 		ToggleImage.Source = ((Image)Resources[startPaused ? "PlayImage" : "PauseImage"]).Source;
@@ -151,42 +151,28 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		Seek.Value = 0;
 
 		SetSeekText();
-		PitchText.Content = $"x {_soundObject.Pitch:0.00}";
+		PitchText.Content = $"x {_soundSource.Pitch:0.00}";
 	}
 
-	private double GetSoundPosition()
-	{
-		if (_soundObject == null)
-			return 0;
+	private double GetSoundPosition() => _soundSource?.Offset ?? 0;
 
-		return _soundObject.Offset;
-	}
-
-	private double GetSoundLength()
-	{
-		if (_soundObject == null)
-			return 0;
-
-		Sound sound = _soundObject.Sound;
-		int sampleCount = sound.Size / (sound.BitsPerSample / 8) / sound.Channels;
-		return sampleCount / (double)sound.SampleRate;
-	}
+	private double GetSoundLength() => _soundSource?.WaveFile.GetLength() ?? 0;
 
 	private void SetSeekText() => SeekText.Content = $"{ToTimeString(GetSoundPosition())} / {ToTimeString(GetSoundLength())}";
 
 	private void SongSet(string filePath, float pitch, bool startPaused)
 	{
-		_soundObject?.Delete();
+		_soundSource?.Delete();
 
 		if (_openAlDevice == null || !File.Exists(filePath))
 			return;
 
-		Sound? sound = null;
+		WaveFile? waveFile = null;
 		try
 		{
-			sound = new(filePath);
+			waveFile = new(filePath);
 		}
-		catch (WaveException ex)
+		catch (WaveFileException ex)
 		{
 			Dispatcher.Invoke(() =>
 			{
@@ -197,12 +183,12 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 			return;
 		}
 
-		_soundObject = new(sound);
-		_soundObject.Looping = true;
-		_soundObject.Pitch = pitch;
+		_soundSource = new(waveFile);
+		_soundSource.Looping = true;
+		_soundSource.Pitch = pitch;
 
 		if (!startPaused)
-			_soundObject.Play();
+			_soundSource.Play();
 	}
 
 	private void Autoplay_ChangeState(object sender, RoutedEventArgs e)

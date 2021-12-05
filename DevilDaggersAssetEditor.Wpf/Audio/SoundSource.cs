@@ -3,23 +3,21 @@ using OpenAlBindings.Enums;
 
 namespace DevilDaggersAssetEditor.Wpf.Audio;
 
-public class SoundObject
+public class SoundSource
 {
 	private float _pitch = 1;
-	private float _gain = 1;
 
 	private uint _sourceId;
 
-	public SoundObject(Sound sound)
+	public SoundSource(WaveFile waveFile)
 	{
-		Sound = sound;
-		_sourceId = Sound.CreateSource();
+		WaveFile = waveFile;
+		_sourceId = WaveFile.CreateSource();
 
 		SetPitch();
-		SetGain();
 	}
 
-	public Sound Sound { get; }
+	public WaveFile WaveFile { get; }
 
 	public float Pitch
 	{
@@ -28,16 +26,6 @@ public class SoundObject
 		{
 			_pitch = value;
 			SetPitch();
-		}
-	}
-
-	public float Gain
-	{
-		get => _gain;
-		set
-		{
-			_gain = value;
-			SetGain();
 		}
 	}
 
@@ -75,9 +63,6 @@ public class SoundObject
 
 	private void SetPitch()
 		=> Al.alSourcef(_sourceId, FloatSourceProperty.AL_PITCH, Pitch);
-
-	private void SetGain()
-		=> Al.alSourcef(_sourceId, FloatSourceProperty.AL_GAIN, Gain);
 
 	public void Play()
 	{
