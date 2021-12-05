@@ -17,6 +17,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevilDaggersAssetEditor\DevilDaggersAssetEditor.csproj" />
+    <ProjectReference Include="..\OpenAlBindings\OpenAlBindings.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevilDaggersCore.Wpf" Version="1.4.0" />
@@ -36,11 +37,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="irrKlang.NET4">
-      <HintPath>irrKlang.NET4.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Content\Images\AssetEditor\Sort.png" />
