@@ -78,7 +78,7 @@ public class SoundSource
 
 	public void Toggle()
 	{
-		if (State == SourceState.Paused)
+		if (State is SourceState.Paused or SourceState.Initial)
 			Al.alSourcePlay(_sourceId);
 		else if (State == SourceState.Playing)
 			Al.alSourcePause(_sourceId);
