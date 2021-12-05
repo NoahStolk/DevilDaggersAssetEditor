@@ -4,9 +4,11 @@ using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Audio;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Windows;
+using OpenAlBindings;
 using OpenAlBindings.Enums;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -16,11 +18,33 @@ namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 
 public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 {
+	private readonly bool _isOpenAlActive;
+
 	private SoundObject? _soundObject;
 
 	public AudioPreviewerControl()
 	{
-		AudioEngine.Initialize();
+		const string openAlDll = "OpenAL32.dll";
+		nint openAlHandle = LoadLibrary(openAlDll);
+		_isOpenAlActive = openAlHandle != 0;
+		if (_isOpenAlActive)
+		{
+			if (OpenAlDeviceHelper.PlaybackDevices.Length > 0)
+			{
+				PlaybackDevice device = OpenAlDeviceHelper.PlaybackDevices[0];
+				device.MakeCurrent();
+
+				Al.alListenerfv(FloatSourceProperty.AL_ORIENTATION, new float[] { 0, 0, 1, 0, 1, 0 });
+			}
+			else
+			{
+				App.LogError("No audio devices found.", null);
+			}
+		}
+		else
+		{
+			App.LogError($"{openAlDll} was not found.", null);
+		}
 
 		InitializeComponent();
 
@@ -38,9 +62,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 			if (!IsDragging)
 			{
 				double length = GetSoundLength();
-				if (length == 0)
-					length = 1;
-				Seek.Value = GetSoundPosition() / length * Seek.Maximum;
+				Seek.Value = length == 0 ? 0 : GetSoundPosition() / length * Seek.Maximum;
 			}
 
 			SetSeekText();
@@ -49,6 +71,11 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	}
 
 	public bool IsDragging { get; private set; }
+
+#pragma warning disable CA2101 // Specify marshaling for P/Invoke string arguments
+	[DllImport("kernel32", SetLastError = true)]
+	private static extern nint LoadLibrary(string lpFileName);
+#pragma warning restore CA2101 // Specify marshaling for P/Invoke string arguments
 
 	private void Toggle_Click(object sender, RoutedEventArgs e)
 	{
@@ -145,7 +172,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	{
 		_soundObject?.Delete();
 
-		if (!File.Exists(filePath))
+		if (!_isOpenAlActive || !File.Exists(filePath))
 			return;
 
 		Sound? sound = null;
