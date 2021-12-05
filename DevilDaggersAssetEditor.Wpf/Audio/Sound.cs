@@ -13,25 +13,25 @@ public class Sound
 		using BinaryReader br = new(fs);
 		string riffHeader = Encoding.Default.GetString(br.ReadBytes(4));
 		if (riffHeader != "RIFF")
-			throw new($"No 'RIFF' header for .wav file '{path}'.");
+			throw new WaveException($"Expected 'RIFF' header (got '{riffHeader}') for .wav file '{path}'.");
 
 		_ = br.ReadInt32(); // Amount of bytes remaining at this point (after these 4).
 
 		string format = Encoding.Default.GetString(br.ReadBytes(4));
 		if (format != "WAVE")
-			throw new($"No 'WAVE' header for .wav file '{path}'.");
+			throw new WaveException($"Expected 'WAVE' header (got '{format}') for .wav file '{path}'.");
 
 		string fmtHeader = Encoding.Default.GetString(br.ReadBytes(4));
 		if (fmtHeader != "fmt ")
-			throw new($"No 'fmt ' header for .wav file '{path}'.");
+			throw new WaveException($"Expected 'fmt ' header (got '{fmtHeader}') for .wav file '{path}'.");
 
 		int fmtSize = br.ReadInt32();
 		if (fmtSize != 16)
-			throw new($"FMT data chunk size is not 16 for .wav file '{path}'.");
+			throw new WaveException($"Expected FMT data chunk size to be 16 (got {fmtSize}) for .wav file '{path}'.");
 
 		short audioFormat = br.ReadInt16();
 		if (audioFormat != 1)
-			throw new($"Audio format is not 1 for .wav file '{path}'.");
+			throw new WaveException($"Expected audio format to be 1 (got {audioFormat}) for .wav file '{path}'.");
 
 		Channels = br.ReadInt16();
 		SampleRate = br.ReadInt32();
@@ -39,14 +39,23 @@ public class Sound
 		short blockAlign = br.ReadInt16();
 		BitsPerSample = br.ReadInt16();
 
-		if (byteRate != SampleRate * Channels * BitsPerSample / 8)
-			throw new($"Invalid byte rate for .wav file '{path}'.");
-		if (blockAlign != Channels * BitsPerSample / 8)
-			throw new($"Invalid block align for .wav file '{path}'.");
+		int expectedByteRate = SampleRate * Channels * BitsPerSample / 8;
+		int expectedBlockAlign = Channels * BitsPerSample / 8;
+		if (byteRate != expectedByteRate)
+			throw new WaveException($"Expected byte rate to be {expectedByteRate} (got {byteRate}) for .wav file '{path}'.");
+		if (blockAlign != expectedBlockAlign)
+			throw new WaveException($"Expected block align to be {expectedBlockAlign} (got {blockAlign}) for .wav file '{path}'.");
 
-		string dataHeader = Encoding.Default.GetString(br.ReadBytes(4));
-		if (dataHeader != "data")
-			throw new($"No 'data' header for .wav file '{path}'.");
+		const string data = nameof(data);
+		string dataHeader;
+		do
+		{
+			if (br.BaseStream.Position >= br.BaseStream.Length - (data.Length + sizeof(int)))
+				throw new WaveException($"Could not find '{data}' header for .wav file '{path}'.");
+
+			dataHeader = Encoding.Default.GetString(br.ReadBytes(4));
+		}
+		while (dataHeader != data);
 
 		Size = br.ReadInt32();
 		Data = br.ReadBytes(Size);

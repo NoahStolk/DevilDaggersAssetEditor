@@ -4,6 +4,7 @@ using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Audio;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
+using DevilDaggersCore.Wpf.Windows;
 using System;
 using System.IO;
 using System.Windows;
@@ -135,7 +136,23 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 		if (!File.Exists(filePath))
 			return;
 
-		_soundObject = new(new Sound(filePath));
+		Sound? sound = null;
+		try
+		{
+			sound = new(filePath);
+		}
+		catch (WaveException ex)
+		{
+			Dispatcher.Invoke(() =>
+			{
+				ErrorWindow errorWindow = new("Cannot preview audio file.", "The .wav file could not be parsed.", ex);
+				errorWindow.ShowDialog();
+			});
+
+			return;
+		}
+
+		_soundObject = new(sound);
 		_soundObject.Looping = true;
 		_soundObject.Pitch = pitch;
 
