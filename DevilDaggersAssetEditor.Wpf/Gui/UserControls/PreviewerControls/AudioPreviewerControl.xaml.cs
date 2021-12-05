@@ -127,7 +127,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	// TODO
 	private int GetSoundLength() => _soundObject?.Sound.Size ?? 0;
 
-	private void SetSeekText() => SeekText.Content = $"{EditorUtils.ToTimeString(GetSoundPosition())} / {EditorUtils.ToTimeString(GetSoundLength())}";
+	private void SetSeekText() => SeekText.Content = $"{ToTimeString(GetSoundPosition())} / {ToTimeString(GetSoundLength())}";
 
 	private void SongSet(string filePath, float pitch, bool startPaused)
 	{
@@ -162,4 +162,14 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 
 	private void Autoplay_ChangeState(object sender, RoutedEventArgs e)
 		=> UserHandler.Instance.Cache.AudioPlayerIsAutoplayEnabled = Autoplay.IsChecked();
+
+	private static string ToTimeString(int milliseconds)
+	{
+		TimeSpan timeSpan = new(0, 0, 0, 0, milliseconds);
+		if (timeSpan.Days > 0)
+			return $"{timeSpan:dd\\:hh\\:mm\\:ss\\.fff}";
+		if (timeSpan.Hours > 0)
+			return $"{timeSpan:hh\\:mm\\:ss\\.fff}";
+		return $"{timeSpan:mm\\:ss\\.fff}";
+	}
 }
