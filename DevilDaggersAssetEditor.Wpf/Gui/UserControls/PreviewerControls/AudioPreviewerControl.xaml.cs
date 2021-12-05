@@ -39,6 +39,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 			else
 			{
 				App.LogError("No audio devices found.", null);
+				_isOpenAlActive = false;
 			}
 		}
 		else
