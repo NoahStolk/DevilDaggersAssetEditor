@@ -16,4 +16,5 @@ public enum FloatSourceProperty
 	AL_ROLLOFF_FACTOR = 0x1021,
 	AL_CONE_OUTER_GAIN = 0x1022,
 	AL_MAX_DISTANCE = 0x1023,
+	AL_SEC_OFFSET = 0x1024,
 }

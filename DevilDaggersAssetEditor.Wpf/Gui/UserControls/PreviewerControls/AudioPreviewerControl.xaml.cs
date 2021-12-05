@@ -90,8 +90,8 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	{
 		IsDragging = false;
 
-		//if (Song != null)
-		//	Song.PlayPosition = (uint)Seek.Value;
+		if (_soundObject != null)
+			_soundObject.Offset = (float)Seek.Value;
 	}
 
 	public void Initialize(AbstractAsset asset)
@@ -121,8 +121,13 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 		PitchText.Content = $"x {_soundObject.Pitch:0.00}";
 	}
 
-	// TODO
-	private int GetSoundPosition() => 0;
+	private double GetSoundPosition()
+	{
+		if (_soundObject == null)
+			return 0;
+
+		return _soundObject.Offset;
+	}
 
 	private double GetSoundLength()
 	{

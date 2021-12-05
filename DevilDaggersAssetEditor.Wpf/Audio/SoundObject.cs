@@ -41,6 +41,16 @@ public class SoundObject
 		}
 	}
 
+	public float Offset
+	{
+		get
+		{
+			Al.alGetSourcef(_sourceId, FloatSourceProperty.AL_SEC_OFFSET, out float offset);
+			return offset;
+		}
+		set => Al.alSourcef(_sourceId, FloatSourceProperty.AL_SEC_OFFSET, value);
+	}
+
 	public SourceState State
 	{
 		get
