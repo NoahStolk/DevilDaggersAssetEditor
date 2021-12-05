@@ -208,6 +208,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 	{
 		if (!_disposedValue)
 		{
+			_soundSource?.Delete();
 			_openAlDevice?.Delete();
 			_disposedValue = true;
 		}
