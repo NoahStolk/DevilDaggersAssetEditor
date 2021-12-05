@@ -16,30 +16,29 @@ using System.Windows.Threading;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 
-public partial class AudioPreviewerControl : UserControl, IPreviewerControl
+public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDisposable
 {
-	private readonly bool _isOpenAlActive;
+	private readonly PlaybackDevice? _openAlDevice;
 
 	private SoundObject? _soundObject;
+	private bool _disposedValue;
 
 	public AudioPreviewerControl()
 	{
 		const string openAlDll = "OpenAL32.dll";
 		nint openAlHandle = LoadLibrary(openAlDll);
-		_isOpenAlActive = openAlHandle != 0;
-		if (_isOpenAlActive)
+		if (openAlHandle != 0)
 		{
 			if (OpenAlDeviceHelper.PlaybackDevices.Length > 0)
 			{
-				PlaybackDevice device = OpenAlDeviceHelper.PlaybackDevices[0];
-				device.MakeCurrent();
+				_openAlDevice = OpenAlDeviceHelper.PlaybackDevices[0];
+				_openAlDevice.MakeCurrent();
 
 				Al.alListenerfv(FloatSourceProperty.AL_ORIENTATION, new float[] { 0, 0, 1, 0, 1, 0 });
 			}
 			else
 			{
 				App.LogError("No audio devices found.", null);
-				_isOpenAlActive = false;
 			}
 		}
 		else
@@ -69,6 +68,12 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 			SetSeekText();
 		};
 		timer.Start();
+	}
+
+	~AudioPreviewerControl()
+	{
+		// Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+		Dispose(disposing: false);
 	}
 
 	public bool IsDragging { get; private set; }
@@ -173,7 +178,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 	{
 		_soundObject?.Delete();
 
-		if (!_isOpenAlActive || !File.Exists(filePath))
+		if (_openAlDevice == null || !File.Exists(filePath))
 			return;
 
 		Sound? sound = null;
@@ -211,5 +216,21 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl
 		if (timeSpan.Hours > 0)
 			return $"{timeSpan:hh\\:mm\\:ss\\.fff}";
 		return $"{timeSpan:mm\\:ss\\.fff}";
+	}
+
+	protected virtual void Dispose(bool disposing)
+	{
+		if (!_disposedValue)
+		{
+			_openAlDevice?.Delete();
+			_disposedValue = true;
+		}
+	}
+
+	public void Dispose()
+	{
+		// Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+		Dispose(disposing: true);
+		GC.SuppressFinalize(this);
 	}
 }
