@@ -17,7 +17,7 @@ public partial class ModPreviewControl : UserControl
 {
 	private readonly ModManagerWindow _modManagerWindow;
 
-	private Mod? _selectedMod;
+	private GetModDdae? _selectedMod;
 
 	private int _screenshotIndex;
 
@@ -28,7 +28,7 @@ public partial class ModPreviewControl : UserControl
 		_modManagerWindow = modManagerWindow;
 	}
 
-	public void Update(Mod? mod)
+	public void Update(GetModDdae? mod)
 	{
 		_screenshotIndex = 0;
 
@@ -48,7 +48,7 @@ public partial class ModPreviewControl : UserControl
 
 		if (mod?.ModArchive != null)
 		{
-			foreach (ModBinary binary in mod.ModArchive.Binaries)
+			foreach (GetModBinaryDdae binary in mod.ModArchive.Binaries)
 				PreviewBinariesList.Children.Add(new TextBlock { Text = binary.Name, Margin = new Thickness(0, 0, 0, 8) });
 		}
 
@@ -100,10 +100,10 @@ public partial class ModPreviewControl : UserControl
 
 		string modsDirectory = Path.Combine(UserHandler.Instance.Settings.DevilDaggersRootFolder, "mods");
 
-		ModArchive? archive = NetworkHandler.Instance.Mods.Find(m => m.Name == _selectedMod?.Name)?.ModArchive;
+		GetModArchiveDdae? archive = NetworkHandler.Instance.Mods.Find(m => m.Name == _selectedMod?.Name)?.ModArchive;
 		if (archive != null)
 		{
-			foreach (ModBinary binary in archive.Binaries.Where(b => File.Exists(Path.Combine(modsDirectory, b.Name))))
+			foreach (GetModBinaryDdae binary in archive.Binaries.Where(b => File.Exists(Path.Combine(modsDirectory, b.Name))))
 			{
 				ConfirmWindow window = new("File already exists", $"The mod '{_selectedMod.Name}' contains a binary called '{binary.Name}'. A file with the same name already exists in the mods directory. Are you sure you want to overwrite it by downloading the '{_selectedMod.Name}' mod?", false);
 				window.ShowDialog();

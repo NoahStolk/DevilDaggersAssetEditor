@@ -150,18 +150,18 @@ public partial class DownloadModsControl : UserControl
 
 	private void UpdateMods()
 	{
-		IEnumerable<Mod> mods = NetworkHandler.Instance.Mods;
+		IEnumerable<GetModDdae> mods = NetworkHandler.Instance.Mods;
 
 		// Sorting
 		int sortIndex = 0;
-		foreach (Func<Mod, object?> sortingFunction in _activeModSorting.SortingFunctions)
+		foreach (Func<GetModDdae, object?> sortingFunction in _activeModSorting.SortingFunctions)
 		{
 			if (sortIndex == 0)
 				mods = _activeModSorting.Ascending ? mods.OrderBy(sortingFunction) : mods.OrderByDescending(sortingFunction);
-			else if (mods is IOrderedEnumerable<Mod> orderedMods)
+			else if (mods is IOrderedEnumerable<GetModDdae> orderedMods)
 				mods = _activeModSorting.Ascending ? orderedMods.ThenBy(sortingFunction) : orderedMods.ThenByDescending(sortingFunction);
 			else
-				throw new($"Could not apply sorting because '{nameof(orderedMods)}' was not of type '{nameof(IOrderedEnumerable<Mod>)}'.");
+				throw new($"Could not apply sorting because '{nameof(orderedMods)}' was not of type '{nameof(IOrderedEnumerable<GetModDdae>)}'.");
 			sortIndex++;
 		}
 
@@ -177,14 +177,14 @@ public partial class DownloadModsControl : UserControl
 		// Paging
 		mods = mods.Skip(_pageIndex * _pageSize).Take(_pageSize);
 
-		List<Mod> modsFinal = mods.ToList();
+		List<GetModDdae> modsFinal = mods.ToList();
 		for (int i = 0; i < _pageSize; i++)
 			FillModGrid(i, i < modsFinal.Count ? modsFinal[i] : null);
 
 		UpdateSelection();
 	}
 
-	private void FillModGrid(int index, Mod? mod)
+	private void FillModGrid(int index, GetModDdae? mod)
 	{
 		ModGrid grid = _modGrids[index];
 		grid.Mod = mod;
@@ -219,7 +219,7 @@ public partial class DownloadModsControl : UserControl
 
 	private void UpdateSelection()
 	{
-		Mod? mod = ModsListView.SelectedIndex == -1 ? null : _modGrids[ModsListView.SelectedIndex].Mod;
+		GetModDdae? mod = ModsListView.SelectedIndex == -1 ? null : _modGrids[ModsListView.SelectedIndex].Mod;
 		ModPreview.Update(mod);
 	}
 
@@ -345,7 +345,7 @@ public partial class DownloadModsControl : UserControl
 
 	private sealed class ModSorting
 	{
-		public ModSorting(int index, string fullName, string displayName, bool ascending, params Func<Mod, object?>[] sortingFunctions)
+		public ModSorting(int index, string fullName, string displayName, bool ascending, params Func<GetModDdae, object?>[] sortingFunctions)
 		{
 			Index = index;
 			FullName = fullName;
@@ -358,7 +358,7 @@ public partial class DownloadModsControl : UserControl
 		public int Index { get; }
 		public string FullName { get; }
 		public string DisplayName { get; }
-		public Func<Mod, object?>[] SortingFunctions { get; }
+		public Func<GetModDdae, object?>[] SortingFunctions { get; }
 
 		public Button? Button { get; set; }
 		public bool Ascending { get; set; }
@@ -375,7 +375,7 @@ public partial class DownloadModsControl : UserControl
 		public Grid Grid { get; }
 		public List<TextBlock> TextBlocks { get; }
 
-		public Mod? Mod { get; set; }
+		public GetModDdae? Mod { get; set; }
 	}
 
 	#endregion Classes

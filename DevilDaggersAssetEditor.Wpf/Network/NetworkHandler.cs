@@ -26,9 +26,9 @@ public sealed class NetworkHandler
 
 	public DevilDaggersInfoApiClient ApiClient { get; }
 
-	public Tool? Tool { get; private set; }
+	public GetTool? Tool { get; private set; }
 
-	public List<Mod> Mods { get; } = new();
+	public List<GetModDdae> Mods { get; } = new();
 
 	public bool GetOnlineTool()
 	{
@@ -65,7 +65,7 @@ public sealed class NetworkHandler
 	{
 		try
 		{
-			foreach (KeyValuePair<string, List<AssetInfo>> kvp in await ApiClient.Assets_GetAssetInfoForDdaeAsync())
+			foreach (KeyValuePair<string, List<GetAssetInfo>> kvp in await ApiClient.Assets_GetAssetInfoForDdaeAsync())
 			{
 				List<AbstractAsset>? assets = (kvp.Key switch
 				{
@@ -83,7 +83,7 @@ public sealed class NetworkHandler
 
 				foreach (AbstractAsset asset in assets)
 				{
-					AssetInfo? assetInfo = kvp.Value.Find(ai => ai.Name == asset.AssetName);
+					GetAssetInfo? assetInfo = kvp.Value.Find(ai => ai.Name == asset.AssetName);
 					asset.Description = assetInfo?.Description;
 					asset.Tags = assetInfo?.Tags ?? new();
 				}

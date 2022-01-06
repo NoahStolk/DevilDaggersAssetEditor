@@ -296,7 +296,7 @@ public partial class MainWindow : Window
 	{
 		if (NetworkHandler.Instance.Tool != null)
 		{
-			List<ChangelogEntry> changes = NetworkHandler.Instance.Tool.Changelog.ConvertAll(c => new ChangelogEntry(Version.Parse(c.VersionNumber), c.Date, MapToSharedModel(c.Changes)?.ToList() ?? new()));
+			List<ChangelogEntry> changes = NetworkHandler.Instance.Tool.Changelog?.ConvertAll(c => new ChangelogEntry(Version.Parse(c.VersionNumber), c.Date, MapToSharedModel(c.Changes)?.ToList() ?? new())) ?? new();
 			ChangelogWindow changelogWindow = new(changes, App.LocalVersion);
 			changelogWindow.ShowDialog();
 		}
@@ -305,9 +305,9 @@ public partial class MainWindow : Window
 			App.Instance.ShowError("Changelog not retrieved", "The changelog has not been retrieved from DevilDaggers.info.");
 		}
 
-		static IEnumerable<Change>? MapToSharedModel(List<Clients.Change>? changes)
+		static IEnumerable<Change>? MapToSharedModel(List<Clients.GetToolVersionChange>? changes)
 		{
-			foreach (Clients.Change change in changes ?? new())
+			foreach (Clients.GetToolVersionChange change in changes ?? new())
 				yield return new(change.Description, MapToSharedModel(change.SubChanges)?.ToList());
 		}
 	}
