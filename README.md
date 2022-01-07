@@ -1,5 +1,3 @@
-[![Scc Count Badge](https://sloc.xyz/github/NoahStolk/DevilDaggersAssetEditor/)](https://github.com/NoahStolk/DevilDaggersAssetEditor/)
-
 # DevilDaggersAssetEditor ([Download](https://devildaggers.info/api/tools/DevilDaggersAssetEditor/file))
 DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods.
 
@@ -40,7 +38,7 @@ The program's asset extraction functionality is based on [Devil Daggers Extracto
 ## License
 MIT License
 
-Copyright (c) 2019-2021 Noah Stolk
+Copyright (c) 2019-2022 Noah Stolk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
