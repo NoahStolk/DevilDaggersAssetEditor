@@ -29,9 +29,9 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 
 ## Links
 - [DevilDaggers.info website](https://devildaggers.info)
-- [Main web page for DevilDaggersAssetEditor](https://devildaggers.info/Tools/DevilDaggersAssetEditor)
-- [List of mods made with DevilDaggersAssetEditor](https://devildaggers.info/Mods)
-- [Asset mod guide](https://devildaggers.info/Wiki/AssetGuide)
+- [Main web page for DevilDaggersAssetEditor](https://devildaggers.info/tools/asset-editor)
+- [List of mods made with DevilDaggersAssetEditor](https://devildaggers.info/custom/mods)
+- [Asset mod guide](https://devildaggers.info/guides/asset-editor)
 - [Discord server](https://discord.gg/NF32j8S)
 
 ## Credits

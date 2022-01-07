@@ -284,7 +284,7 @@ public partial class MainWindow : Window
 	}
 
 	private void Help_Click(object sender, RoutedEventArgs e)
-		=> ProcessUtils.OpenUrl("https://devildaggers.info/Wiki/Guides/AssetEditor");
+		=> ProcessUtils.OpenUrl("https://devildaggers.info/guides/asset-editor");
 
 	private void About_Click(object sender, RoutedEventArgs e)
 	{
