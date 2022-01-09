@@ -24,16 +24,16 @@
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.2.0" />
     <PackageReference Include="HtmlToXamlConverter" Version="1.0.5727.24510" />
     <PackageReference Include="NoahStolk.SyntaxHighlighter" Version="1.0.0" />
-    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.0" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
     <PackageReference Include="Roslynator.Analyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.32.0.39516">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.376">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
