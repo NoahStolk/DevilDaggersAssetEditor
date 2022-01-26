@@ -1,4 +1,4 @@
-using OpenAlBindings;
+using NoahStolk.OpenAlBindings;
 
 namespace DevilDaggersAssetEditor.Wpf.Audio;
 

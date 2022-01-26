@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAlBindings", "OpenAlBindings\OpenAlBindings.csproj", "{E8CC5EDA-6D4E-4752-8D99-E9E8FE1161AD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -30,10 +28,6 @@ Global
 		{7E321BCF-6600-4783-AE11-05355E84B966}.Debug|x64.Build.0 = Debug|x64
 		{7E321BCF-6600-4783-AE11-05355E84B966}.Release|x64.ActiveCfg = Release|x64
 		{7E321BCF-6600-4783-AE11-05355E84B966}.Release|x64.Build.0 = Release|x64
-		{E8CC5EDA-6D4E-4752-8D99-E9E8FE1161AD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E8CC5EDA-6D4E-4752-8D99-E9E8FE1161AD}.Debug|x64.Build.0 = Debug|Any CPU
-		{E8CC5EDA-6D4E-4752-8D99-E9E8FE1161AD}.Release|x64.ActiveCfg = Release|Any CPU
-		{E8CC5EDA-6D4E-4752-8D99-E9E8FE1161AD}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

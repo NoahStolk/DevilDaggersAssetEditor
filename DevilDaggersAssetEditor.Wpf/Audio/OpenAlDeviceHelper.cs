@@ -1,5 +1,4 @@
-using OpenAlBindings;
-using OpenAlBindings.Enums;
+using NoahStolk.OpenAlBindings;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
