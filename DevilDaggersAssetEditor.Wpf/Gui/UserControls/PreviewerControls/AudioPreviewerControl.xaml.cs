@@ -5,6 +5,7 @@ using DevilDaggersAssetEditor.Wpf.Audio;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Windows;
 using NoahStolk.OpenAlBindings;
+using NoahStolk.WaveParser;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -155,7 +156,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 
 	private double GetSoundPosition() => _soundSource?.Offset ?? 0;
 
-	private double GetSoundLength() => _soundSource?.WaveFile.GetLength() ?? 0;
+	private double GetSoundLength() => _soundSource?.WaveFile.LengthInSeconds ?? 0;
 
 	private void SetSeekText() => SeekText.Content = $"{ToTimeString(GetSoundPosition())} / {ToTimeString(GetSoundLength())}";
 
@@ -171,7 +172,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		{
 			waveFile = new(filePath);
 		}
-		catch (WaveFileException ex)
+		catch (WaveParseException ex)
 		{
 			Dispatcher.Invoke(() =>
 			{
