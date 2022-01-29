@@ -1,6 +1,6 @@
 using DevilDaggersAssetEditor.Assets;
+using DevilDaggersAssetEditor.Mods;
 using DevilDaggersAssetEditor.User;
-using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

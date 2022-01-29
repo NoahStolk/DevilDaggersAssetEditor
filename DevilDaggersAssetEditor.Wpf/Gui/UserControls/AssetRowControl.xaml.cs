@@ -1,5 +1,6 @@
 using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Extensions;
+using DevilDaggersAssetEditor.Mods;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
@@ -7,7 +8,6 @@ using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Utils;
-using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Utils;
 using Microsoft.Win32;
 using System;

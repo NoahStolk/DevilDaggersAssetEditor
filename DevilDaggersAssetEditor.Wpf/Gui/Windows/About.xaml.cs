@@ -1,4 +1,4 @@
-using DevilDaggersCore.Utils;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using System.Windows;
 using System.Windows.Navigation;
 

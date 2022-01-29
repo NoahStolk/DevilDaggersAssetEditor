@@ -1,8 +1,8 @@
 using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Binaries.Chunks;
 using DevilDaggersAssetEditor.Extensions;
+using DevilDaggersAssetEditor.Mods;
 using DevilDaggersAssetEditor.Progress;
-using DevilDaggersCore.Mods;
 using System;
 using System.Collections.Generic;
 using System.IO;

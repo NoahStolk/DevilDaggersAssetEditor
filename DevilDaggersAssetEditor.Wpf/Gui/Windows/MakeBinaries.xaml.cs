@@ -1,7 +1,7 @@
 using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Mods;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
-using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using System;
 using System.Collections.Generic;

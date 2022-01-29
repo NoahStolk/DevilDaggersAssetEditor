@@ -1,6 +1,6 @@
 using DevilDaggersAssetEditor.ModFiles;
+using DevilDaggersAssetEditor.Mods;
 using DevilDaggersAssetEditor.Utils;
-using DevilDaggersCore.Mods;
 using System.Collections.Generic;
 
 namespace DevilDaggersAssetEditor.Assets;

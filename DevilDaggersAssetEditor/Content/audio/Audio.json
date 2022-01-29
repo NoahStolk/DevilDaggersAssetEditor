@@ -1,0 +1,1504 @@
+[
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "andrasimpact"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "andrasrise"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "burrowcentipede"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterandras"
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chattercentipede",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chattercentipede2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 20.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chattergigaspider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 50.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterleviathan"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterminisquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 2.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskull2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskull2black",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskull3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 20.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskull3black",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskull4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskull4black",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterskullblack",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterspider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 4.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterspiderling",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chattersquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "chattersquidsmall",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 15.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chattersquidultra",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterthorn",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "chatterultrapede",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "collectgib1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "collectgib2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "collectgib3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "collectgibbase1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "collectgibbase2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "collectgibbase3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercall"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercall1bronze"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercall2silver"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercall3gold"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercall4devil"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercall5"
+	},
+	{
+		"DefaultLoudness": 0.2,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercollect"
+	},
+	{
+		"DefaultLoudness": 1000.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercollect1bronze"
+	},
+	{
+		"DefaultLoudness": 1000.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercollect2silver"
+	},
+	{
+		"DefaultLoudness": 1000.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercollect3gold"
+	},
+	{
+		"DefaultLoudness": 1000.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercollect4devil"
+	},
+	{
+		"DefaultLoudness": 1000.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggercollect5"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "daggerdivert",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggerdrone",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.4,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggerhit1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 4.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggerseek",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 8.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggersteal1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 8.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggersteal2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 8.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggersteal3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 8.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggersteal4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 8.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "daggersteal5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damageandras"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagecentipede",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagecentipede2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagegigaspider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 66.6,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damageleviathan",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagespider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagesquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagesquid2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagesquid3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 35.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagesquid4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damagethorn",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 50.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "damageultrapede",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 99.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "death"
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eggbounce",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 50.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eggburst",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "eggburst2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eggdrone",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 2.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eggdrone2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 40.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eyearouse"
+	},
+	{
+		"DefaultLoudness": 98.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eyearousedrone"
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eyehit"
+	},
+	{
+		"DefaultLoudness": 2.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "eyepacifydrone"
+	},
+	{
+		"DefaultLoudness": 100.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "fall"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "gibcollect",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "gibcollectmagic",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gibdrone1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gibdrone2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gibdrone3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gigaricochet1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gigaricochet2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gigaricochet3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gigaricochet4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "gigaricochet5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 2.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "highscore1"
+	},
+	{
+		"DefaultLoudness": 2.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "highscore2"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "jump1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "jump2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "jump3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killandras"
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killcentipede",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 40.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killcentipede2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 40.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killeye"
+	},
+	{
+		"DefaultLoudness": 75.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killgigaspider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 66.6,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killleviathan",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 50.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killminisquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killskull1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killskull2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killskull3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killskull4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killskull5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "killskullblack1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "killskullblack2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "killskullblack3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "killskullblack4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 55.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killspider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killspiderling1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killspiderling2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killspiderling3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killspiderling4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killspiderling5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 50.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killsquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killsuperskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 6.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killsuperskull2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 6.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killsuperskull2black",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killsuperskull3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 6.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killsuperskullblack",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killthorn",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "killultraskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "killultrasquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "land",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 2.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "land2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "legends"
+	},
+	{
+		"DefaultLoudness": 97.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "leveldown"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "levelup2"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "levelup3"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "levelup4"
+	},
+	{
+		"DefaultLoudness": 200.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "leviathanbeckon"
+	},
+	{
+		"DefaultLoudness": 20.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "leviathanbeckon2"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "leviathantransmute"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magentadetonate1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magentadetonate2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magentadetonate3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magentadetonate4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magentadetonate5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magentadrone",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magentashot",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "magentastuckenemy1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "magentastuckenemy2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "magentastuckenemy3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "magentastuckenemy4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "magentastuckenemy5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 9.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magicpierce1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 9.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magicpierce2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 9.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magicpierce3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 9.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magicpierce4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 9.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "magicpierce5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "magicpulse"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat1"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat10"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat11"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat12"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat13"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat2"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat3"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat4"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat5"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat6"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat7"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat8"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meat9"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatbig1"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatbig2"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatbig3"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatbig4"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatbig5"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatbig6"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatmed1"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatmed2"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatmed3"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatmed4"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatmed5"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "meatmed6"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "menuatmos"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "menutheme"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "polarity1e"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "polarity2w"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "polarity3n"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "polarity4s"
+	},
+	{
+		"DefaultLoudness": 0.2,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "rapid1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 0.3,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "rapid2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 0.5,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "rapid3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "rapid4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochet1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochet2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochet3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochet4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochet5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagenta1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagenta2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagenta3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagenta4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagenta5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagic1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagic2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagic3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmagic4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmed1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmed2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmed3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmed4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ricochetmed5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "secretsnake"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "secretsnake2"
+	},
+	{
+		"DefaultLoudness": 4.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shard1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 4.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shard2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 4.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shard3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 4.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shard4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 4.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shard5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.5,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot3alt1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot3alt2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot3alt3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 3.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot3alt4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot4alt1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot4alt2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot4alt3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot4alt4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 5.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "shot4alt5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "skullaggro"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "skullclop1"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "skullclop2"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "skullclop3"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "skullclop4"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "skullclop5"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "skullclop6"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "sorathlogo"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "sorathlogo2"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "sorathstone"
+	},
+	{
+		"DefaultLoudness": 45.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnandras"
+	},
+	{
+		"DefaultLoudness": 35.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawncentipede",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 35.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawncentipede2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnegg",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 70.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawngigaspider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 666.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnleviathan"
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnminisquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 100.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnplayer"
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnskulls",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnskulls2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 25.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnskulls3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnspider",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnsquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 120.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnultrapede",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 70.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spawnultrasquid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spidereat1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spidereat2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spidereat3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spidereat4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spidereat5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 60.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "spidereat6",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 35.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "splashgiga",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 35.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "splashgiga2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 35.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "splashgiga3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 40.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "splashgiga4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 45.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "splashgiga5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 45.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "splashgiga6",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "stealgib",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "stealgib2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 20.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "subchattercentipede"
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "thornemerge",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "thorngib1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "thorngib2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "thorngib3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "thorngib4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "thorngib5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "thorngib6",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "uiclick"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "uihover"
+	},
+	{
+		"DefaultLoudness": 1.0,
+		"AssetName": "uislider"
+	},
+	{
+		"DefaultLoudness": 30.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ultrapedecrash",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 40.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ultrapedeeat",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 40.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "ultrapedefall",
+		"IsProhibited": true
+	},
+	{
+		"DefaultLoudness": 10.0,
+		"PresentInDefaultLoudness": true,
+		"AssetName": "unburrowcentipede",
+		"IsProhibited": true
+	}
+]

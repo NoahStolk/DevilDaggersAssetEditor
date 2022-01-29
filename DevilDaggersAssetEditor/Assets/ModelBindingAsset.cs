@@ -1,5 +1,5 @@
 using DevilDaggersAssetEditor.ModFiles;
-using DevilDaggersCore.Mods;
+using DevilDaggersAssetEditor.Mods;
 
 namespace DevilDaggersAssetEditor.Assets;
 

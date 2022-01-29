@@ -1,10 +1,10 @@
 using DevilDaggersAssetEditor.Binaries;
 using DevilDaggersAssetEditor.Extensions;
+using DevilDaggersAssetEditor.Mods;
 using DevilDaggersAssetEditor.Progress;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Utils;
-using DevilDaggersCore.Mods;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using System.IO;

@@ -1,5 +1,5 @@
 using DevilDaggersAssetEditor.Binaries;
-using DevilDaggersCore.Mods;
+using DevilDaggersAssetEditor.Mods;
 using System;
 using System.Collections.Generic;
 using System.Linq;

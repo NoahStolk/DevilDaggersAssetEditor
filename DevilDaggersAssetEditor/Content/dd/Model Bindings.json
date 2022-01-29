@@ -1,0 +1,191 @@
+[
+	{
+		"AssetName": "bat"
+	},
+	{
+		"AssetName": "boid"
+	},
+	{
+		"AssetName": "boid_pop"
+	},
+	{
+		"AssetName": "dagger"
+	},
+	{
+		"AssetName": "dagger1"
+	},
+	{
+		"AssetName": "dagger2"
+	},
+	{
+		"AssetName": "dagger3"
+	},
+	{
+		"AssetName": "dagger4"
+	},
+	{
+		"AssetName": "dagger5"
+	},
+	{
+		"AssetName": "dagger6"
+	},
+	{
+		"AssetName": "daggerbronze"
+	},
+	{
+		"AssetName": "daggerdevil"
+	},
+	{
+		"AssetName": "daggergold"
+	},
+	{
+		"AssetName": "daggerlevi"
+	},
+	{
+		"AssetName": "daggersilver"
+	},
+	{
+		"AssetName": "gib"
+	},
+	{
+		"AssetName": "gibegg"
+	},
+	{
+		"AssetName": "gigaegg"
+	},
+	{
+		"AssetName": "hand"
+	},
+	{
+		"AssetName": "hand0"
+	},
+	{
+		"AssetName": "hand2"
+	},
+	{
+		"AssetName": "hand3"
+	},
+	{
+		"AssetName": "hand4"
+	},
+	{
+		"AssetName": "hand5"
+	},
+	{
+		"AssetName": "hand6"
+	},
+	{
+		"AssetName": "immortaleye"
+	},
+	{
+		"AssetName": "immortaleyehit"
+	},
+	{
+		"AssetName": "levitent"
+	},
+	{
+		"AssetName": "levitentgib"
+	},
+	{
+		"AssetName": "levitenthit"
+	},
+	{
+		"AssetName": "leviwarp"
+	},
+	{
+		"AssetName": "leviwarp2"
+	},
+	{
+		"AssetName": "leviwarp3"
+	},
+	{
+		"AssetName": "logodagger"
+	},
+	{
+		"AssetName": "logohand"
+	},
+	{
+		"AssetName": "logotext"
+	},
+	{
+		"AssetName": "minisquidarm"
+	},
+	{
+		"AssetName": "particle"
+	},
+	{
+		"AssetName": "particle2"
+	},
+	{
+		"AssetName": "particle_decal"
+	},
+	{
+		"AssetName": "pedebody"
+	},
+	{
+		"AssetName": "pedehead"
+	},
+	{
+		"AssetName": "pedejaw"
+	},
+	{
+		"AssetName": "pedeleg1"
+	},
+	{
+		"AssetName": "pedeleg2"
+	},
+	{
+		"AssetName": "pedeleg3"
+	},
+	{
+		"AssetName": "pedetail"
+	},
+	{
+		"AssetName": "skullscroll"
+	},
+	{
+		"AssetName": "skullwarp"
+	},
+	{
+		"AssetName": "sorathlogo"
+	},
+	{
+		"AssetName": "spideregg1"
+	},
+	{
+		"AssetName": "spideregg2"
+	},
+	{
+		"AssetName": "spidereggflash"
+	},
+	{
+		"AssetName": "squidarm"
+	},
+	{
+		"AssetName": "squidarmgib"
+	},
+	{
+		"AssetName": "squidarmhit"
+	},
+	{
+		"AssetName": "squidteeth"
+	},
+	{
+		"AssetName": "squidteethgib"
+	},
+	{
+		"AssetName": "squidteethhit"
+	},
+	{
+		"AssetName": "thorn"
+	},
+	{
+		"AssetName": "thornhit"
+	},
+	{
+		"AssetName": "tile"
+	},
+	{
+		"AssetName": "tile2"
+	}
+]

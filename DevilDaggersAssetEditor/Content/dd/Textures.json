@@ -1,0 +1,1978 @@
+[
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "blood"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2hit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2horns"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2hornsgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2hornshit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2hornslev"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2lev"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid2levgib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3hit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3horns"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3hornsgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3hornshit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3hornslev"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3jaw"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3jawgib"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3jawhit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3jawlev"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid3lev"
+	},
+	{
+		"DefaultWidth": 512,
+		"DefaultHeight": 512,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4gib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4hit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4jaw"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4jawgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4jawhit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4jawlev"
+	},
+	{
+		"DefaultWidth": 512,
+		"DefaultHeight": 512,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boid4lev"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boidgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boidhit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "boidlev"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "tile2",
+		"AssetName": "bottom"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "crystal"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "dagger1",
+		"AssetName": "dagger"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "dagger",
+		"AssetName": "dagger0"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "dagger2",
+		"AssetName": "dagger2"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "dagger3",
+		"AssetName": "dagger3"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "dagger4",
+		"AssetName": "dagger4"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "dagger5",
+		"AssetName": "dagger5"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "dagger6",
+		"AssetName": "dagger6"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "daggerbronze",
+		"AssetName": "daggerbronze"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "daggergold",
+		"AssetName": "daggergold"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "daggersilver",
+		"AssetName": "daggersilver"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "emberflame"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "feather"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontbronze"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontbronzeover"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontdevil"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontdevilover"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontgold"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontgoldover"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontgrad"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontgrad2"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontgrad3"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontlevi"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontlevibg"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontleviover"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontpleb"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontplebover"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontsilver"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "fontsilverover"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib1a"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib1b"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib1c"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib1d"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "gib",
+		"AssetName": "gib2"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib2a"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib2b"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib2c"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib2d"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib3a"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib3b"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib3c"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gib3d"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaegg"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderbody"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspidercrest"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspidercrestgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspidercresthit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderfangs"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderfangs2"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderfangs2gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderfangs2hit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderhead"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderhorns"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderhornsgib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderhornshit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderjaw"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderleg1"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderleg2"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderleg3"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "gigaspiderpalm"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "hand",
+		"AssetName": "hand"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "hand0",
+		"AssetName": "hand0"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "hand2",
+		"AssetName": "hand2"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "hand3",
+		"AssetName": "hand3"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "hand4",
+		"AssetName": "hand4"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "hand5",
+		"AssetName": "hand5"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "hand6",
+		"AssetName": "hand6"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconcrosshair"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "icondagger"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "icondd"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconeye"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconeye2"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "icongem"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconmaskcrosshair"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconmaskdagger"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconmaskgem"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconmaskhoming"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconmaskskull"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconmaskstopwatch"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconreplay"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconreplay2"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconskull"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"ModelBinding": "",
+		"AssetName": "iconstopwatch"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levicrown"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levicrown2"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levicrown2jaw"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levicrownjaw"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levideath"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levidividerskull"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levileg1"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levileg2"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levileg3"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "leviskull"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "leviskull2"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "leviskulljaw"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levitent"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levitent2"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levitentgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "levitenthit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "leviwarp"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "leviwarpover"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "logodagger",
+		"AssetName": "logodagger"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "logodagger2"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "logohand",
+		"AssetName": "logohand"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 64,
+		"ModelBinding": "",
+		"AssetName": "logotext"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "lut"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "minisquidarm"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "minisquidcrest"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "minisquidcrestskull"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "minisquidhorns"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "minisquidjaw"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "minisquidjawskull"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackbody"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackbodyfragged"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackhead"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackjaw"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackleg1"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackleg1fragged"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackleg2"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackleg2fragged"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackleg3"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblackleg3fragged"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblacktail"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeblacktaillegs"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedebody"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedebodyfragged"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedebodygib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedebodyhit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedehead"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeheadgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeheadhit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedejaw"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedejawgib"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 16,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedejawhit"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg1"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg1gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg1hit"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg2"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg2gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg2hit"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg3"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg3gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedeleg3hit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedetail"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedetailgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedetailhit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedetaillegs"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedetaillegsgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "pedetaillegshit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "tile2",
+		"AssetName": "pillar"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_bronzeflash"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_collect"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_dagger"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_death"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_devilflash"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_goldflash"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_leveldown"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_levelup"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_levi"
+	},
+	{
+		"DefaultWidth": 16,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "post_lut_silverflash"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "rubble"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "skulltile"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "smokeblob"
+	},
+	{
+		"DefaultWidth": 240,
+		"DefaultHeight": 240,
+		"ModelBinding": "",
+		"AssetName": "sorathmask"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "sorathstone"
+	},
+	{
+		"DefaultWidth": 240,
+		"DefaultHeight": 240,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "sorathtexture"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"ModelBinding": "",
+		"AssetName": "sorathvector"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderbody"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderbodygib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderbodyhit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spideregg1"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spideregg2"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spidereggflash"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderfangs"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderfangsgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderfangshit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderhead"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderheadgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderheadhit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderjaw"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderjawgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderjawhit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg1"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg1gib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg1hit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg2"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg2gib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg2hit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg3"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg3gib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderleg3hit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderling"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlinggib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlinghit"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg1"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg1gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg1hit"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg2"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg2gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg2hit"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg3"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg3gib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingleg3hit"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingpalm"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingpalmgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderlingpalmhit"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderpalm"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderpalmgib"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "spiderpalmhit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidarm"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidarmgib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidarmhit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidcrest"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidcrestgib"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidcresthit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidcrestskull"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidcrestskullgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidcrestskullhit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidhorns"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidjaws"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidjawsgib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidjawshit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidjawskull"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidjawskullfragged"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidjawskullgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidjawskullhit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidteeth"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidteethgib"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "squidteethhit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "statue1"
+	},
+	{
+		"DefaultWidth": 512,
+		"DefaultHeight": 512,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "statue2"
+	},
+	{
+		"DefaultWidth": 512,
+		"DefaultHeight": 512,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "statue3"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "thorn",
+		"AssetName": "thorn"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "thorn",
+		"AssetName": "thorngib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "thornhit",
+		"AssetName": "thornhit"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "tile2",
+		"AssetName": "tile"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedebody"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedebodyfragged"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedecrown"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedecrowngib"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedecrownhit"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedehead"
+	},
+	{
+		"DefaultWidth": 64,
+		"DefaultHeight": 64,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedejaw"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedeleg1"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedeleg2"
+	},
+	{
+		"DefaultWidth": 32,
+		"DefaultHeight": 32,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedeleg3"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrapedetail"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrasquidcrest"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrasquidcrestskull"
+	},
+	{
+		"DefaultWidth": 512,
+		"DefaultHeight": 512,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrasquidhorns"
+	},
+	{
+		"DefaultWidth": 256,
+		"DefaultHeight": 256,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrasquidjaw"
+	},
+	{
+		"DefaultWidth": 128,
+		"DefaultHeight": 128,
+		"IsModelTexture": true,
+		"ModelBinding": "",
+		"AssetName": "ultrasquidjawskull"
+	}
+]

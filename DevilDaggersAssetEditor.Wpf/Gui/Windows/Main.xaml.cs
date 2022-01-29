@@ -1,5 +1,6 @@
 using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Binaries;
+using DevilDaggersAssetEditor.Mods;
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Extensions;
@@ -8,8 +9,6 @@ using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersAssetEditor.Wpf.ModFiles;
 using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
-using DevilDaggersCore.Mods;
-using DevilDaggersCore.Utils;
 using DevilDaggersCore.Wpf.Models;
 using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
@@ -313,7 +312,7 @@ public partial class MainWindow : Window
 	}
 
 	private void ViewSourceCode_Click(object sender, RoutedEventArgs e)
-		=> ProcessUtils.OpenUrl(UrlUtils.SourceCodeUrl(App.ApplicationName).ToString());
+		=> ProcessUtils.OpenUrl(UrlUtils.SourceCode);
 
 	private void CheckForUpdates_Click(object sender, RoutedEventArgs e)
 	{

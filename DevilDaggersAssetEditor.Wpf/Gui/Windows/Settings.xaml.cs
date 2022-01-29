@@ -1,6 +1,6 @@
 using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Wpf.Extensions;
-using DevilDaggersCore.Utils;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Extensions;
 using DevilDaggersCore.Wpf.Utils;
 using Ookii.Dialogs.Wpf;

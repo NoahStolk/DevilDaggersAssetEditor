@@ -1,0 +1,935 @@
+[
+	{
+		"DefaultIndexCount": 16,
+		"DefaultVertexCount": 40,
+		"AssetName": "bat"
+	},
+	{
+		"DefaultIndexCount": 58,
+		"DefaultVertexCount": 50,
+		"AssetName": "blood1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 165,
+		"DefaultVertexCount": 106,
+		"AssetName": "blood10",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 86,
+		"DefaultVertexCount": 74,
+		"AssetName": "blood11",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 44,
+		"DefaultVertexCount": 33,
+		"AssetName": "blood2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 114,
+		"DefaultVertexCount": 93,
+		"AssetName": "blood3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 48,
+		"DefaultVertexCount": 38,
+		"AssetName": "blood4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 167,
+		"DefaultVertexCount": 228,
+		"AssetName": "blood5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 112,
+		"DefaultVertexCount": 116,
+		"AssetName": "blood6",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 78,
+		"DefaultVertexCount": 54,
+		"AssetName": "blood7",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 82,
+		"DefaultVertexCount": 73,
+		"AssetName": "blood8",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 59,
+		"DefaultVertexCount": 43,
+		"AssetName": "blood9",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 694,
+		"DefaultVertexCount": 375,
+		"AssetName": "boid",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 594,
+		"DefaultVertexCount": 325,
+		"AssetName": "boid2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 490,
+		"DefaultVertexCount": 281,
+		"AssetName": "boid2horns",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 594,
+		"DefaultVertexCount": 325,
+		"AssetName": "boid3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 620,
+		"DefaultVertexCount": 364,
+		"AssetName": "boid3horns",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 322,
+		"DefaultVertexCount": 185,
+		"AssetName": "boid3jaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2299,
+		"DefaultVertexCount": 3229,
+		"AssetName": "boid4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 414,
+		"DefaultVertexCount": 781,
+		"AssetName": "boid4jaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2,
+		"DefaultVertexCount": 4,
+		"AssetName": "bottom"
+	},
+	{
+		"DefaultIndexCount": 60,
+		"DefaultVertexCount": 164,
+		"AssetName": "dagger"
+	},
+	{
+		"DefaultIndexCount": 44,
+		"DefaultVertexCount": 27,
+		"AssetName": "ember1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 44,
+		"DefaultVertexCount": 60,
+		"AssetName": "ember2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 38,
+		"DefaultVertexCount": 40,
+		"AssetName": "ember3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 90,
+		"DefaultVertexCount": 67,
+		"AssetName": "feather1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 66,
+		"DefaultVertexCount": 47,
+		"AssetName": "feather2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 76,
+		"DefaultVertexCount": 45,
+		"AssetName": "flame1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 130,
+		"DefaultVertexCount": 107,
+		"AssetName": "flame2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 98,
+		"DefaultVertexCount": 65,
+		"AssetName": "flame3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 81,
+		"DefaultVertexCount": 62,
+		"AssetName": "flame4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 131,
+		"DefaultVertexCount": 100,
+		"AssetName": "flame5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 190,
+		"DefaultVertexCount": 147,
+		"AssetName": "flame6",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 198,
+		"DefaultVertexCount": 176,
+		"AssetName": "flame7",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 146,
+		"DefaultVertexCount": 110,
+		"AssetName": "flame8",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
+		"AssetName": "gib",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 96,
+		"DefaultVertexCount": 54,
+		"AssetName": "gib1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 214,
+		"DefaultVertexCount": 117,
+		"AssetName": "gib2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 94,
+		"DefaultVertexCount": 54,
+		"AssetName": "gib3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 980,
+		"DefaultVertexCount": 595,
+		"AssetName": "gigaegg",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1196,
+		"DefaultVertexCount": 645,
+		"AssetName": "gigaspiderbody",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 590,
+		"DefaultVertexCount": 343,
+		"AssetName": "gigaspidercrest",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 392,
+		"DefaultVertexCount": 218,
+		"AssetName": "gigaspiderfangs",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 290,
+		"DefaultVertexCount": 162,
+		"AssetName": "gigaspiderfangs2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 722,
+		"DefaultVertexCount": 402,
+		"AssetName": "gigaspiderhead",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 379,
+		"DefaultVertexCount": 220,
+		"AssetName": "gigaspiderhorns",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 424,
+		"DefaultVertexCount": 293,
+		"AssetName": "gigaspiderjaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 292,
+		"DefaultVertexCount": 160,
+		"AssetName": "gigaspiderpalm",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 296,
+		"DefaultVertexCount": 185,
+		"AssetName": "hand"
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 238,
+		"AssetName": "hand2"
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 414,
+		"AssetName": "hand2left"
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 237,
+		"AssetName": "hand3"
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 397,
+		"AssetName": "hand3left"
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 237,
+		"AssetName": "hand4"
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 237,
+		"AssetName": "hand4left"
+	},
+	{
+		"DefaultIndexCount": 296,
+		"DefaultVertexCount": 386,
+		"AssetName": "handleft"
+	},
+	{
+		"DefaultIndexCount": 224,
+		"DefaultVertexCount": 151,
+		"AssetName": "immortalorb",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2299,
+		"DefaultVertexCount": 1329,
+		"AssetName": "levicrown",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2299,
+		"DefaultVertexCount": 1329,
+		"AssetName": "levicrown2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 422,
+		"DefaultVertexCount": 430,
+		"AssetName": "levicrown2jaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 414,
+		"DefaultVertexCount": 795,
+		"AssetName": "levicrownjaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 3122,
+		"DefaultVertexCount": 4052,
+		"AssetName": "levideath",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 594,
+		"DefaultVertexCount": 325,
+		"AssetName": "levidividerskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
+		"AssetName": "levigem",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
+		"AssetName": "levigem2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 192,
+		"DefaultVertexCount": 144,
+		"AssetName": "leviorb",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 594,
+		"DefaultVertexCount": 325,
+		"AssetName": "leviskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 594,
+		"DefaultVertexCount": 325,
+		"AssetName": "leviskull2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 322,
+		"DefaultVertexCount": 185,
+		"AssetName": "leviskulljaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1496,
+		"DefaultVertexCount": 824,
+		"AssetName": "levitent",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 400,
+		"DefaultVertexCount": 231,
+		"AssetName": "levitent2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 20,
+		"DefaultVertexCount": 22,
+		"AssetName": "light_sphere"
+	},
+	{
+		"DefaultIndexCount": 60,
+		"DefaultVertexCount": 164,
+		"AssetName": "logodagger"
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 238,
+		"AssetName": "logohand"
+	},
+	{
+		"DefaultIndexCount": 1028,
+		"DefaultVertexCount": 585,
+		"AssetName": "minisquidcrest",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1196,
+		"DefaultVertexCount": 625,
+		"AssetName": "minisquidcrestskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 10,
+		"AssetName": "minisquidgem",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 490,
+		"DefaultVertexCount": 281,
+		"AssetName": "minisquidhorns",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1054,
+		"DefaultVertexCount": 710,
+		"AssetName": "minisquidjaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1420,
+		"DefaultVertexCount": 3669,
+		"AssetName": "minisquidjawskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 104,
+		"DefaultVertexCount": 108,
+		"AssetName": "orbgib1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 80,
+		"DefaultVertexCount": 89,
+		"AssetName": "orbgib10",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 82,
+		"DefaultVertexCount": 87,
+		"AssetName": "orbgib11",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 50,
+		"DefaultVertexCount": 59,
+		"AssetName": "orbgib12",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 70,
+		"DefaultVertexCount": 75,
+		"AssetName": "orbgib13",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 70,
+		"DefaultVertexCount": 86,
+		"AssetName": "orbgib14",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 74,
+		"DefaultVertexCount": 108,
+		"AssetName": "orbgib15",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 86,
+		"DefaultVertexCount": 91,
+		"AssetName": "orbgib16",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 102,
+		"DefaultVertexCount": 97,
+		"AssetName": "orbgib2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 76,
+		"DefaultVertexCount": 109,
+		"AssetName": "orbgib3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 78,
+		"DefaultVertexCount": 87,
+		"AssetName": "orbgib4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 60,
+		"DefaultVertexCount": 77,
+		"AssetName": "orbgib5",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 50,
+		"DefaultVertexCount": 57,
+		"AssetName": "orbgib6",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 78,
+		"DefaultVertexCount": 85,
+		"AssetName": "orbgib7",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 66,
+		"DefaultVertexCount": 75,
+		"AssetName": "orbgib8",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 38,
+		"DefaultVertexCount": 51,
+		"AssetName": "orbgib9",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 396,
+		"DefaultVertexCount": 243,
+		"AssetName": "owlwing",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 698,
+		"DefaultVertexCount": 406,
+		"AssetName": "pedebody",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 3749,
+		"DefaultVertexCount": 2174,
+		"AssetName": "pedehead",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 596,
+		"DefaultVertexCount": 704,
+		"AssetName": "pedejaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 246,
+		"DefaultVertexCount": 137,
+		"AssetName": "pedeleg1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 146,
+		"DefaultVertexCount": 92,
+		"AssetName": "pedeleg2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 196,
+		"DefaultVertexCount": 120,
+		"AssetName": "pedeleg3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 696,
+		"DefaultVertexCount": 379,
+		"AssetName": "pedetail",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1176,
+		"DefaultVertexCount": 698,
+		"AssetName": "pedetaillegs",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 4,
+		"DefaultVertexCount": 12,
+		"AssetName": "pedeweak",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 16,
+		"AssetName": "pillar"
+	},
+	{
+		"DefaultIndexCount": 32,
+		"DefaultVertexCount": 25,
+		"AssetName": "plane400"
+	},
+	{
+		"DefaultIndexCount": 414,
+		"DefaultVertexCount": 332,
+		"AssetName": "rubble",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 106,
+		"DefaultVertexCount": 60,
+		"AssetName": "smokeblob1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 122,
+		"DefaultVertexCount": 68,
+		"AssetName": "smokeblob2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 62,
+		"DefaultVertexCount": 36,
+		"AssetName": "smokeblob3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 80,
+		"DefaultVertexCount": 46,
+		"AssetName": "smokeblob4",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 294,
+		"DefaultVertexCount": 164,
+		"AssetName": "sorathstone"
+	},
+	{
+		"DefaultIndexCount": 1196,
+		"DefaultVertexCount": 645,
+		"AssetName": "spiderbody",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 704,
+		"DefaultVertexCount": 1210,
+		"AssetName": "spideregg1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
+		"AssetName": "spideregg2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 392,
+		"DefaultVertexCount": 218,
+		"AssetName": "spiderfangs",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
+		"AssetName": "spidergib",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 722,
+		"DefaultVertexCount": 402,
+		"AssetName": "spiderhead",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 424,
+		"DefaultVertexCount": 293,
+		"AssetName": "spiderjaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 146,
+		"DefaultVertexCount": 88,
+		"AssetName": "spiderleg1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 146,
+		"DefaultVertexCount": 88,
+		"AssetName": "spiderleg1f",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 72,
+		"AssetName": "spiderleg2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 72,
+		"AssetName": "spiderleg2f",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 70,
+		"AssetName": "spiderleg3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 118,
+		"DefaultVertexCount": 70,
+		"AssetName": "spiderleg3f",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 524,
+		"DefaultVertexCount": 324,
+		"AssetName": "spiderling"
+	},
+	{
+		"DefaultIndexCount": 38,
+		"DefaultVertexCount": 65,
+		"AssetName": "spiderlingleg1"
+	},
+	{
+		"DefaultIndexCount": 36,
+		"DefaultVertexCount": 107,
+		"AssetName": "spiderlingleg2"
+	},
+	{
+		"DefaultIndexCount": 18,
+		"DefaultVertexCount": 50,
+		"AssetName": "spiderlingleg3"
+	},
+	{
+		"DefaultIndexCount": 138,
+		"DefaultVertexCount": 328,
+		"AssetName": "spiderlingpalms"
+	},
+	{
+		"DefaultIndexCount": 292,
+		"DefaultVertexCount": 160,
+		"AssetName": "spiderpalm",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 146,
+		"DefaultVertexCount": 80,
+		"AssetName": "spiderpalmf",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 596,
+		"DefaultVertexCount": 349,
+		"AssetName": "squidarm",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2044,
+		"DefaultVertexCount": 1137,
+		"AssetName": "squidcrest",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2392,
+		"DefaultVertexCount": 1250,
+		"AssetName": "squidcrestskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
+		"AssetName": "squidgem",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1240,
+		"DefaultVertexCount": 728,
+		"AssetName": "squidhorns",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2036,
+		"DefaultVertexCount": 1194,
+		"AssetName": "squidjaws",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1422,
+		"DefaultVertexCount": 932,
+		"AssetName": "squidjawskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 5583,
+		"DefaultVertexCount": 7794,
+		"AssetName": "squidteeth",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 994,
+		"DefaultVertexCount": 529,
+		"AssetName": "statue1"
+	},
+	{
+		"DefaultIndexCount": 1986,
+		"DefaultVertexCount": 1084,
+		"AssetName": "statue2"
+	},
+	{
+		"DefaultIndexCount": 2900,
+		"DefaultVertexCount": 8326,
+		"AssetName": "statue3"
+	},
+	{
+		"DefaultIndexCount": 2928,
+		"DefaultVertexCount": 1756,
+		"AssetName": "thorn",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 240,
+		"DefaultVertexCount": 138,
+		"AssetName": "thorngib1",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 196,
+		"DefaultVertexCount": 125,
+		"AssetName": "thorngib2",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 296,
+		"DefaultVertexCount": 176,
+		"AssetName": "thorngib3",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 10,
+		"DefaultVertexCount": 20,
+		"AssetName": "tile"
+	},
+	{
+		"DefaultIndexCount": 12,
+		"DefaultVertexCount": 25,
+		"AssetName": "tile2"
+	},
+	{
+		"DefaultIndexCount": 3964,
+		"DefaultVertexCount": 2254,
+		"AssetName": "ultrapedecrown",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 3072,
+		"DefaultVertexCount": 1767,
+		"AssetName": "ultrasquidcrest",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 3588,
+		"DefaultVertexCount": 1875,
+		"AssetName": "ultrasquidcrestskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 8,
+		"DefaultVertexCount": 24,
+		"AssetName": "ultrasquidgem",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 3909,
+		"DefaultVertexCount": 2325,
+		"AssetName": "ultrasquidhorns",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 2988,
+		"DefaultVertexCount": 1770,
+		"AssetName": "ultrasquidjaw",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 1418,
+		"DefaultVertexCount": 958,
+		"AssetName": "ultrasquidjawskull",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 5567,
+		"DefaultVertexCount": 15663,
+		"AssetName": "ultrasquidteeth",
+		"IsProhibited": true
+	},
+	{
+		"DefaultIndexCount": 570,
+		"DefaultVertexCount": 1293,
+		"AssetName": "ultrasquidtent",
+		"IsProhibited": true
+	}
+]

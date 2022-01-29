@@ -1,0 +1,142 @@
+[
+	{
+		"AssetName": "boid"
+	},
+	{
+		"AssetName": "boid_batch"
+	},
+	{
+		"AssetName": "boid_pop",
+		"IsProhibited": true
+	},
+	{
+		"AssetName": "boid_pop_batch",
+		"IsProhibited": true
+	},
+	{
+		"AssetName": "daggerlevi"
+	},
+	{
+		"AssetName": "debug"
+	},
+	{
+		"AssetName": "default_texture"
+	},
+	{
+		"AssetName": "depth"
+	},
+	{
+		"AssetName": "egg"
+	},
+	{
+		"AssetName": "gib"
+	},
+	{
+		"AssetName": "gib_batch"
+	},
+	{
+		"AssetName": "hand"
+	},
+	{
+		"AssetName": "hand_batch"
+	},
+	{
+		"AssetName": "light"
+	},
+	{
+		"AssetName": "light_batch"
+	},
+	{
+		"AssetName": "light_ring"
+	},
+	{
+		"AssetName": "owlwing"
+	},
+	{
+		"AssetName": "particle"
+	},
+	{
+		"AssetName": "particle2",
+		"IsProhibited": true
+	},
+	{
+		"AssetName": "particle2_batch",
+		"IsProhibited": true
+	},
+	{
+		"AssetName": "particle_decal"
+	},
+	{
+		"AssetName": "particle_decal_batch",
+		"IsProhibited": true
+	},
+	{
+		"AssetName": "post"
+	},
+	{
+		"AssetName": "post_combine"
+	},
+	{
+		"AssetName": "post_final"
+	},
+	{
+		"AssetName": "post_title"
+	},
+	{
+		"AssetName": "shadow"
+	},
+	{
+		"AssetName": "shadow_batch"
+	},
+	{
+		"AssetName": "sorath"
+	},
+	{
+		"AssetName": "sprite"
+	},
+	{
+		"AssetName": "sprite_debug"
+	},
+	{
+		"AssetName": "sprite_terrain"
+	},
+	{
+		"AssetName": "squidarm"
+	},
+	{
+		"AssetName": "squidarm_batch"
+	},
+	{
+		"AssetName": "thorn"
+	},
+	{
+		"AssetName": "tile"
+	},
+	{
+		"AssetName": "tile2"
+	},
+	{
+		"AssetName": "tile_batch"
+	},
+	{
+		"AssetName": "unlit"
+	},
+	{
+		"AssetName": "warp"
+	},
+	{
+		"AssetName": "warp2"
+	},
+	{
+		"AssetName": "warp2_batch"
+	},
+	{
+		"AssetName": "warp_batch"
+	},
+	{
+		"AssetName": "warp3"
+	},
+	{
+		"AssetName": "warpeye"
+	}
+]
