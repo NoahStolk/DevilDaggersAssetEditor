@@ -166,26 +166,42 @@ public class ModelChunk : Chunk
 			VertexReference vertex2 = vertices[(int)i + 1];
 			VertexReference vertex3 = vertices[(int)i + 2];
 
-			// TODO: Check if these values actually exist.
+			if (positions.Count < vertex1.PositionReference)
+				throw new($"Face vertex 1 targets position {vertex1.PositionReference} but there are only {positions.Count} positions.");
+			if (positions.Count < vertex2.PositionReference)
+				throw new($"Face vertex 2 targets position {vertex2.PositionReference} but there are only {positions.Count} positions.");
+			if (positions.Count < vertex3.PositionReference)
+				throw new($"Face vertex 3 targets position {vertex3.PositionReference} but there are only {positions.Count} positions.");
+
 			outPositions.Add(positions[(int)vertex1.PositionReference - 1]);
 			outPositions.Add(positions[(int)vertex2.PositionReference - 1]);
 			outPositions.Add(positions[(int)vertex3.PositionReference - 1]);
+
+			if (texCoords.Count < vertex1.TexCoordReference)
+				throw new($"Face vertex 1 targets position {vertex1.TexCoordReference} but there are only {texCoords.Count} texture coordinates.");
+			if (texCoords.Count < vertex2.TexCoordReference)
+				throw new($"Face vertex 2 targets position {vertex2.TexCoordReference} but there are only {texCoords.Count} texture coordinates.");
+			if (texCoords.Count < vertex3.TexCoordReference)
+				throw new($"Face vertex 3 targets position {vertex3.TexCoordReference} but there are only {texCoords.Count} texture coordinates.");
 
 			outTexCoords.Add(texCoords[(int)vertex1.TexCoordReference - 1]);
 			outTexCoords.Add(texCoords[(int)vertex2.TexCoordReference - 1]);
 			outTexCoords.Add(texCoords[(int)vertex3.TexCoordReference - 1]);
 
+			if (normals.Count < vertex1.NormalReference)
+				throw new($"Face vertex 1 targets position {vertex1.NormalReference} but there are only {normals.Count} normals.");
+			if (normals.Count < vertex2.NormalReference)
+				throw new($"Face vertex 2 targets position {vertex2.NormalReference} but there are only {normals.Count} normals.");
+			if (normals.Count < vertex3.NormalReference)
+				throw new($"Face vertex 3 targets position {vertex3.NormalReference} but there are only {normals.Count} normals.");
+
 			outNormals.Add(normals[(int)vertex1.NormalReference - 1]);
 			outNormals.Add(normals[(int)vertex2.NormalReference - 1]);
 			outNormals.Add(normals[(int)vertex3.NormalReference - 1]);
 
-			VertexReference outVertex1 = new(i + 1);
-			VertexReference outVertex2 = new(i + 2);
-			VertexReference outVertex3 = new(i + 3);
-
-			outVertices.Add(outVertex1);
-			outVertices.Add(outVertex2);
-			outVertices.Add(outVertex3);
+			outVertices.Add(new(i + 1));
+			outVertices.Add(new(i + 2));
+			outVertices.Add(new(i + 3));
 		}
 	}
 
