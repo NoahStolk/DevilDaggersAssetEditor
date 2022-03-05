@@ -69,40 +69,57 @@ public class ModelChunk : Chunk
 
 		for (int i = 0; i < lines.Length; i++)
 		{
+			int lineNumber = i + 1;
+
 			string line = lines[i];
 			string[] values = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 			if (values.Length == 0)
 				continue;
 
+			string[] coords = values[1..];
 			switch (values[0])
 			{
 				case "v":
-					positions.Add(new(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
+					if (coords.Length != 3)
+						throw new($"Invalid position (v) on line {lineNumber}. Must contain 3 coordinates.");
+
+					positions.Add(new(ParseVertexValue(coords[0]), ParseVertexValue(coords[1]), ParseVertexValue(coords[2])));
 					break;
 				case "vt":
-					texCoords.Add(new(ParseVertexValue(values[1]), ParseVertexValue(values[2])));
+					if (coords.Length != 3)
+						throw new($"Invalid texture (vt) on line {lineNumber}. Must contain 2 coordinates.");
+
+					texCoords.Add(new(ParseVertexValue(coords[0]), ParseVertexValue(coords[1])));
 					break;
 				case "vn":
-					normals.Add(new(ParseVertexValue(values[1]), ParseVertexValue(values[2]), ParseVertexValue(values[3])));
+					if (coords.Length != 3)
+						throw new($"Invalid normal (vn) on line {lineNumber}. Must contain 3 coordinates.");
+
+					normals.Add(new(ParseVertexValue(coords[0]), ParseVertexValue(coords[1]), ParseVertexValue(coords[2])));
 					break;
 				case "f":
 					// Compatible with:
 					// f 1 2 3
 					// f 1/2/3 4/5/6 7/8/9
-					// f 1/2/3 4/5/6 7/8/9 10/11/12
-					if (values.Length > 5)
-						throw new NotSupportedException("Turning models consisting of NGons into binary data is not supported.");
+					if (coords.Length < 3)
+						throw new NotSupportedException($"Invalid face on line {lineNumber}. Must be a complete triangle.");
+
+					if (coords.Length > 3)
+						throw new NotSupportedException($"Invalid face on line {lineNumber}. Quads and NGons are not supported. Export your meshes as triangles.");
 
 					for (int j = 0; j < 3; j++)
 					{
-						string value = values[j + 1];
+						string value = coords[j];
 
-						string baseErrorMessage = $"Invalid vertex data in file '{Path.GetFileName(path)}' at line {i + 1}:";
+						string baseErrorMessage = $"Invalid vertex data in file '{Path.GetFileName(path)}' on line {lineNumber}:";
 
 						if (value.Contains('/'))
 						{
 							// f 1/2/3 4/5/6 7/8/9
 							string[] references = value.Split('/');
+
+							if (references.Length != 3)
+								throw new($"Invalid face data on line {lineNumber}. Must contain reference to position, texture (UV), and normal coordinates.");
 
 							if (string.IsNullOrWhiteSpace(references[0]))
 								throw new($"{baseErrorMessage} Empty position value found. This probably means your model file is corrupted.");
@@ -149,6 +166,7 @@ public class ModelChunk : Chunk
 			VertexReference vertex2 = vertices[(int)i + 1];
 			VertexReference vertex3 = vertices[(int)i + 2];
 
+			// TODO: Check if these values actually exist.
 			outPositions.Add(positions[(int)vertex1.PositionReference - 1]);
 			outPositions.Add(positions[(int)vertex2.PositionReference - 1]);
 			outPositions.Add(positions[(int)vertex3.PositionReference - 1]);
