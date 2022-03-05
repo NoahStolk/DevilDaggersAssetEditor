@@ -70,7 +70,7 @@ public class ModelChunk : Chunk
 		for (int i = 0; i < lines.Length; i++)
 		{
 			string line = lines[i];
-			string[] values = line.Split(' ');
+			string[] values = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
 			switch (values[0])
 			{
