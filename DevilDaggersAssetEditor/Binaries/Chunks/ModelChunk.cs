@@ -60,8 +60,7 @@ public class ModelChunk : Chunk
 
 	public static void ReadObj(string path, out List<Vector3> outPositions, out List<Vector2> outTexCoords, out List<Vector3> outNormals, out List<VertexReference> outVertices)
 	{
-		string text = File.ReadAllText(path);
-		string[] lines = text.Split('\n');
+		string[] lines = File.ReadAllLines(path);
 
 		List<Vector3> positions = new();
 		List<Vector2> texCoords = new();
