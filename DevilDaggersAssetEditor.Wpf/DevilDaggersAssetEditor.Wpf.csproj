@@ -40,12 +40,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Content\Images\AssetEditor\Sort.png" />
-    <Resource Include="Content\Images\AudioPlayer\Pause.png" />
-    <Resource Include="Content\Images\AudioPlayer\Play.png" />
-    <Resource Include="Content\Images\AudioPlayer\ResetPitch.png" />
-    <Resource Include="Content\Images\Buttons\Sort.png" />
-    <Resource Include="Content\Images\Icon\Icon.png" />
+    <Resource Include="Content\Images\**\*" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">
