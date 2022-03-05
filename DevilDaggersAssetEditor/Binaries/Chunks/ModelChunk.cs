@@ -131,25 +131,6 @@ public class ModelChunk : Chunk
 						}
 					}
 
-					// If there are 4 vertices, we're dealing with quads. Convert quads by making a second triangle (CDA).
-					if (values.Length == 5)
-					{
-						for (int j = 2; j < 5; j++)
-						{
-							int k = j;
-							if (j > 3)
-								k -= 4;
-							string value = values[k + 1];
-							if (value.Contains('/'))
-							{
-								// f 1/2/3 4/5/6 7/8/9
-								string[] references = value.Split('/');
-
-								vertices.Add(new(uint.Parse(references[0]), uint.Parse(references[1]), uint.Parse(references[2])));
-							}
-						}
-					}
-
 					break;
 			}
 		}
