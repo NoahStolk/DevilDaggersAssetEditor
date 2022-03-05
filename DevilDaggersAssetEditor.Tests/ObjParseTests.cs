@@ -8,7 +8,8 @@ namespace DevilDaggersAssetEditor.Tests;
 public class ObjParseTests
 {
 	[DataTestMethod]
-	[DataRow("TrimEmptyEntries-hand.obj")]
+	[DataRow("3dsMax-claw.obj")]
+	[DataRow("3dsMax-hand.obj")]
 	public void ParseObj(string fileName)
 	{
 		ModelChunk.ReadObj(Path.Combine("Resources", fileName), out _, out _, out _, out _);
