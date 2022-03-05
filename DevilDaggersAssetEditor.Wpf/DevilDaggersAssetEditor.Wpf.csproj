@@ -3,7 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>1.3.3.0</Version>
+    <Version>1.3.4.0</Version>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
