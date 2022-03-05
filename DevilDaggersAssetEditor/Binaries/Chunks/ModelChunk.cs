@@ -71,6 +71,8 @@ public class ModelChunk : Chunk
 		{
 			string line = lines[i];
 			string[] values = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+			if (values.Length == 0)
+				continue;
 
 			switch (values[0])
 			{
