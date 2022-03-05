@@ -80,20 +80,20 @@ public class ModelChunk : Chunk
 			switch (values[0])
 			{
 				case "v":
-					if (coords.Length != 3)
-						throw new($"Invalid position (v) on line {lineNumber}. Must contain 3 coordinates.");
+					if (coords.Length < 3)
+						throw new($"Invalid position (v) on line {lineNumber}. Must contain at least 3 coordinates. (Additional coordinates are ignored.)");
 
 					positions.Add(new(ParseVertexValue(coords[0]), ParseVertexValue(coords[1]), ParseVertexValue(coords[2])));
 					break;
 				case "vt":
-					if (coords.Length != 3)
-						throw new($"Invalid texture (vt) on line {lineNumber}. Must contain 2 coordinates.");
+					if (coords.Length < 2)
+						throw new($"Invalid texture (vt) on line {lineNumber}. Must contain at least 2 coordinates. (Additional coordinates are ignored.)");
 
 					texCoords.Add(new(ParseVertexValue(coords[0]), ParseVertexValue(coords[1])));
 					break;
 				case "vn":
-					if (coords.Length != 3)
-						throw new($"Invalid normal (vn) on line {lineNumber}. Must contain 3 coordinates.");
+					if (coords.Length < 3)
+						throw new($"Invalid normal (vn) on line {lineNumber}. Must contain at least 3 coordinates. (Additional coordinates are ignored.)");
 
 					normals.Add(new(ParseVertexValue(coords[0]), ParseVertexValue(coords[1]), ParseVertexValue(coords[2])));
 					break;
