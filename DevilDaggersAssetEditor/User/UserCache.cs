@@ -43,4 +43,30 @@ public class UserCache
 	public int? DownloadSortingIndex { get; set; }
 	[JsonProperty]
 	public List<bool>? DownloadSortingDirections { get; set; }
+
+	[JsonProperty]
+	public bool ImportAudioAudio { get; set; } = true;
+	[JsonProperty]
+	public bool ImportCoreShaders { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdShaders { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdTextures { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdModels { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdModelBindings { get; set; } = true;
+
+	[JsonProperty]
+	public bool ImportAudioAudioAllDirectories { get; set; } = true;
+	[JsonProperty]
+	public bool ImportCoreShadersAllDirectories { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdShadersAllDirectories { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdTexturesAllDirectories { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdModelsAllDirectories { get; set; } = true;
+	[JsonProperty]
+	public bool ImportDdModelBindingsAllDirectories { get; set; } = true;
 }

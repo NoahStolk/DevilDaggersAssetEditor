@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DevilDaggersAssetEditor.Wpf.Gui.UserControls.ImportDirectoryControl"
+<UserControl x:Class="DevilDaggersAssetEditor.Wpf.Gui.UserControls.ImportDirectoryControl"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,7 +10,7 @@
 			<ColumnDefinition Width="48" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-		<CheckBox Name="CheckBoxEnable" Checked="CheckBoxEnable_Changed" Unchecked="CheckBoxEnable_Changed" IsChecked="True" Style="{StaticResource CheckBoxLarge}">
+		<CheckBox Name="CheckBoxEnable" Checked="CheckBoxEnable_Changed" Unchecked="CheckBoxEnable_Changed" Style="{StaticResource CheckBoxLarge}">
 			<CheckBox.LayoutTransform>
 				<ScaleTransform ScaleX="2" ScaleY="2" />
 			</CheckBox.LayoutTransform>
@@ -23,7 +23,7 @@
 					<ColumnDefinition />
 					<ColumnDefinition Width="6*" />
 				</Grid.ColumnDefinitions>
-				<CheckBox Name="CheckBoxAllDirectories" IsChecked="True" Content="Include subdirectories" VerticalContentAlignment="Center" />
+				<CheckBox Name="CheckBoxAllDirectories" Checked="CheckBoxAllDirectories_Changed" Unchecked="CheckBoxAllDirectories_Changed" Content="Include subdirectories" VerticalContentAlignment="Center" />
 				<Button Grid.Column="1" Name="ButtonBrowse" Content="Browse" Click="BrowseButton_Click" HorizontalAlignment="Stretch" />
 				<TextBox Grid.Column="2" Name="TextBox" TextChanged="TextBox_TextChanged" />
 			</Grid>
