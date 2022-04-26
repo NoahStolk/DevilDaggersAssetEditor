@@ -171,19 +171,19 @@ Here are the model headers for 'dagger', 'hand', and 'hand2':
 |--------------|-----------|---------|-------|
 | `B4000000` | 32-bit unsigned integer | Index count | 180 |
 | `A4000000` | 32-bit unsigned integer | Vertex count | 164 |
-| `2001` | 16-bit unsigned integer | Identifier? | 288 |
+| `2000` | 16-bit unsigned integer | ? | 32 (this used to be 288 `2001`) |
 
 | Binary (hex) | Data type | Meaning | Value |
 |--------------|-----------|---------|-------|
 | `78030000` | 32-bit unsigned integer | Index count | 888 |
 | `B9000000` | 32-bit unsigned integer | Vertex count | 185 |
-| `2001` | 16-bit unsigned integer | Identifier? | 288 |
+| `2000` | 16-bit unsigned integer | ? | 32 (this used to be 288 `2001`) |
 
 | Binary (hex) | Data type | Meaning | Value |
 |--------------|-----------|---------|-------|
 | `A4040000` | 32-bit unsigned integer | Index count | 1188 |
 | `EE000000` | 32-bit unsigned integer | Vertex count | 238 |
-| `2001` | 16-bit unsigned integer | Identifier? | 288 |
+| `2000` | 16-bit unsigned integer | ? | 32 (this used to be 288 `2001`) |
 
 ##### Model vertex format
 
