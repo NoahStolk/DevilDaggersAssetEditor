@@ -1,6 +1,4 @@
 using DevilDaggersAssetEditor.Mods;
-using DevilDaggersAssetEditor.Utils;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,20 +11,12 @@ namespace DevilDaggersAssetEditor.Binaries.Chunks;
 
 public class ModelChunk : Chunk
 {
-	private static readonly Dictionary<string, byte[]> _closures = GetClosures();
-
 	public ModelChunk(string name, uint startOffset, uint size)
 		: base(AssetType.Model, name, startOffset, size)
 	{
 	}
 
 	public override int HeaderSize => 10;
-
-	private static Dictionary<string, byte[]> GetClosures()
-	{
-		using StreamReader sr = new(AssemblyUtils.GetContentStream("ModelClosures.json"));
-		return JsonConvert.DeserializeObject<Dictionary<string, byte[]>>(sr.ReadToEnd()) ?? throw new("Corrupt ModelClosures.json.");
-	}
 
 	private static float ParseVertexValue(string value)
 		=> (float)double.Parse(value, NumberStyles.Float);
@@ -37,8 +27,7 @@ public class ModelChunk : Chunk
 
 		int vertexCount = outPositions.Count;
 
-		byte[] closure = _closures[Name];
-		Buffer = new byte[HeaderSize + vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint) + closure.Length];
+		Buffer = new byte[HeaderSize + vertexCount * Vertex.ByteCount + vertexCount * sizeof(uint)];
 
 		Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 0, sizeof(uint));
 		Buf.BlockCopy(BitConverter.GetBytes((uint)vertexCount), 0, Buffer, 4, sizeof(uint));
@@ -53,7 +42,6 @@ public class ModelChunk : Chunk
 
 		for (int i = 0; i < vertexCount; i++)
 			Buf.BlockCopy(BitConverter.GetBytes(outVertices[i].PositionReference - 1), 0, Buffer, HeaderSize + vertexCount * Vertex.ByteCount + i * sizeof(uint), sizeof(uint));
-		Buf.BlockCopy(closure, 0, Buffer, HeaderSize + vertexCount * (Vertex.ByteCount + sizeof(uint)), closure.Length);
 
 		Size = (uint)Buffer.Length;
 	}
