@@ -62,7 +62,7 @@ The internal structure of resource binaries consists of 3 parts:
 			- Unknown
 		- Model vertices
 		- Model indices
-		- Unknown
+		- Unknown/Optional
 	- For every shader chunk:
 		- Shader header
 			- Shader name length
@@ -89,8 +89,7 @@ Fixed-length buffer of 12 bytes. Contains the length of the TOC buffer, as well 
 
 | Binary (hex) | Data type | Meaning | Value |
 |--------------|-----------|---------|-------|
-| `3A68783A` | 32-bit unsigned integer | Format identifier | 980969530 |
-| `72673A01` | 32-bit unsigned integer | Format identifier | 20604786 |
+| `3A68783A72673A01` | Magic | Format identifier | - |
 | `15340000` | 32-bit unsigned integer | Table of contents (TOC) buffer length | 13333 |
 
 ### Table of contents (TOC) buffer
@@ -161,7 +160,7 @@ The chunk data for a model chunk consists of 4 parts:
 | Model header | 10 |
 | Model vertices | 32 x the amount of vertices |
 | Model indices | 4 x the amount of indices |
-| Unknown | Variable |
+| Unknown/Optional | Variable |
 
 ##### Model header
 
@@ -171,19 +170,19 @@ Here are the model headers for 'dagger', 'hand', and 'hand2':
 |--------------|-----------|---------|-------|
 | `B4000000` | 32-bit unsigned integer | Index count | 180 |
 | `A4000000` | 32-bit unsigned integer | Vertex count | 164 |
-| `2000` | 16-bit unsigned integer | ? | 32 (this used to be 288 `2001`) |
+| `2000` | ? | ? | 32 (this used to be 288 `2001`) |
 
 | Binary (hex) | Data type | Meaning | Value |
 |--------------|-----------|---------|-------|
 | `78030000` | 32-bit unsigned integer | Index count | 888 |
 | `B9000000` | 32-bit unsigned integer | Vertex count | 185 |
-| `2000` | 16-bit unsigned integer | ? | 32 (this used to be 288 `2001`) |
+| `2000` | ? | ? | 32 (this used to be 288 `2001`) |
 
 | Binary (hex) | Data type | Meaning | Value |
 |--------------|-----------|---------|-------|
 | `A4040000` | 32-bit unsigned integer | Index count | 1188 |
 | `EE000000` | 32-bit unsigned integer | Vertex count | 238 |
-| `2000` | 16-bit unsigned integer | ? | 32 (this used to be 288 `2001`) |
+| `2000` | ? | ? | 32 (this used to be 288 `2001`) |
 
 ##### Model vertex format
 
