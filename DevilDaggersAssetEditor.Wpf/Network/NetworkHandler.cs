@@ -1,5 +1,6 @@
 using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Wpf.Clients;
+using DevilDaggersAssetEditor.Wpf.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,8 +39,7 @@ public sealed class NetworkHandler
 		{
 			Tool = ApiClient.Tools_GetToolAsync(App.ApplicationName).Result;
 
-			// TODO: Use Default publish method for Windows 7.
-			Distribution = ApiClient.Tools_GetLatestToolDistributionAsync(App.ApplicationName, ToolPublishMethod.SelfContained, ToolBuildType.WindowsWpf).Result;
+			Distribution = ApiClient.Tools_GetLatestToolDistributionAsync(App.ApplicationName, DistributionUtils.GetPublishMethod(), ToolBuildType.WindowsWpf).Result;
 
 			return true;
 		}
