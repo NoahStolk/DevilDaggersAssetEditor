@@ -167,19 +167,14 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		if (_openAlDevice == null || !File.Exists(filePath))
 			return;
 
-		WaveFile? waveFile = null;
+		WaveFile waveFile;
 		try
 		{
 			waveFile = new(filePath);
 		}
 		catch (WaveParseException ex)
 		{
-			Dispatcher.Invoke(() =>
-			{
-				ErrorWindow errorWindow = new("Cannot preview audio file.", "The .wav file could not be parsed.", ex);
-				errorWindow.ShowDialog();
-			});
-
+			App.Instance.ShowError("Cannot preview audio file.", "The .wav file could not be parsed.", ex);
 			return;
 		}
 
