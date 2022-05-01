@@ -22,7 +22,7 @@ public sealed class ModScreenshotCache
 		if (_cache.ContainsKey(key))
 			return _cache[key];
 
-		BitmapImage image = new(new Uri($"https://devildaggers.info/api/mod-screenshots?modName={modName}&fileName={screenshotFileName}"));
+		BitmapImage image = new(new Uri($"https://devildaggers.info/api/mod-screenshots?modName={Uri.EscapeDataString(modName)}&fileName={Uri.EscapeDataString(screenshotFileName)}"));
 		_cache.Add(key, image);
 		return image;
 	}
