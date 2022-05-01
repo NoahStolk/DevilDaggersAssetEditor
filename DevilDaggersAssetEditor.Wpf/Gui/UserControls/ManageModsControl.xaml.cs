@@ -8,6 +8,7 @@ using DevilDaggersAssetEditor.Wpf.Gui.Windows;
 using DevilDaggersAssetEditor.Wpf.Utils;
 using DevilDaggersCore.Wpf.Utils;
 using DevilDaggersCore.Wpf.Windows;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -63,7 +64,16 @@ public partial class ManageModsControl : UserControl
 		foreach (string filePath in Directory.GetFiles(modsDirectory).OrderBy(p => Path.GetFileName(p).TrimStart('_')))
 		{
 			if (GetLocalFile(filePath) == null)
-				_localFiles.Add(new(filePath));
+			{
+				try
+				{
+					_localFiles.Add(new(filePath));
+				}
+				catch (Exception ex)
+				{
+					App.Instance.ShowError("Error reading file", $"Could not read local mod binary at '{filePath}'.", ex);
+				}
+			}
 		}
 
 		SortLocalFiles();
@@ -81,7 +91,7 @@ public partial class ManageModsControl : UserControl
 
 			TextBlock textBlock = new()
 			{
-				Text = localFile.FileName.Length > 40 ? localFile.FileName.Substring(0, 40) + "..." : localFile.FileName,
+				Text = localFile.FileName.Length > 40 ? localFile.FileName[..40] + "..." : localFile.FileName,
 				IsEnabled = localFile.IsValidFile,
 				Foreground = ColorUtils.ThemeColors[GetColor(localFile.HasValidName, localFile.IsActiveFile, localFile.IsValidFile)],
 				FontSize = 16,
