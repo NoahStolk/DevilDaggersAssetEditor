@@ -1,7 +1,13 @@
 # DevilDaggersAssetEditor ([Download](https://devildaggers.info/api/tools/DevilDaggersAssetEditor/file))
+
 DevilDaggersAssetEditor is a tool that can be used to extract assets from the Devil Daggers resource files, as well as inserting them back into binaries to create mods.
 
+## IMPORTANT
+
+**This version of the program (DDAE 1) is considered legacy and will not receive new features.** Patches may be released until DDAE 1 is fully deprecated and this repository is archived. Visit the [DevilDaggersInfo](https://github.com/NoahStolk/DevilDaggersInfo) repository for future updates.
+
 ## Main features
+
 - Extracting and compressing asset types
 	- Audio
 	- Models
@@ -15,17 +21,21 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 	- core/core
 
 ## System requirements
+
 - Microsoft Windows (64-bit)
 
 ## Installation
+
 1. Download the zip file.
 2. Unzip its contents.
 3. Run DevilDaggersAssetEditor.exe inside the folder.
 
 ## Running from source
+
 - Make sure to set the project platform to x64 before building the project.
 
 ## Links
+
 - [DevilDaggers.info website](https://devildaggers.info)
 - [Main web page for DevilDaggersAssetEditor](https://devildaggers.info/tools/asset-editor)
 - [List of mods made with DevilDaggersAssetEditor](https://devildaggers.info/custom/mods)
@@ -33,9 +43,11 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 - [Discord server](https://discord.gg/NF32j8S)
 
 ## Credits
+
 The program's asset extraction functionality is based on [Devil Daggers Extractor by pmcc](https://github.com/pmcc/devil-daggers-extractor) written in C++.
 
 ## License
+
 MIT License
 
 Copyright (c) 2019-2022 Noah Stolk
