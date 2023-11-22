@@ -4,7 +4,7 @@ DevilDaggersAssetEditor is a tool that can be used to extract assets from the De
 
 ## IMPORTANT
 
-**This version of the program (DDAE 1) is considered legacy and will not receive new features.** Patches may be released until DDAE 1 is fully deprecated and this repository is archived. Visit the [DevilDaggersInfo](https://github.com/NoahStolk/DevilDaggersInfo) repository for future updates.
+**This version of the program (DDAE 1) is considered legacy and will not receive new features.** Patches may be released until DDAE 1 is fully deprecated. Visit the [ddinfo-tools](https://github.com/NoahStolk/ddinfo-tools) repository for a much improved, cross-platform alternative.
 
 ## Main features
 
