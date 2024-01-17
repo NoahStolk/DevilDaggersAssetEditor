@@ -8,7 +8,6 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows;
 
@@ -34,47 +33,6 @@ public partial class LoadingWindow : Window
 
 	private void RunThreads(object? sender, EventArgs e)
 	{
-		using BackgroundWorker checkVersionThread = new();
-		checkVersionThread.DoWork += (sender, e) => NetworkHandler.Instance.GetOnlineTool();
-		checkVersionThread.RunWorkerCompleted += (sender, e) =>
-		{
-			Dispatcher.Invoke(() =>
-			{
-				string message = string.Empty;
-				SolidColorBrush color;
-
-				if (NetworkHandler.Instance.Tool == null || NetworkHandler.Instance.Distribution == null)
-				{
-					message = "Error";
-					color = ColorUtils.ThemeColors["ErrorText"];
-				}
-				else if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumberRequired))
-				{
-					message = "Warning (update required)";
-					color = ColorUtils.ThemeColors["WarningText"];
-				}
-				else if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Distribution.VersionNumber))
-				{
-					message = "Warning (update recommended)";
-					color = ColorUtils.ThemeColors["SuggestionText"];
-				}
-				else
-				{
-					message = "OK (up to date)";
-					color = ColorUtils.ThemeColors["SuccessText"];
-				}
-
-				TaskResultsStackPanel.Children.Add(new TextBlock
-				{
-					Text = message,
-					Foreground = color,
-					FontWeight = FontWeights.Bold,
-				});
-			});
-
-			ThreadComplete();
-		};
-
 		bool readUserSettingsSuccess = false;
 		using BackgroundWorker readUserSettingsThread = new();
 		readUserSettingsThread.DoWork += (_, _) =>
@@ -190,14 +148,12 @@ public partial class LoadingWindow : Window
 		};
 		mainInitThread.RunWorkerCompleted += (_, _) => Close();
 
-		_threads.Add(checkVersionThread);
 		_threads.Add(readUserSettingsThread);
 		_threads.Add(readUserCacheThread);
 		_threads.Add(retrieveModsThread);
 		_threads.Add(retrieveAssetInfoThread);
 		_threads.Add(mainInitThread);
 
-		_threadMessages.Add("Checking for updates...");
 		_threadMessages.Add("Reading user settings...");
 		_threadMessages.Add("Reading user cache...");
 		_threadMessages.Add("Retrieving mods...");

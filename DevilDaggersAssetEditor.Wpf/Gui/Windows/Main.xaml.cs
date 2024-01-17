@@ -7,9 +7,7 @@ using DevilDaggersAssetEditor.Wpf.Extensions;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls;
 using DevilDaggersAssetEditor.Wpf.Gui.UserControls.PreviewerControls;
 using DevilDaggersAssetEditor.Wpf.ModFiles;
-using DevilDaggersAssetEditor.Wpf.Network;
 using DevilDaggersAssetEditor.Wpf.Utils;
-using DevilDaggersCore.Wpf.Models;
 using DevilDaggersCore.Wpf.Windows;
 using Microsoft.Win32;
 using System;
@@ -52,25 +50,9 @@ public partial class MainWindow : Window
 	{
 		InitializeComponent();
 
-		if (NetworkHandler.Instance.Distribution != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Distribution.VersionNumber))
-		{
-			HelpItem.Header += " (Update available)";
-			HelpItem.FontWeight = FontWeights.Bold;
-
-			foreach (MenuItem? menuItem in HelpItem.Items)
-			{
-				if (menuItem == null)
-					continue;
-				menuItem.FontWeight = FontWeights.Normal;
-			}
-
-			UpdateItem.Header = "Update available";
-			UpdateItem.FontWeight = FontWeights.Bold;
-		}
-
 #if DEBUG
 		MenuItem debugItem = new() { Header = "Open debug window" };
-		debugItem.Click += (sender, e) =>
+		debugItem.Click += (_, _) =>
 		{
 			DebugWindow debugWindow = new();
 			debugWindow.ShowDialog();
@@ -124,14 +106,8 @@ public partial class MainWindow : Window
 	{
 		ModFileHandler.Instance.FileOpen(UserHandler.Instance.Cache.OpenedModFilePath);
 
-		if (NetworkHandler.Instance.Distribution != null && App.LocalVersion < Version.Parse(NetworkHandler.Instance.Distribution.VersionNumber))
-		{
-			UpdateRecommendedWindow updateRecommendedWindow = new(NetworkHandler.Instance.Distribution.VersionNumber, App.LocalVersion.ToString(), GetUpdateUrl(), App.ApplicationDisplayName);
-			updateRecommendedWindow.ShowDialog();
-		}
-
 		using BackgroundWorker heavyGuiThread = new();
-		heavyGuiThread.DoWork += (sender, e) =>
+		heavyGuiThread.DoWork += (_, _) =>
 		{
 			Dispatcher.Invoke(() =>
 			{
@@ -157,7 +133,7 @@ public partial class MainWindow : Window
 				HasLoaded = true;
 			});
 		};
-		heavyGuiThread.RunWorkerCompleted += (sender, e) =>
+		heavyGuiThread.RunWorkerCompleted += (_, _) =>
 		{
 			UpdateTextBoxSizes();
 			UpdateHeights();
@@ -287,51 +263,8 @@ public partial class MainWindow : Window
 		aboutWindow.ShowDialog();
 	}
 
-	private void Changelog_Click(object sender, RoutedEventArgs e)
-	{
-		if (NetworkHandler.Instance.Tool != null)
-		{
-			List<ChangelogEntry> changes = NetworkHandler.Instance.Tool.Changelog?.ConvertAll(c => new ChangelogEntry(Version.Parse(c.VersionNumber), c.Date, MapToSharedModel(c.Changes)?.ToList() ?? new())) ?? new();
-			ChangelogWindow changelogWindow = new(changes, App.LocalVersion);
-			changelogWindow.ShowDialog();
-		}
-		else
-		{
-			App.Instance.ShowError("Changelog not retrieved", "The changelog has not been retrieved from DevilDaggers.info.");
-		}
-
-		static IEnumerable<Change>? MapToSharedModel(List<Clients.GetToolVersionChange>? changes)
-		{
-			foreach (Clients.GetToolVersionChange change in changes ?? new())
-				yield return new(change.Description, MapToSharedModel(change.SubChanges)?.ToList());
-		}
-	}
-
 	private void ViewSourceCode_Click(object sender, RoutedEventArgs e)
 		=> ProcessUtils.OpenUrl(UrlUtils.SourceCode);
-
-	private void CheckForUpdates_Click(object sender, RoutedEventArgs e)
-	{
-		CheckingForUpdatesWindow window = new(NetworkHandler.Instance.GetOnlineTool);
-		window.ShowDialog();
-
-		if (NetworkHandler.Instance.Distribution != null)
-		{
-			if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Distribution.VersionNumber))
-			{
-				UpdateRecommendedWindow updateRecommendedWindow = new(NetworkHandler.Instance.Distribution.VersionNumber, App.LocalVersion.ToString(), GetUpdateUrl(), App.ApplicationDisplayName);
-				updateRecommendedWindow.ShowDialog();
-			}
-			else
-			{
-				App.Instance.ShowMessage("Up to date", $"{App.ApplicationDisplayName} {App.LocalVersion} is up to date.");
-			}
-		}
-		else
-		{
-			App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.");
-		}
-	}
 
 	private void Window_Closing(object sender, CancelEventArgs e)
 	{
@@ -418,11 +351,4 @@ public partial class MainWindow : Window
 	}
 
 	#endregion GUI Responsiveness
-
-	private static string GetUpdateUrl()
-	{
-		int publishMethod = (int)DistributionUtils.GetPublishMethod();
-		const int buildType = (int)Clients.ToolBuildType.WindowsWpf;
-		return $"{NetworkHandler.BaseUrl}/api/tools/{App.ApplicationName}/file?publishMethod={publishMethod}&buildType={buildType}";
-	}
 }
