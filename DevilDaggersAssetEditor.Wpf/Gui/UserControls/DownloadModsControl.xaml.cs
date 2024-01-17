@@ -231,12 +231,12 @@ public partial class DownloadModsControl : UserControl
 		ReloadButton.Content = "Loading...";
 
 		using BackgroundWorker thread = new();
-		thread.DoWork += (senderDoWork, eDoWork) =>
+		thread.DoWork += (_, _) =>
 		{
 			Task modsTask = NetworkHandler.Instance.RetrieveModList();
 			modsTask.Wait();
 		};
-		thread.RunWorkerCompleted += (senderRunWorkerCompleted, eRunWorkerCompleted) =>
+		thread.RunWorkerCompleted += (_, _) =>
 		{
 			UpdateMods();
 			UpdatePageLabel();

@@ -106,10 +106,6 @@ public partial class MainWindow : Window
 
 	public Point CurrentTabControlSize { get; private set; }
 
-	public double PathSize { get; private set; }
-	public double DescriptionSize { get; private set; }
-	public double TagsSize { get; private set; }
-
 	public bool HasLoaded { get; private set; }
 
 	public bool HasAnyAudioFiles()
