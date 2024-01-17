@@ -3,7 +3,6 @@ using DevilDaggersAssetEditor.User;
 using DevilDaggersAssetEditor.Utils;
 using DevilDaggersAssetEditor.Wpf.Audio;
 using DevilDaggersCore.Wpf.Extensions;
-using DevilDaggersCore.Wpf.Windows;
 using NoahStolk.OpenAlBindings;
 using NoahStolk.WaveParser;
 using System;
@@ -54,7 +53,7 @@ public partial class AudioPreviewerControl : UserControl, IPreviewerControl, IDi
 		ResetPitchImage.Source = ((Image)Resources["ResetPitchImage"]).Source;
 
 		DispatcherTimer timer = new() { Interval = new TimeSpan(0, 0, 0, 0, 10) };
-		timer.Tick += (sender, e) =>
+		timer.Tick += (_, _) =>
 		{
 			if (_soundSource == null || _soundSource.State == SourceState.Paused)
 				return;

@@ -1,6 +1,5 @@
 using DevilDaggersAssetEditor.Assets;
 using DevilDaggersAssetEditor.Wpf.Clients;
-using DevilDaggersAssetEditor.Wpf.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,51 +10,30 @@ namespace DevilDaggersAssetEditor.Wpf.Network;
 public sealed class NetworkHandler
 {
 #if TESTING
-	public static readonly string BaseUrl = "https://localhost:44318";
+	private const string _baseUrl = "https://localhost:44318";
 #else
-	public static readonly string BaseUrl = "https://devildaggers.info";
+	private const string _baseUrl = "https://devildaggers.info";
 #endif
 
 	private static readonly Lazy<NetworkHandler> _lazy = new(() => new());
 
+	private readonly DevilDaggersInfoApiClient _apiClient;
+
 	private NetworkHandler()
 	{
-		ApiClient = new(new() { BaseAddress = new(BaseUrl) });
+		_apiClient = new(new() { BaseAddress = new(_baseUrl) });
 	}
 
 	public static NetworkHandler Instance => _lazy.Value;
 
-	public DevilDaggersInfoApiClient ApiClient { get; }
-
-	public GetTool? Tool { get; private set; }
-
-	public GetToolDistribution? Distribution { get; private set; }
-
 	public List<GetModDdae> Mods { get; } = new();
-
-	public bool GetOnlineTool()
-	{
-		try
-		{
-			Tool = ApiClient.Tools_GetToolAsync(App.ApplicationName).Result;
-
-			Distribution = ApiClient.Tools_GetLatestToolDistributionAsync(App.ApplicationName, DistributionUtils.GetPublishMethod(), ToolBuildType.WindowsWpf).Result;
-
-			return true;
-		}
-		catch (Exception ex)
-		{
-			App.Instance.ShowError("Error retrieving tool information", "An error occurred while attempting to retrieve tool information from the API.", ex);
-			return false;
-		}
-	}
 
 	public async Task<bool> RetrieveModList()
 	{
 		try
 		{
 			Mods.Clear();
-			Mods.AddRange(await ApiClient.Mods_GetModsForDdaeAsync(null, null, true));
+			Mods.AddRange(await _apiClient.Mods_GetModsAsync(null, null, true));
 
 			return true;
 		}
@@ -70,7 +48,7 @@ public sealed class NetworkHandler
 	{
 		try
 		{
-			foreach (KeyValuePair<string, List<GetAssetInfo>> kvp in await ApiClient.Assets_GetAssetInfoForDdaeAsync())
+			foreach (KeyValuePair<string, List<GetAssetInfo>> kvp in await _apiClient.Assets_GetAssetInfoAsync())
 			{
 				List<AbstractAsset>? assets = (kvp.Key switch
 				{

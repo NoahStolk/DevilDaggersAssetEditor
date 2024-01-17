@@ -8,7 +8,6 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace DevilDaggersAssetEditor.Wpf.Gui.Windows;
 
@@ -34,50 +33,9 @@ public partial class LoadingWindow : Window
 
 	private void RunThreads(object? sender, EventArgs e)
 	{
-		using BackgroundWorker checkVersionThread = new();
-		checkVersionThread.DoWork += (sender, e) => NetworkHandler.Instance.GetOnlineTool();
-		checkVersionThread.RunWorkerCompleted += (sender, e) =>
-		{
-			Dispatcher.Invoke(() =>
-			{
-				string message = string.Empty;
-				SolidColorBrush color;
-
-				if (NetworkHandler.Instance.Tool == null || NetworkHandler.Instance.Distribution == null)
-				{
-					message = "Error";
-					color = ColorUtils.ThemeColors["ErrorText"];
-				}
-				else if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Tool.VersionNumberRequired))
-				{
-					message = "Warning (update required)";
-					color = ColorUtils.ThemeColors["WarningText"];
-				}
-				else if (App.LocalVersion < Version.Parse(NetworkHandler.Instance.Distribution.VersionNumber))
-				{
-					message = "Warning (update recommended)";
-					color = ColorUtils.ThemeColors["SuggestionText"];
-				}
-				else
-				{
-					message = "OK (up to date)";
-					color = ColorUtils.ThemeColors["SuccessText"];
-				}
-
-				TaskResultsStackPanel.Children.Add(new TextBlock
-				{
-					Text = message,
-					Foreground = color,
-					FontWeight = FontWeights.Bold,
-				});
-			});
-
-			ThreadComplete();
-		};
-
 		bool readUserSettingsSuccess = false;
 		using BackgroundWorker readUserSettingsThread = new();
-		readUserSettingsThread.DoWork += (sender, e) =>
+		readUserSettingsThread.DoWork += (_, _) =>
 		{
 			try
 			{
@@ -89,7 +47,7 @@ public partial class LoadingWindow : Window
 				App.Instance.ShowError("Error", "Error while trying to read user settings.", ex);
 			}
 		};
-		readUserSettingsThread.RunWorkerCompleted += (sender, e) =>
+		readUserSettingsThread.RunWorkerCompleted += (_, _) =>
 		{
 			Dispatcher.Invoke(() =>
 			{
@@ -106,7 +64,7 @@ public partial class LoadingWindow : Window
 
 		bool readUserCacheSuccess = false;
 		using BackgroundWorker readUserCacheThread = new();
-		readUserCacheThread.DoWork += (sender, e) =>
+		readUserCacheThread.DoWork += (_, _) =>
 		{
 			try
 			{
@@ -118,7 +76,7 @@ public partial class LoadingWindow : Window
 				App.Instance.ShowError("Error", "Error while trying to read user cache.", ex);
 			}
 		};
-		readUserCacheThread.RunWorkerCompleted += (sender, e) =>
+		readUserCacheThread.RunWorkerCompleted += (_, _) =>
 		{
 			Dispatcher.Invoke(() =>
 			{
@@ -135,13 +93,13 @@ public partial class LoadingWindow : Window
 
 		bool retrieveModsSuccess = false;
 		using BackgroundWorker retrieveModsThread = new();
-		retrieveModsThread.DoWork += (sender, e) =>
+		retrieveModsThread.DoWork += (_, _) =>
 		{
 			Task<bool> modsTask = NetworkHandler.Instance.RetrieveModList();
 			modsTask.Wait();
 			retrieveModsSuccess = modsTask.Result;
 		};
-		retrieveModsThread.RunWorkerCompleted += (sender, e) =>
+		retrieveModsThread.RunWorkerCompleted += (_, _) =>
 		{
 			Dispatcher.Invoke(() =>
 			{
@@ -158,13 +116,13 @@ public partial class LoadingWindow : Window
 
 		bool retrieveAssetInfoSuccess = false;
 		using BackgroundWorker retrieveAssetInfoThread = new();
-		retrieveAssetInfoThread.DoWork += (sender, e) =>
+		retrieveAssetInfoThread.DoWork += (_, _) =>
 		{
 			Task<bool> assetInfoTask = NetworkHandler.Instance.RetrieveAssetInfo();
 			assetInfoTask.Wait();
 			retrieveAssetInfoSuccess = assetInfoTask.Result;
 		};
-		retrieveAssetInfoThread.RunWorkerCompleted += (sender, e) =>
+		retrieveAssetInfoThread.RunWorkerCompleted += (_, _) =>
 		{
 			Dispatcher.Invoke(() =>
 			{
@@ -180,7 +138,7 @@ public partial class LoadingWindow : Window
 		};
 
 		using BackgroundWorker mainInitThread = new();
-		mainInitThread.DoWork += (sender, e) =>
+		mainInitThread.DoWork += (_, _) =>
 		{
 			Dispatcher.Invoke(() =>
 			{
@@ -188,16 +146,14 @@ public partial class LoadingWindow : Window
 				mainWindow.Show();
 			});
 		};
-		mainInitThread.RunWorkerCompleted += (sender, e) => Close();
+		mainInitThread.RunWorkerCompleted += (_, _) => Close();
 
-		_threads.Add(checkVersionThread);
 		_threads.Add(readUserSettingsThread);
 		_threads.Add(readUserCacheThread);
 		_threads.Add(retrieveModsThread);
 		_threads.Add(retrieveAssetInfoThread);
 		_threads.Add(mainInitThread);
 
-		_threadMessages.Add("Checking for updates...");
 		_threadMessages.Add("Reading user settings...");
 		_threadMessages.Add("Reading user cache...");
 		_threadMessages.Add("Retrieving mods...");
