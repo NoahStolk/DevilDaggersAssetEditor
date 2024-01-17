@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.0.0] - 2024-01-17
+
+This is an API compatibility update. Older versions will soon stop working.
+
+- The application now uses the latest API endpoints so that it can continue to function.
+- The application no longer checks for updates.
+- The application no longer displays the changelog.
+
 ## [1.4.0.0] - 2022-05-01
 
 - API updates to support multiple builds. Windows 7 now has a separate build. More builds for other operating systems will follow in the future (not soon).
