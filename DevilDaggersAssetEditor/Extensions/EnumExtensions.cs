@@ -41,7 +41,7 @@ public static class EnumExtensions
 		AssetType.Model => (255, 0, 0),
 		AssetType.Shader => (0, 255, 0),
 		AssetType.Texture => (255, 127, 0),
-		_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetFolderName)} method."),
+		_ => throw new NotSupportedException($"{nameof(AssetType)} '{assetType}' is not supported in the {nameof(GetColor)} method."),
 	};
 
 	public static byte GetBinaryType(this AssetType assetType) => assetType switch
